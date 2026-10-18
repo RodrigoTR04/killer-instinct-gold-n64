@@ -1,0 +1,34 @@
+name: Killer Instinct Gold (US 1.0)
+sha1: ba52e91b44450c548467044b26951353dc491e04
+options:
+  basename: kig
+  platform: n64
+  compiler: IDO
+  base_path: .
+  target_path: baserom.us.z64
+  asm_path: asm
+  asset_path: assets
+  build_path: build
+  ld_script_path: linker_scripts/kig.us.ld
+  symbol_addrs_path: symbol_addrs.us.txt
+  undefined_funcs_auto_path: linker_scripts/undefined_funcs_auto.txt
+  undefined_syms_auto_path: linker_scripts/undefined_syms_auto.txt
+  create_undefined_funcs_auto: True
+  create_undefined_syms_auto: True
+  find_file_boundaries: True
+  section_order: [".text", ".data", ".rodata", ".bss"]
+segments:
+  - [0x0, header, header]
+  - [0x40, bin, ipl3]
+  - name: boot
+    type: code
+    start: 0x1000
+    vram: 0x80000400
+    bss_size: 0x8690
+    subsegments:
+      - [0x1000, asm, boot]
+      - [0x7160, data, boot]
+      - {type: bss, vram: 0x800072D0, name: boot}
+  # Assets and compressed code remain opaque until decompression-aware builds.
+  - [0x7ED0, bin, opaque]
+  - [0xC00000]

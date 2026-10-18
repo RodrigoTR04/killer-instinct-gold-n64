@@ -10,3 +10,7 @@ expected/
 tools/ext/
 __pycache__/
 *.pyc
+asm/
+assets/
+bin/
+*.ld

@@ -1,0 +1,17 @@
+// Verified bootstrap entrypoints; keep one symbol per line for easy merging.
+entrypoint = 0x80000400; // type:func size:0x50
+func_80000450 = 0x80000450; // type:func
+boot_dma = 0x80000740; // type:func
+boot_dma_chunked = 0x800007B4; // type:func
+boot_inflate = 0x80000900; // type:func
+osInitialize = 0x80002590; // type:func
+osCreateThread = 0x800027C0; // type:func
+osStartThread = 0x80002910; // type:func
+bzero = 0x80002B80; // type:func
+osInvalICache = 0x80002C20; // type:func
+osInvalDCache = 0x80002CA0; // type:func
+osCreateMesgQueue = 0x80002ED0; // type:func
+osPiStartDma = 0x80002F00; // type:func
+osRecvMesg = 0x80003010; // type:func
+__osException = 0x80003DB0; // type:func
+osPiRawStartDma = 0x80004B70; // type:func
