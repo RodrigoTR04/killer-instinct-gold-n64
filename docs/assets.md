@@ -2,6 +2,8 @@
 
 All ROM ranges are start inclusive, end exclusive. Verified against SHA1 `ba52e91b44450c548467044b26951353dc491e04`. The ROM was read only; no ROM-derived binary is included. CPU instruction addresses identify the decompressed image, never an offset inside its compressed ROM stream.
 
+> **Correction (T-014, lead-verified 2026-10-18):** main-table +08/+0C blocks are Huffman decoding trees, not palettes; +18/+1C are arrays of 16-color RGBA5551 palettes; the 0x9900-byte 7DF8 images are 256×150 CI8 portraits with RGB888 palettes. See docs/gfx_format.md. Class labels in assets.csv are not yet updated.
+
 ## Coverage and summary
 
 The region `[0x007ED0,0xA94D80)` contains **11,062,960 bytes**. Referenced payload/table intervals cover **11,061,434 bytes (99.986206%)**. The remaining **1,526 bytes in 400 gaps** are explicitly unreferenced below and in the CSV. This accounts for every byte without silently extending audio samples to their next alignment boundary. Static references establish a loader path, not proof that every index executes in gameplay.

@@ -17,6 +17,7 @@ The lead (orchestrator) vets every change before it lands. Subagents don't mark 
 | Code segments | boot (0x6160 text) · main @0x8000F960 (text 0x32DB0) · ovl_7DF8 @0x801ABB20 (text 0x21930) · ovl_7E00 @0x801AD900 (text 0x16640); 7DF8/7E00 overlap → mutually exclusive. 23 other table payloads are data (docs/segments.md) |
 | Compression | **solved**: GoldenEye gzip 1.2.4 `-n -9`, strip gzip hdr/trailer, prefix `11 72`, zero-pad to 16 B → 29/29 streams byte-exact (docs/compression.md) |
 | Assets | 0x7ED0–0xA94D80: 99.986% covered by code-referenced entries (1,526 B in 400 small gaps near audio); 85.8% packed graphics, ~13.6% audio (2 B1 banks, 484 samples, 48 S1 seqs) (docs/assets.md) |
+| Graphics | decoder `tools/analysis/gfx_decode.py` → 6,022 PNGs: 813/842 sprite records, 6,012/6,369 frames (94.4%), 10/10 portraits; stage packets (13) undecoded (docs/gfx_format.md) |
 | Build | `make extract && make` → boot asm + per-image asm → rarezip → spliced into ROM → sha1 check (matching; code-dependent since T-013) |
 | Layout | see docs/rom_layout.md: boot seg ROM 0x1000–0x7ED0; main = 1172+raw-DEFLATE @0xA94D80 → 0x8000F960 (0x3A8D0 B); 26 compressed overlays/data via table @ROM 0x7DF0 |
 | Other good dumps | US V1.1 `bcc599ed…`, US V1.2 `aaeb492b…`, EU `e0ed97c7…` (later targets) |
@@ -48,6 +49,7 @@ Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html)
 - ~~FU-7~~ (T-012): ovl_7E00 text has 12.5k `.word` lines (≈50 KB, e.g. func_801ADE68) that are valid MIPS but spimdisasm fell back to data → fix splat/symbol hints so all 0x16640 text bytes are functions.
 - FU-8: opaque.bin still carries the original compressed code bytes under the spliced slots (overwritten at splice) → split kig.us.yaml so slots are not sourced from baserom; later support relocation of the 0x7DF0 table for non-matching builds.
 - FU-9: ovl_7E00 has inline data pools inside text (handwritten-asm signature) → determine which ovl_7E00 functions are handwritten asm vs IDO C before assigning decomp work there.
+- FU-10: decode the 13 stage graphics packets (0x7E60–0x7EC0) + remaining 357 frames; update assets.csv class labels per T-014 corrections.
 
 ## Task board
 Status values: Todo · In progress (owner) · Review · Done (verified by lead) · Rejected
@@ -68,6 +70,6 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | T-011 | Asset region map ROM 0x7ED0–0xA94D80: code-referenced asset tables, every entry bounded+classified (audio, gfx, anim…), compressed vs raw | sol-B4 | Done | docs/assets.md, tools/analysis/assets.py, tools/analysis/data/assets.csv | read-only, no build edits |
 | T-012 | FU-7 (ovl_7E00 text fully as functions) + FU-3 (merge T-005 SDK names into symbol_addrs, mark excluded in status.csv) | sol-A5 | Done | symbol_addrs*.txt, kig.*.us.yaml, tools/progress/status.csv, docs/functions.csv, docs/progress.html | |
 | T-013 | FU-5+FU-6: build pipeline recompresses built main/ovl images (rarezip) and splices them into the ROM; gzip cache → tools/ext | sol-B5 | Done | Makefile, tools/compress/rarezip.py, tools/build/ | no yaml edits (T-012 owns) |
-| T-014 | Packed-graphics format RE (main table +00 records, 825 self-sized records, palettes, 0x9900 RGBA5551 images) → decoder + PNG previews | sol-C4 | In progress | docs/gfx_format.md, tools/analysis/gfx_decode.py | read-only, no build edits |
+| T-014 | Packed-graphics format RE (main table +00 records, 825 self-sized records, palettes, 0x9900 RGBA5551 images) → decoder + PNG previews | sol-C4 | Done | docs/gfx_format.md, tools/analysis/gfx_decode.py | read-only, no build edits |
 | T-015 | C build infra (IDO 5.3 -O2 -mips2, INCLUDE_ASM, src/ per image) + land T-010's 10 matched game fns as first T4 | sol-A6 | In progress | Makefile, kig.*.yaml, src/, include/, symbol_addrs*.txt | |
 | T-016 | FU-9: classify ovl_7E00 functions handwritten-asm vs IDO-C (read-only), recommend exclusions | sol-C5 | In progress | docs/ovl_7E00_asm.md, tools/analysis/data/ovl_7E00_asm.csv | lead applies status.csv changes |
