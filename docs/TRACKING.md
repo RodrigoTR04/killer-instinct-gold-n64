@@ -12,7 +12,7 @@ The lead (orchestrator) vets every change before it lands. Subagents don't mark 
 | Size | 12,582,912 bytes (12 MiB), big-endian .z64 |
 | Entrypoint (header) | `0x80000400` (CIC 6102, unchanged) |
 | Compiler (working hypothesis) | IDO 5.3, start `-O2 -mips2 -G 0 -non_shared -Wab,-r4300_mul -Xcpluscomm`; also try -O1 / -mips1 (docs/research.md, medium confidence) |
-| libultra | unknown — RSP ucode 2.0D; CPU lib version TBD (G..J candidates) |
+| libultra | **SM64-US-identical lineage (pre-2.0I)**, built IDO 5.3 `-O1 -mips2` (asm: `-mips3 -32`); 98 boot + 169 main SDK fns named (docs/libultra.md). RSP ucode 2.0D |
 | Toolchain | `./tools/setup.sh`; splat64 0.50.1, spimdisasm 1.42.4, rabbitizer 1.16.2, IDO 5.3/7.1 recomp v1.2, binutils 2.43.1 mips64-elf (docs/toolchain.md) |
 | Code segments | boot (0x6160 text) · main @0x8000F960 (text 0x32DB0) · ovl_7DF8 @0x801ABB20 (text 0x21930) · ovl_7E00 @0x801AD900 (text 0x16640); 7DF8/7E00 overlap → mutually exclusive. 23 other table payloads are data (docs/segments.md) |
 | Build | `make extract && make` → build/kig.us.z64, sha1-checked against baserom (matching since T-006) |
@@ -38,6 +38,9 @@ Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html)
 - FU-1: inventory keys functions by VRAM; ovl_7DF8 and ovl_7E00 overlap in VRAM → key must become (segment, vram) before overlays are inventoried.
 - FU-2: splat hint of rodata at boot ROM 0x7D40; boot.s not yet split per original file.
 
+- FU-3: merge T-005 SDK names (tools/analysis/data/{boot,main}_functions.csv) into symbol_addrs.*.txt and mark them excluded/libultra in tools/progress/status.csv — after T-009 lands.
+- FU-4: libultra can likely be built from SM64-US lib sources for byte-exact SDK objects (lead verified 7 fns).
+
 ## Task board
 Status values: Todo · In progress (owner) · Review · Done (verified by lead) · Rejected
 
@@ -48,7 +51,7 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | T-002 | ROM structure analysis (boot, entry, code segments, BSS, libultra version, compressed data) | sol-B | Done | docs/rom_layout.md, tools/analysis/ | read-only on ROM |
 | T-003 | Prior-art + compiler research, cross-revision diff | sol-C | Done | docs/research.md, tools/research/ | |
 | T-004 | Segment/overlay map: VRAM dest + text/data/bss bounds for main & all 26 table payloads; extractor | sol-B2 | Done | docs/segments.md, tools/analysis/segments.py, tools/analysis/extract_segments.py | stdlib only |
-| T-005 | libultra version ID + boot-segment function inventory/naming | sol-C2 | In progress | docs/libultra.md, tools/analysis/boot_functions.py, tools/analysis/libultra_sig.py | |
+| T-005 | libultra version ID + boot-segment function inventory/naming | sol-C2 | Done | docs/libultra.md, tools/analysis/boot_functions.py, tools/analysis/libultra_sig.py | |
 | T-006 | splat config (boot seg + opaque bins) + Makefile/linker → byte-identical ROM rebuild | sol-A2 | Done | kig.us.yaml, Makefile, symbol_addrs.us.txt, undefined_*.txt, include/ | compressed segments stay opaque bins for now |
 | T-007 | Progress tooling: function inventory → docs/functions.csv, M1/M2 calc, HTML treemap | sol-A3 | Done | tools/progress/, docs/progress.html | |
 | T-008 | Byte-exact 1172/DEFLATE recompressor (find gzip/zlib/7z/custom settings reproducing original streams) | sol-B3 | In progress | tools/compress/, docs/compression.md | blocks matching build of main/overlays |

@@ -1,0 +1,2691 @@
+[
+  {
+    "segment": "boot",
+    "address": "0x80002590",
+    "name": "osInitialize",
+    "size": 560,
+    "reference": "lib/src/osInitialize.c",
+    "match": "masked",
+    "sha256": "7228d5049a346bc7a6160702a626dc3de942953a16607fbafe03b8f0473c25ef",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x800027C0",
+    "name": "osCreateThread",
+    "size": 324,
+    "reference": "lib/src/osCreateThread.c",
+    "match": "masked",
+    "sha256": "9e96346ab10a81eddd293384c96a404d97ccb625de8b8099aee7ed7d1a6a0dbe",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80002910",
+    "name": "osStartThread",
+    "size": 336,
+    "reference": "lib/src/osStartThread.c",
+    "match": "masked",
+    "sha256": "1a5d1d30a25d69a3ff035591b56c5006fc8a7d9c9135a5b7eb4e7ce8df03cb27",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80002A60",
+    "name": "osSetThreadPri",
+    "size": 224,
+    "reference": "lib/src/osSetThreadPri.c",
+    "match": "masked",
+    "sha256": "a320268f9ce4aaf2c83048e4e37f46aee59ec1fbcad1f124df602b52849194dd",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80002B80",
+    "name": "bzero",
+    "size": 160,
+    "reference": "lib/asm/bzero.s",
+    "match": "exact",
+    "sha256": "6cb49ba97859396e62e39990cd9a31a7a775d8e8b5618695b03027823a7b2863",
+    "reference_set": "sm64-us",
+    "note": "Whole assembly .text, including alignment"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80002C20",
+    "name": "osInvalICache",
+    "size": 128,
+    "reference": "lib/asm/osInvalICache.s",
+    "match": "exact",
+    "sha256": "cf9ac7a3378e8d2013f33517eebd339955e401c76380ec29ca56152a34f0040d",
+    "reference_set": "sm64-us",
+    "note": "Whole assembly .text, including alignment"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80002CA0",
+    "name": "osInvalDCache",
+    "size": 176,
+    "reference": "lib/asm/osInvalDCache.s",
+    "match": "exact",
+    "sha256": "7ea4c6bffed307fe915ab8ef0ae37d86482e17b132eb99598f82ad5cbca40a71",
+    "reference_set": "sm64-us",
+    "note": "Whole assembly .text, including alignment"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80002D50",
+    "name": "osCreatePiManager",
+    "size": 380,
+    "reference": "lib/src/osCreatePiManager.c",
+    "match": "masked",
+    "sha256": "6e3d18212fbdd8ad83e060420145b24ce56ed3660dff15c4e06ba2bbb09aed36",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80002ED0",
+    "name": "osCreateMesgQueue",
+    "size": 44,
+    "reference": "lib/src/osCreateMesgQueue.c",
+    "match": "masked",
+    "sha256": "e2140ee6b9b9cbb54d3c3b7387ed1293bec7bbc57f2b346a21291df16efee786",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80002F00",
+    "name": "osPiStartDma",
+    "size": 260,
+    "reference": "lib/src/osPiStartDma.c",
+    "match": "masked",
+    "sha256": "47198fd8d3889297e7cdd4b7d94a9c99376c5e0ae56b36029957e668725f8a05",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80003010",
+    "name": "osRecvMesg",
+    "size": 312,
+    "reference": "lib/src/osRecvMesg.c",
+    "match": "masked",
+    "sha256": "f590086a1c756ffb4ceecc8bdc70b1ade92b98dbfbcd58ea6a6ca7cc670b7747",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80003150",
+    "name": "memcpy",
+    "size": 44,
+    "reference": "src/libc/string.c",
+    "match": "exact",
+    "sha256": "770c81b6c68fa85d2b98688a09dd33a41366dd56288fda754c24eb3247e8763d",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "boot",
+    "address": "0x8000317C",
+    "name": "strlen",
+    "size": 40,
+    "reference": "src/libc/string.c",
+    "match": "exact",
+    "sha256": "1a0aa68ec64cb0416c51af6928756ae3e13fda25594f3ae75665118951c7f97f",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "boot",
+    "address": "0x800031A4",
+    "name": "strchr",
+    "size": 64,
+    "reference": "src/libc/string.c",
+    "match": "exact",
+    "sha256": "ba3fd0f15d38dd7f65a8cec858cd95f6cd476e3920b567661676fef4ad5babba",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "boot",
+    "address": "0x800031F0",
+    "name": "osCreateViManager",
+    "size": 388,
+    "reference": "lib/src/osCreateViManager.c",
+    "match": "masked",
+    "sha256": "a9c2f61ffa7e8168bc80142ac10f4e252794ffe6f2e8a30b113e28a4156df3ca",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80003374",
+    "name": "viMgrMain",
+    "size": 464,
+    "reference": "lib/src/osCreateViManager.c",
+    "match": "masked",
+    "sha256": "abe104d4afa285e6f4580f1f59e441ed99065af3ecc3c7c3345303cc05c043f8",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80003550",
+    "name": "osSetEventMesg",
+    "size": 104,
+    "reference": "lib/src/osSetEventMesg.c",
+    "match": "masked",
+    "sha256": "8ab811604d164b6c54ecd8276004c9f6196e2461ed7bc5a4d1a955a85f3463bf",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x800035C0",
+    "name": "osViSetEvent",
+    "size": 108,
+    "reference": "lib/src/osViSetEvent.c",
+    "match": "masked",
+    "sha256": "363f6ffdfa9dd30a3835c5bfd0bcc6b3d5900875f2776a6b6a405299067a2f80",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80003630",
+    "name": "osSpTaskYield",
+    "size": 32,
+    "reference": "lib/src/osSpTaskYield.c",
+    "match": "masked",
+    "sha256": "386b8549baef5c5f8368457e391b0a4225327d4c340f3efeef7045b3744b6765",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80003650",
+    "name": "_VirtualToPhysicalTask",
+    "size": 284,
+    "reference": "lib/src/osSpTaskLoadGo.c",
+    "match": "masked",
+    "sha256": "842c3100c8c6b68aea658991e38d93776292d218b84b9b9cdba1924c768456a4",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x8000376C",
+    "name": "osSpTaskLoad",
+    "size": 352,
+    "reference": "lib/src/osSpTaskLoadGo.c",
+    "match": "masked",
+    "sha256": "3b270aad7cedb3a7978491c08d8cc6350f17ddb6a403cc2ccf9f820708d83fc3",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x800038CC",
+    "name": "osSpTaskStartGo",
+    "size": 64,
+    "reference": "lib/src/osSpTaskLoadGo.c",
+    "match": "masked",
+    "sha256": "5acef92b7c02baecf0b4d71eef1d8418eefc718904820b861b53e26dcf337c58",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80003910",
+    "name": "osSendMesg",
+    "size": 332,
+    "reference": "lib/src/osSendMesg.c",
+    "match": "masked",
+    "sha256": "78e9cfb1e3ff90d1fd434700a248e8ce17a458e6d7d025282f2f5ab4f4847661",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80003A60",
+    "name": "osSpTaskYielded",
+    "size": 128,
+    "reference": "lib/src/osSpTaskYielded.c",
+    "match": "masked",
+    "sha256": "95ebc31c69ad0603c59a1c49ce4c1b79b5b89052c3613ae2a7016c73cb982912",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80003AE0",
+    "name": "osViSwapBuffer",
+    "size": 80,
+    "reference": "lib/src/osViSwapBuffer.c",
+    "match": "masked",
+    "sha256": "8436a642ef14d555cebbb6ee69c138e33b83dd4c9ce22a6352c69737e6d8bb46",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80003B30",
+    "name": "osViGetCurrentFramebuffer",
+    "size": 64,
+    "reference": "src/io/vigetcurrframebuf.c",
+    "match": "masked",
+    "sha256": "bddad665e5c5fc1649c3b504d4b67d5e633f417e5cc403afb395c278f822b414",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80003B70",
+    "name": "osViGetNextFramebuffer",
+    "size": 64,
+    "reference": "src/io/vigetnextframebuf.c",
+    "match": "masked",
+    "sha256": "ecd857d49e9396a33f010cd4e0af278d341b5c8c2c84d1e45404ea47fa0eb1d3",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80003BB0",
+    "name": "osDpSetNextBuffer",
+    "size": 168,
+    "reference": "src/io/dpsetnextbuf.c",
+    "match": "masked",
+    "sha256": "bbb81c21d83b6f69f0b7d079daec817e0b1026f45982a86b9c135f7117ddb176",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80003C60",
+    "name": "osViSetMode",
+    "size": 104,
+    "reference": "lib/src/osViSetMode.c",
+    "match": "masked",
+    "sha256": "ffb943ea4df04da5a9676c9b8211f69f428284ccfc8777cc768f9c62495e8c6e",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80003CD0",
+    "name": "__osSetSR",
+    "size": 16,
+    "reference": "lib/asm/__osSetSR.s",
+    "match": "exact",
+    "sha256": "8c9798aafb630c54a679991a2a686c3379687a94f8b3c8c14e5eafe1cd8cb961",
+    "reference_set": "sm64-us",
+    "note": "Whole assembly .text, including alignment"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80003CE0",
+    "name": "__osGetSR",
+    "size": 16,
+    "reference": "lib/asm/__osGetSR.s",
+    "match": "exact",
+    "sha256": "98eb78e5220bcc1e31ff049202bde4471c76ac15ebbc22d818771f741671fe0a",
+    "reference_set": "sm64-us",
+    "note": "Whole assembly .text, including alignment"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80003CF0",
+    "name": "__osSetFpcCsr",
+    "size": 16,
+    "reference": "lib/asm/__osSetFpcCsr.s",
+    "match": "exact",
+    "sha256": "1b1c2a5e117a433a988d960120310c5634987537358a5b13b49fddcee5d2dac4",
+    "reference_set": "sm64-us",
+    "note": "Whole assembly .text, including alignment"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80003D00",
+    "name": "__osSiRawReadIo",
+    "size": 80,
+    "reference": "lib/src/__osSiRawReadIo.c",
+    "match": "masked",
+    "sha256": "2f44b16769ca08fbb6600cc1933acb4f48bb4211d01a29e56f99887c10176780",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80003D50",
+    "name": "__osSiRawWriteIo",
+    "size": 76,
+    "reference": "lib/src/__osSiRawWriteIo.c",
+    "match": "masked",
+    "sha256": "26809ce6fd5a53953c6b4d10043514d70c25d250822242082dc1c4d7c3a61c1a",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80003DA0",
+    "name": "__osExceptionPreamble",
+    "size": 16,
+    "reference": "lib/asm/__osExceptionPreamble.s",
+    "reference_set": "sm64-us",
+    "match": "masked",
+    "note": "Entry within whole 0x870-byte masked exception-object match"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80003DB0",
+    "name": "__osException",
+    "size": 1352,
+    "reference": "lib/asm/__osExceptionPreamble.s",
+    "reference_set": "sm64-us",
+    "match": "masked",
+    "note": "Entry within whole 0x870-byte masked exception-object match"
+  },
+  {
+    "segment": "boot",
+    "address": "0x800042F8",
+    "name": "send_mesg",
+    "size": 180,
+    "reference": "src/os/exceptasm.s",
+    "match": "masked",
+    "sha256": "80cc24565d90a97bb0fe553be4bd76f086d222c0476f77127eed71e1b358b852",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "boot",
+    "address": "0x800043AC",
+    "name": "handle_CpU",
+    "size": 52,
+    "reference": "src/os/exceptasm.s",
+    "match": "exact",
+    "sha256": "79ea36e474cecb2143b90c57379dc83e45524be17a8a099f21f7c899e58732b2",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "boot",
+    "address": "0x800043E0",
+    "name": "__osEnqueueAndYield",
+    "size": 144,
+    "reference": "lib/asm/__osExceptionPreamble.s",
+    "reference_set": "sm64-us",
+    "match": "masked",
+    "note": "Entry within whole 0x870-byte masked exception-object match"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80004470",
+    "name": "__osEnqueueThread",
+    "size": 72,
+    "reference": "src/os/exceptasm.s",
+    "match": "exact",
+    "sha256": "8091a95dae39c6b1fc1a33a413913174da32d2a1c61971b45d5170e8b51c54f6",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "boot",
+    "address": "0x800044B8",
+    "name": "__osPopThread",
+    "size": 16,
+    "reference": "lib/asm/__osExceptionPreamble.s",
+    "reference_set": "sm64-us",
+    "match": "masked",
+    "note": "Entry within whole 0x870-byte masked exception-object match"
+  },
+  {
+    "segment": "boot",
+    "address": "0x800044C8",
+    "name": "__osDispatchThread",
+    "size": 320,
+    "reference": "lib/asm/__osExceptionPreamble.s",
+    "reference_set": "sm64-us",
+    "match": "masked",
+    "note": "Entry within whole 0x870-byte masked exception-object match"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80004608",
+    "name": "__osCleanupThread",
+    "size": 8,
+    "reference": "lib/asm/__osExceptionPreamble.s",
+    "reference_set": "sm64-us",
+    "match": "masked",
+    "note": "Entry within whole 0x870-byte masked exception-object match"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80004610",
+    "name": "osWritebackDCache",
+    "size": 128,
+    "reference": "lib/asm/osWritebackDCache.s",
+    "match": "exact",
+    "sha256": "21514538b715f668861f169883c91749feb94cb501d5dfd9a24b67f782fa1b69",
+    "reference_set": "sm64-us",
+    "note": "Whole assembly .text, including alignment"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80004690",
+    "name": "osMapTLBRdb",
+    "size": 96,
+    "reference": "lib/asm/osMapTLBRdb.s",
+    "match": "exact",
+    "sha256": "60e870785652f4c5376888fa708add8104458aed09503a8f38eb0925c8dbe54a",
+    "reference_set": "sm64-us",
+    "note": "Whole assembly .text, including alignment"
+  },
+  {
+    "segment": "boot",
+    "address": "0x800046F0",
+    "name": "osPiRawReadIo",
+    "size": 84,
+    "reference": "lib/src/osPiRawReadIo.c",
+    "match": "masked",
+    "sha256": "1c05b9785c8d993387b15fcecd7caf8a669c211dc5938cca3840e9028d7a8169",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80004750",
+    "name": "__ull_rshift",
+    "size": 44,
+    "reference": "lib/src/math/llmuldiv.c",
+    "match": "exact",
+    "sha256": "675cfd7ae5bb2dead54ece083b62caea4b89a02698826dc4ae301701effb8bdd",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x8000477C",
+    "name": "__ull_rem",
+    "size": 60,
+    "reference": "lib/src/math/llmuldiv.c",
+    "match": "exact",
+    "sha256": "443a882a09623e43e504262ae6c3153bf3380e56defd82b0d9b3a0945cd5b467",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x800047B8",
+    "name": "__ull_div",
+    "size": 60,
+    "reference": "lib/src/math/llmuldiv.c",
+    "match": "exact",
+    "sha256": "d23ded15fa515f8703c3978be0059ae854f70f07e9d9554b76ee6aaeb587419b",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x800047F4",
+    "name": "__ll_lshift",
+    "size": 44,
+    "reference": "lib/src/math/llmuldiv.c",
+    "match": "exact",
+    "sha256": "f77aab92ad5cc45115c9fc3fcd0c3bd0d88c2404de136dae2c80660b21302d7b",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80004820",
+    "name": "__ll_rem",
+    "size": 60,
+    "reference": "lib/src/math/llmuldiv.c",
+    "match": "exact",
+    "sha256": "443a882a09623e43e504262ae6c3153bf3380e56defd82b0d9b3a0945cd5b467",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x8000485C",
+    "name": "__ll_div",
+    "size": 92,
+    "reference": "lib/src/math/llmuldiv.c",
+    "match": "exact",
+    "sha256": "ad1ec2c0626553f19a061562ca4e6a401634710b08c69faef884c6784be1d129",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x800048B8",
+    "name": "__ll_mul",
+    "size": 48,
+    "reference": "lib/src/math/llmuldiv.c",
+    "match": "exact",
+    "sha256": "deb3d19732cb6f876f0c3c367210dd4e094a4eee114b0e409a307c64fc292596",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x800048E8",
+    "name": "__ull_divremi",
+    "size": 96,
+    "reference": "lib/src/math/llmuldiv.c",
+    "match": "exact",
+    "sha256": "b5999d5b01a6650ebf056b9106a465b2fc5dd3de630e1b20ffed19a52458ec30",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80004948",
+    "name": "__ll_mod",
+    "size": 156,
+    "reference": "lib/src/math/llmuldiv.c",
+    "match": "exact",
+    "sha256": "b9073be5a5aff0b39a538e2ebe2581b5b909de1093c324bf7db16b412a0cbbef",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x800049E4",
+    "name": "__ll_rshift",
+    "size": 44,
+    "reference": "lib/src/math/llmuldiv.c",
+    "match": "exact",
+    "sha256": "f947c8dc8dcd2bc0b62bf25945bc1815051fade3c2f24f7454b9420b94c699f6",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80004A10",
+    "name": "__osDisableInt",
+    "size": 32,
+    "reference": "lib/asm/__osDisableInt.s",
+    "match": "exact",
+    "sha256": "b5ec893cd5c1e37c723f982142b67fc24befcf35b6e48b596abbcca4c4d44560",
+    "reference_set": "sm64-us",
+    "note": "Whole assembly .text, including alignment"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80004A30",
+    "name": "__osRestoreInt",
+    "size": 32,
+    "reference": "lib/asm/__osRestoreInt.s",
+    "match": "exact",
+    "sha256": "760fabe684a57096a1f98fb972d27fc9ae0f5b227768fa227ed73c15b4ad1e09",
+    "reference_set": "sm64-us",
+    "note": "Whole assembly .text, including alignment"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80004A50",
+    "name": "__osDequeueThread",
+    "size": 64,
+    "reference": "lib/src/__osDequeueThread.c",
+    "match": "exact",
+    "sha256": "6950f1d67e7328147547bdd321085cf5f0e2327d377a5d6ae2dfca3d5a3c6708",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80004A90",
+    "name": "__osPiCreateAccessQueue",
+    "size": 80,
+    "reference": "lib/src/__osPiCreateAccessQueue.c",
+    "match": "masked",
+    "sha256": "4646181b03307c607a85a0f0a3f60ccafb37ec4990a9eb990636cee29cbd9956",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80004AE0",
+    "name": "__osPiGetAccess",
+    "size": 68,
+    "reference": "lib/src/__osPiCreateAccessQueue.c",
+    "match": "masked",
+    "sha256": "5e8fad67df1314bf8d5137c2e5a8bdf1a36856e15c1eac2cf7a2e5c40aca5714",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80004B24",
+    "name": "__osPiRelAccess",
+    "size": 44,
+    "reference": "lib/src/__osPiCreateAccessQueue.c",
+    "match": "masked",
+    "sha256": "37472701b400602aca748c3badf1508c7a7815f09ba570221a0aef2683447bfe",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80004B50",
+    "name": "osGetThreadPri",
+    "size": 24,
+    "reference": "lib/src/osGetThreadPri.c",
+    "match": "masked",
+    "sha256": "cc990ed79f6462cb703f111980a8009de84c7ddbf2efba5b8a56fd875a8182da",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80004B70",
+    "name": "osPiRawStartDma",
+    "size": 224,
+    "reference": "lib/src/osPiRawStartDma.c",
+    "match": "masked",
+    "sha256": "2a2dc7ce1dc200652d45d4b5e7738b8643fed9835992e2f1e31e88507ab7a360",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80004C50",
+    "name": "__osDevMgrMain",
+    "size": 372,
+    "reference": "lib/src/__osDevMgrMain.c",
+    "match": "masked",
+    "sha256": "57a8373f09a94770fdc7898e2cbab3813b0f4a331242c068e021155e9afeae45",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80004DD0",
+    "name": "osJamMesg",
+    "size": 336,
+    "reference": "lib/src/osJamMesg.c",
+    "match": "masked",
+    "sha256": "437ea6ee9429d154490cebb375cdff1086c3fa7b832dd87ea02790e1bcedff6a",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80004F20",
+    "name": "osPiGetCmdQueue",
+    "size": 40,
+    "reference": "lib/src/osPiGetCmdQueue.c",
+    "match": "masked",
+    "sha256": "e5a526352ad6878b190cf83b52e7b79afd515e0d4120d137eee6a0efdc58d6d8",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80004F50",
+    "name": "__osTimerServicesInit",
+    "size": 140,
+    "reference": "lib/src/osTimer.c",
+    "match": "masked",
+    "sha256": "cd14dc30f8d6797137278848619d78773e2efd69e739051d063df4ef18f1bea7",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80004FDC",
+    "name": "__osTimerInterrupt",
+    "size": 376,
+    "reference": "lib/src/osTimer.c",
+    "match": "masked",
+    "sha256": "c51d9c810254de06ce790cd74aff8e5f7a69ac71366cd93ba534540aeb5bdc44",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80005154",
+    "name": "__osSetTimerIntr",
+    "size": 116,
+    "reference": "lib/src/osTimer.c",
+    "match": "masked",
+    "sha256": "ac935ab8a1e407abe113b319041c597c4ea90940cf468f772ab204fbcc86c750",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x800051C8",
+    "name": "__osInsertTimer",
+    "size": 392,
+    "reference": "lib/src/osTimer.c",
+    "match": "masked",
+    "sha256": "cc19e8a842412d1586ab64c6d6b6fb12917daa7aad3c10086215a2006df3a8c0",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80005350",
+    "name": "__osViInit",
+    "size": 292,
+    "reference": "lib/src/__osViInit.c",
+    "match": "masked",
+    "sha256": "ee893666af40f8721407a82b3a0a5fa272b938898a6e3152dbd172967c3abb19",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80005480",
+    "name": "__osViGetCurrentContext",
+    "size": 12,
+    "reference": "src/io/vigetcurrcontext.c",
+    "reference_set": "ultralib-I",
+    "match": "structural",
+    "note": "Loads current context used by framebuffer getter"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80005490",
+    "name": "__osViSwapContext",
+    "size": 860,
+    "reference": "lib/src/__osViSwapContext.c",
+    "match": "masked",
+    "sha256": "2c2fea371112d8a3e0e3bf6fed3f3e5c8a5975a8ad3e574e3deae4d67c54c401",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x800057F0",
+    "name": "osGetCount",
+    "size": 16,
+    "reference": "lib/asm/osGetCount.s",
+    "match": "exact",
+    "sha256": "49439260d2ea325fd9d1049a302274c512c90775bbc3751b54513b65152f01ae",
+    "reference_set": "sm64-us",
+    "note": "Whole assembly .text, including alignment"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80005800",
+    "name": "__osSpSetStatus",
+    "size": 12,
+    "reference": "src/io/spsetstat.c",
+    "reference_set": "ultralib-I",
+    "match": "structural",
+    "note": "SP_STATUS store in return delay slot"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80005810",
+    "name": "bcopy",
+    "size": 784,
+    "reference": "lib/asm/bcopy.s",
+    "match": "exact",
+    "sha256": "9de2251afa4dd169a3c55e33d2be4c540174550516f075ec6a6f0f9855fb6e6d",
+    "reference_set": "sm64-us",
+    "note": "Whole assembly .text, including alignment"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80005B20",
+    "name": "osVirtualToPhysical",
+    "size": 124,
+    "reference": "lib/src/osVirtualToPhysical.c",
+    "match": "masked",
+    "sha256": "6c687c8b47c5486277ca2a9978ab451256fa6ecde09aa5009331f6e6adcdc693",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80005BA0",
+    "name": "__osSpSetPc",
+    "size": 52,
+    "reference": "lib/src/__osSpSetPc.c",
+    "match": "exact",
+    "sha256": "af66ed65d77fde1aae49eedb1374b1c64c2305b9dfb37653f1b09d17adb34bdc",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80005BE0",
+    "name": "__osSpRawStartDma",
+    "size": 140,
+    "reference": "lib/src/__osSpRawStartDma.c",
+    "match": "masked",
+    "sha256": "42f585d8f3068d764e4c4cd4e476cfd021468a2d40fe07e99fa8e9b3586d0f85",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80005C70",
+    "name": "__osSpDeviceBusy",
+    "size": 44,
+    "reference": "lib/src/__osSpDeviceBusy.c",
+    "match": "exact",
+    "sha256": "5b8a49766e2e41e50b893cb38c81db6ebaaacf069cefe96035b118b0d9f9c4f0",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80005CA0",
+    "name": "__osSpGetStatus",
+    "size": 12,
+    "reference": "src/io/spgetstat.c",
+    "reference_set": "ultralib-I",
+    "match": "structural",
+    "note": "SP_STATUS load in return delay slot"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80005CB0",
+    "name": "__osDpDeviceBusy",
+    "size": 44,
+    "reference": "src/io/dp.c",
+    "match": "exact",
+    "sha256": "b2aa27efaf3e1cfff0086223c85ce576ad80c32f8d48f794f877ba090a2ee729",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80005CE0",
+    "name": "__osSiDeviceBusy",
+    "size": 44,
+    "reference": "lib/src/__osSiDeviceBusy.c",
+    "match": "exact",
+    "sha256": "c40efb0efd62baebfcb5aa0af3421d1155c9d8e9a20163f10b0c84f61c4ac156",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80005D10",
+    "name": "u32_to_string",
+    "size": 48,
+    "reference": "lib/src/kdebugserver.c",
+    "match": "exact",
+    "sha256": "0e32813cdd48b7c8f8857f6974030b639ec535b931fdf045730db194c4d5aac8",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80005D40",
+    "name": "string_to_u32",
+    "size": 88,
+    "reference": "lib/src/kdebugserver.c",
+    "match": "exact",
+    "sha256": "db62c5b7742ab75bc84c8e8fef91c89004117ed4cfcb574cab8ef1b58e138d8f",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80005D98",
+    "name": "send_packet",
+    "size": 192,
+    "reference": "lib/src/kdebugserver.c",
+    "match": "masked",
+    "sha256": "f2db8484ba16446c6a771a9920fbbba9841b02ada8b6e1633a824e2a87709fab",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80005E58",
+    "name": "send",
+    "size": 216,
+    "reference": "lib/src/kdebugserver.c",
+    "match": "masked",
+    "sha256": "b8027b64bd361b9b5d34cc7ff3c5ffd03dc7f2e2e01599ed30701be0320ec530",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80005F30",
+    "name": "process_command_memory",
+    "size": 76,
+    "reference": "lib/src/kdebugserver.c",
+    "match": "masked",
+    "sha256": "aa2bf91e424f35c810669cd27c55d790e1ace9d2d9054c9e7c0c109b50ff5716",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80005F7C",
+    "name": "process_command_register",
+    "size": 44,
+    "reference": "lib/src/kdebugserver.c",
+    "match": "masked",
+    "sha256": "722fa50ca9ee5cf4551829d0bc84ead91302225477efd5ce2a48250256bcee06",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80005FA8",
+    "name": "kdebugserver",
+    "size": 476,
+    "reference": "lib/src/kdebugserver.c",
+    "match": "masked",
+    "sha256": "69787c1f9a6245ce9038366a5a0e82b24ac438ce8670b81950ce455565af139b",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80006190",
+    "name": "__osSyncPutChars",
+    "size": 292,
+    "reference": "lib/src/__osSyncPutChars.c",
+    "match": "masked",
+    "sha256": "0217b9d5e0b36183cfc8f81d96f1fdb9d0a33c28c53ea51e8d2401c39c5f3a1d",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x800062C0",
+    "name": "osSetIntMask",
+    "size": 96,
+    "reference": "lib/asm/osSetIntMask.s",
+    "match": "masked",
+    "sha256": "be70981a396bce3380fc02d3c69cfc290230ae116429593926ee3bb99396067f",
+    "reference_set": "sm64-us",
+    "note": "Whole assembly .text, including alignment"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80006320",
+    "name": "osDestroyThread",
+    "size": 248,
+    "reference": "lib/src/osDestroyThread.c",
+    "match": "masked",
+    "sha256": "9163dbe39067a7a5fa65b850f41d0c0ed5f752db3e18a719113e8f3287483be4",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80006420",
+    "name": "__osSetCompare",
+    "size": 16,
+    "reference": "lib/asm/__osSetCompare.s",
+    "match": "exact",
+    "sha256": "424b05c5a5a48f29b4669731a97ea63a5ee362e2b47fa58afc9317487695229c",
+    "reference_set": "sm64-us",
+    "note": "Whole assembly .text, including alignment"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80006430",
+    "name": "__osProbeTLB",
+    "size": 192,
+    "reference": "lib/asm/__osProbeTLB.s",
+    "match": "exact",
+    "sha256": "349227b84b51cb246abaf9de4bf56eba78054d85575e1bfb09acfdb8d1bc0c28",
+    "reference_set": "sm64-us",
+    "note": "Whole assembly .text, including alignment"
+  },
+  {
+    "segment": "boot",
+    "address": "0x800064F0",
+    "name": "__osGetCause",
+    "size": 16,
+    "reference": "lib/asm/__osGetCause.s",
+    "match": "exact",
+    "sha256": "faf8eb55f0eb39c05afc7af728f372269b0cb947735525a7d916d45672f7a212",
+    "reference_set": "sm64-us",
+    "note": "Whole assembly .text, including alignment"
+  },
+  {
+    "segment": "boot",
+    "address": "0x80006500",
+    "name": "__osAtomicDec",
+    "size": 88,
+    "reference": "lib/src/__osAtomicDec.c",
+    "match": "masked",
+    "sha256": "d92d09d6701c8d0c2779f4440d5ea2311f9363648d4943889ae00226675fa11a",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x80032C30",
+    "name": "osViSetSpecialFeatures",
+    "size": 440,
+    "reference": "lib/src/osViSetSpecialFeatures.c",
+    "match": "masked",
+    "sha256": "65d0e5f390dde82ecc8f984fcd0640a4a3c8f0af1d6c4b3d39409335f40b0f35",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x80032DF0",
+    "name": "guPerspectiveF",
+    "size": 560,
+    "reference": "lib/src/guPerspectiveF.c",
+    "match": "masked",
+    "sha256": "b37cf49c9f39a2ead083cbcee28ecdd8f7e60977944c5e82ba1a0d828e83a562",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x80033020",
+    "name": "guPerspective",
+    "size": 88,
+    "reference": "lib/src/guPerspectiveF.c",
+    "match": "masked",
+    "sha256": "dc4b0dc4a6e0dc61d1e2a138bded0785da4aa68221c2b8e6718e5397fbd17555",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x80033080",
+    "name": "guRandom",
+    "size": 44,
+    "reference": "src/gu/random.c",
+    "match": "masked",
+    "sha256": "162de43ee0f908021bbfef23b4e161d06a0170a48c8a83ee763b4d90da1e9404",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003381C",
+    "name": "guLookAtHilite",
+    "size": 184,
+    "reference": "src/gu/lookathil.c",
+    "match": "masked",
+    "sha256": "b40d31a6d22db4a78712f6431cad7d5b2c16a23f1f7be57c86c8cda06df2fa7e",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x800338E0",
+    "name": "guTranslateF",
+    "size": 72,
+    "reference": "lib/src/guTranslateF.c",
+    "match": "masked",
+    "sha256": "396ec2245753845c38fbd5c74ca857f89e432904bee72f5c2d54188390652fd7",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x80033928",
+    "name": "guTranslate",
+    "size": 84,
+    "reference": "lib/src/guTranslateF.c",
+    "match": "masked",
+    "sha256": "20839174b539e0a5a512f7a0138baee5a83bc8a60d873e1f2b5e8b4abf0dc43e",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x80033980",
+    "name": "guRotateF",
+    "size": 404,
+    "reference": "lib/src/guRotateF.c",
+    "match": "masked",
+    "sha256": "7961d2fc1fad52c7ecec136a03d869ba964cadc0a5cf09ccb7e9c1068db61b32",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x80033B14",
+    "name": "guRotate",
+    "size": 80,
+    "reference": "lib/src/guRotateF.c",
+    "match": "masked",
+    "sha256": "c8aee9f052f1262a7a6420bbf3397b48a5c312dc7aa7536eff273341ce8fc13e",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x80033B70",
+    "name": "guLookAtReflectF",
+    "size": 1088,
+    "reference": "lib/src/guLookAtRef.c",
+    "match": "masked",
+    "sha256": "290534c6e37511c886ddaeb81a7a9ad8c5bb20800851c0e7a27a9e4d52ec7c4c",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x80033FB0",
+    "name": "guLookAtReflect",
+    "size": 120,
+    "reference": "lib/src/guLookAtRef.c",
+    "match": "masked",
+    "sha256": "4fcf1a22153d1442f518b4cebd80843ab50394e120ee6dffd4ea846ebfeac3d4",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x80034030",
+    "name": "guScaleF",
+    "size": 84,
+    "reference": "lib/src/guScaleF.c",
+    "match": "masked",
+    "sha256": "063845a4672d1720abc8b888adaeb0714a08f81cca967d14355ca614970e57da",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x80034084",
+    "name": "guScale",
+    "size": 72,
+    "reference": "lib/src/guScaleF.c",
+    "match": "masked",
+    "sha256": "09403eaa6fe30a6abebab0795a1ac02e70428e9c0095f8012cadd0dcb3658940",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x800340D0",
+    "name": "sqrtf",
+    "size": 16,
+    "reference": "lib/asm/sqrtf.s",
+    "match": "exact",
+    "sha256": "4ea14d5f89379ec41118bbacbd120dec7513472a303805a5461b4438f53a0626",
+    "reference_set": "sm64-us",
+    "note": "Whole assembly .text, including alignment"
+  },
+  {
+    "segment": "main",
+    "address": "0x800340E0",
+    "name": "memcpy",
+    "size": 44,
+    "reference": "src/libc/string.c",
+    "match": "exact",
+    "sha256": "770c81b6c68fa85d2b98688a09dd33a41366dd56288fda754c24eb3247e8763d",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003410C",
+    "name": "strlen",
+    "size": 40,
+    "reference": "src/libc/string.c",
+    "match": "exact",
+    "sha256": "1a0aa68ec64cb0416c51af6928756ae3e13fda25594f3ae75665118951c7f97f",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80034134",
+    "name": "strchr",
+    "size": 64,
+    "reference": "src/libc/string.c",
+    "match": "exact",
+    "sha256": "ba3fd0f15d38dd7f65a8cec858cd95f6cd476e3920b567661676fef4ad5babba",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80035D30",
+    "name": "osContStartQuery",
+    "size": 132,
+    "reference": "src/io/contquery.c",
+    "match": "masked",
+    "sha256": "d5ad1edd72a4d6afdd8aa23c345f5250ae78b7edf41f382b022f4b5de24f0f5c",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80035DB4",
+    "name": "osContGetQuery",
+    "size": 40,
+    "reference": "src/io/contquery.c",
+    "match": "masked",
+    "sha256": "4e00945def117f0fc69e64f0e188eb40344e8116d55f04030f7016eb982cb7bc",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80036730",
+    "name": "osEepromProbe",
+    "size": 108,
+    "reference": "lib/src/osEepromProbe.c",
+    "match": "masked",
+    "sha256": "955cacab4158f102e625dc5d7da59a51970f1ad3432a2e113de40eeb46073439",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x800367A0",
+    "name": "osEepromLongWrite",
+    "size": 316,
+    "reference": "lib/src/osEepromLongWrite.c",
+    "match": "masked",
+    "sha256": "301a0eb17f7b22477176c24b014af496ddf3078d00a9bfc77230cdc7c53df59f",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x800368E0",
+    "name": "osEepromLongRead",
+    "size": 316,
+    "reference": "lib/src/osEepromLongRead.c",
+    "match": "masked",
+    "sha256": "fb2a9b8890b40a2e8a073b1219de16017bc171f610a231b8d3fe3c00d28de341",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x80036A20",
+    "name": "osViBlack",
+    "size": 112,
+    "reference": "lib/src/osViBlack.c",
+    "match": "masked",
+    "sha256": "c6ca2438e92213a27acc6bae075b6a05c619d8c4b789293da474e31ef201393d",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x80036A90",
+    "name": "sinf",
+    "size": 448,
+    "reference": "lib/src/math/sinf.c",
+    "match": "masked",
+    "sha256": "338ba0c284cfe128cb3223cf7525f4680260f10ca93147f5bbb33c788b12ce12",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x80036C50",
+    "name": "cosf",
+    "size": 360,
+    "reference": "lib/src/math/cosf.c",
+    "match": "masked",
+    "sha256": "1d1868ef601355ce608b25a64062636b057381a4cf4b437f07050085fc212436",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x80036DC0",
+    "name": "osWritebackDCacheAll",
+    "size": 48,
+    "reference": "lib/asm/osWritebackDCacheAll.s",
+    "match": "exact",
+    "sha256": "9e2e910cf2dcf19b0d2826eea41187a62acc4584b8fb7316cc74acbd40f4b04f",
+    "reference_set": "sm64-us",
+    "note": "Whole assembly .text, including alignment"
+  },
+  {
+    "segment": "main",
+    "address": "0x80036DF0",
+    "name": "guRotateRPYF",
+    "size": 332,
+    "reference": "src/gu/rotaterpy.c",
+    "match": "masked",
+    "sha256": "2b793a8358b0406d215d9a9a7a4831591cf2556fb4ea165f2b97440931897017",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80036F3C",
+    "name": "guRotateRPY",
+    "size": 72,
+    "reference": "src/gu/rotaterpy.c",
+    "match": "masked",
+    "sha256": "06b18bc051a37641950985c3755b2d9b22f6007d26fb164bc0f727bc40f68467",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80036F90",
+    "name": "guMtxXFMF",
+    "size": 160,
+    "reference": "src/gu/mtxcatf.c",
+    "match": "exact",
+    "sha256": "ec5bc225baf6c5b426a7a126d1448d04e80da0a67c84200870933a97bed00b10",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80037030",
+    "name": "guMtxCatF",
+    "size": 360,
+    "reference": "src/gu/mtxcatf.c",
+    "match": "exact",
+    "sha256": "fa2b62db8f138b69cf39d82b9e26813f244d2398b16bab99cdd73d588fad8c9f",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x800371A0",
+    "name": "guMtxF2L",
+    "size": 256,
+    "reference": "lib/src/guMtxF2L.c",
+    "match": "exact",
+    "sha256": "766ecf1975b0b289ca1034155d694cc04c33d95ea7f69907505b4173ed0ed7d8",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x800372A0",
+    "name": "guMtxIdentF",
+    "size": 136,
+    "reference": "lib/src/guMtxF2L.c",
+    "match": "exact",
+    "sha256": "8325b24de93e8818fe1d58e4d181e272f6bb2ad475863afed99d3a024438b2db",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x80037328",
+    "name": "guMtxIdent",
+    "size": 48,
+    "reference": "lib/src/guMtxF2L.c",
+    "match": "masked",
+    "sha256": "95b4ca6cdc3cc804b29d5c14a0aeb74c9a655bc57444f521754abfae579bd420",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x80037358",
+    "name": "guMtxL2F",
+    "size": 180,
+    "reference": "lib/src/guMtxF2L.c",
+    "match": "exact",
+    "sha256": "7d75ad1b1a35c8706d503016a702d7130d94fd1a4790769214c68c4c78d54792",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x80037410",
+    "name": "osUnmapTLB",
+    "size": 60,
+    "reference": "src/os/unmaptlb.s",
+    "match": "exact",
+    "sha256": "c037e600630f331429105fd34ad990c5a2eded4ef0077f698f7c34650bb4d3dd",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80037450",
+    "name": "osMapTLB",
+    "size": 192,
+    "reference": "lib/asm/osMapTLB.s",
+    "match": "exact",
+    "sha256": "df58b390004db1a7de5265449eafe8115ecaf81acad24b5471290157b28cc85e",
+    "reference_set": "sm64-us",
+    "note": "Whole assembly .text, including alignment"
+  },
+  {
+    "segment": "main",
+    "address": "0x80037510",
+    "name": "guOrthoF",
+    "size": 340,
+    "reference": "lib/src/guOrthoF.c",
+    "match": "masked",
+    "sha256": "00a0030d179bce43eda4bdfeee348b06093d809d8c7dfdacf54f9e46f61da224",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x80037664",
+    "name": "guOrtho",
+    "size": 104,
+    "reference": "lib/src/guOrthoF.c",
+    "match": "masked",
+    "sha256": "6d4d9ff78341126755dd6505b985d4f8a9f5d894fb710b269709d593815ea358",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x800376D0",
+    "name": "alHeapInit",
+    "size": 52,
+    "reference": "src/audio/heapinit.c",
+    "match": "exact",
+    "sha256": "aed6cfe37d43f076f275814ba5f99486aafa8f3de789d528c8bbec2766a438af",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80037710",
+    "name": "alHeapDBAlloc",
+    "size": 84,
+    "reference": "src/audio/heapalloc.c",
+    "match": "exact",
+    "sha256": "56508dc8caf9a7d66b0e49d0be08a956a2708e57e0531c2841f96aff024f75e9",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80037874",
+    "name": "alBnkfNew",
+    "size": 260,
+    "reference": "lib/src/alBnkfNew.c",
+    "match": "masked",
+    "sha256": "43e84e47cf95108761bfd46f6cfe5b19394d48120daae06f873e58535ec592fd",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x80037978",
+    "name": "alSeqFileNew",
+    "size": 64,
+    "reference": "lib/src/alBnkfNew.c",
+    "match": "exact",
+    "sha256": "5a4abe723b1ade23a5042f2245782f5118dc69c7316d19fd88a79d88424801ee",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x800379C0",
+    "name": "__CSPPostNextSeqEvent",
+    "size": 112,
+    "reference": "src/audio/csplayer.c",
+    "match": "masked",
+    "sha256": "d094b2043f57bb79ba07babad855109eb1a42a8de66f5fa50b84e0a78a640be4",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80038A80",
+    "name": "alCSPNew",
+    "size": 364,
+    "reference": "src/audio/csplayer.c",
+    "match": "masked",
+    "sha256": "1405953286523334759dcb0c0612725e028be5f7df646eb40787bfab60a1eded",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80038BF0",
+    "name": "alCSPSetBank",
+    "size": 52,
+    "reference": "src/audio/cspsetbank.c",
+    "match": "masked",
+    "sha256": "dc792f08bff9dbc43d1d3aac87dff9833d36e2fb17f21b89637617dbad95d00a",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80038C30",
+    "name": "alCSPGetState",
+    "size": 8,
+    "reference": "src/audio/cspgetstate.c",
+    "reference_set": "ultralib-I",
+    "match": "structural",
+    "note": "CSP state getter between CSPSetBank and CSPPlay"
+  },
+  {
+    "segment": "main",
+    "address": "0x80038C40",
+    "name": "alCSPPlay",
+    "size": 48,
+    "reference": "src/audio/cspplay.c",
+    "match": "masked",
+    "sha256": "9aa8cebb5e9c0f86808c6ae8ff731f6df491421f4cfdc14b089ab0c72bc791dd",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80038C70",
+    "name": "alCSPStop",
+    "size": 48,
+    "reference": "src/audio/cspstop.c",
+    "match": "masked",
+    "sha256": "8c18284b9ea4f48f41eefe9b2a8881b9661c4858295d373b168ae889a8a56005",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80038CA0",
+    "name": "alCSeqGetLoc",
+    "size": 160,
+    "reference": "src/audio/cseq.c",
+    "match": "exact",
+    "sha256": "0f58d632ab9ecae7b1b18deb6adfccbfa3a3b33683f0ccf52efa0fee5419086b",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80038D40",
+    "name": "alCSeqSetLoc",
+    "size": 160,
+    "reference": "src/audio/cseq.c",
+    "match": "exact",
+    "sha256": "61aca52e904fedacb7ac6cf1424fcdcef87fa5bcdd8477106f078d8ee9d3074b",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80038F04",
+    "name": "alCSeqNextEvent",
+    "size": 760,
+    "reference": "src/audio/cseq.c",
+    "match": "masked",
+    "sha256": "615c2ec28297949bead4e7f8045c1569f272641c31b9b4f4a828aa2922e9c1ef",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x800391FC",
+    "name": "alCSeqNew",
+    "size": 276,
+    "reference": "src/audio/cseq.c",
+    "match": "masked",
+    "sha256": "d0b3a07fea38a67e3cd076725ff7500ef3989fdb173bbc5167d6627568f235b4",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80039310",
+    "name": "alCSeqNewMarker",
+    "size": 364,
+    "reference": "src/audio/cseq.c",
+    "match": "masked",
+    "sha256": "f5d280b1172413b706192b6684c763d5e090e1d3ecbc68c1b3922cfc39163e1e",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003947C",
+    "name": "alCSeqGetTicks",
+    "size": 8,
+    "reference": "src/audio/cseq.c",
+    "reference_set": "ultralib-I",
+    "match": "structural",
+    "note": "CSeq ticks getter inside CSeq object group"
+  },
+  {
+    "segment": "main",
+    "address": "0x80039484",
+    "name": "alCSeqSecToTicks",
+    "size": 252,
+    "reference": "src/audio/cseq.c",
+    "match": "masked",
+    "sha256": "4c9f94fc63cb6561f0c567e2d123b6fe3ec25069cc94e8c91d1e1ccf33457abe",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80039580",
+    "name": "alCSeqTicksToSec",
+    "size": 108,
+    "reference": "src/audio/cseq.c",
+    "match": "masked",
+    "sha256": "fe9e2a9815de300abf2691e3b9d4ca421594e72bef1e709a5fb238495af2d5ac",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x800395EC",
+    "name": "__alCSeqNextDelta",
+    "size": 360,
+    "reference": "src/audio/cseq.c",
+    "match": "exact",
+    "sha256": "5874b1c73b9c4c80cddaae1b3b16a49ff5735b80172fd5c8d336a65cb579b426",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80039760",
+    "name": "alCSPSetSeq",
+    "size": 52,
+    "reference": "src/audio/cspsetseq.c",
+    "match": "masked",
+    "sha256": "3bd000c63acef409284d1c89666b24cc6d1ad226a18412bc1bb564e7f4095a7b",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x800397A0",
+    "name": "alCSPSetVol",
+    "size": 60,
+    "reference": "src/audio/cspsetvol.c",
+    "match": "masked",
+    "sha256": "275d3a5a8a2ebf58a06a6dfe67e596113b8968ad83cf218a9f884ddf82d34e65",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x800397E0",
+    "name": "osAiSetFrequency",
+    "size": 352,
+    "reference": "lib/src/osAiSetFrequency.c",
+    "match": "masked",
+    "sha256": "38bdef54daa406bfa3698b66ae1404a51352c0403e9b85875178c5c5d8af08c1",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x80039940",
+    "name": "alUnlink",
+    "size": 48,
+    "reference": "src/audio/sl.c",
+    "match": "exact",
+    "sha256": "a6094f1c1ad9362d419c3830ac448e92a6d5d36ba8a476c78bf4723efac94381",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80039970",
+    "name": "alLink",
+    "size": 36,
+    "reference": "src/audio/sl.c",
+    "match": "exact",
+    "sha256": "bc5376a9c0214c2355430e588d8b8846c00202a85ac01f8f183f4b845820d31a",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80039994",
+    "name": "alClose",
+    "size": 56,
+    "reference": "src/audio/sl.c",
+    "match": "masked",
+    "sha256": "aa3ce1d0fe436872066d818daf9fffa49181c8f2f92b9e8068148f8b44205d78",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x800399CC",
+    "name": "alInit",
+    "size": 52,
+    "reference": "src/audio/sl.c",
+    "match": "masked",
+    "sha256": "81d05f43d455ff40973720dd0f45e9dac940511820060ac053ad5433f6db86a1",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80039A00",
+    "name": "osAiSetNextBuffer",
+    "size": 168,
+    "reference": "lib/src/osAiSetNextBuffer.c",
+    "match": "masked",
+    "sha256": "8be5dbd58e2dc2584bb01f65a36936f631f73e0f96f6b684d9987585c3635bf4",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x80039AB0",
+    "name": "osAiGetLength",
+    "size": 12,
+    "reference": "src/io/aigetlen.c",
+    "reference_set": "ultralib-I",
+    "match": "structural",
+    "note": "AI_LEN MMIO load"
+  },
+  {
+    "segment": "main",
+    "address": "0x80039AC8",
+    "name": "_timeToSamples",
+    "size": 88,
+    "reference": "src/audio/synthesizer.c",
+    "match": "masked",
+    "sha256": "befe1f01cf84ae05979af6ed7ae3469b70293aa291e9411630ddb83059a4f9a1",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80039B20",
+    "name": "_freePVoice",
+    "size": 56,
+    "reference": "src/audio/synthesizer.c",
+    "match": "masked",
+    "sha256": "caf7ce3a4feb6fe4565d4a30112ca42753d9205caf114bae91cd7c88ad41e9b6",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80039B58",
+    "name": "_collectPVoices",
+    "size": 96,
+    "reference": "src/audio/synthesizer.c",
+    "match": "masked",
+    "sha256": "da6b918e3ae78f09732aeaeb2494b1b4e9797fbdd331966d4ebf04ce85f0a6db",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80039BB8",
+    "name": "__freeParam",
+    "size": 24,
+    "reference": "src/audio/synthesizer.c",
+    "match": "masked",
+    "sha256": "a23f8886a5e148b693fe6670f2056c7fe20d8512f329d50dd9e90444075f5a38",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80039BD0",
+    "name": "__allocParam",
+    "size": 48,
+    "reference": "src/audio/synthesizer.c",
+    "match": "masked",
+    "sha256": "57df2c3c035889e8e2fa56526ee6eb767e4d152a4886dd90f400aa7cf74a151b",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80039E90",
+    "name": "alSynNew",
+    "size": 768,
+    "reference": "src/audio/synthesizer.c",
+    "match": "masked",
+    "sha256": "00b89aef20f25e6ff882309c6623011aca4dc25bff6813f7498c2f4342b79302",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003A190",
+    "name": "osContInit",
+    "size": 508,
+    "reference": "lib/src/osContInit.c",
+    "match": "masked",
+    "sha256": "93406c95a5cdb6d15d57a95624f98508148ffd040b4ee561eda7fd05e0500502",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003A38C",
+    "name": "__osContGetInitData",
+    "size": 208,
+    "reference": "lib/src/osContInit.c",
+    "match": "masked",
+    "sha256": "8ad400e8f2d245e0fb5f8ed0474f5e08e9e017dd928ea172778800104a258c1f",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003A45C",
+    "name": "__osPackRequestData",
+    "size": 244,
+    "reference": "lib/src/osContInit.c",
+    "match": "masked",
+    "sha256": "a340a8be69d407d2304eb5c72dacfb0267abf37024564e7e489c358880caf6ac",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003A550",
+    "name": "osContStartReadData",
+    "size": 196,
+    "reference": "lib/src/osContStartReadData.c",
+    "match": "masked",
+    "sha256": "d053ee73bbd3cf7a7ad97a82673dd54714801dd2e2c78f61da0be2ea73e4ea82",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003A614",
+    "name": "osContGetReadData",
+    "size": 168,
+    "reference": "lib/src/osContStartReadData.c",
+    "match": "masked",
+    "sha256": "a657c9a288ef7d37ef662ff6dc6eda9b22c0c3d0f634a03b88fdf3586e22e92f",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003A6BC",
+    "name": "__osPackReadData",
+    "size": 236,
+    "reference": "lib/src/osContStartReadData.c",
+    "match": "masked",
+    "sha256": "772ddf386ee310fbef259cbf3983e94ad13ceae857caf92a3fcca324ca8d1134",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003A7B0",
+    "name": "alEvtqFlushType",
+    "size": 172,
+    "reference": "src/audio/event.c",
+    "match": "masked",
+    "sha256": "fa8f9915c3be436922514c5e102a9c4b81b27e2ff957732f9dd9964f0c35f88c",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003A85C",
+    "name": "alEvtqFlush",
+    "size": 112,
+    "reference": "src/audio/event.c",
+    "match": "masked",
+    "sha256": "880f4d2f025886a0c0937995cd29106075961bd2f27f6be12d56b44893066671",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003A8CC",
+    "name": "alEvtqPostEvent",
+    "size": 292,
+    "reference": "src/audio/event.c",
+    "match": "masked",
+    "sha256": "ad8df13fa70c5fe7e3872fec4e6b756d80fcf5567f475b0fb03c4712b5e8ad59",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003A9F0",
+    "name": "alEvtqNextEvent",
+    "size": 140,
+    "reference": "src/audio/event.c",
+    "match": "masked",
+    "sha256": "8b9a02c141ca87a4c857f6cf277057de17127997284a509a8a81935833a7c4de",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003AA7C",
+    "name": "alEvtqNew",
+    "size": 116,
+    "reference": "src/audio/event.c",
+    "match": "masked",
+    "sha256": "ddf5d40f576b4c41bfd47b292d7715077c6c76f358772663b077ca9efcd3eadf",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003AAF0",
+    "name": "alSynAddPlayer",
+    "size": 80,
+    "reference": "src/audio/synaddplayer.c",
+    "match": "masked",
+    "sha256": "41b43749c82aafce47da2de9573449090e78152f856da3a214f96416376b4416",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003AB40",
+    "name": "_allocatePVoice",
+    "size": 232,
+    "reference": "src/audio/synallocvoice.c",
+    "match": "masked",
+    "sha256": "b6f5951376314dc214c07896d89e7a2ec74e3d5e26cc9ae1f9c5c945b4a33ba8",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003AC28",
+    "name": "alSynAllocVoice",
+    "size": 320,
+    "reference": "src/audio/synallocvoice.c",
+    "match": "masked",
+    "sha256": "20884dcbdd6d7a32c030e7b9038c431eeb809a7834e772154e3ac3a2cf736ac7",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003AD70",
+    "name": "alSynSetVol",
+    "size": 156,
+    "reference": "src/audio/synsetvol.c",
+    "match": "masked",
+    "sha256": "c7e406fc50345a6c09b80ddd2a2e170ce92a7def4e4437f6b87b33c9969d6a8b",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003AE10",
+    "name": "alSynStartVoice",
+    "size": 140,
+    "reference": "src/audio/synstartvoice.c",
+    "match": "masked",
+    "sha256": "40bbce2a4883c877f9945fa4e5329192d41caac43bf3893575c831b6ec0980a8",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003AEA0",
+    "name": "alSynSetPan",
+    "size": 132,
+    "reference": "src/audio/synsetpan.c",
+    "match": "masked",
+    "sha256": "4b7c39f76ed5ecba8f1305960ccc42b56af2cfdbb50b7f11c501a4612b166741",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003AF30",
+    "name": "alSynSetPitch",
+    "size": 132,
+    "reference": "src/audio/synsetpitch.c",
+    "match": "masked",
+    "sha256": "2d205e8668a64990137de6cb61ca1c89dc079d460cc370a617d0bc3c4c6986bd",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003AFC0",
+    "name": "alSynSetFXMix",
+    "size": 148,
+    "reference": "src/audio/synsetfxmix.c",
+    "match": "masked",
+    "sha256": "893bdedd8038c99704b588c16d3ae0ec135ac37987b61f4e05e7b697cb79bd64",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003B060",
+    "name": "alSynStopVoice",
+    "size": 120,
+    "reference": "src/audio/synstopvoice.c",
+    "match": "masked",
+    "sha256": "83f521174e108b9b5812302e91a2bdda38bbd5696364b28124392a8cc56c99dd",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003B0E0",
+    "name": "alSynFreeVoice",
+    "size": 176,
+    "reference": "src/audio/synfreevoice.c",
+    "match": "masked",
+    "sha256": "d4779709d4b5d90aef852ce6e490e0940a4c62ed1df50162520bf58f8f77b8ed",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003B190",
+    "name": "alCents2Ratio",
+    "size": 80,
+    "reference": "src/audio/cents2ratio.c",
+    "match": "masked",
+    "sha256": "c7152c1538b25324574ce31eada0c535159d2f64485a59c3d3e73c0bbfd0eefb",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003B1E0",
+    "name": "guNormalize",
+    "size": 132,
+    "reference": "lib/src/guNormalize.c",
+    "match": "masked",
+    "sha256": "6a4193d730f2705f531285310c315ca988a937bbb7eebaef579dedf4ee8961ff",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003B270",
+    "name": "__osSiCreateAccessQueue",
+    "size": 80,
+    "reference": "lib/src/__osSiCreateAccessQueue.c",
+    "match": "masked",
+    "sha256": "35570dc73d8325d4933a65e0c186338e3e88fb6a8a9b30513dbef9363a56c9f9",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003B2C0",
+    "name": "__osSiGetAccess",
+    "size": 68,
+    "reference": "lib/src/__osSiCreateAccessQueue.c",
+    "match": "masked",
+    "sha256": "dd28fb4f98805504c29841174b616c7c1dfa46ff9b1656585493b50a6ccc136f",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003B304",
+    "name": "__osSiRelAccess",
+    "size": 44,
+    "reference": "lib/src/__osSiCreateAccessQueue.c",
+    "match": "masked",
+    "sha256": "b24dd6cdfa6570d67c1b9e4b02801c123b9833355f99d1739deab7349bebe718",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003B330",
+    "name": "__osSiRawStartDma",
+    "size": 172,
+    "reference": "lib/src/__osSiRawStartDma.c",
+    "match": "masked",
+    "sha256": "4ff66235907484c401714a42c81865e1c62e5124178c7aafd5769c9e1fd4eb88",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003C900",
+    "name": "osEepromWrite",
+    "size": 432,
+    "reference": "lib/src/osEepromWrite.c",
+    "match": "masked",
+    "sha256": "2f38b21a83d0ff06701e0aaafe6be55a69c665620da372edca8e8b75e33490fa",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003CAB0",
+    "name": "__osPackEepWriteData",
+    "size": 268,
+    "reference": "lib/src/osEepromWrite.c",
+    "match": "masked",
+    "sha256": "353acbf4d4ba6abaa2e230d4012029ead4d01715767c1a5b07bb4604eefa0ad7",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003CBBC",
+    "name": "__osEepStatus",
+    "size": 548,
+    "reference": "lib/src/osEepromWrite.c",
+    "match": "masked",
+    "sha256": "4496566787ff0b3c60e7c114dd15649e1bc2140451d70250c03cf8932873ec96",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003CDE0",
+    "name": "osSetTimer",
+    "size": 212,
+    "reference": "lib/src/osSetTimer.c",
+    "match": "masked",
+    "sha256": "af86ea4c9403561f0c440db3a6d62da712614c52d4e7247fdd6b346f76319de1",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003CEC0",
+    "name": "osEepromRead",
+    "size": 496,
+    "reference": "lib/src/osEepromRead.c",
+    "match": "masked",
+    "sha256": "29834ce8169b73c94f325e04be64c2b683effbbe20b7555500c77cab6ab9fea2",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003D0B0",
+    "name": "__osPackEepReadData",
+    "size": 260,
+    "reference": "lib/src/osEepromRead.c",
+    "match": "masked",
+    "sha256": "547b1c76afc424f1228229a35fa2911c3cc590c51058ea404848767294273756",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003D1C0",
+    "name": "__setInstChanState",
+    "size": 84,
+    "reference": "src/audio/seqplayer.c",
+    "match": "exact",
+    "sha256": "be8cc063336432a5f2d7e85ad74d630efa0689945416dc2d81dee845d07c552f",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003D214",
+    "name": "__resetPerfChanState",
+    "size": 128,
+    "reference": "src/audio/seqplayer.c",
+    "match": "exact",
+    "sha256": "2a2e27810063a6e6a8c3c257c9d8bba0520b6850dd4a95ad68bed2a0f75a25f2",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003D294",
+    "name": "__initFromBank",
+    "size": 180,
+    "reference": "src/audio/seqplayer.c",
+    "match": "masked",
+    "sha256": "d7c782bd5c0b5fc3f986cd1c7d54c83d50cb37d8a7767b089f0417e92510e427",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003D350",
+    "name": "__vsDelta",
+    "size": 36,
+    "reference": "src/audio/seqplayer.c",
+    "match": "exact",
+    "sha256": "f9b7611ee2f10d818e275231bcaa00e974ff77365d3c2e714d0a348b8a1b199e",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003D374",
+    "name": "__vsVol",
+    "size": 136,
+    "reference": "src/audio/seqplayer.c",
+    "match": "exact",
+    "sha256": "82d961d9cda468d9d7c59c5a0c4a007282c6ea2ef55777dae23a98a19fe17fa0",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003D3FC",
+    "name": "__seqpReleaseVoice",
+    "size": 300,
+    "reference": "src/audio/seqplayer.c",
+    "match": "masked",
+    "sha256": "cb67c2e09e7a593b8b5cf52b8815e9a9be0820addeba9d370f34565712adc18a",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003D528",
+    "name": "__voiceNeedsNoteKill",
+    "size": 168,
+    "reference": "src/audio/seqplayer.c",
+    "match": "masked",
+    "sha256": "c5da6568ed3a09b9ca07490994308a995b037eff85769c9ecefde78dd2d9e424",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003D5D0",
+    "name": "__unmapVoice",
+    "size": 112,
+    "reference": "src/audio/seqplayer.c",
+    "match": "exact",
+    "sha256": "ef44edcc970ca54a83cccb6b354c86e1774fd13fb02d1f9b5cbc8d288899929e",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003D640",
+    "name": "__postNextSeqEvent",
+    "size": 220,
+    "reference": "src/audio/seqplayer.c",
+    "match": "masked",
+    "sha256": "2db40822f95c3c319254680ef7789eb5b4e93c29679445507076233d0aef3b25",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003D794",
+    "name": "__vsPan",
+    "size": 72,
+    "reference": "src/audio/seqplayer.c",
+    "match": "exact",
+    "sha256": "234ad7488e172a253084f9f9da6555d7b3a33c10b830d1910c90656233cdece4",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003D7DC",
+    "name": "__lookupVoice",
+    "size": 116,
+    "reference": "src/audio/seqplayer.c",
+    "match": "exact",
+    "sha256": "051f9a5b96269a7cfe6cfab18c3b460d2b4fc7238d8ddc1b267a34e1d7eda29a",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003D850",
+    "name": "__mapVoice",
+    "size": 112,
+    "reference": "src/audio/seqplayer.c",
+    "match": "exact",
+    "sha256": "f3074f5c3a0cb642085679e2022878eb74a5eb8081db2c1e7155750fd77e9b06",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003D8C0",
+    "name": "__lookupSoundQuick",
+    "size": 252,
+    "reference": "src/audio/seqplayer.c",
+    "match": "exact",
+    "sha256": "ba1f9e52def46a38ab8c6e8fb6bc7d512065b98f30c9afd0ad090aeba176498d",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003E800",
+    "name": "__seqpStopOsc",
+    "size": 260,
+    "reference": "src/audio/seqplayer.c",
+    "match": "masked",
+    "sha256": "915a356a37760fdc25066c19b266adf535c31e6dd207eba5e977b40ba9be3948",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003E904",
+    "name": "__initChanState",
+    "size": 112,
+    "reference": "src/audio/seqplayer.c",
+    "match": "masked",
+    "sha256": "2586c60cdc67ace4dd88c1aa0f09dd725bc20e6be5cc16ed87b2ff1bd0f5deb1",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003E974",
+    "name": "alSeqpNew",
+    "size": 384,
+    "reference": "src/audio/seqplayer.c",
+    "match": "masked",
+    "sha256": "0f2d34b226a577b13c98ed129dd95c4213b1588728a346fc7d3c48cd1cfd2a5b",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003EB00",
+    "name": "alSynStartVoiceParams",
+    "size": 228,
+    "reference": "src/audio/synstartvoiceparam.c",
+    "match": "masked",
+    "sha256": "c7aa21ba2f21086200c170498b6098a3ebaf5fd08262b9c28b994288515c1dca",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003EBF0",
+    "name": "alSynDelete",
+    "size": 8,
+    "reference": "src/audio/syndelete.c",
+    "reference_set": "ultralib-I",
+    "match": "structural",
+    "note": "Empty SDK function in synthesizer object group"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003EC00",
+    "name": "__osAiDeviceBusy",
+    "size": 48,
+    "reference": "lib/src/__osAiDeviceBusy.c",
+    "match": "exact",
+    "sha256": "94d8674f022e85b272c7575b4a263fd32588717bb737e3a99536d3c589db394f",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003EC30",
+    "name": "alSaveNew",
+    "size": 68,
+    "reference": "src/audio/drvrnew.c",
+    "match": "masked",
+    "sha256": "af66fceb9d77996751b8114673c25e6adaf4b7f14d03ea2a4734d15378b16549",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003EC74",
+    "name": "alMainBusNew",
+    "size": 84,
+    "reference": "src/audio/drvrnew.c",
+    "match": "masked",
+    "sha256": "af8b5d9082adbf4926f05b5e888c4a8af620560b9b040c52dd6f784a4d2b9edf",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003ECC8",
+    "name": "alAuxBusNew",
+    "size": 84,
+    "reference": "src/audio/drvrnew.c",
+    "match": "masked",
+    "sha256": "f07df52f5c02cdd5480435f903a55b29a33202bcb0ab622a366546f2d2b56e82",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003ED1C",
+    "name": "alResampleNew",
+    "size": 136,
+    "reference": "src/audio/drvrnew.c",
+    "match": "masked",
+    "sha256": "f9aac6487a9ceec27a5bf4752dd22e3f83a6a656cabc0742997f6d0d64ceb083",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003EDA4",
+    "name": "alLoadNew",
+    "size": 168,
+    "reference": "src/audio/drvrnew.c",
+    "match": "masked",
+    "sha256": "ba96b88c7128fdc047921184fc27cca136b5ebbb27bfd537511bcf90b074867a",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003EE4C",
+    "name": "alEnvmixerNew",
+    "size": 164,
+    "reference": "src/audio/drvrnew.c",
+    "match": "masked",
+    "sha256": "24134f19d0bb97818ee57a4e582d4f7e2c7ccd2f0c4f448f42b520c9c1481090",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003EEF0",
+    "name": "init_lpfilter",
+    "size": 160,
+    "reference": "src/audio/drvrnew.c",
+    "match": "exact",
+    "sha256": "806a712b699bb14ebb3ebbc909fb448f18c649b0937278d1a10d287ce8a1e81f",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003F3B0",
+    "name": "alSynAllocFX",
+    "size": 152,
+    "reference": "src/audio/synallocfx.c",
+    "match": "masked",
+    "sha256": "3909e9f3b63983ac378639aa93bbb833a8239facc34c751f38560f4e85cd8a6b",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003F450",
+    "name": "alMainBusParam",
+    "size": 48,
+    "reference": "src/audio/mainbus.c",
+    "match": "exact",
+    "sha256": "410003e495552fd8a304bf7f527965d5f53408f4a1e584c288b659710dd2f09c",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003F480",
+    "name": "alMainBusPull",
+    "size": 288,
+    "reference": "src/audio/mainbus.c",
+    "match": "exact",
+    "sha256": "3cb1a61f1d48a650158bcaa85ff611be0e2a7edc5f62c96e99b31833d6737b74",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003F5A0",
+    "name": "alLoadParam",
+    "size": 468,
+    "reference": "src/audio/load.c",
+    "match": "masked",
+    "sha256": "d122251dbbc834e1ec1489010d4f7423bd197c8cbbdd90180bf4ed99ef62e6f5",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003F774",
+    "name": "alRaw16Pull",
+    "size": 940,
+    "reference": "src/audio/load.c",
+    "match": "exact",
+    "sha256": "0d1accfdf71958b853216588b90f77fd4f66082d89ce5117feea67da6190cd56",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x8003FC4C",
+    "name": "alAdpcmPull",
+    "size": 1184,
+    "reference": "src/audio/load.c",
+    "match": "masked",
+    "sha256": "ee972c64b0747a7a884bca6e061f50f61c4f1b474ebe5a76bc0b09e7a02eb00c",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x800400F0",
+    "name": "alResampleParam",
+    "size": 236,
+    "reference": "src/audio/resample.c",
+    "match": "masked",
+    "sha256": "d7b6e8223d9e13222ed0bf963b276a56a7ecccfb2877ad55771af5601a92d491",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x800401DC",
+    "name": "alResamplePull",
+    "size": 520,
+    "reference": "src/audio/resample.c",
+    "match": "masked",
+    "sha256": "c01a615ed54a97d5af151f622691662e0d6e97b7fa165ea5f90abf8fac3369de",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x800403F0",
+    "name": "_ldexpf",
+    "size": 40,
+    "reference": "src/audio/env.c",
+    "match": "exact",
+    "sha256": "d4f85e1c13e30e6ebf5484e05ed872373e395dbd9be5719d923807ecddd6eb6e",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80040418",
+    "name": "_frexpf",
+    "size": 236,
+    "reference": "src/audio/env.c",
+    "match": "exact",
+    "sha256": "4498bb6a00d9565ff10d6ae1b3fb5fc3a0aa745c4e1ed73a7e82659c640f9ba7",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80040504",
+    "name": "alEnvmixerParam",
+    "size": 224,
+    "reference": "src/audio/env.c",
+    "match": "exact",
+    "sha256": "58df1db0bbf3a29edda51dc0e17fc4104dd25b60acd33e74d56017ee123830e0",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80040AFC",
+    "name": "alEnvmixerPull",
+    "size": 1352,
+    "reference": "src/audio/env.c",
+    "match": "masked",
+    "sha256": "5003462061ef5acee23a834424aaa203b19c7c7a720a2801f430e45e0096d774",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80041050",
+    "name": "alAuxBusParam",
+    "size": 48,
+    "reference": "src/audio/auxbus.c",
+    "match": "exact",
+    "sha256": "410003e495552fd8a304bf7f527965d5f53408f4a1e584c288b659710dd2f09c",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80041080",
+    "name": "alAuxBusPull",
+    "size": 216,
+    "reference": "src/audio/auxbus.c",
+    "match": "exact",
+    "sha256": "a10f5fa255dae9c413fc9da039e005a3f3b0dfd27a79d7547888d7b7454cc696",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80041160",
+    "name": "alSaveParam",
+    "size": 52,
+    "reference": "src/audio/save.c",
+    "match": "exact",
+    "sha256": "b7b30fe537667c0e5547257b445cba9e23aac12a7c4b9e3c2b0047c5bb57fb71",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80041194",
+    "name": "alSavePull",
+    "size": 140,
+    "reference": "src/audio/save.c",
+    "match": "exact",
+    "sha256": "8e29dd8a34b471ef867750b988e1a6fe0673f8412ec86bfcecb3078970c19f8c",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80041220",
+    "name": "osGetTime",
+    "size": 132,
+    "reference": "lib/src/osGetTime.c",
+    "match": "masked",
+    "sha256": "9df2373c56959ff72049851e2a1a304014c3faeca5b1601c37dfc81d1eb97104",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x800412B0",
+    "name": "alCopy",
+    "size": 116,
+    "reference": "src/audio/copy.c",
+    "match": "exact",
+    "sha256": "b18b79e5540ae25ee1efb59a8143de0161383aa07e08df8fcf25540135ec634b",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80041330",
+    "name": "__osContAddressCrc",
+    "size": 176,
+    "reference": "lib/src/crc.c",
+    "match": "exact",
+    "sha256": "319998fd133973f4cd3526a0c0980d764034ad6ae652895f7b18bac0f4b89d93",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x800413E0",
+    "name": "__osContDataCrc",
+    "size": 208,
+    "reference": "lib/src/crc.c",
+    "match": "exact",
+    "sha256": "bbfa6798a2048b18ffe28c5d1b22a152d7274c197ac4e90fff8f7aed13ac3fdf",
+    "reference_set": "sm64-us"
+  },
+  {
+    "segment": "main",
+    "address": "0x800414B0",
+    "name": "alSeqGetLoc",
+    "size": 28,
+    "reference": "src/audio/seq.c",
+    "match": "exact",
+    "sha256": "55643038ebc461c62ed6dbc68345a47bc92d6c8c0cb02196ca8681d1d79458fa",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x800414CC",
+    "name": "alSeqSetLoc",
+    "size": 28,
+    "reference": "src/audio/seq.c",
+    "match": "exact",
+    "sha256": "3198eac42dc6ab0b45e1a18e08486a7bee418a7ae8e403b9b758aa702698e9a3",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x800414E8",
+    "name": "alSeqGetTicks",
+    "size": 8,
+    "reference": "src/audio/seq.c",
+    "reference_set": "ultralib-I",
+    "match": "structural",
+    "note": "Seq ticks getter inside Seq object group"
+  },
+  {
+    "segment": "main",
+    "address": "0x80041544",
+    "name": "alSeqNextEvent",
+    "size": 388,
+    "reference": "src/audio/seq.c",
+    "match": "masked",
+    "sha256": "ea94ae04b797c8a4b7f2d8550001a540305f8ce9f6991f188b81879df22fb129",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x800416C8",
+    "name": "alSeqNewMarker",
+    "size": 288,
+    "reference": "src/audio/seq.c",
+    "match": "masked",
+    "sha256": "7494417c37aaab6fc59655994dbf6daa58ba4e51ba073a841ad0f02d1604ac23",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x800417E8",
+    "name": "alSeqSecToTicks",
+    "size": 228,
+    "reference": "src/audio/seq.c",
+    "match": "masked",
+    "sha256": "854f2f8a3c3eb90cd02b9719f18ac52c3a8e5f899cf8f10c977e5b6b32ca5976",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x800418CC",
+    "name": "alSeqTicksToSec",
+    "size": 84,
+    "reference": "src/audio/seq.c",
+    "match": "masked",
+    "sha256": "6947c53adb2661eea1ba64a634e7ec81c9af850dabb8e9f6ea98cdefcd4c461d",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80041920",
+    "name": "__alSeqNextDelta",
+    "size": 88,
+    "reference": "src/audio/seq.c",
+    "match": "masked",
+    "sha256": "c6522ad8f91e6b1344197ddca0b1ba7c7a989c9d8fa51126ff40e80e280809fb",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x800419F8",
+    "name": "alSeqNew",
+    "size": 216,
+    "reference": "src/audio/seq.c",
+    "match": "masked",
+    "sha256": "98ae618d49dde1263b3ea021d00bf6a9fa2cab52a504b1481443ed818c035015",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80041AD0",
+    "name": "alSynSetPriority",
+    "size": 16,
+    "reference": "src/audio/synsetpriority.c",
+    "reference_set": "ultralib-I",
+    "match": "structural",
+    "note": "Voice priority field store"
+  },
+  {
+    "segment": "main",
+    "address": "0x80041AE0",
+    "name": "alFilterNew",
+    "size": 28,
+    "reference": "src/audio/filter.c",
+    "match": "exact",
+    "sha256": "7bc05ef24d98f9373735f36ad04e48633a87987e983bd41003b23313df18ef37",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80041B00",
+    "name": "_doModFunc",
+    "size": 168,
+    "reference": "src/audio/reverb.c",
+    "match": "exact",
+    "sha256": "39577c7b00ce342eb29453fe70eab44baee8cb02bbe401b8a829b97b18d4e907",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80041BA8",
+    "name": "_filterBuffer",
+    "size": 184,
+    "reference": "src/audio/reverb.c",
+    "match": "masked",
+    "sha256": "438a813484537d27dbf3592aacf7d110e6c19693d37230653f4a799f6729f803",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80041C60",
+    "name": "_saveBuffer",
+    "size": 392,
+    "reference": "src/audio/reverb.c",
+    "match": "masked",
+    "sha256": "163c9bf51070c4d0aae21612a9d34efa0f591495206dfa9475daf75d2becd17f",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80041DE8",
+    "name": "_loadBuffer",
+    "size": 396,
+    "reference": "src/audio/reverb.c",
+    "match": "masked",
+    "sha256": "5f1c2a61b783fa3c630ca4374b347483b7e5bc5173053cba1ec61f9a53df80fe",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x80041F74",
+    "name": "_loadOutputBuffer",
+    "size": 548,
+    "reference": "src/audio/reverb.c",
+    "match": "masked",
+    "sha256": "d4994865d4b25b7d29ea7387179875659e2e9896cd4261120884b689fbee25c6",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x800423B0",
+    "name": "alFxParam",
+    "size": 24,
+    "reference": "src/audio/reverb.c",
+    "match": "exact",
+    "sha256": "d579f83f1b28d4da1cf5cb4bd9173ba35d58f32ea6afb3e464e181cbd4604775",
+    "reference_set": "ultralib-I"
+  },
+  {
+    "segment": "main",
+    "address": "0x800423C8",
+    "name": "alFxPull",
+    "size": 832,
+    "reference": "src/audio/reverb.c",
+    "match": "masked",
+    "sha256": "933d4d2c62bc5ac08012cc0a1e216603a489b6481c63e7e6d3a8f34bf5fd75a3",
+    "reference_set": "ultralib-I"
+  }
+]

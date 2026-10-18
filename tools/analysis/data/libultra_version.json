@@ -1,0 +1,39 @@
+{
+  "conclusion": "SM64 US-compatible early CPU libultra; exact revision letter unresolved",
+  "probes": [
+    {
+      "segment": "boot",
+      "address": "0x80003DA0",
+      "name": "@text",
+      "size": 2160,
+      "reference": "exception.o",
+      "match": "masked",
+      "sha256": "364221e70283f2f3cf6e04da31479933b67aabc95509b23b03f50a23d825f381",
+      "reference_set": "sm64-us"
+    },
+    {
+      "segment": "boot",
+      "address": "0x80002590",
+      "name": "osInitialize",
+      "size": 560,
+      "reference": "osInitialize.o",
+      "match": "masked",
+      "sha256": "7228d5049a346bc7a6160702a626dc3de942953a16607fbafe03b8f0473c25ef",
+      "reference_set": "sm64-us"
+    },
+    {
+      "reference_set": "ultralib-I",
+      "reference": "src/os/exceptasm.o",
+      "name": "@text",
+      "size": 2320,
+      "result": "No full match in KI boot or main scan"
+    },
+    {
+      "reference_set": "ultralib-I",
+      "reference": "src/os/initialize.o",
+      "name": "osInitialize",
+      "size": 652,
+      "result": "No full match in KI boot or main scan"
+    }
+  ]
+}
