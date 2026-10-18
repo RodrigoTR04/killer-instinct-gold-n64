@@ -13,6 +13,7 @@ The lead (orchestrator) vets every change before it lands. Subagents don't mark 
 | Entrypoint (header) | `0x80000400` (CIC 6102, unchanged) |
 | Compiler (working hypothesis) | IDO 5.3, start `-O2 -mips2 -G 0 -non_shared -Wab,-r4300_mul -Xcpluscomm`; also try -O1 / -mips1 (docs/research.md, medium confidence) |
 | libultra | unknown — RSP ucode 2.0D; CPU lib version TBD (G..J candidates) |
+| Toolchain | `./tools/setup.sh`; splat64 0.50.1, spimdisasm 1.42.4, rabbitizer 1.16.2, IDO 5.3/7.1 recomp v1.2, binutils 2.43.1 mips64-elf (docs/toolchain.md) |
 | Layout | see docs/rom_layout.md: boot seg ROM 0x1000–0x7ED0; main = 1172+raw-DEFLATE @0xA94D80 → 0x8000F960 (0x3A8D0 B); 26 compressed overlays/data via table @ROM 0x7DF0 |
 | Other good dumps | US V1.1 `bcc599ed…`, US V1.2 `aaeb492b…`, EU `e0ed97c7…` (later targets) |
 
@@ -33,7 +34,7 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | ID | Task | Owner | Status | Output | Notes |
 |---|---|---|---|---|---|
 | T-000 | Repo bootstrap, baserom selection, tracking | lead | Done | this file, .gitignore | |
-| T-001 | Toolchain setup (venv, splat/spimdisasm/rabbitizer, m2c, asm-differ, MIPS binutils, IDO recomp) | sol-A | In progress | tools/setup.sh, docs/toolchain.md | no sudo available |
+| T-001 | Toolchain setup (venv, splat/spimdisasm/rabbitizer, m2c, asm-differ, MIPS binutils, IDO recomp) | sol-A | Done | tools/setup.sh, docs/toolchain.md | no sudo available |
 | T-002 | ROM structure analysis (boot, entry, code segments, BSS, libultra version, compressed data) | sol-B | Done | docs/rom_layout.md, tools/analysis/ | read-only on ROM |
 | T-003 | Prior-art + compiler research, cross-revision diff | sol-C | Done | docs/research.md, tools/research/ | |
 | T-004 | Segment/overlay map: VRAM dest + text/data/bss bounds for main & all 26 table payloads; extractor | sol-B2 | In progress | docs/segments.md, tools/analysis/segments.py, tools/analysis/extract_segments.py | stdlib only |
