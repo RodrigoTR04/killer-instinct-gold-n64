@@ -1,946 +1,7250 @@
 {
-  "0x80000400": {
-    "area": "asm/boot.s",
+  "boot:0x80000400": {
+    "area": "boot",
     "bytes": 80,
     "function": "entrypoint",
     "handwritten": true,
     "rom": "0x1000",
     "vram": "0x80000400"
   },
-  "0x80000450": {
-    "area": "asm/boot.s",
+  "boot:0x80000450": {
+    "area": "boot",
     "bytes": 92,
     "function": "func_80000450",
     "handwritten": false,
     "rom": "0x1050",
     "vram": "0x80000450"
   },
-  "0x800004AC": {
-    "area": "asm/boot.s",
+  "boot:0x800004AC": {
+    "area": "boot",
     "bytes": 116,
     "function": "func_800004AC",
     "handwritten": false,
     "rom": "0x10AC",
     "vram": "0x800004AC"
   },
-  "0x80000520": {
-    "area": "asm/boot.s",
+  "boot:0x80000520": {
+    "area": "boot",
     "bytes": 204,
     "function": "func_80000520",
     "handwritten": false,
     "rom": "0x1120",
     "vram": "0x80000520"
   },
-  "0x800005EC": {
-    "area": "asm/boot.s",
+  "boot:0x800005EC": {
+    "area": "boot",
     "bytes": 184,
     "function": "func_800005EC",
     "handwritten": false,
     "rom": "0x11EC",
     "vram": "0x800005EC"
   },
-  "0x800006B0": {
-    "area": "asm/boot.s",
+  "boot:0x800006B0": {
+    "area": "boot",
     "bytes": 76,
     "function": "func_800006B0",
     "handwritten": false,
     "rom": "0x12B0",
     "vram": "0x800006B0"
   },
-  "0x800006FC": {
-    "area": "asm/boot.s",
+  "boot:0x800006FC": {
+    "area": "boot",
     "bytes": 68,
     "function": "func_800006FC",
     "handwritten": false,
     "rom": "0x12FC",
     "vram": "0x800006FC"
   },
-  "0x80000740": {
-    "area": "asm/boot.s",
+  "boot:0x80000740": {
+    "area": "boot",
     "bytes": 116,
     "function": "boot_dma",
     "handwritten": false,
     "rom": "0x1340",
     "vram": "0x80000740"
   },
-  "0x800007B4": {
-    "area": "asm/boot.s",
+  "boot:0x800007B4": {
+    "area": "boot",
     "bytes": 328,
     "function": "boot_dma_chunked",
     "handwritten": false,
     "rom": "0x13B4",
     "vram": "0x800007B4"
   },
-  "0x80000900": {
-    "area": "asm/boot.s",
+  "boot:0x80000900": {
+    "area": "boot",
     "bytes": 88,
     "function": "boot_inflate",
     "handwritten": false,
     "rom": "0x1500",
     "vram": "0x80000900"
   },
-  "0x80000960": {
-    "area": "asm/boot.s",
+  "boot:0x80000960": {
+    "area": "boot",
     "bytes": 1600,
     "function": "func_80000960",
     "handwritten": false,
     "rom": "0x1560",
     "vram": "0x80000960"
   },
-  "0x80000FA0": {
-    "area": "asm/boot.s",
+  "boot:0x80000FA0": {
+    "area": "boot",
     "bytes": 1136,
     "function": "func_80000FA0",
     "handwritten": false,
     "rom": "0x1BA0",
     "vram": "0x80000FA0"
   },
-  "0x80001410": {
-    "area": "asm/boot.s",
+  "boot:0x80001410": {
+    "area": "boot",
     "bytes": 340,
     "function": "func_80001410",
     "handwritten": false,
     "rom": "0x2010",
     "vram": "0x80001410"
   },
-  "0x80001564": {
-    "area": "asm/boot.s",
+  "boot:0x80001564": {
+    "area": "boot",
     "bytes": 360,
     "function": "func_80001564",
     "handwritten": false,
     "rom": "0x2164",
     "vram": "0x80001564"
   },
-  "0x800016CC": {
-    "area": "asm/boot.s",
+  "boot:0x800016CC": {
+    "area": "boot",
     "bytes": 1316,
     "function": "func_800016CC",
     "handwritten": false,
     "rom": "0x22CC",
     "vram": "0x800016CC"
   },
-  "0x80001BF0": {
-    "area": "asm/boot.s",
+  "boot:0x80001BF0": {
+    "area": "boot",
     "bytes": 288,
     "function": "func_80001BF0",
     "handwritten": false,
     "rom": "0x27F0",
     "vram": "0x80001BF0"
   },
-  "0x80001D10": {
-    "area": "asm/boot.s",
+  "boot:0x80001D10": {
+    "area": "boot",
     "bytes": 212,
     "function": "func_80001D10",
     "handwritten": false,
     "rom": "0x2910",
     "vram": "0x80001D10"
   },
-  "0x80001DF0": {
-    "area": "asm/boot.s",
+  "boot:0x80001DF0": {
+    "area": "boot",
     "bytes": 260,
     "function": "func_80001DF0",
     "handwritten": false,
     "rom": "0x29F0",
     "vram": "0x80001DF0"
   },
-  "0x80001EF4": {
-    "area": "asm/boot.s",
+  "boot:0x80001EF4": {
+    "area": "boot",
     "bytes": 56,
     "function": "func_80001EF4",
     "handwritten": false,
     "rom": "0x2AF4",
     "vram": "0x80001EF4"
   },
-  "0x80001F2C": {
-    "area": "asm/boot.s",
+  "boot:0x80001F2C": {
+    "area": "boot",
     "bytes": 916,
     "function": "func_80001F2C",
     "handwritten": false,
     "rom": "0x2B2C",
     "vram": "0x80001F2C"
   },
-  "0x800022C0": {
-    "area": "asm/boot.s",
+  "boot:0x800022C0": {
+    "area": "boot",
     "bytes": 352,
     "function": "func_800022C0",
     "handwritten": false,
     "rom": "0x2EC0",
     "vram": "0x800022C0"
   },
-  "0x80002420": {
-    "area": "asm/boot.s",
+  "boot:0x80002420": {
+    "area": "boot",
     "bytes": 360,
     "function": "func_80002420",
     "handwritten": false,
     "rom": "0x3020",
     "vram": "0x80002420"
   },
-  "0x80002590": {
-    "area": "asm/boot.s",
+  "boot:0x80002590": {
+    "area": "boot",
     "bytes": 560,
     "function": "osInitialize",
     "handwritten": false,
     "rom": "0x3190",
     "vram": "0x80002590"
   },
-  "0x800027C0": {
-    "area": "asm/boot.s",
+  "boot:0x800027C0": {
+    "area": "boot",
     "bytes": 324,
     "function": "osCreateThread",
     "handwritten": false,
     "rom": "0x33C0",
     "vram": "0x800027C0"
   },
-  "0x80002910": {
-    "area": "asm/boot.s",
+  "boot:0x80002910": {
+    "area": "boot",
     "bytes": 336,
     "function": "osStartThread",
     "handwritten": false,
     "rom": "0x3510",
     "vram": "0x80002910"
   },
-  "0x80002A60": {
-    "area": "asm/boot.s",
+  "boot:0x80002A60": {
+    "area": "boot",
     "bytes": 224,
     "function": "func_80002A60",
     "handwritten": false,
     "rom": "0x3660",
     "vram": "0x80002A60"
   },
-  "0x80002B80": {
-    "area": "asm/boot.s",
+  "boot:0x80002B80": {
+    "area": "boot",
     "bytes": 156,
     "function": "bzero",
     "handwritten": false,
     "rom": "0x3780",
     "vram": "0x80002B80"
   },
-  "0x80002C20": {
-    "area": "asm/boot.s",
+  "boot:0x80002C20": {
+    "area": "boot",
     "bytes": 116,
     "function": "osInvalICache",
     "handwritten": true,
     "rom": "0x3820",
     "vram": "0x80002C20"
   },
-  "0x80002CA0": {
-    "area": "asm/boot.s",
+  "boot:0x80002CA0": {
+    "area": "boot",
     "bytes": 172,
     "function": "osInvalDCache",
     "handwritten": true,
     "rom": "0x38A0",
     "vram": "0x80002CA0"
   },
-  "0x80002D50": {
-    "area": "asm/boot.s",
+  "boot:0x80002D50": {
+    "area": "boot",
     "bytes": 380,
     "function": "func_80002D50",
     "handwritten": false,
     "rom": "0x3950",
     "vram": "0x80002D50"
   },
-  "0x80002ED0": {
-    "area": "asm/boot.s",
+  "boot:0x80002ED0": {
+    "area": "boot",
     "bytes": 44,
     "function": "osCreateMesgQueue",
     "handwritten": false,
     "rom": "0x3AD0",
     "vram": "0x80002ED0"
   },
-  "0x80002F00": {
-    "area": "asm/boot.s",
+  "boot:0x80002F00": {
+    "area": "boot",
     "bytes": 260,
     "function": "osPiStartDma",
     "handwritten": false,
     "rom": "0x3B00",
     "vram": "0x80002F00"
   },
-  "0x80003010": {
-    "area": "asm/boot.s",
+  "boot:0x80003010": {
+    "area": "boot",
     "bytes": 312,
     "function": "osRecvMesg",
     "handwritten": false,
     "rom": "0x3C10",
     "vram": "0x80003010"
   },
-  "0x80003150": {
-    "area": "asm/boot.s",
+  "boot:0x80003150": {
+    "area": "boot",
     "bytes": 44,
     "function": "func_80003150",
     "handwritten": false,
     "rom": "0x3D50",
     "vram": "0x80003150"
   },
-  "0x8000317C": {
-    "area": "asm/boot.s",
+  "boot:0x8000317C": {
+    "area": "boot",
     "bytes": 40,
     "function": "func_8000317C",
     "handwritten": false,
     "rom": "0x3D7C",
     "vram": "0x8000317C"
   },
-  "0x800031A4": {
-    "area": "asm/boot.s",
+  "boot:0x800031A4": {
+    "area": "boot",
     "bytes": 64,
     "function": "func_800031A4",
     "handwritten": false,
     "rom": "0x3DA4",
     "vram": "0x800031A4"
   },
-  "0x800031F0": {
-    "area": "asm/boot.s",
+  "boot:0x800031F0": {
+    "area": "boot",
     "bytes": 388,
     "function": "func_800031F0",
     "handwritten": false,
     "rom": "0x3DF0",
     "vram": "0x800031F0"
   },
-  "0x80003374": {
-    "area": "asm/boot.s",
+  "boot:0x80003374": {
+    "area": "boot",
     "bytes": 464,
     "function": "func_80003374",
     "handwritten": false,
     "rom": "0x3F74",
     "vram": "0x80003374"
   },
-  "0x80003550": {
-    "area": "asm/boot.s",
+  "boot:0x80003550": {
+    "area": "boot",
     "bytes": 104,
     "function": "func_80003550",
     "handwritten": false,
     "rom": "0x4150",
     "vram": "0x80003550"
   },
-  "0x800035C0": {
-    "area": "asm/boot.s",
+  "boot:0x800035C0": {
+    "area": "boot",
     "bytes": 108,
     "function": "func_800035C0",
     "handwritten": false,
     "rom": "0x41C0",
     "vram": "0x800035C0"
   },
-  "0x80003630": {
-    "area": "asm/boot.s",
+  "boot:0x80003630": {
+    "area": "boot",
     "bytes": 32,
     "function": "func_80003630",
     "handwritten": false,
     "rom": "0x4230",
     "vram": "0x80003630"
   },
-  "0x80003650": {
-    "area": "asm/boot.s",
+  "boot:0x80003650": {
+    "area": "boot",
     "bytes": 284,
     "function": "func_80003650",
     "handwritten": false,
     "rom": "0x4250",
     "vram": "0x80003650"
   },
-  "0x8000376C": {
-    "area": "asm/boot.s",
+  "boot:0x8000376C": {
+    "area": "boot",
     "bytes": 352,
     "function": "func_8000376C",
     "handwritten": false,
     "rom": "0x436C",
     "vram": "0x8000376C"
   },
-  "0x800038CC": {
-    "area": "asm/boot.s",
+  "boot:0x800038CC": {
+    "area": "boot",
     "bytes": 64,
     "function": "func_800038CC",
     "handwritten": false,
     "rom": "0x44CC",
     "vram": "0x800038CC"
   },
-  "0x80003910": {
-    "area": "asm/boot.s",
+  "boot:0x80003910": {
+    "area": "boot",
     "bytes": 332,
     "function": "func_80003910",
     "handwritten": false,
     "rom": "0x4510",
     "vram": "0x80003910"
   },
-  "0x80003A60": {
-    "area": "asm/boot.s",
+  "boot:0x80003A60": {
+    "area": "boot",
     "bytes": 128,
     "function": "func_80003A60",
     "handwritten": false,
     "rom": "0x4660",
     "vram": "0x80003A60"
   },
-  "0x80003AE0": {
-    "area": "asm/boot.s",
+  "boot:0x80003AE0": {
+    "area": "boot",
     "bytes": 80,
     "function": "func_80003AE0",
     "handwritten": false,
     "rom": "0x46E0",
     "vram": "0x80003AE0"
   },
-  "0x80003B30": {
-    "area": "asm/boot.s",
+  "boot:0x80003B30": {
+    "area": "boot",
     "bytes": 64,
     "function": "func_80003B30",
     "handwritten": false,
     "rom": "0x4730",
     "vram": "0x80003B30"
   },
-  "0x80003B70": {
-    "area": "asm/boot.s",
+  "boot:0x80003B70": {
+    "area": "boot",
     "bytes": 64,
     "function": "func_80003B70",
     "handwritten": false,
     "rom": "0x4770",
     "vram": "0x80003B70"
   },
-  "0x80003BB0": {
-    "area": "asm/boot.s",
+  "boot:0x80003BB0": {
+    "area": "boot",
     "bytes": 168,
     "function": "func_80003BB0",
     "handwritten": false,
     "rom": "0x47B0",
     "vram": "0x80003BB0"
   },
-  "0x80003C60": {
-    "area": "asm/boot.s",
+  "boot:0x80003C60": {
+    "area": "boot",
     "bytes": 104,
     "function": "func_80003C60",
     "handwritten": false,
     "rom": "0x4860",
     "vram": "0x80003C60"
   },
-  "0x80003CD0": {
-    "area": "asm/boot.s",
+  "boot:0x80003CD0": {
+    "area": "boot",
     "bytes": 16,
     "function": "func_80003CD0",
     "handwritten": true,
     "rom": "0x48D0",
     "vram": "0x80003CD0"
   },
-  "0x80003CE0": {
-    "area": "asm/boot.s",
+  "boot:0x80003CE0": {
+    "area": "boot",
     "bytes": 12,
     "function": "func_80003CE0",
     "handwritten": true,
     "rom": "0x48E0",
     "vram": "0x80003CE0"
   },
-  "0x80003CF0": {
-    "area": "asm/boot.s",
+  "boot:0x80003CF0": {
+    "area": "boot",
     "bytes": 16,
     "function": "func_80003CF0",
     "handwritten": false,
     "rom": "0x48F0",
     "vram": "0x80003CF0"
   },
-  "0x80003D00": {
-    "area": "asm/boot.s",
+  "boot:0x80003D00": {
+    "area": "boot",
     "bytes": 80,
     "function": "func_80003D00",
     "handwritten": false,
     "rom": "0x4900",
     "vram": "0x80003D00"
   },
-  "0x80003D50": {
-    "area": "asm/boot.s",
+  "boot:0x80003D50": {
+    "area": "boot",
     "bytes": 76,
     "function": "func_80003D50",
     "handwritten": false,
     "rom": "0x4950",
     "vram": "0x80003D50"
   },
-  "0x80003DA0": {
-    "area": "asm/boot.s",
+  "boot:0x80003DA0": {
+    "area": "boot",
     "bytes": 16,
     "function": "func_80003DA0",
     "handwritten": true,
     "rom": "0x49A0",
     "vram": "0x80003DA0"
   },
-  "0x80003DB0": {
-    "area": "asm/boot.s",
+  "boot:0x80003DB0": {
+    "area": "boot",
     "bytes": 1352,
     "function": "__osException",
     "handwritten": true,
     "rom": "0x49B0",
     "vram": "0x80003DB0"
   },
-  "0x800042F8": {
-    "area": "asm/boot.s",
+  "boot:0x800042F8": {
+    "area": "boot",
     "bytes": 232,
     "function": "func_800042F8",
     "handwritten": true,
     "rom": "0x4EF8",
     "vram": "0x800042F8"
   },
-  "0x800043E0": {
-    "area": "asm/boot.s",
+  "boot:0x800043E0": {
+    "area": "boot",
     "bytes": 144,
     "function": "func_800043E0",
     "handwritten": true,
     "rom": "0x4FE0",
     "vram": "0x800043E0"
   },
-  "0x80004470": {
-    "area": "asm/boot.s",
+  "boot:0x80004470": {
+    "area": "boot",
     "bytes": 72,
     "function": "func_80004470",
     "handwritten": false,
     "rom": "0x5070",
     "vram": "0x80004470"
   },
-  "0x800044B8": {
-    "area": "asm/boot.s",
+  "boot:0x800044B8": {
+    "area": "boot",
     "bytes": 16,
     "function": "func_800044B8",
     "handwritten": false,
     "rom": "0x50B8",
     "vram": "0x800044B8"
   },
-  "0x800044C8": {
-    "area": "asm/boot.s",
+  "boot:0x800044C8": {
+    "area": "boot",
     "bytes": 328,
     "function": "func_800044C8",
     "handwritten": true,
     "rom": "0x50C8",
     "vram": "0x800044C8"
   },
-  "0x80004610": {
-    "area": "asm/boot.s",
+  "boot:0x80004610": {
+    "area": "boot",
     "bytes": 116,
     "function": "func_80004610",
     "handwritten": true,
     "rom": "0x5210",
     "vram": "0x80004610"
   },
-  "0x80004690": {
-    "area": "asm/boot.s",
+  "boot:0x80004690": {
+    "area": "boot",
     "bytes": 88,
     "function": "func_80004690",
     "handwritten": true,
     "rom": "0x5290",
     "vram": "0x80004690"
   },
-  "0x800046F0": {
-    "area": "asm/boot.s",
+  "boot:0x800046F0": {
+    "area": "boot",
     "bytes": 84,
     "function": "func_800046F0",
     "handwritten": false,
     "rom": "0x52F0",
     "vram": "0x800046F0"
   },
-  "0x80004750": {
-    "area": "asm/boot.s",
+  "boot:0x80004750": {
+    "area": "boot",
     "bytes": 44,
     "function": "func_80004750",
     "handwritten": false,
     "rom": "0x5350",
     "vram": "0x80004750"
   },
-  "0x8000477C": {
-    "area": "asm/boot.s",
+  "boot:0x8000477C": {
+    "area": "boot",
     "bytes": 60,
     "function": "func_8000477C",
     "handwritten": false,
     "rom": "0x537C",
     "vram": "0x8000477C"
   },
-  "0x800047B8": {
-    "area": "asm/boot.s",
+  "boot:0x800047B8": {
+    "area": "boot",
     "bytes": 60,
     "function": "func_800047B8",
     "handwritten": false,
     "rom": "0x53B8",
     "vram": "0x800047B8"
   },
-  "0x800047F4": {
-    "area": "asm/boot.s",
+  "boot:0x800047F4": {
+    "area": "boot",
     "bytes": 44,
     "function": "func_800047F4",
     "handwritten": false,
     "rom": "0x53F4",
     "vram": "0x800047F4"
   },
-  "0x80004820": {
-    "area": "asm/boot.s",
+  "boot:0x80004820": {
+    "area": "boot",
     "bytes": 60,
     "function": "func_80004820",
     "handwritten": false,
     "rom": "0x5420",
     "vram": "0x80004820"
   },
-  "0x8000485C": {
-    "area": "asm/boot.s",
+  "boot:0x8000485C": {
+    "area": "boot",
     "bytes": 92,
     "function": "func_8000485C",
     "handwritten": false,
     "rom": "0x545C",
     "vram": "0x8000485C"
   },
-  "0x800048B8": {
-    "area": "asm/boot.s",
+  "boot:0x800048B8": {
+    "area": "boot",
     "bytes": 48,
     "function": "func_800048B8",
     "handwritten": false,
     "rom": "0x54B8",
     "vram": "0x800048B8"
   },
-  "0x800048E8": {
-    "area": "asm/boot.s",
+  "boot:0x800048E8": {
+    "area": "boot",
     "bytes": 96,
     "function": "func_800048E8",
     "handwritten": false,
     "rom": "0x54E8",
     "vram": "0x800048E8"
   },
-  "0x80004948": {
-    "area": "asm/boot.s",
+  "boot:0x80004948": {
+    "area": "boot",
     "bytes": 156,
     "function": "func_80004948",
     "handwritten": false,
     "rom": "0x5548",
     "vram": "0x80004948"
   },
-  "0x800049E4": {
-    "area": "asm/boot.s",
+  "boot:0x800049E4": {
+    "area": "boot",
     "bytes": 44,
     "function": "func_800049E4",
     "handwritten": false,
     "rom": "0x55E4",
     "vram": "0x800049E4"
   },
-  "0x80004A10": {
-    "area": "asm/boot.s",
+  "boot:0x80004A10": {
+    "area": "boot",
     "bytes": 32,
     "function": "func_80004A10",
     "handwritten": true,
     "rom": "0x5610",
     "vram": "0x80004A10"
   },
-  "0x80004A30": {
-    "area": "asm/boot.s",
+  "boot:0x80004A30": {
+    "area": "boot",
     "bytes": 28,
     "function": "func_80004A30",
     "handwritten": true,
     "rom": "0x5630",
     "vram": "0x80004A30"
   },
-  "0x80004A50": {
-    "area": "asm/boot.s",
+  "boot:0x80004A50": {
+    "area": "boot",
     "bytes": 64,
     "function": "func_80004A50",
     "handwritten": false,
     "rom": "0x5650",
     "vram": "0x80004A50"
   },
-  "0x80004A90": {
-    "area": "asm/boot.s",
+  "boot:0x80004A90": {
+    "area": "boot",
     "bytes": 80,
     "function": "func_80004A90",
     "handwritten": false,
     "rom": "0x5690",
     "vram": "0x80004A90"
   },
-  "0x80004AE0": {
-    "area": "asm/boot.s",
+  "boot:0x80004AE0": {
+    "area": "boot",
     "bytes": 68,
     "function": "func_80004AE0",
     "handwritten": false,
     "rom": "0x56E0",
     "vram": "0x80004AE0"
   },
-  "0x80004B24": {
-    "area": "asm/boot.s",
+  "boot:0x80004B24": {
+    "area": "boot",
     "bytes": 44,
     "function": "func_80004B24",
     "handwritten": false,
     "rom": "0x5724",
     "vram": "0x80004B24"
   },
-  "0x80004B50": {
-    "area": "asm/boot.s",
+  "boot:0x80004B50": {
+    "area": "boot",
     "bytes": 24,
     "function": "func_80004B50",
     "handwritten": false,
     "rom": "0x5750",
     "vram": "0x80004B50"
   },
-  "0x80004B70": {
-    "area": "asm/boot.s",
+  "boot:0x80004B70": {
+    "area": "boot",
     "bytes": 224,
     "function": "osPiRawStartDma",
     "handwritten": false,
     "rom": "0x5770",
     "vram": "0x80004B70"
   },
-  "0x80004C50": {
-    "area": "asm/boot.s",
+  "boot:0x80004C50": {
+    "area": "boot",
     "bytes": 372,
     "function": "func_80004C50",
     "handwritten": false,
     "rom": "0x5850",
     "vram": "0x80004C50"
   },
-  "0x80004DD0": {
-    "area": "asm/boot.s",
+  "boot:0x80004DD0": {
+    "area": "boot",
     "bytes": 336,
     "function": "func_80004DD0",
     "handwritten": false,
     "rom": "0x59D0",
     "vram": "0x80004DD0"
   },
-  "0x80004F20": {
-    "area": "asm/boot.s",
+  "boot:0x80004F20": {
+    "area": "boot",
     "bytes": 40,
     "function": "func_80004F20",
     "handwritten": false,
     "rom": "0x5B20",
     "vram": "0x80004F20"
   },
-  "0x80004F50": {
-    "area": "asm/boot.s",
+  "boot:0x80004F50": {
+    "area": "boot",
     "bytes": 140,
     "function": "func_80004F50",
     "handwritten": false,
     "rom": "0x5B50",
     "vram": "0x80004F50"
   },
-  "0x80004FDC": {
-    "area": "asm/boot.s",
+  "boot:0x80004FDC": {
+    "area": "boot",
     "bytes": 376,
     "function": "func_80004FDC",
     "handwritten": false,
     "rom": "0x5BDC",
     "vram": "0x80004FDC"
   },
-  "0x80005154": {
-    "area": "asm/boot.s",
+  "boot:0x80005154": {
+    "area": "boot",
     "bytes": 116,
     "function": "func_80005154",
     "handwritten": false,
     "rom": "0x5D54",
     "vram": "0x80005154"
   },
-  "0x800051C8": {
-    "area": "asm/boot.s",
+  "boot:0x800051C8": {
+    "area": "boot",
     "bytes": 392,
     "function": "func_800051C8",
     "handwritten": false,
     "rom": "0x5DC8",
     "vram": "0x800051C8"
   },
-  "0x80005350": {
-    "area": "asm/boot.s",
+  "boot:0x80005350": {
+    "area": "boot",
     "bytes": 292,
     "function": "func_80005350",
     "handwritten": false,
     "rom": "0x5F50",
     "vram": "0x80005350"
   },
-  "0x80005480": {
-    "area": "asm/boot.s",
+  "boot:0x80005480": {
+    "area": "boot",
     "bytes": 12,
     "function": "func_80005480",
     "handwritten": false,
     "rom": "0x6080",
     "vram": "0x80005480"
   },
-  "0x80005490": {
-    "area": "asm/boot.s",
+  "boot:0x80005490": {
+    "area": "boot",
     "bytes": 860,
     "function": "func_80005490",
     "handwritten": false,
     "rom": "0x6090",
     "vram": "0x80005490"
   },
-  "0x800057F0": {
-    "area": "asm/boot.s",
+  "boot:0x800057F0": {
+    "area": "boot",
     "bytes": 12,
     "function": "func_800057F0",
     "handwritten": true,
     "rom": "0x63F0",
     "vram": "0x800057F0"
   },
-  "0x80005800": {
-    "area": "asm/boot.s",
+  "boot:0x80005800": {
+    "area": "boot",
     "bytes": 12,
     "function": "func_80005800",
     "handwritten": false,
     "rom": "0x6400",
     "vram": "0x80005800"
   },
-  "0x80005810": {
-    "area": "asm/boot.s",
+  "boot:0x80005810": {
+    "area": "boot",
     "bytes": 772,
     "function": "func_80005810",
     "handwritten": true,
     "rom": "0x6410",
     "vram": "0x80005810"
   },
-  "0x80005B20": {
-    "area": "asm/boot.s",
+  "boot:0x80005B20": {
+    "area": "boot",
     "bytes": 124,
     "function": "func_80005B20",
     "handwritten": false,
     "rom": "0x6720",
     "vram": "0x80005B20"
   },
-  "0x80005BA0": {
-    "area": "asm/boot.s",
+  "boot:0x80005BA0": {
+    "area": "boot",
     "bytes": 52,
     "function": "func_80005BA0",
     "handwritten": false,
     "rom": "0x67A0",
     "vram": "0x80005BA0"
   },
-  "0x80005BE0": {
-    "area": "asm/boot.s",
+  "boot:0x80005BE0": {
+    "area": "boot",
     "bytes": 140,
     "function": "func_80005BE0",
     "handwritten": false,
     "rom": "0x67E0",
     "vram": "0x80005BE0"
   },
-  "0x80005C70": {
-    "area": "asm/boot.s",
+  "boot:0x80005C70": {
+    "area": "boot",
     "bytes": 44,
     "function": "func_80005C70",
     "handwritten": false,
     "rom": "0x6870",
     "vram": "0x80005C70"
   },
-  "0x80005CA0": {
-    "area": "asm/boot.s",
+  "boot:0x80005CA0": {
+    "area": "boot",
     "bytes": 12,
     "function": "func_80005CA0",
     "handwritten": false,
     "rom": "0x68A0",
     "vram": "0x80005CA0"
   },
-  "0x80005CB0": {
-    "area": "asm/boot.s",
+  "boot:0x80005CB0": {
+    "area": "boot",
     "bytes": 44,
     "function": "func_80005CB0",
     "handwritten": false,
     "rom": "0x68B0",
     "vram": "0x80005CB0"
   },
-  "0x80005CE0": {
-    "area": "asm/boot.s",
+  "boot:0x80005CE0": {
+    "area": "boot",
     "bytes": 44,
     "function": "func_80005CE0",
     "handwritten": false,
     "rom": "0x68E0",
     "vram": "0x80005CE0"
   },
-  "0x80005D10": {
-    "area": "asm/boot.s",
+  "boot:0x80005D10": {
+    "area": "boot",
     "bytes": 48,
     "function": "func_80005D10",
     "handwritten": false,
     "rom": "0x6910",
     "vram": "0x80005D10"
   },
-  "0x80005D40": {
-    "area": "asm/boot.s",
+  "boot:0x80005D40": {
+    "area": "boot",
     "bytes": 88,
     "function": "func_80005D40",
     "handwritten": false,
     "rom": "0x6940",
     "vram": "0x80005D40"
   },
-  "0x80005D98": {
-    "area": "asm/boot.s",
+  "boot:0x80005D98": {
+    "area": "boot",
     "bytes": 192,
     "function": "func_80005D98",
     "handwritten": false,
     "rom": "0x6998",
     "vram": "0x80005D98"
   },
-  "0x80005E58": {
-    "area": "asm/boot.s",
+  "boot:0x80005E58": {
+    "area": "boot",
     "bytes": 216,
     "function": "func_80005E58",
     "handwritten": false,
     "rom": "0x6A58",
     "vram": "0x80005E58"
   },
-  "0x80005F30": {
-    "area": "asm/boot.s",
+  "boot:0x80005F30": {
+    "area": "boot",
     "bytes": 76,
     "function": "func_80005F30",
     "handwritten": false,
     "rom": "0x6B30",
     "vram": "0x80005F30"
   },
-  "0x80005F7C": {
-    "area": "asm/boot.s",
+  "boot:0x80005F7C": {
+    "area": "boot",
     "bytes": 44,
     "function": "func_80005F7C",
     "handwritten": false,
     "rom": "0x6B7C",
     "vram": "0x80005F7C"
   },
-  "0x80005FA8": {
-    "area": "asm/boot.s",
+  "boot:0x80005FA8": {
+    "area": "boot",
     "bytes": 476,
     "function": "func_80005FA8",
     "handwritten": false,
     "rom": "0x6BA8",
     "vram": "0x80005FA8"
   },
-  "0x80006190": {
-    "area": "asm/boot.s",
+  "boot:0x80006190": {
+    "area": "boot",
     "bytes": 292,
     "function": "func_80006190",
     "handwritten": false,
     "rom": "0x6D90",
     "vram": "0x80006190"
   },
-  "0x800062C0": {
-    "area": "asm/boot.s",
+  "boot:0x800062C0": {
+    "area": "boot",
     "bytes": 96,
     "function": "func_800062C0",
     "handwritten": true,
     "rom": "0x6EC0",
     "vram": "0x800062C0"
   },
-  "0x80006320": {
-    "area": "asm/boot.s",
+  "boot:0x80006320": {
+    "area": "boot",
     "bytes": 248,
     "function": "func_80006320",
     "handwritten": false,
     "rom": "0x6F20",
     "vram": "0x80006320"
   },
-  "0x80006420": {
-    "area": "asm/boot.s",
+  "boot:0x80006420": {
+    "area": "boot",
     "bytes": 12,
     "function": "func_80006420",
     "handwritten": true,
     "rom": "0x7020",
     "vram": "0x80006420"
   },
-  "0x80006430": {
-    "area": "asm/boot.s",
+  "boot:0x80006430": {
+    "area": "boot",
     "bytes": 184,
     "function": "func_80006430",
     "handwritten": true,
     "rom": "0x7030",
     "vram": "0x80006430"
   },
-  "0x800064F0": {
-    "area": "asm/boot.s",
+  "boot:0x800064F0": {
+    "area": "boot",
     "bytes": 12,
     "function": "func_800064F0",
     "handwritten": true,
     "rom": "0x70F0",
     "vram": "0x800064F0"
   },
-  "0x80006500": {
-    "area": "asm/boot.s",
+  "boot:0x80006500": {
+    "area": "boot",
     "bytes": 88,
     "function": "func_80006500",
     "handwritten": false,
     "rom": "0x7100",
     "vram": "0x80006500"
+  },
+  "main:0x8000F960": {
+    "area": "main",
+    "bytes": 240,
+    "function": "func_8000F960",
+    "handwritten": false,
+    "rom": "0x0",
+    "vram": "0x8000F960"
+  },
+  "main:0x8000FA50": {
+    "area": "main",
+    "bytes": 48,
+    "function": "func_8000FA50",
+    "handwritten": false,
+    "rom": "0xF0",
+    "vram": "0x8000FA50"
+  },
+  "main:0x8000FA80": {
+    "area": "main",
+    "bytes": 7436,
+    "function": "func_8000FA80",
+    "handwritten": false,
+    "rom": "0x120",
+    "vram": "0x8000FA80"
+  },
+  "main:0x8001178C": {
+    "area": "main",
+    "bytes": 2104,
+    "function": "func_8001178C",
+    "handwritten": false,
+    "rom": "0x1E2C",
+    "vram": "0x8001178C"
+  },
+  "main:0x80011FC4": {
+    "area": "main",
+    "bytes": 316,
+    "function": "func_80011FC4",
+    "handwritten": false,
+    "rom": "0x2664",
+    "vram": "0x80011FC4"
+  },
+  "main:0x80012100": {
+    "area": "main",
+    "bytes": 200,
+    "function": "func_80012100",
+    "handwritten": false,
+    "rom": "0x27A0",
+    "vram": "0x80012100"
+  },
+  "main:0x800121C8": {
+    "area": "main",
+    "bytes": 304,
+    "function": "func_800121C8",
+    "handwritten": false,
+    "rom": "0x2868",
+    "vram": "0x800121C8"
+  },
+  "main:0x800122F8": {
+    "area": "main",
+    "bytes": 64,
+    "function": "func_800122F8",
+    "handwritten": false,
+    "rom": "0x2998",
+    "vram": "0x800122F8"
+  },
+  "main:0x80012338": {
+    "area": "main",
+    "bytes": 40,
+    "function": "func_80012338",
+    "handwritten": false,
+    "rom": "0x29D8",
+    "vram": "0x80012338"
+  },
+  "main:0x80012360": {
+    "area": "main",
+    "bytes": 48,
+    "function": "func_80012360",
+    "handwritten": false,
+    "rom": "0x2A00",
+    "vram": "0x80012360"
+  },
+  "main:0x80012390": {
+    "area": "main",
+    "bytes": 476,
+    "function": "func_80012390",
+    "handwritten": false,
+    "rom": "0x2A30",
+    "vram": "0x80012390"
+  },
+  "main:0x8001256C": {
+    "area": "main",
+    "bytes": 356,
+    "function": "func_8001256C",
+    "handwritten": false,
+    "rom": "0x2C0C",
+    "vram": "0x8001256C"
+  },
+  "main:0x800126D0": {
+    "area": "main",
+    "bytes": 92,
+    "function": "func_800126D0",
+    "handwritten": false,
+    "rom": "0x2D70",
+    "vram": "0x800126D0"
+  },
+  "main:0x8001272C": {
+    "area": "main",
+    "bytes": 540,
+    "function": "func_8001272C",
+    "handwritten": false,
+    "rom": "0x2DCC",
+    "vram": "0x8001272C"
+  },
+  "main:0x80012950": {
+    "area": "main",
+    "bytes": 316,
+    "function": "func_80012950",
+    "handwritten": false,
+    "rom": "0x2FF0",
+    "vram": "0x80012950"
+  },
+  "main:0x80012A8C": {
+    "area": "main",
+    "bytes": 152,
+    "function": "func_80012A8C",
+    "handwritten": false,
+    "rom": "0x312C",
+    "vram": "0x80012A8C"
+  },
+  "main:0x80012B24": {
+    "area": "main",
+    "bytes": 88,
+    "function": "func_80012B24",
+    "handwritten": false,
+    "rom": "0x31C4",
+    "vram": "0x80012B24"
+  },
+  "main:0x80012B7C": {
+    "area": "main",
+    "bytes": 1576,
+    "function": "func_80012B7C",
+    "handwritten": false,
+    "rom": "0x321C",
+    "vram": "0x80012B7C"
+  },
+  "main:0x800131A4": {
+    "area": "main",
+    "bytes": 712,
+    "function": "func_800131A4",
+    "handwritten": false,
+    "rom": "0x3844",
+    "vram": "0x800131A4"
+  },
+  "main:0x8001346C": {
+    "area": "main",
+    "bytes": 704,
+    "function": "func_8001346C",
+    "handwritten": false,
+    "rom": "0x3B0C",
+    "vram": "0x8001346C"
+  },
+  "main:0x8001372C": {
+    "area": "main",
+    "bytes": 16,
+    "function": "func_8001372C",
+    "handwritten": false,
+    "rom": "0x3DCC",
+    "vram": "0x8001372C"
+  },
+  "main:0x8001373C": {
+    "area": "main",
+    "bytes": 256,
+    "function": "func_8001373C",
+    "handwritten": false,
+    "rom": "0x3DDC",
+    "vram": "0x8001373C"
+  },
+  "main:0x8001383C": {
+    "area": "main",
+    "bytes": 872,
+    "function": "func_8001383C",
+    "handwritten": false,
+    "rom": "0x3EDC",
+    "vram": "0x8001383C"
+  },
+  "main:0x80013BA4": {
+    "area": "main",
+    "bytes": 60,
+    "function": "func_80013BA4",
+    "handwritten": false,
+    "rom": "0x4244",
+    "vram": "0x80013BA4"
+  },
+  "main:0x80013BE0": {
+    "area": "main",
+    "bytes": 164,
+    "function": "func_80013BE0",
+    "handwritten": false,
+    "rom": "0x4280",
+    "vram": "0x80013BE0"
+  },
+  "main:0x80013C84": {
+    "area": "main",
+    "bytes": 84,
+    "function": "func_80013C84",
+    "handwritten": false,
+    "rom": "0x4324",
+    "vram": "0x80013C84"
+  },
+  "main:0x80013CD8": {
+    "area": "main",
+    "bytes": 1140,
+    "function": "func_80013CD8",
+    "handwritten": false,
+    "rom": "0x4378",
+    "vram": "0x80013CD8"
+  },
+  "main:0x8001414C": {
+    "area": "main",
+    "bytes": 260,
+    "function": "func_8001414C",
+    "handwritten": false,
+    "rom": "0x47EC",
+    "vram": "0x8001414C"
+  },
+  "main:0x80014250": {
+    "area": "main",
+    "bytes": 144,
+    "function": "func_80014250",
+    "handwritten": false,
+    "rom": "0x48F0",
+    "vram": "0x80014250"
+  },
+  "main:0x800142E0": {
+    "area": "main",
+    "bytes": 2400,
+    "function": "func_800142E0",
+    "handwritten": false,
+    "rom": "0x4980",
+    "vram": "0x800142E0"
+  },
+  "main:0x80014C40": {
+    "area": "main",
+    "bytes": 284,
+    "function": "func_80014C40",
+    "handwritten": false,
+    "rom": "0x52E0",
+    "vram": "0x80014C40"
+  },
+  "main:0x80014D5C": {
+    "area": "main",
+    "bytes": 1780,
+    "function": "func_80014D5C",
+    "handwritten": false,
+    "rom": "0x53FC",
+    "vram": "0x80014D5C"
+  },
+  "main:0x80015450": {
+    "area": "main",
+    "bytes": 324,
+    "function": "func_80015450",
+    "handwritten": false,
+    "rom": "0x5AF0",
+    "vram": "0x80015450"
+  },
+  "main:0x80015594": {
+    "area": "main",
+    "bytes": 1488,
+    "function": "func_80015594",
+    "handwritten": false,
+    "rom": "0x5C34",
+    "vram": "0x80015594"
+  },
+  "main:0x80015B64": {
+    "area": "main",
+    "bytes": 364,
+    "function": "func_80015B64",
+    "handwritten": false,
+    "rom": "0x6204",
+    "vram": "0x80015B64"
+  },
+  "main:0x80015CD0": {
+    "area": "main",
+    "bytes": 668,
+    "function": "func_80015CD0",
+    "handwritten": false,
+    "rom": "0x6370",
+    "vram": "0x80015CD0"
+  },
+  "main:0x80015F6C": {
+    "area": "main",
+    "bytes": 268,
+    "function": "func_80015F6C",
+    "handwritten": false,
+    "rom": "0x660C",
+    "vram": "0x80015F6C"
+  },
+  "main:0x80016078": {
+    "area": "main",
+    "bytes": 480,
+    "function": "func_80016078",
+    "handwritten": false,
+    "rom": "0x6718",
+    "vram": "0x80016078"
+  },
+  "main:0x80016258": {
+    "area": "main",
+    "bytes": 1288,
+    "function": "func_80016258",
+    "handwritten": false,
+    "rom": "0x68F8",
+    "vram": "0x80016258"
+  },
+  "main:0x80016760": {
+    "area": "main",
+    "bytes": 196,
+    "function": "func_80016760",
+    "handwritten": false,
+    "rom": "0x6E00",
+    "vram": "0x80016760"
+  },
+  "main:0x80016824": {
+    "area": "main",
+    "bytes": 228,
+    "function": "func_80016824",
+    "handwritten": false,
+    "rom": "0x6EC4",
+    "vram": "0x80016824"
+  },
+  "main:0x80016908": {
+    "area": "main",
+    "bytes": 8,
+    "function": "func_80016908",
+    "handwritten": false,
+    "rom": "0x6FA8",
+    "vram": "0x80016908"
+  },
+  "main:0x80016910": {
+    "area": "main",
+    "bytes": 720,
+    "function": "func_80016910",
+    "handwritten": false,
+    "rom": "0x6FB0",
+    "vram": "0x80016910"
+  },
+  "main:0x80016BE0": {
+    "area": "main",
+    "bytes": 1156,
+    "function": "func_80016BE0",
+    "handwritten": false,
+    "rom": "0x7280",
+    "vram": "0x80016BE0"
+  },
+  "main:0x80017064": {
+    "area": "main",
+    "bytes": 96,
+    "function": "func_80017064",
+    "handwritten": false,
+    "rom": "0x7704",
+    "vram": "0x80017064"
+  },
+  "main:0x800170C4": {
+    "area": "main",
+    "bytes": 692,
+    "function": "func_800170C4",
+    "handwritten": false,
+    "rom": "0x7764",
+    "vram": "0x800170C4"
+  },
+  "main:0x80017378": {
+    "area": "main",
+    "bytes": 1752,
+    "function": "func_80017378",
+    "handwritten": false,
+    "rom": "0x7A18",
+    "vram": "0x80017378"
+  },
+  "main:0x80017A50": {
+    "area": "main",
+    "bytes": 24,
+    "function": "func_80017A50",
+    "handwritten": false,
+    "rom": "0x80F0",
+    "vram": "0x80017A50"
+  },
+  "main:0x80017A68": {
+    "area": "main",
+    "bytes": 772,
+    "function": "func_80017A68",
+    "handwritten": false,
+    "rom": "0x8108",
+    "vram": "0x80017A68"
+  },
+  "main:0x80017D6C": {
+    "area": "main",
+    "bytes": 800,
+    "function": "func_80017D6C",
+    "handwritten": false,
+    "rom": "0x840C",
+    "vram": "0x80017D6C"
+  },
+  "main:0x8001808C": {
+    "area": "main",
+    "bytes": 808,
+    "function": "func_8001808C",
+    "handwritten": false,
+    "rom": "0x872C",
+    "vram": "0x8001808C"
+  },
+  "main:0x800183B4": {
+    "area": "main",
+    "bytes": 24,
+    "function": "func_800183B4",
+    "handwritten": false,
+    "rom": "0x8A54",
+    "vram": "0x800183B4"
+  },
+  "main:0x800183CC": {
+    "area": "main",
+    "bytes": 76,
+    "function": "func_800183CC",
+    "handwritten": false,
+    "rom": "0x8A6C",
+    "vram": "0x800183CC"
+  },
+  "main:0x80018418": {
+    "area": "main",
+    "bytes": 564,
+    "function": "func_80018418",
+    "handwritten": false,
+    "rom": "0x8AB8",
+    "vram": "0x80018418"
+  },
+  "main:0x8001864C": {
+    "area": "main",
+    "bytes": 24,
+    "function": "func_8001864C",
+    "handwritten": false,
+    "rom": "0x8CEC",
+    "vram": "0x8001864C"
+  },
+  "main:0x80018664": {
+    "area": "main",
+    "bytes": 1148,
+    "function": "func_80018664",
+    "handwritten": false,
+    "rom": "0x8D04",
+    "vram": "0x80018664"
+  },
+  "main:0x80018AE0": {
+    "area": "main",
+    "bytes": 912,
+    "function": "func_80018AE0",
+    "handwritten": false,
+    "rom": "0x9180",
+    "vram": "0x80018AE0"
+  },
+  "main:0x80018E70": {
+    "area": "main",
+    "bytes": 24,
+    "function": "func_80018E70",
+    "handwritten": false,
+    "rom": "0x9510",
+    "vram": "0x80018E70"
+  },
+  "main:0x80018E88": {
+    "area": "main",
+    "bytes": 152,
+    "function": "func_80018E88",
+    "handwritten": false,
+    "rom": "0x9528",
+    "vram": "0x80018E88"
+  },
+  "main:0x80018F20": {
+    "area": "main",
+    "bytes": 696,
+    "function": "func_80018F20",
+    "handwritten": false,
+    "rom": "0x95C0",
+    "vram": "0x80018F20"
+  },
+  "main:0x800191D8": {
+    "area": "main",
+    "bytes": 24,
+    "function": "func_800191D8",
+    "handwritten": false,
+    "rom": "0x9878",
+    "vram": "0x800191D8"
+  },
+  "main:0x800191F0": {
+    "area": "main",
+    "bytes": 492,
+    "function": "func_800191F0",
+    "handwritten": false,
+    "rom": "0x9890",
+    "vram": "0x800191F0"
+  },
+  "main:0x800193DC": {
+    "area": "main",
+    "bytes": 808,
+    "function": "func_800193DC",
+    "handwritten": false,
+    "rom": "0x9A7C",
+    "vram": "0x800193DC"
+  },
+  "main:0x80019704": {
+    "area": "main",
+    "bytes": 24,
+    "function": "func_80019704",
+    "handwritten": false,
+    "rom": "0x9DA4",
+    "vram": "0x80019704"
+  },
+  "main:0x8001971C": {
+    "area": "main",
+    "bytes": 332,
+    "function": "func_8001971C",
+    "handwritten": false,
+    "rom": "0x9DBC",
+    "vram": "0x8001971C"
+  },
+  "main:0x80019868": {
+    "area": "main",
+    "bytes": 24,
+    "function": "func_80019868",
+    "handwritten": false,
+    "rom": "0x9F08",
+    "vram": "0x80019868"
+  },
+  "main:0x80019880": {
+    "area": "main",
+    "bytes": 4456,
+    "function": "func_80019880",
+    "handwritten": false,
+    "rom": "0x9F20",
+    "vram": "0x80019880"
+  },
+  "main:0x8001A9E8": {
+    "area": "main",
+    "bytes": 56,
+    "function": "func_8001A9E8",
+    "handwritten": false,
+    "rom": "0xB088",
+    "vram": "0x8001A9E8"
+  },
+  "main:0x8001AA20": {
+    "area": "main",
+    "bytes": 112,
+    "function": "func_8001AA20",
+    "handwritten": false,
+    "rom": "0xB0C0",
+    "vram": "0x8001AA20"
+  },
+  "main:0x8001AA90": {
+    "area": "main",
+    "bytes": 496,
+    "function": "func_8001AA90",
+    "handwritten": false,
+    "rom": "0xB130",
+    "vram": "0x8001AA90"
+  },
+  "main:0x8001AC80": {
+    "area": "main",
+    "bytes": 132,
+    "function": "func_8001AC80",
+    "handwritten": false,
+    "rom": "0xB320",
+    "vram": "0x8001AC80"
+  },
+  "main:0x8001AD04": {
+    "area": "main",
+    "bytes": 1072,
+    "function": "func_8001AD04",
+    "handwritten": false,
+    "rom": "0xB3A4",
+    "vram": "0x8001AD04"
+  },
+  "main:0x8001B134": {
+    "area": "main",
+    "bytes": 984,
+    "function": "func_8001B134",
+    "handwritten": false,
+    "rom": "0xB7D4",
+    "vram": "0x8001B134"
+  },
+  "main:0x8001B50C": {
+    "area": "main",
+    "bytes": 276,
+    "function": "func_8001B50C",
+    "handwritten": false,
+    "rom": "0xBBAC",
+    "vram": "0x8001B50C"
+  },
+  "main:0x8001B620": {
+    "area": "main",
+    "bytes": 1016,
+    "function": "func_8001B620",
+    "handwritten": false,
+    "rom": "0xBCC0",
+    "vram": "0x8001B620"
+  },
+  "main:0x8001BA18": {
+    "area": "main",
+    "bytes": 124,
+    "function": "func_8001BA18",
+    "handwritten": false,
+    "rom": "0xC0B8",
+    "vram": "0x8001BA18"
+  },
+  "main:0x8001BA94": {
+    "area": "main",
+    "bytes": 124,
+    "function": "func_8001BA94",
+    "handwritten": false,
+    "rom": "0xC134",
+    "vram": "0x8001BA94"
+  },
+  "main:0x8001BB10": {
+    "area": "main",
+    "bytes": 84,
+    "function": "func_8001BB10",
+    "handwritten": false,
+    "rom": "0xC1B0",
+    "vram": "0x8001BB10"
+  },
+  "main:0x8001BB64": {
+    "area": "main",
+    "bytes": 636,
+    "function": "func_8001BB64",
+    "handwritten": false,
+    "rom": "0xC204",
+    "vram": "0x8001BB64"
+  },
+  "main:0x8001BDE0": {
+    "area": "main",
+    "bytes": 316,
+    "function": "func_8001BDE0",
+    "handwritten": false,
+    "rom": "0xC480",
+    "vram": "0x8001BDE0"
+  },
+  "main:0x8001BF1C": {
+    "area": "main",
+    "bytes": 320,
+    "function": "func_8001BF1C",
+    "handwritten": false,
+    "rom": "0xC5BC",
+    "vram": "0x8001BF1C"
+  },
+  "main:0x8001C05C": {
+    "area": "main",
+    "bytes": 136,
+    "function": "func_8001C05C",
+    "handwritten": false,
+    "rom": "0xC6FC",
+    "vram": "0x8001C05C"
+  },
+  "main:0x8001C0E4": {
+    "area": "main",
+    "bytes": 204,
+    "function": "func_8001C0E4",
+    "handwritten": false,
+    "rom": "0xC784",
+    "vram": "0x8001C0E4"
+  },
+  "main:0x8001C1B0": {
+    "area": "main",
+    "bytes": 292,
+    "function": "func_8001C1B0",
+    "handwritten": false,
+    "rom": "0xC850",
+    "vram": "0x8001C1B0"
+  },
+  "main:0x8001C2D4": {
+    "area": "main",
+    "bytes": 156,
+    "function": "func_8001C2D4",
+    "handwritten": false,
+    "rom": "0xC974",
+    "vram": "0x8001C2D4"
+  },
+  "main:0x8001C370": {
+    "area": "main",
+    "bytes": 204,
+    "function": "func_8001C370",
+    "handwritten": false,
+    "rom": "0xCA10",
+    "vram": "0x8001C370"
+  },
+  "main:0x8001C43C": {
+    "area": "main",
+    "bytes": 248,
+    "function": "func_8001C43C",
+    "handwritten": false,
+    "rom": "0xCADC",
+    "vram": "0x8001C43C"
+  },
+  "main:0x8001C534": {
+    "area": "main",
+    "bytes": 108,
+    "function": "func_8001C534",
+    "handwritten": false,
+    "rom": "0xCBD4",
+    "vram": "0x8001C534"
+  },
+  "main:0x8001C5A0": {
+    "area": "main",
+    "bytes": 12,
+    "function": "func_8001C5A0",
+    "handwritten": false,
+    "rom": "0xCC40",
+    "vram": "0x8001C5A0"
+  },
+  "main:0x8001C5AC": {
+    "area": "main",
+    "bytes": 1568,
+    "function": "func_8001C5AC",
+    "handwritten": false,
+    "rom": "0xCC4C",
+    "vram": "0x8001C5AC"
+  },
+  "main:0x8001CBCC": {
+    "area": "main",
+    "bytes": 320,
+    "function": "func_8001CBCC",
+    "handwritten": false,
+    "rom": "0xD26C",
+    "vram": "0x8001CBCC"
+  },
+  "main:0x8001CD0C": {
+    "area": "main",
+    "bytes": 68,
+    "function": "func_8001CD0C",
+    "handwritten": false,
+    "rom": "0xD3AC",
+    "vram": "0x8001CD0C"
+  },
+  "main:0x8001CD50": {
+    "area": "main",
+    "bytes": 460,
+    "function": "func_8001CD50",
+    "handwritten": false,
+    "rom": "0xD3F0",
+    "vram": "0x8001CD50"
+  },
+  "main:0x8001CF1C": {
+    "area": "main",
+    "bytes": 356,
+    "function": "func_8001CF1C",
+    "handwritten": false,
+    "rom": "0xD5BC",
+    "vram": "0x8001CF1C"
+  },
+  "main:0x8001D080": {
+    "area": "main",
+    "bytes": 764,
+    "function": "func_8001D080",
+    "handwritten": false,
+    "rom": "0xD720",
+    "vram": "0x8001D080"
+  },
+  "main:0x8001D37C": {
+    "area": "main",
+    "bytes": 176,
+    "function": "func_8001D37C",
+    "handwritten": false,
+    "rom": "0xDA1C",
+    "vram": "0x8001D37C"
+  },
+  "main:0x8001D42C": {
+    "area": "main",
+    "bytes": 80,
+    "function": "func_8001D42C",
+    "handwritten": false,
+    "rom": "0xDACC",
+    "vram": "0x8001D42C"
+  },
+  "main:0x8001D47C": {
+    "area": "main",
+    "bytes": 748,
+    "function": "func_8001D47C",
+    "handwritten": false,
+    "rom": "0xDB1C",
+    "vram": "0x8001D47C"
+  },
+  "main:0x8001D768": {
+    "area": "main",
+    "bytes": 124,
+    "function": "func_8001D768",
+    "handwritten": false,
+    "rom": "0xDE08",
+    "vram": "0x8001D768"
+  },
+  "main:0x8001D7E4": {
+    "area": "main",
+    "bytes": 1656,
+    "function": "func_8001D7E4",
+    "handwritten": false,
+    "rom": "0xDE84",
+    "vram": "0x8001D7E4"
+  },
+  "main:0x8001DE5C": {
+    "area": "main",
+    "bytes": 600,
+    "function": "func_8001DE5C",
+    "handwritten": false,
+    "rom": "0xE4FC",
+    "vram": "0x8001DE5C"
+  },
+  "main:0x8001E0B4": {
+    "area": "main",
+    "bytes": 648,
+    "function": "func_8001E0B4",
+    "handwritten": false,
+    "rom": "0xE754",
+    "vram": "0x8001E0B4"
+  },
+  "main:0x8001E33C": {
+    "area": "main",
+    "bytes": 2360,
+    "function": "func_8001E33C",
+    "handwritten": false,
+    "rom": "0xE9DC",
+    "vram": "0x8001E33C"
+  },
+  "main:0x8001EC74": {
+    "area": "main",
+    "bytes": 8740,
+    "function": "func_8001EC74",
+    "handwritten": false,
+    "rom": "0xF314",
+    "vram": "0x8001EC74"
+  },
+  "main:0x80020E98": {
+    "area": "main",
+    "bytes": 2108,
+    "function": "func_80020E98",
+    "handwritten": false,
+    "rom": "0x11538",
+    "vram": "0x80020E98"
+  },
+  "main:0x800216D4": {
+    "area": "main",
+    "bytes": 1032,
+    "function": "func_800216D4",
+    "handwritten": false,
+    "rom": "0x11D74",
+    "vram": "0x800216D4"
+  },
+  "main:0x80021ADC": {
+    "area": "main",
+    "bytes": 144,
+    "function": "func_80021ADC",
+    "handwritten": false,
+    "rom": "0x1217C",
+    "vram": "0x80021ADC"
+  },
+  "main:0x80021B6C": {
+    "area": "main",
+    "bytes": 6896,
+    "function": "func_80021B6C",
+    "handwritten": false,
+    "rom": "0x1220C",
+    "vram": "0x80021B6C"
+  },
+  "main:0x8002365C": {
+    "area": "main",
+    "bytes": 308,
+    "function": "func_8002365C",
+    "handwritten": false,
+    "rom": "0x13CFC",
+    "vram": "0x8002365C"
+  },
+  "main:0x80023790": {
+    "area": "main",
+    "bytes": 308,
+    "function": "func_80023790",
+    "handwritten": false,
+    "rom": "0x13E30",
+    "vram": "0x80023790"
+  },
+  "main:0x800238C4": {
+    "area": "main",
+    "bytes": 1580,
+    "function": "func_800238C4",
+    "handwritten": false,
+    "rom": "0x13F64",
+    "vram": "0x800238C4"
+  },
+  "main:0x80023EF0": {
+    "area": "main",
+    "bytes": 312,
+    "function": "func_80023EF0",
+    "handwritten": false,
+    "rom": "0x14590",
+    "vram": "0x80023EF0"
+  },
+  "main:0x80024028": {
+    "area": "main",
+    "bytes": 284,
+    "function": "func_80024028",
+    "handwritten": false,
+    "rom": "0x146C8",
+    "vram": "0x80024028"
+  },
+  "main:0x80024144": {
+    "area": "main",
+    "bytes": 120,
+    "function": "func_80024144",
+    "handwritten": false,
+    "rom": "0x147E4",
+    "vram": "0x80024144"
+  },
+  "main:0x800241BC": {
+    "area": "main",
+    "bytes": 820,
+    "function": "func_800241BC",
+    "handwritten": false,
+    "rom": "0x1485C",
+    "vram": "0x800241BC"
+  },
+  "main:0x800244F0": {
+    "area": "main",
+    "bytes": 196,
+    "function": "func_800244F0",
+    "handwritten": false,
+    "rom": "0x14B90",
+    "vram": "0x800244F0"
+  },
+  "main:0x800245B4": {
+    "area": "main",
+    "bytes": 352,
+    "function": "func_800245B4",
+    "handwritten": false,
+    "rom": "0x14C54",
+    "vram": "0x800245B4"
+  },
+  "main:0x80024714": {
+    "area": "main",
+    "bytes": 712,
+    "function": "func_80024714",
+    "handwritten": false,
+    "rom": "0x14DB4",
+    "vram": "0x80024714"
+  },
+  "main:0x800249DC": {
+    "area": "main",
+    "bytes": 304,
+    "function": "func_800249DC",
+    "handwritten": false,
+    "rom": "0x1507C",
+    "vram": "0x800249DC"
+  },
+  "main:0x80024B0C": {
+    "area": "main",
+    "bytes": 464,
+    "function": "func_80024B0C",
+    "handwritten": false,
+    "rom": "0x151AC",
+    "vram": "0x80024B0C"
+  },
+  "main:0x80024CE0": {
+    "area": "main",
+    "bytes": 1652,
+    "function": "func_80024CE0",
+    "handwritten": false,
+    "rom": "0x15380",
+    "vram": "0x80024CE0"
+  },
+  "main:0x80025354": {
+    "area": "main",
+    "bytes": 124,
+    "function": "func_80025354",
+    "handwritten": false,
+    "rom": "0x159F4",
+    "vram": "0x80025354"
+  },
+  "main:0x800253D0": {
+    "area": "main",
+    "bytes": 1068,
+    "function": "func_800253D0",
+    "handwritten": false,
+    "rom": "0x15A70",
+    "vram": "0x800253D0"
+  },
+  "main:0x800257FC": {
+    "area": "main",
+    "bytes": 1372,
+    "function": "func_800257FC",
+    "handwritten": false,
+    "rom": "0x15E9C",
+    "vram": "0x800257FC"
+  },
+  "main:0x80025D58": {
+    "area": "main",
+    "bytes": 620,
+    "function": "func_80025D58",
+    "handwritten": false,
+    "rom": "0x163F8",
+    "vram": "0x80025D58"
+  },
+  "main:0x80025FC4": {
+    "area": "main",
+    "bytes": 1908,
+    "function": "func_80025FC4",
+    "handwritten": false,
+    "rom": "0x16664",
+    "vram": "0x80025FC4"
+  },
+  "main:0x80026738": {
+    "area": "main",
+    "bytes": 392,
+    "function": "func_80026738",
+    "handwritten": false,
+    "rom": "0x16DD8",
+    "vram": "0x80026738"
+  },
+  "main:0x800268C0": {
+    "area": "main",
+    "bytes": 236,
+    "function": "func_800268C0",
+    "handwritten": false,
+    "rom": "0x16F60",
+    "vram": "0x800268C0"
+  },
+  "main:0x800269AC": {
+    "area": "main",
+    "bytes": 236,
+    "function": "func_800269AC",
+    "handwritten": false,
+    "rom": "0x1704C",
+    "vram": "0x800269AC"
+  },
+  "main:0x80026AA0": {
+    "area": "main",
+    "bytes": 152,
+    "function": "func_80026AA0",
+    "handwritten": false,
+    "rom": "0x17140",
+    "vram": "0x80026AA0"
+  },
+  "main:0x80026B38": {
+    "area": "main",
+    "bytes": 4708,
+    "function": "func_80026B38",
+    "handwritten": false,
+    "rom": "0x171D8",
+    "vram": "0x80026B38"
+  },
+  "main:0x80027DA0": {
+    "area": "main",
+    "bytes": 124,
+    "function": "func_80027DA0",
+    "handwritten": false,
+    "rom": "0x18440",
+    "vram": "0x80027DA0"
+  },
+  "main:0x80027E1C": {
+    "area": "main",
+    "bytes": 936,
+    "function": "func_80027E1C",
+    "handwritten": false,
+    "rom": "0x184BC",
+    "vram": "0x80027E1C"
+  },
+  "main:0x800281C4": {
+    "area": "main",
+    "bytes": 108,
+    "function": "func_800281C4",
+    "handwritten": false,
+    "rom": "0x18864",
+    "vram": "0x800281C4"
+  },
+  "main:0x80028230": {
+    "area": "main",
+    "bytes": 976,
+    "function": "func_80028230",
+    "handwritten": false,
+    "rom": "0x188D0",
+    "vram": "0x80028230"
+  },
+  "main:0x80028600": {
+    "area": "main",
+    "bytes": 264,
+    "function": "func_80028600",
+    "handwritten": false,
+    "rom": "0x18CA0",
+    "vram": "0x80028600"
+  },
+  "main:0x80028708": {
+    "area": "main",
+    "bytes": 204,
+    "function": "func_80028708",
+    "handwritten": false,
+    "rom": "0x18DA8",
+    "vram": "0x80028708"
+  },
+  "main:0x800287D4": {
+    "area": "main",
+    "bytes": 556,
+    "function": "func_800287D4",
+    "handwritten": false,
+    "rom": "0x18E74",
+    "vram": "0x800287D4"
+  },
+  "main:0x80028A00": {
+    "area": "main",
+    "bytes": 3340,
+    "function": "func_80028A00",
+    "handwritten": false,
+    "rom": "0x190A0",
+    "vram": "0x80028A00"
+  },
+  "main:0x8002970C": {
+    "area": "main",
+    "bytes": 100,
+    "function": "func_8002970C",
+    "handwritten": false,
+    "rom": "0x19DAC",
+    "vram": "0x8002970C"
+  },
+  "main:0x80029770": {
+    "area": "main",
+    "bytes": 52,
+    "function": "func_80029770",
+    "handwritten": false,
+    "rom": "0x19E10",
+    "vram": "0x80029770"
+  },
+  "main:0x800297A4": {
+    "area": "main",
+    "bytes": 780,
+    "function": "func_800297A4",
+    "handwritten": false,
+    "rom": "0x19E44",
+    "vram": "0x800297A4"
+  },
+  "main:0x80029AB0": {
+    "area": "main",
+    "bytes": 304,
+    "function": "func_80029AB0",
+    "handwritten": false,
+    "rom": "0x1A150",
+    "vram": "0x80029AB0"
+  },
+  "main:0x80029BE0": {
+    "area": "main",
+    "bytes": 1060,
+    "function": "func_80029BE0",
+    "handwritten": false,
+    "rom": "0x1A280",
+    "vram": "0x80029BE0"
+  },
+  "main:0x8002A004": {
+    "area": "main",
+    "bytes": 324,
+    "function": "func_8002A004",
+    "handwritten": false,
+    "rom": "0x1A6A4",
+    "vram": "0x8002A004"
+  },
+  "main:0x8002A150": {
+    "area": "main",
+    "bytes": 68,
+    "function": "func_8002A150",
+    "handwritten": false,
+    "rom": "0x1A7F0",
+    "vram": "0x8002A150"
+  },
+  "main:0x8002A194": {
+    "area": "main",
+    "bytes": 12,
+    "function": "func_8002A194",
+    "handwritten": false,
+    "rom": "0x1A834",
+    "vram": "0x8002A194"
+  },
+  "main:0x8002A1A0": {
+    "area": "main",
+    "bytes": 60,
+    "function": "func_8002A1A0",
+    "handwritten": false,
+    "rom": "0x1A840",
+    "vram": "0x8002A1A0"
+  },
+  "main:0x8002A1E0": {
+    "area": "main",
+    "bytes": 116,
+    "function": "func_8002A1E0",
+    "handwritten": false,
+    "rom": "0x1A880",
+    "vram": "0x8002A1E0"
+  },
+  "main:0x8002A254": {
+    "area": "main",
+    "bytes": 172,
+    "function": "func_8002A254",
+    "handwritten": false,
+    "rom": "0x1A8F4",
+    "vram": "0x8002A254"
+  },
+  "main:0x8002A300": {
+    "area": "main",
+    "bytes": 268,
+    "function": "func_8002A300",
+    "handwritten": false,
+    "rom": "0x1A9A0",
+    "vram": "0x8002A300"
+  },
+  "main:0x8002A40C": {
+    "area": "main",
+    "bytes": 220,
+    "function": "func_8002A40C",
+    "handwritten": false,
+    "rom": "0x1AAAC",
+    "vram": "0x8002A40C"
+  },
+  "main:0x8002A4F0": {
+    "area": "main",
+    "bytes": 920,
+    "function": "func_8002A4F0",
+    "handwritten": false,
+    "rom": "0x1AB90",
+    "vram": "0x8002A4F0"
+  },
+  "main:0x8002A888": {
+    "area": "main",
+    "bytes": 60,
+    "function": "func_8002A888",
+    "handwritten": false,
+    "rom": "0x1AF28",
+    "vram": "0x8002A888"
+  },
+  "main:0x8002A8C4": {
+    "area": "main",
+    "bytes": 60,
+    "function": "func_8002A8C4",
+    "handwritten": false,
+    "rom": "0x1AF64",
+    "vram": "0x8002A8C4"
+  },
+  "main:0x8002A900": {
+    "area": "main",
+    "bytes": 220,
+    "function": "func_8002A900",
+    "handwritten": false,
+    "rom": "0x1AFA0",
+    "vram": "0x8002A900"
+  },
+  "main:0x8002A9DC": {
+    "area": "main",
+    "bytes": 188,
+    "function": "func_8002A9DC",
+    "handwritten": false,
+    "rom": "0x1B07C",
+    "vram": "0x8002A9DC"
+  },
+  "main:0x8002AA98": {
+    "area": "main",
+    "bytes": 84,
+    "function": "func_8002AA98",
+    "handwritten": false,
+    "rom": "0x1B138",
+    "vram": "0x8002AA98"
+  },
+  "main:0x8002AAEC": {
+    "area": "main",
+    "bytes": 84,
+    "function": "func_8002AAEC",
+    "handwritten": false,
+    "rom": "0x1B18C",
+    "vram": "0x8002AAEC"
+  },
+  "main:0x8002AB40": {
+    "area": "main",
+    "bytes": 36,
+    "function": "func_8002AB40",
+    "handwritten": false,
+    "rom": "0x1B1E0",
+    "vram": "0x8002AB40"
+  },
+  "main:0x8002AB64": {
+    "area": "main",
+    "bytes": 36,
+    "function": "func_8002AB64",
+    "handwritten": false,
+    "rom": "0x1B204",
+    "vram": "0x8002AB64"
+  },
+  "main:0x8002AB90": {
+    "area": "main",
+    "bytes": 852,
+    "function": "func_8002AB90",
+    "handwritten": false,
+    "rom": "0x1B230",
+    "vram": "0x8002AB90"
+  },
+  "main:0x8002AEE4": {
+    "area": "main",
+    "bytes": 336,
+    "function": "func_8002AEE4",
+    "handwritten": false,
+    "rom": "0x1B584",
+    "vram": "0x8002AEE4"
+  },
+  "main:0x8002B034": {
+    "area": "main",
+    "bytes": 440,
+    "function": "func_8002B034",
+    "handwritten": false,
+    "rom": "0x1B6D4",
+    "vram": "0x8002B034"
+  },
+  "main:0x8002B1EC": {
+    "area": "main",
+    "bytes": 64,
+    "function": "func_8002B1EC",
+    "handwritten": false,
+    "rom": "0x1B88C",
+    "vram": "0x8002B1EC"
+  },
+  "main:0x8002B22C": {
+    "area": "main",
+    "bytes": 380,
+    "function": "func_8002B22C",
+    "handwritten": false,
+    "rom": "0x1B8CC",
+    "vram": "0x8002B22C"
+  },
+  "main:0x8002B3A8": {
+    "area": "main",
+    "bytes": 56,
+    "function": "func_8002B3A8",
+    "handwritten": false,
+    "rom": "0x1BA48",
+    "vram": "0x8002B3A8"
+  },
+  "main:0x8002B3E0": {
+    "area": "main",
+    "bytes": 280,
+    "function": "func_8002B3E0",
+    "handwritten": false,
+    "rom": "0x1BA80",
+    "vram": "0x8002B3E0"
+  },
+  "main:0x8002B500": {
+    "area": "main",
+    "bytes": 124,
+    "function": "func_8002B500",
+    "handwritten": false,
+    "rom": "0x1BBA0",
+    "vram": "0x8002B500"
+  },
+  "main:0x8002B57C": {
+    "area": "main",
+    "bytes": 368,
+    "function": "func_8002B57C",
+    "handwritten": false,
+    "rom": "0x1BC1C",
+    "vram": "0x8002B57C"
+  },
+  "main:0x8002B6EC": {
+    "area": "main",
+    "bytes": 36,
+    "function": "func_8002B6EC",
+    "handwritten": false,
+    "rom": "0x1BD8C",
+    "vram": "0x8002B6EC"
+  },
+  "main:0x8002B710": {
+    "area": "main",
+    "bytes": 196,
+    "function": "func_8002B710",
+    "handwritten": false,
+    "rom": "0x1BDB0",
+    "vram": "0x8002B710"
+  },
+  "main:0x8002B7E0": {
+    "area": "main",
+    "bytes": 208,
+    "function": "func_8002B7E0",
+    "handwritten": false,
+    "rom": "0x1BE80",
+    "vram": "0x8002B7E0"
+  },
+  "main:0x8002B8B0": {
+    "area": "main",
+    "bytes": 108,
+    "function": "func_8002B8B0",
+    "handwritten": false,
+    "rom": "0x1BF50",
+    "vram": "0x8002B8B0"
+  },
+  "main:0x8002B91C": {
+    "area": "main",
+    "bytes": 64,
+    "function": "func_8002B91C",
+    "handwritten": false,
+    "rom": "0x1BFBC",
+    "vram": "0x8002B91C"
+  },
+  "main:0x8002B95C": {
+    "area": "main",
+    "bytes": 88,
+    "function": "func_8002B95C",
+    "handwritten": false,
+    "rom": "0x1BFFC",
+    "vram": "0x8002B95C"
+  },
+  "main:0x8002B9B4": {
+    "area": "main",
+    "bytes": 316,
+    "function": "func_8002B9B4",
+    "handwritten": false,
+    "rom": "0x1C054",
+    "vram": "0x8002B9B4"
+  },
+  "main:0x8002BAF0": {
+    "area": "main",
+    "bytes": 132,
+    "function": "func_8002BAF0",
+    "handwritten": false,
+    "rom": "0x1C190",
+    "vram": "0x8002BAF0"
+  },
+  "main:0x8002BB74": {
+    "area": "main",
+    "bytes": 92,
+    "function": "func_8002BB74",
+    "handwritten": false,
+    "rom": "0x1C214",
+    "vram": "0x8002BB74"
+  },
+  "main:0x8002BBD0": {
+    "area": "main",
+    "bytes": 7668,
+    "function": "func_8002BBD0",
+    "handwritten": false,
+    "rom": "0x1C270",
+    "vram": "0x8002BBD0"
+  },
+  "main:0x8002D9C4": {
+    "area": "main",
+    "bytes": 536,
+    "function": "func_8002D9C4",
+    "handwritten": false,
+    "rom": "0x1E064",
+    "vram": "0x8002D9C4"
+  },
+  "main:0x8002DBDC": {
+    "area": "main",
+    "bytes": 108,
+    "function": "func_8002DBDC",
+    "handwritten": false,
+    "rom": "0x1E27C",
+    "vram": "0x8002DBDC"
+  },
+  "main:0x8002DC48": {
+    "area": "main",
+    "bytes": 128,
+    "function": "func_8002DC48",
+    "handwritten": false,
+    "rom": "0x1E2E8",
+    "vram": "0x8002DC48"
+  },
+  "main:0x8002DCC8": {
+    "area": "main",
+    "bytes": 268,
+    "function": "func_8002DCC8",
+    "handwritten": false,
+    "rom": "0x1E368",
+    "vram": "0x8002DCC8"
+  },
+  "main:0x8002DDD4": {
+    "area": "main",
+    "bytes": 452,
+    "function": "func_8002DDD4",
+    "handwritten": false,
+    "rom": "0x1E474",
+    "vram": "0x8002DDD4"
+  },
+  "main:0x8002DF98": {
+    "area": "main",
+    "bytes": 244,
+    "function": "func_8002DF98",
+    "handwritten": false,
+    "rom": "0x1E638",
+    "vram": "0x8002DF98"
+  },
+  "main:0x8002E08C": {
+    "area": "main",
+    "bytes": 184,
+    "function": "func_8002E08C",
+    "handwritten": false,
+    "rom": "0x1E72C",
+    "vram": "0x8002E08C"
+  },
+  "main:0x8002E150": {
+    "area": "main",
+    "bytes": 844,
+    "function": "func_8002E150",
+    "handwritten": false,
+    "rom": "0x1E7F0",
+    "vram": "0x8002E150"
+  },
+  "main:0x8002E4A0": {
+    "area": "main",
+    "bytes": 480,
+    "function": "func_8002E4A0",
+    "handwritten": false,
+    "rom": "0x1EB40",
+    "vram": "0x8002E4A0"
+  },
+  "main:0x8002E680": {
+    "area": "main",
+    "bytes": 164,
+    "function": "func_8002E680",
+    "handwritten": false,
+    "rom": "0x1ED20",
+    "vram": "0x8002E680"
+  },
+  "main:0x8002E724": {
+    "area": "main",
+    "bytes": 2832,
+    "function": "func_8002E724",
+    "handwritten": false,
+    "rom": "0x1EDC4",
+    "vram": "0x8002E724"
+  },
+  "main:0x8002F234": {
+    "area": "main",
+    "bytes": 124,
+    "function": "func_8002F234",
+    "handwritten": false,
+    "rom": "0x1F8D4",
+    "vram": "0x8002F234"
+  },
+  "main:0x8002F2B0": {
+    "area": "main",
+    "bytes": 108,
+    "function": "func_8002F2B0",
+    "handwritten": false,
+    "rom": "0x1F950",
+    "vram": "0x8002F2B0"
+  },
+  "main:0x8002F31C": {
+    "area": "main",
+    "bytes": 192,
+    "function": "func_8002F31C",
+    "handwritten": false,
+    "rom": "0x1F9BC",
+    "vram": "0x8002F31C"
+  },
+  "main:0x8002F3DC": {
+    "area": "main",
+    "bytes": 128,
+    "function": "func_8002F3DC",
+    "handwritten": false,
+    "rom": "0x1FA7C",
+    "vram": "0x8002F3DC"
+  },
+  "main:0x8002F45C": {
+    "area": "main",
+    "bytes": 404,
+    "function": "func_8002F45C",
+    "handwritten": false,
+    "rom": "0x1FAFC",
+    "vram": "0x8002F45C"
+  },
+  "main:0x8002F5F0": {
+    "area": "main",
+    "bytes": 212,
+    "function": "func_8002F5F0",
+    "handwritten": false,
+    "rom": "0x1FC90",
+    "vram": "0x8002F5F0"
+  },
+  "main:0x8002F6C4": {
+    "area": "main",
+    "bytes": 24,
+    "function": "func_8002F6C4",
+    "handwritten": false,
+    "rom": "0x1FD64",
+    "vram": "0x8002F6C4"
+  },
+  "main:0x8002F6DC": {
+    "area": "main",
+    "bytes": 24,
+    "function": "func_8002F6DC",
+    "handwritten": false,
+    "rom": "0x1FD7C",
+    "vram": "0x8002F6DC"
+  },
+  "main:0x8002F6F4": {
+    "area": "main",
+    "bytes": 516,
+    "function": "func_8002F6F4",
+    "handwritten": false,
+    "rom": "0x1FD94",
+    "vram": "0x8002F6F4"
+  },
+  "main:0x8002F8F8": {
+    "area": "main",
+    "bytes": 76,
+    "function": "func_8002F8F8",
+    "handwritten": false,
+    "rom": "0x1FF98",
+    "vram": "0x8002F8F8"
+  },
+  "main:0x8002F944": {
+    "area": "main",
+    "bytes": 184,
+    "function": "func_8002F944",
+    "handwritten": false,
+    "rom": "0x1FFE4",
+    "vram": "0x8002F944"
+  },
+  "main:0x8002F9FC": {
+    "area": "main",
+    "bytes": 32,
+    "function": "func_8002F9FC",
+    "handwritten": false,
+    "rom": "0x2009C",
+    "vram": "0x8002F9FC"
+  },
+  "main:0x8002FA1C": {
+    "area": "main",
+    "bytes": 32,
+    "function": "func_8002FA1C",
+    "handwritten": false,
+    "rom": "0x200BC",
+    "vram": "0x8002FA1C"
+  },
+  "main:0x8002FA3C": {
+    "area": "main",
+    "bytes": 32,
+    "function": "func_8002FA3C",
+    "handwritten": false,
+    "rom": "0x200DC",
+    "vram": "0x8002FA3C"
+  },
+  "main:0x8002FA5C": {
+    "area": "main",
+    "bytes": 68,
+    "function": "func_8002FA5C",
+    "handwritten": false,
+    "rom": "0x200FC",
+    "vram": "0x8002FA5C"
+  },
+  "main:0x8002FAA0": {
+    "area": "main",
+    "bytes": 32,
+    "function": "func_8002FAA0",
+    "handwritten": false,
+    "rom": "0x20140",
+    "vram": "0x8002FAA0"
+  },
+  "main:0x8002FAC0": {
+    "area": "main",
+    "bytes": 180,
+    "function": "func_8002FAC0",
+    "handwritten": false,
+    "rom": "0x20160",
+    "vram": "0x8002FAC0"
+  },
+  "main:0x8002FB80": {
+    "area": "main",
+    "bytes": 544,
+    "function": "func_8002FB80",
+    "handwritten": false,
+    "rom": "0x20220",
+    "vram": "0x8002FB80"
+  },
+  "main:0x8002FDA0": {
+    "area": "main",
+    "bytes": 572,
+    "function": "func_8002FDA0",
+    "handwritten": false,
+    "rom": "0x20440",
+    "vram": "0x8002FDA0"
+  },
+  "main:0x8002FFDC": {
+    "area": "main",
+    "bytes": 68,
+    "function": "func_8002FFDC",
+    "handwritten": false,
+    "rom": "0x2067C",
+    "vram": "0x8002FFDC"
+  },
+  "main:0x80030020": {
+    "area": "main",
+    "bytes": 188,
+    "function": "func_80030020",
+    "handwritten": false,
+    "rom": "0x206C0",
+    "vram": "0x80030020"
+  },
+  "main:0x800300DC": {
+    "area": "main",
+    "bytes": 316,
+    "function": "func_800300DC",
+    "handwritten": false,
+    "rom": "0x2077C",
+    "vram": "0x800300DC"
+  },
+  "main:0x80030218": {
+    "area": "main",
+    "bytes": 8,
+    "function": "func_80030218",
+    "handwritten": false,
+    "rom": "0x208B8",
+    "vram": "0x80030218"
+  },
+  "main:0x80030220": {
+    "area": "main",
+    "bytes": 348,
+    "function": "func_80030220",
+    "handwritten": false,
+    "rom": "0x208C0",
+    "vram": "0x80030220"
+  },
+  "main:0x8003037C": {
+    "area": "main",
+    "bytes": 188,
+    "function": "func_8003037C",
+    "handwritten": false,
+    "rom": "0x20A1C",
+    "vram": "0x8003037C"
+  },
+  "main:0x80030440": {
+    "area": "main",
+    "bytes": 632,
+    "function": "func_80030440",
+    "handwritten": false,
+    "rom": "0x20AE0",
+    "vram": "0x80030440"
+  },
+  "main:0x800306B8": {
+    "area": "main",
+    "bytes": 2104,
+    "function": "func_800306B8",
+    "handwritten": false,
+    "rom": "0x20D58",
+    "vram": "0x800306B8"
+  },
+  "main:0x80030EF0": {
+    "area": "main",
+    "bytes": 348,
+    "function": "func_80030EF0",
+    "handwritten": false,
+    "rom": "0x21590",
+    "vram": "0x80030EF0"
+  },
+  "main:0x80031050": {
+    "area": "main",
+    "bytes": 112,
+    "function": "func_80031050",
+    "handwritten": false,
+    "rom": "0x216F0",
+    "vram": "0x80031050"
+  },
+  "main:0x800310C0": {
+    "area": "main",
+    "bytes": 2424,
+    "function": "func_800310C0",
+    "handwritten": false,
+    "rom": "0x21760",
+    "vram": "0x800310C0"
+  },
+  "main:0x80031A38": {
+    "area": "main",
+    "bytes": 920,
+    "function": "func_80031A38",
+    "handwritten": false,
+    "rom": "0x220D8",
+    "vram": "0x80031A38"
+  },
+  "main:0x80031DD0": {
+    "area": "main",
+    "bytes": 1420,
+    "function": "func_80031DD0",
+    "handwritten": true,
+    "rom": "0x22470",
+    "vram": "0x80031DD0"
+  },
+  "main:0x80032360": {
+    "area": "main",
+    "bytes": 420,
+    "function": "func_80032360",
+    "handwritten": false,
+    "rom": "0x22A00",
+    "vram": "0x80032360"
+  },
+  "main:0x80032504": {
+    "area": "main",
+    "bytes": 240,
+    "function": "func_80032504",
+    "handwritten": false,
+    "rom": "0x22BA4",
+    "vram": "0x80032504"
+  },
+  "main:0x80032600": {
+    "area": "main",
+    "bytes": 112,
+    "function": "func_80032600",
+    "handwritten": false,
+    "rom": "0x22CA0",
+    "vram": "0x80032600"
+  },
+  "main:0x80032670": {
+    "area": "main",
+    "bytes": 116,
+    "function": "func_80032670",
+    "handwritten": false,
+    "rom": "0x22D10",
+    "vram": "0x80032670"
+  },
+  "main:0x800326F0": {
+    "area": "main",
+    "bytes": 72,
+    "function": "func_800326F0",
+    "handwritten": false,
+    "rom": "0x22D90",
+    "vram": "0x800326F0"
+  },
+  "main:0x80032738": {
+    "area": "main",
+    "bytes": 20,
+    "function": "func_80032738",
+    "handwritten": false,
+    "rom": "0x22DD8",
+    "vram": "0x80032738"
+  },
+  "main:0x80032750": {
+    "area": "main",
+    "bytes": 60,
+    "function": "func_80032750",
+    "handwritten": false,
+    "rom": "0x22DF0",
+    "vram": "0x80032750"
+  },
+  "main:0x8003278C": {
+    "area": "main",
+    "bytes": 92,
+    "function": "func_8003278C",
+    "handwritten": true,
+    "rom": "0x22E2C",
+    "vram": "0x8003278C"
+  },
+  "main:0x800327E8": {
+    "area": "main",
+    "bytes": 1092,
+    "function": "func_800327E8",
+    "handwritten": true,
+    "rom": "0x22E88",
+    "vram": "0x800327E8"
+  },
+  "main:0x80032C30": {
+    "area": "main",
+    "bytes": 440,
+    "function": "func_80032C30",
+    "handwritten": false,
+    "rom": "0x232D0",
+    "vram": "0x80032C30"
+  },
+  "main:0x80032DF0": {
+    "area": "main",
+    "bytes": 560,
+    "function": "func_80032DF0",
+    "handwritten": false,
+    "rom": "0x23490",
+    "vram": "0x80032DF0"
+  },
+  "main:0x80033020": {
+    "area": "main",
+    "bytes": 88,
+    "function": "func_80033020",
+    "handwritten": false,
+    "rom": "0x236C0",
+    "vram": "0x80033020"
+  },
+  "main:0x80033080": {
+    "area": "main",
+    "bytes": 44,
+    "function": "func_80033080",
+    "handwritten": false,
+    "rom": "0x23720",
+    "vram": "0x80033080"
+  },
+  "main:0x800330B0": {
+    "area": "main",
+    "bytes": 1900,
+    "function": "func_800330B0",
+    "handwritten": false,
+    "rom": "0x23750",
+    "vram": "0x800330B0"
+  },
+  "main:0x8003381C": {
+    "area": "main",
+    "bytes": 184,
+    "function": "func_8003381C",
+    "handwritten": false,
+    "rom": "0x23EBC",
+    "vram": "0x8003381C"
+  },
+  "main:0x800338E0": {
+    "area": "main",
+    "bytes": 72,
+    "function": "func_800338E0",
+    "handwritten": false,
+    "rom": "0x23F80",
+    "vram": "0x800338E0"
+  },
+  "main:0x80033928": {
+    "area": "main",
+    "bytes": 84,
+    "function": "func_80033928",
+    "handwritten": false,
+    "rom": "0x23FC8",
+    "vram": "0x80033928"
+  },
+  "main:0x80033980": {
+    "area": "main",
+    "bytes": 404,
+    "function": "func_80033980",
+    "handwritten": false,
+    "rom": "0x24020",
+    "vram": "0x80033980"
+  },
+  "main:0x80033B14": {
+    "area": "main",
+    "bytes": 80,
+    "function": "func_80033B14",
+    "handwritten": false,
+    "rom": "0x241B4",
+    "vram": "0x80033B14"
+  },
+  "main:0x80033B70": {
+    "area": "main",
+    "bytes": 1088,
+    "function": "func_80033B70",
+    "handwritten": false,
+    "rom": "0x24210",
+    "vram": "0x80033B70"
+  },
+  "main:0x80033FB0": {
+    "area": "main",
+    "bytes": 120,
+    "function": "func_80033FB0",
+    "handwritten": false,
+    "rom": "0x24650",
+    "vram": "0x80033FB0"
+  },
+  "main:0x80034030": {
+    "area": "main",
+    "bytes": 84,
+    "function": "func_80034030",
+    "handwritten": false,
+    "rom": "0x246D0",
+    "vram": "0x80034030"
+  },
+  "main:0x80034084": {
+    "area": "main",
+    "bytes": 72,
+    "function": "func_80034084",
+    "handwritten": false,
+    "rom": "0x24724",
+    "vram": "0x80034084"
+  },
+  "main:0x800340D0": {
+    "area": "main",
+    "bytes": 8,
+    "function": "func_800340D0",
+    "handwritten": false,
+    "rom": "0x24770",
+    "vram": "0x800340D0"
+  },
+  "main:0x800340E0": {
+    "area": "main",
+    "bytes": 44,
+    "function": "func_800340E0",
+    "handwritten": false,
+    "rom": "0x24780",
+    "vram": "0x800340E0"
+  },
+  "main:0x8003410C": {
+    "area": "main",
+    "bytes": 40,
+    "function": "func_8003410C",
+    "handwritten": false,
+    "rom": "0x247AC",
+    "vram": "0x8003410C"
+  },
+  "main:0x80034134": {
+    "area": "main",
+    "bytes": 64,
+    "function": "func_80034134",
+    "handwritten": false,
+    "rom": "0x247D4",
+    "vram": "0x80034134"
+  },
+  "main:0x80034180": {
+    "area": "main",
+    "bytes": 412,
+    "function": "func_80034180",
+    "handwritten": false,
+    "rom": "0x24820",
+    "vram": "0x80034180"
+  },
+  "main:0x8003431C": {
+    "area": "main",
+    "bytes": 216,
+    "function": "func_8003431C",
+    "handwritten": false,
+    "rom": "0x249BC",
+    "vram": "0x8003431C"
+  },
+  "main:0x800343F4": {
+    "area": "main",
+    "bytes": 180,
+    "function": "func_800343F4",
+    "handwritten": false,
+    "rom": "0x24A94",
+    "vram": "0x800343F4"
+  },
+  "main:0x800344B0": {
+    "area": "main",
+    "bytes": 164,
+    "function": "func_800344B0",
+    "handwritten": false,
+    "rom": "0x24B50",
+    "vram": "0x800344B0"
+  },
+  "main:0x80034554": {
+    "area": "main",
+    "bytes": 220,
+    "function": "func_80034554",
+    "handwritten": false,
+    "rom": "0x24BF4",
+    "vram": "0x80034554"
+  },
+  "main:0x80034630": {
+    "area": "main",
+    "bytes": 404,
+    "function": "func_80034630",
+    "handwritten": false,
+    "rom": "0x24CD0",
+    "vram": "0x80034630"
+  },
+  "main:0x800347D0": {
+    "area": "main",
+    "bytes": 1516,
+    "function": "func_800347D0",
+    "handwritten": false,
+    "rom": "0x24E70",
+    "vram": "0x800347D0"
+  },
+  "main:0x80034DBC": {
+    "area": "main",
+    "bytes": 740,
+    "function": "func_80034DBC",
+    "handwritten": false,
+    "rom": "0x2545C",
+    "vram": "0x80034DBC"
+  },
+  "main:0x800350A0": {
+    "area": "main",
+    "bytes": 416,
+    "function": "func_800350A0",
+    "handwritten": false,
+    "rom": "0x25740",
+    "vram": "0x800350A0"
+  },
+  "main:0x80035240": {
+    "area": "main",
+    "bytes": 224,
+    "function": "func_80035240",
+    "handwritten": false,
+    "rom": "0x258E0",
+    "vram": "0x80035240"
+  },
+  "main:0x80035320": {
+    "area": "main",
+    "bytes": 880,
+    "function": "func_80035320",
+    "handwritten": false,
+    "rom": "0x259C0",
+    "vram": "0x80035320"
+  },
+  "main:0x80035690": {
+    "area": "main",
+    "bytes": 1012,
+    "function": "func_80035690",
+    "handwritten": false,
+    "rom": "0x25D30",
+    "vram": "0x80035690"
+  },
+  "main:0x80035A84": {
+    "area": "main",
+    "bytes": 512,
+    "function": "func_80035A84",
+    "handwritten": false,
+    "rom": "0x26124",
+    "vram": "0x80035A84"
+  },
+  "main:0x80035C84": {
+    "area": "main",
+    "bytes": 160,
+    "function": "func_80035C84",
+    "handwritten": false,
+    "rom": "0x26324",
+    "vram": "0x80035C84"
+  },
+  "main:0x80035D30": {
+    "area": "main",
+    "bytes": 132,
+    "function": "func_80035D30",
+    "handwritten": false,
+    "rom": "0x263D0",
+    "vram": "0x80035D30"
+  },
+  "main:0x80035DB4": {
+    "area": "main",
+    "bytes": 40,
+    "function": "func_80035DB4",
+    "handwritten": false,
+    "rom": "0x26454",
+    "vram": "0x80035DB4"
+  },
+  "main:0x80035DE0": {
+    "area": "main",
+    "bytes": 296,
+    "function": "func_80035DE0",
+    "handwritten": false,
+    "rom": "0x26480",
+    "vram": "0x80035DE0"
+  },
+  "main:0x80035F10": {
+    "area": "main",
+    "bytes": 676,
+    "function": "func_80035F10",
+    "handwritten": false,
+    "rom": "0x265B0",
+    "vram": "0x80035F10"
+  },
+  "main:0x800361C0": {
+    "area": "main",
+    "bytes": 640,
+    "function": "func_800361C0",
+    "handwritten": false,
+    "rom": "0x26860",
+    "vram": "0x800361C0"
+  },
+  "main:0x80036440": {
+    "area": "main",
+    "bytes": 516,
+    "function": "func_80036440",
+    "handwritten": false,
+    "rom": "0x26AE0",
+    "vram": "0x80036440"
+  },
+  "main:0x80036644": {
+    "area": "main",
+    "bytes": 228,
+    "function": "func_80036644",
+    "handwritten": false,
+    "rom": "0x26CE4",
+    "vram": "0x80036644"
+  },
+  "main:0x80036730": {
+    "area": "main",
+    "bytes": 108,
+    "function": "func_80036730",
+    "handwritten": false,
+    "rom": "0x26DD0",
+    "vram": "0x80036730"
+  },
+  "main:0x800367A0": {
+    "area": "main",
+    "bytes": 316,
+    "function": "func_800367A0",
+    "handwritten": false,
+    "rom": "0x26E40",
+    "vram": "0x800367A0"
+  },
+  "main:0x800368E0": {
+    "area": "main",
+    "bytes": 316,
+    "function": "func_800368E0",
+    "handwritten": false,
+    "rom": "0x26F80",
+    "vram": "0x800368E0"
+  },
+  "main:0x80036A20": {
+    "area": "main",
+    "bytes": 112,
+    "function": "func_80036A20",
+    "handwritten": false,
+    "rom": "0x270C0",
+    "vram": "0x80036A20"
+  },
+  "main:0x80036A90": {
+    "area": "main",
+    "bytes": 448,
+    "function": "func_80036A90",
+    "handwritten": false,
+    "rom": "0x27130",
+    "vram": "0x80036A90"
+  },
+  "main:0x80036C50": {
+    "area": "main",
+    "bytes": 360,
+    "function": "func_80036C50",
+    "handwritten": false,
+    "rom": "0x272F0",
+    "vram": "0x80036C50"
+  },
+  "main:0x80036DC0": {
+    "area": "main",
+    "bytes": 40,
+    "function": "func_80036DC0",
+    "handwritten": true,
+    "rom": "0x27460",
+    "vram": "0x80036DC0"
+  },
+  "main:0x80036DF0": {
+    "area": "main",
+    "bytes": 332,
+    "function": "func_80036DF0",
+    "handwritten": false,
+    "rom": "0x27490",
+    "vram": "0x80036DF0"
+  },
+  "main:0x80036F3C": {
+    "area": "main",
+    "bytes": 72,
+    "function": "func_80036F3C",
+    "handwritten": false,
+    "rom": "0x275DC",
+    "vram": "0x80036F3C"
+  },
+  "main:0x80036F90": {
+    "area": "main",
+    "bytes": 160,
+    "function": "func_80036F90",
+    "handwritten": false,
+    "rom": "0x27630",
+    "vram": "0x80036F90"
+  },
+  "main:0x80037030": {
+    "area": "main",
+    "bytes": 360,
+    "function": "func_80037030",
+    "handwritten": false,
+    "rom": "0x276D0",
+    "vram": "0x80037030"
+  },
+  "main:0x800371A0": {
+    "area": "main",
+    "bytes": 256,
+    "function": "func_800371A0",
+    "handwritten": false,
+    "rom": "0x27840",
+    "vram": "0x800371A0"
+  },
+  "main:0x800372A0": {
+    "area": "main",
+    "bytes": 136,
+    "function": "func_800372A0",
+    "handwritten": false,
+    "rom": "0x27940",
+    "vram": "0x800372A0"
+  },
+  "main:0x80037328": {
+    "area": "main",
+    "bytes": 48,
+    "function": "func_80037328",
+    "handwritten": false,
+    "rom": "0x279C8",
+    "vram": "0x80037328"
+  },
+  "main:0x80037358": {
+    "area": "main",
+    "bytes": 180,
+    "function": "func_80037358",
+    "handwritten": false,
+    "rom": "0x279F8",
+    "vram": "0x80037358"
+  },
+  "main:0x80037410": {
+    "area": "main",
+    "bytes": 60,
+    "function": "func_80037410",
+    "handwritten": true,
+    "rom": "0x27AB0",
+    "vram": "0x80037410"
+  },
+  "main:0x80037450": {
+    "area": "main",
+    "bytes": 180,
+    "function": "func_80037450",
+    "handwritten": true,
+    "rom": "0x27AF0",
+    "vram": "0x80037450"
+  },
+  "main:0x80037510": {
+    "area": "main",
+    "bytes": 340,
+    "function": "func_80037510",
+    "handwritten": false,
+    "rom": "0x27BB0",
+    "vram": "0x80037510"
+  },
+  "main:0x80037664": {
+    "area": "main",
+    "bytes": 104,
+    "function": "func_80037664",
+    "handwritten": false,
+    "rom": "0x27D04",
+    "vram": "0x80037664"
+  },
+  "main:0x800376D0": {
+    "area": "main",
+    "bytes": 52,
+    "function": "func_800376D0",
+    "handwritten": false,
+    "rom": "0x27D70",
+    "vram": "0x800376D0"
+  },
+  "main:0x80037710": {
+    "area": "main",
+    "bytes": 84,
+    "function": "func_80037710",
+    "handwritten": false,
+    "rom": "0x27DB0",
+    "vram": "0x80037710"
+  },
+  "main:0x80037770": {
+    "area": "main",
+    "bytes": 16,
+    "function": "func_80037770",
+    "handwritten": false,
+    "rom": "0x27E10",
+    "vram": "0x80037770"
+  },
+  "main:0x80037780": {
+    "area": "main",
+    "bytes": 244,
+    "function": "func_80037780",
+    "handwritten": false,
+    "rom": "0x27E20",
+    "vram": "0x80037780"
+  },
+  "main:0x80037874": {
+    "area": "main",
+    "bytes": 260,
+    "function": "func_80037874",
+    "handwritten": false,
+    "rom": "0x27F14",
+    "vram": "0x80037874"
+  },
+  "main:0x80037978": {
+    "area": "main",
+    "bytes": 64,
+    "function": "func_80037978",
+    "handwritten": false,
+    "rom": "0x28018",
+    "vram": "0x80037978"
+  },
+  "main:0x800379C0": {
+    "area": "main",
+    "bytes": 112,
+    "function": "func_800379C0",
+    "handwritten": false,
+    "rom": "0x28060",
+    "vram": "0x800379C0"
+  },
+  "main:0x80037A30": {
+    "area": "main",
+    "bytes": 60,
+    "function": "func_80037A30",
+    "handwritten": false,
+    "rom": "0x280D0",
+    "vram": "0x80037A30"
+  },
+  "main:0x80037A6C": {
+    "area": "main",
+    "bytes": 464,
+    "function": "func_80037A6C",
+    "handwritten": false,
+    "rom": "0x2810C",
+    "vram": "0x80037A6C"
+  },
+  "main:0x80037C3C": {
+    "area": "main",
+    "bytes": 2096,
+    "function": "func_80037C3C",
+    "handwritten": false,
+    "rom": "0x282DC",
+    "vram": "0x80037C3C"
+  },
+  "main:0x8003846C": {
+    "area": "main",
+    "bytes": 1556,
+    "function": "func_8003846C",
+    "handwritten": false,
+    "rom": "0x28B0C",
+    "vram": "0x8003846C"
+  },
+  "main:0x80038A80": {
+    "area": "main",
+    "bytes": 364,
+    "function": "func_80038A80",
+    "handwritten": false,
+    "rom": "0x29120",
+    "vram": "0x80038A80"
+  },
+  "main:0x80038BF0": {
+    "area": "main",
+    "bytes": 52,
+    "function": "func_80038BF0",
+    "handwritten": false,
+    "rom": "0x29290",
+    "vram": "0x80038BF0"
+  },
+  "main:0x80038C30": {
+    "area": "main",
+    "bytes": 8,
+    "function": "func_80038C30",
+    "handwritten": false,
+    "rom": "0x292D0",
+    "vram": "0x80038C30"
+  },
+  "main:0x80038C40": {
+    "area": "main",
+    "bytes": 48,
+    "function": "func_80038C40",
+    "handwritten": false,
+    "rom": "0x292E0",
+    "vram": "0x80038C40"
+  },
+  "main:0x80038C70": {
+    "area": "main",
+    "bytes": 48,
+    "function": "func_80038C70",
+    "handwritten": false,
+    "rom": "0x29310",
+    "vram": "0x80038C70"
+  },
+  "main:0x80038CA0": {
+    "area": "main",
+    "bytes": 160,
+    "function": "func_80038CA0",
+    "handwritten": false,
+    "rom": "0x29340",
+    "vram": "0x80038CA0"
+  },
+  "main:0x80038D40": {
+    "area": "main",
+    "bytes": 160,
+    "function": "func_80038D40",
+    "handwritten": false,
+    "rom": "0x293E0",
+    "vram": "0x80038D40"
+  },
+  "main:0x80038DE0": {
+    "area": "main",
+    "bytes": 196,
+    "function": "func_80038DE0",
+    "handwritten": false,
+    "rom": "0x29480",
+    "vram": "0x80038DE0"
+  },
+  "main:0x80038EA4": {
+    "area": "main",
+    "bytes": 96,
+    "function": "func_80038EA4",
+    "handwritten": false,
+    "rom": "0x29544",
+    "vram": "0x80038EA4"
+  },
+  "main:0x80038F04": {
+    "area": "main",
+    "bytes": 760,
+    "function": "func_80038F04",
+    "handwritten": false,
+    "rom": "0x295A4",
+    "vram": "0x80038F04"
+  },
+  "main:0x800391FC": {
+    "area": "main",
+    "bytes": 276,
+    "function": "func_800391FC",
+    "handwritten": false,
+    "rom": "0x2989C",
+    "vram": "0x800391FC"
+  },
+  "main:0x80039310": {
+    "area": "main",
+    "bytes": 364,
+    "function": "func_80039310",
+    "handwritten": false,
+    "rom": "0x299B0",
+    "vram": "0x80039310"
+  },
+  "main:0x8003947C": {
+    "area": "main",
+    "bytes": 8,
+    "function": "func_8003947C",
+    "handwritten": false,
+    "rom": "0x29B1C",
+    "vram": "0x8003947C"
+  },
+  "main:0x80039484": {
+    "area": "main",
+    "bytes": 252,
+    "function": "func_80039484",
+    "handwritten": false,
+    "rom": "0x29B24",
+    "vram": "0x80039484"
+  },
+  "main:0x80039580": {
+    "area": "main",
+    "bytes": 108,
+    "function": "func_80039580",
+    "handwritten": false,
+    "rom": "0x29C20",
+    "vram": "0x80039580"
+  },
+  "main:0x800395EC": {
+    "area": "main",
+    "bytes": 360,
+    "function": "func_800395EC",
+    "handwritten": false,
+    "rom": "0x29C8C",
+    "vram": "0x800395EC"
+  },
+  "main:0x80039760": {
+    "area": "main",
+    "bytes": 52,
+    "function": "func_80039760",
+    "handwritten": false,
+    "rom": "0x29E00",
+    "vram": "0x80039760"
+  },
+  "main:0x800397A0": {
+    "area": "main",
+    "bytes": 60,
+    "function": "func_800397A0",
+    "handwritten": false,
+    "rom": "0x29E40",
+    "vram": "0x800397A0"
+  },
+  "main:0x800397E0": {
+    "area": "main",
+    "bytes": 352,
+    "function": "func_800397E0",
+    "handwritten": false,
+    "rom": "0x29E80",
+    "vram": "0x800397E0"
+  },
+  "main:0x80039940": {
+    "area": "main",
+    "bytes": 48,
+    "function": "func_80039940",
+    "handwritten": false,
+    "rom": "0x29FE0",
+    "vram": "0x80039940"
+  },
+  "main:0x80039970": {
+    "area": "main",
+    "bytes": 36,
+    "function": "func_80039970",
+    "handwritten": false,
+    "rom": "0x2A010",
+    "vram": "0x80039970"
+  },
+  "main:0x80039994": {
+    "area": "main",
+    "bytes": 56,
+    "function": "func_80039994",
+    "handwritten": false,
+    "rom": "0x2A034",
+    "vram": "0x80039994"
+  },
+  "main:0x800399CC": {
+    "area": "main",
+    "bytes": 52,
+    "function": "func_800399CC",
+    "handwritten": false,
+    "rom": "0x2A06C",
+    "vram": "0x800399CC"
+  },
+  "main:0x80039A00": {
+    "area": "main",
+    "bytes": 168,
+    "function": "func_80039A00",
+    "handwritten": false,
+    "rom": "0x2A0A0",
+    "vram": "0x80039A00"
+  },
+  "main:0x80039AB0": {
+    "area": "main",
+    "bytes": 12,
+    "function": "func_80039AB0",
+    "handwritten": false,
+    "rom": "0x2A150",
+    "vram": "0x80039AB0"
+  },
+  "main:0x80039AC0": {
+    "area": "main",
+    "bytes": 8,
+    "function": "func_80039AC0",
+    "handwritten": false,
+    "rom": "0x2A160",
+    "vram": "0x80039AC0"
+  },
+  "main:0x80039AC8": {
+    "area": "main",
+    "bytes": 88,
+    "function": "func_80039AC8",
+    "handwritten": false,
+    "rom": "0x2A168",
+    "vram": "0x80039AC8"
+  },
+  "main:0x80039B20": {
+    "area": "main",
+    "bytes": 56,
+    "function": "func_80039B20",
+    "handwritten": false,
+    "rom": "0x2A1C0",
+    "vram": "0x80039B20"
+  },
+  "main:0x80039B58": {
+    "area": "main",
+    "bytes": 96,
+    "function": "func_80039B58",
+    "handwritten": false,
+    "rom": "0x2A1F8",
+    "vram": "0x80039B58"
+  },
+  "main:0x80039BB8": {
+    "area": "main",
+    "bytes": 24,
+    "function": "func_80039BB8",
+    "handwritten": false,
+    "rom": "0x2A258",
+    "vram": "0x80039BB8"
+  },
+  "main:0x80039BD0": {
+    "area": "main",
+    "bytes": 48,
+    "function": "func_80039BD0",
+    "handwritten": false,
+    "rom": "0x2A270",
+    "vram": "0x80039BD0"
+  },
+  "main:0x80039C00": {
+    "area": "main",
+    "bytes": 8,
+    "function": "func_80039C00",
+    "handwritten": false,
+    "rom": "0x2A2A0",
+    "vram": "0x80039C00"
+  },
+  "main:0x80039C08": {
+    "area": "main",
+    "bytes": 648,
+    "function": "func_80039C08",
+    "handwritten": false,
+    "rom": "0x2A2A8",
+    "vram": "0x80039C08"
+  },
+  "main:0x80039E90": {
+    "area": "main",
+    "bytes": 768,
+    "function": "func_80039E90",
+    "handwritten": false,
+    "rom": "0x2A530",
+    "vram": "0x80039E90"
+  },
+  "main:0x8003A190": {
+    "area": "main",
+    "bytes": 508,
+    "function": "func_8003A190",
+    "handwritten": false,
+    "rom": "0x2A830",
+    "vram": "0x8003A190"
+  },
+  "main:0x8003A38C": {
+    "area": "main",
+    "bytes": 208,
+    "function": "func_8003A38C",
+    "handwritten": false,
+    "rom": "0x2AA2C",
+    "vram": "0x8003A38C"
+  },
+  "main:0x8003A45C": {
+    "area": "main",
+    "bytes": 244,
+    "function": "func_8003A45C",
+    "handwritten": false,
+    "rom": "0x2AAFC",
+    "vram": "0x8003A45C"
+  },
+  "main:0x8003A550": {
+    "area": "main",
+    "bytes": 196,
+    "function": "func_8003A550",
+    "handwritten": false,
+    "rom": "0x2ABF0",
+    "vram": "0x8003A550"
+  },
+  "main:0x8003A614": {
+    "area": "main",
+    "bytes": 168,
+    "function": "func_8003A614",
+    "handwritten": false,
+    "rom": "0x2ACB4",
+    "vram": "0x8003A614"
+  },
+  "main:0x8003A6BC": {
+    "area": "main",
+    "bytes": 236,
+    "function": "func_8003A6BC",
+    "handwritten": false,
+    "rom": "0x2AD5C",
+    "vram": "0x8003A6BC"
+  },
+  "main:0x8003A7B0": {
+    "area": "main",
+    "bytes": 172,
+    "function": "func_8003A7B0",
+    "handwritten": false,
+    "rom": "0x2AE50",
+    "vram": "0x8003A7B0"
+  },
+  "main:0x8003A85C": {
+    "area": "main",
+    "bytes": 112,
+    "function": "func_8003A85C",
+    "handwritten": false,
+    "rom": "0x2AEFC",
+    "vram": "0x8003A85C"
+  },
+  "main:0x8003A8CC": {
+    "area": "main",
+    "bytes": 292,
+    "function": "func_8003A8CC",
+    "handwritten": false,
+    "rom": "0x2AF6C",
+    "vram": "0x8003A8CC"
+  },
+  "main:0x8003A9F0": {
+    "area": "main",
+    "bytes": 140,
+    "function": "func_8003A9F0",
+    "handwritten": false,
+    "rom": "0x2B090",
+    "vram": "0x8003A9F0"
+  },
+  "main:0x8003AA7C": {
+    "area": "main",
+    "bytes": 116,
+    "function": "func_8003AA7C",
+    "handwritten": false,
+    "rom": "0x2B11C",
+    "vram": "0x8003AA7C"
+  },
+  "main:0x8003AAF0": {
+    "area": "main",
+    "bytes": 80,
+    "function": "func_8003AAF0",
+    "handwritten": false,
+    "rom": "0x2B190",
+    "vram": "0x8003AAF0"
+  },
+  "main:0x8003AB40": {
+    "area": "main",
+    "bytes": 232,
+    "function": "func_8003AB40",
+    "handwritten": false,
+    "rom": "0x2B1E0",
+    "vram": "0x8003AB40"
+  },
+  "main:0x8003AC28": {
+    "area": "main",
+    "bytes": 320,
+    "function": "func_8003AC28",
+    "handwritten": false,
+    "rom": "0x2B2C8",
+    "vram": "0x8003AC28"
+  },
+  "main:0x8003AD70": {
+    "area": "main",
+    "bytes": 156,
+    "function": "func_8003AD70",
+    "handwritten": false,
+    "rom": "0x2B410",
+    "vram": "0x8003AD70"
+  },
+  "main:0x8003AE10": {
+    "area": "main",
+    "bytes": 140,
+    "function": "func_8003AE10",
+    "handwritten": false,
+    "rom": "0x2B4B0",
+    "vram": "0x8003AE10"
+  },
+  "main:0x8003AEA0": {
+    "area": "main",
+    "bytes": 132,
+    "function": "func_8003AEA0",
+    "handwritten": false,
+    "rom": "0x2B540",
+    "vram": "0x8003AEA0"
+  },
+  "main:0x8003AF30": {
+    "area": "main",
+    "bytes": 132,
+    "function": "func_8003AF30",
+    "handwritten": false,
+    "rom": "0x2B5D0",
+    "vram": "0x8003AF30"
+  },
+  "main:0x8003AFC0": {
+    "area": "main",
+    "bytes": 148,
+    "function": "func_8003AFC0",
+    "handwritten": false,
+    "rom": "0x2B660",
+    "vram": "0x8003AFC0"
+  },
+  "main:0x8003B060": {
+    "area": "main",
+    "bytes": 120,
+    "function": "func_8003B060",
+    "handwritten": false,
+    "rom": "0x2B700",
+    "vram": "0x8003B060"
+  },
+  "main:0x8003B0E0": {
+    "area": "main",
+    "bytes": 176,
+    "function": "func_8003B0E0",
+    "handwritten": false,
+    "rom": "0x2B780",
+    "vram": "0x8003B0E0"
+  },
+  "main:0x8003B190": {
+    "area": "main",
+    "bytes": 80,
+    "function": "func_8003B190",
+    "handwritten": false,
+    "rom": "0x2B830",
+    "vram": "0x8003B190"
+  },
+  "main:0x8003B1E0": {
+    "area": "main",
+    "bytes": 132,
+    "function": "func_8003B1E0",
+    "handwritten": false,
+    "rom": "0x2B880",
+    "vram": "0x8003B1E0"
+  },
+  "main:0x8003B270": {
+    "area": "main",
+    "bytes": 80,
+    "function": "func_8003B270",
+    "handwritten": false,
+    "rom": "0x2B910",
+    "vram": "0x8003B270"
+  },
+  "main:0x8003B2C0": {
+    "area": "main",
+    "bytes": 68,
+    "function": "func_8003B2C0",
+    "handwritten": false,
+    "rom": "0x2B960",
+    "vram": "0x8003B2C0"
+  },
+  "main:0x8003B304": {
+    "area": "main",
+    "bytes": 44,
+    "function": "func_8003B304",
+    "handwritten": false,
+    "rom": "0x2B9A4",
+    "vram": "0x8003B304"
+  },
+  "main:0x8003B330": {
+    "area": "main",
+    "bytes": 172,
+    "function": "func_8003B330",
+    "handwritten": false,
+    "rom": "0x2B9D0",
+    "vram": "0x8003B330"
+  },
+  "main:0x8003B3E0": {
+    "area": "main",
+    "bytes": 124,
+    "function": "func_8003B3E0",
+    "handwritten": false,
+    "rom": "0x2BA80",
+    "vram": "0x8003B3E0"
+  },
+  "main:0x8003B45C": {
+    "area": "main",
+    "bytes": 252,
+    "function": "func_8003B45C",
+    "handwritten": false,
+    "rom": "0x2BAFC",
+    "vram": "0x8003B45C"
+  },
+  "main:0x8003B558": {
+    "area": "main",
+    "bytes": 844,
+    "function": "func_8003B558",
+    "handwritten": false,
+    "rom": "0x2BBF8",
+    "vram": "0x8003B558"
+  },
+  "main:0x8003B8A4": {
+    "area": "main",
+    "bytes": 356,
+    "function": "func_8003B8A4",
+    "handwritten": false,
+    "rom": "0x2BF44",
+    "vram": "0x8003B8A4"
+  },
+  "main:0x8003BA08": {
+    "area": "main",
+    "bytes": 516,
+    "function": "func_8003BA08",
+    "handwritten": false,
+    "rom": "0x2C0A8",
+    "vram": "0x8003BA08"
+  },
+  "main:0x8003BC0C": {
+    "area": "main",
+    "bytes": 280,
+    "function": "func_8003BC0C",
+    "handwritten": false,
+    "rom": "0x2C2AC",
+    "vram": "0x8003BC0C"
+  },
+  "main:0x8003BD24": {
+    "area": "main",
+    "bytes": 668,
+    "function": "func_8003BD24",
+    "handwritten": false,
+    "rom": "0x2C3C4",
+    "vram": "0x8003BD24"
+  },
+  "main:0x8003BFC0": {
+    "area": "main",
+    "bytes": 112,
+    "function": "func_8003BFC0",
+    "handwritten": false,
+    "rom": "0x2C660",
+    "vram": "0x8003BFC0"
+  },
+  "main:0x8003C030": {
+    "area": "main",
+    "bytes": 556,
+    "function": "func_8003C030",
+    "handwritten": false,
+    "rom": "0x2C6D0",
+    "vram": "0x8003C030"
+  },
+  "main:0x8003C25C": {
+    "area": "main",
+    "bytes": 348,
+    "function": "func_8003C25C",
+    "handwritten": false,
+    "rom": "0x2C8FC",
+    "vram": "0x8003C25C"
+  },
+  "main:0x8003C3C0": {
+    "area": "main",
+    "bytes": 548,
+    "function": "func_8003C3C0",
+    "handwritten": false,
+    "rom": "0x2CA60",
+    "vram": "0x8003C3C0"
+  },
+  "main:0x8003C5E4": {
+    "area": "main",
+    "bytes": 360,
+    "function": "func_8003C5E4",
+    "handwritten": false,
+    "rom": "0x2CC84",
+    "vram": "0x8003C5E4"
+  },
+  "main:0x8003C750": {
+    "area": "main",
+    "bytes": 424,
+    "function": "func_8003C750",
+    "handwritten": false,
+    "rom": "0x2CDF0",
+    "vram": "0x8003C750"
+  },
+  "main:0x8003C900": {
+    "area": "main",
+    "bytes": 432,
+    "function": "func_8003C900",
+    "handwritten": false,
+    "rom": "0x2CFA0",
+    "vram": "0x8003C900"
+  },
+  "main:0x8003CAB0": {
+    "area": "main",
+    "bytes": 268,
+    "function": "func_8003CAB0",
+    "handwritten": false,
+    "rom": "0x2D150",
+    "vram": "0x8003CAB0"
+  },
+  "main:0x8003CBBC": {
+    "area": "main",
+    "bytes": 548,
+    "function": "func_8003CBBC",
+    "handwritten": false,
+    "rom": "0x2D25C",
+    "vram": "0x8003CBBC"
+  },
+  "main:0x8003CDE0": {
+    "area": "main",
+    "bytes": 212,
+    "function": "func_8003CDE0",
+    "handwritten": false,
+    "rom": "0x2D480",
+    "vram": "0x8003CDE0"
+  },
+  "main:0x8003CEC0": {
+    "area": "main",
+    "bytes": 496,
+    "function": "func_8003CEC0",
+    "handwritten": false,
+    "rom": "0x2D560",
+    "vram": "0x8003CEC0"
+  },
+  "main:0x8003D0B0": {
+    "area": "main",
+    "bytes": 260,
+    "function": "func_8003D0B0",
+    "handwritten": false,
+    "rom": "0x2D750",
+    "vram": "0x8003D0B0"
+  },
+  "main:0x8003D1C0": {
+    "area": "main",
+    "bytes": 84,
+    "function": "func_8003D1C0",
+    "handwritten": false,
+    "rom": "0x2D860",
+    "vram": "0x8003D1C0"
+  },
+  "main:0x8003D214": {
+    "area": "main",
+    "bytes": 128,
+    "function": "func_8003D214",
+    "handwritten": false,
+    "rom": "0x2D8B4",
+    "vram": "0x8003D214"
+  },
+  "main:0x8003D294": {
+    "area": "main",
+    "bytes": 180,
+    "function": "func_8003D294",
+    "handwritten": false,
+    "rom": "0x2D934",
+    "vram": "0x8003D294"
+  },
+  "main:0x8003D348": {
+    "area": "main",
+    "bytes": 8,
+    "function": "func_8003D348",
+    "handwritten": false,
+    "rom": "0x2D9E8",
+    "vram": "0x8003D348"
+  },
+  "main:0x8003D350": {
+    "area": "main",
+    "bytes": 36,
+    "function": "func_8003D350",
+    "handwritten": false,
+    "rom": "0x2D9F0",
+    "vram": "0x8003D350"
+  },
+  "main:0x8003D374": {
+    "area": "main",
+    "bytes": 136,
+    "function": "func_8003D374",
+    "handwritten": false,
+    "rom": "0x2DA14",
+    "vram": "0x8003D374"
+  },
+  "main:0x8003D3FC": {
+    "area": "main",
+    "bytes": 300,
+    "function": "func_8003D3FC",
+    "handwritten": false,
+    "rom": "0x2DA9C",
+    "vram": "0x8003D3FC"
+  },
+  "main:0x8003D528": {
+    "area": "main",
+    "bytes": 168,
+    "function": "func_8003D528",
+    "handwritten": false,
+    "rom": "0x2DBC8",
+    "vram": "0x8003D528"
+  },
+  "main:0x8003D5D0": {
+    "area": "main",
+    "bytes": 112,
+    "function": "func_8003D5D0",
+    "handwritten": false,
+    "rom": "0x2DC70",
+    "vram": "0x8003D5D0"
+  },
+  "main:0x8003D640": {
+    "area": "main",
+    "bytes": 220,
+    "function": "func_8003D640",
+    "handwritten": false,
+    "rom": "0x2DCE0",
+    "vram": "0x8003D640"
+  },
+  "main:0x8003D71C": {
+    "area": "main",
+    "bytes": 120,
+    "function": "func_8003D71C",
+    "handwritten": false,
+    "rom": "0x2DDBC",
+    "vram": "0x8003D71C"
+  },
+  "main:0x8003D794": {
+    "area": "main",
+    "bytes": 72,
+    "function": "func_8003D794",
+    "handwritten": false,
+    "rom": "0x2DE34",
+    "vram": "0x8003D794"
+  },
+  "main:0x8003D7DC": {
+    "area": "main",
+    "bytes": 116,
+    "function": "func_8003D7DC",
+    "handwritten": false,
+    "rom": "0x2DE7C",
+    "vram": "0x8003D7DC"
+  },
+  "main:0x8003D850": {
+    "area": "main",
+    "bytes": 112,
+    "function": "func_8003D850",
+    "handwritten": false,
+    "rom": "0x2DEF0",
+    "vram": "0x8003D850"
+  },
+  "main:0x8003D8C0": {
+    "area": "main",
+    "bytes": 252,
+    "function": "func_8003D8C0",
+    "handwritten": false,
+    "rom": "0x2DF60",
+    "vram": "0x8003D8C0"
+  },
+  "main:0x8003D9BC": {
+    "area": "main",
+    "bytes": 2080,
+    "function": "func_8003D9BC",
+    "handwritten": false,
+    "rom": "0x2E05C",
+    "vram": "0x8003D9BC"
+  },
+  "main:0x8003E1DC": {
+    "area": "main",
+    "bytes": 1572,
+    "function": "func_8003E1DC",
+    "handwritten": false,
+    "rom": "0x2E87C",
+    "vram": "0x8003E1DC"
+  },
+  "main:0x8003E800": {
+    "area": "main",
+    "bytes": 260,
+    "function": "func_8003E800",
+    "handwritten": false,
+    "rom": "0x2EEA0",
+    "vram": "0x8003E800"
+  },
+  "main:0x8003E904": {
+    "area": "main",
+    "bytes": 112,
+    "function": "func_8003E904",
+    "handwritten": false,
+    "rom": "0x2EFA4",
+    "vram": "0x8003E904"
+  },
+  "main:0x8003E974": {
+    "area": "main",
+    "bytes": 384,
+    "function": "func_8003E974",
+    "handwritten": false,
+    "rom": "0x2F014",
+    "vram": "0x8003E974"
+  },
+  "main:0x8003EB00": {
+    "area": "main",
+    "bytes": 228,
+    "function": "func_8003EB00",
+    "handwritten": false,
+    "rom": "0x2F1A0",
+    "vram": "0x8003EB00"
+  },
+  "main:0x8003EBF0": {
+    "area": "main",
+    "bytes": 8,
+    "function": "func_8003EBF0",
+    "handwritten": false,
+    "rom": "0x2F290",
+    "vram": "0x8003EBF0"
+  },
+  "main:0x8003EC00": {
+    "area": "main",
+    "bytes": 48,
+    "function": "func_8003EC00",
+    "handwritten": false,
+    "rom": "0x2F2A0",
+    "vram": "0x8003EC00"
+  },
+  "main:0x8003EC30": {
+    "area": "main",
+    "bytes": 68,
+    "function": "func_8003EC30",
+    "handwritten": false,
+    "rom": "0x2F2D0",
+    "vram": "0x8003EC30"
+  },
+  "main:0x8003EC74": {
+    "area": "main",
+    "bytes": 84,
+    "function": "func_8003EC74",
+    "handwritten": false,
+    "rom": "0x2F314",
+    "vram": "0x8003EC74"
+  },
+  "main:0x8003ECC8": {
+    "area": "main",
+    "bytes": 84,
+    "function": "func_8003ECC8",
+    "handwritten": false,
+    "rom": "0x2F368",
+    "vram": "0x8003ECC8"
+  },
+  "main:0x8003ED1C": {
+    "area": "main",
+    "bytes": 136,
+    "function": "func_8003ED1C",
+    "handwritten": false,
+    "rom": "0x2F3BC",
+    "vram": "0x8003ED1C"
+  },
+  "main:0x8003EDA4": {
+    "area": "main",
+    "bytes": 168,
+    "function": "func_8003EDA4",
+    "handwritten": false,
+    "rom": "0x2F444",
+    "vram": "0x8003EDA4"
+  },
+  "main:0x8003EE4C": {
+    "area": "main",
+    "bytes": 164,
+    "function": "func_8003EE4C",
+    "handwritten": false,
+    "rom": "0x2F4EC",
+    "vram": "0x8003EE4C"
+  },
+  "main:0x8003EEF0": {
+    "area": "main",
+    "bytes": 160,
+    "function": "func_8003EEF0",
+    "handwritten": false,
+    "rom": "0x2F590",
+    "vram": "0x8003EEF0"
+  },
+  "main:0x8003EF90": {
+    "area": "main",
+    "bytes": 1048,
+    "function": "func_8003EF90",
+    "handwritten": false,
+    "rom": "0x2F630",
+    "vram": "0x8003EF90"
+  },
+  "main:0x8003F3B0": {
+    "area": "main",
+    "bytes": 152,
+    "function": "func_8003F3B0",
+    "handwritten": false,
+    "rom": "0x2FA50",
+    "vram": "0x8003F3B0"
+  },
+  "main:0x8003F450": {
+    "area": "main",
+    "bytes": 48,
+    "function": "func_8003F450",
+    "handwritten": false,
+    "rom": "0x2FAF0",
+    "vram": "0x8003F450"
+  },
+  "main:0x8003F480": {
+    "area": "main",
+    "bytes": 288,
+    "function": "func_8003F480",
+    "handwritten": false,
+    "rom": "0x2FB20",
+    "vram": "0x8003F480"
+  },
+  "main:0x8003F5A0": {
+    "area": "main",
+    "bytes": 468,
+    "function": "func_8003F5A0",
+    "handwritten": false,
+    "rom": "0x2FC40",
+    "vram": "0x8003F5A0"
+  },
+  "main:0x8003F774": {
+    "area": "main",
+    "bytes": 940,
+    "function": "func_8003F774",
+    "handwritten": false,
+    "rom": "0x2FE14",
+    "vram": "0x8003F774"
+  },
+  "main:0x8003FB20": {
+    "area": "main",
+    "bytes": 300,
+    "function": "func_8003FB20",
+    "handwritten": false,
+    "rom": "0x301C0",
+    "vram": "0x8003FB20"
+  },
+  "main:0x8003FC4C": {
+    "area": "main",
+    "bytes": 1184,
+    "function": "func_8003FC4C",
+    "handwritten": false,
+    "rom": "0x302EC",
+    "vram": "0x8003FC4C"
+  },
+  "main:0x800400F0": {
+    "area": "main",
+    "bytes": 236,
+    "function": "func_800400F0",
+    "handwritten": false,
+    "rom": "0x30790",
+    "vram": "0x800400F0"
+  },
+  "main:0x800401DC": {
+    "area": "main",
+    "bytes": 520,
+    "function": "func_800401DC",
+    "handwritten": false,
+    "rom": "0x3087C",
+    "vram": "0x800401DC"
+  },
+  "main:0x800403F0": {
+    "area": "main",
+    "bytes": 40,
+    "function": "func_800403F0",
+    "handwritten": false,
+    "rom": "0x30A90",
+    "vram": "0x800403F0"
+  },
+  "main:0x80040418": {
+    "area": "main",
+    "bytes": 236,
+    "function": "func_80040418",
+    "handwritten": false,
+    "rom": "0x30AB8",
+    "vram": "0x80040418"
+  },
+  "main:0x80040504": {
+    "area": "main",
+    "bytes": 224,
+    "function": "func_80040504",
+    "handwritten": false,
+    "rom": "0x30BA4",
+    "vram": "0x80040504"
+  },
+  "main:0x800405E4": {
+    "area": "main",
+    "bytes": 464,
+    "function": "func_800405E4",
+    "handwritten": false,
+    "rom": "0x30C84",
+    "vram": "0x800405E4"
+  },
+  "main:0x800407B4": {
+    "area": "main",
+    "bytes": 664,
+    "function": "func_800407B4",
+    "handwritten": false,
+    "rom": "0x30E54",
+    "vram": "0x800407B4"
+  },
+  "main:0x80040A4C": {
+    "area": "main",
+    "bytes": 176,
+    "function": "func_80040A4C",
+    "handwritten": false,
+    "rom": "0x310EC",
+    "vram": "0x80040A4C"
+  },
+  "main:0x80040AFC": {
+    "area": "main",
+    "bytes": 1352,
+    "function": "func_80040AFC",
+    "handwritten": false,
+    "rom": "0x3119C",
+    "vram": "0x80040AFC"
+  },
+  "main:0x80041050": {
+    "area": "main",
+    "bytes": 48,
+    "function": "func_80041050",
+    "handwritten": false,
+    "rom": "0x316F0",
+    "vram": "0x80041050"
+  },
+  "main:0x80041080": {
+    "area": "main",
+    "bytes": 216,
+    "function": "func_80041080",
+    "handwritten": false,
+    "rom": "0x31720",
+    "vram": "0x80041080"
+  },
+  "main:0x80041160": {
+    "area": "main",
+    "bytes": 52,
+    "function": "func_80041160",
+    "handwritten": false,
+    "rom": "0x31800",
+    "vram": "0x80041160"
+  },
+  "main:0x80041194": {
+    "area": "main",
+    "bytes": 140,
+    "function": "func_80041194",
+    "handwritten": false,
+    "rom": "0x31834",
+    "vram": "0x80041194"
+  },
+  "main:0x80041220": {
+    "area": "main",
+    "bytes": 132,
+    "function": "func_80041220",
+    "handwritten": false,
+    "rom": "0x318C0",
+    "vram": "0x80041220"
+  },
+  "main:0x800412B0": {
+    "area": "main",
+    "bytes": 116,
+    "function": "func_800412B0",
+    "handwritten": false,
+    "rom": "0x31950",
+    "vram": "0x800412B0"
+  },
+  "main:0x80041330": {
+    "area": "main",
+    "bytes": 176,
+    "function": "func_80041330",
+    "handwritten": false,
+    "rom": "0x319D0",
+    "vram": "0x80041330"
+  },
+  "main:0x800413E0": {
+    "area": "main",
+    "bytes": 208,
+    "function": "func_800413E0",
+    "handwritten": false,
+    "rom": "0x31A80",
+    "vram": "0x800413E0"
+  },
+  "main:0x800414B0": {
+    "area": "main",
+    "bytes": 28,
+    "function": "func_800414B0",
+    "handwritten": false,
+    "rom": "0x31B50",
+    "vram": "0x800414B0"
+  },
+  "main:0x800414CC": {
+    "area": "main",
+    "bytes": 28,
+    "function": "func_800414CC",
+    "handwritten": false,
+    "rom": "0x31B6C",
+    "vram": "0x800414CC"
+  },
+  "main:0x800414E8": {
+    "area": "main",
+    "bytes": 8,
+    "function": "func_800414E8",
+    "handwritten": false,
+    "rom": "0x31B88",
+    "vram": "0x800414E8"
+  },
+  "main:0x800414F0": {
+    "area": "main",
+    "bytes": 8,
+    "function": "func_800414F0",
+    "handwritten": false,
+    "rom": "0x31B90",
+    "vram": "0x800414F0"
+  },
+  "main:0x800414F8": {
+    "area": "main",
+    "bytes": 76,
+    "function": "func_800414F8",
+    "handwritten": false,
+    "rom": "0x31B98",
+    "vram": "0x800414F8"
+  },
+  "main:0x80041544": {
+    "area": "main",
+    "bytes": 388,
+    "function": "func_80041544",
+    "handwritten": false,
+    "rom": "0x31BE4",
+    "vram": "0x80041544"
+  },
+  "main:0x800416C8": {
+    "area": "main",
+    "bytes": 288,
+    "function": "func_800416C8",
+    "handwritten": false,
+    "rom": "0x31D68",
+    "vram": "0x800416C8"
+  },
+  "main:0x800417E8": {
+    "area": "main",
+    "bytes": 228,
+    "function": "func_800417E8",
+    "handwritten": false,
+    "rom": "0x31E88",
+    "vram": "0x800417E8"
+  },
+  "main:0x800418CC": {
+    "area": "main",
+    "bytes": 84,
+    "function": "func_800418CC",
+    "handwritten": false,
+    "rom": "0x31F6C",
+    "vram": "0x800418CC"
+  },
+  "main:0x80041920": {
+    "area": "main",
+    "bytes": 88,
+    "function": "func_80041920",
+    "handwritten": false,
+    "rom": "0x31FC0",
+    "vram": "0x80041920"
+  },
+  "main:0x80041978": {
+    "area": "main",
+    "bytes": 80,
+    "function": "func_80041978",
+    "handwritten": false,
+    "rom": "0x32018",
+    "vram": "0x80041978"
+  },
+  "main:0x800419C8": {
+    "area": "main",
+    "bytes": 48,
+    "function": "func_800419C8",
+    "handwritten": false,
+    "rom": "0x32068",
+    "vram": "0x800419C8"
+  },
+  "main:0x800419F8": {
+    "area": "main",
+    "bytes": 216,
+    "function": "func_800419F8",
+    "handwritten": false,
+    "rom": "0x32098",
+    "vram": "0x800419F8"
+  },
+  "main:0x80041AD0": {
+    "area": "main",
+    "bytes": 16,
+    "function": "func_80041AD0",
+    "handwritten": false,
+    "rom": "0x32170",
+    "vram": "0x80041AD0"
+  },
+  "main:0x80041AE0": {
+    "area": "main",
+    "bytes": 28,
+    "function": "func_80041AE0",
+    "handwritten": false,
+    "rom": "0x32180",
+    "vram": "0x80041AE0"
+  },
+  "main:0x80041B00": {
+    "area": "main",
+    "bytes": 168,
+    "function": "func_80041B00",
+    "handwritten": false,
+    "rom": "0x321A0",
+    "vram": "0x80041B00"
+  },
+  "main:0x80041BA8": {
+    "area": "main",
+    "bytes": 184,
+    "function": "func_80041BA8",
+    "handwritten": false,
+    "rom": "0x32248",
+    "vram": "0x80041BA8"
+  },
+  "main:0x80041C60": {
+    "area": "main",
+    "bytes": 392,
+    "function": "func_80041C60",
+    "handwritten": false,
+    "rom": "0x32300",
+    "vram": "0x80041C60"
+  },
+  "main:0x80041DE8": {
+    "area": "main",
+    "bytes": 396,
+    "function": "func_80041DE8",
+    "handwritten": false,
+    "rom": "0x32488",
+    "vram": "0x80041DE8"
+  },
+  "main:0x80041F74": {
+    "area": "main",
+    "bytes": 548,
+    "function": "func_80041F74",
+    "handwritten": false,
+    "rom": "0x32614",
+    "vram": "0x80041F74"
+  },
+  "main:0x80042198": {
+    "area": "main",
+    "bytes": 536,
+    "function": "func_80042198",
+    "handwritten": false,
+    "rom": "0x32838",
+    "vram": "0x80042198"
+  },
+  "main:0x800423B0": {
+    "area": "main",
+    "bytes": 24,
+    "function": "func_800423B0",
+    "handwritten": false,
+    "rom": "0x32A50",
+    "vram": "0x800423B0"
+  },
+  "main:0x800423C8": {
+    "area": "main",
+    "bytes": 832,
+    "function": "func_800423C8",
+    "handwritten": false,
+    "rom": "0x32A68",
+    "vram": "0x800423C8"
+  },
+  "ovl_7DF8:0x801ABB20": {
+    "area": "ovl_7DF8",
+    "bytes": 3644,
+    "function": "func_801ABB20",
+    "handwritten": false,
+    "rom": "0x0",
+    "vram": "0x801ABB20"
+  },
+  "ovl_7DF8:0x801AC95C": {
+    "area": "ovl_7DF8",
+    "bytes": 380,
+    "function": "func_801AC95C",
+    "handwritten": false,
+    "rom": "0xE3C",
+    "vram": "0x801AC95C"
+  },
+  "ovl_7DF8:0x801ACAD8": {
+    "area": "ovl_7DF8",
+    "bytes": 68,
+    "function": "func_801ACAD8",
+    "handwritten": false,
+    "rom": "0xFB8",
+    "vram": "0x801ACAD8"
+  },
+  "ovl_7DF8:0x801ACB1C": {
+    "area": "ovl_7DF8",
+    "bytes": 744,
+    "function": "func_801ACB1C",
+    "handwritten": false,
+    "rom": "0xFFC",
+    "vram": "0x801ACB1C"
+  },
+  "ovl_7DF8:0x801ACE04": {
+    "area": "ovl_7DF8",
+    "bytes": 88,
+    "function": "func_801ACE04",
+    "handwritten": false,
+    "rom": "0x12E4",
+    "vram": "0x801ACE04"
+  },
+  "ovl_7DF8:0x801ACE5C": {
+    "area": "ovl_7DF8",
+    "bytes": 100,
+    "function": "func_801ACE5C",
+    "handwritten": false,
+    "rom": "0x133C",
+    "vram": "0x801ACE5C"
+  },
+  "ovl_7DF8:0x801ACEC0": {
+    "area": "ovl_7DF8",
+    "bytes": 92,
+    "function": "func_801ACEC0",
+    "handwritten": false,
+    "rom": "0x13A0",
+    "vram": "0x801ACEC0"
+  },
+  "ovl_7DF8:0x801ACF1C": {
+    "area": "ovl_7DF8",
+    "bytes": 52,
+    "function": "func_801ACF1C",
+    "handwritten": false,
+    "rom": "0x13FC",
+    "vram": "0x801ACF1C"
+  },
+  "ovl_7DF8:0x801ACF50": {
+    "area": "ovl_7DF8",
+    "bytes": 52,
+    "function": "func_801ACF50",
+    "handwritten": false,
+    "rom": "0x1430",
+    "vram": "0x801ACF50"
+  },
+  "ovl_7DF8:0x801ACF84": {
+    "area": "ovl_7DF8",
+    "bytes": 68,
+    "function": "func_801ACF84",
+    "handwritten": false,
+    "rom": "0x1464",
+    "vram": "0x801ACF84"
+  },
+  "ovl_7DF8:0x801ACFC8": {
+    "area": "ovl_7DF8",
+    "bytes": 104,
+    "function": "func_801ACFC8",
+    "handwritten": false,
+    "rom": "0x14A8",
+    "vram": "0x801ACFC8"
+  },
+  "ovl_7DF8:0x801AD030": {
+    "area": "ovl_7DF8",
+    "bytes": 52,
+    "function": "func_801AD030",
+    "handwritten": false,
+    "rom": "0x1510",
+    "vram": "0x801AD030"
+  },
+  "ovl_7DF8:0x801AD064": {
+    "area": "ovl_7DF8",
+    "bytes": 52,
+    "function": "func_801AD064",
+    "handwritten": false,
+    "rom": "0x1544",
+    "vram": "0x801AD064"
+  },
+  "ovl_7DF8:0x801AD098": {
+    "area": "ovl_7DF8",
+    "bytes": 52,
+    "function": "func_801AD098",
+    "handwritten": false,
+    "rom": "0x1578",
+    "vram": "0x801AD098"
+  },
+  "ovl_7DF8:0x801AD0CC": {
+    "area": "ovl_7DF8",
+    "bytes": 72,
+    "function": "func_801AD0CC",
+    "handwritten": false,
+    "rom": "0x15AC",
+    "vram": "0x801AD0CC"
+  },
+  "ovl_7DF8:0x801AD114": {
+    "area": "ovl_7DF8",
+    "bytes": 628,
+    "function": "func_801AD114",
+    "handwritten": false,
+    "rom": "0x15F4",
+    "vram": "0x801AD114"
+  },
+  "ovl_7DF8:0x801AD388": {
+    "area": "ovl_7DF8",
+    "bytes": 52,
+    "function": "func_801AD388",
+    "handwritten": false,
+    "rom": "0x1868",
+    "vram": "0x801AD388"
+  },
+  "ovl_7DF8:0x801AD3BC": {
+    "area": "ovl_7DF8",
+    "bytes": 428,
+    "function": "func_801AD3BC",
+    "handwritten": false,
+    "rom": "0x189C",
+    "vram": "0x801AD3BC"
+  },
+  "ovl_7DF8:0x801AD568": {
+    "area": "ovl_7DF8",
+    "bytes": 556,
+    "function": "func_801AD568",
+    "handwritten": false,
+    "rom": "0x1A48",
+    "vram": "0x801AD568"
+  },
+  "ovl_7DF8:0x801AD794": {
+    "area": "ovl_7DF8",
+    "bytes": 68,
+    "function": "func_801AD794",
+    "handwritten": false,
+    "rom": "0x1C74",
+    "vram": "0x801AD794"
+  },
+  "ovl_7DF8:0x801AD7D8": {
+    "area": "ovl_7DF8",
+    "bytes": 556,
+    "function": "func_801AD7D8",
+    "handwritten": false,
+    "rom": "0x1CB8",
+    "vram": "0x801AD7D8"
+  },
+  "ovl_7DF8:0x801ADA04": {
+    "area": "ovl_7DF8",
+    "bytes": 208,
+    "function": "func_801ADA04",
+    "handwritten": false,
+    "rom": "0x1EE4",
+    "vram": "0x801ADA04"
+  },
+  "ovl_7DF8:0x801ADAD4": {
+    "area": "ovl_7DF8",
+    "bytes": 64,
+    "function": "func_801ADAD4",
+    "handwritten": false,
+    "rom": "0x1FB4",
+    "vram": "0x801ADAD4"
+  },
+  "ovl_7DF8:0x801ADB14": {
+    "area": "ovl_7DF8",
+    "bytes": 12,
+    "function": "func_801ADB14",
+    "handwritten": false,
+    "rom": "0x1FF4",
+    "vram": "0x801ADB14"
+  },
+  "ovl_7DF8:0x801ADB20": {
+    "area": "ovl_7DF8",
+    "bytes": 144,
+    "function": "func_801ADB20",
+    "handwritten": false,
+    "rom": "0x2000",
+    "vram": "0x801ADB20"
+  },
+  "ovl_7DF8:0x801ADBB0": {
+    "area": "ovl_7DF8",
+    "bytes": 180,
+    "function": "func_801ADBB0",
+    "handwritten": false,
+    "rom": "0x2090",
+    "vram": "0x801ADBB0"
+  },
+  "ovl_7DF8:0x801ADC64": {
+    "area": "ovl_7DF8",
+    "bytes": 152,
+    "function": "func_801ADC64",
+    "handwritten": false,
+    "rom": "0x2144",
+    "vram": "0x801ADC64"
+  },
+  "ovl_7DF8:0x801ADCFC": {
+    "area": "ovl_7DF8",
+    "bytes": 220,
+    "function": "func_801ADCFC",
+    "handwritten": false,
+    "rom": "0x21DC",
+    "vram": "0x801ADCFC"
+  },
+  "ovl_7DF8:0x801ADDD8": {
+    "area": "ovl_7DF8",
+    "bytes": 112,
+    "function": "func_801ADDD8",
+    "handwritten": false,
+    "rom": "0x22B8",
+    "vram": "0x801ADDD8"
+  },
+  "ovl_7DF8:0x801ADE48": {
+    "area": "ovl_7DF8",
+    "bytes": 84,
+    "function": "func_801ADE48",
+    "handwritten": false,
+    "rom": "0x2328",
+    "vram": "0x801ADE48"
+  },
+  "ovl_7DF8:0x801ADEA0": {
+    "area": "ovl_7DF8",
+    "bytes": 5508,
+    "function": "func_801ADEA0",
+    "handwritten": false,
+    "rom": "0x2380",
+    "vram": "0x801ADEA0"
+  },
+  "ovl_7DF8:0x801AF424": {
+    "area": "ovl_7DF8",
+    "bytes": 404,
+    "function": "func_801AF424",
+    "handwritten": false,
+    "rom": "0x3904",
+    "vram": "0x801AF424"
+  },
+  "ovl_7DF8:0x801AF5B8": {
+    "area": "ovl_7DF8",
+    "bytes": 28,
+    "function": "func_801AF5B8",
+    "handwritten": false,
+    "rom": "0x3A98",
+    "vram": "0x801AF5B8"
+  },
+  "ovl_7DF8:0x801AF5D4": {
+    "area": "ovl_7DF8",
+    "bytes": 24,
+    "function": "func_801AF5D4",
+    "handwritten": false,
+    "rom": "0x3AB4",
+    "vram": "0x801AF5D4"
+  },
+  "ovl_7DF8:0x801AF5EC": {
+    "area": "ovl_7DF8",
+    "bytes": 144,
+    "function": "func_801AF5EC",
+    "handwritten": false,
+    "rom": "0x3ACC",
+    "vram": "0x801AF5EC"
+  },
+  "ovl_7DF8:0x801AF67C": {
+    "area": "ovl_7DF8",
+    "bytes": 16,
+    "function": "func_801AF67C",
+    "handwritten": false,
+    "rom": "0x3B5C",
+    "vram": "0x801AF67C"
+  },
+  "ovl_7DF8:0x801AF68C": {
+    "area": "ovl_7DF8",
+    "bytes": 956,
+    "function": "func_801AF68C",
+    "handwritten": false,
+    "rom": "0x3B6C",
+    "vram": "0x801AF68C"
+  },
+  "ovl_7DF8:0x801AFA48": {
+    "area": "ovl_7DF8",
+    "bytes": 52,
+    "function": "func_801AFA48",
+    "handwritten": false,
+    "rom": "0x3F28",
+    "vram": "0x801AFA48"
+  },
+  "ovl_7DF8:0x801AFA80": {
+    "area": "ovl_7DF8",
+    "bytes": 36,
+    "function": "func_801AFA80",
+    "handwritten": false,
+    "rom": "0x3F60",
+    "vram": "0x801AFA80"
+  },
+  "ovl_7DF8:0x801AFAA4": {
+    "area": "ovl_7DF8",
+    "bytes": 1288,
+    "function": "func_801AFAA4",
+    "handwritten": false,
+    "rom": "0x3F84",
+    "vram": "0x801AFAA4"
+  },
+  "ovl_7DF8:0x801AFFAC": {
+    "area": "ovl_7DF8",
+    "bytes": 576,
+    "function": "func_801AFFAC",
+    "handwritten": false,
+    "rom": "0x448C",
+    "vram": "0x801AFFAC"
+  },
+  "ovl_7DF8:0x801B01EC": {
+    "area": "ovl_7DF8",
+    "bytes": 820,
+    "function": "func_801B01EC",
+    "handwritten": false,
+    "rom": "0x46CC",
+    "vram": "0x801B01EC"
+  },
+  "ovl_7DF8:0x801B0520": {
+    "area": "ovl_7DF8",
+    "bytes": 328,
+    "function": "func_801B0520",
+    "handwritten": false,
+    "rom": "0x4A00",
+    "vram": "0x801B0520"
+  },
+  "ovl_7DF8:0x801B0668": {
+    "area": "ovl_7DF8",
+    "bytes": 984,
+    "function": "func_801B0668",
+    "handwritten": false,
+    "rom": "0x4B48",
+    "vram": "0x801B0668"
+  },
+  "ovl_7DF8:0x801B0A40": {
+    "area": "ovl_7DF8",
+    "bytes": 668,
+    "function": "func_801B0A40",
+    "handwritten": false,
+    "rom": "0x4F20",
+    "vram": "0x801B0A40"
+  },
+  "ovl_7DF8:0x801B0CDC": {
+    "area": "ovl_7DF8",
+    "bytes": 1332,
+    "function": "func_801B0CDC",
+    "handwritten": false,
+    "rom": "0x51BC",
+    "vram": "0x801B0CDC"
+  },
+  "ovl_7DF8:0x801B1210": {
+    "area": "ovl_7DF8",
+    "bytes": 284,
+    "function": "func_801B1210",
+    "handwritten": false,
+    "rom": "0x56F0",
+    "vram": "0x801B1210"
+  },
+  "ovl_7DF8:0x801B132C": {
+    "area": "ovl_7DF8",
+    "bytes": 1168,
+    "function": "func_801B132C",
+    "handwritten": false,
+    "rom": "0x580C",
+    "vram": "0x801B132C"
+  },
+  "ovl_7DF8:0x801B17BC": {
+    "area": "ovl_7DF8",
+    "bytes": 256,
+    "function": "func_801B17BC",
+    "handwritten": false,
+    "rom": "0x5C9C",
+    "vram": "0x801B17BC"
+  },
+  "ovl_7DF8:0x801B18BC": {
+    "area": "ovl_7DF8",
+    "bytes": 300,
+    "function": "func_801B18BC",
+    "handwritten": false,
+    "rom": "0x5D9C",
+    "vram": "0x801B18BC"
+  },
+  "ovl_7DF8:0x801B19F0": {
+    "area": "ovl_7DF8",
+    "bytes": 36,
+    "function": "func_801B19F0",
+    "handwritten": false,
+    "rom": "0x5ED0",
+    "vram": "0x801B19F0"
+  },
+  "ovl_7DF8:0x801B1A14": {
+    "area": "ovl_7DF8",
+    "bytes": 104,
+    "function": "func_801B1A14",
+    "handwritten": false,
+    "rom": "0x5EF4",
+    "vram": "0x801B1A14"
+  },
+  "ovl_7DF8:0x801B1A7C": {
+    "area": "ovl_7DF8",
+    "bytes": 872,
+    "function": "func_801B1A7C",
+    "handwritten": false,
+    "rom": "0x5F5C",
+    "vram": "0x801B1A7C"
+  },
+  "ovl_7DF8:0x801B1DE4": {
+    "area": "ovl_7DF8",
+    "bytes": 556,
+    "function": "func_801B1DE4",
+    "handwritten": false,
+    "rom": "0x62C4",
+    "vram": "0x801B1DE4"
+  },
+  "ovl_7DF8:0x801B2010": {
+    "area": "ovl_7DF8",
+    "bytes": 420,
+    "function": "func_801B2010",
+    "handwritten": false,
+    "rom": "0x64F0",
+    "vram": "0x801B2010"
+  },
+  "ovl_7DF8:0x801B21B4": {
+    "area": "ovl_7DF8",
+    "bytes": 420,
+    "function": "func_801B21B4",
+    "handwritten": false,
+    "rom": "0x6694",
+    "vram": "0x801B21B4"
+  },
+  "ovl_7DF8:0x801B2358": {
+    "area": "ovl_7DF8",
+    "bytes": 420,
+    "function": "func_801B2358",
+    "handwritten": false,
+    "rom": "0x6838",
+    "vram": "0x801B2358"
+  },
+  "ovl_7DF8:0x801B24FC": {
+    "area": "ovl_7DF8",
+    "bytes": 420,
+    "function": "func_801B24FC",
+    "handwritten": false,
+    "rom": "0x69DC",
+    "vram": "0x801B24FC"
+  },
+  "ovl_7DF8:0x801B26A0": {
+    "area": "ovl_7DF8",
+    "bytes": 420,
+    "function": "func_801B26A0",
+    "handwritten": false,
+    "rom": "0x6B80",
+    "vram": "0x801B26A0"
+  },
+  "ovl_7DF8:0x801B2844": {
+    "area": "ovl_7DF8",
+    "bytes": 420,
+    "function": "func_801B2844",
+    "handwritten": false,
+    "rom": "0x6D24",
+    "vram": "0x801B2844"
+  },
+  "ovl_7DF8:0x801B29E8": {
+    "area": "ovl_7DF8",
+    "bytes": 420,
+    "function": "func_801B29E8",
+    "handwritten": false,
+    "rom": "0x6EC8",
+    "vram": "0x801B29E8"
+  },
+  "ovl_7DF8:0x801B2B8C": {
+    "area": "ovl_7DF8",
+    "bytes": 872,
+    "function": "func_801B2B8C",
+    "handwritten": false,
+    "rom": "0x706C",
+    "vram": "0x801B2B8C"
+  },
+  "ovl_7DF8:0x801B2EF4": {
+    "area": "ovl_7DF8",
+    "bytes": 536,
+    "function": "func_801B2EF4",
+    "handwritten": false,
+    "rom": "0x73D4",
+    "vram": "0x801B2EF4"
+  },
+  "ovl_7DF8:0x801B310C": {
+    "area": "ovl_7DF8",
+    "bytes": 536,
+    "function": "func_801B310C",
+    "handwritten": false,
+    "rom": "0x75EC",
+    "vram": "0x801B310C"
+  },
+  "ovl_7DF8:0x801B3324": {
+    "area": "ovl_7DF8",
+    "bytes": 536,
+    "function": "func_801B3324",
+    "handwritten": false,
+    "rom": "0x7804",
+    "vram": "0x801B3324"
+  },
+  "ovl_7DF8:0x801B353C": {
+    "area": "ovl_7DF8",
+    "bytes": 536,
+    "function": "func_801B353C",
+    "handwritten": false,
+    "rom": "0x7A1C",
+    "vram": "0x801B353C"
+  },
+  "ovl_7DF8:0x801B3754": {
+    "area": "ovl_7DF8",
+    "bytes": 536,
+    "function": "func_801B3754",
+    "handwritten": false,
+    "rom": "0x7C34",
+    "vram": "0x801B3754"
+  },
+  "ovl_7DF8:0x801B396C": {
+    "area": "ovl_7DF8",
+    "bytes": 536,
+    "function": "func_801B396C",
+    "handwritten": false,
+    "rom": "0x7E4C",
+    "vram": "0x801B396C"
+  },
+  "ovl_7DF8:0x801B3B84": {
+    "area": "ovl_7DF8",
+    "bytes": 556,
+    "function": "func_801B3B84",
+    "handwritten": false,
+    "rom": "0x8064",
+    "vram": "0x801B3B84"
+  },
+  "ovl_7DF8:0x801B3DB0": {
+    "area": "ovl_7DF8",
+    "bytes": 1360,
+    "function": "func_801B3DB0",
+    "handwritten": false,
+    "rom": "0x8290",
+    "vram": "0x801B3DB0"
+  },
+  "ovl_7DF8:0x801B4300": {
+    "area": "ovl_7DF8",
+    "bytes": 36,
+    "function": "func_801B4300",
+    "handwritten": false,
+    "rom": "0x87E0",
+    "vram": "0x801B4300"
+  },
+  "ovl_7DF8:0x801B4324": {
+    "area": "ovl_7DF8",
+    "bytes": 132,
+    "function": "func_801B4324",
+    "handwritten": false,
+    "rom": "0x8804",
+    "vram": "0x801B4324"
+  },
+  "ovl_7DF8:0x801B43A8": {
+    "area": "ovl_7DF8",
+    "bytes": 196,
+    "function": "func_801B43A8",
+    "handwritten": false,
+    "rom": "0x8888",
+    "vram": "0x801B43A8"
+  },
+  "ovl_7DF8:0x801B446C": {
+    "area": "ovl_7DF8",
+    "bytes": 292,
+    "function": "func_801B446C",
+    "handwritten": false,
+    "rom": "0x894C",
+    "vram": "0x801B446C"
+  },
+  "ovl_7DF8:0x801B4590": {
+    "area": "ovl_7DF8",
+    "bytes": 204,
+    "function": "func_801B4590",
+    "handwritten": false,
+    "rom": "0x8A70",
+    "vram": "0x801B4590"
+  },
+  "ovl_7DF8:0x801B465C": {
+    "area": "ovl_7DF8",
+    "bytes": 328,
+    "function": "func_801B465C",
+    "handwritten": false,
+    "rom": "0x8B3C",
+    "vram": "0x801B465C"
+  },
+  "ovl_7DF8:0x801B47A4": {
+    "area": "ovl_7DF8",
+    "bytes": 3472,
+    "function": "func_801B47A4",
+    "handwritten": false,
+    "rom": "0x8C84",
+    "vram": "0x801B47A4"
+  },
+  "ovl_7DF8:0x801B5534": {
+    "area": "ovl_7DF8",
+    "bytes": 168,
+    "function": "func_801B5534",
+    "handwritten": false,
+    "rom": "0x9A14",
+    "vram": "0x801B5534"
+  },
+  "ovl_7DF8:0x801B55DC": {
+    "area": "ovl_7DF8",
+    "bytes": 116,
+    "function": "func_801B55DC",
+    "handwritten": false,
+    "rom": "0x9ABC",
+    "vram": "0x801B55DC"
+  },
+  "ovl_7DF8:0x801B5650": {
+    "area": "ovl_7DF8",
+    "bytes": 1916,
+    "function": "func_801B5650",
+    "handwritten": false,
+    "rom": "0x9B30",
+    "vram": "0x801B5650"
+  },
+  "ovl_7DF8:0x801B5DCC": {
+    "area": "ovl_7DF8",
+    "bytes": 1884,
+    "function": "func_801B5DCC",
+    "handwritten": false,
+    "rom": "0xA2AC",
+    "vram": "0x801B5DCC"
+  },
+  "ovl_7DF8:0x801B6528": {
+    "area": "ovl_7DF8",
+    "bytes": 596,
+    "function": "func_801B6528",
+    "handwritten": false,
+    "rom": "0xAA08",
+    "vram": "0x801B6528"
+  },
+  "ovl_7DF8:0x801B677C": {
+    "area": "ovl_7DF8",
+    "bytes": 480,
+    "function": "func_801B677C",
+    "handwritten": false,
+    "rom": "0xAC5C",
+    "vram": "0x801B677C"
+  },
+  "ovl_7DF8:0x801B695C": {
+    "area": "ovl_7DF8",
+    "bytes": 268,
+    "function": "func_801B695C",
+    "handwritten": false,
+    "rom": "0xAE3C",
+    "vram": "0x801B695C"
+  },
+  "ovl_7DF8:0x801B6A68": {
+    "area": "ovl_7DF8",
+    "bytes": 368,
+    "function": "func_801B6A68",
+    "handwritten": false,
+    "rom": "0xAF48",
+    "vram": "0x801B6A68"
+  },
+  "ovl_7DF8:0x801B6BD8": {
+    "area": "ovl_7DF8",
+    "bytes": 628,
+    "function": "func_801B6BD8",
+    "handwritten": false,
+    "rom": "0xB0B8",
+    "vram": "0x801B6BD8"
+  },
+  "ovl_7DF8:0x801B6E4C": {
+    "area": "ovl_7DF8",
+    "bytes": 5712,
+    "function": "func_801B6E4C",
+    "handwritten": false,
+    "rom": "0xB32C",
+    "vram": "0x801B6E4C"
+  },
+  "ovl_7DF8:0x801B849C": {
+    "area": "ovl_7DF8",
+    "bytes": 5296,
+    "function": "func_801B849C",
+    "handwritten": false,
+    "rom": "0xC97C",
+    "vram": "0x801B849C"
+  },
+  "ovl_7DF8:0x801B994C": {
+    "area": "ovl_7DF8",
+    "bytes": 184,
+    "function": "func_801B994C",
+    "handwritten": false,
+    "rom": "0xDE2C",
+    "vram": "0x801B994C"
+  },
+  "ovl_7DF8:0x801B9A04": {
+    "area": "ovl_7DF8",
+    "bytes": 1668,
+    "function": "func_801B9A04",
+    "handwritten": false,
+    "rom": "0xDEE4",
+    "vram": "0x801B9A04"
+  },
+  "ovl_7DF8:0x801BA088": {
+    "area": "ovl_7DF8",
+    "bytes": 504,
+    "function": "func_801BA088",
+    "handwritten": false,
+    "rom": "0xE568",
+    "vram": "0x801BA088"
+  },
+  "ovl_7DF8:0x801BA280": {
+    "area": "ovl_7DF8",
+    "bytes": 496,
+    "function": "func_801BA280",
+    "handwritten": false,
+    "rom": "0xE760",
+    "vram": "0x801BA280"
+  },
+  "ovl_7DF8:0x801BA470": {
+    "area": "ovl_7DF8",
+    "bytes": 516,
+    "function": "func_801BA470",
+    "handwritten": false,
+    "rom": "0xE950",
+    "vram": "0x801BA470"
+  },
+  "ovl_7DF8:0x801BA674": {
+    "area": "ovl_7DF8",
+    "bytes": 528,
+    "function": "func_801BA674",
+    "handwritten": false,
+    "rom": "0xEB54",
+    "vram": "0x801BA674"
+  },
+  "ovl_7DF8:0x801BA884": {
+    "area": "ovl_7DF8",
+    "bytes": 500,
+    "function": "func_801BA884",
+    "handwritten": false,
+    "rom": "0xED64",
+    "vram": "0x801BA884"
+  },
+  "ovl_7DF8:0x801BAA78": {
+    "area": "ovl_7DF8",
+    "bytes": 884,
+    "function": "func_801BAA78",
+    "handwritten": false,
+    "rom": "0xEF58",
+    "vram": "0x801BAA78"
+  },
+  "ovl_7DF8:0x801BADEC": {
+    "area": "ovl_7DF8",
+    "bytes": 568,
+    "function": "func_801BADEC",
+    "handwritten": false,
+    "rom": "0xF2CC",
+    "vram": "0x801BADEC"
+  },
+  "ovl_7DF8:0x801BB024": {
+    "area": "ovl_7DF8",
+    "bytes": 564,
+    "function": "func_801BB024",
+    "handwritten": false,
+    "rom": "0xF504",
+    "vram": "0x801BB024"
+  },
+  "ovl_7DF8:0x801BB258": {
+    "area": "ovl_7DF8",
+    "bytes": 524,
+    "function": "func_801BB258",
+    "handwritten": false,
+    "rom": "0xF738",
+    "vram": "0x801BB258"
+  },
+  "ovl_7DF8:0x801BB464": {
+    "area": "ovl_7DF8",
+    "bytes": 304,
+    "function": "func_801BB464",
+    "handwritten": false,
+    "rom": "0xF944",
+    "vram": "0x801BB464"
+  },
+  "ovl_7DF8:0x801BB594": {
+    "area": "ovl_7DF8",
+    "bytes": 544,
+    "function": "func_801BB594",
+    "handwritten": false,
+    "rom": "0xFA74",
+    "vram": "0x801BB594"
+  },
+  "ovl_7DF8:0x801BB7B4": {
+    "area": "ovl_7DF8",
+    "bytes": 940,
+    "function": "func_801BB7B4",
+    "handwritten": false,
+    "rom": "0xFC94",
+    "vram": "0x801BB7B4"
+  },
+  "ovl_7DF8:0x801BBB60": {
+    "area": "ovl_7DF8",
+    "bytes": 292,
+    "function": "func_801BBB60",
+    "handwritten": false,
+    "rom": "0x10040",
+    "vram": "0x801BBB60"
+  },
+  "ovl_7DF8:0x801BBC84": {
+    "area": "ovl_7DF8",
+    "bytes": 516,
+    "function": "func_801BBC84",
+    "handwritten": false,
+    "rom": "0x10164",
+    "vram": "0x801BBC84"
+  },
+  "ovl_7DF8:0x801BBE88": {
+    "area": "ovl_7DF8",
+    "bytes": 808,
+    "function": "func_801BBE88",
+    "handwritten": false,
+    "rom": "0x10368",
+    "vram": "0x801BBE88"
+  },
+  "ovl_7DF8:0x801BC1B0": {
+    "area": "ovl_7DF8",
+    "bytes": 2496,
+    "function": "func_801BC1B0",
+    "handwritten": false,
+    "rom": "0x10690",
+    "vram": "0x801BC1B0"
+  },
+  "ovl_7DF8:0x801BCB70": {
+    "area": "ovl_7DF8",
+    "bytes": 1676,
+    "function": "func_801BCB70",
+    "handwritten": false,
+    "rom": "0x11050",
+    "vram": "0x801BCB70"
+  },
+  "ovl_7DF8:0x801BD200": {
+    "area": "ovl_7DF8",
+    "bytes": 112,
+    "function": "func_801BD200",
+    "handwritten": false,
+    "rom": "0x116E0",
+    "vram": "0x801BD200"
+  },
+  "ovl_7DF8:0x801BD270": {
+    "area": "ovl_7DF8",
+    "bytes": 396,
+    "function": "func_801BD270",
+    "handwritten": false,
+    "rom": "0x11750",
+    "vram": "0x801BD270"
+  },
+  "ovl_7DF8:0x801BD3FC": {
+    "area": "ovl_7DF8",
+    "bytes": 580,
+    "function": "func_801BD3FC",
+    "handwritten": false,
+    "rom": "0x118DC",
+    "vram": "0x801BD3FC"
+  },
+  "ovl_7DF8:0x801BD640": {
+    "area": "ovl_7DF8",
+    "bytes": 1068,
+    "function": "func_801BD640",
+    "handwritten": false,
+    "rom": "0x11B20",
+    "vram": "0x801BD640"
+  },
+  "ovl_7DF8:0x801BDA6C": {
+    "area": "ovl_7DF8",
+    "bytes": 1320,
+    "function": "func_801BDA6C",
+    "handwritten": false,
+    "rom": "0x11F4C",
+    "vram": "0x801BDA6C"
+  },
+  "ovl_7DF8:0x801BDF94": {
+    "area": "ovl_7DF8",
+    "bytes": 1452,
+    "function": "func_801BDF94",
+    "handwritten": false,
+    "rom": "0x12474",
+    "vram": "0x801BDF94"
+  },
+  "ovl_7DF8:0x801BE540": {
+    "area": "ovl_7DF8",
+    "bytes": 288,
+    "function": "func_801BE540",
+    "handwritten": false,
+    "rom": "0x12A20",
+    "vram": "0x801BE540"
+  },
+  "ovl_7DF8:0x801BE660": {
+    "area": "ovl_7DF8",
+    "bytes": 300,
+    "function": "func_801BE660",
+    "handwritten": false,
+    "rom": "0x12B40",
+    "vram": "0x801BE660"
+  },
+  "ovl_7DF8:0x801BE790": {
+    "area": "ovl_7DF8",
+    "bytes": 384,
+    "function": "func_801BE790",
+    "handwritten": false,
+    "rom": "0x12C70",
+    "vram": "0x801BE790"
+  },
+  "ovl_7DF8:0x801BE910": {
+    "area": "ovl_7DF8",
+    "bytes": 356,
+    "function": "func_801BE910",
+    "handwritten": false,
+    "rom": "0x12DF0",
+    "vram": "0x801BE910"
+  },
+  "ovl_7DF8:0x801BEA74": {
+    "area": "ovl_7DF8",
+    "bytes": 664,
+    "function": "func_801BEA74",
+    "handwritten": false,
+    "rom": "0x12F54",
+    "vram": "0x801BEA74"
+  },
+  "ovl_7DF8:0x801BED0C": {
+    "area": "ovl_7DF8",
+    "bytes": 408,
+    "function": "func_801BED0C",
+    "handwritten": false,
+    "rom": "0x131EC",
+    "vram": "0x801BED0C"
+  },
+  "ovl_7DF8:0x801BEEA4": {
+    "area": "ovl_7DF8",
+    "bytes": 344,
+    "function": "func_801BEEA4",
+    "handwritten": false,
+    "rom": "0x13384",
+    "vram": "0x801BEEA4"
+  },
+  "ovl_7DF8:0x801BEFFC": {
+    "area": "ovl_7DF8",
+    "bytes": 236,
+    "function": "func_801BEFFC",
+    "handwritten": false,
+    "rom": "0x134DC",
+    "vram": "0x801BEFFC"
+  },
+  "ovl_7DF8:0x801BF0E8": {
+    "area": "ovl_7DF8",
+    "bytes": 168,
+    "function": "func_801BF0E8",
+    "handwritten": false,
+    "rom": "0x135C8",
+    "vram": "0x801BF0E8"
+  },
+  "ovl_7DF8:0x801BF190": {
+    "area": "ovl_7DF8",
+    "bytes": 1256,
+    "function": "func_801BF190",
+    "handwritten": false,
+    "rom": "0x13670",
+    "vram": "0x801BF190"
+  },
+  "ovl_7DF8:0x801BF678": {
+    "area": "ovl_7DF8",
+    "bytes": 168,
+    "function": "func_801BF678",
+    "handwritten": false,
+    "rom": "0x13B58",
+    "vram": "0x801BF678"
+  },
+  "ovl_7DF8:0x801BF720": {
+    "area": "ovl_7DF8",
+    "bytes": 104,
+    "function": "func_801BF720",
+    "handwritten": false,
+    "rom": "0x13C00",
+    "vram": "0x801BF720"
+  },
+  "ovl_7DF8:0x801BF788": {
+    "area": "ovl_7DF8",
+    "bytes": 200,
+    "function": "func_801BF788",
+    "handwritten": false,
+    "rom": "0x13C68",
+    "vram": "0x801BF788"
+  },
+  "ovl_7DF8:0x801BF850": {
+    "area": "ovl_7DF8",
+    "bytes": 196,
+    "function": "func_801BF850",
+    "handwritten": false,
+    "rom": "0x13D30",
+    "vram": "0x801BF850"
+  },
+  "ovl_7DF8:0x801BF914": {
+    "area": "ovl_7DF8",
+    "bytes": 116,
+    "function": "func_801BF914",
+    "handwritten": false,
+    "rom": "0x13DF4",
+    "vram": "0x801BF914"
+  },
+  "ovl_7DF8:0x801BF988": {
+    "area": "ovl_7DF8",
+    "bytes": 184,
+    "function": "func_801BF988",
+    "handwritten": false,
+    "rom": "0x13E68",
+    "vram": "0x801BF988"
+  },
+  "ovl_7DF8:0x801BFA40": {
+    "area": "ovl_7DF8",
+    "bytes": 196,
+    "function": "func_801BFA40",
+    "handwritten": false,
+    "rom": "0x13F20",
+    "vram": "0x801BFA40"
+  },
+  "ovl_7DF8:0x801BFB10": {
+    "area": "ovl_7DF8",
+    "bytes": 48,
+    "function": "func_801BFB10",
+    "handwritten": false,
+    "rom": "0x13FF0",
+    "vram": "0x801BFB10"
+  },
+  "ovl_7DF8:0x801BFB40": {
+    "area": "ovl_7DF8",
+    "bytes": 200,
+    "function": "func_801BFB40",
+    "handwritten": false,
+    "rom": "0x14020",
+    "vram": "0x801BFB40"
+  },
+  "ovl_7DF8:0x801BFC08": {
+    "area": "ovl_7DF8",
+    "bytes": 132,
+    "function": "func_801BFC08",
+    "handwritten": false,
+    "rom": "0x140E8",
+    "vram": "0x801BFC08"
+  },
+  "ovl_7DF8:0x801BFC8C": {
+    "area": "ovl_7DF8",
+    "bytes": 48,
+    "function": "func_801BFC8C",
+    "handwritten": false,
+    "rom": "0x1416C",
+    "vram": "0x801BFC8C"
+  },
+  "ovl_7DF8:0x801BFCBC": {
+    "area": "ovl_7DF8",
+    "bytes": 2388,
+    "function": "func_801BFCBC",
+    "handwritten": false,
+    "rom": "0x1419C",
+    "vram": "0x801BFCBC"
+  },
+  "ovl_7DF8:0x801C0610": {
+    "area": "ovl_7DF8",
+    "bytes": 372,
+    "function": "func_801C0610",
+    "handwritten": false,
+    "rom": "0x14AF0",
+    "vram": "0x801C0610"
+  },
+  "ovl_7DF8:0x801C0784": {
+    "area": "ovl_7DF8",
+    "bytes": 124,
+    "function": "func_801C0784",
+    "handwritten": false,
+    "rom": "0x14C64",
+    "vram": "0x801C0784"
+  },
+  "ovl_7DF8:0x801C0800": {
+    "area": "ovl_7DF8",
+    "bytes": 248,
+    "function": "func_801C0800",
+    "handwritten": false,
+    "rom": "0x14CE0",
+    "vram": "0x801C0800"
+  },
+  "ovl_7DF8:0x801C08F8": {
+    "area": "ovl_7DF8",
+    "bytes": 2296,
+    "function": "func_801C08F8",
+    "handwritten": false,
+    "rom": "0x14DD8",
+    "vram": "0x801C08F8"
+  },
+  "ovl_7DF8:0x801C11F0": {
+    "area": "ovl_7DF8",
+    "bytes": 580,
+    "function": "func_801C11F0",
+    "handwritten": false,
+    "rom": "0x156D0",
+    "vram": "0x801C11F0"
+  },
+  "ovl_7DF8:0x801C1434": {
+    "area": "ovl_7DF8",
+    "bytes": 720,
+    "function": "func_801C1434",
+    "handwritten": false,
+    "rom": "0x15914",
+    "vram": "0x801C1434"
+  },
+  "ovl_7DF8:0x801C1704": {
+    "area": "ovl_7DF8",
+    "bytes": 204,
+    "function": "func_801C1704",
+    "handwritten": false,
+    "rom": "0x15BE4",
+    "vram": "0x801C1704"
+  },
+  "ovl_7DF8:0x801C17D0": {
+    "area": "ovl_7DF8",
+    "bytes": 448,
+    "function": "func_801C17D0",
+    "handwritten": false,
+    "rom": "0x15CB0",
+    "vram": "0x801C17D0"
+  },
+  "ovl_7DF8:0x801C1990": {
+    "area": "ovl_7DF8",
+    "bytes": 676,
+    "function": "func_801C1990",
+    "handwritten": false,
+    "rom": "0x15E70",
+    "vram": "0x801C1990"
+  },
+  "ovl_7DF8:0x801C1C34": {
+    "area": "ovl_7DF8",
+    "bytes": 1244,
+    "function": "func_801C1C34",
+    "handwritten": false,
+    "rom": "0x16114",
+    "vram": "0x801C1C34"
+  },
+  "ovl_7DF8:0x801C2110": {
+    "area": "ovl_7DF8",
+    "bytes": 316,
+    "function": "func_801C2110",
+    "handwritten": false,
+    "rom": "0x165F0",
+    "vram": "0x801C2110"
+  },
+  "ovl_7DF8:0x801C224C": {
+    "area": "ovl_7DF8",
+    "bytes": 372,
+    "function": "func_801C224C",
+    "handwritten": false,
+    "rom": "0x1672C",
+    "vram": "0x801C224C"
+  },
+  "ovl_7DF8:0x801C23C0": {
+    "area": "ovl_7DF8",
+    "bytes": 1820,
+    "function": "func_801C23C0",
+    "handwritten": false,
+    "rom": "0x168A0",
+    "vram": "0x801C23C0"
+  },
+  "ovl_7DF8:0x801C2ADC": {
+    "area": "ovl_7DF8",
+    "bytes": 600,
+    "function": "func_801C2ADC",
+    "handwritten": false,
+    "rom": "0x16FBC",
+    "vram": "0x801C2ADC"
+  },
+  "ovl_7DF8:0x801C2D34": {
+    "area": "ovl_7DF8",
+    "bytes": 552,
+    "function": "func_801C2D34",
+    "handwritten": false,
+    "rom": "0x17214",
+    "vram": "0x801C2D34"
+  },
+  "ovl_7DF8:0x801C2F5C": {
+    "area": "ovl_7DF8",
+    "bytes": 544,
+    "function": "func_801C2F5C",
+    "handwritten": false,
+    "rom": "0x1743C",
+    "vram": "0x801C2F5C"
+  },
+  "ovl_7DF8:0x801C317C": {
+    "area": "ovl_7DF8",
+    "bytes": 936,
+    "function": "func_801C317C",
+    "handwritten": false,
+    "rom": "0x1765C",
+    "vram": "0x801C317C"
+  },
+  "ovl_7DF8:0x801C3524": {
+    "area": "ovl_7DF8",
+    "bytes": 92,
+    "function": "func_801C3524",
+    "handwritten": false,
+    "rom": "0x17A04",
+    "vram": "0x801C3524"
+  },
+  "ovl_7DF8:0x801C3580": {
+    "area": "ovl_7DF8",
+    "bytes": 44,
+    "function": "func_801C3580",
+    "handwritten": false,
+    "rom": "0x17A60",
+    "vram": "0x801C3580"
+  },
+  "ovl_7DF8:0x801C35AC": {
+    "area": "ovl_7DF8",
+    "bytes": 44,
+    "function": "func_801C35AC",
+    "handwritten": false,
+    "rom": "0x17A8C",
+    "vram": "0x801C35AC"
+  },
+  "ovl_7DF8:0x801C35D8": {
+    "area": "ovl_7DF8",
+    "bytes": 384,
+    "function": "func_801C35D8",
+    "handwritten": false,
+    "rom": "0x17AB8",
+    "vram": "0x801C35D8"
+  },
+  "ovl_7DF8:0x801C3758": {
+    "area": "ovl_7DF8",
+    "bytes": 564,
+    "function": "func_801C3758",
+    "handwritten": false,
+    "rom": "0x17C38",
+    "vram": "0x801C3758"
+  },
+  "ovl_7DF8:0x801C3990": {
+    "area": "ovl_7DF8",
+    "bytes": 272,
+    "function": "func_801C3990",
+    "handwritten": false,
+    "rom": "0x17E70",
+    "vram": "0x801C3990"
+  },
+  "ovl_7DF8:0x801C3AA0": {
+    "area": "ovl_7DF8",
+    "bytes": 928,
+    "function": "func_801C3AA0",
+    "handwritten": false,
+    "rom": "0x17F80",
+    "vram": "0x801C3AA0"
+  },
+  "ovl_7DF8:0x801C3E40": {
+    "area": "ovl_7DF8",
+    "bytes": 504,
+    "function": "func_801C3E40",
+    "handwritten": false,
+    "rom": "0x18320",
+    "vram": "0x801C3E40"
+  },
+  "ovl_7DF8:0x801C4040": {
+    "area": "ovl_7DF8",
+    "bytes": 60,
+    "function": "func_801C4040",
+    "handwritten": false,
+    "rom": "0x18520",
+    "vram": "0x801C4040"
+  },
+  "ovl_7DF8:0x801C407C": {
+    "area": "ovl_7DF8",
+    "bytes": 444,
+    "function": "func_801C407C",
+    "handwritten": false,
+    "rom": "0x1855C",
+    "vram": "0x801C407C"
+  },
+  "ovl_7DF8:0x801C4238": {
+    "area": "ovl_7DF8",
+    "bytes": 8,
+    "function": "func_801C4238",
+    "handwritten": false,
+    "rom": "0x18718",
+    "vram": "0x801C4238"
+  },
+  "ovl_7DF8:0x801C4240": {
+    "area": "ovl_7DF8",
+    "bytes": 1344,
+    "function": "func_801C4240",
+    "handwritten": false,
+    "rom": "0x18720",
+    "vram": "0x801C4240"
+  },
+  "ovl_7DF8:0x801C4780": {
+    "area": "ovl_7DF8",
+    "bytes": 84,
+    "function": "func_801C4780",
+    "handwritten": false,
+    "rom": "0x18C60",
+    "vram": "0x801C4780"
+  },
+  "ovl_7DF8:0x801C47E0": {
+    "area": "ovl_7DF8",
+    "bytes": 260,
+    "function": "func_801C47E0",
+    "handwritten": false,
+    "rom": "0x18CC0",
+    "vram": "0x801C47E0"
+  },
+  "ovl_7DF8:0x801C48E4": {
+    "area": "ovl_7DF8",
+    "bytes": 196,
+    "function": "func_801C48E4",
+    "handwritten": false,
+    "rom": "0x18DC4",
+    "vram": "0x801C48E4"
+  },
+  "ovl_7DF8:0x801C49A8": {
+    "area": "ovl_7DF8",
+    "bytes": 548,
+    "function": "func_801C49A8",
+    "handwritten": false,
+    "rom": "0x18E88",
+    "vram": "0x801C49A8"
+  },
+  "ovl_7DF8:0x801C4BD0": {
+    "area": "ovl_7DF8",
+    "bytes": 148,
+    "function": "func_801C4BD0",
+    "handwritten": false,
+    "rom": "0x190B0",
+    "vram": "0x801C4BD0"
+  },
+  "ovl_7DF8:0x801C4C64": {
+    "area": "ovl_7DF8",
+    "bytes": 196,
+    "function": "func_801C4C64",
+    "handwritten": false,
+    "rom": "0x19144",
+    "vram": "0x801C4C64"
+  },
+  "ovl_7DF8:0x801C4D28": {
+    "area": "ovl_7DF8",
+    "bytes": 68,
+    "function": "func_801C4D28",
+    "handwritten": false,
+    "rom": "0x19208",
+    "vram": "0x801C4D28"
+  },
+  "ovl_7DF8:0x801C4D6C": {
+    "area": "ovl_7DF8",
+    "bytes": 204,
+    "function": "func_801C4D6C",
+    "handwritten": false,
+    "rom": "0x1924C",
+    "vram": "0x801C4D6C"
+  },
+  "ovl_7DF8:0x801C4E38": {
+    "area": "ovl_7DF8",
+    "bytes": 556,
+    "function": "func_801C4E38",
+    "handwritten": false,
+    "rom": "0x19318",
+    "vram": "0x801C4E38"
+  },
+  "ovl_7DF8:0x801C5064": {
+    "area": "ovl_7DF8",
+    "bytes": 404,
+    "function": "func_801C5064",
+    "handwritten": false,
+    "rom": "0x19544",
+    "vram": "0x801C5064"
+  },
+  "ovl_7DF8:0x801C51F8": {
+    "area": "ovl_7DF8",
+    "bytes": 160,
+    "function": "func_801C51F8",
+    "handwritten": false,
+    "rom": "0x196D8",
+    "vram": "0x801C51F8"
+  },
+  "ovl_7DF8:0x801C5298": {
+    "area": "ovl_7DF8",
+    "bytes": 3036,
+    "function": "func_801C5298",
+    "handwritten": false,
+    "rom": "0x19778",
+    "vram": "0x801C5298"
+  },
+  "ovl_7DF8:0x801C5E74": {
+    "area": "ovl_7DF8",
+    "bytes": 2392,
+    "function": "func_801C5E74",
+    "handwritten": false,
+    "rom": "0x1A354",
+    "vram": "0x801C5E74"
+  },
+  "ovl_7DF8:0x801C67CC": {
+    "area": "ovl_7DF8",
+    "bytes": 692,
+    "function": "func_801C67CC",
+    "handwritten": false,
+    "rom": "0x1ACAC",
+    "vram": "0x801C67CC"
+  },
+  "ovl_7DF8:0x801C6A80": {
+    "area": "ovl_7DF8",
+    "bytes": 292,
+    "function": "func_801C6A80",
+    "handwritten": false,
+    "rom": "0x1AF60",
+    "vram": "0x801C6A80"
+  },
+  "ovl_7DF8:0x801C6BA4": {
+    "area": "ovl_7DF8",
+    "bytes": 212,
+    "function": "func_801C6BA4",
+    "handwritten": false,
+    "rom": "0x1B084",
+    "vram": "0x801C6BA4"
+  },
+  "ovl_7DF8:0x801C6C78": {
+    "area": "ovl_7DF8",
+    "bytes": 200,
+    "function": "func_801C6C78",
+    "handwritten": false,
+    "rom": "0x1B158",
+    "vram": "0x801C6C78"
+  },
+  "ovl_7DF8:0x801C6D40": {
+    "area": "ovl_7DF8",
+    "bytes": 300,
+    "function": "func_801C6D40",
+    "handwritten": false,
+    "rom": "0x1B220",
+    "vram": "0x801C6D40"
+  },
+  "ovl_7DF8:0x801C6E6C": {
+    "area": "ovl_7DF8",
+    "bytes": 24,
+    "function": "func_801C6E6C",
+    "handwritten": false,
+    "rom": "0x1B34C",
+    "vram": "0x801C6E6C"
+  },
+  "ovl_7DF8:0x801C6E84": {
+    "area": "ovl_7DF8",
+    "bytes": 184,
+    "function": "func_801C6E84",
+    "handwritten": false,
+    "rom": "0x1B364",
+    "vram": "0x801C6E84"
+  },
+  "ovl_7DF8:0x801C6F3C": {
+    "area": "ovl_7DF8",
+    "bytes": 224,
+    "function": "func_801C6F3C",
+    "handwritten": false,
+    "rom": "0x1B41C",
+    "vram": "0x801C6F3C"
+  },
+  "ovl_7DF8:0x801C701C": {
+    "area": "ovl_7DF8",
+    "bytes": 24,
+    "function": "func_801C701C",
+    "handwritten": false,
+    "rom": "0x1B4FC",
+    "vram": "0x801C701C"
+  },
+  "ovl_7DF8:0x801C7034": {
+    "area": "ovl_7DF8",
+    "bytes": 204,
+    "function": "func_801C7034",
+    "handwritten": false,
+    "rom": "0x1B514",
+    "vram": "0x801C7034"
+  },
+  "ovl_7DF8:0x801C7100": {
+    "area": "ovl_7DF8",
+    "bytes": 252,
+    "function": "func_801C7100",
+    "handwritten": false,
+    "rom": "0x1B5E0",
+    "vram": "0x801C7100"
+  },
+  "ovl_7DF8:0x801C71FC": {
+    "area": "ovl_7DF8",
+    "bytes": 172,
+    "function": "func_801C71FC",
+    "handwritten": false,
+    "rom": "0x1B6DC",
+    "vram": "0x801C71FC"
+  },
+  "ovl_7DF8:0x801C72B0": {
+    "area": "ovl_7DF8",
+    "bytes": 96,
+    "function": "func_801C72B0",
+    "handwritten": false,
+    "rom": "0x1B790",
+    "vram": "0x801C72B0"
+  },
+  "ovl_7DF8:0x801C7310": {
+    "area": "ovl_7DF8",
+    "bytes": 1276,
+    "function": "func_801C7310",
+    "handwritten": false,
+    "rom": "0x1B7F0",
+    "vram": "0x801C7310"
+  },
+  "ovl_7DF8:0x801C780C": {
+    "area": "ovl_7DF8",
+    "bytes": 160,
+    "function": "func_801C780C",
+    "handwritten": false,
+    "rom": "0x1BCEC",
+    "vram": "0x801C780C"
+  },
+  "ovl_7DF8:0x801C78B0": {
+    "area": "ovl_7DF8",
+    "bytes": 232,
+    "function": "func_801C78B0",
+    "handwritten": false,
+    "rom": "0x1BD90",
+    "vram": "0x801C78B0"
+  },
+  "ovl_7DF8:0x801C7998": {
+    "area": "ovl_7DF8",
+    "bytes": 256,
+    "function": "func_801C7998",
+    "handwritten": false,
+    "rom": "0x1BE78",
+    "vram": "0x801C7998"
+  },
+  "ovl_7DF8:0x801C7A98": {
+    "area": "ovl_7DF8",
+    "bytes": 568,
+    "function": "func_801C7A98",
+    "handwritten": false,
+    "rom": "0x1BF78",
+    "vram": "0x801C7A98"
+  },
+  "ovl_7DF8:0x801C7CD0": {
+    "area": "ovl_7DF8",
+    "bytes": 380,
+    "function": "func_801C7CD0",
+    "handwritten": false,
+    "rom": "0x1C1B0",
+    "vram": "0x801C7CD0"
+  },
+  "ovl_7DF8:0x801C7E4C": {
+    "area": "ovl_7DF8",
+    "bytes": 76,
+    "function": "func_801C7E4C",
+    "handwritten": false,
+    "rom": "0x1C32C",
+    "vram": "0x801C7E4C"
+  },
+  "ovl_7DF8:0x801C7E98": {
+    "area": "ovl_7DF8",
+    "bytes": 120,
+    "function": "func_801C7E98",
+    "handwritten": false,
+    "rom": "0x1C378",
+    "vram": "0x801C7E98"
+  },
+  "ovl_7DF8:0x801C7F10": {
+    "area": "ovl_7DF8",
+    "bytes": 48,
+    "function": "func_801C7F10",
+    "handwritten": false,
+    "rom": "0x1C3F0",
+    "vram": "0x801C7F10"
+  },
+  "ovl_7DF8:0x801C7F40": {
+    "area": "ovl_7DF8",
+    "bytes": 80,
+    "function": "func_801C7F40",
+    "handwritten": false,
+    "rom": "0x1C420",
+    "vram": "0x801C7F40"
+  },
+  "ovl_7DF8:0x801C7F90": {
+    "area": "ovl_7DF8",
+    "bytes": 116,
+    "function": "func_801C7F90",
+    "handwritten": false,
+    "rom": "0x1C470",
+    "vram": "0x801C7F90"
+  },
+  "ovl_7DF8:0x801C8004": {
+    "area": "ovl_7DF8",
+    "bytes": 236,
+    "function": "func_801C8004",
+    "handwritten": false,
+    "rom": "0x1C4E4",
+    "vram": "0x801C8004"
+  },
+  "ovl_7DF8:0x801C80F0": {
+    "area": "ovl_7DF8",
+    "bytes": 1232,
+    "function": "func_801C80F0",
+    "handwritten": false,
+    "rom": "0x1C5D0",
+    "vram": "0x801C80F0"
+  },
+  "ovl_7DF8:0x801C85C0": {
+    "area": "ovl_7DF8",
+    "bytes": 168,
+    "function": "func_801C85C0",
+    "handwritten": false,
+    "rom": "0x1CAA0",
+    "vram": "0x801C85C0"
+  },
+  "ovl_7DF8:0x801C8668": {
+    "area": "ovl_7DF8",
+    "bytes": 64,
+    "function": "func_801C8668",
+    "handwritten": false,
+    "rom": "0x1CB48",
+    "vram": "0x801C8668"
+  },
+  "ovl_7DF8:0x801C86A8": {
+    "area": "ovl_7DF8",
+    "bytes": 448,
+    "function": "func_801C86A8",
+    "handwritten": false,
+    "rom": "0x1CB88",
+    "vram": "0x801C86A8"
+  },
+  "ovl_7DF8:0x801C8868": {
+    "area": "ovl_7DF8",
+    "bytes": 464,
+    "function": "func_801C8868",
+    "handwritten": false,
+    "rom": "0x1CD48",
+    "vram": "0x801C8868"
+  },
+  "ovl_7DF8:0x801C8A38": {
+    "area": "ovl_7DF8",
+    "bytes": 168,
+    "function": "func_801C8A38",
+    "handwritten": false,
+    "rom": "0x1CF18",
+    "vram": "0x801C8A38"
+  },
+  "ovl_7DF8:0x801C8AE0": {
+    "area": "ovl_7DF8",
+    "bytes": 324,
+    "function": "func_801C8AE0",
+    "handwritten": false,
+    "rom": "0x1CFC0",
+    "vram": "0x801C8AE0"
+  },
+  "ovl_7DF8:0x801C8C24": {
+    "area": "ovl_7DF8",
+    "bytes": 408,
+    "function": "func_801C8C24",
+    "handwritten": false,
+    "rom": "0x1D104",
+    "vram": "0x801C8C24"
+  },
+  "ovl_7DF8:0x801C8DBC": {
+    "area": "ovl_7DF8",
+    "bytes": 364,
+    "function": "func_801C8DBC",
+    "handwritten": false,
+    "rom": "0x1D29C",
+    "vram": "0x801C8DBC"
+  },
+  "ovl_7DF8:0x801C8F28": {
+    "area": "ovl_7DF8",
+    "bytes": 428,
+    "function": "func_801C8F28",
+    "handwritten": false,
+    "rom": "0x1D408",
+    "vram": "0x801C8F28"
+  },
+  "ovl_7DF8:0x801C90D4": {
+    "area": "ovl_7DF8",
+    "bytes": 1200,
+    "function": "func_801C90D4",
+    "handwritten": false,
+    "rom": "0x1D5B4",
+    "vram": "0x801C90D4"
+  },
+  "ovl_7DF8:0x801C9584": {
+    "area": "ovl_7DF8",
+    "bytes": 276,
+    "function": "func_801C9584",
+    "handwritten": false,
+    "rom": "0x1DA64",
+    "vram": "0x801C9584"
+  },
+  "ovl_7DF8:0x801C9698": {
+    "area": "ovl_7DF8",
+    "bytes": 1148,
+    "function": "func_801C9698",
+    "handwritten": false,
+    "rom": "0x1DB78",
+    "vram": "0x801C9698"
+  },
+  "ovl_7DF8:0x801C9B14": {
+    "area": "ovl_7DF8",
+    "bytes": 3184,
+    "function": "func_801C9B14",
+    "handwritten": false,
+    "rom": "0x1DFF4",
+    "vram": "0x801C9B14"
+  },
+  "ovl_7DF8:0x801CA784": {
+    "area": "ovl_7DF8",
+    "bytes": 96,
+    "function": "func_801CA784",
+    "handwritten": false,
+    "rom": "0x1EC64",
+    "vram": "0x801CA784"
+  },
+  "ovl_7DF8:0x801CA7E4": {
+    "area": "ovl_7DF8",
+    "bytes": 312,
+    "function": "func_801CA7E4",
+    "handwritten": false,
+    "rom": "0x1ECC4",
+    "vram": "0x801CA7E4"
+  },
+  "ovl_7DF8:0x801CA91C": {
+    "area": "ovl_7DF8",
+    "bytes": 228,
+    "function": "func_801CA91C",
+    "handwritten": false,
+    "rom": "0x1EDFC",
+    "vram": "0x801CA91C"
+  },
+  "ovl_7DF8:0x801CAA00": {
+    "area": "ovl_7DF8",
+    "bytes": 3992,
+    "function": "func_801CAA00",
+    "handwritten": false,
+    "rom": "0x1EEE0",
+    "vram": "0x801CAA00"
+  },
+  "ovl_7DF8:0x801CB998": {
+    "area": "ovl_7DF8",
+    "bytes": 148,
+    "function": "func_801CB998",
+    "handwritten": false,
+    "rom": "0x1FE78",
+    "vram": "0x801CB998"
+  },
+  "ovl_7DF8:0x801CBA2C": {
+    "area": "ovl_7DF8",
+    "bytes": 428,
+    "function": "func_801CBA2C",
+    "handwritten": false,
+    "rom": "0x1FF0C",
+    "vram": "0x801CBA2C"
+  },
+  "ovl_7DF8:0x801CBBE0": {
+    "area": "ovl_7DF8",
+    "bytes": 236,
+    "function": "func_801CBBE0",
+    "handwritten": false,
+    "rom": "0x200C0",
+    "vram": "0x801CBBE0"
+  },
+  "ovl_7DF8:0x801CBCCC": {
+    "area": "ovl_7DF8",
+    "bytes": 516,
+    "function": "func_801CBCCC",
+    "handwritten": false,
+    "rom": "0x201AC",
+    "vram": "0x801CBCCC"
+  },
+  "ovl_7DF8:0x801CBED0": {
+    "area": "ovl_7DF8",
+    "bytes": 128,
+    "function": "func_801CBED0",
+    "handwritten": false,
+    "rom": "0x203B0",
+    "vram": "0x801CBED0"
+  },
+  "ovl_7DF8:0x801CBF50": {
+    "area": "ovl_7DF8",
+    "bytes": 60,
+    "function": "func_801CBF50",
+    "handwritten": false,
+    "rom": "0x20430",
+    "vram": "0x801CBF50"
+  },
+  "ovl_7DF8:0x801CBF8C": {
+    "area": "ovl_7DF8",
+    "bytes": 320,
+    "function": "func_801CBF8C",
+    "handwritten": false,
+    "rom": "0x2046C",
+    "vram": "0x801CBF8C"
+  },
+  "ovl_7DF8:0x801CC0CC": {
+    "area": "ovl_7DF8",
+    "bytes": 216,
+    "function": "func_801CC0CC",
+    "handwritten": false,
+    "rom": "0x205AC",
+    "vram": "0x801CC0CC"
+  },
+  "ovl_7DF8:0x801CC1A4": {
+    "area": "ovl_7DF8",
+    "bytes": 192,
+    "function": "func_801CC1A4",
+    "handwritten": false,
+    "rom": "0x20684",
+    "vram": "0x801CC1A4"
+  },
+  "ovl_7DF8:0x801CC264": {
+    "area": "ovl_7DF8",
+    "bytes": 100,
+    "function": "func_801CC264",
+    "handwritten": false,
+    "rom": "0x20744",
+    "vram": "0x801CC264"
+  },
+  "ovl_7DF8:0x801CC2C8": {
+    "area": "ovl_7DF8",
+    "bytes": 136,
+    "function": "func_801CC2C8",
+    "handwritten": false,
+    "rom": "0x207A8",
+    "vram": "0x801CC2C8"
+  },
+  "ovl_7DF8:0x801CC350": {
+    "area": "ovl_7DF8",
+    "bytes": 108,
+    "function": "func_801CC350",
+    "handwritten": false,
+    "rom": "0x20830",
+    "vram": "0x801CC350"
+  },
+  "ovl_7DF8:0x801CC3BC": {
+    "area": "ovl_7DF8",
+    "bytes": 360,
+    "function": "func_801CC3BC",
+    "handwritten": false,
+    "rom": "0x2089C",
+    "vram": "0x801CC3BC"
+  },
+  "ovl_7DF8:0x801CC524": {
+    "area": "ovl_7DF8",
+    "bytes": 104,
+    "function": "func_801CC524",
+    "handwritten": false,
+    "rom": "0x20A04",
+    "vram": "0x801CC524"
+  },
+  "ovl_7DF8:0x801CC58C": {
+    "area": "ovl_7DF8",
+    "bytes": 116,
+    "function": "func_801CC58C",
+    "handwritten": false,
+    "rom": "0x20A6C",
+    "vram": "0x801CC58C"
+  },
+  "ovl_7DF8:0x801CC600": {
+    "area": "ovl_7DF8",
+    "bytes": 104,
+    "function": "func_801CC600",
+    "handwritten": false,
+    "rom": "0x20AE0",
+    "vram": "0x801CC600"
+  },
+  "ovl_7DF8:0x801CC668": {
+    "area": "ovl_7DF8",
+    "bytes": 284,
+    "function": "func_801CC668",
+    "handwritten": false,
+    "rom": "0x20B48",
+    "vram": "0x801CC668"
+  },
+  "ovl_7DF8:0x801CC784": {
+    "area": "ovl_7DF8",
+    "bytes": 244,
+    "function": "func_801CC784",
+    "handwritten": false,
+    "rom": "0x20C64",
+    "vram": "0x801CC784"
+  },
+  "ovl_7DF8:0x801CC878": {
+    "area": "ovl_7DF8",
+    "bytes": 144,
+    "function": "func_801CC878",
+    "handwritten": false,
+    "rom": "0x20D58",
+    "vram": "0x801CC878"
+  },
+  "ovl_7DF8:0x801CC908": {
+    "area": "ovl_7DF8",
+    "bytes": 424,
+    "function": "func_801CC908",
+    "handwritten": false,
+    "rom": "0x20DE8",
+    "vram": "0x801CC908"
+  },
+  "ovl_7DF8:0x801CCAB0": {
+    "area": "ovl_7DF8",
+    "bytes": 284,
+    "function": "func_801CCAB0",
+    "handwritten": false,
+    "rom": "0x20F90",
+    "vram": "0x801CCAB0"
+  },
+  "ovl_7DF8:0x801CCBCC": {
+    "area": "ovl_7DF8",
+    "bytes": 424,
+    "function": "func_801CCBCC",
+    "handwritten": false,
+    "rom": "0x210AC",
+    "vram": "0x801CCBCC"
+  },
+  "ovl_7DF8:0x801CCD74": {
+    "area": "ovl_7DF8",
+    "bytes": 116,
+    "function": "func_801CCD74",
+    "handwritten": false,
+    "rom": "0x21254",
+    "vram": "0x801CCD74"
+  },
+  "ovl_7DF8:0x801CCDE8": {
+    "area": "ovl_7DF8",
+    "bytes": 196,
+    "function": "func_801CCDE8",
+    "handwritten": false,
+    "rom": "0x212C8",
+    "vram": "0x801CCDE8"
+  },
+  "ovl_7DF8:0x801CCEAC": {
+    "area": "ovl_7DF8",
+    "bytes": 396,
+    "function": "func_801CCEAC",
+    "handwritten": false,
+    "rom": "0x2138C",
+    "vram": "0x801CCEAC"
+  },
+  "ovl_7DF8:0x801CD038": {
+    "area": "ovl_7DF8",
+    "bytes": 64,
+    "function": "func_801CD038",
+    "handwritten": false,
+    "rom": "0x21518",
+    "vram": "0x801CD038"
+  },
+  "ovl_7DF8:0x801CD078": {
+    "area": "ovl_7DF8",
+    "bytes": 136,
+    "function": "func_801CD078",
+    "handwritten": false,
+    "rom": "0x21558",
+    "vram": "0x801CD078"
+  },
+  "ovl_7DF8:0x801CD100": {
+    "area": "ovl_7DF8",
+    "bytes": 116,
+    "function": "func_801CD100",
+    "handwritten": false,
+    "rom": "0x215E0",
+    "vram": "0x801CD100"
+  },
+  "ovl_7DF8:0x801CD174": {
+    "area": "ovl_7DF8",
+    "bytes": 124,
+    "function": "func_801CD174",
+    "handwritten": false,
+    "rom": "0x21654",
+    "vram": "0x801CD174"
+  },
+  "ovl_7DF8:0x801CD1F0": {
+    "area": "ovl_7DF8",
+    "bytes": 460,
+    "function": "func_801CD1F0",
+    "handwritten": false,
+    "rom": "0x216D0",
+    "vram": "0x801CD1F0"
+  },
+  "ovl_7DF8:0x801CD3BC": {
+    "area": "ovl_7DF8",
+    "bytes": 140,
+    "function": "func_801CD3BC",
+    "handwritten": false,
+    "rom": "0x2189C",
+    "vram": "0x801CD3BC"
+  },
+  "ovl_7E00:0x801AD900": {
+    "area": "ovl_7E00",
+    "bytes": 1056,
+    "function": "func_801AD900",
+    "handwritten": true,
+    "rom": "0x0",
+    "vram": "0x801AD900"
+  },
+  "ovl_7E00:0x801ADD20": {
+    "area": "ovl_7E00",
+    "bytes": 276,
+    "function": "func_801ADD20",
+    "handwritten": false,
+    "rom": "0x420",
+    "vram": "0x801ADD20"
+  },
+  "ovl_7E00:0x801ADE34": {
+    "area": "ovl_7E00",
+    "bytes": 52,
+    "function": "func_801ADE34",
+    "handwritten": false,
+    "rom": "0x534",
+    "vram": "0x801ADE34"
+  },
+  "ovl_7E00:0x801AE798": {
+    "area": "ovl_7E00",
+    "bytes": 904,
+    "function": "func_801AE798",
+    "handwritten": false,
+    "rom": "0xE98",
+    "vram": "0x801AE798"
+  },
+  "ovl_7E00:0x801AEB20": {
+    "area": "ovl_7E00",
+    "bytes": 216,
+    "function": "func_801AEB20",
+    "handwritten": false,
+    "rom": "0x1220",
+    "vram": "0x801AEB20"
+  },
+  "ovl_7E00:0x801AEC00": {
+    "area": "ovl_7E00",
+    "bytes": 28,
+    "function": "func_801AEC00",
+    "handwritten": false,
+    "rom": "0x1300",
+    "vram": "0x801AEC00"
+  },
+  "ovl_7E00:0x801AEC1C": {
+    "area": "ovl_7E00",
+    "bytes": 48,
+    "function": "func_801AEC1C",
+    "handwritten": true,
+    "rom": "0x131C",
+    "vram": "0x801AEC1C"
+  },
+  "ovl_7E00:0x801AEC4C": {
+    "area": "ovl_7E00",
+    "bytes": 656,
+    "function": "func_801AEC4C",
+    "handwritten": false,
+    "rom": "0x134C",
+    "vram": "0x801AEC4C"
+  },
+  "ovl_7E00:0x801AEEDC": {
+    "area": "ovl_7E00",
+    "bytes": 476,
+    "function": "func_801AEEDC",
+    "handwritten": false,
+    "rom": "0x15DC",
+    "vram": "0x801AEEDC"
+  },
+  "ovl_7E00:0x801AF0B8": {
+    "area": "ovl_7E00",
+    "bytes": 132,
+    "function": "func_801AF0B8",
+    "handwritten": false,
+    "rom": "0x17B8",
+    "vram": "0x801AF0B8"
+  },
+  "ovl_7E00:0x801AF13C": {
+    "area": "ovl_7E00",
+    "bytes": 248,
+    "function": "func_801AF13C",
+    "handwritten": true,
+    "rom": "0x183C",
+    "vram": "0x801AF13C"
+  },
+  "ovl_7E00:0x801AF234": {
+    "area": "ovl_7E00",
+    "bytes": 180,
+    "function": "func_801AF234",
+    "handwritten": false,
+    "rom": "0x1934",
+    "vram": "0x801AF234"
+  },
+  "ovl_7E00:0x801AF2E8": {
+    "area": "ovl_7E00",
+    "bytes": 64,
+    "function": "func_801AF2E8",
+    "handwritten": false,
+    "rom": "0x19E8",
+    "vram": "0x801AF2E8"
+  },
+  "ovl_7E00:0x801AF328": {
+    "area": "ovl_7E00",
+    "bytes": 1872,
+    "function": "func_801AF328",
+    "handwritten": false,
+    "rom": "0x1A28",
+    "vram": "0x801AF328"
+  },
+  "ovl_7E00:0x801AFA78": {
+    "area": "ovl_7E00",
+    "bytes": 4,
+    "function": "func_801AFA78",
+    "handwritten": false,
+    "rom": "0x2178",
+    "vram": "0x801AFA78"
+  },
+  "ovl_7E00:0x801AFA7C": {
+    "area": "ovl_7E00",
+    "bytes": 100,
+    "function": "func_801AFA7C",
+    "handwritten": false,
+    "rom": "0x217C",
+    "vram": "0x801AFA7C"
+  },
+  "ovl_7E00:0x801AFAE0": {
+    "area": "ovl_7E00",
+    "bytes": 424,
+    "function": "func_801AFAE0",
+    "handwritten": false,
+    "rom": "0x21E0",
+    "vram": "0x801AFAE0"
+  },
+  "ovl_7E00:0x801AFC88": {
+    "area": "ovl_7E00",
+    "bytes": 964,
+    "function": "func_801AFC88",
+    "handwritten": true,
+    "rom": "0x2388",
+    "vram": "0x801AFC88"
+  },
+  "ovl_7E00:0x801B004C": {
+    "area": "ovl_7E00",
+    "bytes": 348,
+    "function": "func_801B004C",
+    "handwritten": false,
+    "rom": "0x274C",
+    "vram": "0x801B004C"
+  },
+  "ovl_7E00:0x801B01A8": {
+    "area": "ovl_7E00",
+    "bytes": 516,
+    "function": "func_801B01A8",
+    "handwritten": true,
+    "rom": "0x28A8",
+    "vram": "0x801B01A8"
+  },
+  "ovl_7E00:0x801B03AC": {
+    "area": "ovl_7E00",
+    "bytes": 52,
+    "function": "func_801B03AC",
+    "handwritten": false,
+    "rom": "0x2AAC",
+    "vram": "0x801B03AC"
+  },
+  "ovl_7E00:0x801B03E0": {
+    "area": "ovl_7E00",
+    "bytes": 40,
+    "function": "func_801B03E0",
+    "handwritten": false,
+    "rom": "0x2AE0",
+    "vram": "0x801B03E0"
+  },
+  "ovl_7E00:0x801B0408": {
+    "area": "ovl_7E00",
+    "bytes": 648,
+    "function": "func_801B0408",
+    "handwritten": false,
+    "rom": "0x2B08",
+    "vram": "0x801B0408"
+  },
+  "ovl_7E00:0x801B0690": {
+    "area": "ovl_7E00",
+    "bytes": 3084,
+    "function": "func_801B0690",
+    "handwritten": true,
+    "rom": "0x2D90",
+    "vram": "0x801B0690"
+  },
+  "ovl_7E00:0x801B131C": {
+    "area": "ovl_7E00",
+    "bytes": 3052,
+    "function": "func_801B131C",
+    "handwritten": true,
+    "rom": "0x3A1C",
+    "vram": "0x801B131C"
+  },
+  "ovl_7E00:0x801B26E0": {
+    "area": "ovl_7E00",
+    "bytes": 12,
+    "function": "func_801B26E0",
+    "handwritten": false,
+    "rom": "0x4DE0",
+    "vram": "0x801B26E0"
+  },
+  "ovl_7E00:0x801B26EC": {
+    "area": "ovl_7E00",
+    "bytes": 48,
+    "function": "func_801B26EC",
+    "handwritten": false,
+    "rom": "0x4DEC",
+    "vram": "0x801B26EC"
+  },
+  "ovl_7E00:0x801B271C": {
+    "area": "ovl_7E00",
+    "bytes": 8,
+    "function": "func_801B271C",
+    "handwritten": false,
+    "rom": "0x4E1C",
+    "vram": "0x801B271C"
+  },
+  "ovl_7E00:0x801B2724": {
+    "area": "ovl_7E00",
+    "bytes": 44,
+    "function": "func_801B2724",
+    "handwritten": false,
+    "rom": "0x4E24",
+    "vram": "0x801B2724"
+  },
+  "ovl_7E00:0x801B2750": {
+    "area": "ovl_7E00",
+    "bytes": 4,
+    "function": "func_801B2750",
+    "handwritten": false,
+    "rom": "0x4E50",
+    "vram": "0x801B2750"
+  },
+  "ovl_7E00:0x801B2754": {
+    "area": "ovl_7E00",
+    "bytes": 64,
+    "function": "func_801B2754",
+    "handwritten": false,
+    "rom": "0x4E54",
+    "vram": "0x801B2754"
+  },
+  "ovl_7E00:0x801B2794": {
+    "area": "ovl_7E00",
+    "bytes": 4,
+    "function": "func_801B2794",
+    "handwritten": false,
+    "rom": "0x4E94",
+    "vram": "0x801B2794"
+  },
+  "ovl_7E00:0x801B2798": {
+    "area": "ovl_7E00",
+    "bytes": 88,
+    "function": "func_801B2798",
+    "handwritten": false,
+    "rom": "0x4E98",
+    "vram": "0x801B2798"
+  },
+  "ovl_7E00:0x801B27F0": {
+    "area": "ovl_7E00",
+    "bytes": 28,
+    "function": "func_801B27F0",
+    "handwritten": false,
+    "rom": "0x4EF0",
+    "vram": "0x801B27F0"
+  },
+  "ovl_7E00:0x801B280C": {
+    "area": "ovl_7E00",
+    "bytes": 64,
+    "function": "func_801B280C",
+    "handwritten": false,
+    "rom": "0x4F0C",
+    "vram": "0x801B280C"
+  },
+  "ovl_7E00:0x801B284C": {
+    "area": "ovl_7E00",
+    "bytes": 116,
+    "function": "func_801B284C",
+    "handwritten": false,
+    "rom": "0x4F4C",
+    "vram": "0x801B284C"
+  },
+  "ovl_7E00:0x801B28C0": {
+    "area": "ovl_7E00",
+    "bytes": 20,
+    "function": "func_801B28C0",
+    "handwritten": false,
+    "rom": "0x4FC0",
+    "vram": "0x801B28C0"
+  },
+  "ovl_7E00:0x801B28D4": {
+    "area": "ovl_7E00",
+    "bytes": 8,
+    "function": "func_801B28D4",
+    "handwritten": false,
+    "rom": "0x4FD4",
+    "vram": "0x801B28D4"
+  },
+  "ovl_7E00:0x801B28DC": {
+    "area": "ovl_7E00",
+    "bytes": 40,
+    "function": "func_801B28DC",
+    "handwritten": false,
+    "rom": "0x4FDC",
+    "vram": "0x801B28DC"
+  },
+  "ovl_7E00:0x801B2908": {
+    "area": "ovl_7E00",
+    "bytes": 1548,
+    "function": "func_801B2908",
+    "handwritten": true,
+    "rom": "0x5008",
+    "vram": "0x801B2908"
+  },
+  "ovl_7E00:0x801B2F14": {
+    "area": "ovl_7E00",
+    "bytes": 1056,
+    "function": "func_801B2F14",
+    "handwritten": true,
+    "rom": "0x5614",
+    "vram": "0x801B2F14"
+  },
+  "ovl_7E00:0x801B3334": {
+    "area": "ovl_7E00",
+    "bytes": 2832,
+    "function": "func_801B3334",
+    "handwritten": true,
+    "rom": "0x5A34",
+    "vram": "0x801B3334"
+  },
+  "ovl_7E00:0x801B3E44": {
+    "area": "ovl_7E00",
+    "bytes": 4,
+    "function": "func_801B3E44",
+    "handwritten": false,
+    "rom": "0x6544",
+    "vram": "0x801B3E44"
+  },
+  "ovl_7E00:0x801B427C": {
+    "area": "ovl_7E00",
+    "bytes": 264,
+    "function": "func_801B427C",
+    "handwritten": false,
+    "rom": "0x697C",
+    "vram": "0x801B427C"
+  },
+  "ovl_7E00:0x801B4384": {
+    "area": "ovl_7E00",
+    "bytes": 1032,
+    "function": "func_801B4384",
+    "handwritten": true,
+    "rom": "0x6A84",
+    "vram": "0x801B4384"
+  },
+  "ovl_7E00:0x801B478C": {
+    "area": "ovl_7E00",
+    "bytes": 200,
+    "function": "func_801B478C",
+    "handwritten": true,
+    "rom": "0x6E8C",
+    "vram": "0x801B478C"
+  },
+  "ovl_7E00:0x801B4854": {
+    "area": "ovl_7E00",
+    "bytes": 904,
+    "function": "func_801B4854",
+    "handwritten": true,
+    "rom": "0x6F54",
+    "vram": "0x801B4854"
+  },
+  "ovl_7E00:0x801B4DEC": {
+    "area": "ovl_7E00",
+    "bytes": 4,
+    "function": "func_801B4DEC",
+    "handwritten": true,
+    "rom": "0x74EC",
+    "vram": "0x801B4DEC"
+  },
+  "ovl_7E00:0x801B4DF0": {
+    "area": "ovl_7E00",
+    "bytes": 4,
+    "function": "func_801B4DF0",
+    "handwritten": false,
+    "rom": "0x74F0",
+    "vram": "0x801B4DF0"
+  },
+  "ovl_7E00:0x801B4DF4": {
+    "area": "ovl_7E00",
+    "bytes": 548,
+    "function": "func_801B4DF4",
+    "handwritten": true,
+    "rom": "0x74F4",
+    "vram": "0x801B4DF4"
+  },
+  "ovl_7E00:0x801B5018": {
+    "area": "ovl_7E00",
+    "bytes": 688,
+    "function": "func_801B5018",
+    "handwritten": true,
+    "rom": "0x7718",
+    "vram": "0x801B5018"
+  },
+  "ovl_7E00:0x801B52C8": {
+    "area": "ovl_7E00",
+    "bytes": 8,
+    "function": "func_801B52C8",
+    "handwritten": false,
+    "rom": "0x79C8",
+    "vram": "0x801B52C8"
+  },
+  "ovl_7E00:0x801B52D0": {
+    "area": "ovl_7E00",
+    "bytes": 528,
+    "function": "func_801B52D0",
+    "handwritten": true,
+    "rom": "0x79D0",
+    "vram": "0x801B52D0"
+  },
+  "ovl_7E00:0x801B54E0": {
+    "area": "ovl_7E00",
+    "bytes": 228,
+    "function": "func_801B54E0",
+    "handwritten": false,
+    "rom": "0x7BE0",
+    "vram": "0x801B54E0"
+  },
+  "ovl_7E00:0x801B55C4": {
+    "area": "ovl_7E00",
+    "bytes": 1152,
+    "function": "func_801B55C4",
+    "handwritten": true,
+    "rom": "0x7CC4",
+    "vram": "0x801B55C4"
+  },
+  "ovl_7E00:0x801B5A44": {
+    "area": "ovl_7E00",
+    "bytes": 60,
+    "function": "func_801B5A44",
+    "handwritten": false,
+    "rom": "0x8144",
+    "vram": "0x801B5A44"
+  },
+  "ovl_7E00:0x801B5A80": {
+    "area": "ovl_7E00",
+    "bytes": 16,
+    "function": "func_801B5A80",
+    "handwritten": false,
+    "rom": "0x8180",
+    "vram": "0x801B5A80"
+  },
+  "ovl_7E00:0x801B5A90": {
+    "area": "ovl_7E00",
+    "bytes": 64,
+    "function": "func_801B5A90",
+    "handwritten": false,
+    "rom": "0x8190",
+    "vram": "0x801B5A90"
+  },
+  "ovl_7E00:0x801B5AD0": {
+    "area": "ovl_7E00",
+    "bytes": 80,
+    "function": "func_801B5AD0",
+    "handwritten": false,
+    "rom": "0x81D0",
+    "vram": "0x801B5AD0"
+  },
+  "ovl_7E00:0x801B60FC": {
+    "area": "ovl_7E00",
+    "bytes": 32,
+    "function": "func_801B60FC",
+    "handwritten": false,
+    "rom": "0x87FC",
+    "vram": "0x801B60FC"
+  },
+  "ovl_7E00:0x801B611C": {
+    "area": "ovl_7E00",
+    "bytes": 140,
+    "function": "func_801B611C",
+    "handwritten": false,
+    "rom": "0x881C",
+    "vram": "0x801B611C"
+  },
+  "ovl_7E00:0x801B61A8": {
+    "area": "ovl_7E00",
+    "bytes": 892,
+    "function": "func_801B61A8",
+    "handwritten": false,
+    "rom": "0x88A8",
+    "vram": "0x801B61A8"
+  },
+  "ovl_7E00:0x801B6524": {
+    "area": "ovl_7E00",
+    "bytes": 44,
+    "function": "func_801B6524",
+    "handwritten": true,
+    "rom": "0x8C24",
+    "vram": "0x801B6524"
+  },
+  "ovl_7E00:0x801B6550": {
+    "area": "ovl_7E00",
+    "bytes": 76,
+    "function": "func_801B6550",
+    "handwritten": false,
+    "rom": "0x8C50",
+    "vram": "0x801B6550"
+  },
+  "ovl_7E00:0x801B659C": {
+    "area": "ovl_7E00",
+    "bytes": 72,
+    "function": "func_801B659C",
+    "handwritten": false,
+    "rom": "0x8C9C",
+    "vram": "0x801B659C"
+  },
+  "ovl_7E00:0x801B65E4": {
+    "area": "ovl_7E00",
+    "bytes": 140,
+    "function": "func_801B65E4",
+    "handwritten": false,
+    "rom": "0x8CE4",
+    "vram": "0x801B65E4"
+  },
+  "ovl_7E00:0x801B6670": {
+    "area": "ovl_7E00",
+    "bytes": 40,
+    "function": "func_801B6670",
+    "handwritten": false,
+    "rom": "0x8D70",
+    "vram": "0x801B6670"
+  },
+  "ovl_7E00:0x801B6818": {
+    "area": "ovl_7E00",
+    "bytes": 432,
+    "function": "func_801B6818",
+    "handwritten": false,
+    "rom": "0x8F18",
+    "vram": "0x801B6818"
+  },
+  "ovl_7E00:0x801B69C8": {
+    "area": "ovl_7E00",
+    "bytes": 144,
+    "function": "func_801B69C8",
+    "handwritten": false,
+    "rom": "0x90C8",
+    "vram": "0x801B69C8"
+  },
+  "ovl_7E00:0x801B6A58": {
+    "area": "ovl_7E00",
+    "bytes": 904,
+    "function": "func_801B6A58",
+    "handwritten": false,
+    "rom": "0x9158",
+    "vram": "0x801B6A58"
+  },
+  "ovl_7E00:0x801B6DE0": {
+    "area": "ovl_7E00",
+    "bytes": 152,
+    "function": "func_801B6DE0",
+    "handwritten": true,
+    "rom": "0x94E0",
+    "vram": "0x801B6DE0"
+  },
+  "ovl_7E00:0x801B6E78": {
+    "area": "ovl_7E00",
+    "bytes": 28,
+    "function": "func_801B6E78",
+    "handwritten": false,
+    "rom": "0x9578",
+    "vram": "0x801B6E78"
+  },
+  "ovl_7E00:0x801B6E94": {
+    "area": "ovl_7E00",
+    "bytes": 176,
+    "function": "func_801B6E94",
+    "handwritten": false,
+    "rom": "0x9594",
+    "vram": "0x801B6E94"
+  },
+  "ovl_7E00:0x801B6F44": {
+    "area": "ovl_7E00",
+    "bytes": 7052,
+    "function": "func_801B6F44",
+    "handwritten": true,
+    "rom": "0x9644",
+    "vram": "0x801B6F44"
+  },
+  "ovl_7E00:0x801B8AD0": {
+    "area": "ovl_7E00",
+    "bytes": 12,
+    "function": "func_801B8AD0",
+    "handwritten": false,
+    "rom": "0xB1D0",
+    "vram": "0x801B8AD0"
+  },
+  "ovl_7E00:0x801B8ADC": {
+    "area": "ovl_7E00",
+    "bytes": 2236,
+    "function": "func_801B8ADC",
+    "handwritten": true,
+    "rom": "0xB1DC",
+    "vram": "0x801B8ADC"
+  },
+  "ovl_7E00:0x801B9398": {
+    "area": "ovl_7E00",
+    "bytes": 1824,
+    "function": "func_801B9398",
+    "handwritten": false,
+    "rom": "0xBA98",
+    "vram": "0x801B9398"
+  },
+  "ovl_7E00:0x801B9AB8": {
+    "area": "ovl_7E00",
+    "bytes": 104,
+    "function": "func_801B9AB8",
+    "handwritten": false,
+    "rom": "0xC1B8",
+    "vram": "0x801B9AB8"
   }
 }

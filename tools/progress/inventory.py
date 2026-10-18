@@ -33,12 +33,16 @@ def scan(root):
             macro = re.search(r'nonmatching\s+' + re.escape(name) + r',\s*(0x[\da-fA-F]+|\d+)', before)
             vram = int(comments[0][2], 16)
             size = int(macro[1], 0) if macro else int(comments[-1][2], 16) + 4 - vram
-            row = dict(area=path.relative_to(root).as_posix(), function=name,
+            area = path.relative_to(root / 'asm').parts[0]
+            if area.endswith('.s'):
+                area = 'boot'
+            row = dict(area=area, function=name,
                        vram=f'0x{vram:08X}', rom=f'0x{int(comments[0][1],16):X}',
                        bytes=size, handwritten='Handwritten function' in before)
-            if row['vram'] in rows:
-                raise ValueError(f'duplicate function VRAM: {row["vram"]}')
-            rows[row['vram']] = row
+            key = f'{area}:{row["vram"]}'
+            if key in rows:
+                raise ValueError(f'duplicate function segment/VRAM: {row["vram"]}')
+            rows[key] = row
     return rows
 
 
@@ -53,6 +57,10 @@ def main():
     if not current and not baseline.exists():
         raise ValueError('No assembly functions found; run make extract first')
     original = json.loads(baseline.read_text()) if baseline.exists() else {}
+    # Migrate the original boot-only baseline without resetting sizes or tiers.
+    original = {(f"boot:{key}" if key.startswith('0x') else key):
+                {**row, 'area': 'boot' if row['area'].startswith('asm/') else row['area']}
+                for key, row in original.items()}
     # Persist original sizes/addresses when assembly disappears during migration to C.
     for address, row in current.items():
         if address in original and any(original[address][k] != row[k] for k in ('rom', 'bytes', 'area')):
@@ -63,8 +71,16 @@ def main():
     with (folder / 'status.csv').open(newline='') as stream:
         for row in csv.DictReader(stream):
             key = row['name_or_vram']
-            if key.startswith('0x'):
+            if ':' in key:
+                area, address = key.split(':', 1)
+                key = f'{area}:0x{int(address,16):08X}'
+            elif key.startswith('0x'):
                 key = f'0x{int(key,16):08X}'
+            matches = [address for address, fn in original.items()
+                       if key in (address, fn['vram'], fn['function'])]
+            if len(matches) != 1:
+                raise ValueError(f'unknown/ambiguous override {key}; use segment:0xVRAM')
+            key = matches[0]
             if row['tier'] not in ('T1', 'T2', 'T3', 'excluded') or key in overrides:
                 raise ValueError(f'invalid/duplicate override: {row}')
             overrides[key] = row
@@ -88,23 +104,25 @@ def main():
     # original address. An unused C definition must never earn T4 credit.
     linked = set()
     if candidates:
-        owner = ''
-        map_path = root / 'build/kig.us.map'
-        if map_path.exists():
+        for area in sorted({original[key]['area'] for key in candidates}):
+            owner = ''
+            map_path = root / ('build/kig.us.map' if area == 'boot' else f'build/{area}.map')
+            if not map_path.exists():
+                continue
             for line in map_path.read_text().splitlines():
                 obj = re.search(r'\s(\S+\.o)\s*$', line)
                 if obj:
                     owner = obj[1]
                 symbol = re.fullmatch(r'\s*0x([0-9a-fA-F]+)\s+(\w+)\s*', line)
                 if symbol and ('/src/' in owner or owner.startswith('src/')):
-                    address = f'0x{int(symbol[1],16):08X}'
+                    address = f'{area}:0x{int(symbol[1],16):08X}'
                     if address in candidates and original[address]['function'] == symbol[2]:
                         linked.add(address)
         candidates &= linked
     used = set()
     output = []
-    for address, row in sorted(original.items(), key=lambda pair: int(pair[0], 16)):
-        keys = [key for key in (address, row['function']) if key in overrides]
+    for address, row in sorted(original.items(), key=lambda pair: (pair[1]['area'], int(pair[1]['vram'], 16))):
+        keys = [address] if address in overrides else []
         if len(keys) > 1:
             raise ValueError(f'conflicting name/address overrides: {row["function"]}')
         override = overrides[keys[0]] if keys else {}
