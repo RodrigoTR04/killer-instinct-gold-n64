@@ -39,3 +39,4 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | T-003 | Prior-art + compiler research, cross-revision diff | sol-C | Done | docs/research.md, tools/research/ | |
 | T-004 | Segment/overlay map: VRAM dest + text/data/bss bounds for main & all 26 table payloads; extractor | sol-B2 | In progress | docs/segments.md, tools/analysis/segments.py, tools/analysis/extract_segments.py | stdlib only |
 | T-005 | libultra version ID + boot-segment function inventory/naming | sol-C2 | In progress | docs/libultra.md, tools/analysis/boot_functions.py, tools/analysis/libultra_sig.py | |
+| T-006 | splat config (boot seg + opaque bins) + Makefile/linker → byte-identical ROM rebuild | sol-A2 | In progress | kig.us.yaml, Makefile, symbol_addrs.us.txt, undefined_*.txt, include/ | compressed segments stay opaque bins for now |
