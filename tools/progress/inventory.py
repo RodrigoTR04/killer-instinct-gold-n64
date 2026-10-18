@@ -100,6 +100,9 @@ def main():
         # Verify independently too: a successful custom/default target alone is insufficient.
         if (root / 'build/kig.us.z64').read_bytes() != (root / 'baserom.us.z64').read_bytes():
             raise ValueError('build ROM does not match baserom')
+        for area in {original[key]['area'] for key in candidates} - {'boot'}:
+            if (root / f'build/{area}.bin').read_bytes() != (root / f'build/segments/{area}.bin').read_bytes():
+                raise ValueError(f'build image {area} does not match extracted original')
     # Confirm the linker actually took each symbol from a src object, at its
     # original address. An unused C definition must never earn T4 credit.
     linked = set()
@@ -123,8 +126,6 @@ def main():
     output = []
     for address, row in sorted(original.items(), key=lambda pair: (pair[1]['area'], int(pair[1]['vram'], 16))):
         keys = [address] if address in overrides else []
-        if len(keys) > 1:
-            raise ValueError(f'conflicting name/address overrides: {row["function"]}')
         override = overrides[keys[0]] if keys else {}
         used.update(keys)
         tier = override.get('tier', 'T1')

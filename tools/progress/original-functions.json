@@ -2753,19 +2753,11 @@
   },
   "main:0x80032670": {
     "area": "main",
-    "bytes": 116,
+    "bytes": 200,
     "function": "func_80032670",
     "handwritten": false,
     "rom": "0x22D10",
     "vram": "0x80032670"
-  },
-  "main:0x800326F0": {
-    "area": "main",
-    "bytes": 72,
-    "function": "func_800326F0",
-    "handwritten": false,
-    "rom": "0x22D90",
-    "vram": "0x800326F0"
   },
   "main:0x80032738": {
     "area": "main",
@@ -6647,6 +6639,14 @@
     "rom": "0x534",
     "vram": "0x801ADE34"
   },
+  "ovl_7E00:0x801ADE68": {
+    "area": "ovl_7E00",
+    "bytes": 2352,
+    "function": "func_801ADE68",
+    "handwritten": true,
+    "rom": "0x568",
+    "vram": "0x801ADE68"
+  },
   "ovl_7E00:0x801AE798": {
     "area": "ovl_7E00",
     "bytes": 904,
@@ -6815,6 +6815,14 @@
     "rom": "0x2D90",
     "vram": "0x801B0690"
   },
+  "ovl_7E00:0x801B129C": {
+    "area": "ovl_7E00",
+    "bytes": 128,
+    "function": "func_801B129C",
+    "handwritten": true,
+    "rom": "0x399C",
+    "vram": "0x801B129C"
+  },
   "ovl_7E00:0x801B131C": {
     "area": "ovl_7E00",
     "bytes": 3052,
@@ -6822,6 +6830,14 @@
     "handwritten": true,
     "rom": "0x3A1C",
     "vram": "0x801B131C"
+  },
+  "ovl_7E00:0x801B1F08": {
+    "area": "ovl_7E00",
+    "bytes": 2008,
+    "function": "func_801B1F08",
+    "handwritten": true,
+    "rom": "0x4608",
+    "vram": "0x801B1F08"
   },
   "ovl_7E00:0x801B26E0": {
     "area": "ovl_7E00",
@@ -6967,6 +6983,14 @@
     "rom": "0x6544",
     "vram": "0x801B3E44"
   },
+  "ovl_7E00:0x801B3E48": {
+    "area": "ovl_7E00",
+    "bytes": 1076,
+    "function": "func_801B3E48",
+    "handwritten": true,
+    "rom": "0x6548",
+    "vram": "0x801B3E48"
+  },
   "ovl_7E00:0x801B427C": {
     "area": "ovl_7E00",
     "bytes": 264,
@@ -6998,6 +7022,14 @@
     "handwritten": true,
     "rom": "0x6F54",
     "vram": "0x801B4854"
+  },
+  "ovl_7E00:0x801B4BDC": {
+    "area": "ovl_7E00",
+    "bytes": 528,
+    "function": "func_801B4BDC",
+    "handwritten": true,
+    "rom": "0x72DC",
+    "vram": "0x801B4BDC"
   },
   "ovl_7E00:0x801B4DEC": {
     "area": "ovl_7E00",
@@ -7095,6 +7127,14 @@
     "rom": "0x81D0",
     "vram": "0x801B5AD0"
   },
+  "ovl_7E00:0x801B5B20": {
+    "area": "ovl_7E00",
+    "bytes": 1500,
+    "function": "func_801B5B20",
+    "handwritten": true,
+    "rom": "0x8220",
+    "vram": "0x801B5B20"
+  },
   "ovl_7E00:0x801B60FC": {
     "area": "ovl_7E00",
     "bytes": 32,
@@ -7158,6 +7198,22 @@
     "handwritten": false,
     "rom": "0x8D70",
     "vram": "0x801B6670"
+  },
+  "ovl_7E00:0x801B6698": {
+    "area": "ovl_7E00",
+    "bytes": 132,
+    "function": "func_801B6698",
+    "handwritten": true,
+    "rom": "0x8D98",
+    "vram": "0x801B6698"
+  },
+  "ovl_7E00:0x801B671C": {
+    "area": "ovl_7E00",
+    "bytes": 252,
+    "function": "func_801B671C",
+    "handwritten": false,
+    "rom": "0x8E1C",
+    "vram": "0x801B671C"
   },
   "ovl_7E00:0x801B6818": {
     "area": "ovl_7E00",
@@ -7246,5 +7302,13 @@
     "handwritten": false,
     "rom": "0xC1B8",
     "vram": "0x801B9AB8"
+  },
+  "ovl_7E00:0x801B9B20": {
+    "area": "ovl_7E00",
+    "bytes": 42016,
+    "function": "func_801B9B20",
+    "handwritten": true,
+    "rom": "0xC220",
+    "vram": "0x801B9B20"
   }
 }

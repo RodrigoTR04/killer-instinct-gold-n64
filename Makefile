@@ -34,7 +34,7 @@ extract:
 	$(PYTHON) tools/analysis/extract_segments.py baserom.us.z64
 	$(PYTHON) -m splat split kig.us.yaml
 	@for image in $(IMAGES); do $(PYTHON) -m splat split kig.$$image.us.yaml || exit $$?; done
-	@touch build/.kig-extracted
+	@touch $(EXTRACTED) build/.kig-extracted
 
 # SDK exception/cache routines and 64-bit arithmetic helpers require MIPS III.
 # Retain the o32 object ABI used by the rest of the build.
