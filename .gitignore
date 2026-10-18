@@ -5,7 +5,7 @@ ROMs/
 *.v64
 # Generated / local
 .venv/
-build/
+/build/
 expected/
 tools/ext/
 __pycache__/

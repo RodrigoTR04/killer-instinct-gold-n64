@@ -76,3 +76,6 @@ done
 .venv/bin/python -c 'import splat, spimdisasm, rabbitizer; print("Python tool imports: OK")'
 printf '\nSetup complete. For this shell:\nexport PATH="%s/.venv/bin:%s/tools/ext/binutils/bin:$PATH"\n' "$ROOT" "$ROOT"
 printf 'IDO compilers: %s/tools/ext/ido/{5.3,7.1}/cc\n' "$ROOT"
+
+# Prepare the pinned matching compressor so subsequent builds work offline.
+.venv/bin/python -c 'from tools.compress.rarezip import build; print("Matching gzip:", build())'

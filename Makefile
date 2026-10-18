@@ -52,8 +52,15 @@ $(ELF): $(OBJECTS) $(SCRIPT) $(UNDEFINED)
 	$(LD) -m elf32ebmip -e entrypoint -Map build/kig.us.map \
 		-T $(SCRIPT) $(addprefix -T ,$(UNDEFINED)) -o $@
 
-$(ROM): $(ELF)
-	$(OBJCOPY) -O binary $< $@
+COMPRESSED_IMAGES := $(addprefix build/,$(addsuffix .1172,$(IMAGES)))
+
+build/%.1172: build/%.bin tools/compress/rarezip.py
+	$(PYTHON) tools/compress/rarezip.py $< $@
+
+$(ROM): $(ELF) $(addprefix build/,$(addsuffix .bin,$(IMAGES))) $(COMPRESSED_IMAGES) tools/build/splice_rom.py
+	$(OBJCOPY) -O binary $< $@.linked
+	$(PYTHON) tools/build/splice_rom.py $@.linked $@
+	@rm -f $@.linked
 
 verify: $(ROM)
 	@sha1sum $(ROM) baserom.us.z64
@@ -64,7 +71,7 @@ verify: $(ROM)
 # Preserve outputs belonging to other workers (notably build/segments).
 clean:
 	rm -rf build/asm build/assets asm
-	rm -f build/kig.us.z64 build/kig.us.elf build/kig.us.map build/.kig-extracted
+	rm -f build/kig.us.z64 build/kig.us.elf build/kig.us.map build/kig.us.z64.linked $(COMPRESSED_IMAGES) build/.kig-extracted
 	rm -f assets/ipl3.bin assets/opaque.bin $(SCRIPT) $(UNDEFINED)
 	rm -rf $(addprefix assets/,$(IMAGES))
 	rm -f $(foreach image,$(IMAGES),build/$(image).bin build/$(image).elf build/$(image).map linker_scripts/$(image).ld linker_scripts/$(image).undefined_funcs.txt linker_scripts/$(image).undefined_syms.txt)
@@ -77,7 +84,7 @@ progress:
 	$(PYTHON) tools/progress/treemap.py
 
 # Each executable payload has its own linker namespace, including the overlays
-# whose VRAM ranges overlap. The ROM still uses the original compressed bytes.
+# whose VRAM ranges overlap. Their matching compressed outputs feed the ROM.
 define IMAGE_RULES
 IMAGE_OBJECTS_$(1) := build/asm/$(1)/$(1).s.o build/asm/$(1)/data/$(1).data.s.o
 ifeq ($(1),main)

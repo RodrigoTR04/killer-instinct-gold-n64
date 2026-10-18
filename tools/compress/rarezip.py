@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Byte-exact KI Gold 1172 compressor using pinned GoldenEye gzip 1.2.4."""
 import argparse
+import fcntl
 import hashlib
 import io
 import os
@@ -12,12 +13,21 @@ import urllib.request
 REVISION = 'c4356466796c697dfd298010b9bed261f9ed8c6a'
 URL = f'https://codeload.github.com/n64decomp/007/tar.gz/{REVISION}'
 SHA256 = '26bf36f41e465616ee3d5df0e4767c7215200f93cd68a27765354f62e724858e'
-DEFAULT_CACHE = Path('/tmp/kig-t008') / ('gzip-' + REVISION)
+# KIG_GZIP_CACHE overrides the complete source/build directory.
+DEFAULT_CACHE = Path(__file__).resolve().parents[1] / 'ext' / ('gzip-' + REVISION)
 
 
-def build(cache=DEFAULT_CACHE):
-    """Fetch hash-verified source and build outside the repository (requires cc)."""
-    cache = Path(cache)
+def build(cache=None):
+    """Fetch hash-verified source and cache the compiler output (requires cc)."""
+    cache = Path(cache or os.environ.get('KIG_GZIP_CACHE', DEFAULT_CACHE)).resolve()
+    cache.mkdir(parents=True, exist_ok=True)
+    # Parallel image recipes may all encounter an empty cache on the first build.
+    with (cache / '.build.lock').open('a') as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        return _build(cache)
+
+
+def _build(cache):
     binary = cache / 'gzip'
     if binary.is_file():
         return binary
