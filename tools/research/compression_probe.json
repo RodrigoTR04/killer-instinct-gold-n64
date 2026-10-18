@@ -1,0 +1,419 @@
+{
+  "rom_sha1": "ba52e91b44450c548467044b26951353dc491e04",
+  "streams": [
+    {
+      "offset": 1187696,
+      "compressed_size": 127,
+      "decompressed_size": 360,
+      "sha1": "0d70020c08fa1a2bf668fdb7fa12cf6eb2cf4ead"
+    },
+    {
+      "offset": 2048512,
+      "compressed_size": 144,
+      "decompressed_size": 448,
+      "sha1": "f306cdf338a9774b8a7caa17a391d43c836ebed6"
+    },
+    {
+      "offset": 2048656,
+      "compressed_size": 9326,
+      "decompressed_size": 34568,
+      "sha1": "63974767083ef69bc5247e0e6f1993d313352e8b"
+    },
+    {
+      "offset": 2057984,
+      "compressed_size": 4223,
+      "decompressed_size": 8168,
+      "sha1": "a74311246450cf1a84e931429c1a457df52f8d7c"
+    },
+    {
+      "offset": 2949280,
+      "compressed_size": 142,
+      "decompressed_size": 448,
+      "sha1": "57f9cd725109d090031ea5df7cf4e813af063707"
+    },
+    {
+      "offset": 3790368,
+      "compressed_size": 125,
+      "decompressed_size": 360,
+      "sha1": "e36bbf901eb4136b8755546bcea49b23711ec1cb"
+    },
+    {
+      "offset": 4658064,
+      "compressed_size": 166,
+      "decompressed_size": 536,
+      "sha1": "8d39ea372ac61f6dc192743be342edfe33597d07"
+    },
+    {
+      "offset": 5564192,
+      "compressed_size": 175,
+      "decompressed_size": 624,
+      "sha1": "b4494e7bbed18e747e6b13810cb97aea9187c91c"
+    },
+    {
+      "offset": 5564368,
+      "compressed_size": 13961,
+      "decompressed_size": 40008,
+      "sha1": "add2f6788ffaadd640a038ed27f9853fb2cc20fa"
+    },
+    {
+      "offset": 6339072,
+      "compressed_size": 101,
+      "decompressed_size": 272,
+      "sha1": "1053bb403048dc050b155fc2e10d2b19ebfc83c1"
+    },
+    {
+      "offset": 7141264,
+      "compressed_size": 205,
+      "decompressed_size": 712,
+      "sha1": "14b2571d0abcdcee69f449989ec8f453fa72832d"
+    },
+    {
+      "offset": 7886976,
+      "compressed_size": 136,
+      "decompressed_size": 448,
+      "sha1": "728b4f08f8e641946d1138ef3b02c9e97452ed83"
+    },
+    {
+      "offset": 8580720,
+      "compressed_size": 117,
+      "decompressed_size": 360,
+      "sha1": "27cf3223e859076cbad184857cfb14e8960cae7a"
+    },
+    {
+      "offset": 9316560,
+      "compressed_size": 163,
+      "decompressed_size": 536,
+      "sha1": "66e61126514cc79fffc471aeebe25068d12dcf94"
+    },
+    {
+      "offset": 9331252,
+      "compressed_size": 12309,
+      "decompressed_size": 15540,
+      "sha1": "8e2f2dc526a99f7fb616a67b6b855d0977830738"
+    },
+    {
+      "offset": 9343565,
+      "compressed_size": 1731,
+      "decompressed_size": 2432,
+      "sha1": "4ab2ad99efa4ef4a2aa76cc908c9fc9a0cbce43e"
+    },
+    {
+      "offset": 9345300,
+      "compressed_size": 3165,
+      "decompressed_size": 3672,
+      "sha1": "5ff3cec07263deaf52404164f81fd0d83069e2bb"
+    },
+    {
+      "offset": 9348469,
+      "compressed_size": 1922,
+      "decompressed_size": 2204,
+      "sha1": "597b5e884fcb0c6c0d66c54efb9c97f19bcfb455"
+    },
+    {
+      "offset": 9350395,
+      "compressed_size": 4813,
+      "decompressed_size": 6168,
+      "sha1": "0ce370b3d8d408d3526d42e8ece150e52ded880e"
+    },
+    {
+      "offset": 9355212,
+      "compressed_size": 15766,
+      "decompressed_size": 20704,
+      "sha1": "d5bcb8cbdd8c39d3d2fcc06975871ac6002749f2"
+    },
+    {
+      "offset": 9370982,
+      "compressed_size": 3389,
+      "decompressed_size": 4716,
+      "sha1": "3ddfcdeba04422a96d48000c7640fe7c1e07ba79"
+    },
+    {
+      "offset": 9374375,
+      "compressed_size": 6257,
+      "decompressed_size": 8424,
+      "sha1": "b4a9813a721a4c06cd2af3dab3f7b09cce8a154c"
+    },
+    {
+      "offset": 9380636,
+      "compressed_size": 8203,
+      "decompressed_size": 10524,
+      "sha1": "434c311ff2780d8715734ad7d597121c57fda16b"
+    },
+    {
+      "offset": 9388843,
+      "compressed_size": 9341,
+      "decompressed_size": 11688,
+      "sha1": "441cca86f26c4012f2eea0de3c49dc0668a4e2d4"
+    },
+    {
+      "offset": 9398188,
+      "compressed_size": 812,
+      "decompressed_size": 1132,
+      "sha1": "9789acd6e9b9b0ef0c9aabd9a21575fcec11a34e"
+    },
+    {
+      "offset": 9399012,
+      "compressed_size": 511,
+      "decompressed_size": 1408,
+      "sha1": "090bbbe18f15556b7c83bcd34ba95df20848cab0"
+    },
+    {
+      "offset": 9399527,
+      "compressed_size": 3756,
+      "decompressed_size": 6928,
+      "sha1": "730530a49e220ff7a8ed2fcc4b3451386f187289"
+    },
+    {
+      "offset": 9403287,
+      "compressed_size": 1125,
+      "decompressed_size": 1780,
+      "sha1": "ef40ba4fde6f6cccaf927138116e1c9e17abceb1"
+    },
+    {
+      "offset": 9404416,
+      "compressed_size": 2148,
+      "decompressed_size": 3624,
+      "sha1": "94544c6d8879949e45d97977fb2806f8f0a10225"
+    },
+    {
+      "offset": 9406568,
+      "compressed_size": 855,
+      "decompressed_size": 1972,
+      "sha1": "2bdc3ae6a5fdec1cbb68d70ce79510fa5d69afae"
+    },
+    {
+      "offset": 9407427,
+      "compressed_size": 5071,
+      "decompressed_size": 8488,
+      "sha1": "5b1ab5be013af1a257194cb8cc38ef56e0c52af6"
+    },
+    {
+      "offset": 10922608,
+      "compressed_size": 36612,
+      "decompressed_size": 70729,
+      "sha1": "68cc9ae400a37a0bc98d28af7cd8705db6fa10ff"
+    },
+    {
+      "offset": 10959232,
+      "compressed_size": 16347,
+      "decompressed_size": 88200,
+      "sha1": "ef18adbdedbbece946723717d352975048082459"
+    },
+    {
+      "offset": 10975584,
+      "compressed_size": 14791,
+      "decompressed_size": 39168,
+      "sha1": "f62ad428cd2d803433c11de78c93b56fdd6bb4fc"
+    },
+    {
+      "offset": 10990384,
+      "compressed_size": 13246,
+      "decompressed_size": 39168,
+      "sha1": "70fddd65fd1d40a78dc3e61bbf6a979abf7a0e07"
+    },
+    {
+      "offset": 11003632,
+      "compressed_size": 11729,
+      "decompressed_size": 39168,
+      "sha1": "4daebc50b353f7c7f317bfc0905637c1b6ca4cb7"
+    },
+    {
+      "offset": 11015376,
+      "compressed_size": 10942,
+      "decompressed_size": 39168,
+      "sha1": "cc010920b556d5b0acab97bf479f03d218b81a0f"
+    },
+    {
+      "offset": 11026320,
+      "compressed_size": 9649,
+      "decompressed_size": 39168,
+      "sha1": "78913f10caefe0f8ab2f6baecfeb6686a9faba79"
+    },
+    {
+      "offset": 11035984,
+      "compressed_size": 13761,
+      "decompressed_size": 39168,
+      "sha1": "408889607acca68aa224e8c0dc76680c436a2c66"
+    },
+    {
+      "offset": 11049760,
+      "compressed_size": 8494,
+      "decompressed_size": 39168,
+      "sha1": "f116b863912a043c5131cb1a360dd5e789436890"
+    },
+    {
+      "offset": 11058256,
+      "compressed_size": 9816,
+      "decompressed_size": 39168,
+      "sha1": "8d46ee7bb1cb7e80bc942d881d0fa9ca033b3fcb"
+    },
+    {
+      "offset": 11068080,
+      "compressed_size": 11830,
+      "decompressed_size": 39168,
+      "sha1": "eefcfc2994368ef859edbc45d6ab83ff2dc2b33f"
+    },
+    {
+      "offset": 11079920,
+      "compressed_size": 13160,
+      "decompressed_size": 39168,
+      "sha1": "bd5c31fa53e95ae2bed1281156d933ec7063f85e"
+    },
+    {
+      "offset": 11095424,
+      "compressed_size": 133755,
+      "decompressed_size": 239824,
+      "sha1": "81736d32e8cda8f399b319a49250dff972b81af8"
+    },
+    {
+      "offset": 11229200,
+      "compressed_size": 308891,
+      "decompressed_size": 957392,
+      "sha1": "ea830aae50ff1422da60d4b7fdbfc29f03b1be39"
+    },
+    {
+      "offset": 11538096,
+      "compressed_size": 81133,
+      "decompressed_size": 153904,
+      "sha1": "2b01138a290212b9d886981e1196f7b6fb45ecdb"
+    },
+    {
+      "offset": 11619232,
+      "compressed_size": 14652,
+      "decompressed_size": 35760,
+      "sha1": "f5be035a6b97dc5f87e9f8a5ff29228466ac1233"
+    },
+    {
+      "offset": 11633888,
+      "compressed_size": 12960,
+      "decompressed_size": 31264,
+      "sha1": "2c3d2915715fd3c915041fc0a1cad8371052ba0f"
+    },
+    {
+      "offset": 11646848,
+      "compressed_size": 11380,
+      "decompressed_size": 27712,
+      "sha1": "7334671d0acf9c591287e0e6053b9c4ca438a88a"
+    },
+    {
+      "offset": 11658240,
+      "compressed_size": 12843,
+      "decompressed_size": 31200,
+      "sha1": "4827c3f0286e534791f718817ab9e4789df4b38a"
+    },
+    {
+      "offset": 11671088,
+      "compressed_size": 11863,
+      "decompressed_size": 29440,
+      "sha1": "54c70b9b4ee69dcc2feab134d43fb8843c65ca9d"
+    },
+    {
+      "offset": 11682960,
+      "compressed_size": 12047,
+      "decompressed_size": 30208,
+      "sha1": "61dab5f0d91e141ac993e0a84981ca0bc28039c9"
+    },
+    {
+      "offset": 11695008,
+      "compressed_size": 13378,
+      "decompressed_size": 32928,
+      "sha1": "f518ce2d22ceb70328a407776fac289fa60f068c"
+    },
+    {
+      "offset": 11708400,
+      "compressed_size": 12249,
+      "decompressed_size": 29408,
+      "sha1": "ec1753a52bdc8982e82d221f09d737ef2a912389"
+    },
+    {
+      "offset": 11720656,
+      "compressed_size": 12788,
+      "decompressed_size": 31696,
+      "sha1": "65985c02d86ec0d891fcd0199dda6b6124143771"
+    },
+    {
+      "offset": 11733456,
+      "compressed_size": 12231,
+      "decompressed_size": 29712,
+      "sha1": "cfd9ac523a578ad77dcebedbe0067a6cb0c857fc"
+    },
+    {
+      "offset": 11745696,
+      "compressed_size": 8510,
+      "decompressed_size": 20336,
+      "sha1": "e81d3d6e246a81028548cf07092f690af51b1c89"
+    },
+    {
+      "offset": 11754208,
+      "compressed_size": 44152,
+      "decompressed_size": 55824,
+      "sha1": "179d7d711450f1deb2b531eeebcfdea6d0c72742"
+    },
+    {
+      "offset": 11798368,
+      "compressed_size": 88600,
+      "decompressed_size": 115520,
+      "sha1": "44a3f0dc6b485a26b8a7aeda66988d04dc77014d"
+    },
+    {
+      "offset": 11886976,
+      "compressed_size": 86735,
+      "decompressed_size": 110480,
+      "sha1": "58d8bfa16af566f6bbe1dbf35185c2a9f4e09c3b"
+    },
+    {
+      "offset": 11973712,
+      "compressed_size": 87720,
+      "decompressed_size": 111344,
+      "sha1": "c97fed28cff9c0f57aaf109beafc3b940a66a68e"
+    },
+    {
+      "offset": 12061440,
+      "compressed_size": 41944,
+      "decompressed_size": 55504,
+      "sha1": "e0b7f434536854f460fc197b9c9ad54637faba9c"
+    },
+    {
+      "offset": 12103392,
+      "compressed_size": 102842,
+      "decompressed_size": 131664,
+      "sha1": "ca005564a7ff14b017ec89a00a3853ed6561c816"
+    },
+    {
+      "offset": 12206240,
+      "compressed_size": 89713,
+      "decompressed_size": 116192,
+      "sha1": "f9e6701567ed4407c397deb8ae20257be29bc686"
+    },
+    {
+      "offset": 12295968,
+      "compressed_size": 61838,
+      "decompressed_size": 82736,
+      "sha1": "0f97579d11515e0bdbf2b5569f4ae1e01d72dc92"
+    },
+    {
+      "offset": 12357808,
+      "compressed_size": 88278,
+      "decompressed_size": 122672,
+      "sha1": "a88c63cf6730454fc0909a54f9386b6dd1d64267"
+    },
+    {
+      "offset": 12446096,
+      "compressed_size": 80233,
+      "decompressed_size": 104480,
+      "sha1": "eae45e88af1909fffab57aee6fe2a5fae01a3955"
+    },
+    {
+      "offset": 12526336,
+      "compressed_size": 28155,
+      "decompressed_size": 39344,
+      "sha1": "4ff9080cb2e2b3400280f6d30675e9de361f0fbf"
+    },
+    {
+      "offset": 12554496,
+      "compressed_size": 7966,
+      "decompressed_size": 8384,
+      "sha1": "854620c6dfba8542fcce004059fd463299b4870b"
+    }
+  ]
+}
