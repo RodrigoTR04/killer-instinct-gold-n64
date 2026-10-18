@@ -1,0 +1,32 @@
+# Killer Instinct Gold (N64) — Decompilation Tracking
+
+This is the **single source of truth** for who is doing what. Read it before you start anything.
+The lead (orchestrator) vets every change before it lands. Subagents don't mark their own work "Done". They set it to "Review", and the lead moves it to "Done" after verifying it.
+
+## Target
+| Field | Value |
+|---|---|
+| Primary target | Killer Instinct Gold (U) (V1.0) — `NKIE`, rev 0 |
+| baserom | `baserom.us.z64` → `ROMs/Killer Instinct Gold (U) (V1.0) [!].z64` (symlink, gitignored) |
+| SHA1 | `ba52e91b44450c548467044b26951353dc491e04` |
+| Size | 12,582,912 bytes (12 MiB), big-endian .z64 |
+| Entrypoint (header) | `0x80000400` |
+| Other good dumps | US V1.1 `bcc599ed…`, US V1.2 `aaeb492b…`, EU `e0ed97c7…` (later targets) |
+
+## Progress metrics (by original code bytes; methodology from docs/n64 guide §6)
+Tiers: T1 unstarted · T2 in progress · T3 behavior-validated · T4 byte-exact · excluded (libultra/SDK)
+- M1 = (T3+T4 bytes) / eligible bytes
+- M2 = T4 bytes / eligible bytes
+Source of truth for per-function tiers is `docs/functions.csv` (created once splat runs).
+
+| Metric | Value |
+|---|---|
+| M1 | n/a (no inventory yet) |
+| M2 | n/a |
+
+## Task board
+Status values: Todo · In progress (owner) · Review · Done (verified by lead) · Rejected
+
+| ID | Task | Owner | Status | Output | Notes |
+|---|---|---|---|---|---|
+| T-000 | Repo bootstrap, baserom selection, tracking | lead | Done | this file, .gitignore | |

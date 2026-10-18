@@ -1,0 +1,12 @@
+# Copyrighted material — never commit
+ROMs/
+*.z64
+*.n64
+*.v64
+# Generated / local
+.venv/
+build/
+expected/
+tools/ext/
+__pycache__/
+*.pyc
