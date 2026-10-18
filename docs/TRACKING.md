@@ -27,8 +27,16 @@ Source of truth for per-function tiers is `docs/functions.csv` (created once spl
 
 | Metric | Value |
 |---|---|
-| M1 | n/a (no inventory yet) |
-| M2 | n/a |
+| Scope measured | boot text only (118 fns, 24,496 B); main/overlays not yet inventoried |
+| M1 | 0 / 18,460 B (0.00%) |
+| M2 | 0 / 18,460 B (0.00%) |
+| Functions | 90 T1 · 0 T2 · 0 T3 · 0 T4 · 28 excluded (6,036 B) |
+
+Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html). Tier overrides: tools/progress/status.csv (lead-maintained). Never hand-edit numbers; paste the `--markdown` output here.
+
+## Known follow-ups
+- FU-1: inventory keys functions by VRAM; ovl_7DF8 and ovl_7E00 overlap in VRAM → key must become (segment, vram) before overlays are inventoried.
+- FU-2: splat hint of rodata at boot ROM 0x7D40; boot.s not yet split per original file.
 
 ## Task board
 Status values: Todo · In progress (owner) · Review · Done (verified by lead) · Rejected
@@ -42,5 +50,5 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | T-004 | Segment/overlay map: VRAM dest + text/data/bss bounds for main & all 26 table payloads; extractor | sol-B2 | Done | docs/segments.md, tools/analysis/segments.py, tools/analysis/extract_segments.py | stdlib only |
 | T-005 | libultra version ID + boot-segment function inventory/naming | sol-C2 | In progress | docs/libultra.md, tools/analysis/boot_functions.py, tools/analysis/libultra_sig.py | |
 | T-006 | splat config (boot seg + opaque bins) + Makefile/linker → byte-identical ROM rebuild | sol-A2 | Done | kig.us.yaml, Makefile, symbol_addrs.us.txt, undefined_*.txt, include/ | compressed segments stay opaque bins for now |
-| T-007 | Progress tooling: function inventory → docs/functions.csv, M1/M2 calc, HTML treemap | sol-A3 | In progress | tools/progress/, docs/progress.html | |
+| T-007 | Progress tooling: function inventory → docs/functions.csv, M1/M2 calc, HTML treemap | sol-A3 | Done | tools/progress/, docs/progress.html | |
 | T-008 | Byte-exact 1172/DEFLATE recompressor (find gzip/zlib/7z/custom settings reproducing original streams) | sol-B3 | In progress | tools/compress/, docs/compression.md | blocks matching build of main/overlays |

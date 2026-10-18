@@ -1,0 +1,29 @@
+name_or_vram,tier,note
+0x80000400,excluded,handwritten asm
+osInitialize,excluded,libultra
+osCreateThread,excluded,libultra
+osStartThread,excluded,libultra
+bzero,excluded,libultra
+osInvalICache,excluded,libultra
+osInvalDCache,excluded,libultra
+osCreateMesgQueue,excluded,libultra
+osPiStartDma,excluded,libultra
+osRecvMesg,excluded,libultra
+0x80003CD0,excluded,handwritten asm
+0x80003CE0,excluded,handwritten asm
+0x80003DA0,excluded,handwritten asm
+__osException,excluded,libultra
+0x800042F8,excluded,handwritten asm
+0x800043E0,excluded,handwritten asm
+0x800044C8,excluded,handwritten asm
+0x80004610,excluded,handwritten asm
+0x80004690,excluded,handwritten asm
+0x80004A10,excluded,handwritten asm
+0x80004A30,excluded,handwritten asm
+osPiRawStartDma,excluded,libultra
+0x800057F0,excluded,handwritten asm
+0x80005810,excluded,handwritten asm
+0x800062C0,excluded,handwritten asm
+0x80006420,excluded,handwritten asm
+0x80006430,excluded,handwritten asm
+0x800064F0,excluded,handwritten asm

@@ -1,0 +1,119 @@
+area,function,vram,rom,bytes,tier,note
+asm/boot.s,entrypoint,0x80000400,0x1000,80,excluded,handwritten asm
+asm/boot.s,func_80000450,0x80000450,0x1050,92,T1,
+asm/boot.s,func_800004AC,0x800004AC,0x10AC,116,T1,
+asm/boot.s,func_80000520,0x80000520,0x1120,204,T1,
+asm/boot.s,func_800005EC,0x800005EC,0x11EC,184,T1,
+asm/boot.s,func_800006B0,0x800006B0,0x12B0,76,T1,
+asm/boot.s,func_800006FC,0x800006FC,0x12FC,68,T1,
+asm/boot.s,boot_dma,0x80000740,0x1340,116,T1,
+asm/boot.s,boot_dma_chunked,0x800007B4,0x13B4,328,T1,
+asm/boot.s,boot_inflate,0x80000900,0x1500,88,T1,
+asm/boot.s,func_80000960,0x80000960,0x1560,1600,T1,
+asm/boot.s,func_80000FA0,0x80000FA0,0x1BA0,1136,T1,
+asm/boot.s,func_80001410,0x80001410,0x2010,340,T1,
+asm/boot.s,func_80001564,0x80001564,0x2164,360,T1,
+asm/boot.s,func_800016CC,0x800016CC,0x22CC,1316,T1,
+asm/boot.s,func_80001BF0,0x80001BF0,0x27F0,288,T1,
+asm/boot.s,func_80001D10,0x80001D10,0x2910,212,T1,
+asm/boot.s,func_80001DF0,0x80001DF0,0x29F0,260,T1,
+asm/boot.s,func_80001EF4,0x80001EF4,0x2AF4,56,T1,
+asm/boot.s,func_80001F2C,0x80001F2C,0x2B2C,916,T1,
+asm/boot.s,func_800022C0,0x800022C0,0x2EC0,352,T1,
+asm/boot.s,func_80002420,0x80002420,0x3020,360,T1,
+asm/boot.s,osInitialize,0x80002590,0x3190,560,excluded,libultra
+asm/boot.s,osCreateThread,0x800027C0,0x33C0,324,excluded,libultra
+asm/boot.s,osStartThread,0x80002910,0x3510,336,excluded,libultra
+asm/boot.s,func_80002A60,0x80002A60,0x3660,224,T1,
+asm/boot.s,bzero,0x80002B80,0x3780,156,excluded,libultra
+asm/boot.s,osInvalICache,0x80002C20,0x3820,116,excluded,libultra
+asm/boot.s,osInvalDCache,0x80002CA0,0x38A0,172,excluded,libultra
+asm/boot.s,func_80002D50,0x80002D50,0x3950,380,T1,
+asm/boot.s,osCreateMesgQueue,0x80002ED0,0x3AD0,44,excluded,libultra
+asm/boot.s,osPiStartDma,0x80002F00,0x3B00,260,excluded,libultra
+asm/boot.s,osRecvMesg,0x80003010,0x3C10,312,excluded,libultra
+asm/boot.s,func_80003150,0x80003150,0x3D50,44,T1,
+asm/boot.s,func_8000317C,0x8000317C,0x3D7C,40,T1,
+asm/boot.s,func_800031A4,0x800031A4,0x3DA4,64,T1,
+asm/boot.s,func_800031F0,0x800031F0,0x3DF0,388,T1,
+asm/boot.s,func_80003374,0x80003374,0x3F74,464,T1,
+asm/boot.s,func_80003550,0x80003550,0x4150,104,T1,
+asm/boot.s,func_800035C0,0x800035C0,0x41C0,108,T1,
+asm/boot.s,func_80003630,0x80003630,0x4230,32,T1,
+asm/boot.s,func_80003650,0x80003650,0x4250,284,T1,
+asm/boot.s,func_8000376C,0x8000376C,0x436C,352,T1,
+asm/boot.s,func_800038CC,0x800038CC,0x44CC,64,T1,
+asm/boot.s,func_80003910,0x80003910,0x4510,332,T1,
+asm/boot.s,func_80003A60,0x80003A60,0x4660,128,T1,
+asm/boot.s,func_80003AE0,0x80003AE0,0x46E0,80,T1,
+asm/boot.s,func_80003B30,0x80003B30,0x4730,64,T1,
+asm/boot.s,func_80003B70,0x80003B70,0x4770,64,T1,
+asm/boot.s,func_80003BB0,0x80003BB0,0x47B0,168,T1,
+asm/boot.s,func_80003C60,0x80003C60,0x4860,104,T1,
+asm/boot.s,func_80003CD0,0x80003CD0,0x48D0,16,excluded,handwritten asm
+asm/boot.s,func_80003CE0,0x80003CE0,0x48E0,12,excluded,handwritten asm
+asm/boot.s,func_80003CF0,0x80003CF0,0x48F0,16,T1,
+asm/boot.s,func_80003D00,0x80003D00,0x4900,80,T1,
+asm/boot.s,func_80003D50,0x80003D50,0x4950,76,T1,
+asm/boot.s,func_80003DA0,0x80003DA0,0x49A0,16,excluded,handwritten asm
+asm/boot.s,__osException,0x80003DB0,0x49B0,1352,excluded,libultra
+asm/boot.s,func_800042F8,0x800042F8,0x4EF8,232,excluded,handwritten asm
+asm/boot.s,func_800043E0,0x800043E0,0x4FE0,144,excluded,handwritten asm
+asm/boot.s,func_80004470,0x80004470,0x5070,72,T1,
+asm/boot.s,func_800044B8,0x800044B8,0x50B8,16,T1,
+asm/boot.s,func_800044C8,0x800044C8,0x50C8,328,excluded,handwritten asm
+asm/boot.s,func_80004610,0x80004610,0x5210,116,excluded,handwritten asm
+asm/boot.s,func_80004690,0x80004690,0x5290,88,excluded,handwritten asm
+asm/boot.s,func_800046F0,0x800046F0,0x52F0,84,T1,
+asm/boot.s,func_80004750,0x80004750,0x5350,44,T1,
+asm/boot.s,func_8000477C,0x8000477C,0x537C,60,T1,
+asm/boot.s,func_800047B8,0x800047B8,0x53B8,60,T1,
+asm/boot.s,func_800047F4,0x800047F4,0x53F4,44,T1,
+asm/boot.s,func_80004820,0x80004820,0x5420,60,T1,
+asm/boot.s,func_8000485C,0x8000485C,0x545C,92,T1,
+asm/boot.s,func_800048B8,0x800048B8,0x54B8,48,T1,
+asm/boot.s,func_800048E8,0x800048E8,0x54E8,96,T1,
+asm/boot.s,func_80004948,0x80004948,0x5548,156,T1,
+asm/boot.s,func_800049E4,0x800049E4,0x55E4,44,T1,
+asm/boot.s,func_80004A10,0x80004A10,0x5610,32,excluded,handwritten asm
+asm/boot.s,func_80004A30,0x80004A30,0x5630,28,excluded,handwritten asm
+asm/boot.s,func_80004A50,0x80004A50,0x5650,64,T1,
+asm/boot.s,func_80004A90,0x80004A90,0x5690,80,T1,
+asm/boot.s,func_80004AE0,0x80004AE0,0x56E0,68,T1,
+asm/boot.s,func_80004B24,0x80004B24,0x5724,44,T1,
+asm/boot.s,func_80004B50,0x80004B50,0x5750,24,T1,
+asm/boot.s,osPiRawStartDma,0x80004B70,0x5770,224,excluded,libultra
+asm/boot.s,func_80004C50,0x80004C50,0x5850,372,T1,
+asm/boot.s,func_80004DD0,0x80004DD0,0x59D0,336,T1,
+asm/boot.s,func_80004F20,0x80004F20,0x5B20,40,T1,
+asm/boot.s,func_80004F50,0x80004F50,0x5B50,140,T1,
+asm/boot.s,func_80004FDC,0x80004FDC,0x5BDC,376,T1,
+asm/boot.s,func_80005154,0x80005154,0x5D54,116,T1,
+asm/boot.s,func_800051C8,0x800051C8,0x5DC8,392,T1,
+asm/boot.s,func_80005350,0x80005350,0x5F50,292,T1,
+asm/boot.s,func_80005480,0x80005480,0x6080,12,T1,
+asm/boot.s,func_80005490,0x80005490,0x6090,860,T1,
+asm/boot.s,func_800057F0,0x800057F0,0x63F0,12,excluded,handwritten asm
+asm/boot.s,func_80005800,0x80005800,0x6400,12,T1,
+asm/boot.s,func_80005810,0x80005810,0x6410,772,excluded,handwritten asm
+asm/boot.s,func_80005B20,0x80005B20,0x6720,124,T1,
+asm/boot.s,func_80005BA0,0x80005BA0,0x67A0,52,T1,
+asm/boot.s,func_80005BE0,0x80005BE0,0x67E0,140,T1,
+asm/boot.s,func_80005C70,0x80005C70,0x6870,44,T1,
+asm/boot.s,func_80005CA0,0x80005CA0,0x68A0,12,T1,
+asm/boot.s,func_80005CB0,0x80005CB0,0x68B0,44,T1,
+asm/boot.s,func_80005CE0,0x80005CE0,0x68E0,44,T1,
+asm/boot.s,func_80005D10,0x80005D10,0x6910,48,T1,
+asm/boot.s,func_80005D40,0x80005D40,0x6940,88,T1,
+asm/boot.s,func_80005D98,0x80005D98,0x6998,192,T1,
+asm/boot.s,func_80005E58,0x80005E58,0x6A58,216,T1,
+asm/boot.s,func_80005F30,0x80005F30,0x6B30,76,T1,
+asm/boot.s,func_80005F7C,0x80005F7C,0x6B7C,44,T1,
+asm/boot.s,func_80005FA8,0x80005FA8,0x6BA8,476,T1,
+asm/boot.s,func_80006190,0x80006190,0x6D90,292,T1,
+asm/boot.s,func_800062C0,0x800062C0,0x6EC0,96,excluded,handwritten asm
+asm/boot.s,func_80006320,0x80006320,0x6F20,248,T1,
+asm/boot.s,func_80006420,0x80006420,0x7020,12,excluded,handwritten asm
+asm/boot.s,func_80006430,0x80006430,0x7030,184,excluded,handwritten asm
+asm/boot.s,func_800064F0,0x800064F0,0x70F0,12,excluded,handwritten asm
+asm/boot.s,func_80006500,0x80006500,0x7100,88,T1,

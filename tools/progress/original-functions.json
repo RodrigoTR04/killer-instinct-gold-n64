@@ -1,0 +1,946 @@
+{
+  "0x80000400": {
+    "area": "asm/boot.s",
+    "bytes": 80,
+    "function": "entrypoint",
+    "handwritten": true,
+    "rom": "0x1000",
+    "vram": "0x80000400"
+  },
+  "0x80000450": {
+    "area": "asm/boot.s",
+    "bytes": 92,
+    "function": "func_80000450",
+    "handwritten": false,
+    "rom": "0x1050",
+    "vram": "0x80000450"
+  },
+  "0x800004AC": {
+    "area": "asm/boot.s",
+    "bytes": 116,
+    "function": "func_800004AC",
+    "handwritten": false,
+    "rom": "0x10AC",
+    "vram": "0x800004AC"
+  },
+  "0x80000520": {
+    "area": "asm/boot.s",
+    "bytes": 204,
+    "function": "func_80000520",
+    "handwritten": false,
+    "rom": "0x1120",
+    "vram": "0x80000520"
+  },
+  "0x800005EC": {
+    "area": "asm/boot.s",
+    "bytes": 184,
+    "function": "func_800005EC",
+    "handwritten": false,
+    "rom": "0x11EC",
+    "vram": "0x800005EC"
+  },
+  "0x800006B0": {
+    "area": "asm/boot.s",
+    "bytes": 76,
+    "function": "func_800006B0",
+    "handwritten": false,
+    "rom": "0x12B0",
+    "vram": "0x800006B0"
+  },
+  "0x800006FC": {
+    "area": "asm/boot.s",
+    "bytes": 68,
+    "function": "func_800006FC",
+    "handwritten": false,
+    "rom": "0x12FC",
+    "vram": "0x800006FC"
+  },
+  "0x80000740": {
+    "area": "asm/boot.s",
+    "bytes": 116,
+    "function": "boot_dma",
+    "handwritten": false,
+    "rom": "0x1340",
+    "vram": "0x80000740"
+  },
+  "0x800007B4": {
+    "area": "asm/boot.s",
+    "bytes": 328,
+    "function": "boot_dma_chunked",
+    "handwritten": false,
+    "rom": "0x13B4",
+    "vram": "0x800007B4"
+  },
+  "0x80000900": {
+    "area": "asm/boot.s",
+    "bytes": 88,
+    "function": "boot_inflate",
+    "handwritten": false,
+    "rom": "0x1500",
+    "vram": "0x80000900"
+  },
+  "0x80000960": {
+    "area": "asm/boot.s",
+    "bytes": 1600,
+    "function": "func_80000960",
+    "handwritten": false,
+    "rom": "0x1560",
+    "vram": "0x80000960"
+  },
+  "0x80000FA0": {
+    "area": "asm/boot.s",
+    "bytes": 1136,
+    "function": "func_80000FA0",
+    "handwritten": false,
+    "rom": "0x1BA0",
+    "vram": "0x80000FA0"
+  },
+  "0x80001410": {
+    "area": "asm/boot.s",
+    "bytes": 340,
+    "function": "func_80001410",
+    "handwritten": false,
+    "rom": "0x2010",
+    "vram": "0x80001410"
+  },
+  "0x80001564": {
+    "area": "asm/boot.s",
+    "bytes": 360,
+    "function": "func_80001564",
+    "handwritten": false,
+    "rom": "0x2164",
+    "vram": "0x80001564"
+  },
+  "0x800016CC": {
+    "area": "asm/boot.s",
+    "bytes": 1316,
+    "function": "func_800016CC",
+    "handwritten": false,
+    "rom": "0x22CC",
+    "vram": "0x800016CC"
+  },
+  "0x80001BF0": {
+    "area": "asm/boot.s",
+    "bytes": 288,
+    "function": "func_80001BF0",
+    "handwritten": false,
+    "rom": "0x27F0",
+    "vram": "0x80001BF0"
+  },
+  "0x80001D10": {
+    "area": "asm/boot.s",
+    "bytes": 212,
+    "function": "func_80001D10",
+    "handwritten": false,
+    "rom": "0x2910",
+    "vram": "0x80001D10"
+  },
+  "0x80001DF0": {
+    "area": "asm/boot.s",
+    "bytes": 260,
+    "function": "func_80001DF0",
+    "handwritten": false,
+    "rom": "0x29F0",
+    "vram": "0x80001DF0"
+  },
+  "0x80001EF4": {
+    "area": "asm/boot.s",
+    "bytes": 56,
+    "function": "func_80001EF4",
+    "handwritten": false,
+    "rom": "0x2AF4",
+    "vram": "0x80001EF4"
+  },
+  "0x80001F2C": {
+    "area": "asm/boot.s",
+    "bytes": 916,
+    "function": "func_80001F2C",
+    "handwritten": false,
+    "rom": "0x2B2C",
+    "vram": "0x80001F2C"
+  },
+  "0x800022C0": {
+    "area": "asm/boot.s",
+    "bytes": 352,
+    "function": "func_800022C0",
+    "handwritten": false,
+    "rom": "0x2EC0",
+    "vram": "0x800022C0"
+  },
+  "0x80002420": {
+    "area": "asm/boot.s",
+    "bytes": 360,
+    "function": "func_80002420",
+    "handwritten": false,
+    "rom": "0x3020",
+    "vram": "0x80002420"
+  },
+  "0x80002590": {
+    "area": "asm/boot.s",
+    "bytes": 560,
+    "function": "osInitialize",
+    "handwritten": false,
+    "rom": "0x3190",
+    "vram": "0x80002590"
+  },
+  "0x800027C0": {
+    "area": "asm/boot.s",
+    "bytes": 324,
+    "function": "osCreateThread",
+    "handwritten": false,
+    "rom": "0x33C0",
+    "vram": "0x800027C0"
+  },
+  "0x80002910": {
+    "area": "asm/boot.s",
+    "bytes": 336,
+    "function": "osStartThread",
+    "handwritten": false,
+    "rom": "0x3510",
+    "vram": "0x80002910"
+  },
+  "0x80002A60": {
+    "area": "asm/boot.s",
+    "bytes": 224,
+    "function": "func_80002A60",
+    "handwritten": false,
+    "rom": "0x3660",
+    "vram": "0x80002A60"
+  },
+  "0x80002B80": {
+    "area": "asm/boot.s",
+    "bytes": 156,
+    "function": "bzero",
+    "handwritten": false,
+    "rom": "0x3780",
+    "vram": "0x80002B80"
+  },
+  "0x80002C20": {
+    "area": "asm/boot.s",
+    "bytes": 116,
+    "function": "osInvalICache",
+    "handwritten": true,
+    "rom": "0x3820",
+    "vram": "0x80002C20"
+  },
+  "0x80002CA0": {
+    "area": "asm/boot.s",
+    "bytes": 172,
+    "function": "osInvalDCache",
+    "handwritten": true,
+    "rom": "0x38A0",
+    "vram": "0x80002CA0"
+  },
+  "0x80002D50": {
+    "area": "asm/boot.s",
+    "bytes": 380,
+    "function": "func_80002D50",
+    "handwritten": false,
+    "rom": "0x3950",
+    "vram": "0x80002D50"
+  },
+  "0x80002ED0": {
+    "area": "asm/boot.s",
+    "bytes": 44,
+    "function": "osCreateMesgQueue",
+    "handwritten": false,
+    "rom": "0x3AD0",
+    "vram": "0x80002ED0"
+  },
+  "0x80002F00": {
+    "area": "asm/boot.s",
+    "bytes": 260,
+    "function": "osPiStartDma",
+    "handwritten": false,
+    "rom": "0x3B00",
+    "vram": "0x80002F00"
+  },
+  "0x80003010": {
+    "area": "asm/boot.s",
+    "bytes": 312,
+    "function": "osRecvMesg",
+    "handwritten": false,
+    "rom": "0x3C10",
+    "vram": "0x80003010"
+  },
+  "0x80003150": {
+    "area": "asm/boot.s",
+    "bytes": 44,
+    "function": "func_80003150",
+    "handwritten": false,
+    "rom": "0x3D50",
+    "vram": "0x80003150"
+  },
+  "0x8000317C": {
+    "area": "asm/boot.s",
+    "bytes": 40,
+    "function": "func_8000317C",
+    "handwritten": false,
+    "rom": "0x3D7C",
+    "vram": "0x8000317C"
+  },
+  "0x800031A4": {
+    "area": "asm/boot.s",
+    "bytes": 64,
+    "function": "func_800031A4",
+    "handwritten": false,
+    "rom": "0x3DA4",
+    "vram": "0x800031A4"
+  },
+  "0x800031F0": {
+    "area": "asm/boot.s",
+    "bytes": 388,
+    "function": "func_800031F0",
+    "handwritten": false,
+    "rom": "0x3DF0",
+    "vram": "0x800031F0"
+  },
+  "0x80003374": {
+    "area": "asm/boot.s",
+    "bytes": 464,
+    "function": "func_80003374",
+    "handwritten": false,
+    "rom": "0x3F74",
+    "vram": "0x80003374"
+  },
+  "0x80003550": {
+    "area": "asm/boot.s",
+    "bytes": 104,
+    "function": "func_80003550",
+    "handwritten": false,
+    "rom": "0x4150",
+    "vram": "0x80003550"
+  },
+  "0x800035C0": {
+    "area": "asm/boot.s",
+    "bytes": 108,
+    "function": "func_800035C0",
+    "handwritten": false,
+    "rom": "0x41C0",
+    "vram": "0x800035C0"
+  },
+  "0x80003630": {
+    "area": "asm/boot.s",
+    "bytes": 32,
+    "function": "func_80003630",
+    "handwritten": false,
+    "rom": "0x4230",
+    "vram": "0x80003630"
+  },
+  "0x80003650": {
+    "area": "asm/boot.s",
+    "bytes": 284,
+    "function": "func_80003650",
+    "handwritten": false,
+    "rom": "0x4250",
+    "vram": "0x80003650"
+  },
+  "0x8000376C": {
+    "area": "asm/boot.s",
+    "bytes": 352,
+    "function": "func_8000376C",
+    "handwritten": false,
+    "rom": "0x436C",
+    "vram": "0x8000376C"
+  },
+  "0x800038CC": {
+    "area": "asm/boot.s",
+    "bytes": 64,
+    "function": "func_800038CC",
+    "handwritten": false,
+    "rom": "0x44CC",
+    "vram": "0x800038CC"
+  },
+  "0x80003910": {
+    "area": "asm/boot.s",
+    "bytes": 332,
+    "function": "func_80003910",
+    "handwritten": false,
+    "rom": "0x4510",
+    "vram": "0x80003910"
+  },
+  "0x80003A60": {
+    "area": "asm/boot.s",
+    "bytes": 128,
+    "function": "func_80003A60",
+    "handwritten": false,
+    "rom": "0x4660",
+    "vram": "0x80003A60"
+  },
+  "0x80003AE0": {
+    "area": "asm/boot.s",
+    "bytes": 80,
+    "function": "func_80003AE0",
+    "handwritten": false,
+    "rom": "0x46E0",
+    "vram": "0x80003AE0"
+  },
+  "0x80003B30": {
+    "area": "asm/boot.s",
+    "bytes": 64,
+    "function": "func_80003B30",
+    "handwritten": false,
+    "rom": "0x4730",
+    "vram": "0x80003B30"
+  },
+  "0x80003B70": {
+    "area": "asm/boot.s",
+    "bytes": 64,
+    "function": "func_80003B70",
+    "handwritten": false,
+    "rom": "0x4770",
+    "vram": "0x80003B70"
+  },
+  "0x80003BB0": {
+    "area": "asm/boot.s",
+    "bytes": 168,
+    "function": "func_80003BB0",
+    "handwritten": false,
+    "rom": "0x47B0",
+    "vram": "0x80003BB0"
+  },
+  "0x80003C60": {
+    "area": "asm/boot.s",
+    "bytes": 104,
+    "function": "func_80003C60",
+    "handwritten": false,
+    "rom": "0x4860",
+    "vram": "0x80003C60"
+  },
+  "0x80003CD0": {
+    "area": "asm/boot.s",
+    "bytes": 16,
+    "function": "func_80003CD0",
+    "handwritten": true,
+    "rom": "0x48D0",
+    "vram": "0x80003CD0"
+  },
+  "0x80003CE0": {
+    "area": "asm/boot.s",
+    "bytes": 12,
+    "function": "func_80003CE0",
+    "handwritten": true,
+    "rom": "0x48E0",
+    "vram": "0x80003CE0"
+  },
+  "0x80003CF0": {
+    "area": "asm/boot.s",
+    "bytes": 16,
+    "function": "func_80003CF0",
+    "handwritten": false,
+    "rom": "0x48F0",
+    "vram": "0x80003CF0"
+  },
+  "0x80003D00": {
+    "area": "asm/boot.s",
+    "bytes": 80,
+    "function": "func_80003D00",
+    "handwritten": false,
+    "rom": "0x4900",
+    "vram": "0x80003D00"
+  },
+  "0x80003D50": {
+    "area": "asm/boot.s",
+    "bytes": 76,
+    "function": "func_80003D50",
+    "handwritten": false,
+    "rom": "0x4950",
+    "vram": "0x80003D50"
+  },
+  "0x80003DA0": {
+    "area": "asm/boot.s",
+    "bytes": 16,
+    "function": "func_80003DA0",
+    "handwritten": true,
+    "rom": "0x49A0",
+    "vram": "0x80003DA0"
+  },
+  "0x80003DB0": {
+    "area": "asm/boot.s",
+    "bytes": 1352,
+    "function": "__osException",
+    "handwritten": true,
+    "rom": "0x49B0",
+    "vram": "0x80003DB0"
+  },
+  "0x800042F8": {
+    "area": "asm/boot.s",
+    "bytes": 232,
+    "function": "func_800042F8",
+    "handwritten": true,
+    "rom": "0x4EF8",
+    "vram": "0x800042F8"
+  },
+  "0x800043E0": {
+    "area": "asm/boot.s",
+    "bytes": 144,
+    "function": "func_800043E0",
+    "handwritten": true,
+    "rom": "0x4FE0",
+    "vram": "0x800043E0"
+  },
+  "0x80004470": {
+    "area": "asm/boot.s",
+    "bytes": 72,
+    "function": "func_80004470",
+    "handwritten": false,
+    "rom": "0x5070",
+    "vram": "0x80004470"
+  },
+  "0x800044B8": {
+    "area": "asm/boot.s",
+    "bytes": 16,
+    "function": "func_800044B8",
+    "handwritten": false,
+    "rom": "0x50B8",
+    "vram": "0x800044B8"
+  },
+  "0x800044C8": {
+    "area": "asm/boot.s",
+    "bytes": 328,
+    "function": "func_800044C8",
+    "handwritten": true,
+    "rom": "0x50C8",
+    "vram": "0x800044C8"
+  },
+  "0x80004610": {
+    "area": "asm/boot.s",
+    "bytes": 116,
+    "function": "func_80004610",
+    "handwritten": true,
+    "rom": "0x5210",
+    "vram": "0x80004610"
+  },
+  "0x80004690": {
+    "area": "asm/boot.s",
+    "bytes": 88,
+    "function": "func_80004690",
+    "handwritten": true,
+    "rom": "0x5290",
+    "vram": "0x80004690"
+  },
+  "0x800046F0": {
+    "area": "asm/boot.s",
+    "bytes": 84,
+    "function": "func_800046F0",
+    "handwritten": false,
+    "rom": "0x52F0",
+    "vram": "0x800046F0"
+  },
+  "0x80004750": {
+    "area": "asm/boot.s",
+    "bytes": 44,
+    "function": "func_80004750",
+    "handwritten": false,
+    "rom": "0x5350",
+    "vram": "0x80004750"
+  },
+  "0x8000477C": {
+    "area": "asm/boot.s",
+    "bytes": 60,
+    "function": "func_8000477C",
+    "handwritten": false,
+    "rom": "0x537C",
+    "vram": "0x8000477C"
+  },
+  "0x800047B8": {
+    "area": "asm/boot.s",
+    "bytes": 60,
+    "function": "func_800047B8",
+    "handwritten": false,
+    "rom": "0x53B8",
+    "vram": "0x800047B8"
+  },
+  "0x800047F4": {
+    "area": "asm/boot.s",
+    "bytes": 44,
+    "function": "func_800047F4",
+    "handwritten": false,
+    "rom": "0x53F4",
+    "vram": "0x800047F4"
+  },
+  "0x80004820": {
+    "area": "asm/boot.s",
+    "bytes": 60,
+    "function": "func_80004820",
+    "handwritten": false,
+    "rom": "0x5420",
+    "vram": "0x80004820"
+  },
+  "0x8000485C": {
+    "area": "asm/boot.s",
+    "bytes": 92,
+    "function": "func_8000485C",
+    "handwritten": false,
+    "rom": "0x545C",
+    "vram": "0x8000485C"
+  },
+  "0x800048B8": {
+    "area": "asm/boot.s",
+    "bytes": 48,
+    "function": "func_800048B8",
+    "handwritten": false,
+    "rom": "0x54B8",
+    "vram": "0x800048B8"
+  },
+  "0x800048E8": {
+    "area": "asm/boot.s",
+    "bytes": 96,
+    "function": "func_800048E8",
+    "handwritten": false,
+    "rom": "0x54E8",
+    "vram": "0x800048E8"
+  },
+  "0x80004948": {
+    "area": "asm/boot.s",
+    "bytes": 156,
+    "function": "func_80004948",
+    "handwritten": false,
+    "rom": "0x5548",
+    "vram": "0x80004948"
+  },
+  "0x800049E4": {
+    "area": "asm/boot.s",
+    "bytes": 44,
+    "function": "func_800049E4",
+    "handwritten": false,
+    "rom": "0x55E4",
+    "vram": "0x800049E4"
+  },
+  "0x80004A10": {
+    "area": "asm/boot.s",
+    "bytes": 32,
+    "function": "func_80004A10",
+    "handwritten": true,
+    "rom": "0x5610",
+    "vram": "0x80004A10"
+  },
+  "0x80004A30": {
+    "area": "asm/boot.s",
+    "bytes": 28,
+    "function": "func_80004A30",
+    "handwritten": true,
+    "rom": "0x5630",
+    "vram": "0x80004A30"
+  },
+  "0x80004A50": {
+    "area": "asm/boot.s",
+    "bytes": 64,
+    "function": "func_80004A50",
+    "handwritten": false,
+    "rom": "0x5650",
+    "vram": "0x80004A50"
+  },
+  "0x80004A90": {
+    "area": "asm/boot.s",
+    "bytes": 80,
+    "function": "func_80004A90",
+    "handwritten": false,
+    "rom": "0x5690",
+    "vram": "0x80004A90"
+  },
+  "0x80004AE0": {
+    "area": "asm/boot.s",
+    "bytes": 68,
+    "function": "func_80004AE0",
+    "handwritten": false,
+    "rom": "0x56E0",
+    "vram": "0x80004AE0"
+  },
+  "0x80004B24": {
+    "area": "asm/boot.s",
+    "bytes": 44,
+    "function": "func_80004B24",
+    "handwritten": false,
+    "rom": "0x5724",
+    "vram": "0x80004B24"
+  },
+  "0x80004B50": {
+    "area": "asm/boot.s",
+    "bytes": 24,
+    "function": "func_80004B50",
+    "handwritten": false,
+    "rom": "0x5750",
+    "vram": "0x80004B50"
+  },
+  "0x80004B70": {
+    "area": "asm/boot.s",
+    "bytes": 224,
+    "function": "osPiRawStartDma",
+    "handwritten": false,
+    "rom": "0x5770",
+    "vram": "0x80004B70"
+  },
+  "0x80004C50": {
+    "area": "asm/boot.s",
+    "bytes": 372,
+    "function": "func_80004C50",
+    "handwritten": false,
+    "rom": "0x5850",
+    "vram": "0x80004C50"
+  },
+  "0x80004DD0": {
+    "area": "asm/boot.s",
+    "bytes": 336,
+    "function": "func_80004DD0",
+    "handwritten": false,
+    "rom": "0x59D0",
+    "vram": "0x80004DD0"
+  },
+  "0x80004F20": {
+    "area": "asm/boot.s",
+    "bytes": 40,
+    "function": "func_80004F20",
+    "handwritten": false,
+    "rom": "0x5B20",
+    "vram": "0x80004F20"
+  },
+  "0x80004F50": {
+    "area": "asm/boot.s",
+    "bytes": 140,
+    "function": "func_80004F50",
+    "handwritten": false,
+    "rom": "0x5B50",
+    "vram": "0x80004F50"
+  },
+  "0x80004FDC": {
+    "area": "asm/boot.s",
+    "bytes": 376,
+    "function": "func_80004FDC",
+    "handwritten": false,
+    "rom": "0x5BDC",
+    "vram": "0x80004FDC"
+  },
+  "0x80005154": {
+    "area": "asm/boot.s",
+    "bytes": 116,
+    "function": "func_80005154",
+    "handwritten": false,
+    "rom": "0x5D54",
+    "vram": "0x80005154"
+  },
+  "0x800051C8": {
+    "area": "asm/boot.s",
+    "bytes": 392,
+    "function": "func_800051C8",
+    "handwritten": false,
+    "rom": "0x5DC8",
+    "vram": "0x800051C8"
+  },
+  "0x80005350": {
+    "area": "asm/boot.s",
+    "bytes": 292,
+    "function": "func_80005350",
+    "handwritten": false,
+    "rom": "0x5F50",
+    "vram": "0x80005350"
+  },
+  "0x80005480": {
+    "area": "asm/boot.s",
+    "bytes": 12,
+    "function": "func_80005480",
+    "handwritten": false,
+    "rom": "0x6080",
+    "vram": "0x80005480"
+  },
+  "0x80005490": {
+    "area": "asm/boot.s",
+    "bytes": 860,
+    "function": "func_80005490",
+    "handwritten": false,
+    "rom": "0x6090",
+    "vram": "0x80005490"
+  },
+  "0x800057F0": {
+    "area": "asm/boot.s",
+    "bytes": 12,
+    "function": "func_800057F0",
+    "handwritten": true,
+    "rom": "0x63F0",
+    "vram": "0x800057F0"
+  },
+  "0x80005800": {
+    "area": "asm/boot.s",
+    "bytes": 12,
+    "function": "func_80005800",
+    "handwritten": false,
+    "rom": "0x6400",
+    "vram": "0x80005800"
+  },
+  "0x80005810": {
+    "area": "asm/boot.s",
+    "bytes": 772,
+    "function": "func_80005810",
+    "handwritten": true,
+    "rom": "0x6410",
+    "vram": "0x80005810"
+  },
+  "0x80005B20": {
+    "area": "asm/boot.s",
+    "bytes": 124,
+    "function": "func_80005B20",
+    "handwritten": false,
+    "rom": "0x6720",
+    "vram": "0x80005B20"
+  },
+  "0x80005BA0": {
+    "area": "asm/boot.s",
+    "bytes": 52,
+    "function": "func_80005BA0",
+    "handwritten": false,
+    "rom": "0x67A0",
+    "vram": "0x80005BA0"
+  },
+  "0x80005BE0": {
+    "area": "asm/boot.s",
+    "bytes": 140,
+    "function": "func_80005BE0",
+    "handwritten": false,
+    "rom": "0x67E0",
+    "vram": "0x80005BE0"
+  },
+  "0x80005C70": {
+    "area": "asm/boot.s",
+    "bytes": 44,
+    "function": "func_80005C70",
+    "handwritten": false,
+    "rom": "0x6870",
+    "vram": "0x80005C70"
+  },
+  "0x80005CA0": {
+    "area": "asm/boot.s",
+    "bytes": 12,
+    "function": "func_80005CA0",
+    "handwritten": false,
+    "rom": "0x68A0",
+    "vram": "0x80005CA0"
+  },
+  "0x80005CB0": {
+    "area": "asm/boot.s",
+    "bytes": 44,
+    "function": "func_80005CB0",
+    "handwritten": false,
+    "rom": "0x68B0",
+    "vram": "0x80005CB0"
+  },
+  "0x80005CE0": {
+    "area": "asm/boot.s",
+    "bytes": 44,
+    "function": "func_80005CE0",
+    "handwritten": false,
+    "rom": "0x68E0",
+    "vram": "0x80005CE0"
+  },
+  "0x80005D10": {
+    "area": "asm/boot.s",
+    "bytes": 48,
+    "function": "func_80005D10",
+    "handwritten": false,
+    "rom": "0x6910",
+    "vram": "0x80005D10"
+  },
+  "0x80005D40": {
+    "area": "asm/boot.s",
+    "bytes": 88,
+    "function": "func_80005D40",
+    "handwritten": false,
+    "rom": "0x6940",
+    "vram": "0x80005D40"
+  },
+  "0x80005D98": {
+    "area": "asm/boot.s",
+    "bytes": 192,
+    "function": "func_80005D98",
+    "handwritten": false,
+    "rom": "0x6998",
+    "vram": "0x80005D98"
+  },
+  "0x80005E58": {
+    "area": "asm/boot.s",
+    "bytes": 216,
+    "function": "func_80005E58",
+    "handwritten": false,
+    "rom": "0x6A58",
+    "vram": "0x80005E58"
+  },
+  "0x80005F30": {
+    "area": "asm/boot.s",
+    "bytes": 76,
+    "function": "func_80005F30",
+    "handwritten": false,
+    "rom": "0x6B30",
+    "vram": "0x80005F30"
+  },
+  "0x80005F7C": {
+    "area": "asm/boot.s",
+    "bytes": 44,
+    "function": "func_80005F7C",
+    "handwritten": false,
+    "rom": "0x6B7C",
+    "vram": "0x80005F7C"
+  },
+  "0x80005FA8": {
+    "area": "asm/boot.s",
+    "bytes": 476,
+    "function": "func_80005FA8",
+    "handwritten": false,
+    "rom": "0x6BA8",
+    "vram": "0x80005FA8"
+  },
+  "0x80006190": {
+    "area": "asm/boot.s",
+    "bytes": 292,
+    "function": "func_80006190",
+    "handwritten": false,
+    "rom": "0x6D90",
+    "vram": "0x80006190"
+  },
+  "0x800062C0": {
+    "area": "asm/boot.s",
+    "bytes": 96,
+    "function": "func_800062C0",
+    "handwritten": true,
+    "rom": "0x6EC0",
+    "vram": "0x800062C0"
+  },
+  "0x80006320": {
+    "area": "asm/boot.s",
+    "bytes": 248,
+    "function": "func_80006320",
+    "handwritten": false,
+    "rom": "0x6F20",
+    "vram": "0x80006320"
+  },
+  "0x80006420": {
+    "area": "asm/boot.s",
+    "bytes": 12,
+    "function": "func_80006420",
+    "handwritten": true,
+    "rom": "0x7020",
+    "vram": "0x80006420"
+  },
+  "0x80006430": {
+    "area": "asm/boot.s",
+    "bytes": 184,
+    "function": "func_80006430",
+    "handwritten": true,
+    "rom": "0x7030",
+    "vram": "0x80006430"
+  },
+  "0x800064F0": {
+    "area": "asm/boot.s",
+    "bytes": 12,
+    "function": "func_800064F0",
+    "handwritten": true,
+    "rom": "0x70F0",
+    "vram": "0x800064F0"
+  },
+  "0x80006500": {
+    "area": "asm/boot.s",
+    "bytes": 88,
+    "function": "func_80006500",
+    "handwritten": false,
+    "rom": "0x7100",
+    "vram": "0x80006500"
+  }
+}

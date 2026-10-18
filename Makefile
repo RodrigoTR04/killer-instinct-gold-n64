@@ -62,3 +62,10 @@ clean:
 	rm -rf build/asm build/assets asm
 	rm -f build/kig.us.z64 build/kig.us.elf build/kig.us.map build/.kig-extracted
 	rm -f assets/ipl3.bin assets/opaque.bin $(SCRIPT) $(UNDEFINED)
+
+.PHONY: progress
+progress:
+	@test -d asm || $(MAKE) extract
+	$(PYTHON) tools/progress/inventory.py
+	$(PYTHON) tools/progress/progress.py --markdown
+	$(PYTHON) tools/progress/treemap.py
