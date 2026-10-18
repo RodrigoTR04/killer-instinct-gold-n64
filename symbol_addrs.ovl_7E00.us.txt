@@ -1,0 +1,1 @@
+// Symbols owned by ovl_7E00; overlays are separate address spaces.

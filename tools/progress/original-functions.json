@@ -2753,11 +2753,19 @@
   },
   "main:0x80032670": {
     "area": "main",
-    "bytes": 200,
+    "bytes": 116,
     "function": "func_80032670",
     "handwritten": false,
     "rom": "0x22D10",
     "vram": "0x80032670"
+  },
+  "main:0x800326F0": {
+    "area": "main",
+    "bytes": 72,
+    "function": "func_800326F0",
+    "handwritten": false,
+    "rom": "0x22D90",
+    "vram": "0x800326F0"
   },
   "main:0x80032738": {
     "area": "main",
@@ -6643,7 +6651,7 @@
     "area": "ovl_7E00",
     "bytes": 2352,
     "function": "func_801ADE68",
-    "handwritten": true,
+    "handwritten": false,
     "rom": "0x568",
     "vram": "0x801ADE68"
   },
@@ -6819,7 +6827,7 @@
     "area": "ovl_7E00",
     "bytes": 128,
     "function": "func_801B129C",
-    "handwritten": true,
+    "handwritten": false,
     "rom": "0x399C",
     "vram": "0x801B129C"
   },
@@ -6835,7 +6843,7 @@
     "area": "ovl_7E00",
     "bytes": 2008,
     "function": "func_801B1F08",
-    "handwritten": true,
+    "handwritten": false,
     "rom": "0x4608",
     "vram": "0x801B1F08"
   },
@@ -6987,7 +6995,7 @@
     "area": "ovl_7E00",
     "bytes": 1076,
     "function": "func_801B3E48",
-    "handwritten": true,
+    "handwritten": false,
     "rom": "0x6548",
     "vram": "0x801B3E48"
   },
@@ -7027,7 +7035,7 @@
     "area": "ovl_7E00",
     "bytes": 528,
     "function": "func_801B4BDC",
-    "handwritten": true,
+    "handwritten": false,
     "rom": "0x72DC",
     "vram": "0x801B4BDC"
   },
@@ -7131,7 +7139,7 @@
     "area": "ovl_7E00",
     "bytes": 1500,
     "function": "func_801B5B20",
-    "handwritten": true,
+    "handwritten": false,
     "rom": "0x8220",
     "vram": "0x801B5B20"
   },
@@ -7203,7 +7211,7 @@
     "area": "ovl_7E00",
     "bytes": 132,
     "function": "func_801B6698",
-    "handwritten": true,
+    "handwritten": false,
     "rom": "0x8D98",
     "vram": "0x801B6698"
   },
@@ -7305,9 +7313,9 @@
   },
   "ovl_7E00:0x801B9B20": {
     "area": "ovl_7E00",
-    "bytes": 42016,
+    "bytes": 4336,
     "function": "func_801B9B20",
-    "handwritten": true,
+    "handwritten": false,
     "rom": "0xC220",
     "vram": "0x801B9B20"
   }

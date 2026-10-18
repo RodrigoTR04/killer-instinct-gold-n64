@@ -1,0 +1,32 @@
+name: Killer Instinct Gold (main, US 1.0)
+sha1: 81736d32e8cda8f399b319a49250dff972b81af8
+options:
+  basename: main
+  platform: n64
+  compiler: IDO
+  disasm_unknown: True
+  base_path: .
+  target_path: build/segments/main.bin
+  asm_path: asm/main
+  asset_path: assets/main
+  build_path: build
+  ld_script_path: linker_scripts/main.ld
+  symbol_addrs_path: ['symbol_addrs.us.txt', 'symbol_addrs.main.us.txt']
+  undefined_funcs_auto_path: linker_scripts/main.undefined_funcs.txt
+  undefined_syms_auto_path: linker_scripts/main.undefined_syms.txt
+  find_file_boundaries: True
+  section_order: [".text", ".data", ".rodata", ".bss"]
+segments:
+  - name: main
+    type: code
+    start: 0
+    vram: 0x8000F960
+    subsegments:
+      - [0, asm, main]
+      - [0x32DB0, bin, rspboot]
+      - [0x32E80, bin, gfx_text]
+      - [0x34290, bin, audio_text]
+      - [0x350B0, data, main]
+      - [0x39E10, bin, gfx_data]
+      - [0x3A610, bin, audio_data]
+  - [0x3A8D0]

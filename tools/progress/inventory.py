@@ -19,12 +19,12 @@ def scan(root):
         # Only text sections: data glabels are not functions.
         if not re.search(r'\.section\s+\.text', source):
             continue
-        labels = list(re.finditer(r'^glabel\s+(\w+)\s*$', source, re.M))
+        labels = list(re.finditer(r'^(?:glabel\s+(\w+)|dlabel\s+(func_\w+))\s*$', source, re.M))
         for i, label in enumerate(labels):
-            name = label[1]
+            name = label[1] or label[2]
             before = source[labels[i-1].end() if i else 0:label.start()]
             body = source[label.end():labels[i+1].start() if i+1 < len(labels) else len(source)]
-            end = re.search(r'^endlabel\s+' + re.escape(name) + r'\s*$', body, re.M)
+            end = re.search(r'^end(?:d)?label\s+' + re.escape(name) + r'\s*$', body, re.M)
             if end:
                 body = body[:end.start()]
             comments = list(COMMENT.finditer(body))

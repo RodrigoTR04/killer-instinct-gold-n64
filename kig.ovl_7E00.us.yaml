@@ -1,0 +1,27 @@
+name: Killer Instinct Gold (ovl_7E00, US 1.0)
+sha1: 2b01138a290212b9d886981e1196f7b6fb45ecdb
+options:
+  basename: ovl_7E00
+  platform: n64
+  compiler: IDO
+  disasm_unknown: False
+  base_path: .
+  target_path: build/segments/ovl_7E00.bin
+  asm_path: asm/ovl_7E00
+  asset_path: assets/ovl_7E00
+  build_path: build
+  ld_script_path: linker_scripts/ovl_7E00.ld
+  symbol_addrs_path: ['symbol_addrs.us.txt', 'symbol_addrs.main.us.txt', 'symbol_addrs.ovl_7E00.us.txt']
+  undefined_funcs_auto_path: linker_scripts/ovl_7E00.undefined_funcs.txt
+  undefined_syms_auto_path: linker_scripts/ovl_7E00.undefined_syms.txt
+  find_file_boundaries: True
+  section_order: [".text", ".data", ".rodata", ".bss"]
+segments:
+  - name: ovl_7E00
+    type: code
+    start: 0
+    vram: 0x801AD900
+    subsegments:
+      - [0, asm, ovl_7E00]
+      - [0x16640, data, ovl_7E00]
+  - [0x25930]

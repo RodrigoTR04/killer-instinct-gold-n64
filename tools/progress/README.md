@@ -42,7 +42,8 @@ complete extraction. Do not reset it after migrating functions to C.
 
 This inventories boot and the three decompressed CPU images. RSP code and
 non-CPU payloads are excluded from the assembly function inventory. Functions
-with unknown instructions are retained using splat `disasm_unknown: True`.
+with unknown instructions are retained; text `dlabel func_*` fallback routines
+are counted through their `enddlabel`, even when splat emits raw words.
 Future extracted assembly areas are added automatically. The current function sum is 24,496
 bytes versus boot text's 24,928 bytes (`0x7160 - 0x1000`). The difference is 432
 bytes of padding (zero/nop instruction comments outside function endlabels),
