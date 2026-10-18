@@ -11,7 +11,7 @@ The lead (orchestrator) vets every change before it lands. Subagents don't mark 
 | SHA1 | `ba52e91b44450c548467044b26951353dc491e04` |
 | Size | 12,582,912 bytes (12 MiB), big-endian .z64 |
 | Entrypoint (header) | `0x80000400` (CIC 6102, unchanged) |
-| Compiler (working hypothesis) | IDO 5.3, start `-O2 -mips2 -G 0 -non_shared -Wab,-r4300_mul -Xcpluscomm`; also try -O1 / -mips1 (docs/research.md, medium confidence) |
+| Compiler (game) | **IDO 5.3 `-O2 -mips2`** (+ `-G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul`, aux flags unproven): 10/12 probe fns match, excludes O1/O3/mips1/-g/7.1 (docs/compiler_flags.md). libultra: IDO 5.3 -O1 -mips2 |
 | libultra | **SM64-US-identical lineage (pre-2.0I)**, built IDO 5.3 `-O1 -mips2` (asm: `-mips3 -32`); 98 boot + 169 main SDK fns named (docs/libultra.md). RSP ucode 2.0D |
 | Toolchain | `./tools/setup.sh`; splat64 0.50.1, spimdisasm 1.42.4, rabbitizer 1.16.2, IDO 5.3/7.1 recomp v1.2, binutils 2.43.1 mips64-elf (docs/toolchain.md) |
 | Code segments | boot (0x6160 text) · main @0x8000F960 (text 0x32DB0) · ovl_7DF8 @0x801ABB20 (text 0x21930) · ovl_7E00 @0x801AD900 (text 0x16640); 7DF8/7E00 overlap → mutually exclusive. 23 other table payloads are data (docs/segments.md) |
@@ -62,7 +62,7 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | T-007 | Progress tooling: function inventory → docs/functions.csv, M1/M2 calc, HTML treemap | sol-A3 | Done | tools/progress/, docs/progress.html | |
 | T-008 | Byte-exact 1172/DEFLATE recompressor (find gzip/zlib/7z/custom settings reproducing original streams) | sol-B3 | Done | tools/compress/, docs/compression.md | blocks matching build of main/overlays |
 | T-009 | splat main + ovl_7DF8 + ovl_7E00 (decompressed), per-segment matching rebuild, inventory FU-1 fix | sol-A4 | Done | kig.<seg>.us.yaml, Makefile, tools/progress/inventory.py | ROM still embeds original compressed blobs until T-008 |
-| T-010 | Determine game-code compiler flags (IDO ver, -O, -mips, -g) by matching a handful of small main/overlay game functions in scratch | sol-C3 | In progress | docs/compiler_flags.md, tools/scratch/flagprobe/ | no build-system edits |
+| T-010 | Determine game-code compiler flags (IDO ver, -O, -mips, -g) by matching a handful of small main/overlay game functions in scratch | sol-C3 | Done | docs/compiler_flags.md, tools/scratch/flagprobe/ | no build-system edits |
 | T-011 | Asset region map ROM 0x7ED0–0xA94D80: code-referenced asset tables, every entry bounded+classified (audio, gfx, anim…), compressed vs raw | sol-B4 | Done | docs/assets.md, tools/analysis/assets.py, tools/analysis/data/assets.csv | read-only, no build edits |
 | T-012 | FU-7 (ovl_7E00 text fully as functions) + FU-3 (merge T-005 SDK names into symbol_addrs, mark excluded in status.csv) | sol-A5 | In progress | symbol_addrs*.txt, kig.*.us.yaml, tools/progress/status.csv, docs/functions.csv, docs/progress.html | |
 | T-013 | FU-5+FU-6: build pipeline recompresses built main/ovl images (rarezip) and splices them into the ROM; gzip cache → tools/ext | sol-B5 | In progress | Makefile, tools/compress/rarezip.py, tools/build/ | no yaml edits (T-012 owns) |
