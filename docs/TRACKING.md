@@ -29,11 +29,11 @@ Source of truth for per-function tiers is `docs/functions.csv` (created once spl
 
 | Metric | Value |
 |---|---|
-| Scope measured | boot + main + ovl_7DF8 + ovl_7E00 CPU text (915 fns). **Caveat FU-7:** ~37.7 KB of ovl_7E00 text is raw `.word` outside any function → not yet in denominator |
-| M1 | 0 / 417,504 B (0.00%) |
-| M2 | 0 / 417,504 B (0.00%) |
-| Functions | 887 T1 · 0 T2 · 0 T3 · 0 T4 · 28 excluded (6,036 B) |
-| Per image (eligible B / fns) | boot 18,460/90 (+28 excl) · main 207,596/459 · ovl_7DF8 137,428/251 · ovl_7E00 54,020/87 |
+| Scope measured | all CPU text of boot/main/ovl_7DF8/ovl_7E00 (999 fns). Text not in fns: boot 432 B pad, main 708 B, 7DF8 92 B, 7E00 4,040 B (31 inline data pools, listed in symbol_addrs.ovl_7E00.us.txt) |
+| M1 | 0 / 406,772 B (0.00%) |
+| M2 | 0 / 406,772 B (0.00%) |
+| Functions | 731 T1 · 0 T2 · 0 T3 · 0 T4 · 268 excluded (50,420 B: 267 libultra + handwritten asm) |
+| Per image (eligible B / T1 fns / excluded) | boot 8,468/21/99 · main 173,204/290/169 · ovl_7DF8 137,428/251/0 · ovl_7E00 87,672/169/0 |
 
 Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html). Tier overrides: tools/progress/status.csv (lead-maintained). Never hand-edit numbers; paste the `--markdown` output here.
 
@@ -41,12 +41,13 @@ Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html)
 - ~~FU-1~~ (fixed in T-009): inventory keyed by (segment, vram).
 - FU-2: splat hint of rodata at boot ROM 0x7D40; boot.s not yet split per original file.
 
-- FU-3: merge T-005 SDK names (tools/analysis/data/{boot,main}_functions.csv) into symbol_addrs.*.txt and mark them excluded/libultra in tools/progress/status.csv — after T-009 lands.
+- ~~FU-3~~ (T-012): merge T-005 SDK names (tools/analysis/data/{boot,main}_functions.csv) into symbol_addrs.*.txt and mark them excluded/libultra in tools/progress/status.csv — after T-009 lands.
 - FU-4: libultra can likely be built from SM64-US lib sources for byte-exact SDK objects (lead verified 7 fns).
 - ~~FU-5~~ (T-013): rarezip.py caches its gzip build in /tmp/kig-t008 (volatile, needs network); move cache to tools/ext/ when wiring compression into the Makefile.
 - ~~FU-6~~ (T-013): wire build: compile/assemble main+overlays → recompress with rarezip → splice into ROM, replacing opaque compressed blobs (after T-009).
-- FU-7: ovl_7E00 text has 12.5k `.word` lines (≈50 KB, e.g. func_801ADE68) that are valid MIPS but spimdisasm fell back to data → fix splat/symbol hints so all 0x16640 text bytes are functions.
+- ~~FU-7~~ (T-012): ovl_7E00 text has 12.5k `.word` lines (≈50 KB, e.g. func_801ADE68) that are valid MIPS but spimdisasm fell back to data → fix splat/symbol hints so all 0x16640 text bytes are functions.
 - FU-8: opaque.bin still carries the original compressed code bytes under the spliced slots (overwritten at splice) → split kig.us.yaml so slots are not sourced from baserom; later support relocation of the 0x7DF0 table for non-matching builds.
+- FU-9: ovl_7E00 has inline data pools inside text (handwritten-asm signature) → determine which ovl_7E00 functions are handwritten asm vs IDO C before assigning decomp work there.
 
 ## Task board
 Status values: Todo · In progress (owner) · Review · Done (verified by lead) · Rejected
@@ -65,6 +66,6 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | T-009 | splat main + ovl_7DF8 + ovl_7E00 (decompressed), per-segment matching rebuild, inventory FU-1 fix | sol-A4 | Done | kig.<seg>.us.yaml, Makefile, tools/progress/inventory.py | ROM still embeds original compressed blobs until T-008 |
 | T-010 | Determine game-code compiler flags (IDO ver, -O, -mips, -g) by matching a handful of small main/overlay game functions in scratch | sol-C3 | Done | docs/compiler_flags.md, tools/scratch/flagprobe/ | no build-system edits |
 | T-011 | Asset region map ROM 0x7ED0–0xA94D80: code-referenced asset tables, every entry bounded+classified (audio, gfx, anim…), compressed vs raw | sol-B4 | Done | docs/assets.md, tools/analysis/assets.py, tools/analysis/data/assets.csv | read-only, no build edits |
-| T-012 | FU-7 (ovl_7E00 text fully as functions) + FU-3 (merge T-005 SDK names into symbol_addrs, mark excluded in status.csv) | sol-A5 | In progress | symbol_addrs*.txt, kig.*.us.yaml, tools/progress/status.csv, docs/functions.csv, docs/progress.html | |
+| T-012 | FU-7 (ovl_7E00 text fully as functions) + FU-3 (merge T-005 SDK names into symbol_addrs, mark excluded in status.csv) | sol-A5 | Done | symbol_addrs*.txt, kig.*.us.yaml, tools/progress/status.csv, docs/functions.csv, docs/progress.html | |
 | T-013 | FU-5+FU-6: build pipeline recompresses built main/ovl images (rarezip) and splices them into the ROM; gzip cache → tools/ext | sol-B5 | Done | Makefile, tools/compress/rarezip.py, tools/build/ | no yaml edits (T-012 owns) |
 | T-014 | Packed-graphics format RE (main table +00 records, 825 self-sized records, palettes, 0x9900 RGBA5551 images) → decoder + PNG previews | sol-C4 | In progress | docs/gfx_format.md, tools/analysis/gfx_decode.py | read-only, no build edits |

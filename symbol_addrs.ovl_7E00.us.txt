@@ -1,1 +1,180 @@
-// Symbols owned by ovl_7E00; overlays are separate address spaces.
+// Explicit text partitions: inline data must not be decoded as R4300 instructions.
+// Data ranges are half-open. Code entry hints retain handwritten shared tails.
+// Packed data previously triggered unknown-opcode fallback and out-of-section
+// backward-branch termination in spimdisasm SectionText._findFunctions.
+// Dedicated data scans preserve these bytes without inventing CPU instructions.
+func_801AD900 = 0x801AD900; // type:func
+func_801ADD20 = 0x801ADD20; // type:func
+func_801ADE34 = 0x801ADE34; // type:func
+func_801ADE68 = 0x801ADE68; // type:func
+// 801AE2AC: packed halfword curve; skipped by j at 801AE2A4.
+D_801AE2AC = 0x801AE2AC; // type:u32 size:0x30
+func_801AE2DC = 0x801AE2DC; // type:func
+// 801AE44C: byte deltas 00 01 02 01 00 FF FE FF; follows jr ra.
+D_801AE44C = 0x801AE44C; // type:u32 size:0x8
+func_801AE454 = 0x801AE454; // type:func
+func_801AE798 = 0x801AE798; // type:func
+func_801AEB20 = 0x801AEB20; // type:func
+func_801AEC00 = 0x801AEC00; // type:func
+func_801AEC1C = 0x801AEC1C; // type:func
+func_801AEC4C = 0x801AEC4C; // type:func
+func_801AEEDC = 0x801AEEDC; // type:func
+func_801AF0B8 = 0x801AF0B8; // type:func
+func_801AF13C = 0x801AF13C; // type:func
+func_801AF234 = 0x801AF234; // type:func
+func_801AF2E8 = 0x801AF2E8; // type:func
+func_801AF328 = 0x801AF328; // type:func
+func_801AFA78 = 0x801AFA78; // type:func
+func_801AFA7C = 0x801AFA7C; // type:func
+func_801AFAE0 = 0x801AFAE0; // type:func
+func_801AFC88 = 0x801AFC88; // type:func
+func_801B004C = 0x801B004C; // type:func
+func_801B01A8 = 0x801B01A8; // type:func
+func_801B03AC = 0x801B03AC; // type:func
+func_801B03E0 = 0x801B03E0; // type:func
+func_801B0408 = 0x801B0408; // type:func
+func_801B0690 = 0x801B0690; // type:func
+func_801B129C = 0x801B129C; // type:func
+// 801B1300: halfword thresholds 3000,4000,...,25000; follows jr ra.
+D_801B1300 = 0x801B1300; // type:u32 size:0x1C
+func_801B131C = 0x801B131C; // type:func
+func_801B1F08 = 0x801B1F08; // type:func
+// 801B2688: packed halfword records; address loaded by code.
+D_801B2688 = 0x801B2688; // type:u32 size:0x58
+func_801B26E0 = 0x801B26E0; // type:func
+func_801B26EC = 0x801B26EC; // type:func
+func_801B271C = 0x801B271C; // type:func
+func_801B2724 = 0x801B2724; // type:func
+func_801B2750 = 0x801B2750; // type:func
+func_801B2754 = 0x801B2754; // type:func
+func_801B2794 = 0x801B2794; // type:func
+func_801B2798 = 0x801B2798; // type:func
+func_801B27F0 = 0x801B27F0; // type:func
+func_801B280C = 0x801B280C; // type:func
+func_801B284C = 0x801B284C; // type:func
+func_801B28C0 = 0x801B28C0; // type:func
+func_801B28D4 = 0x801B28D4; // type:func
+func_801B28DC = 0x801B28DC; // type:func
+func_801B2908 = 0x801B2908; // type:func
+func_801B2F14 = 0x801B2F14; // type:func
+func_801B3334 = 0x801B3334; // type:func
+func_801B3E44 = 0x801B3E44; // type:func
+func_801B3E48 = 0x801B3E48; // type:func
+// 801B4038: packed byte masks; follows jr ra.
+D_801B4038 = 0x801B4038; // type:u32 size:0x10
+func_801B4048 = 0x801B4048; // type:func
+func_801B427C = 0x801B427C; // type:func
+func_801B4384 = 0x801B4384; // type:func
+func_801B478C = 0x801B478C; // type:func
+func_801B4854 = 0x801B4854; // type:func
+func_801B4BDC = 0x801B4BDC; // type:func
+// 801B4D14: byte lookup records; tail jump at 801B4D0C skips them.
+D_801B4D14 = 0x801B4D14; // type:u32 size:0xD8
+func_801B4DEC = 0x801B4DEC; // type:func
+func_801B4DF0 = 0x801B4DF0; // type:func
+func_801B4DF4 = 0x801B4DF4; // type:func
+func_801B5018 = 0x801B5018; // type:func
+func_801B52C8 = 0x801B52C8; // type:func
+func_801B52D0 = 0x801B52D0; // type:func
+func_801B54E0 = 0x801B54E0; // type:func
+func_801B55C4 = 0x801B55C4; // type:func
+func_801B5A44 = 0x801B5A44; // type:func
+func_801B5A80 = 0x801B5A80; // type:func
+func_801B5A90 = 0x801B5A90; // type:func
+func_801B5AD0 = 0x801B5AD0; // type:func
+func_801B5B20 = 0x801B5B20; // type:func
+// 801B5B3C: 17 CPU destination pointers; indexed indirect dispatch.
+D_801B5B3C = 0x801B5B3C; // type:u32 size:0x44
+func_801B5B80 = 0x801B5B80; // type:func
+// 801B6098: packed interpolation tables; base 801B6097 shares delay-slot byte.
+D_801B6098 = 0x801B6098; // type:u32 size:0x48
+func_801B60E0 = 0x801B60E0; // type:func
+func_801B60FC = 0x801B60FC; // type:func
+func_801B611C = 0x801B611C; // type:func
+func_801B61A8 = 0x801B61A8; // type:func
+func_801B6524 = 0x801B6524; // type:func
+func_801B6550 = 0x801B6550; // type:func
+func_801B659C = 0x801B659C; // type:func
+func_801B65E4 = 0x801B65E4; // type:func
+func_801B6670 = 0x801B6670; // type:func
+func_801B6698 = 0x801B6698; // type:func
+// 801B6710: packed halfword thresholds; follows jr ra.
+D_801B6710 = 0x801B6710; // type:u32 size:0xC
+func_801B671C = 0x801B671C; // type:func
+// 801B6814: IEEE float 120000.0 (47EA6000); lwc1 constant.
+D_801B6814 = 0x801B6814; // type:u32
+func_801B6818 = 0x801B6818; // type:func
+func_801B69C8 = 0x801B69C8; // type:func
+func_801B6A58 = 0x801B6A58; // type:func
+func_801B6DE0 = 0x801B6DE0; // type:func
+func_801B6E78 = 0x801B6E78; // type:func
+func_801B6E94 = 0x801B6E94; // type:func
+func_801B6F44 = 0x801B6F44; // type:func
+func_801B8AD0 = 0x801B8AD0; // type:func
+func_801B8ADC = 0x801B8ADC; // type:func
+func_801B9398 = 0x801B9398; // type:func
+func_801B9AB8 = 0x801B9AB8; // type:func
+func_801B9B20 = 0x801B9B20; // type:func
+// 801B9B3C: byte lookup/packed records; several indexed address consumers.
+D_801B9B3C = 0x801B9B3C; // type:u32 size:0xE8
+func_801B9C24 = 0x801B9C24; // type:func
+// 801B9E8C: byte lookup sequence ending in repeated 5A; follows jr ra.
+D_801B9E8C = 0x801B9E8C; // type:u32 size:0x18
+func_801B9EA4 = 0x801B9EA4; // type:func
+// 801BA4E0: packed halfword records; address-loaded lookup.
+D_801BA4E0 = 0x801BA4E0; // type:u32 size:0x60
+func_801BA540 = 0x801BA540; // type:func
+// 801BA78C: four byte lookup entries plus padding; lbu via base at 801BA770.
+D_801BA78C = 0x801BA78C; // type:u32 size:0x8
+func_801BA794 = 0x801BA794; // type:func
+// 801BA84C: 64-byte trigonometric table; mirrored indexed lbu at 801BA7B8/7BC.
+D_801BA84C = 0x801BA84C; // type:u32 size:0x40
+func_801BA88C = 0x801BA88C; // type:func
+// 801BABF8: IEEE float 0.5 (3F000000); adjacent return stubs remain code.
+D_801BABF8 = 0x801BABF8; // type:u32
+func_801BABFC = 0x801BABFC; // type:func
+// 801BAC0C: packed byte lookup records; code loads interior addresses.
+D_801BAC0C = 0x801BAC0C; // type:u32 size:0x9C
+func_801BACA8 = 0x801BACA8; // type:func
+// 801BB048: 19 pointers followed by packed script records; base loaded at 801BAF28.
+D_801BB048 = 0x801BB048; // type:u32 size:0x864
+func_801BB8AC = 0x801BB8AC; // type:func
+// 801BBBD4: packed halfword offsets; base loaded by 801BBC00.
+D_801BBBD4 = 0x801BBBD4; // type:u32 size:0x28
+func_801BBBFC = 0x801BBBFC; // type:func
+// 801BC42C: 25 CPU destination pointers; dispatch base loaded at 801BBD4C.
+D_801BC42C = 0x801BC42C; // type:u32 size:0x64
+func_801BC490 = 0x801BC490; // type:func
+// 801BCEF4: packed halfword lookup; tail jump at 801BCEEC skips it.
+D_801BCEF4 = 0x801BCEF4; // type:u32 size:0x8
+func_801BCEFC = 0x801BCEFC; // type:func
+// 801BDBA8: packed byte lookup; preceding tail jump skips it.
+D_801BDBA8 = 0x801BDBA8; // type:u32 size:0x20
+func_801BDBC8 = 0x801BDBC8; // type:func
+// 801BEA34: five CPU destination pointers; indexed dispatch table.
+D_801BEA34 = 0x801BEA34; // type:u32 size:0x14
+func_801BEA48 = 0x801BEA48; // type:func
+// 801BF87C: byte lookup; base 801BF87B shares delay-slot byte.
+D_801BF87C = 0x801BF87C; // type:u32 size:0xC
+func_801BF888 = 0x801BF888; // type:func
+// 801BF988: byte lookup; base 801BF987 shares delay-slot byte.
+D_801BF988 = 0x801BF988; // type:u32 size:0x8
+func_801BF990 = 0x801BF990; // type:func
+// 801C0DA0: CPU dispatch pointers; base 801C0D9C includes preceding delay slot.
+D_801C0DA0 = 0x801C0DA0; // type:u32 size:0x198
+func_801C0F38 = 0x801C0F38; // type:func
+// 801C10D4: packed byte masks; skipped by tail jump at 801C10CC.
+D_801C10D4 = 0x801C10D4; // type:u32 size:0x18
+func_801C10EC = 0x801C10EC; // type:func
+// 801C1C78: byte flags FFFFFF00 repeated; base 801C1C74 includes delay slot.
+D_801C1C78 = 0x801C1C78; // type:u32 size:0x2C
+func_801C1CA4 = 0x801C1CA4; // type:func
+// 801C21FC: packed halfword lookup; base 801C21FA shares delay-slot halfword.
+D_801C21FC = 0x801C21FC; // type:u32 size:0x14
+func_801C2210 = 0x801C2210; // type:func
+// 801C2364: IEEE floats 3000.0 and 256.0; skipped by tail jump.
+D_801C2364 = 0x801C2364; // type:u32 size:0x8
+func_801C236C = 0x801C236C; // type:func
+// 801C3868: byte permutation 01 08 07 06 05 04 03 02; follows jr ra.
+D_801C3868 = 0x801C3868; // type:u32 size:0x8
+func_801C3870 = 0x801C3870; // type:func

@@ -4,7 +4,8 @@ options:
   basename: ovl_7E00
   platform: n64
   compiler: IDO
-  disasm_unknown: False
+  # Retain instructions around handwritten inline constant pools.
+  disasm_unknown: True
   base_path: .
   target_path: build/segments/ovl_7E00.bin
   asm_path: asm/ovl_7E00
@@ -21,7 +22,74 @@ segments:
     type: code
     start: 0
     vram: 0x801AD900
+    # Inline pools and shared entry points are only word-aligned.
+    subalign: 4
+    # One asmtu emits all sibling sections into the existing assembly object.
+    # Separate scans prevent packed data branches from halting function discovery.
+    # The linker restores offset order; the last text part owns the asmtu output.
     subsegments:
-      - [0, asm, ovl_7E00]
+      - {start: 0x0, type: asm, name: ovl_7E00, linker_section: .text.p00000, linker_section_order: .text, extract: false}
+      - {start: 0x9AC, type: .data, name: ovl_7E00, linker_section: .kig_inline.p009AC, linker_section_order: .text}
+      - {start: 0x9DC, type: asm, name: ovl_7E00, linker_section: .text.p009DC, linker_section_order: .text, extract: false}
+      - {start: 0xB4C, type: .data, name: ovl_7E00, linker_section: .kig_inline.p00B4C, linker_section_order: .text}
+      - {start: 0xB54, type: asm, name: ovl_7E00, linker_section: .text.p00B54, linker_section_order: .text, extract: false}
+      - {start: 0x3A00, type: .data, name: ovl_7E00, linker_section: .kig_inline.p03A00, linker_section_order: .text}
+      - {start: 0x3A1C, type: asm, name: ovl_7E00, linker_section: .text.p03A1C, linker_section_order: .text, extract: false}
+      - {start: 0x4D88, type: .data, name: ovl_7E00, linker_section: .kig_inline.p04D88, linker_section_order: .text}
+      - {start: 0x4DE0, type: asm, name: ovl_7E00, linker_section: .text.p04DE0, linker_section_order: .text, extract: false}
+      - {start: 0x6738, type: .data, name: ovl_7E00, linker_section: .kig_inline.p06738, linker_section_order: .text}
+      - {start: 0x6748, type: asm, name: ovl_7E00, linker_section: .text.p06748, linker_section_order: .text, extract: false}
+      - {start: 0x7414, type: .data, name: ovl_7E00, linker_section: .kig_inline.p07414, linker_section_order: .text}
+      - {start: 0x74EC, type: asm, name: ovl_7E00, linker_section: .text.p074EC, linker_section_order: .text, extract: false}
+      - {start: 0x823C, type: .data, name: ovl_7E00, linker_section: .kig_inline.p0823C, linker_section_order: .text}
+      - {start: 0x8280, type: asm, name: ovl_7E00, linker_section: .text.p08280, linker_section_order: .text, extract: false}
+      - {start: 0x8798, type: .data, name: ovl_7E00, linker_section: .kig_inline.p08798, linker_section_order: .text}
+      - {start: 0x87E0, type: asm, name: ovl_7E00, linker_section: .text.p087E0, linker_section_order: .text, extract: false}
+      - {start: 0x8E10, type: .data, name: ovl_7E00, linker_section: .kig_inline.p08E10, linker_section_order: .text}
+      - {start: 0x8E1C, type: asm, name: ovl_7E00, linker_section: .text.p08E1C, linker_section_order: .text, extract: false}
+      - {start: 0x8F14, type: .data, name: ovl_7E00, linker_section: .kig_inline.p08F14, linker_section_order: .text}
+      - {start: 0x8F18, type: asm, name: ovl_7E00, linker_section: .text.p08F18, linker_section_order: .text, extract: false}
+      - {start: 0xC23C, type: .data, name: ovl_7E00, linker_section: .kig_inline.p0C23C, linker_section_order: .text}
+      - {start: 0xC324, type: asm, name: ovl_7E00, linker_section: .text.p0C324, linker_section_order: .text, extract: false}
+      - {start: 0xC58C, type: .data, name: ovl_7E00, linker_section: .kig_inline.p0C58C, linker_section_order: .text}
+      - {start: 0xC5A4, type: asm, name: ovl_7E00, linker_section: .text.p0C5A4, linker_section_order: .text, extract: false}
+      - {start: 0xCBE0, type: .data, name: ovl_7E00, linker_section: .kig_inline.p0CBE0, linker_section_order: .text}
+      - {start: 0xCC40, type: asm, name: ovl_7E00, linker_section: .text.p0CC40, linker_section_order: .text, extract: false}
+      - {start: 0xCE8C, type: .data, name: ovl_7E00, linker_section: .kig_inline.p0CE8C, linker_section_order: .text}
+      - {start: 0xCE94, type: asm, name: ovl_7E00, linker_section: .text.p0CE94, linker_section_order: .text, extract: false}
+      - {start: 0xCF4C, type: .data, name: ovl_7E00, linker_section: .kig_inline.p0CF4C, linker_section_order: .text}
+      - {start: 0xCF8C, type: asm, name: ovl_7E00, linker_section: .text.p0CF8C, linker_section_order: .text, extract: false}
+      - {start: 0xD2F8, type: .data, name: ovl_7E00, linker_section: .kig_inline.p0D2F8, linker_section_order: .text}
+      - {start: 0xD2FC, type: asm, name: ovl_7E00, linker_section: .text.p0D2FC, linker_section_order: .text, extract: false}
+      - {start: 0xD30C, type: .data, name: ovl_7E00, linker_section: .kig_inline.p0D30C, linker_section_order: .text}
+      - {start: 0xD3A8, type: asm, name: ovl_7E00, linker_section: .text.p0D3A8, linker_section_order: .text, extract: false}
+      - {start: 0xD748, type: .data, name: ovl_7E00, linker_section: .kig_inline.p0D748, linker_section_order: .text}
+      - {start: 0xDFAC, type: asm, name: ovl_7E00, linker_section: .text.p0DFAC, linker_section_order: .text, extract: false}
+      - {start: 0xE2D4, type: .data, name: ovl_7E00, linker_section: .kig_inline.p0E2D4, linker_section_order: .text}
+      - {start: 0xE2FC, type: asm, name: ovl_7E00, linker_section: .text.p0E2FC, linker_section_order: .text, extract: false}
+      - {start: 0xEB2C, type: .data, name: ovl_7E00, linker_section: .kig_inline.p0EB2C, linker_section_order: .text}
+      - {start: 0xEB90, type: asm, name: ovl_7E00, linker_section: .text.p0EB90, linker_section_order: .text, extract: false}
+      - {start: 0xF5F4, type: .data, name: ovl_7E00, linker_section: .kig_inline.p0F5F4, linker_section_order: .text}
+      - {start: 0xF5FC, type: asm, name: ovl_7E00, linker_section: .text.p0F5FC, linker_section_order: .text, extract: false}
+      - {start: 0x102A8, type: .data, name: ovl_7E00, linker_section: .kig_inline.p102A8, linker_section_order: .text}
+      - {start: 0x102C8, type: asm, name: ovl_7E00, linker_section: .text.p102C8, linker_section_order: .text, extract: false}
+      - {start: 0x11134, type: .data, name: ovl_7E00, linker_section: .kig_inline.p11134, linker_section_order: .text}
+      - {start: 0x11148, type: asm, name: ovl_7E00, linker_section: .text.p11148, linker_section_order: .text, extract: false}
+      - {start: 0x11F7C, type: .data, name: ovl_7E00, linker_section: .kig_inline.p11F7C, linker_section_order: .text}
+      - {start: 0x11F88, type: asm, name: ovl_7E00, linker_section: .text.p11F88, linker_section_order: .text, extract: false}
+      - {start: 0x12088, type: .data, name: ovl_7E00, linker_section: .kig_inline.p12088, linker_section_order: .text}
+      - {start: 0x12090, type: asm, name: ovl_7E00, linker_section: .text.p12090, linker_section_order: .text, extract: false}
+      - {start: 0x134A0, type: .data, name: ovl_7E00, linker_section: .kig_inline.p134A0, linker_section_order: .text}
+      - {start: 0x13638, type: asm, name: ovl_7E00, linker_section: .text.p13638, linker_section_order: .text, extract: false}
+      - {start: 0x137D4, type: .data, name: ovl_7E00, linker_section: .kig_inline.p137D4, linker_section_order: .text}
+      - {start: 0x137EC, type: asm, name: ovl_7E00, linker_section: .text.p137EC, linker_section_order: .text, extract: false}
+      - {start: 0x14378, type: .data, name: ovl_7E00, linker_section: .kig_inline.p14378, linker_section_order: .text}
+      - {start: 0x143A4, type: asm, name: ovl_7E00, linker_section: .text.p143A4, linker_section_order: .text, extract: false}
+      - {start: 0x148FC, type: .data, name: ovl_7E00, linker_section: .kig_inline.p148FC, linker_section_order: .text}
+      - {start: 0x14910, type: asm, name: ovl_7E00, linker_section: .text.p14910, linker_section_order: .text, extract: false}
+      - {start: 0x14A64, type: .data, name: ovl_7E00, linker_section: .kig_inline.p14A64, linker_section_order: .text}
+      - {start: 0x14A6C, type: asm, name: ovl_7E00, linker_section: .text.p14A6C, linker_section_order: .text, extract: false}
+      - {start: 0x15F68, type: .data, name: ovl_7E00, linker_section: .kig_inline.p15F68, linker_section_order: .text}
+      - {start: 0x15F70, type: asmtu, name: ovl_7E00, linker_section: .text.p15F70, linker_section_order: .text}
       - [0x16640, data, ovl_7E00]
   - [0x25930]
