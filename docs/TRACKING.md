@@ -10,7 +10,8 @@ The lead (orchestrator) vets every change before it lands. Subagents don't mark 
 | baserom | `baserom.us.z64` → `ROMs/Killer Instinct Gold (U) (V1.0) [!].z64` (symlink, gitignored) |
 | SHA1 | `ba52e91b44450c548467044b26951353dc491e04` |
 | Size | 12,582,912 bytes (12 MiB), big-endian .z64 |
-| Entrypoint (header) | `0x80000400` |
+| Entrypoint (header) | `0x80000400` (CIC 6102, unchanged) |
+| Layout | see docs/rom_layout.md: boot seg ROM 0x1000–0x7ED0; main = 1172+raw-DEFLATE @0xA94D80 → 0x8000F960 (0x3A8D0 B); 26 compressed overlays/data via table @ROM 0x7DF0 |
 | Other good dumps | US V1.1 `bcc599ed…`, US V1.2 `aaeb492b…`, EU `e0ed97c7…` (later targets) |
 
 ## Progress metrics (by original code bytes; methodology from docs/n64 guide §6)
@@ -31,5 +32,5 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 |---|---|---|---|---|---|
 | T-000 | Repo bootstrap, baserom selection, tracking | lead | Done | this file, .gitignore | |
 | T-001 | Toolchain setup (venv, splat/spimdisasm/rabbitizer, m2c, asm-differ, MIPS binutils, IDO recomp) | sol-A | In progress | tools/setup.sh, docs/toolchain.md | no sudo available |
-| T-002 | ROM structure analysis (boot, entry, code segments, BSS, libultra version, compressed data) | sol-B | In progress | docs/rom_layout.md, tools/analysis/ | read-only on ROM |
+| T-002 | ROM structure analysis (boot, entry, code segments, BSS, libultra version, compressed data) | sol-B | Done | docs/rom_layout.md, tools/analysis/ | read-only on ROM |
 | T-003 | Prior-art + compiler research, cross-revision diff | sol-C | In progress | docs/research.md, tools/research/ | |
