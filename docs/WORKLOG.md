@@ -91,3 +91,5 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-e798001a (base 8730f2e). 5 matched, all empty void stubs: func_80030218, func_80039AC0 (closes FU-11), func_80039C00, func_8003D348, and func_80037770 together with func_80037778. Applied to HEAD and did a clean vet build: the ROM and all 3 images are byte-identical. 120 T4; M1 = M2 = 11,368 B (3.56%).
 - Imported the 66 drafts plus REPORT.md (spot-checked: genuine attempts, not raw m2c) and added 66 T2 rows. Low yield: most functions in this range are large.
 - Notes: func_80030EF0's body matches and only lacks a 4-byte alignment gap, so it is an FU-14 TU-boundary candidate. func_800326F0 uses native 64-bit ops (dsll), so it is probably not IDO -mips2 C (an asm or -mips3 candidate).
+
+- T-031 launched (sol-B12): split main at its definite TU boundaries (FU-14). No other worker may touch main src until it lands.
