@@ -120,3 +120,5 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-49e9e79f. func_801C2110 (cubic position/velocity) and func_801C78B0 matched. func_801C78B0 needs a K&R definition with u8 params: the callers in the same file use an unprototyped extern, and an ANSI prototype changes the callers' codegen (I tried it; the build fails). The C itself is plain, with no asm tricks.
 - tools/progress/inventory.py: the T4 definition regex now also accepts K&R parameter declarations, a generic fix. T4 went from 125 to 126, exactly the +1 expected.
 - Clean vet build: the ROM and all 3 images are byte-identical. 126 T4; M1 = M2 = 12,468 B (3.90%). Imported the 23 drafts plus REPORT.md (skipped diff/log files) and added 23 T2 rows.
+
+- T-036 launched (sol-C14): polish T-022's 31 drafts (main 0x80018000–0x80020000). When vetting, remove T2 rows for drafts it matches.
