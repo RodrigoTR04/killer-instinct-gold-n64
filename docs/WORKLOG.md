@@ -66,3 +66,5 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 ## 2026-10-19 03:09 — T-028 paused (worker usage limit)
 - T-028 stopped on the Codex usage limit (resets 07:41). A one-shot resume is scheduled for 07:44: "continue" in the same child thread, no relaunch.
+
+- T-027 also stopped on the usage limit (same 07:41 reset). The 07:44 job resumes it too.
