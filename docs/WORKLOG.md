@@ -138,3 +138,5 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-19 — T-032 vetted (main 0x80020000–0x80028000)
 - Worktree t3-9b528953. 7 matched (func_80021ADC, 8002365C, 80023790, 80024144, 80025354, 80026AA0, 80027DA0); only GLOBAL_ASM stubs were removed and there are no tricks (one typedef include-guard #define). Clean vet build: the ROM and all 3 images are byte-identical. 164 T4; M1 = M2 = 24,608 B (7.70%).
 - Imported the 22 drafts plus REPORT.md and added 22 T2 rows. Note: boot_inflate needs a consistent s32 return declaration across files (FU-13 cleanup).
+
+- T-038 launched (sol-A16): boot C infrastructure, then match its 21 T1 fns.
