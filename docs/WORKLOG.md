@@ -140,3 +140,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Imported the 22 drafts plus REPORT.md and added 22 T2 rows. Note: boot_inflate needs a consistent s32 return declaration across files (FU-13 cleanup).
 
 - T-038 launched (sol-A16): boot C infrastructure, then match its 21 T1 fns.
+
+## 2026-10-19 — T-033 vetted (main 0x8000F960–0x80018000, T-020 leftovers)
+- Worktree t3-9f33d227. 4 matched (func_8001383C, 80014C40, 80015B64, 80015CD0; 2,188 B); only GLOBAL_ASM stubs were removed and there are no tricks. Clean vet build: the ROM and all 3 images are byte-identical. 168 T4; M1 = M2 = 26,796 B (8.39%).
+- Imported the 23 drafts plus REPORT.md and added 23 T2 rows. main now has 0 T1: every eligible function is matched or drafted.

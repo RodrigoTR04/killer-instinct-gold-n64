@@ -1,0 +1,68 @@
+/* DRAFT. Remaining diff: 170 positional differing words; 732/704 bytes */
+typedef struct { void *display; s16 flags, pad; s32 transform; } T033DrawPart;
+typedef struct { u32 command, value; } T033DrawCommand;
+extern void *D_8004A4C0[];
+extern u8 D_8004A5D4, D_8004AC8E[], D_8004AC92[], D_8004AC95, D_8004AC98[], D_8004ACB0[];
+extern s8 D_8004A984;
+extern u8 D_8004AC88;
+extern s32 D_800698C4;
+extern f32 D_8004A740[], D_8004A800[], D_8004A860[], D_8004A8C0[], D_8004A920[], D_8004A7A0;
+extern void func_8001BB64(T033DrawCommand **);
+extern void func_8001BDE0(T033DrawCommand **, s32, s32, u32);
+extern void func_80028A00(T033DrawCommand **, s32);
+extern void func_8001C5AC(T033DrawCommand **, s32, void *, s32, s32, f32, f32, f32, f32, f32, f32, s32);
+
+extern f32 D_8004A740[];
+extern f32 D_8004A800[];
+extern f32 D_8004A860[];
+extern f32 D_8004A8C0[];
+extern f32 D_8004A920[];
+void func_8001346C(T033DrawCommand **arg0, s32 arg1, s32 arg2) {
+    T033DrawPart *part;
+    T033DrawCommand *g;
+    s32 palette, mode, i, transformed;
+    u8 *a, *b;
+    part = &((T033DrawPart *)D_8004A4C0)[arg1];
+    palette = part->flags & 0xF0;
+    if (palette >= 16) {
+        palette = (palette - 16) >> 4;
+        a = &D_8004AC98[palette * 3];
+        b = &D_8004ACB0[palette * 3];
+        for (i = 0; i != 3; i++) {
+            D_8004AC8E[i] = a[i];
+            D_8004AC92[i] = b[i];
+        }
+        func_8001BB64(arg0);
+    }
+    mode = part->flags & 15;
+    switch (mode) {
+    case 4:
+        if (D_800698C4 == 0) break;
+    case 0:
+        if (part->display != 0) {
+            g = (*arg0)++;
+            g->command = 0x06000000;
+            g->value = (u32)part->display;
+        }
+        break;
+    case 1: transformed = 0; break;
+    case 2: transformed = 1; break;
+    case 3: func_80028A00(arg0, part->transform); break;
+    case 5: func_8001BDE0(arg0, arg1, arg2, mode); break;
+    }
+    if (mode == 1 || mode == 2) {
+        if (D_8004AC88 == 8 && part == (T033DrawPart *)&D_8004A5D4) D_8004A984 = 1;
+        i = part->transform;
+        func_8001C5AC(arg0, transformed, part->display, 0, 0, D_8004A740[i], (&D_8004A7A0)[i], D_8004A800[i], D_8004A860[i], D_8004A8C0[i], D_8004A920[i], 0);
+        D_8004A984 = 0;
+    }
+    if ((part->flags & 0xF0) >= 16) {
+        a = D_8004AC92;
+        b = D_8004AC8E;
+        do {
+            *a++ = 0;
+            *b++ = 0;
+        } while (a != &D_8004AC95);
+        func_8001BB64(arg0);
+    }
+}

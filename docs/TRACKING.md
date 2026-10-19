@@ -31,10 +31,10 @@ Source of truth for per-function tiers is `docs/functions.csv` (created once spl
 | Metric | Value |
 |---|---|
 | Scope measured | all CPU text of boot/main/ovl_7DF8/ovl_7E00 (999 fns). Text not in fns: boot 432 B pad, main 708 B, 7DF8 92 B, 7E00 4,040 B (31 inline data pools, listed in symbol_addrs.ovl_7E00.us.txt) |
-| M1 | 24,608 / 319,544 B (7.70%) |
-| M2 | 24,608 / 319,544 B (7.70%) |
-| Functions | 55 T1 · 350 T2 · 0 T3 · 164 T4 · 430 excluded (137,648 B: 267 libultra + boot entry asm + 162 ovl_7E00 handwritten asm) |
-| Per image (eligible B / T1 fns / excluded) | boot 8,468/21/99 · main 173,204/27/169 (91 T4, 172 T2) · ovl_7DF8 137,428/0/0 (73 T4, 178 T2) · ovl_7E00 444/7/162 |
+| M1 | 26,796 / 319,544 B (8.39%) |
+| M2 | 26,796 / 319,544 B (8.39%) |
+| Functions | 28 T1 · 373 T2 · 0 T3 · 168 T4 · 430 excluded (137,648 B: 267 libultra + boot entry asm + 162 ovl_7E00 handwritten asm) |
+| Per image (eligible B / T1 fns / excluded) | boot 8,468/21/99 · main 173,204/0/169 (95 T4, 195 T2) · ovl_7DF8 137,428/0/0 (73 T4, 178 T2) · ovl_7E00 444/7/162 |
 
 Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html). Tier overrides: tools/progress/status.csv (lead-maintained). Never hand-edit numbers; paste the `--markdown` output here.
 
@@ -94,7 +94,7 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | T-030 | Match T-021 leftovers: ovl_7DF8 0x801C2000–0x801C8000 (files ovl_7DF8_13FF0/17E70/18520/18CC0/190B0/1B790/1BD90.c, range only): 25 T1 fns, 19,624 B | sol-C13 | Done (verified): 2 matched (548 B), 23 T2 drafts, 0 not attempted | those src files (range only), tools/scratch/nonmatching/T-030/ | worktree isolation |
 | T-031 | FU-14 main: split src/main/main.c + kig.main.us.yaml at the definite TU boundaries in docs/tu_boundaries.md; retry padding-blocked drafts (func_8002AB64, func_80030EF0, others) | sol-B12 | Done (verified): main split into 87 TUs; func_8002AB64 + func_80030EF0 matched; 122 T4 | kig.main.us.yaml, src/main/*, docs/tu_boundaries.md (main status note), tools/scratch/nonmatching/* (delete matched drafts only) | worktree isolation; no other main src work meanwhile |
 | T-032 | Match main 0x80020000–0x80028000 (src/main/main_2FF0/15380/17140/18440.c, range only): 29 T1 fns, 29,468 B | sol-B13 | Done (verified): 7 matched (1,280 B), 22 T2 drafts, 0 not attempted | those src files (range only), tools/scratch/nonmatching/T-032/ | worktree isolation |
-| T-033 | Match T-020 leftovers: main 0x8000F960–0x80018000 (src/main/main.c + main_2FF0.c, range only): 27 T1 fns, 31,504 B | sol-A15 | In progress (resumed 2026-10-19 19:30) | those src files (range only), tools/scratch/nonmatching/T-033/ | worktree isolation; T-032 owns main_2FF0.c ≥0x80020000 |
+| T-033 | Match T-020 leftovers: main 0x8000F960–0x80018000 (src/main/main.c + main_2FF0.c, range only): 27 T1 fns, 31,504 B | sol-A15 | Done (verified): 4 matched (2,188 B), 23 T2 drafts, 0 not attempted | those src files (range only), tools/scratch/nonmatching/T-033/ | worktree isolation; T-032 owns main_2FF0.c ≥0x80020000 |
 | T-034 | Match ovl_7DF8 leftovers outside T-030: T-019's 3 (ovl_7DF8.c) + T-021's 22 at 0x801C8000–0x801CD440 (ovl_7DF8_1BD90.c ≥0x801C8000, ovl_7DF8_200C0.c): 25 T1 fns, 21,688 B | opus-1 (Opus 5.5 low) | Done (verified): 11 matched (incl. func_801CCBCC via lead prototype fix), 14 T2 drafts, 0 not attempted | those src files (range only), tools/scratch/nonmatching/T-034/ | worktree isolation; T-030 owns 1BD90.c <0x801C8000 |
 | T-035 | Match main's last 8 T1 fns ≥0x80040000 (main_30A90/319D0/321A0.c) + polish T-026 drafts (main 0x80030000–0x80040000, smallest diff first) | opus-2 (Opus 5.5 low) | Done (verified): 20 matched (func_800414F0 + 19 libultra pfs fns built -mips1), 7 T2 drafts, 2 T-026 drafts improved | those src files (range only), tools/scratch/nonmatching/T-026/ (update drafts), tools/scratch/nonmatching/T-035/ | worktree isolation; no overlap with T-032/T-033 |
 | T-036 | Polish T2 drafts → match: main 0x80018000–0x80020000 (T-022's 31 drafts in src/main/main_2FF0.c, smallest diff first) | sol-C14 | In progress | main_2FF0.c (those 31 fns only), tools/scratch/nonmatching/T-022/ (update/delete drafts), tools/scratch/nonmatching/T-036/REPORT.md | worktree isolation; T-032/T-033 own other main_2FF0.c ranges |
