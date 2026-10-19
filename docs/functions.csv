@@ -829,172 +829,172 @@ ovl_7DF8,func_801CD100,0x801CD100,0x215E0,116,T1,
 ovl_7DF8,func_801CD174,0x801CD174,0x21654,124,T1,
 ovl_7DF8,func_801CD1F0,0x801CD1F0,0x216D0,460,T1,
 ovl_7DF8,func_801CD3BC,0x801CD3BC,0x2189C,140,T1,
-ovl_7E00,func_801AD900,0x801AD900,0x0,1056,T1,splat: Handwritten function
+ovl_7E00,func_801AD900,0x801AD900,0x0,1056,excluded,handwritten asm (T-016
 ovl_7E00,func_801ADD20,0x801ADD20,0x420,276,T1,
-ovl_7E00,func_801ADE34,0x801ADE34,0x534,52,T1,
-ovl_7E00,func_801ADE68,0x801ADE68,0x568,1092,T1,splat: Handwritten function
-ovl_7E00,func_801AE2DC,0x801AE2DC,0x9DC,244,T1,
-ovl_7E00,func_801AE3D0,0x801AE3D0,0xAD0,108,T1,
-ovl_7E00,func_801AE43C,0x801AE43C,0xB3C,16,T1,
-ovl_7E00,func_801AE454,0x801AE454,0xB54,836,T1,splat: Handwritten function
-ovl_7E00,func_801AE798,0x801AE798,0xE98,904,T1,
-ovl_7E00,func_801AEB20,0x801AEB20,0x1220,216,T1,
-ovl_7E00,func_801AEC00,0x801AEC00,0x1300,28,T1,
-ovl_7E00,func_801AEC1C,0x801AEC1C,0x131C,48,T1,splat: Handwritten function
-ovl_7E00,func_801AEC4C,0x801AEC4C,0x134C,656,T1,
-ovl_7E00,func_801AEEDC,0x801AEEDC,0x15DC,476,T1,
-ovl_7E00,func_801AF0B8,0x801AF0B8,0x17B8,132,T1,
-ovl_7E00,func_801AF13C,0x801AF13C,0x183C,248,T1,splat: Handwritten function
-ovl_7E00,func_801AF234,0x801AF234,0x1934,180,T1,
+ovl_7E00,func_801ADE34,0x801ADE34,0x534,52,excluded,handwritten asm (T-016
+ovl_7E00,func_801ADE68,0x801ADE68,0x568,1092,excluded,handwritten asm (T-016
+ovl_7E00,func_801AE2DC,0x801AE2DC,0x9DC,244,excluded,handwritten asm (T-016
+ovl_7E00,func_801AE3D0,0x801AE3D0,0xAD0,108,excluded,handwritten asm (T-016
+ovl_7E00,func_801AE43C,0x801AE43C,0xB3C,16,excluded,handwritten asm (T-016
+ovl_7E00,func_801AE454,0x801AE454,0xB54,836,excluded,handwritten asm (T-016
+ovl_7E00,func_801AE798,0x801AE798,0xE98,904,excluded,handwritten asm (T-016
+ovl_7E00,func_801AEB20,0x801AEB20,0x1220,216,excluded,handwritten asm (T-016
+ovl_7E00,func_801AEC00,0x801AEC00,0x1300,28,excluded,handwritten asm (T-016
+ovl_7E00,func_801AEC1C,0x801AEC1C,0x131C,48,excluded,handwritten asm (T-016
+ovl_7E00,func_801AEC4C,0x801AEC4C,0x134C,656,excluded,handwritten asm (T-016
+ovl_7E00,func_801AEEDC,0x801AEEDC,0x15DC,476,excluded,handwritten asm (T-016
+ovl_7E00,func_801AF0B8,0x801AF0B8,0x17B8,132,excluded,handwritten asm (T-016
+ovl_7E00,func_801AF13C,0x801AF13C,0x183C,248,excluded,handwritten asm (T-016
+ovl_7E00,func_801AF234,0x801AF234,0x1934,180,excluded,handwritten asm (T-016
 ovl_7E00,func_801AF2E8,0x801AF2E8,0x19E8,64,T1,
-ovl_7E00,func_801AF328,0x801AF328,0x1A28,1872,T1,
-ovl_7E00,func_801AFA78,0x801AFA78,0x2178,4,T1,
-ovl_7E00,func_801AFA7C,0x801AFA7C,0x217C,100,T1,
-ovl_7E00,func_801AFAE0,0x801AFAE0,0x21E0,424,T1,
-ovl_7E00,func_801AFC88,0x801AFC88,0x2388,964,T1,splat: Handwritten function
-ovl_7E00,func_801B004C,0x801B004C,0x274C,348,T1,
-ovl_7E00,func_801B01A8,0x801B01A8,0x28A8,516,T1,splat: Handwritten function
-ovl_7E00,func_801B03AC,0x801B03AC,0x2AAC,52,T1,
-ovl_7E00,func_801B03E0,0x801B03E0,0x2AE0,40,T1,
-ovl_7E00,func_801B0408,0x801B0408,0x2B08,648,T1,
-ovl_7E00,func_801B0690,0x801B0690,0x2D90,3084,T1,splat: Handwritten function
-ovl_7E00,func_801B129C,0x801B129C,0x399C,96,T1,
-ovl_7E00,func_801B131C,0x801B131C,0x3A1C,316,T1,
-ovl_7E00,func_801B1458,0x801B1458,0x3B58,32,T1,
-ovl_7E00,func_801B1478,0x801B1478,0x3B78,192,T1,
-ovl_7E00,func_801B1538,0x801B1538,0x3C38,2512,T1,splat: Handwritten function
-ovl_7E00,func_801B1F08,0x801B1F08,0x4608,452,T1,splat: Handwritten function
-ovl_7E00,func_801B20CC,0x801B20CC,0x47CC,1468,T1,splat: Handwritten function
-ovl_7E00,func_801B26E0,0x801B26E0,0x4DE0,12,T1,
-ovl_7E00,func_801B26EC,0x801B26EC,0x4DEC,48,T1,
-ovl_7E00,func_801B271C,0x801B271C,0x4E1C,8,T1,
-ovl_7E00,func_801B2724,0x801B2724,0x4E24,44,T1,
-ovl_7E00,func_801B2750,0x801B2750,0x4E50,4,T1,
-ovl_7E00,func_801B2754,0x801B2754,0x4E54,64,T1,
-ovl_7E00,func_801B2794,0x801B2794,0x4E94,4,T1,
-ovl_7E00,func_801B2798,0x801B2798,0x4E98,88,T1,
-ovl_7E00,func_801B27F0,0x801B27F0,0x4EF0,28,T1,
-ovl_7E00,func_801B280C,0x801B280C,0x4F0C,64,T1,
-ovl_7E00,func_801B284C,0x801B284C,0x4F4C,116,T1,
-ovl_7E00,func_801B28C0,0x801B28C0,0x4FC0,20,T1,
-ovl_7E00,func_801B28D4,0x801B28D4,0x4FD4,8,T1,
-ovl_7E00,func_801B28DC,0x801B28DC,0x4FDC,40,T1,
-ovl_7E00,func_801B2908,0x801B2908,0x5008,652,T1,
-ovl_7E00,func_801B2B94,0x801B2B94,0x5294,896,T1,splat: Handwritten function
-ovl_7E00,func_801B2F14,0x801B2F14,0x5614,4388,T1,splat: Handwritten function
-ovl_7E00,func_801B4048,0x801B4048,0x6748,3276,T1,splat: Handwritten function
-ovl_7E00,func_801B4DEC,0x801B4DEC,0x74EC,4,T1,splat: Handwritten function
-ovl_7E00,func_801B4DF0,0x801B4DF0,0x74F0,4,T1,
-ovl_7E00,func_801B4DF4,0x801B4DF4,0x74F4,432,T1,splat: Handwritten function
-ovl_7E00,func_801B4FA4,0x801B4FA4,0x76A4,116,T1,splat: Handwritten function
-ovl_7E00,func_801B5018,0x801B5018,0x7718,12,T1,
-ovl_7E00,func_801B5024,0x801B5024,0x7724,2840,T1,splat: Handwritten function
-ovl_7E00,func_801B5B80,0x801B5B80,0x8280,1304,T1,splat: Handwritten function
-ovl_7E00,func_801B60E0,0x801B60E0,0x87E0,28,T1,
-ovl_7E00,func_801B60FC,0x801B60FC,0x87FC,32,T1,
-ovl_7E00,func_801B611C,0x801B611C,0x881C,140,T1,
-ovl_7E00,func_801B61A8,0x801B61A8,0x88A8,892,T1,
-ovl_7E00,func_801B6524,0x801B6524,0x8C24,44,T1,splat: Handwritten function
-ovl_7E00,func_801B6550,0x801B6550,0x8C50,76,T1,
-ovl_7E00,func_801B659C,0x801B659C,0x8C9C,72,T1,
-ovl_7E00,func_801B65E4,0x801B65E4,0x8CE4,108,T1,
-ovl_7E00,func_801B6650,0x801B6650,0x8D50,32,T1,
-ovl_7E00,func_801B6670,0x801B6670,0x8D70,40,T1,
-ovl_7E00,func_801B6698,0x801B6698,0x8D98,120,T1,
-ovl_7E00,func_801B671C,0x801B671C,0x8E1C,248,T1,
-ovl_7E00,func_801B6818,0x801B6818,0x8F18,64,T1,
+ovl_7E00,func_801AF328,0x801AF328,0x1A28,1872,excluded,handwritten asm (T-016
+ovl_7E00,func_801AFA78,0x801AFA78,0x2178,4,excluded,handwritten asm (T-016
+ovl_7E00,func_801AFA7C,0x801AFA7C,0x217C,100,excluded,handwritten asm (T-016
+ovl_7E00,func_801AFAE0,0x801AFAE0,0x21E0,424,excluded,handwritten asm (T-016
+ovl_7E00,func_801AFC88,0x801AFC88,0x2388,964,excluded,handwritten asm (T-016
+ovl_7E00,func_801B004C,0x801B004C,0x274C,348,excluded,handwritten asm (T-016
+ovl_7E00,func_801B01A8,0x801B01A8,0x28A8,516,excluded,handwritten asm (T-016
+ovl_7E00,func_801B03AC,0x801B03AC,0x2AAC,52,excluded,handwritten asm (T-016
+ovl_7E00,func_801B03E0,0x801B03E0,0x2AE0,40,excluded,handwritten asm (T-016
+ovl_7E00,func_801B0408,0x801B0408,0x2B08,648,excluded,handwritten asm (T-016
+ovl_7E00,func_801B0690,0x801B0690,0x2D90,3084,excluded,handwritten asm (T-016
+ovl_7E00,func_801B129C,0x801B129C,0x399C,96,excluded,handwritten asm (T-016
+ovl_7E00,func_801B131C,0x801B131C,0x3A1C,316,excluded,handwritten asm (T-016
+ovl_7E00,func_801B1458,0x801B1458,0x3B58,32,excluded,handwritten asm (T-016
+ovl_7E00,func_801B1478,0x801B1478,0x3B78,192,excluded,handwritten asm (T-016
+ovl_7E00,func_801B1538,0x801B1538,0x3C38,2512,excluded,handwritten asm (T-016
+ovl_7E00,func_801B1F08,0x801B1F08,0x4608,452,excluded,handwritten asm (T-016
+ovl_7E00,func_801B20CC,0x801B20CC,0x47CC,1468,excluded,handwritten asm (T-016
+ovl_7E00,func_801B26E0,0x801B26E0,0x4DE0,12,excluded,handwritten asm (T-016
+ovl_7E00,func_801B26EC,0x801B26EC,0x4DEC,48,excluded,handwritten asm (T-016
+ovl_7E00,func_801B271C,0x801B271C,0x4E1C,8,excluded,handwritten asm (T-016
+ovl_7E00,func_801B2724,0x801B2724,0x4E24,44,excluded,handwritten asm (T-016
+ovl_7E00,func_801B2750,0x801B2750,0x4E50,4,excluded,handwritten asm (T-016
+ovl_7E00,func_801B2754,0x801B2754,0x4E54,64,excluded,handwritten asm (T-016
+ovl_7E00,func_801B2794,0x801B2794,0x4E94,4,excluded,handwritten asm (T-016
+ovl_7E00,func_801B2798,0x801B2798,0x4E98,88,excluded,handwritten asm (T-016
+ovl_7E00,func_801B27F0,0x801B27F0,0x4EF0,28,excluded,handwritten asm (T-016
+ovl_7E00,func_801B280C,0x801B280C,0x4F0C,64,excluded,handwritten asm (T-016
+ovl_7E00,func_801B284C,0x801B284C,0x4F4C,116,excluded,handwritten asm (T-016
+ovl_7E00,func_801B28C0,0x801B28C0,0x4FC0,20,excluded,handwritten asm (T-016
+ovl_7E00,func_801B28D4,0x801B28D4,0x4FD4,8,excluded,handwritten asm (T-016
+ovl_7E00,func_801B28DC,0x801B28DC,0x4FDC,40,excluded,handwritten asm (T-016
+ovl_7E00,func_801B2908,0x801B2908,0x5008,652,excluded,handwritten asm (T-016
+ovl_7E00,func_801B2B94,0x801B2B94,0x5294,896,excluded,handwritten asm (T-016
+ovl_7E00,func_801B2F14,0x801B2F14,0x5614,4388,excluded,handwritten asm (T-016
+ovl_7E00,func_801B4048,0x801B4048,0x6748,3276,excluded,handwritten asm (T-016
+ovl_7E00,func_801B4DEC,0x801B4DEC,0x74EC,4,excluded,handwritten asm (T-016
+ovl_7E00,func_801B4DF0,0x801B4DF0,0x74F0,4,excluded,handwritten asm (T-016
+ovl_7E00,func_801B4DF4,0x801B4DF4,0x74F4,432,excluded,handwritten asm (T-016
+ovl_7E00,func_801B4FA4,0x801B4FA4,0x76A4,116,excluded,handwritten asm (T-016
+ovl_7E00,func_801B5018,0x801B5018,0x7718,12,excluded,handwritten asm (T-016
+ovl_7E00,func_801B5024,0x801B5024,0x7724,2840,excluded,handwritten asm (T-016
+ovl_7E00,func_801B5B80,0x801B5B80,0x8280,1304,excluded,handwritten asm (T-016
+ovl_7E00,func_801B60E0,0x801B60E0,0x87E0,28,excluded,handwritten asm (T-016
+ovl_7E00,func_801B60FC,0x801B60FC,0x87FC,32,excluded,handwritten asm (T-016
+ovl_7E00,func_801B611C,0x801B611C,0x881C,140,excluded,handwritten asm (T-016
+ovl_7E00,func_801B61A8,0x801B61A8,0x88A8,892,excluded,handwritten asm (T-016
+ovl_7E00,func_801B6524,0x801B6524,0x8C24,44,excluded,handwritten asm (T-016
+ovl_7E00,func_801B6550,0x801B6550,0x8C50,76,excluded,handwritten asm (T-016
+ovl_7E00,func_801B659C,0x801B659C,0x8C9C,72,excluded,handwritten asm (T-016
+ovl_7E00,func_801B65E4,0x801B65E4,0x8CE4,108,excluded,handwritten asm (T-016
+ovl_7E00,func_801B6650,0x801B6650,0x8D50,32,excluded,handwritten asm (T-016
+ovl_7E00,func_801B6670,0x801B6670,0x8D70,40,excluded,handwritten asm (T-016
+ovl_7E00,func_801B6698,0x801B6698,0x8D98,120,excluded,handwritten asm (T-016
+ovl_7E00,func_801B671C,0x801B671C,0x8E1C,248,excluded,handwritten asm (T-016
+ovl_7E00,func_801B6818,0x801B6818,0x8F18,64,excluded,handwritten asm (T-016
 ovl_7E00,func_801B6858,0x801B6858,0x8F58,60,T1,
-ovl_7E00,func_801B6894,0x801B6894,0x8F94,308,T1,
-ovl_7E00,func_801B69C8,0x801B69C8,0x90C8,144,T1,
-ovl_7E00,func_801B6A58,0x801B6A58,0x9158,904,T1,
-ovl_7E00,func_801B6DE0,0x801B6DE0,0x94E0,112,T1,splat: Handwritten function
-ovl_7E00,func_801B6E50,0x801B6E50,0x9550,40,T1,
-ovl_7E00,func_801B6E78,0x801B6E78,0x9578,28,T1,
-ovl_7E00,func_801B6E94,0x801B6E94,0x9594,156,T1,
-ovl_7E00,func_801B6F30,0x801B6F30,0x9630,20,T1,
-ovl_7E00,func_801B6F44,0x801B6F44,0x9644,7052,T1,splat: Handwritten function
-ovl_7E00,func_801B8AD0,0x801B8AD0,0xB1D0,12,T1,
-ovl_7E00,func_801B8ADC,0x801B8ADC,0xB1DC,2236,T1,splat: Handwritten function
-ovl_7E00,func_801B9398,0x801B9398,0xBA98,1824,T1,
-ovl_7E00,func_801B9AB8,0x801B9AB8,0xC1B8,104,T1,
-ovl_7E00,func_801B9B20,0x801B9B20,0xC220,28,T1,
-ovl_7E00,func_801B9C24,0x801B9C24,0xC324,32,T1,
-ovl_7E00,func_801B9C44,0x801B9C44,0xC344,436,T1,
-ovl_7E00,func_801B9DF8,0x801B9DF8,0xC4F8,148,T1,
-ovl_7E00,func_801B9EA4,0x801B9EA4,0xC5A4,172,T1,
-ovl_7E00,func_801B9F50,0x801B9F50,0xC650,212,T1,
-ovl_7E00,func_801BA024,0x801BA024,0xC724,248,T1,splat: Handwritten function
-ovl_7E00,func_801BA11C,0x801BA11C,0xC81C,4,T1,
-ovl_7E00,func_801BA120,0x801BA120,0xC820,4,T1,splat: Handwritten function
-ovl_7E00,func_801BA124,0x801BA124,0xC824,40,T1,
-ovl_7E00,func_801BA14C,0x801BA14C,0xC84C,80,T1,splat: Handwritten function
-ovl_7E00,func_801BA19C,0x801BA19C,0xC89C,20,T1,
-ovl_7E00,func_801BA1B0,0x801BA1B0,0xC8B0,276,T1,splat: Handwritten function
-ovl_7E00,func_801BA2C4,0x801BA2C4,0xC9C4,168,T1,
-ovl_7E00,func_801BA36C,0x801BA36C,0xCA6C,324,T1,splat: Handwritten function
-ovl_7E00,func_801BA4B0,0x801BA4B0,0xCBB0,48,T1,
-ovl_7E00,func_801BA540,0x801BA540,0xCC40,588,T1,splat: Handwritten function
-ovl_7E00,func_801BA794,0x801BA794,0xCE94,184,T1,
-ovl_7E00,func_801BA88C,0x801BA88C,0xCF8C,252,T1,
-ovl_7E00,func_801BA988,0x801BA988,0xD088,624,T1,splat: Handwritten function
+ovl_7E00,func_801B6894,0x801B6894,0x8F94,308,excluded,handwritten asm (T-016
+ovl_7E00,func_801B69C8,0x801B69C8,0x90C8,144,excluded,handwritten asm (T-016
+ovl_7E00,func_801B6A58,0x801B6A58,0x9158,904,excluded,handwritten asm (T-016
+ovl_7E00,func_801B6DE0,0x801B6DE0,0x94E0,112,excluded,handwritten asm (T-016
+ovl_7E00,func_801B6E50,0x801B6E50,0x9550,40,excluded,handwritten asm (T-016
+ovl_7E00,func_801B6E78,0x801B6E78,0x9578,28,excluded,handwritten asm (T-016
+ovl_7E00,func_801B6E94,0x801B6E94,0x9594,156,excluded,handwritten asm (T-016
+ovl_7E00,func_801B6F30,0x801B6F30,0x9630,20,excluded,handwritten asm (T-016
+ovl_7E00,func_801B6F44,0x801B6F44,0x9644,7052,excluded,handwritten asm (T-016
+ovl_7E00,func_801B8AD0,0x801B8AD0,0xB1D0,12,excluded,handwritten asm (T-016
+ovl_7E00,func_801B8ADC,0x801B8ADC,0xB1DC,2236,excluded,handwritten asm (T-016
+ovl_7E00,func_801B9398,0x801B9398,0xBA98,1824,excluded,handwritten asm (T-016
+ovl_7E00,func_801B9AB8,0x801B9AB8,0xC1B8,104,excluded,handwritten asm (T-016
+ovl_7E00,func_801B9B20,0x801B9B20,0xC220,28,excluded,handwritten asm (T-016
+ovl_7E00,func_801B9C24,0x801B9C24,0xC324,32,excluded,handwritten asm (T-016
+ovl_7E00,func_801B9C44,0x801B9C44,0xC344,436,excluded,handwritten asm (T-016
+ovl_7E00,func_801B9DF8,0x801B9DF8,0xC4F8,148,excluded,handwritten asm (T-016
+ovl_7E00,func_801B9EA4,0x801B9EA4,0xC5A4,172,excluded,handwritten asm (T-016
+ovl_7E00,func_801B9F50,0x801B9F50,0xC650,212,excluded,handwritten asm (T-016
+ovl_7E00,func_801BA024,0x801BA024,0xC724,248,excluded,handwritten asm (T-016
+ovl_7E00,func_801BA11C,0x801BA11C,0xC81C,4,excluded,handwritten asm (T-016
+ovl_7E00,func_801BA120,0x801BA120,0xC820,4,excluded,handwritten asm (T-016
+ovl_7E00,func_801BA124,0x801BA124,0xC824,40,excluded,handwritten asm (T-016
+ovl_7E00,func_801BA14C,0x801BA14C,0xC84C,80,excluded,handwritten asm (T-016
+ovl_7E00,func_801BA19C,0x801BA19C,0xC89C,20,excluded,handwritten asm (T-016
+ovl_7E00,func_801BA1B0,0x801BA1B0,0xC8B0,276,excluded,handwritten asm (T-016
+ovl_7E00,func_801BA2C4,0x801BA2C4,0xC9C4,168,excluded,handwritten asm (T-016
+ovl_7E00,func_801BA36C,0x801BA36C,0xCA6C,324,excluded,handwritten asm (T-016
+ovl_7E00,func_801BA4B0,0x801BA4B0,0xCBB0,48,excluded,handwritten asm (T-016
+ovl_7E00,func_801BA540,0x801BA540,0xCC40,588,excluded,handwritten asm (T-016
+ovl_7E00,func_801BA794,0x801BA794,0xCE94,184,excluded,handwritten asm (T-016
+ovl_7E00,func_801BA88C,0x801BA88C,0xCF8C,252,excluded,handwritten asm (T-016
+ovl_7E00,func_801BA988,0x801BA988,0xD088,624,excluded,handwritten asm (T-016
 ovl_7E00,func_801BABFC,0x801BABFC,0xD2FC,8,T1,
 ovl_7E00,func_801BAC04,0x801BAC04,0xD304,8,T1,
-ovl_7E00,func_801BACA8,0x801BACA8,0xD3A8,536,T1,
-ovl_7E00,func_801BAEC0,0x801BAEC0,0xD5C0,96,T1,
-ovl_7E00,func_801BAF20,0x801BAF20,0xD620,296,T1,
+ovl_7E00,func_801BACA8,0x801BACA8,0xD3A8,536,excluded,handwritten asm (T-016
+ovl_7E00,func_801BAEC0,0x801BAEC0,0xD5C0,96,excluded,handwritten asm (T-016
+ovl_7E00,func_801BAF20,0x801BAF20,0xD620,296,excluded,handwritten asm (T-016
 ovl_7E00,func_801BB8AC,0x801BB8AC,0xDFAC,8,T1,
-ovl_7E00,func_801BB8B4,0x801BB8B4,0xDFB4,460,T1,
-ovl_7E00,func_801BBA80,0x801BBA80,0xE180,340,T1,
-ovl_7E00,func_801BBBFC,0x801BBBFC,0xE2FC,2096,T1,
-ovl_7E00,func_801BC490,0x801BC490,0xEB90,48,T1,
-ovl_7E00,func_801BC4C0,0x801BC4C0,0xEBC0,120,T1,
-ovl_7E00,func_801BC538,0x801BC538,0xEC38,32,T1,
-ovl_7E00,func_801BC558,0x801BC558,0xEC58,72,T1,
-ovl_7E00,func_801BC5A0,0x801BC5A0,0xECA0,16,T1,
-ovl_7E00,func_801BC5B0,0x801BC5B0,0xECB0,628,T1,
-ovl_7E00,func_801BC824,0x801BC824,0xEF24,84,T1,
-ovl_7E00,func_801BC878,0x801BC878,0xEF78,60,T1,
-ovl_7E00,func_801BC8B4,0x801BC8B4,0xEFB4,352,T1,
-ovl_7E00,func_801BCA14,0x801BCA14,0xF114,604,T1,
-ovl_7E00,func_801BCC70,0x801BCC70,0xF370,44,T1,
-ovl_7E00,func_801BCC9C,0x801BCC9C,0xF39C,600,T1,splat: Handwritten function
-ovl_7E00,func_801BCEFC,0x801BCEFC,0xF5FC,68,T1,splat: Handwritten function
-ovl_7E00,func_801BCF40,0x801BCF40,0xF640,16,T1,
-ovl_7E00,func_801BCF50,0x801BCF50,0xF650,28,T1,
-ovl_7E00,func_801BCF6C,0x801BCF6C,0xF66C,12,T1,
-ovl_7E00,func_801BCF78,0x801BCF78,0xF678,12,T1,
-ovl_7E00,func_801BCF84,0x801BCF84,0xF684,8,T1,
-ovl_7E00,func_801BCF8C,0x801BCF8C,0xF68C,436,T1,
-ovl_7E00,func_801BD140,0x801BD140,0xF840,2664,T1,splat: Handwritten function
-ovl_7E00,func_801BDBC8,0x801BDBC8,0x102C8,3692,T1,splat: Handwritten function
-ovl_7E00,func_801BEA48,0x801BEA48,0x11148,20,T1,
-ovl_7E00,func_801BEA5C,0x801BEA5C,0x1115C,3616,T1,
-ovl_7E00,func_801BF888,0x801BF888,0x11F88,20,T1,
-ovl_7E00,func_801BF89C,0x801BF89C,0x11F9C,28,T1,
-ovl_7E00,func_801BF8B8,0x801BF8B8,0x11FB8,28,T1,
-ovl_7E00,func_801BF8D4,0x801BF8D4,0x11FD4,28,T1,
-ovl_7E00,func_801BF8F0,0x801BF8F0,0x11FF0,152,T1,
-ovl_7E00,func_801BF990,0x801BF990,0x12090,288,T1,
-ovl_7E00,func_801BFAB0,0x801BFAB0,0x121B0,48,T1,
-ovl_7E00,func_801BFAE0,0x801BFAE0,0x121E0,4800,T1,splat: Handwritten function
-ovl_7E00,func_801C0F38,0x801C0F38,0x13638,8,T1,
-ovl_7E00,func_801C0F40,0x801C0F40,0x13640,8,T1,
-ovl_7E00,func_801C0F48,0x801C0F48,0x13648,32,T1,splat: Handwritten function
-ovl_7E00,func_801C0F68,0x801C0F68,0x13668,16,T1,
-ovl_7E00,func_801C0F78,0x801C0F78,0x13678,8,T1,
-ovl_7E00,func_801C0F80,0x801C0F80,0x13680,8,T1,
-ovl_7E00,func_801C0F88,0x801C0F88,0x13688,296,T1,splat: Handwritten function
-ovl_7E00,func_801C10B0,0x801C10B0,0x137B0,36,T1,splat: Handwritten function
-ovl_7E00,func_801C10EC,0x801C10EC,0x137EC,2956,T1,splat: Handwritten function
-ovl_7E00,func_801C1CA4,0x801C1CA4,0x143A4,304,T1,splat: Handwritten function
-ovl_7E00,func_801C1DD4,0x801C1DD4,0x144D4,1064,T1,splat: Handwritten function
-ovl_7E00,func_801C2210,0x801C2210,0x14910,340,T1,
-ovl_7E00,func_801C236C,0x801C236C,0x14A6C,272,T1,
-ovl_7E00,func_801C247C,0x801C247C,0x14B7C,140,T1,
+ovl_7E00,func_801BB8B4,0x801BB8B4,0xDFB4,460,excluded,handwritten asm (T-016
+ovl_7E00,func_801BBA80,0x801BBA80,0xE180,340,excluded,handwritten asm (T-016
+ovl_7E00,func_801BBBFC,0x801BBBFC,0xE2FC,2096,excluded,handwritten asm (T-016
+ovl_7E00,func_801BC490,0x801BC490,0xEB90,48,excluded,handwritten asm (T-016
+ovl_7E00,func_801BC4C0,0x801BC4C0,0xEBC0,120,excluded,handwritten asm (T-016
+ovl_7E00,func_801BC538,0x801BC538,0xEC38,32,excluded,handwritten asm (T-016
+ovl_7E00,func_801BC558,0x801BC558,0xEC58,72,excluded,handwritten asm (T-016
+ovl_7E00,func_801BC5A0,0x801BC5A0,0xECA0,16,excluded,handwritten asm (T-016
+ovl_7E00,func_801BC5B0,0x801BC5B0,0xECB0,628,excluded,handwritten asm (T-016
+ovl_7E00,func_801BC824,0x801BC824,0xEF24,84,excluded,handwritten asm (T-016
+ovl_7E00,func_801BC878,0x801BC878,0xEF78,60,excluded,handwritten asm (T-016
+ovl_7E00,func_801BC8B4,0x801BC8B4,0xEFB4,352,excluded,handwritten asm (T-016
+ovl_7E00,func_801BCA14,0x801BCA14,0xF114,604,excluded,handwritten asm (T-016
+ovl_7E00,func_801BCC70,0x801BCC70,0xF370,44,excluded,handwritten asm (T-016
+ovl_7E00,func_801BCC9C,0x801BCC9C,0xF39C,600,excluded,handwritten asm (T-016
+ovl_7E00,func_801BCEFC,0x801BCEFC,0xF5FC,68,excluded,handwritten asm (T-016
+ovl_7E00,func_801BCF40,0x801BCF40,0xF640,16,excluded,handwritten asm (T-016
+ovl_7E00,func_801BCF50,0x801BCF50,0xF650,28,excluded,handwritten asm (T-016
+ovl_7E00,func_801BCF6C,0x801BCF6C,0xF66C,12,excluded,handwritten asm (T-016
+ovl_7E00,func_801BCF78,0x801BCF78,0xF678,12,excluded,handwritten asm (T-016
+ovl_7E00,func_801BCF84,0x801BCF84,0xF684,8,excluded,handwritten asm (T-016
+ovl_7E00,func_801BCF8C,0x801BCF8C,0xF68C,436,excluded,handwritten asm (T-016
+ovl_7E00,func_801BD140,0x801BD140,0xF840,2664,excluded,handwritten asm (T-016
+ovl_7E00,func_801BDBC8,0x801BDBC8,0x102C8,3692,excluded,handwritten asm (T-016
+ovl_7E00,func_801BEA48,0x801BEA48,0x11148,20,excluded,handwritten asm (T-016
+ovl_7E00,func_801BEA5C,0x801BEA5C,0x1115C,3616,excluded,handwritten asm (T-016
+ovl_7E00,func_801BF888,0x801BF888,0x11F88,20,excluded,handwritten asm (T-016
+ovl_7E00,func_801BF89C,0x801BF89C,0x11F9C,28,excluded,handwritten asm (T-016
+ovl_7E00,func_801BF8B8,0x801BF8B8,0x11FB8,28,excluded,handwritten asm (T-016
+ovl_7E00,func_801BF8D4,0x801BF8D4,0x11FD4,28,excluded,handwritten asm (T-016
+ovl_7E00,func_801BF8F0,0x801BF8F0,0x11FF0,152,excluded,handwritten asm (T-016
+ovl_7E00,func_801BF990,0x801BF990,0x12090,288,excluded,handwritten asm (T-016
+ovl_7E00,func_801BFAB0,0x801BFAB0,0x121B0,48,excluded,handwritten asm (T-016
+ovl_7E00,func_801BFAE0,0x801BFAE0,0x121E0,4800,excluded,handwritten asm (T-016
+ovl_7E00,func_801C0F38,0x801C0F38,0x13638,8,excluded,handwritten asm (T-016
+ovl_7E00,func_801C0F40,0x801C0F40,0x13640,8,excluded,handwritten asm (T-016
+ovl_7E00,func_801C0F48,0x801C0F48,0x13648,32,excluded,handwritten asm (T-016
+ovl_7E00,func_801C0F68,0x801C0F68,0x13668,16,excluded,handwritten asm (T-016
+ovl_7E00,func_801C0F78,0x801C0F78,0x13678,8,excluded,handwritten asm (T-016
+ovl_7E00,func_801C0F80,0x801C0F80,0x13680,8,excluded,handwritten asm (T-016
+ovl_7E00,func_801C0F88,0x801C0F88,0x13688,296,excluded,handwritten asm (T-016
+ovl_7E00,func_801C10B0,0x801C10B0,0x137B0,36,excluded,handwritten asm (T-016
+ovl_7E00,func_801C10EC,0x801C10EC,0x137EC,2956,excluded,handwritten asm (T-016
+ovl_7E00,func_801C1CA4,0x801C1CA4,0x143A4,304,excluded,handwritten asm (T-016
+ovl_7E00,func_801C1DD4,0x801C1DD4,0x144D4,1064,excluded,handwritten asm (T-016
+ovl_7E00,func_801C2210,0x801C2210,0x14910,340,excluded,handwritten asm (T-016
+ovl_7E00,func_801C236C,0x801C236C,0x14A6C,272,excluded,handwritten asm (T-016
+ovl_7E00,func_801C247C,0x801C247C,0x14B7C,140,excluded,handwritten asm (T-016
 ovl_7E00,func_801C2508,0x801C2508,0x14C08,20,T1,
-ovl_7E00,func_801C251C,0x801C251C,0x14C1C,4,T1,
-ovl_7E00,func_801C2520,0x801C2520,0x14C20,160,T1,
-ovl_7E00,func_801C25C0,0x801C25C0,0x14CC0,4776,T1,splat: Handwritten function
-ovl_7E00,func_801C3870,0x801C3870,0x15F70,452,T1,
-ovl_7E00,func_801C3A34,0x801C3A34,0x16134,324,T1,
-ovl_7E00,func_801C3B78,0x801C3B78,0x16278,968,T1,
+ovl_7E00,func_801C251C,0x801C251C,0x14C1C,4,excluded,handwritten asm (T-016
+ovl_7E00,func_801C2520,0x801C2520,0x14C20,160,excluded,handwritten asm (T-016
+ovl_7E00,func_801C25C0,0x801C25C0,0x14CC0,4776,excluded,handwritten asm (T-016
+ovl_7E00,func_801C3870,0x801C3870,0x15F70,452,excluded,handwritten asm (T-016
+ovl_7E00,func_801C3A34,0x801C3A34,0x16134,324,excluded,handwritten asm (T-016
+ovl_7E00,func_801C3B78,0x801C3B78,0x16278,968,excluded,handwritten asm (T-016

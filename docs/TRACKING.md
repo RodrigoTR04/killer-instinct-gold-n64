@@ -31,10 +31,10 @@ Source of truth for per-function tiers is `docs/functions.csv` (created once spl
 | Metric | Value |
 |---|---|
 | Scope measured | all CPU text of boot/main/ovl_7DF8/ovl_7E00 (999 fns). Text not in fns: boot 432 B pad, main 708 B, 7DF8 92 B, 7E00 4,040 B (31 inline data pools, listed in symbol_addrs.ovl_7E00.us.txt) |
-| M1 | 0 / 406,772 B (0.00%) |
-| M2 | 0 / 406,772 B (0.00%) |
-| Functions | 731 T1 · 0 T2 · 0 T3 · 0 T4 · 268 excluded (50,420 B: 267 libultra + handwritten asm) |
-| Per image (eligible B / T1 fns / excluded) | boot 8,468/21/99 · main 173,204/290/169 · ovl_7DF8 137,428/251/0 · ovl_7E00 87,672/169/0 |
+| M1 | 0 / 319,544 B (0.00%) |
+| M2 | 0 / 319,544 B (0.00%) |
+| Functions | 569 T1 · 0 T2 · 0 T3 · 0 T4 · 430 excluded (137,648 B: 267 libultra + boot entry asm + 162 ovl_7E00 handwritten asm) |
+| Per image (eligible B / T1 fns / excluded) | boot 8,468/21/99 · main 173,204/290/169 · ovl_7DF8 137,428/251/0 · ovl_7E00 444/7/162 |
 
 Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html). Tier overrides: tools/progress/status.csv (lead-maintained). Never hand-edit numbers; paste the `--markdown` output here.
 
@@ -48,7 +48,7 @@ Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html)
 - ~~FU-6~~ (T-013): wire build: compile/assemble main+overlays → recompress with rarezip → splice into ROM, replacing opaque compressed blobs (after T-009).
 - ~~FU-7~~ (T-012): ovl_7E00 text has 12.5k `.word` lines (≈50 KB, e.g. func_801ADE68) that are valid MIPS but spimdisasm fell back to data → fix splat/symbol hints so all 0x16640 text bytes are functions.
 - FU-8: opaque.bin still carries the original compressed code bytes under the spliced slots (overwritten at splice) → split kig.us.yaml so slots are not sourced from baserom; later support relocation of the 0x7DF0 table for non-matching builds.
-- FU-9: ovl_7E00 has inline data pools inside text (handwritten-asm signature) → determine which ovl_7E00 functions are handwritten asm vs IDO C before assigning decomp work there.
+- ~~FU-9~~ (T-016): ovl_7E00 has inline data pools inside text (handwritten-asm signature) → determine which ovl_7E00 functions are handwritten asm vs IDO C before assigning decomp work there. → 162 asm excluded; 7 tiny leaves (444 B) stay T1/uncertain.
 - FU-10: decode the 13 stage graphics packets (0x7E60–0x7EC0) + remaining 357 frames; update assets.csv class labels per T-014 corrections.
 
 ## Task board
@@ -72,5 +72,5 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | T-013 | FU-5+FU-6: build pipeline recompresses built main/ovl images (rarezip) and splices them into the ROM; gzip cache → tools/ext | sol-B5 | Done | Makefile, tools/compress/rarezip.py, tools/build/ | no yaml edits (T-012 owns) |
 | T-014 | Packed-graphics format RE (main table +00 records, 825 self-sized records, palettes, 0x9900 RGBA5551 images) → decoder + PNG previews | sol-C4 | Done | docs/gfx_format.md, tools/analysis/gfx_decode.py | read-only, no build edits |
 | T-015 | C build infra (IDO 5.3 -O2 -mips2, INCLUDE_ASM, src/ per image) + land T-010's 10 matched game fns as first T4 | sol-A6 | In progress (r1 auto-resumed 21:0x after limit reset) | Makefile, kig.*.yaml, src/, include/, symbol_addrs*.txt | |
-| T-016 | FU-9: classify ovl_7E00 functions handwritten-asm vs IDO-C (read-only), recommend exclusions | sol-C5 | In progress (r1 auto-resumed 21:0x after limit reset) | docs/ovl_7E00_asm.md, tools/analysis/data/ovl_7E00_asm.csv | lead applies status.csv changes |
+| T-016 | FU-9: classify ovl_7E00 functions handwritten-asm vs IDO-C (read-only), recommend exclusions | sol-C5 | Done (verified) | docs/ovl_7E00_asm.md, tools/analysis/data/ovl_7E00_asm.csv | lead applies status.csv changes |
 | T-017 | FU-10: decode 13 stage packets (table 0x7E60–0x7EC0) + remaining frames; fix assets.csv labels per T-014 | sol-C6 | In progress (r1 auto-resumed 21:0x after limit reset) | docs/gfx_format.md (stage section), tools/analysis/gfx_decode.py, tools/analysis/assets.py, tools/analysis/data/assets.csv | read-only on build |
