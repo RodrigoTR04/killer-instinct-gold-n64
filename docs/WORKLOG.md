@@ -129,3 +129,8 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 - T-037 launched (opus-2): FU-15 follow-up, testing -mips1 on main_24E70/26480/265B0/26860.c.
 - User rule: no new Opus workers unless the user asks. T-034 and T-037 finish normally; only Sol slots are refilled.
+
+## 2026-10-19 — T-034 vetted (Opus: ovl_7DF8 leftovers)
+- Worktree t3-a09bfd2e. 10 matched; only GLOBAL_ASM stubs were removed. The lead also landed func_801CCBCC (its draft was identical standalone) by making func_801CC350/524/600 return s32 (they return their callee's value; their codegen is unchanged) and giving func_801CC350 an s32 * first parameter.
+- Clean vet build: the ROM and all 3 images are byte-identical. 157 T4; M1 = M2 = 23,328 B (7.30%). ovl_7DF8 has 0 T1 left: every function is matched or drafted. Imported the 14 drafts plus a lead-written REPORT.md (the worker wrote none) and added 14 T2 rows.
+- Cleanup for FU-13: D_80127D30 should be declared u8[8], replacing the T034_D_80127D30 #define cast.

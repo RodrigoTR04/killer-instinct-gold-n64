@@ -31,10 +31,10 @@ Source of truth for per-function tiers is `docs/functions.csv` (created once spl
 | Metric | Value |
 |---|---|
 | Scope measured | all CPU text of boot/main/ovl_7DF8/ovl_7E00 (999 fns). Text not in fns: boot 432 B pad, main 708 B, 7DF8 92 B, 7E00 4,040 B (31 inline data pools, listed in symbol_addrs.ovl_7E00.us.txt) |
-| M1 | 19,460 / 319,544 B (6.09%) |
-| M2 | 19,460 / 319,544 B (6.09%) |
-| Functions | 109 T1 · 314 T2 · 0 T3 · 146 T4 · 430 excluded (137,648 B: 267 libultra + boot entry asm + 162 ovl_7E00 handwritten asm) |
-| Per image (eligible B / T1 fns / excluded) | boot 8,468/21/99 · main 173,204/56/169 (84 T4, 150 T2) · ovl_7DF8 137,428/25/0 (62 T4, 164 T2) · ovl_7E00 444/7/162 |
+| M1 | 23,328 / 319,544 B (7.30%) |
+| M2 | 23,328 / 319,544 B (7.30%) |
+| Functions | 84 T1 · 328 T2 · 0 T3 · 157 T4 · 430 excluded (137,648 B: 267 libultra + boot entry asm + 162 ovl_7E00 handwritten asm) |
+| Per image (eligible B / T1 fns / excluded) | boot 8,468/21/99 · main 173,204/56/169 (84 T4, 150 T2) · ovl_7DF8 137,428/0/0 (73 T4, 178 T2) · ovl_7E00 444/7/162 |
 
 Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html). Tier overrides: tools/progress/status.csv (lead-maintained). Never hand-edit numbers; paste the `--markdown` output here.
 
@@ -95,7 +95,7 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | T-031 | FU-14 main: split src/main/main.c + kig.main.us.yaml at the definite TU boundaries in docs/tu_boundaries.md; retry padding-blocked drafts (func_8002AB64, func_80030EF0, others) | sol-B12 | Done (verified): main split into 87 TUs; func_8002AB64 + func_80030EF0 matched; 122 T4 | kig.main.us.yaml, src/main/*, docs/tu_boundaries.md (main status note), tools/scratch/nonmatching/* (delete matched drafts only) | worktree isolation; no other main src work meanwhile |
 | T-032 | Match main 0x80020000–0x80028000 (src/main/main_2FF0/15380/17140/18440.c, range only): 29 T1 fns, 29,468 B | sol-B13 | In progress (resumed 2026-10-19 19:30) | those src files (range only), tools/scratch/nonmatching/T-032/ | worktree isolation |
 | T-033 | Match T-020 leftovers: main 0x8000F960–0x80018000 (src/main/main.c + main_2FF0.c, range only): 27 T1 fns, 31,504 B | sol-A15 | In progress (resumed 2026-10-19 19:30) | those src files (range only), tools/scratch/nonmatching/T-033/ | worktree isolation; T-032 owns main_2FF0.c ≥0x80020000 |
-| T-034 | Match ovl_7DF8 leftovers outside T-030: T-019's 3 (ovl_7DF8.c) + T-021's 22 at 0x801C8000–0x801CD440 (ovl_7DF8_1BD90.c ≥0x801C8000, ovl_7DF8_200C0.c): 25 T1 fns, 21,688 B | opus-1 (Opus 5.5 low) | In progress (resumed 2026-10-19 19:30 after API rate limit) | those src files (range only), tools/scratch/nonmatching/T-034/ | worktree isolation; T-030 owns 1BD90.c <0x801C8000 |
+| T-034 | Match ovl_7DF8 leftovers outside T-030: T-019's 3 (ovl_7DF8.c) + T-021's 22 at 0x801C8000–0x801CD440 (ovl_7DF8_1BD90.c ≥0x801C8000, ovl_7DF8_200C0.c): 25 T1 fns, 21,688 B | opus-1 (Opus 5.5 low) | Done (verified): 11 matched (incl. func_801CCBCC via lead prototype fix), 14 T2 drafts, 0 not attempted | those src files (range only), tools/scratch/nonmatching/T-034/ | worktree isolation; T-030 owns 1BD90.c <0x801C8000 |
 | T-035 | Match main's last 8 T1 fns ≥0x80040000 (main_30A90/319D0/321A0.c) + polish T-026 drafts (main 0x80030000–0x80040000, smallest diff first) | opus-2 (Opus 5.5 low) | Done (verified): 20 matched (func_800414F0 + 19 libultra pfs fns built -mips1), 7 T2 drafts, 2 T-026 drafts improved | those src files (range only), tools/scratch/nonmatching/T-026/ (update drafts), tools/scratch/nonmatching/T-035/ | worktree isolation; no overlap with T-032/T-033 |
 | T-036 | Polish T2 drafts → match: main 0x80018000–0x80020000 (T-022's 31 drafts in src/main/main_2FF0.c, smallest diff first) | sol-C14 | In progress | main_2FF0.c (those 31 fns only), tools/scratch/nonmatching/T-022/ (update/delete drafts), tools/scratch/nonmatching/T-036/REPORT.md | worktree isolation; T-032/T-033 own other main_2FF0.c ranges |
 | T-037 | FU-15: try -O2 -mips1 (libultra pfs) on main_24E70/26480/265B0/26860.c functions, using the T-026 drafts; deliver full-file C plus the needed Makefile overrides | opus-2 (Opus 5.5 low) | In progress | those 4 src files, Makefile (per-object CFLAGS lines only), tools/scratch/nonmatching/T-026/ (delete matched), tools/scratch/nonmatching/T-037/ | worktree isolation |
