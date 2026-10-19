@@ -72,7 +72,21 @@ void func_801C0784(s32 arg0, u32 arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C1C34.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C2110.s")
+void func_801C2110(f32 t, f32 *coef, f32 *position, f32 *velocity) {
+    f32 two = 2.0f;
+    f32 three = 3.0f;
+    f32 t2;
+    f32 t3;
+
+    t2 = t * t;
+    t3 = t2 * t;
+    position[0] = coef[0] * t3 + coef[1] * t2 + coef[2] * t + coef[3];
+    position[1] = coef[4] * t3 + coef[5] * t2 + coef[6] * t + coef[7];
+    position[2] = coef[8] * t3 + coef[9] * t2 + coef[10] * t + coef[11];
+    velocity[0] = three * coef[0] * t2 + two * coef[1] * t + coef[2];
+    velocity[1] = three * coef[4] * t2 + two * coef[5] * t + coef[6];
+    velocity[2] = three * coef[8] * t2 + two * coef[9] * t + coef[10];
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C224C.s")
 

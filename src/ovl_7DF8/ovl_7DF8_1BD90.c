@@ -1,18 +1,32 @@
 #include "common.h"
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C78B0.s")
+typedef struct {
+    u8 b[6];
+} T021Six;
+
+extern T021Six D_80127C68[];
+
+extern u16 D_80127CA8[][6];
+extern u16 D_802923AC[];
+
+void func_801C78B0(arg0, arg1)
+u8 arg0;
+u8 arg1;
+{
+    s32 i;
+
+    if ((arg0 < 2) && (arg1 < 10)) {
+        for (i = 0; i < 6; i++) {
+            D_80127CA8[arg0][i] = D_802923AC[D_80127C68[arg1].b[i]];
+        }
+    }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C7998.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C7A98.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C7CD0.s")
-
-typedef struct {
-    u8 b[6];
-} T021Six;
-
-extern T021Six D_80127C68[];
 
 void func_801C7E4C(u8 arg0) {
     T021Six *p;

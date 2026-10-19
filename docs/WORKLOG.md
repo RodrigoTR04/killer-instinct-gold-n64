@@ -115,3 +115,8 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 ## 2026-10-19 19:30 — all 5 workers resumed
 - The 19:21 cron did not run, and the Opus workers T-034/T-035 had stopped on the Claude API rate limit. At the user's request, sent "continue" to all 5 child threads (T-030, T-032, T-033: kig-T-0NN-resume-3; T-034, T-035: kig-T-03N-resume-1; prefix command%3Amcp%3A1df98f12-7c08-444b-a300-5af1814cb308%3Athread-send).
+
+## 2026-10-19 — T-030 vetted (ovl_7DF8 0x801C2000–0x801C8000, T-021 leftovers)
+- Worktree t3-49e9e79f. func_801C2110 (cubic position/velocity) and func_801C78B0 matched. func_801C78B0 needs a K&R definition with u8 params: the callers in the same file use an unprototyped extern, and an ANSI prototype changes the callers' codegen (I tried it; the build fails). The C itself is plain, with no asm tricks.
+- tools/progress/inventory.py: the T4 definition regex now also accepts K&R parameter declarations, a generic fix. T4 went from 125 to 126, exactly the +1 expected.
+- Clean vet build: the ROM and all 3 images are byte-identical. 126 T4; M1 = M2 = 12,468 B (3.90%). Imported the 23 drafts plus REPORT.md (skipped diff/log files) and added 23 T2 rows.

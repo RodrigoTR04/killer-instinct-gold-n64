@@ -95,7 +95,7 @@ def main():
     candidates = set()
     for address, row in original.items():
         name = re.escape(row['function'])
-        definition = re.search(r'\b' + name + r'\s*\([^;{}]*\)\s*\{', sources)
+        definition = re.search(r'\b' + name + r'\s*\([^;{}]*\)\s*(?:[^;{}()]+;\s*)*\{', sources)  # also K&R param decls
         included = any(re.search(name, m[0]) for m in re.finditer(r'(?:INCLUDE_ASM|GLOBAL_ASM)\s*\(.*?\)', sources, re.S))
         if address not in current and definition and not included:
             candidates.add(address)
