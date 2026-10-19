@@ -1,0 +1,2 @@
+/* DRAFT. Remaining diff: One variable shift scheduled before three addiu instructions; otherwise matches. */
+void func_801C8A38(u8 *arg0,s32 arg1) { s32 i; u32 v; arg0+=arg1*3; v=arg0[0]+(arg0[1]<<8)+(arg0[2]<<16); for(i=0;i<6;i++) ((u8 *)D_80127C68)[arg1*6+i]=(v>>(i*3))&7; }
