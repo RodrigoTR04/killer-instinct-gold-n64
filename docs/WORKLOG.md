@@ -84,3 +84,5 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-0356ecbe (base 7dcd581). Only the func_8002B8B0 stub was replaced, with clean C (a switch). Applied to HEAD and did a clean vet build: the ROM and all 3 images are byte-identical. 115 T4; M1 = M2 = 11,320 B (3.54%).
 - Removed its T2 row and deleted T-024/func_8002B8B0.c. Imported the 5 improved T-024 drafts (A1A0, A40C, E680, F31C, F3DC; 3–16 words of diff left) and T-027/REPORT.md. Skipped T-027/probe.py, which is a scratch tool.
 - Notes: func_8002AB64 is blocked on the main TU split (FU-14). func_8002FFDC needs its parameter declarations reviewed outside the range.
+
+- T-030 launched (sol-C13): the 25 T1 functions T-021 did not attempt, in ovl_7DF8 0x801C2000–0x801C8000 (19,624 B).
