@@ -31,10 +31,10 @@ Source of truth for per-function tiers is `docs/functions.csv` (created once spl
 | Metric | Value |
 |---|---|
 | Scope measured | all CPU text of boot/main/ovl_7DF8/ovl_7E00 (999 fns). Text not in fns: boot 432 B pad, main 708 B, 7DF8 92 B, 7E00 4,040 B (31 inline data pools, listed in symbol_addrs.ovl_7E00.us.txt) |
-| M1 | 7,604 / 319,544 B (2.38%) |
-| M2 | 7,604 / 319,544 B (2.38%) |
-| Functions | 426 T1 · 76 T2 · 0 T3 · 67 T4 · 430 excluded (137,648 B: 267 libultra + boot entry asm + 162 ovl_7E00 handwritten asm) |
-| Per image (eligible B / T1 fns / excluded) | boot 8,468/21/99 · main 173,204/213/169 (37 T4, 40 T2) · ovl_7DF8 137,428/185/0 (30 T4, 36 T2) · ovl_7E00 444/7/162 |
+| M1 | 9,236 / 319,544 B (2.89%) |
+| M2 | 9,236 / 319,544 B (2.89%) |
+| Functions | 404 T1 · 81 T2 · 0 T3 · 84 T4 · 430 excluded (137,648 B: 267 libultra + boot entry asm + 162 ovl_7E00 handwritten asm) |
+| Per image (eligible B / T1 fns / excluded) | boot 8,468/21/99 · main 173,204/213/169 (37 T4, 40 T2) · ovl_7DF8 137,428/163/0 (47 T4, 41 T2) · ovl_7E00 444/7/162 |
 
 Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html). Tier overrides: tools/progress/status.csv (lead-maintained). Never hand-edit numbers; paste the `--markdown` output here.
 
@@ -78,7 +78,7 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | T-016 | FU-9: classify ovl_7E00 functions handwritten-asm vs IDO-C (read-only), recommend exclusions | sol-C5 | Done (verified) | docs/ovl_7E00_asm.md, tools/analysis/data/ovl_7E00_asm.csv | lead applies status.csv changes |
 | T-017 | FU-10: decode 13 stage packets (table 0x7E60–0x7EC0) + remaining frames; fix assets.csv labels per T-014 | sol-C6 | Done (verified) | docs/gfx_format.md (stage section), tools/analysis/gfx_decode.py, tools/analysis/assets.py, tools/analysis/data/assets.csv | read-only on build |
 | T-018 | FU-4 research: rebuild SM64-US libultra objects (IDO 5.3 -O1 -mips2, asm -mips3 -32) in scratch and compare every excluded libultra fn vs ROM bytes (reloc-masked) | sol-B6 | Done (verified) | tools/scratch/libultra/, docs/libultra_rebuild.md | scratch only; no Makefile/yaml/src/status edits |
-| T-019 | Match ovl_7DF8 unit 0 (src/ovl_7DF8/ovl_7DF8.c, 0x801ABB20–0x801ADEA0): 25 T1 fns, 8,616 B | sol-A7 | In progress (resumed 2026-10-19 02:41 after usage limit; worktree t3-e4a647e2) | src/ovl_7DF8/ovl_7DF8.c, tools/scratch/nonmatching/T-019/ | worktree isolation |
+| T-019 | Match ovl_7DF8 unit 0 (src/ovl_7DF8/ovl_7DF8.c, 0x801ABB20–0x801ADEA0): 25 T1 fns, 8,616 B | sol-A7 | Done (verified): 17 matched (1,632 B), 5 T2 drafts, 3 not attempted (func_801ABB20, func_801ACB1C, func_801ADCFC) | src/ovl_7DF8/ovl_7DF8.c, tools/scratch/nonmatching/T-019/ | worktree isolation |
 | T-020 | Match main 0x8000F960–0x80018000 (src/main/main.c): 49 T1 fns, 34,500 B | sol-C7 | Done (verified): 13 matched (1,276 B), 9 T2 drafts, 27 not attempted (still T1, re-assignable) | src/main/main.c (only fns in range), tools/scratch/nonmatching/T-020/ | worktree isolation |
 | T-021 | Match ovl_7DF8 0x801C2000–0x801CD440 (src/ovl_7DF8/ovl_7DF8_2380.c, only fns in range): 106 T1 fns, 45,832 B | sol-B7 | Done (verified): 23 matched (2,716 B), 36 T2 drafts, rest still T1 (re-assignable) | src/ovl_7DF8/ovl_7DF8_2380.c (range only), tools/scratch/nonmatching/T-021/ | worktree isolation |
 | T-022 | Match main 0x80018000–0x80020000 (src/main/main.c, range only): 52 T1 fns, 36,084 B | sol-C8 | Done (verified): 21 matched (2,548 B), 31 T2 drafts (all attempted) | src/main/main.c (range only), tools/scratch/nonmatching/T-022/ | worktree isolation |

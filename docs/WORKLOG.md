@@ -34,3 +34,10 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-19 02:41 — T-019/T-023/T-024 resumed
 - The user resumed all three workers after the 02:07 usage reset; they continue in their existing worktrees (same r1 runs, no relaunch).
 - New rule: if a worker stops on the usage limit, the lead schedules a resume ("continue" in the same child thread) for 3 minutes after the stated reset time. The lead still doesn't take over the work itself.
+
+## 2026-10-19 — T-019 vetted (ovl_7DF8 unit 0)
+- Worker reported 17/25 matched, 5 DRAFT, 3 NOT ATTEMPTED. The diff removed exactly 17 GLOBAL_ASM stubs, all inside 0x801ABB20–0x801ADEA0. Plain C, no asm tricks; there's a local partial `RenderState` struct.
+- Applied to HEAD (worktree base was 25d5e2b) in a clean /tmp worktree. `make clean && make extract && make all && make progress` is byte-identical, T4 67 → 84.
+- 5 DRAFTs (func_801AD114, func_801AD3BC, func_801AD568, func_801AD7D8, func_801ADA04) still GLOBAL_ASM → T2 rows; drafts in tools/scratch/nonmatching/T-019/.
+- Not attempted, re-assignable: func_801ABB20, func_801ACB1C, func_801ADCFC. Suggested names noted in the T-019 README (for FU-13).
+- M1 = M2 = 9,236 / 319,544 B (2.89%).
