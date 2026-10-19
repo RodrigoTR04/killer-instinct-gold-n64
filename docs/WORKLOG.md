@@ -72,3 +72,8 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 ## 2026-10-19 14:18 — T-026/T-027/T-028 resumed
 - The 07:44 auto-resume job never ran; it lived in the previous session only. I checked manually: all three were limit-stopped with no pending runs, so I sent "continue" to each child thread (new taskIds: `...thread-send%3Akig-T-02N-resume-2`, prefix `command%3Amcp%3Ade391ba9-0c69-4f89-8c2e-85b298158213`).
+
+## 2026-10-19 — T-028 vetted (FU-14 ovl_7DF8 split)
+- Worktree t3-7b4127b3. 12 new src/ovl_7DF8/ovl_7DF8_<off>.c files plus 12 yaml subsegments. Diff check: the old ovl_7DF8_2380.c content equals the new files concatenated, after normalising asm paths, apart from func_801AFA48 (now matched C). No build-tool changes.
+- Clean vet in /tmp/kig-vet: the ROM and all 3 images are byte-identical. 114 T4; M1 = M2 = 11,212 B (3.51%). Removed the T2 row for func_801AFA48 and deleted its T-025 draft.
+- Added docs/tu_boundaries.md and tools/analysis/tu_boundaries.py. Main has 86 definite boundaries; it is split only after T-026/T-027 land.
