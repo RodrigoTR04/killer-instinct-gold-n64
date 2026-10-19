@@ -41,3 +41,10 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - 5 DRAFTs (func_801AD114, func_801AD3BC, func_801AD568, func_801AD7D8, func_801ADA04) still GLOBAL_ASM → T2 rows; drafts in tools/scratch/nonmatching/T-019/.
 - Not attempted, re-assignable: func_801ABB20, func_801ACB1C, func_801ADCFC. Suggested names noted in the T-019 README (for FU-13).
 - M1 = M2 = 9,236 / 319,544 B (2.89%).
+
+## 2026-10-19 — T-023 vetted (ovl_7DF8 0x801BA000–0x801C2000)
+- Worker reported 4/55 matched and 51 DRAFT, with all 55 attempted. The diff removed exactly 4 GLOBAL_ASM stubs (func_801BFB10, func_801BFC08, func_801BFC8C, func_801C0784), all in range. Plain C, no tricks.
+- Applied to HEAD (worktree base ce157f9) in a clean /tmp worktree. The build is byte-identical, T4 84 → 88.
+- Spot-checked drafts: these are real hand-shaped attempts with typedefs, not raw m2c. Imported the 51 drafts that are still GLOBAL_ASM, plus REPORT.md. Skipped the worker's build/diff logs, attempt.py and the json files. Added 51 T2 rows.
+- Low yield. Remaining diffs are mostly regalloc/scheduling; func_801BF720 and func_801BF914 need jump tables (rodata owned by asm). These are candidates for a later focused pass, not for re-assignment as T1.
+- M1 = M2 = 9,588 / 319,544 B (3.00%).

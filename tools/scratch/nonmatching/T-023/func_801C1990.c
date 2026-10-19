@@ -1,0 +1,41 @@
+/* DRAFT. Remaining diff: Stat-array comparisons, branch layout and 64-bit zero stores differ. */
+extern s32 func_801C17D0(u32 *, u8);
+extern u8 D_8004A407, D_8004EA9B[], D_802D37FC, D_802D37FD;
+extern s32 D_80127C30[];
+extern u8 D_80128308[], D_8012830A[], D_80128310[], D_80128328[];
+extern u64 D_802D3800[];
+u8 func_801C1990(u32 *stats) {
+    s32 mask, pending, player, result;
+    u8 character;
+    u32 value;
+    u8 *a, *b;
+    D_802D3800[0] = D_802D3800[1] = 0;
+    if (!stats[6]) stats[6] = 100;
+    mask = D_8004A407 ^ 3;
+    D_802D37FD = stats[0] & mask;
+    D_802D37FC = (3 - stats[0]) & mask;
+    pending = D_802D37FC;
+    if (pending == 3) {
+        result = func_801C17D0(stats, 0);
+        result |= func_801C17D0(stats, 1) * 2;
+        D_802D37FC = 0;
+        return result & 255;
+    }
+    if (pending > 0) { func_801C17D0(stats, (pending - 1) & 255); pending = D_802D37FC; }
+    if (D_802D37FD > 0) {
+        player = (D_802D37FD - 1) & 255;
+        character = D_8004EA9B[D_802D37FD];
+        D_802D37FD = player;
+        value = stats[6];
+        if (value < (u32)D_80127C30[player]) D_80127C30[player] = value;
+        b = D_80128328 + player * 11 + character;
+        a = D_80128310 + player * 11 + character;
+        value = stats[player == 0 ? 3 : 4]; if (*b < value) *b = value;
+        value = stats[player == 0 ? 1 : 2]; if (*a < value) *a = value;
+        D_8012830A[player]++;
+        if (stats[5]) D_80128308[player]++;
+        D_802D37FD = player + 1;
+    }
+    if (pending > 0 && D_802D3800[pending - 1] != 0) return pending;
+    return 0;
+}
