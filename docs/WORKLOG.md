@@ -112,3 +112,6 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - T-033 also stopped on the usage limit (same 19:18 reset). All three workers are paused; the 19:21 job resumes all of them.
 
 - At the user's request, launched 2 Opus 5.5 (low) workers on work disjoint from the paused Sol workers: T-034 (opus-1, ovl_7DF8 leftovers) and T-035 (opus-2, main ≥0x80040000 + polish of T-026 drafts).
+
+## 2026-10-19 19:30 — all 5 workers resumed
+- The 19:21 cron did not run, and the Opus workers T-034/T-035 had stopped on the Claude API rate limit. At the user's request, sent "continue" to all 5 child threads (T-030, T-032, T-033: kig-T-0NN-resume-3; T-034, T-035: kig-T-03N-resume-1; prefix command%3Amcp%3A1df98f12-7c08-444b-a300-5af1814cb308%3Athread-send).
