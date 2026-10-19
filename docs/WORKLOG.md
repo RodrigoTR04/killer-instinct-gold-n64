@@ -128,3 +128,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Clean vet build: the ROM and all 3 images are byte-identical. 146 T4; M1 = M2 = 19,460 B (6.09%). Deleted 19 T-026 drafts and their T2 rows. Imported the improved drafts func_80035DE0/func_80035F10 and T-035's 7 part-A drafts (+7 T2 rows). Logged FU-15 (name/classify these libultra functions; more -mips1 TUs likely).
 
 - T-037 launched (opus-2): FU-15 follow-up, testing -mips1 on main_24E70/26480/265B0/26860.c.
+- User rule: no new Opus workers unless the user asks. T-034 and T-037 finish normally; only Sol slots are refilled.
