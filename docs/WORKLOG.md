@@ -77,3 +77,5 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-7b4127b3. 12 new src/ovl_7DF8/ovl_7DF8_<off>.c files plus 12 yaml subsegments. Diff check: the old ovl_7DF8_2380.c content equals the new files concatenated, after normalising asm paths, apart from func_801AFA48 (now matched C). No build-tool changes.
 - Clean vet in /tmp/kig-vet: the ROM and all 3 images are byte-identical. 114 T4; M1 = M2 = 11,212 B (3.51%). Removed the T2 row for func_801AFA48 and deleted its T-025 draft.
 - Added docs/tu_boundaries.md and tools/analysis/tu_boundaries.py. Main has 86 definite boundaries; it is split only after T-026/T-027 land.
+
+- T-029 launched (sol-A14): ovl_7DF8 0x801B4000–0x801BA000, 19 T1 fns, 23,828 B, base after the T-028 split.
