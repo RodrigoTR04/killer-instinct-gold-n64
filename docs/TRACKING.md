@@ -31,10 +31,10 @@ Source of truth for per-function tiers is `docs/functions.csv` (created once spl
 | Metric | Value |
 |---|---|
 | Scope measured | all CPU text of boot/main/ovl_7DF8/ovl_7E00 (999 fns). Text not in fns: boot 432 B pad, main 708 B, 7DF8 92 B, 7E00 4,040 B (31 inline data pools, listed in symbol_addrs.ovl_7E00.us.txt) |
-| M1 | 12,468 / 319,544 B (3.90%) |
-| M2 | 12,468 / 319,544 B (3.90%) |
-| Functions | 117 T1 · 326 T2 · 0 T3 · 126 T4 · 430 excluded (137,648 B: 267 libultra + boot entry asm + 162 ovl_7E00 handwritten asm) |
-| Per image (eligible B / T1 fns / excluded) | boot 8,468/21/99 · main 173,204/64/169 (64 T4, 162 T2) · ovl_7DF8 137,428/25/0 (62 T4, 164 T2) · ovl_7E00 444/7/162 |
+| M1 | 19,460 / 319,544 B (6.09%) |
+| M2 | 19,460 / 319,544 B (6.09%) |
+| Functions | 109 T1 · 314 T2 · 0 T3 · 146 T4 · 430 excluded (137,648 B: 267 libultra + boot entry asm + 162 ovl_7E00 handwritten asm) |
+| Per image (eligible B / T1 fns / excluded) | boot 8,468/21/99 · main 173,204/56/169 (84 T4, 150 T2) · ovl_7DF8 137,428/25/0 (62 T4, 164 T2) · ovl_7E00 444/7/162 |
 
 Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html). Tier overrides: tools/progress/status.csv (lead-maintained). Never hand-edit numbers; paste the `--markdown` output here.
 
@@ -54,6 +54,7 @@ Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html)
 - FU-12 (T-018): integrate SM64-US libultra objects into the build (52 MATCH + 96 MATCH_MASKED fns, 93/94 whole-object placements; osAiSetFrequency needs 0x10 tail trim). 118 SDK fns (mostly libaudio, __lookupVoice etc.) absent from SM64 → stay asm. See docs/libultra_rebuild.md.
 - FU-13: cleanup pass on matched C: replace m2c raw offset casts with structs (e.g. func_80018418 on D_8004A4C0/D_8004A998), unify duplicated per-function externs into headers, apply suggested names (T-020/T-021/T-022 replies). Must keep the build matching.
 - FU-14 (T-024/T-025): translation-unit boundaries found. Drafts whose body matches but whose trailing padding differs mark the end of an original .c file: IDO pads each TU's .text to 16 bytes. Evidence: main func_8002AB64 ends at 0x8002AB88, then 2 nops before func_8002AB90; ovl_7DF8 func_801AFA48 ends at 0x801AFA7C, then 1 nop before func_801AFA80. Also, func_801AFA80 and func_801B19F0 are identical lerp functions, a per-TU copy. Action: split src files (and the splat yaml) at these boundaries, then those drafts will match. Find more boundaries by scanning for trailing nop padding before 16-aligned function starts. **Status:** T-028 wrote docs/tu_boundaries.md (main 86 definite, ovl_7DF8 13 definite) and split ovl_7DF8 into 14 TUs. T-031 split main into 87 TUs at all 86 definite boundaries; FU-14 is CLOSED.
+- FU-15 (T-035): main has unrecognised libultra code. 19 Controller Pak (pfs) functions in main_24820/24B50/2BA80/2CA60/2CDF0.c match as C built with -O2 -mips1 (per-object Makefile override). They still have func_ names and are counted as eligible T4. Todo: give them libultra names (osPfs*/__osPfs*/__osContRam*), decide whether to reclassify them as SDK, and check main_26480/265B0/26860/24E70 (probably also -mips1 pfs). Several audio functions (func_800405E4, func_800407B4, func_8003D71C, …) look like an inter-procedural -O3 build or hand-written asm.
 
 ## Task board
 Status values: Todo · In progress (owner) · Review · Done (verified by lead) · Rejected
@@ -95,5 +96,5 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | T-032 | Match main 0x80020000–0x80028000 (src/main/main_2FF0/15380/17140/18440.c, range only): 29 T1 fns, 29,468 B | sol-B13 | In progress (resumed 2026-10-19 19:30) | those src files (range only), tools/scratch/nonmatching/T-032/ | worktree isolation |
 | T-033 | Match T-020 leftovers: main 0x8000F960–0x80018000 (src/main/main.c + main_2FF0.c, range only): 27 T1 fns, 31,504 B | sol-A15 | In progress (resumed 2026-10-19 19:30) | those src files (range only), tools/scratch/nonmatching/T-033/ | worktree isolation; T-032 owns main_2FF0.c ≥0x80020000 |
 | T-034 | Match ovl_7DF8 leftovers outside T-030: T-019's 3 (ovl_7DF8.c) + T-021's 22 at 0x801C8000–0x801CD440 (ovl_7DF8_1BD90.c ≥0x801C8000, ovl_7DF8_200C0.c): 25 T1 fns, 21,688 B | opus-1 (Opus 5.5 low) | In progress (resumed 2026-10-19 19:30 after API rate limit) | those src files (range only), tools/scratch/nonmatching/T-034/ | worktree isolation; T-030 owns 1BD90.c <0x801C8000 |
-| T-035 | Match main's last 8 T1 fns ≥0x80040000 (main_30A90/319D0/321A0.c) + polish T-026 drafts (main 0x80030000–0x80040000, smallest diff first) | opus-2 (Opus 5.5 low) | In progress (resumed 2026-10-19 19:30 after API rate limit) | those src files (range only), tools/scratch/nonmatching/T-026/ (update drafts), tools/scratch/nonmatching/T-035/ | worktree isolation; no overlap with T-032/T-033 |
+| T-035 | Match main's last 8 T1 fns ≥0x80040000 (main_30A90/319D0/321A0.c) + polish T-026 drafts (main 0x80030000–0x80040000, smallest diff first) | opus-2 (Opus 5.5 low) | Done (verified): 20 matched (func_800414F0 + 19 libultra pfs fns built -mips1), 7 T2 drafts, 2 T-026 drafts improved | those src files (range only), tools/scratch/nonmatching/T-026/ (update drafts), tools/scratch/nonmatching/T-035/ | worktree isolation; no overlap with T-032/T-033 |
 | T-036 | Polish T2 drafts → match: main 0x80018000–0x80020000 (T-022's 31 drafts in src/main/main_2FF0.c, smallest diff first) | sol-C14 | In progress | main_2FF0.c (those 31 fns only), tools/scratch/nonmatching/T-022/ (update/delete drafts), tools/scratch/nonmatching/T-036/REPORT.md | worktree isolation; T-032/T-033 own other main_2FF0.c ranges |

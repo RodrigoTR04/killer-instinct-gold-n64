@@ -8,6 +8,12 @@ OBJCOPY := $(CROSS)objcopy
 CC := tools/ext/ido/5.3/cc
 CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O2 -mips2 -32
 # Override per object, e.g. build/src/main/sdk.c.o: CFLAGS := ... -O1 ...
+# libultra Controller Pak (pfs) TUs are built -mips1 (T-035)
+build/src/main/main_24820.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O2 -mips1 -32
+build/src/main/main_24B50.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O2 -mips1 -32
+build/src/main/main_2BA80.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O2 -mips1 -32
+build/src/main/main_2CA60.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O2 -mips1 -32
+build/src/main/main_2CDF0.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O2 -mips1 -32
 ASMPROC := tools/ext/asm-processor/build.py
 
 ASFLAGS := -EB -mips3 -32 -G 0 -I include

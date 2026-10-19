@@ -10,7 +10,8 @@
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_319D0/alSeqGetTicks.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_319D0/func_800414F0.s")
+void func_800414F0(void) {
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_319D0/func_800414F8.s")
 

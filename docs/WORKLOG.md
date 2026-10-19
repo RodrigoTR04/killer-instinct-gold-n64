@@ -122,3 +122,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Clean vet build: the ROM and all 3 images are byte-identical. 126 T4; M1 = M2 = 12,468 B (3.90%). Imported the 23 drafts plus REPORT.md (skipped diff/log files) and added 23 T2 rows.
 
 - T-036 launched (sol-C14): polish T-022's 31 drafts (main 0x80018000–0x80020000). When vetting, remove T2 rows for drafts it matches.
+
+## 2026-10-19 — T-035 vetted (Opus: main ≥0x80040000 + T-026 polish)
+- Worktree t3-bf14a84c. func_800414F0 matched (an empty stub). The big find: 19 T-026 drafts are libultra Controller Pak (pfs) code and match exactly when built -O2 -mips1. The worker supplied complete replacement files for main_24820/24B50/2BA80/2CA60/2CDF0.c (every function in each file is C; no asm or register tricks). I added per-object CFLAGS overrides in the Makefile (generic mechanism, documented on line 10). I added the missing `#include "common.h"` to main_2BA80.c.
+- Clean vet build: the ROM and all 3 images are byte-identical. 146 T4; M1 = M2 = 19,460 B (6.09%). Deleted 19 T-026 drafts and their T2 rows. Imported the improved drafts func_80035DE0/func_80035F10 and T-035's 7 part-A drafts (+7 T2 rows). Logged FU-15 (name/classify these libultra functions; more -mips1 TUs likely).
