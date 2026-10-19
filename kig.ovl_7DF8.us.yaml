@@ -8,6 +8,9 @@ options:
   base_path: .
   target_path: build/segments/ovl_7DF8.bin
   asm_path: asm/ovl_7DF8
+  src_path: src/ovl_7DF8
+  nonmatchings_path: ../../asm/nonmatchings/ovl_7DF8
+  generated_c_preamble: '#include "common.h"'
   asset_path: assets/ovl_7DF8
   build_path: build
   ld_script_path: linker_scripts/ovl_7DF8.ld
@@ -22,6 +25,7 @@ segments:
     start: 0
     vram: 0x801ABB20
     subsegments:
-      - [0, asm, ovl_7DF8]
+      - [0, c, ovl_7DF8]
+      - [0x2380, c, ovl_7DF8_2380]
       - [0x21930, data, ovl_7DF8]
   - [0xE9BD0]

@@ -8,6 +8,9 @@ options:
   base_path: .
   target_path: build/segments/main.bin
   asm_path: asm/main
+  src_path: src/main
+  nonmatchings_path: ../../asm/nonmatchings/main
+  generated_c_preamble: '#include "common.h"'
   asset_path: assets/main
   build_path: build
   ld_script_path: linker_scripts/main.ld
@@ -22,7 +25,7 @@ segments:
     start: 0
     vram: 0x8000F960
     subsegments:
-      - [0, asm, main]
+      - [0, c, main]
       - [0x32DB0, bin, rspboot]
       - [0x32E80, bin, gfx_text]
       - [0x34290, bin, audio_text]

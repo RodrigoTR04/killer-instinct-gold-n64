@@ -79,3 +79,6 @@ printf 'IDO compilers: %s/tools/ext/ido/{5.3,7.1}/cc\n' "$ROOT"
 
 # Prepare the pinned matching compressor so subsequent builds work offline.
 .venv/bin/python -c 'from tools.compress.rarezip import build; print("Matching gzip:", build())'
+
+# IDO GLOBAL_ASM preprocessing/postprocessing (Python implementation).
+checkout asm-processor https://github.com/simonlindholm/asm-processor f3b2f85a5bc7e8ae2030ea5a83ea8aa0bcbede03

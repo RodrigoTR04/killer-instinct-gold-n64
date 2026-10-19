@@ -16,8 +16,12 @@ def scan(root):
     rows = {}
     for path in sorted((root / 'asm').rglob('*.s')):
         source = path.read_text()
-        # Only text sections: data glabels are not functions.
-        if not re.search(r'\.section\s+\.text', source):
+        # Splat's IDO per-function files omit an explicit .text directive.
+        parts = path.relative_to(root / 'asm').parts
+        per_function = parts[0] == 'nonmatchings' and len(parts) >= 4
+        # Require a function label for implicit-text files; data dlabels do not qualify.
+        implicit_text = per_function and re.search(r'^glabel\s+', source, re.M)
+        if not re.search(r'\.section\s+\.text', source) and not implicit_text:
             continue
         labels = list(re.finditer(r'^(?:glabel\s+(\w+)|dlabel\s+(func_\w+))\s*$', source, re.M))
         for i, label in enumerate(labels):
@@ -33,7 +37,7 @@ def scan(root):
             macro = re.search(r'nonmatching\s+' + re.escape(name) + r',\s*(0x[\da-fA-F]+|\d+)', before)
             vram = int(comments[0][2], 16)
             size = int(macro[1], 0) if macro else int(comments[-1][2], 16) + 4 - vram
-            area = path.relative_to(root / 'asm').parts[0]
+            area = parts[1] if per_function else parts[0]
             if area.endswith('.s'):
                 area = 'boot'
             row = dict(area=area, function=name,

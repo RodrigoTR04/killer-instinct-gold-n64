@@ -5,6 +5,11 @@ CROSS := tools/ext/binutils/bin/mips64-elf-
 AS := $(CROSS)as
 LD := $(CROSS)ld
 OBJCOPY := $(CROSS)objcopy
+CC := tools/ext/ido/5.3/cc
+CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O2 -mips2 -32
+# Override per object, e.g. build/src/main/sdk.c.o: CFLAGS := ... -O1 ...
+ASMPROC := tools/ext/asm-processor/build.py
+
 ASFLAGS := -EB -mips3 -32 -G 0 -I include
 ROM := build/kig.us.z64
 ELF := build/kig.us.elf
@@ -22,11 +27,11 @@ all: $(ROM) verify $(addprefix build/,$(addsuffix .bin,$(IMAGES))) verify-images
 
 # The stamp is written only after a successful extraction. Grouped outputs also
 # allow make to recover when an individual generated file has been removed.
-EXTRACTED := asm/header.s asm/boot.s asm/data/boot.data.s asm/data/boot.bss.s \
+EXTRACTED := asm/ovl_7E00/ovl_7E00.s asm/header.s asm/boot.s asm/data/boot.data.s asm/data/boot.bss.s \
              assets/ipl3.bin assets/opaque.bin $(SCRIPT) $(UNDEFINED) include/macro.inc \
-             $(foreach image,$(IMAGES),asm/$(image)/$(image).s asm/$(image)/data/$(image).data.s linker_scripts/$(image).ld linker_scripts/$(image).undefined_funcs.txt linker_scripts/$(image).undefined_syms.txt) \
+             $(foreach image,$(IMAGES),asm/$(image)/data/$(image).data.s linker_scripts/$(image).ld linker_scripts/$(image).undefined_funcs.txt linker_scripts/$(image).undefined_syms.txt) \
              $(addprefix assets/main/,$(addsuffix .bin,rspboot gfx_text audio_text gfx_data audio_data))
-$(EXTRACTED) build/.kig-extracted &: kig.us.yaml symbol_addrs.us.txt $(IMAGE_CONFIGS) $(IMAGE_SYMBOLS) baserom.us.z64
+$(EXTRACTED) build/.kig-extracted &: kig.us.yaml symbol_addrs.us.txt $(IMAGE_CONFIGS) $(IMAGE_SYMBOLS) $(wildcard src/*/*.c) baserom.us.z64
 	$(MAKE) extract
 
 extract:
@@ -70,7 +75,7 @@ verify: $(ROM)
 
 # Preserve outputs belonging to other workers (notably build/segments).
 clean:
-	rm -rf build/asm build/assets asm
+	rm -rf build/asm build/src build/assets asm
 	rm -f build/kig.us.z64 build/kig.us.elf build/kig.us.map build/kig.us.z64.linked $(COMPRESSED_IMAGES) build/.kig-extracted
 	rm -f assets/ipl3.bin assets/opaque.bin $(SCRIPT) $(UNDEFINED)
 	rm -rf $(addprefix assets/,$(IMAGES))
@@ -86,7 +91,12 @@ progress:
 # Each executable payload has its own linker namespace, including the overlays
 # whose VRAM ranges overlap. Their matching compressed outputs feed the ROM.
 define IMAGE_RULES
-IMAGE_OBJECTS_$(1) := build/asm/$(1)/$(1).s.o build/asm/$(1)/data/$(1).data.s.o
+IMAGE_OBJECTS_$(1) := build/asm/$(1)/data/$(1).data.s.o
+ifeq ($(1),ovl_7E00)
+IMAGE_OBJECTS_$(1) += build/asm/$(1)/$(1).s.o
+else
+IMAGE_OBJECTS_$(1) += $$(patsubst src/%.c,build/src/%.c.o,$$(wildcard src/$(1)/*.c))
+endif
 ifeq ($(1),main)
 IMAGE_OBJECTS_$(1) += $$(addprefix build/assets/main/,$$(addsuffix .bin.o,rspboot gfx_text audio_text gfx_data audio_data))
 endif
@@ -99,3 +109,10 @@ $(foreach image,$(IMAGES),$(eval $(call IMAGE_RULES,$(image))))
 
 verify-images: $(addprefix build/,$(addsuffix .bin,$(IMAGES)))
 	$(PYTHON) tools/progress/verify_images.py
+
+# asm-processor preserves function order and handles IDO-incompatible GNU asm.
+build/src/%.c.o: src/%.c include/common.h include/ultra64.h include/include_asm.h $(ASMPROC) build/.kig-extracted
+	@mkdir -p $(@D)
+	$(PYTHON) $(ASMPROC) $(CC) -- $(AS) $(ASFLAGS) -- $(CFLAGS) -Iinclude -o $@ $<
+
+-include $(wildcard build/src/*/*.d)
