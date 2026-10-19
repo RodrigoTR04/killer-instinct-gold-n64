@@ -31,10 +31,10 @@ Source of truth for per-function tiers is `docs/functions.csv` (created once spl
 | Metric | Value |
 |---|---|
 | Scope measured | all CPU text of boot/main/ovl_7DF8/ovl_7E00 (999 fns). Text not in fns: boot 432 B pad, main 708 B, 7DF8 92 B, 7E00 4,040 B (31 inline data pools, listed in symbol_addrs.ovl_7E00.us.txt) |
-| M1 | 1,064 / 319,544 B (0.33%) |
-| M2 | 1,064 / 319,544 B (0.33%) |
-| Functions | 559 T1 · 0 T2 · 0 T3 · 10 T4 · 430 excluded (137,648 B: 267 libultra + boot entry asm + 162 ovl_7E00 handwritten asm) |
-| Per image (eligible B / T1 fns / excluded) | boot 8,468/21/99 · main 173,204/287/169 (3 T4) · ovl_7DF8 137,428/244/0 (7 T4) · ovl_7E00 444/7/162 |
+| M1 | 2,340 / 319,544 B (0.73%) |
+| M2 | 2,340 / 319,544 B (0.73%) |
+| Functions | 537 T1 · 9 T2 · 0 T3 · 23 T4 · 430 excluded (137,648 B: 267 libultra + boot entry asm + 162 ovl_7E00 handwritten asm) |
+| Per image (eligible B / T1 fns / excluded) | boot 8,468/21/99 · main 173,204/274/169 (16 T4, 9 T2) · ovl_7DF8 137,428/244/0 (7 T4) · ovl_7E00 444/7/162 |
 
 Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html). Tier overrides: tools/progress/status.csv (lead-maintained). Never hand-edit numbers; paste the `--markdown` output here.
 
@@ -78,5 +78,5 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | T-017 | FU-10: decode 13 stage packets (table 0x7E60–0x7EC0) + remaining frames; fix assets.csv labels per T-014 | sol-C6 | Done (verified) | docs/gfx_format.md (stage section), tools/analysis/gfx_decode.py, tools/analysis/assets.py, tools/analysis/data/assets.csv | read-only on build |
 | T-018 | FU-4 research: rebuild SM64-US libultra objects (IDO 5.3 -O1 -mips2, asm -mips3 -32) in scratch and compare every excluded libultra fn vs ROM bytes (reloc-masked) | sol-B6 | Done (verified) | tools/scratch/libultra/, docs/libultra_rebuild.md | scratch only; no Makefile/yaml/src/status edits |
 | T-019 | Match ovl_7DF8 unit 0 (src/ovl_7DF8/ovl_7DF8.c, 0x801ABB20–0x801ADEA0): 25 T1 fns, 8,616 B | sol-A7 | In progress | src/ovl_7DF8/ovl_7DF8.c, tools/scratch/nonmatching/T-019/ | worktree isolation |
-| T-020 | Match main 0x8000F960–0x80018000 (src/main/main.c): 49 T1 fns, 34,500 B | sol-C7 | In progress | src/main/main.c (only fns in range), tools/scratch/nonmatching/T-020/ | worktree isolation |
+| T-020 | Match main 0x8000F960–0x80018000 (src/main/main.c): 49 T1 fns, 34,500 B | sol-C7 | Done (verified): 13 matched (1,276 B), 9 T2 drafts, 27 not attempted (still T1, re-assignable) | src/main/main.c (only fns in range), tools/scratch/nonmatching/T-020/ | worktree isolation |
 | T-021 | Match ovl_7DF8 0x801C2000–0x801CD440 (src/ovl_7DF8/ovl_7DF8_2380.c, only fns in range): 106 T1 fns, 45,832 B | sol-B7 | In progress | src/ovl_7DF8/ovl_7DF8_2380.c (range only), tools/scratch/nonmatching/T-021/ | worktree isolation |
