@@ -134,3 +134,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-a09bfd2e. 10 matched; only GLOBAL_ASM stubs were removed. The lead also landed func_801CCBCC (its draft was identical standalone) by making func_801CC350/524/600 return s32 (they return their callee's value; their codegen is unchanged) and giving func_801CC350 an s32 * first parameter.
 - Clean vet build: the ROM and all 3 images are byte-identical. 157 T4; M1 = M2 = 23,328 B (7.30%). ovl_7DF8 has 0 T1 left: every function is matched or drafted. Imported the 14 drafts plus a lead-written REPORT.md (the worker wrote none) and added 14 T2 rows.
 - Cleanup for FU-13: D_80127D30 should be declared u8[8], replacing the T034_D_80127D30 #define cast.
+
+## 2026-10-19 — T-032 vetted (main 0x80020000–0x80028000)
+- Worktree t3-9b528953. 7 matched (func_80021ADC, 8002365C, 80023790, 80024144, 80025354, 80026AA0, 80027DA0); only GLOBAL_ASM stubs were removed and there are no tricks (one typedef include-guard #define). Clean vet build: the ROM and all 3 images are byte-identical. 164 T4; M1 = M2 = 24,608 B (7.70%).
+- Imported the 22 drafts plus REPORT.md and added 22 T2 rows. Note: boot_inflate needs a consistent s32 return declaration across files (FU-13 cleanup).

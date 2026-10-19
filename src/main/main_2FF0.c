@@ -616,13 +616,47 @@ void func_8001D768(s32 arg0, s32 *arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_800216D4.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80021ADC.s")
+#ifndef T032_ROM_ENTRY_DEFINED
+#define T032_ROM_ENTRY_DEFINED
+typedef struct {
+    u8 *start, *end, *palette;
+    u32 flags;
+    u8 *spriteStart, *spriteEnd;
+    u8 tail[8];
+} T032RomEntry;
+#endif
+extern T032RomEntry D_80045E50[];
+extern u8 D_8011E670[];
+void func_80021ADC(u8 player, u8 entry) {
+    T032RomEntry *p = &D_80045E50[entry];
+    u8 *start = p->spriteStart;
+    u32 size = p->spriteEnd - start;
+    if (size < 0x321U) {
+        boot_dma(start, (void *)0x802D4000, size);
+        boot_inflate((void *)0x802D4000, D_8011E670 + player * 0x320, (void *)0x803A2000);
+    }
+}
+
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80021B6C.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_8002365C.s")
+extern s32 D_8004EA78;
+extern u16 D_8004EAC8[][256][2];
+s32 func_8002365C(u16 count,u16 start) {
+    s32 i; u16 result=320;
+    for (i=0;i<count;i++) result=D_8004EAC8[D_8004EA78][start+i][0] >= result ? result : D_8004EAC8[D_8004EA78][start+i][0];
+    return result;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80023790.s")
+
+extern s32 D_8004EA78;
+extern u16 D_8004EAC8[][256][2];
+s32 func_80023790(u16 count,u16 start) {
+    s32 i; u16 result=0;
+    for (i=0;i<count;i++) result=D_8004EAC8[D_8004EA78][start+i][1] < result ? result : D_8004EAC8[D_8004EA78][start+i][1];
+    return result;
+}
+
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_800238C4.s")
 
@@ -630,7 +664,17 @@ void func_8001D768(s32 arg0, s32 *arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80024028.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80024144.s")
+extern void func_80020E98(u8,u8,void *);
+extern s32 D_80045FE8;
+extern u8 D_8004CE90[][32],D_8004F394;
+void func_80024144(s32 player,s32 kind) {
+    s32 offset;
+    func_80020E98((u8)player,12,0);
+    if (kind==0xBA) offset=32; else offset=0;
+    boot_dma((void *)(D_80045FE8 + offset),D_8004CE90[player],32);
+    D_8004F394=1;
+}
+
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_800241BC.s")
 

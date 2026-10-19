@@ -1,6 +1,13 @@
 #include "common.h"
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_18440/func_80027DA0.s")
+extern void guOrtho(void *, f32, f32, f32, f32, f32, f32, f32);
+extern void guRotate(void *, f32, f32, f32, f32);
+extern u8 D_80061D20[], D_80061CE0[];
+void func_80027DA0(void) {
+    guOrtho(D_80061D20, 0.0f, 320.0f, 240.0f, 0.0f, 1.0f, 10.0f, 1.0f);
+    guRotate(D_80061CE0, 0, 0.0f, 0.0f, 1.0f);
+}
+
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_18440/func_80027E1C.s")
 
