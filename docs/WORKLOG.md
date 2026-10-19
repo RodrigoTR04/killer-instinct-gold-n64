@@ -93,3 +93,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Notes: func_80030EF0's body matches and only lacks a 4-byte alignment gap, so it is an FU-14 TU-boundary candidate. func_800326F0 uses native 64-bit ops (dsll), so it is probably not IDO -mips2 C (an asm or -mips3 candidate).
 
 - T-031 launched (sol-B12): split main at its definite TU boundaries (FU-14). No other worker may touch main src until it lands.
+
+## 2026-10-19 — T-031 vetted (FU-14 main split)
+- Worktree t3-1492dbe5. src/main/main.c is now split into 87 files (main.c + main_<off>.c), one per definite boundary (86), all inside .text; yaml subsegments added. Diff check: the old main.c equals the new files concatenated in yaml order, after normalising asm paths, apart from one duplicated boot_inflate extern and the 2 new matches.
+- func_8002AB64 and func_80030EF0 now match, since IDO pads their TU end. Deleted both drafts and their T2 rows. Clean vet build: the ROM and all 3 images are byte-identical. 122 T4; M1 = M2 = 11,752 B (3.68%). FU-14 is closed.

@@ -1,4 +1,9 @@
-/* DRAFT. Remaining diff: Body matches all 348 bytes; missing 4-byte trailing alignment gap shifts following code. */
+#include "common.h"
+
+#pragma GLOBAL_ASM("asm/nonmatchings/main/main_20AE0/func_80030440.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/main/main_20AE0/func_800306B8.s")
+
 s32 func_80030EF0(u8 code) {
     s32 character;
 

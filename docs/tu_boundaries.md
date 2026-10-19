@@ -318,7 +318,7 @@ offsets (the YAML coordinate), not physical compressed-ROM offsets.
 ## Overlay implementation and validation
 
 All 13 definite boundaries are represented in `kig.ovl_7DF8.us.yaml`: the
-existing `0x2380` split and 12 new units. No main source was split. The identical
+existing `0x2380` split and 12 new units. At T-028, no main source was split (see the later main split status below). The identical
 lerp bodies at `801AFA80` and `801B19F0` now begin separate units, additional
 evidence consistent with per-unit copies.
 
@@ -353,3 +353,116 @@ These comparison counts diagnose the supplied drafts, not all possible C.
 For oversized drafts the differing-word comparison extends into the following
 original padding/code; a size mismatch alone already rejects those drafts.
 Final validation: `make clean && make extract && make && make progress`.
+
+## Main split status (T-031)
+
+Applied all 86 definite boundaries confirmed by a fresh scan after `make extract`.
+All lie within the C text subsegment (before `0x32DB0`); none were skipped.
+Possible rows were not applied. The initial unit remains `src/main/main.c`.
+Each row below names a new file under `src/main/`; padding is the number of
+nops immediately preceding its boundary. Existing matched C bodies were moved unchanged.
+
+| File | Boundary VRAM | First–last function | Preceding padding nops |
+|---|---|---|---:|
+| main_2FF0.c | 0x80012950 | func_80012950–func_80024B0C | 2 |
+| main_15380.c | 0x80024CE0 | func_80024CE0–func_800269AC | 1 |
+| main_17140.c | 0x80026AA0 | func_80026AA0–func_80026B38 | 2 |
+| main_18440.c | 0x80027DA0 | func_80027DA0–func_8002A004 | 1 |
+| main_1A7F0.c | 0x8002A150 | func_8002A150–func_8002A1A0 | 2 |
+| main_1A880.c | 0x8002A1E0 | func_8002A1E0–func_8002A40C | 1 |
+| main_1AB90.c | 0x8002A4F0 | func_8002A4F0–func_8002AB64 | 2 |
+| main_1B230.c | 0x8002AB90 | func_8002AB90–func_8002B3E0 | 2 |
+| main_1BBA0.c | 0x8002B500 | func_8002B500–func_8002B710 | 2 |
+| main_1BE80.c | 0x8002B7E0 | func_8002B7E0–func_8002E08C | 3 |
+| main_1E7F0.c | 0x8002E150 | func_8002E150–func_8002E150 | 3 |
+| main_1EB40.c | 0x8002E4A0 | func_8002E4A0–func_8002FAC0 | 1 |
+| main_20220.c | 0x8002FB80 | func_8002FB80–func_8003037C | 3 |
+| main_20AE0.c | 0x80030440 | func_80030440–func_80030EF0 | 2 |
+| main_216F0.c | 0x80031050 | func_80031050–func_80031DD0 | 1 |
+| main_22A00.c | 0x80032360 | func_80032360–func_80032504 | 1 |
+| main_22CA0.c | 0x80032600 | func_80032600–func_80032670 | 3 |
+| main_22D90.c | 0x800326F0 | func_800326F0–func_80032738 | 3 |
+| main_22DF0.c | 0x80032750 | func_80032750–func_800327E8 | 1 |
+| main_232D0.c | 0x80032C30 | osViSetSpecialFeatures–osViSetSpecialFeatures | 1 |
+| main_23490.c | 0x80032DF0 | guPerspectiveF–guPerspective | 2 |
+| main_23720.c | 0x80033080 | guRandom–guRandom | 2 |
+| main_23750.c | 0x800330B0 | func_800330B0–guLookAtHilite | 1 |
+| main_23F80.c | 0x800338E0 | guTranslateF–guTranslate | 3 |
+| main_24020.c | 0x80033980 | guRotateF–guRotate | 1 |
+| main_24210.c | 0x80033B70 | guLookAtReflectF–guLookAtReflect | 3 |
+| main_246D0.c | 0x80034030 | guScaleF–guScale | 2 |
+| main_24770.c | 0x800340D0 | sqrtf–sqrtf | 1 |
+| main_24780.c | 0x800340E0 | main_memcpy–main_strchr | 2 |
+| main_24820.c | 0x80034180 | func_80034180–func_800343F4 | 3 |
+| main_24B50.c | 0x800344B0 | func_800344B0–func_80034630 | 2 |
+| main_24E70.c | 0x800347D0 | func_800347D0–func_80035C84 | 3 |
+| main_263D0.c | 0x80035D30 | osContStartQuery–osContGetQuery | 3 |
+| main_26480.c | 0x80035DE0 | func_80035DE0–func_80035DE0 | 1 |
+| main_265B0.c | 0x80035F10 | func_80035F10–func_80035F10 | 2 |
+| main_26860.c | 0x800361C0 | func_800361C0–func_80036644 | 3 |
+| main_26DD0.c | 0x80036730 | osEepromProbe–osEepromProbe | 2 |
+| main_26E40.c | 0x800367A0 | osEepromLongWrite–osEepromLongWrite | 1 |
+| main_26F80.c | 0x800368E0 | osEepromLongRead–osEepromLongRead | 1 |
+| main_270C0.c | 0x80036A20 | osViBlack–cosf | 1 |
+| main_27460.c | 0x80036DC0 | osWritebackDCacheAll–osWritebackDCacheAll | 2 |
+| main_27490.c | 0x80036DF0 | guRotateRPYF–guRotateRPY | 2 |
+| main_27630.c | 0x80036F90 | guMtxXFMF–guMtxCatF | 3 |
+| main_27840.c | 0x800371A0 | guMtxF2L–guMtxL2F | 2 |
+| main_27AB0.c | 0x80037410 | osUnmapTLB–osUnmapTLB | 1 |
+| main_27AF0.c | 0x80037450 | osMapTLB–osMapTLB | 1 |
+| main_27BB0.c | 0x80037510 | guOrthoF–guOrtho | 3 |
+| main_27D70.c | 0x800376D0 | alHeapInit–alHeapInit | 1 |
+| main_27DB0.c | 0x80037710 | alHeapDBAlloc–alHeapDBAlloc | 3 |
+| main_27E10.c | 0x80037770 | func_80037770–alSeqFileNew | 3 |
+| main_28060.c | 0x800379C0 | __CSPPostNextSeqEvent–alCSPNew | 2 |
+| main_29290.c | 0x80038BF0 | alCSPSetBank–alCSPSetBank | 1 |
+| main_292D0.c | 0x80038C30 | alCSPGetState–alCSPGetState | 3 |
+| main_292E0.c | 0x80038C40 | alCSPPlay–__alCSeqNextDelta | 2 |
+| main_29E00.c | 0x80039760 | alCSPSetSeq–alCSPSetSeq | 3 |
+| main_29E40.c | 0x800397A0 | alCSPSetVol–alCSPSetVol | 3 |
+| main_29E80.c | 0x800397E0 | osAiSetFrequency–osAiSetNextBuffer | 1 |
+| main_2A150.c | 0x80039AB0 | osAiGetLength–osAiGetLength | 2 |
+| main_2A160.c | 0x80039AC0 | func_80039AC0–__osPackReadData | 1 |
+| main_2AE50.c | 0x8003A7B0 | alEvtqFlushType–alSynAllocVoice | 2 |
+| main_2B410.c | 0x8003AD70 | alSynSetVol–alSynSetVol | 2 |
+| main_2B4B0.c | 0x8003AE10 | alSynStartVoice–alSynStartVoice | 1 |
+| main_2B540.c | 0x8003AEA0 | alSynSetPan–alSynSetPan | 1 |
+| main_2B5D0.c | 0x8003AF30 | alSynSetPitch–alSynSetPitch | 3 |
+| main_2B660.c | 0x8003AFC0 | alSynSetFXMix–alSynSetFXMix | 3 |
+| main_2B700.c | 0x8003B060 | alSynStopVoice–alSynStopVoice | 3 |
+| main_2B780.c | 0x8003B0E0 | alSynFreeVoice–guNormalize | 2 |
+| main_2B910.c | 0x8003B270 | __osSiCreateAccessQueue–__osSiRawStartDma | 3 |
+| main_2BA80.c | 0x8003B3E0 | func_8003B3E0–func_8003C25C | 1 |
+| main_2CA60.c | 0x8003C3C0 | func_8003C3C0–func_8003C5E4 | 2 |
+| main_2CDF0.c | 0x8003C750 | func_8003C750–func_8003C750 | 1 |
+| main_2CFA0.c | 0x8003C900 | osEepromWrite–osSetTimer | 2 |
+| main_2D560.c | 0x8003CEC0 | osEepromRead–__osPackEepReadData | 3 |
+| main_2D860.c | 0x8003D1C0 | __setInstChanState–alSeqpNew | 3 |
+| main_2F1A0.c | 0x8003EB00 | alSynStartVoiceParams–alSynStartVoiceParams | 3 |
+| main_2F290.c | 0x8003EBF0 | alSynDelete–alSynDelete | 3 |
+| main_2F2A0.c | 0x8003EC00 | __osAiDeviceBusy–func_8003EF90 | 2 |
+| main_2FA50.c | 0x8003F3B0 | alSynAllocFX–alSynAllocFX | 2 |
+| main_2FAF0.c | 0x8003F450 | alMainBusParam–alAdpcmPull | 2 |
+| main_30790.c | 0x800400F0 | alResampleParam–alResamplePull | 1 |
+| main_30A90.c | 0x800403F0 | _ldexpf–alEnvmixerPull | 3 |
+| main_316F0.c | 0x80041050 | alAuxBusParam–alAuxBusPull | 3 |
+| main_31800.c | 0x80041160 | alSaveParam–osGetTime | 2 |
+| main_31950.c | 0x800412B0 | alCopy–alCopy | 3 |
+| main_319D0.c | 0x80041330 | __osContAddressCrc–alFilterNew | 3 |
+| main_321A0.c | 0x80041B00 | _doModFunc–alFxPull | 1 |
+
+Padding retries: `func_8002AB64` (36-byte body, eight-byte padding) and
+`func_80030EF0` (348-byte body, four-byte padding) now match in the full linked
+image and ROM; their obsolete T-024/T-026 drafts were deleted. The report/draft
+search also identified three remaining candidates, compiled with production IDO flags:
+
+| Draft | Emitted / original body bytes | Differing words (relocations masked) | Result |
+|---|---:|---:|---|
+| func_8002A1A0 | 60 / 60 | 4 | Instruction scheduling still differs |
+| func_80032738 | 40 / 20 | 10 | Native daddiu/sd sequence and final a0 clear differ |
+| func_80032670 | 180 / 116 | 45 | Private decoder register ABI differs |
+
+These three drafts remain unchanged. No headers, build rules, exclusion handling,
+or progress tools were changed. Final validation used
+`make clean && make extract && make && make progress`: ROM and all three images
+byte-identical; T4 increased from 120 to 122 (main 62 to 64).

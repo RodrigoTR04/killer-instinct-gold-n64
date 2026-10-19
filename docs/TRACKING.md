@@ -31,10 +31,10 @@ Source of truth for per-function tiers is `docs/functions.csv` (created once spl
 | Metric | Value |
 |---|---|
 | Scope measured | all CPU text of boot/main/ovl_7DF8/ovl_7E00 (999 fns). Text not in fns: boot 432 B pad, main 708 B, 7DF8 92 B, 7E00 4,040 B (31 inline data pools, listed in symbol_addrs.ovl_7E00.us.txt) |
-| M1 | 11,368 / 319,544 B (3.56%) |
-| M2 | 11,368 / 319,544 B (3.56%) |
-| Functions | 161 T1 · 288 T2 · 0 T3 · 120 T4 · 430 excluded (137,648 B: 267 libultra + boot entry asm + 162 ovl_7E00 handwritten asm) |
-| Per image (eligible B / T1 fns / excluded) | boot 8,468/21/99 · main 173,204/64/169 (62 T4, 164 T2) · ovl_7DF8 137,428/69/0 (58 T4, 124 T2) · ovl_7E00 444/7/162 |
+| M1 | 11,752 / 319,544 B (3.68%) |
+| M2 | 11,752 / 319,544 B (3.68%) |
+| Functions | 161 T1 · 286 T2 · 0 T3 · 122 T4 · 430 excluded (137,648 B: 267 libultra + boot entry asm + 162 ovl_7E00 handwritten asm) |
+| Per image (eligible B / T1 fns / excluded) | boot 8,468/21/99 · main 173,204/64/169 (64 T4, 162 T2) · ovl_7DF8 137,428/69/0 (58 T4, 124 T2) · ovl_7E00 444/7/162 |
 
 Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html). Tier overrides: tools/progress/status.csv (lead-maintained). Never hand-edit numbers; paste the `--markdown` output here.
 
@@ -53,7 +53,7 @@ Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html)
 - FU-11 (T-018): main inventory folds a separate `jr ra; nop` stub at 0x80039AC0 into osAiGetLength (24 B; SM64 body is 12 B) → add a symbol at 0x80039AC0 and refresh original-functions.json baseline.
 - FU-12 (T-018): integrate SM64-US libultra objects into the build (52 MATCH + 96 MATCH_MASKED fns, 93/94 whole-object placements; osAiSetFrequency needs 0x10 tail trim). 118 SDK fns (mostly libaudio, __lookupVoice etc.) absent from SM64 → stay asm. See docs/libultra_rebuild.md.
 - FU-13: cleanup pass on matched C: replace m2c raw offset casts with structs (e.g. func_80018418 on D_8004A4C0/D_8004A998), unify duplicated per-function externs into headers, apply suggested names (T-020/T-021/T-022 replies). Must keep the build matching.
-- FU-14 (T-024/T-025): translation-unit boundaries found. Drafts whose body matches but whose trailing padding differs mark the end of an original .c file: IDO pads each TU's .text to 16 bytes. Evidence: main func_8002AB64 ends at 0x8002AB88, then 2 nops before func_8002AB90; ovl_7DF8 func_801AFA48 ends at 0x801AFA7C, then 1 nop before func_801AFA80. Also, func_801AFA80 and func_801B19F0 are identical lerp functions, a per-TU copy. Action: split src files (and the splat yaml) at these boundaries, then those drafts will match. Find more boundaries by scanning for trailing nop padding before 16-aligned function starts. **Status:** T-028 wrote docs/tu_boundaries.md (main 86 definite, ovl_7DF8 13 definite) and split ovl_7DF8 into 14 TUs. The main split is still pending (after T-026/T-027).
+- FU-14 (T-024/T-025): translation-unit boundaries found. Drafts whose body matches but whose trailing padding differs mark the end of an original .c file: IDO pads each TU's .text to 16 bytes. Evidence: main func_8002AB64 ends at 0x8002AB88, then 2 nops before func_8002AB90; ovl_7DF8 func_801AFA48 ends at 0x801AFA7C, then 1 nop before func_801AFA80. Also, func_801AFA80 and func_801B19F0 are identical lerp functions, a per-TU copy. Action: split src files (and the splat yaml) at these boundaries, then those drafts will match. Find more boundaries by scanning for trailing nop padding before 16-aligned function starts. **Status:** T-028 wrote docs/tu_boundaries.md (main 86 definite, ovl_7DF8 13 definite) and split ovl_7DF8 into 14 TUs. T-031 split main into 87 TUs at all 86 definite boundaries; FU-14 is CLOSED.
 
 ## Task board
 Status values: Todo · In progress (owner) · Review · Done (verified by lead) · Rejected
@@ -91,4 +91,4 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | T-028 | FU-14: scan all images for TU boundaries (doc); split ovl_7DF8 src+yaml at them (main split deferred until T-026/T-027 land) | sol-A13 | Done (verified; 12 new ovl_7DF8 TUs, func_801AFA48 matched; 114 T4) | kig.ovl_7DF8.us.yaml, src/ovl_7DF8/*, docs/tu_boundaries.md, tools/analysis/tu_boundaries.py | worktree isolation |
 | T-029 | Match ovl_7DF8 0x801B4000–0x801BA000 (src/ovl_7DF8/ovl_7DF8_5ED0.c, range only): 19 T1 fns, 23,828 B | sol-A14 | In progress | src/ovl_7DF8/ovl_7DF8_5ED0.c (range only), tools/scratch/nonmatching/T-029/ | worktree isolation |
 | T-030 | Match T-021 leftovers: ovl_7DF8 0x801C2000–0x801C8000 (files ovl_7DF8_13FF0/17E70/18520/18CC0/190B0/1B790/1BD90.c, range only): 25 T1 fns, 19,624 B | sol-C13 | In progress | those src files (range only), tools/scratch/nonmatching/T-030/ | worktree isolation |
-| T-031 | FU-14 main: split src/main/main.c + kig.main.us.yaml at the definite TU boundaries in docs/tu_boundaries.md; retry padding-blocked drafts (func_8002AB64, func_80030EF0, others) | sol-B12 | In progress | kig.main.us.yaml, src/main/*, docs/tu_boundaries.md (main status note), tools/scratch/nonmatching/* (delete matched drafts only) | worktree isolation; no other main src work meanwhile |
+| T-031 | FU-14 main: split src/main/main.c + kig.main.us.yaml at the definite TU boundaries in docs/tu_boundaries.md; retry padding-blocked drafts (func_8002AB64, func_80030EF0, others) | sol-B12 | Done (verified): main split into 87 TUs; func_8002AB64 + func_80030EF0 matched; 122 T4 | kig.main.us.yaml, src/main/*, docs/tu_boundaries.md (main status note), tools/scratch/nonmatching/* (delete matched drafts only) | worktree isolation; no other main src work meanwhile |
