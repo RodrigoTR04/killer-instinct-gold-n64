@@ -110,3 +110,5 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - T-030 stopped on the Codex usage limit (resets 19:18). A one-shot resume is scheduled for 19:21 (cron 39ad6eb1, session-only): "continue" in the same child thread.
 - T-032 also stopped on the usage limit (same 19:18 reset). The 19:21 job resumes it too.
 - T-033 also stopped on the usage limit (same 19:18 reset). All three workers are paused; the 19:21 job resumes all of them.
+
+- At the user's request, launched 2 Opus 5.5 (low) workers on work disjoint from the paused Sol workers: T-034 (opus-1, ovl_7DF8 leftovers) and T-035 (opus-2, main ≥0x80040000 + polish of T-026 drafts).
