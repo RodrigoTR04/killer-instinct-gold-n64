@@ -43,13 +43,15 @@ Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html)
 - FU-2: splat hint of rodata at boot ROM 0x7D40; boot.s not yet split per original file.
 
 - ~~FU-3~~ (T-012): merge T-005 SDK names (tools/analysis/data/{boot,main}_functions.csv) into symbol_addrs.*.txt and mark them excluded/libultra in tools/progress/status.csv — after T-009 lands.
-- FU-4: libultra can likely be built from SM64-US lib sources for byte-exact SDK objects (lead verified 7 fns).
+- ~~FU-4~~ (T-018 → FU-12): libultra can likely be built from SM64-US lib sources for byte-exact SDK objects (lead verified 7 fns).
 - ~~FU-5~~ (T-013): rarezip.py caches its gzip build in /tmp/kig-t008 (volatile, needs network); move cache to tools/ext/ when wiring compression into the Makefile.
 - ~~FU-6~~ (T-013): wire build: compile/assemble main+overlays → recompress with rarezip → splice into ROM, replacing opaque compressed blobs (after T-009).
 - ~~FU-7~~ (T-012): ovl_7E00 text has 12.5k `.word` lines (≈50 KB, e.g. func_801ADE68) that are valid MIPS but spimdisasm fell back to data → fix splat/symbol hints so all 0x16640 text bytes are functions.
 - FU-8: opaque.bin still carries the original compressed code bytes under the spliced slots (overwritten at splice) → split kig.us.yaml so slots are not sourced from baserom; later support relocation of the 0x7DF0 table for non-matching builds.
 - ~~FU-9~~ (T-016): ovl_7E00 has inline data pools inside text (handwritten-asm signature) → determine which ovl_7E00 functions are handwritten asm vs IDO C before assigning decomp work there. → 162 asm excluded; 7 tiny leaves (444 B) stay T1/uncertain.
 - ~~FU-10~~ (T-017; 23 stage textures + 222 sprite frames still undecoded, documented in gfx_format.md): decode the 13 stage graphics packets (0x7E60–0x7EC0) + remaining 357 frames; update assets.csv class labels per T-014 corrections.
+- FU-11 (T-018): main inventory folds a separate `jr ra; nop` stub at 0x80039AC0 into osAiGetLength (24 B; SM64 body is 12 B) → add a symbol at 0x80039AC0 and refresh original-functions.json baseline.
+- FU-12 (T-018): integrate SM64-US libultra objects into the build (52 MATCH + 96 MATCH_MASKED fns, 93/94 whole-object placements; osAiSetFrequency needs 0x10 tail trim). 118 SDK fns (mostly libaudio, __lookupVoice etc.) absent from SM64 → stay asm. See docs/libultra_rebuild.md.
 
 ## Task board
 Status values: Todo · In progress (owner) · Review · Done (verified by lead) · Rejected
@@ -74,6 +76,6 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | T-015 | C build infra (IDO 5.3 -O2 -mips2, INCLUDE_ASM, src/ per image) + land T-010's 10 matched game fns as first T4 | sol-A6 | Done (verified) | Makefile, kig.*.yaml, src/, include/, symbol_addrs*.txt | |
 | T-016 | FU-9: classify ovl_7E00 functions handwritten-asm vs IDO-C (read-only), recommend exclusions | sol-C5 | Done (verified) | docs/ovl_7E00_asm.md, tools/analysis/data/ovl_7E00_asm.csv | lead applies status.csv changes |
 | T-017 | FU-10: decode 13 stage packets (table 0x7E60–0x7EC0) + remaining frames; fix assets.csv labels per T-014 | sol-C6 | Done (verified) | docs/gfx_format.md (stage section), tools/analysis/gfx_decode.py, tools/analysis/assets.py, tools/analysis/data/assets.csv | read-only on build |
-| T-018 | FU-4 research: rebuild SM64-US libultra objects (IDO 5.3 -O1 -mips2, asm -mips3 -32) in scratch and compare every excluded libultra fn vs ROM bytes (reloc-masked) | sol-B6 | In progress | tools/scratch/libultra/, docs/libultra_rebuild.md | scratch only; no Makefile/yaml/src/status edits |
+| T-018 | FU-4 research: rebuild SM64-US libultra objects (IDO 5.3 -O1 -mips2, asm -mips3 -32) in scratch and compare every excluded libultra fn vs ROM bytes (reloc-masked) | sol-B6 | Done (verified) | tools/scratch/libultra/, docs/libultra_rebuild.md | scratch only; no Makefile/yaml/src/status edits |
 | T-019 | Match ovl_7DF8 unit 0 (src/ovl_7DF8/ovl_7DF8.c, 0x801ABB20–0x801ADEA0): 25 T1 fns, 8,616 B | sol-A7 | In progress | src/ovl_7DF8/ovl_7DF8.c, tools/scratch/nonmatching/T-019/ | worktree isolation |
 | T-020 | Match main 0x8000F960–0x80018000 (src/main/main.c): 49 T1 fns, 34,500 B | sol-C7 | In progress | src/main/main.c (only fns in range), tools/scratch/nonmatching/T-020/ | worktree isolation |
