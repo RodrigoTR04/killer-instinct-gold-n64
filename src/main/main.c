@@ -757,7 +757,20 @@ void func_8001D768(s32 arg0, s32 *arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_80028600.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_80028708.s")
+extern u8 D_80061CD4,D_80061CD5;
+extern s16 D_80061CD6;
+extern u32 func_800326F0(void);
+void func_80028708(void) {
+    if (D_80061CD4!=255) {
+        if (D_80061CD6>0) {
+            D_80061CD6--;
+            return;
+        }
+        D_80061CD5^=1;
+        D_80061CD6=func_800326F0()&0x1FF;
+        if (D_80061CD5==1) D_80061CD6=(D_80061CD6*255)/(256-D_80061CD4);
+    }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_800287D4.s")
 
@@ -765,7 +778,12 @@ void func_8001D768(s32 arg0, s32 *arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002970C.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_80029770.s")
+typedef struct { u8 pad[0x12C]; s16 timer; u8 tail[0x12]; } T024ResetEffect;
+extern T024ResetEffect D_80061D60[];
+void func_80029770(void) {
+    s32 i;
+    for (i=0;i<4;i++) D_80061D60[i].timer=-1;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_800297A4.s")
 
@@ -777,7 +795,10 @@ void func_8001D768(s32 arg0, s32 *arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002A150.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002A194.s")
+extern s32 D_80065C7C;
+void func_8002A194(s32 value) {
+    D_80065C7C = value;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002A1A0.s")
 
@@ -791,9 +812,27 @@ void func_8001D768(s32 arg0, s32 *arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002A4F0.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002A888.s")
+extern void *D_800669C0;
+extern s32 alCSPGetState(void *);
+extern void alCSPPlay(void *);
+extern void func_8002AA98(s32);
+void func_8002A888(void) {
+    if (alCSPGetState(D_800669C0) == 0) {
+        alCSPPlay(D_800669C0);
+        func_8002AA98(0x7FFF);
+    }
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002A8C4.s")
+extern void *D_800669C4;
+extern s32 alCSPGetState(void *);
+extern void alCSPPlay(void *);
+extern void func_8002AAEC(s32);
+void func_8002A8C4(void) {
+    if (alCSPGetState(D_800669C4) == 0) {
+        alCSPPlay(D_800669C4);
+        func_8002AAEC(0x7FFF);
+    }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002A900.s")
 
@@ -803,7 +842,11 @@ void func_8001D768(s32 arg0, s32 *arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002AAEC.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002AB40.s")
+extern void *D_800669C0;
+extern void alCSPStop(void *);
+void func_8002AB40(void) {
+    alCSPStop(D_800669C0);
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002AB64.s")
 
@@ -825,7 +868,11 @@ void func_8001D768(s32 arg0, s32 *arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002B57C.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002B6EC.s")
+extern u8 D_800684E0[];
+extern s32 osContStartReadData(void *);
+void func_8002B6EC(void) {
+    osContStartReadData(D_800684E0);
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002B710.s")
 
@@ -839,17 +886,40 @@ void func_8001D768(s32 arg0, s32 *arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002B9B4.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002BAF0.s")
+typedef struct { s32 x,y,z; float worldX,worldZ,worldY,height; u8 pad[8]; s32 top; } T024WorldPoint;
+extern float D_8004AC84,D_8004AC80;
+void func_8002BAF0(T024WorldPoint *p) {
+    p->worldX=(float)p->x/D_8004AC84;
+    p->worldZ=(float)p->z/D_8004AC84+D_8004AC80;
+    p->worldY=(float)p->y/D_8004AC84;
+    p->height=(float)p->top/D_8004AC84+D_8004AC80;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002BB74.s")
+extern float D_8004AC84, D_8004AC80;
+void func_8002BB74(s32 x,s32 y,s32 z,float *outX,float *outZ,float *outY) {
+    *outX=(float)x/D_8004AC84;
+    *outZ=(float)z/D_8004AC84+D_8004AC80;
+    *outY=(float)y/D_8004AC84;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002BBD0.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002D9C4.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002DBDC.s")
+void func_8002DBDC(float target,float *angle) {
+    float current=*angle;
+    float delta=target-current;
+    if (delta > 180.0f) {
+        *angle=current+360.0f;
+        return;
+    }
+    if (delta < -180.0f) *angle=current-360.0f;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002DC48.s")
+void func_8002DC48(float *angle) {
+    while (*angle < 0.0f) *angle += 360.0f;
+    while (*angle >= 360.0f) *angle -= 360.0f;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002DCC8.s")
 
@@ -867,7 +937,20 @@ void func_8001D768(s32 arg0, s32 *arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002E724.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002F234.s")
+typedef struct { u8 pad[0x14]; u8 queue[0x24]; void *synth; } T024VoicePlayer;
+typedef struct { u8 pad[0xC]; u8 synthVoice[0x32]; u8 flags; } T024FreeVoice;
+extern T024VoicePlayer *D_8004827C;
+extern void alSynStopVoice(void *,void *),alSynFreeVoice(void *,void *);
+extern void func_8002F5F0(T024FreeVoice *);
+extern void func_8002F31C(void *,void *,u16);
+void func_8002F234(T024FreeVoice *voice) {
+    if (voice->flags & 4) {
+        alSynStopVoice(D_8004827C->synth,voice->synthVoice);
+        alSynFreeVoice(D_8004827C->synth,voice->synthVoice);
+    }
+    func_8002F5F0(voice);
+    func_8002F31C(D_8004827C->queue,voice,0xFFFF);
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002F2B0.s")
 
@@ -879,9 +962,16 @@ void func_8001D768(s32 arg0, s32 *arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002F5F0.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002F6C4.s")
+typedef struct { u8 pad[0x36]; u8 value; } T024Value;
+void func_8002F6C4(T024Value *p, u8 value) {
+    if (p) p->value = value;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002F6DC.s")
+typedef struct { u8 pad[0x3F]; u8 value; } T024Result;
+s32 func_8002F6DC(T024Result *p) {
+    if (p) return p->value;
+    return 0;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002F6F4.s")
 
@@ -889,15 +979,36 @@ void func_8001D768(s32 arg0, s32 *arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002F944.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002F9FC.s")
+extern void func_8002F944(s32);
+void func_8002F9FC(void) {
+    func_8002F944(1);
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002FA1C.s")
+extern void func_8002F944(s32);
+void func_8002FA1C(void) {
+    func_8002F944(17);
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002FA3C.s")
+extern void func_8002F944(s32);
+void func_8002FA3C(void) {
+    func_8002F944(3);
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002FA5C.s")
+typedef struct { s16 type; s32 object; s32 value; s32 pad; } T024Event;
+extern T024VoicePlayer *D_8004827C;
+extern void alEvtqPostEvent(void *, void *, s32);
+void func_8002FA5C(s32 object, s16 type, s32 value) {
+    T024Event event;
+    event.type=type;
+    event.object=object;
+    event.value=value;
+    if (object) alEvtqPostEvent(D_8004827C->queue,&event,0);
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002FAA0.s")
+extern u16 *D_80069928;
+u16 func_8002FAA0(u8 index) {
+    return D_80069928[index];
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002FAC0.s")
 

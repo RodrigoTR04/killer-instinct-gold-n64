@@ -48,3 +48,11 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Spot-checked drafts: these are real hand-shaped attempts with typedefs, not raw m2c. Imported the 51 drafts that are still GLOBAL_ASM, plus REPORT.md. Skipped the worker's build/diff logs, attempt.py and the json files. Added 51 T2 rows.
 - Low yield. Remaining diffs are mostly regalloc/scheduling; func_801BF720 and func_801BF914 need jump tables (rodata owned by asm). These are candidates for a later focused pass, not for re-assignment as T1.
 - M1 = M2 = 9,588 / 319,544 B (3.00%).
+
+## 2026-10-19 — T-024 vetted (main 0x80028000–0x80030000)
+- Worker reported 19/78 matched and 59 DRAFT, with all 78 attempted. The diff removed exactly 19 in-range GLOBAL_ASM stubs and nothing else; no asm tricks. It adds local T024* typedefs; formatting is terse (FU-13).
+- Applied to HEAD (worktree base 411befe) in a clean /tmp worktree. The build is byte-identical, T4 88 → 107.
+- Imported the 59 drafts that are still GLOBAL_ASM, plus README.md → 59 T2 rows.
+- Near-misses worth a later pass: func_8002AB64 (body matches, only a trailing 8-byte alignment issue), and several 2–4-word diffs (func_8002B3A8, func_8002F8F8, func_8002B95C, func_8002970C, func_8002B7E0, func_8002B1EC, func_8002B91C, func_8002B500, func_8002DCC8).
+- Worker flag: the existing func_8002FFDC prototype (s16 forwarding args) outside its range needs review → FU-13.
+- M1 = M2 = 10,876 / 319,544 B (3.40%).

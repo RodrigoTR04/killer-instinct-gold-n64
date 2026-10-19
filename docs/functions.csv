@@ -252,84 +252,84 @@ main,func_80026AA0,0x80026AA0,0x17140,152,T1,
 main,func_80026B38,0x80026B38,0x171D8,4708,T1,
 main,func_80027DA0,0x80027DA0,0x18440,124,T1,
 main,func_80027E1C,0x80027E1C,0x184BC,936,T1,
-main,func_800281C4,0x800281C4,0x18864,108,T1,
-main,func_80028230,0x80028230,0x188D0,976,T1,
-main,func_80028600,0x80028600,0x18CA0,264,T1,
-main,func_80028708,0x80028708,0x18DA8,204,T1,
-main,func_800287D4,0x800287D4,0x18E74,556,T1,
-main,func_80028A00,0x80028A00,0x190A0,3340,T1,
-main,func_8002970C,0x8002970C,0x19DAC,100,T1,
-main,func_80029770,0x80029770,0x19E10,52,T1,
-main,func_800297A4,0x800297A4,0x19E44,780,T1,
-main,func_80029AB0,0x80029AB0,0x1A150,304,T1,
-main,func_80029BE0,0x80029BE0,0x1A280,1060,T1,
-main,func_8002A004,0x8002A004,0x1A6A4,324,T1,
-main,func_8002A150,0x8002A150,0x1A7F0,68,T1,
-main,func_8002A194,0x8002A194,0x1A834,12,T1,
-main,func_8002A1A0,0x8002A1A0,0x1A840,60,T1,
-main,func_8002A1E0,0x8002A1E0,0x1A880,116,T1,
-main,func_8002A254,0x8002A254,0x1A8F4,172,T1,
-main,func_8002A300,0x8002A300,0x1A9A0,268,T1,
-main,func_8002A40C,0x8002A40C,0x1AAAC,220,T1,
-main,func_8002A4F0,0x8002A4F0,0x1AB90,920,T1,
-main,func_8002A888,0x8002A888,0x1AF28,60,T1,
-main,func_8002A8C4,0x8002A8C4,0x1AF64,60,T1,
-main,func_8002A900,0x8002A900,0x1AFA0,220,T1,
-main,func_8002A9DC,0x8002A9DC,0x1B07C,188,T1,
-main,func_8002AA98,0x8002AA98,0x1B138,84,T1,
-main,func_8002AAEC,0x8002AAEC,0x1B18C,84,T1,
-main,func_8002AB40,0x8002AB40,0x1B1E0,36,T1,
-main,func_8002AB64,0x8002AB64,0x1B204,36,T1,
-main,func_8002AB90,0x8002AB90,0x1B230,852,T1,
-main,func_8002AEE4,0x8002AEE4,0x1B584,336,T1,
-main,func_8002B034,0x8002B034,0x1B6D4,440,T1,
-main,func_8002B1EC,0x8002B1EC,0x1B88C,64,T1,
-main,func_8002B22C,0x8002B22C,0x1B8CC,380,T1,
-main,func_8002B3A8,0x8002B3A8,0x1BA48,56,T1,
-main,func_8002B3E0,0x8002B3E0,0x1BA80,280,T1,
-main,func_8002B500,0x8002B500,0x1BBA0,124,T1,
-main,func_8002B57C,0x8002B57C,0x1BC1C,368,T1,
-main,func_8002B6EC,0x8002B6EC,0x1BD8C,36,T1,
-main,func_8002B710,0x8002B710,0x1BDB0,196,T1,
-main,func_8002B7E0,0x8002B7E0,0x1BE80,208,T1,
-main,func_8002B8B0,0x8002B8B0,0x1BF50,108,T1,
-main,func_8002B91C,0x8002B91C,0x1BFBC,64,T1,
-main,func_8002B95C,0x8002B95C,0x1BFFC,88,T1,
-main,func_8002B9B4,0x8002B9B4,0x1C054,316,T1,
-main,func_8002BAF0,0x8002BAF0,0x1C190,132,T1,
-main,func_8002BB74,0x8002BB74,0x1C214,92,T1,
-main,func_8002BBD0,0x8002BBD0,0x1C270,7668,T1,
-main,func_8002D9C4,0x8002D9C4,0x1E064,536,T1,
-main,func_8002DBDC,0x8002DBDC,0x1E27C,108,T1,
-main,func_8002DC48,0x8002DC48,0x1E2E8,128,T1,
-main,func_8002DCC8,0x8002DCC8,0x1E368,268,T1,
-main,func_8002DDD4,0x8002DDD4,0x1E474,452,T1,
-main,func_8002DF98,0x8002DF98,0x1E638,244,T1,
-main,func_8002E08C,0x8002E08C,0x1E72C,184,T1,
-main,func_8002E150,0x8002E150,0x1E7F0,844,T1,
-main,func_8002E4A0,0x8002E4A0,0x1EB40,480,T1,
-main,func_8002E680,0x8002E680,0x1ED20,164,T1,
-main,func_8002E724,0x8002E724,0x1EDC4,2832,T1,
-main,func_8002F234,0x8002F234,0x1F8D4,124,T1,
-main,func_8002F2B0,0x8002F2B0,0x1F950,108,T1,
-main,func_8002F31C,0x8002F31C,0x1F9BC,192,T1,
-main,func_8002F3DC,0x8002F3DC,0x1FA7C,128,T1,
-main,func_8002F45C,0x8002F45C,0x1FAFC,404,T1,
-main,func_8002F5F0,0x8002F5F0,0x1FC90,212,T1,
-main,func_8002F6C4,0x8002F6C4,0x1FD64,24,T1,
-main,func_8002F6DC,0x8002F6DC,0x1FD7C,24,T1,
-main,func_8002F6F4,0x8002F6F4,0x1FD94,516,T1,
-main,func_8002F8F8,0x8002F8F8,0x1FF98,76,T1,
-main,func_8002F944,0x8002F944,0x1FFE4,184,T1,
-main,func_8002F9FC,0x8002F9FC,0x2009C,32,T1,
-main,func_8002FA1C,0x8002FA1C,0x200BC,32,T1,
-main,func_8002FA3C,0x8002FA3C,0x200DC,32,T1,
-main,func_8002FA5C,0x8002FA5C,0x200FC,68,T1,
-main,func_8002FAA0,0x8002FAA0,0x20140,32,T1,
-main,func_8002FAC0,0x8002FAC0,0x20160,180,T1,
-main,func_8002FB80,0x8002FB80,0x20220,544,T1,
-main,func_8002FDA0,0x8002FDA0,0x20440,572,T1,
-main,func_8002FFDC,0x8002FFDC,0x2067C,68,T1,
+main,func_800281C4,0x800281C4,0x18864,108,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_80028230,0x80028230,0x188D0,976,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_80028600,0x80028600,0x18CA0,264,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_80028708,0x80028708,0x18DA8,204,T4,
+main,func_800287D4,0x800287D4,0x18E74,556,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_80028A00,0x80028A00,0x190A0,3340,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002970C,0x8002970C,0x19DAC,100,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_80029770,0x80029770,0x19E10,52,T4,
+main,func_800297A4,0x800297A4,0x19E44,780,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_80029AB0,0x80029AB0,0x1A150,304,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_80029BE0,0x80029BE0,0x1A280,1060,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002A004,0x8002A004,0x1A6A4,324,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002A150,0x8002A150,0x1A7F0,68,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002A194,0x8002A194,0x1A834,12,T4,
+main,func_8002A1A0,0x8002A1A0,0x1A840,60,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002A1E0,0x8002A1E0,0x1A880,116,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002A254,0x8002A254,0x1A8F4,172,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002A300,0x8002A300,0x1A9A0,268,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002A40C,0x8002A40C,0x1AAAC,220,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002A4F0,0x8002A4F0,0x1AB90,920,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002A888,0x8002A888,0x1AF28,60,T4,
+main,func_8002A8C4,0x8002A8C4,0x1AF64,60,T4,
+main,func_8002A900,0x8002A900,0x1AFA0,220,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002A9DC,0x8002A9DC,0x1B07C,188,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002AA98,0x8002AA98,0x1B138,84,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002AAEC,0x8002AAEC,0x1B18C,84,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002AB40,0x8002AB40,0x1B1E0,36,T4,
+main,func_8002AB64,0x8002AB64,0x1B204,36,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002AB90,0x8002AB90,0x1B230,852,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002AEE4,0x8002AEE4,0x1B584,336,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002B034,0x8002B034,0x1B6D4,440,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002B1EC,0x8002B1EC,0x1B88C,64,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002B22C,0x8002B22C,0x1B8CC,380,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002B3A8,0x8002B3A8,0x1BA48,56,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002B3E0,0x8002B3E0,0x1BA80,280,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002B500,0x8002B500,0x1BBA0,124,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002B57C,0x8002B57C,0x1BC1C,368,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002B6EC,0x8002B6EC,0x1BD8C,36,T4,
+main,func_8002B710,0x8002B710,0x1BDB0,196,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002B7E0,0x8002B7E0,0x1BE80,208,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002B8B0,0x8002B8B0,0x1BF50,108,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002B91C,0x8002B91C,0x1BFBC,64,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002B95C,0x8002B95C,0x1BFFC,88,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002B9B4,0x8002B9B4,0x1C054,316,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002BAF0,0x8002BAF0,0x1C190,132,T4,
+main,func_8002BB74,0x8002BB74,0x1C214,92,T4,
+main,func_8002BBD0,0x8002BBD0,0x1C270,7668,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002D9C4,0x8002D9C4,0x1E064,536,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002DBDC,0x8002DBDC,0x1E27C,108,T4,
+main,func_8002DC48,0x8002DC48,0x1E2E8,128,T4,
+main,func_8002DCC8,0x8002DCC8,0x1E368,268,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002DDD4,0x8002DDD4,0x1E474,452,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002DF98,0x8002DF98,0x1E638,244,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002E08C,0x8002E08C,0x1E72C,184,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002E150,0x8002E150,0x1E7F0,844,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002E4A0,0x8002E4A0,0x1EB40,480,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002E680,0x8002E680,0x1ED20,164,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002E724,0x8002E724,0x1EDC4,2832,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002F234,0x8002F234,0x1F8D4,124,T4,
+main,func_8002F2B0,0x8002F2B0,0x1F950,108,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002F31C,0x8002F31C,0x1F9BC,192,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002F3DC,0x8002F3DC,0x1FA7C,128,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002F45C,0x8002F45C,0x1FAFC,404,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002F5F0,0x8002F5F0,0x1FC90,212,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002F6C4,0x8002F6C4,0x1FD64,24,T4,
+main,func_8002F6DC,0x8002F6DC,0x1FD7C,24,T4,
+main,func_8002F6F4,0x8002F6F4,0x1FD94,516,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002F8F8,0x8002F8F8,0x1FF98,76,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002F944,0x8002F944,0x1FFE4,184,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002F9FC,0x8002F9FC,0x2009C,32,T4,
+main,func_8002FA1C,0x8002FA1C,0x200BC,32,T4,
+main,func_8002FA3C,0x8002FA3C,0x200DC,32,T4,
+main,func_8002FA5C,0x8002FA5C,0x200FC,68,T4,
+main,func_8002FAA0,0x8002FAA0,0x20140,32,T4,
+main,func_8002FAC0,0x8002FAC0,0x20160,180,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002FB80,0x8002FB80,0x20220,544,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002FDA0,0x8002FDA0,0x20440,572,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002FFDC,0x8002FFDC,0x2067C,68,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
 main,func_80030020,0x80030020,0x206C0,188,T1,
 main,func_800300DC,0x800300DC,0x2077C,316,T1,
 main,func_80030218,0x80030218,0x208B8,8,T1,
