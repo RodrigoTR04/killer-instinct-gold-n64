@@ -49,7 +49,7 @@ Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html)
 - ~~FU-7~~ (T-012): ovl_7E00 text has 12.5k `.word` lines (≈50 KB, e.g. func_801ADE68) that are valid MIPS but spimdisasm fell back to data → fix splat/symbol hints so all 0x16640 text bytes are functions.
 - FU-8: opaque.bin still carries the original compressed code bytes under the spliced slots (overwritten at splice) → split kig.us.yaml so slots are not sourced from baserom; later support relocation of the 0x7DF0 table for non-matching builds.
 - ~~FU-9~~ (T-016): ovl_7E00 has inline data pools inside text (handwritten-asm signature) → determine which ovl_7E00 functions are handwritten asm vs IDO C before assigning decomp work there. → 162 asm excluded; 7 tiny leaves (444 B) stay T1/uncertain.
-- FU-10: decode the 13 stage graphics packets (0x7E60–0x7EC0) + remaining 357 frames; update assets.csv class labels per T-014 corrections.
+- ~~FU-10~~ (T-017; 23 stage textures + 222 sprite frames still undecoded, documented in gfx_format.md): decode the 13 stage graphics packets (0x7E60–0x7EC0) + remaining 357 frames; update assets.csv class labels per T-014 corrections.
 
 ## Task board
 Status values: Todo · In progress (owner) · Review · Done (verified by lead) · Rejected
@@ -73,7 +73,7 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | T-014 | Packed-graphics format RE (main table +00 records, 825 self-sized records, palettes, 0x9900 RGBA5551 images) → decoder + PNG previews | sol-C4 | Done | docs/gfx_format.md, tools/analysis/gfx_decode.py | read-only, no build edits |
 | T-015 | C build infra (IDO 5.3 -O2 -mips2, INCLUDE_ASM, src/ per image) + land T-010's 10 matched game fns as first T4 | sol-A6 | Done (verified) | Makefile, kig.*.yaml, src/, include/, symbol_addrs*.txt | |
 | T-016 | FU-9: classify ovl_7E00 functions handwritten-asm vs IDO-C (read-only), recommend exclusions | sol-C5 | Done (verified) | docs/ovl_7E00_asm.md, tools/analysis/data/ovl_7E00_asm.csv | lead applies status.csv changes |
-| T-017 | FU-10: decode 13 stage packets (table 0x7E60–0x7EC0) + remaining frames; fix assets.csv labels per T-014 | sol-C6 | In progress (r1 auto-resumed 21:0x after limit reset) | docs/gfx_format.md (stage section), tools/analysis/gfx_decode.py, tools/analysis/assets.py, tools/analysis/data/assets.csv | read-only on build |
+| T-017 | FU-10: decode 13 stage packets (table 0x7E60–0x7EC0) + remaining frames; fix assets.csv labels per T-014 | sol-C6 | Done (verified) | docs/gfx_format.md (stage section), tools/analysis/gfx_decode.py, tools/analysis/assets.py, tools/analysis/data/assets.csv | read-only on build |
 | T-018 | FU-4 research: rebuild SM64-US libultra objects (IDO 5.3 -O1 -mips2, asm -mips3 -32) in scratch and compare every excluded libultra fn vs ROM bytes (reloc-masked) | sol-B6 | In progress | tools/scratch/libultra/, docs/libultra_rebuild.md | scratch only; no Makefile/yaml/src/status edits |
 | T-019 | Match ovl_7DF8 unit 0 (src/ovl_7DF8/ovl_7DF8.c, 0x801ABB20–0x801ADEA0): 25 T1 fns, 8,616 B | sol-A7 | In progress | src/ovl_7DF8/ovl_7DF8.c, tools/scratch/nonmatching/T-019/ | worktree isolation |
 | T-020 | Match main 0x8000F960–0x80018000 (src/main/main.c): 49 T1 fns, 34,500 B | sol-C7 | In progress | src/main/main.c (only fns in range), tools/scratch/nonmatching/T-020/ | worktree isolation |

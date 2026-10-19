@@ -218,7 +218,7 @@ The decoder uses only stdlib (`zlib`, `struct`, etc.), verifies the complete ROM
 
 The generated manifest records dimensions, origins, source ROM addresses, record IDs, frame offsets, image class, compressed-child status and class totals. Failed frame candidates are omitted from PNG output and reflected in the printed totals. The source families in the summary describe container ownership; the printed image-class counts describe actual decoding algorithms.
 
-Visual inspection confirmed recognizable colored character poses and the CI8 portraits. The completed export has these counts:
+Visual inspection confirmed recognizable colored character poses and the CI8 portraits. The T-014 baseline (superseded by T-017 below) had these counts:
 
 | Container family | Records with ≥1 image / total | Completely decoded records | Unique frame payloads decoded / total |
 |---|---:|---:|---:|
@@ -238,4 +238,140 @@ Inspected examples:
 - `build/gfx/byte_spans/8F6AE0_0836_id002_00010.png`: clean curved UI bar outline.
 - `build/gfx/alpha_masks/008B70_0000_id199_00E20.png`: coherent fighter silhouette. Companion mask normalization is a preview, not a colored sprite.
 
-No stage pieces have been visually validated. Character identities and stage names are deliberately not assigned from appearances alone.
+T-017 additionally inspected stage texture samples and the auxiliary skull sprite. Character identities and stage names are deliberately not assigned from appearances alone.
+
+## Stage packets (T-017)
+
+Verified from `build/segments/main.bin`, disassembled with rabbitizer in
+`/tmp/kig-t017/`; no generated `asm/` input. The loader is `80012A8C`
+(DMA `80012AE4`, inflate `80012B0C`). Boot slots `7E60–7EC0` inflate to
+`802D4000`; slot 12 duplicates slot 6. These streams are outside the inventory's
+`7ED0–A94D80` depth-0 accounting region.
+
+There is **no single byte prefix/header before a conventional display list**.
+`8002FB80` expands a counted stream of tagged commands. The high two bits
+of each tag select the following format; the packed input can be unaligned.
+
+| Tag high bits | Input bytes | Expansion (verified code) |
+|---|---:|---|
+| 00 | 9 | Ignore tag, copy next eight bytes as one GBI command (`8002FC54–8002FC9C`) |
+| 01 | 4 | Emit FD; low six tag bits index a texture destination pointer array; next three bytes become the remaining command header (`8002FD2C–8002FD7C`) |
+| 10 | 2 | Emit BF triangle: tag bits 5:4 are the flag; remaining three nibbles are vertex indices multiplied by ten (`8002FBF4–8002FC48`) |
+| 11 | 3 | Emit 04 vertex load: address = vertex destination + `(tag&63)*4096 + byte1*16`; byte2 supplies count/cache header (`8002FCA0–8002FD28`) |
+
+`8002FFDC` combines command expansion with vertex expansion at `8002FDA0`.
+Arguments are packed-command pointer/count, packed-vertex pointer/count,
+texture destination pointer array, vertex destination, and display-list output.
+`8001C0E4` batches these calls using six main-image arrays plus a batch count.
+Stage initialization callbacks come from `800451EC`; decoder `STAGE_CALLS`
+records their actual call addresses and argument constants. For example stage 11
+calls `8002FFDC` at `80019830`: commands `802D4000`, count 84, vertices
+`802D4158`, count 116, texture destinations `802D6098`. Other stages use the
+batch wrapper (stage 0 at `80018E38`). Boundaries come from these consumers,
+not a scan for plausible GBI opcodes.
+
+Vertices are reconstructed as standard 16-byte N64 vertices. Each starts with
+a BE u16 flag word. Successive low two-bit fields encode XYZ: 0 reuses the
+previous coordinate, 1/2 subtract a signed byte, 3 subtracts a BE halfword
+(modulo 16 bits), as shown at `8002FE10–8002FEB4`. The next two single bits
+conditionally read BE halfwords for ST; the next four bits conditionally read
+RGBA bytes (`8002FEB8–8002FFC0`). Absent fields reuse the previous vertex;
+initial state is the 16-byte record at `80048290`. Geometry exports contain XYZ
+and triangles with validated cache references. Each batch is a separate local
+coordinate space: **OBJ omits runtime matrices, object placement, animation,
+materials, UVs and visibility ordering** and is not a rendered stage.
+
+`80030020` reads parallel source/destination pointer arrays and BE u16 size/type
+entries. High three bits select the decoder; low thirteen bits are its count.
+Type 0 calls `800300DC` and emits that many RGBA5551 halfwords. For an even
+first byte, read a second byte and emit `(first<<8)+((second&0xC0)<<1)+
+(second&0x3F)`. For an odd first byte, copy one previous halfword, or two when
+bit7 is set; backward distance is `((first>>1)&63)+1`. Overlapping copies are
+intentional. This is a separate texture compression layer inside the inflated
+stage packet. RGBA16 PNG dimensions are obtained from F2 tile-size commands
+associated with each tagged FD reference, and accepted only when their area
+matches the decoded texel count. No arbitrary width is silently guessed.
+
+Current output: **368/391 texture entries**, plus **13 OBJ files**, representing
+12 unique packets. There are 18 type-1 entries dispatched to `8002A40C`:
+that routine reads an eight-byte compressed header, builds decoder state via
+`8002A254/80032750/8002A1E0`, and emits bytes using `800327E8`; it is not the
+RGBA16 backreference format. They remain explicitly rejected. Five type-0
+entries have no F2 dimensions in the traced initialization lists; these also
+remain rejected despite their texels decoding. `manifest.json` gives every
+texture's source offset, type, count, observed dimensions and rejection reason.
+Stage 3's callback passes batch count 15 (`80015F14`) for arrays with fourteen
+valid packet pointers; the fifteenth reads adjacent count data as pointers.
+The exporter rejects and records that batch rather than treating arbitrary
+memory as geometry. Whether this is a runtime bug or depends on state outside
+this static path is unresolved.
+
+Hypotheses/limits: visual stage names are not assigned. Tile dimensions are
+storage views, not proof of intended material orientation. Runtime code can
+reuse textures in additional lists; the five absent dimensions require tracing
+those paths. Type-1 texture recovery and exact stage rendering remain open.
+
+### Auxiliary sprite containers and remaining frame failures (T-017)
+
+The previous decoder selected Huffman tables only when the record's ROM address
+fell inside a main-table +00 interval. That excluded character auxiliary records
+loaded by immediate-address DMA, incorrectly routing them through byte-span UI
+and mask decoders. These are valid record directories, not corrupt headers.
+T-017 adds the following associations:
+
+| ROM container range | Main-table Huffman/palette index |
+|---|---:|
+| `013200–01D640` | 2 |
+| `01D640–024D60` | 3 |
+| `024D60–02ECB0` | 4 |
+| `049FD0–0566D0` | record ID 0–10 selects character index |
+| `1EB6D0–1F3200` | 1 |
+| `2C2280–2CF0A0` | 2 |
+| `469660–470390` | 4 |
+| `53CC40–54D720` | 5 |
+
+Evidence distinction: immediate container bounds and loader branches are verified
+code facts (`80024760–80024964` selects indices 1/2/4/5 for the four relevant
+auxiliary groups). The broader table associations were also checked by attempting
+all fourteen tree sets on each container's first frame: exactly one distinct
+character tree decodes the full frame within the existing three-byte padding
+bound. The eleven records at `049FD0–0566D0` instead select the tree by their
+record ID (0–10); using tree zero for the whole container fails on IDs 1–10. Palette-zero selection and recognizable output support
+these associations; this is static format inference, not an observed runtime
+palette trace. A decoded `013200`, record 153 frame at +5C is a recognizable
+metal skull with glowing eyes. The decoder also handles consecutive blank-row
+FF controls by advancing a row for each (`800312C4–80031324`).
+
+Every rejected frame is now individually listed in `build/gfx/manifest.json`:
+ROM record location, record ID, frame offset, extent, primary decoder error and
+fallback mask error. This preserves diagnostic evidence rather than silently
+counting skipped records. A failed Huffman span or unread input is not accepted
+merely by relaxing bounds: that could produce plausible but incorrect pixels.
+The paired/effect path at `8001DE5C` and its alternate consumption rules still
+require tracing before those frames can be claimed as decoded.
+
+
+T-017 final coverage: **839/842 sprite records**, **725 complete**, and
+**6,147/6,369 distinct sprite frames (96.51%)**: 135 additional frames and
+26 additional records recovered. Auxiliary-inclusive character containers:
+830/833 records, 716 complete, 6,078/6,300 frames; other/UI containers:
+9/9 records complete, 69/69 frames. With ten portraits and 368 stage textures,
+the manifest contains **6,525 PNG entries**. Old output files can remain in an
+existing output directory; the manifest is the authoritative set for this run.
+
+The remaining **222 frames** fail the primary Huffman decode as follows:
+138 exhaust their bounded frame input while reading bits; 84 request a span
+past the logical row width. The fallback mask decoder also rejects all of them
+(142 row overruns, 59 out-of-range nibble pairs, 21 invalid row extents).
+No frame directories fail parsing. The only wholly rejected records are ROM
+`2D9B80` (ID 3, four frames), `38423C` (ID 112, three frames), and `385868`
+(ID 113, three frames). These have valid dimensions/directories but incompatible
+span consumption under the implemented color/mask paths. Assigning a specific
+alternate format to them is still a hypothesis, not a verified result.
+
+Sanity checks: viewed stage 0 texture 00, stage 5 texture 05 and recovered
+`013200` ID 153 frame +5C. Stage output contains 22,493 local vertices and
+13,037 triangles including the duplicated slot. Six stage entries have every
+texture decoded; geometry bounds pass for every exported triangle. Inventory
+regeneration was byte-identical, and all 1,021 depth-0 intervals partition
+exactly 11,062,960 bytes from `7ED0` through `A94D80`.

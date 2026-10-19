@@ -81,8 +81,15 @@ def huffman_frame(data, trees, palette):
     p = reader.token()
     if p == 0xf3:  # Initial extended offset has a different escape from later skips.
         p = 254 + reader.token()
-    while p == 255 and p < w*h:
-        p = w + reader.token()
+    row_start = 0
+    while p == 255:
+        row_start += w
+        if row_start >= w*h:
+            p = row_start
+            break
+        p = reader.token()
+    else:
+        p += row_start
     for _ in range(w*h+1):
         if p >= w*h:
             break
@@ -102,6 +109,11 @@ def huffman_frame(data, trees, palette):
             if p >= w*h:
                 break
             skip = reader.token()
+            while skip == 255:
+                p += w
+                if p >= w*h:
+                    break
+                skip = reader.token()
             if skip == 254:
                 skip += reader.token()
         p += skip
@@ -217,6 +229,159 @@ def inflate(rom, start, end):
     return zlib.decompress(rom[start+2:end], -15)
 
 
+
+# Callback arguments verified in main; arrays are read from the ROM's main image.
+# (call instruction, geometry arguments, texture arguments), in boot-table order.
+STAGE_CALLS = [(2147585592,
+  [2147769024, 2147769060, 2147769080, 2147769116, 2150495264, 2147769136, 2147769172, 9],
+  [2150495324, 2150495264, 2150495384, 15]),
+ (2147565612,
+  [2147767156, 2147767208, 2147767236, 2147767288, 2150542328, 2147767316, 2147767368, 13],
+  [2150542484, 2150542328, 2150542640, 39]),
+ (2147583508,
+  [2147768944, 2147768960, 2147768968, 2147768984, 2150557928, 2147768992, 2147769008, 4],
+  [2150558092, 2150557928, 2150558256, 41]),
+ (2147573556,
+  [2147767528, 2147767584, 2147767612, 2147767668, 2150530676, 2147767696, 2147767752, 15],
+  [2150530796, 2150530676, 2150530916, 30]),
+ (2147586464,
+  [2147769208, 2147769220, 2147769228, 2147769240, 2150493872, 2147769248, 2147769260, 3],
+  [2150493944, 2150493872, 2150494016, 18]),
+ (2147564320,
+  [2147766816, 2147766880, 2147766912, 2147766976, 2150564512, 2147767008, 2147767072, 16],
+  [2150564728, 2150564512, 2150564944, 54]),
+ (2147575592,
+  [2147767856, 2147767940, 2147767984, 2147768068, 2150534816, 2147768112, 2147768196, 21],
+  [2150534952, 2150534816, 2150535088, 34]),
+ (2147577528,
+  [2147768280, 2147768316, 2147768336, 2147768372, 2150515944, 2147768392, 2147768428, 9],
+  [2150516044, 2150515944, 2150516144, 25]),
+ (2147580296,
+  [2147768464, 2147768512, 2147768536, 2147768584, 2150547372, 2147768608, 2147768656, 12],
+  [2150547576, 2150547372, 2150547780, 51]),
+ (2147582844,
+  [2147768704, 2147768752, 2147768776, 2147768824, 2150535548, 2147768848, 2147768896, 12],
+  [2150535688, 2150535548, 2150535828, 35]),
+ (2147587788,
+  [2147769272, 2147769284, 2147769292, 2147769304, 2150483780, 2147769312, 2147769324, 3],
+  [2150483828, 2150483780, 2150483876, 12]),
+ (2147588144,
+  [2150449152, 84, 2150449496, 116, 2150457496, 2149013648, 2149012976, None],
+  [2150457508, 2150457496, 2150457520, 3]),
+ (2147575592,
+  [2147767856, 2147767940, 2147767984, 2147768068, 2150534816, 2147768112, 2147768196, 21],
+  [2150534952, 2150534816, 2150535088, 34])]
+
+
+def stage_packets(rom, main, outdir, manifest):
+    def read(addr, fmt, data=main, base=0x8000f960):
+        return struct.unpack_from(fmt, data, addr-base)[0]
+    reports = []
+    for stage, (call, args, texargs) in enumerate(STAGE_CALLS):
+        start, end = struct.unpack_from('>II', rom, 0x7e60+stage*8)
+        data = inflate(rom, start, end)
+        def packet(addr, fmt):
+            return read(addr, fmt, data, 0x802d4000)
+        srcarray, dstarray, sizearray, nt = texargs
+        textures = []
+        for i in range(nt):
+            source = packet(srcarray+i*4, '>I')-0x802d4000
+            size = packet(sizearray+i*2, '>H')
+            textures.append(dict(source=source, type=size>>13, count=size&8191))
+        if args[7] is None:
+            batches = [args[:7]]
+        else:
+            batches = [[read(args[0]+i*4, '>I'), read(args[1]+i*2, '>H'),
+                        read(args[2]+i*4, '>I'), read(args[3]+i*2, '>H'), args[4],
+                        read(args[5]+i*4, '>I'), read(args[6]+i*4, '>I')]
+                       for i in range(args[7])]
+        vertices, faces, dimensions_by_slot = [], [], {}
+        invalid_batches = []
+        seed = list(struct.unpack_from('>8h', main, 0x80048290-0x8000f960))
+        for source, count, vs, nv, _, _, _ in batches:
+            if not (0x802d4000 <= source < 0x802d4000+len(data) and
+                    0x802d4000 <= vs < 0x802d4000+len(data)):
+                invalid_batches.append([source, count, vs, nv])
+                continue
+            # 8002FDA0: two-bit XYZ deltas, followed by optional ST/RGBA fields.
+            pos = vs-0x802d4000
+            previous = seed[:]
+            local = []
+            for _ in range(nv):
+                flags = struct.unpack_from('>H', data, pos)[0]; pos += 2
+                v = previous[:]
+                for axis in range(3):
+                    mode = flags & 3; flags >>= 2
+                    if mode in (1, 2):
+                        v[axis] -= struct.unpack_from('>b', data, pos)[0]; pos += 1
+                    elif mode == 3:
+                        delta = struct.unpack_from('>H', data, pos)[0]; pos += 2
+                        v[axis] -= delta
+                    v[axis] = (v[axis]+32768)%65536-32768
+                # Modes 1/2 share the signed-byte branch; mode 3 uses a halfword.
+                for field in (4, 5):
+                    if flags & 1: v[field] = struct.unpack_from('>h', data, pos)[0]; pos += 2
+                    flags >>= 1
+                # RGBA bytes do not affect exported positions.
+                for field in range(4):
+                    if flags & 1: pos += 1
+                    flags >>= 1
+                local.append(tuple(v[:3])); previous = v
+            first = len(vertices); vertices.extend(local)
+            pos = source-0x802d4000; cache = 0; slot = None
+            for _ in range(count):
+                tag = data[pos]; kind = tag & 0xc0
+                if kind == 0:
+                    w0,w1 = struct.unpack_from('>II', data, pos+1); pos += 9
+                    if w0>>24 == 0xf2 and slot is not None:
+                        w = ((w1>>12 & 4095)-(w0>>12 & 4095))//4+1
+                        h = ((w1 & 4095)-(w0 & 4095))//4+1
+                        dimensions_by_slot.setdefault(slot, set()).add((w,h))
+                elif kind == 0x40:
+                    slot = tag & 63; pos += 4
+                elif kind == 0xc0:
+                    cache = (tag & 63)*256+data[pos+1]; pos += 3
+                else:
+                    indices = (tag&15, data[pos+1]>>4, data[pos+1]&15)
+                    face = tuple(first+cache+j+1 for j in indices)
+                    if all(first < j <= first+nv for j in face): faces.append(face)
+                    else: raise ValueError('stage triangle outside vertex batch')
+                    pos += 2
+        stage_dir = Path('stages')/f'stage_{stage:02d}'
+        obj = outdir/stage_dir/'geometry.obj'; obj.parent.mkdir(parents=True, exist_ok=True)
+        obj.write_text('# Static local geometry; runtime transforms omitted.\n'+
+                       ''.join('v %d %d %d\n'%v for v in vertices)+
+                       ''.join('f %d %d %d\n'%f for f in faces))
+        for i,t in enumerate(textures):
+            dims = sorted(dimensions_by_slot.get(i, []))
+            t['tile_dimensions'] = dims
+            if t['type'] != 0:
+                t['skipped'] = 'context-coded byte texture (8002A40C); not RGBA16'
+                continue
+            pos = t['source']; values = []
+            while len(values) < t['count']:
+                a = data[pos]; pos += 1
+                if a & 1:
+                    distance = ((a>>1)&63)+1
+                    if distance > len(values): raise ValueError('texture backreference before start')
+                    for _ in range(2 if a&128 else 1): values.append(values[-distance])
+                else:
+                    c = data[pos]; pos += 1
+                    values.append((a<<8)+((c&192)<<1)+(c&63))
+            matches = [(w,h) for w,h in dims if w*h == len(values)]
+            if not matches:
+                t['skipped'] = 'tile dimensions do not match decoded texel count'
+                continue
+            w,h = matches[0]
+            path = stage_dir/f'texture_{i:02d}.png'
+            png(outdir/path,w,h,b''.join(rgba5551(v,255 if v&1 else 0) for v in values))
+            manifest.append(dict(path=str(path),width=w,height=h,format='stage_rgba16',stage=stage))
+            t['path'] = str(path)
+        reports.append(dict(stage=stage,table=f'{0x7e60+stage*8:04X}',callback_call=f'{call:08X}',
+                            vertices=len(vertices),triangles=len(faces),textures=textures, invalid_batches=invalid_batches))
+    return reports
+
+
 def decode(rom, outdir):
     main_start, main_end = struct.unpack_from('>II', rom, 0x7df0)
     main = inflate(rom, main_start, main_end)
@@ -244,10 +409,21 @@ def decode(rom, outdir):
                     pos += size
     summary = collections.defaultdict(collections.Counter)
     manifest = []
+    rejected = []
     # Fixed UI palette used explicitly by callers of 800238C4.
     ui_palette = main[0x80047c38-0x8000f960:0x80047d38-0x8000f960+1]
     for ri, (start, record, compressed) in enumerate(records):
         owner = next((i for i, g in enumerate(groups) if g[0] <= start < g[1]), None)
+        # Immediate auxiliary containers share their character's Huffman trees.
+        # Identified by unique full-frame decode; see T-017 documentation.
+        auxiliary = ((0x13200,0x1d640,2),(0x1d640,0x24d60,3),
+                     (0x24d60,0x2ecb0,4),(0x49fd0,0x566d0,0),
+                     (0x1eb6d0,0x1f3200,1),(0x2c2280,0x2cf0a0,2),
+                     (0x469660,0x470390,4),(0x53cc40,0x54d720,5))
+        if owner is None:
+            owner = next((i for a,b,i in auxiliary if a <= start < b), None)
+        if 0x49fd0 <= start < 0x566d0:
+            owner = struct.unpack_from('<H', record)[0]  # one record per character
         kind = 'character_containers' if owner is not None else 'other_containers'
         stats = summary[kind]
         stats['records_total'] += 1
@@ -259,6 +435,7 @@ def decode(rom, outdir):
         for ident, off, data in candidates:
             stats['frames_total'] += 1
             try:
+                first_error = None
                 image_kind = 'huffman_character'
                 if owner is not None:
                     group = groups[owner]
@@ -266,14 +443,16 @@ def decode(rom, outdir):
                     palette = struct.unpack_from('>16H', rom, group[6])
                     try:
                         w, h, rgba, info = huffman_frame(data, trees, palette)
-                    except (ValueError, IndexError, struct.error):
+                    except (ValueError, IndexError, struct.error) as primary:
+                        first_error = str(primary)
                         w, h, rgba, info = alpha_frame(data)
                         image_kind = 'alpha_masks'
                 else:
                     try:
                         w, h, rgba, info = span_frame(data, ui_palette)
                         image_kind = 'byte_spans'
-                    except (ValueError, IndexError, struct.error):
+                    except (ValueError, IndexError, struct.error) as primary:
+                        first_error = str(primary)
                         w, h, rgba, info = alpha_frame(data)
                         image_kind = 'alpha_masks'
                 path = Path(image_kind)/f'{start:06X}_{ri:04d}_id{ident:03d}_{off:05X}.png'
@@ -285,6 +464,7 @@ def decode(rom, outdir):
                 stats['frames_decoded'] += 1
             except (ValueError, IndexError, struct.error) as error:
                 failures += 1
+                rejected.append(dict(source_rom=f'{start:06X}', record_id=ident, frame_offset=off, bytes=len(data), primary_reason=first_error, reason=str(error)))
                 stats['frames_failed'] += 1
         if success:
             stats['records_decoded'] += 1
@@ -305,9 +485,13 @@ def decode(rom, outdir):
                              height=150, format='CI8 with RGB888 palette'))
     summary['portraits'].update(records_total=10, records_decoded=10,
                                 records_fully_decoded=10, frames_total=10, frames_decoded=10)
-    summary['stage_packets'].update(records_total=13, records_decoded=0)
+    stages = stage_packets(rom, main, outdir, manifest)
+    summary['stage_packets'].update(records_total=13, records_decoded=13,
+        records_fully_decoded=sum(all('path' in t for t in s['textures']) for s in stages),
+        frames_total=sum(len(s['textures']) for s in stages),
+        frames_decoded=sum('path' in t for s in stages for t in s['textures']))
     outdir.mkdir(parents=True, exist_ok=True)
-    (outdir/'manifest.json').write_text(json.dumps(dict(summary=dict(summary), images=manifest), indent=2)+'\n')
+    (outdir/'manifest.json').write_text(json.dumps(dict(summary=dict(summary), images=manifest, stages=stages, rejected_frames=rejected), indent=2)+'\n')
     for kind, stats in summary.items():
         print(f"{kind}: records {stats['records_decoded']}/{stats['records_total']} "
               f"({stats['records_fully_decoded']} complete); "

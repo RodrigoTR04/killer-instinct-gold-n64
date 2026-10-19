@@ -35,7 +35,7 @@ def inventory(rom):
     main, ovl = image(0x7DF0), image(0x7DF8)
     rows=[]
     def add(a,b,cls,ref,call,depth=0,parent='',stream=None):
-        assert START <= a < b <= END, (hex(a),hex(b))
+        assert START <= a < b <= (len(rom) if cls == 'stage_packet' else END), (hex(a),hex(b))
         got=inflate(a if stream is None else stream,b)
         se,data=got if got else (None,None)
         row=dict(start=a,end=b,size=b-a,depth=depth,parent=parent,classification=cls,
@@ -53,16 +53,16 @@ def inventory(rom):
     for i in range(14):
         p=0x80045E50+i*32
         vals=struct.unpack_from('>8I',main,p-0x8000F960)
-        for j,cls,call in [(0,'packed_graphics','800213E4;80021880'),
-                           (1,'palette','8002167C;8002169C;80021A78;80021A98'),
+        for j,cls,call in [(0,'character_sprites','800213E4;80021880'),
+                           (1,'huffman_tree','8002167C;8002169C;80021A78;80021A98'),
                            (2,'unresolved','80021B1C'),
-                           (3,'asset_index','8001D3CC;8001D414;8001D464')]:
+                           (3,'palette16','8001D3CC;8001D414;8001D464')]:
             a,b=vals[j*2:j*2+2]
             add(a,b,cls,f'main:{p+j*8:08X}',call)
     for i in range(10):
         p=0x80291FE8+i*8
         a,b=struct.unpack_from('>II',ovl,p-0x801ABB20)
-        add(a,b,'packed_graphics',f'7DF8:{p:08X}','801C5F84')
+        add(a,b,'portrait_ci8',f'7DF8:{p:08X}','801C5F84')
     direct=[
       (0x8B70,0x119F0,'packed_graphics','800244B0;80024570'),
       (0x119F0,0x13200,'packed_graphics','80021594;80024428'),
@@ -89,7 +89,14 @@ def inventory(rom):
       (0xA73980,0xA77960,'packed_graphics','801AC384'),
       (0xA94460,0xA94560,'metadata','80020F70'),
       (0xA94560,0xA94D80,'metadata','80020F94')]
-    for a,b,c,call in direct:add(a,b,c,'immediate',call)
+    auxiliary = {0x13200,0x1D640,0x24D60,0x49FD0,0x1EB6D0,0x2C2280,0x469660,0x53CC40,0x543D10}
+    for a,b,c,call in direct:
+        cls = ('character_sprites' if a in auxiliary else 'ui_sprites') if c == 'packed_graphics' else c
+        add(a,b,cls,'immediate',call)
+    # Stage streams lie beyond the asset-region partition; boot-table children.
+    for slot in range(0x7E60,0x7EC8,8):
+        a,b=u(slot),u(slot+4)
+        add(a,b,'stage_packet',f'ROM:{slot:06X}','80012AE4;80012B0C',1,'boot_stage_table')
     # ALBankFile -> ALBank -> ALInstrument -> ALSound -> ALWaveTable.
     for ctl,stop,base,call in [(0x8F9FA0,0x907580,0x907580,'8002A5B8'),
                                (0x9AF4B0,0x9B9AD0,0x9B9AD0,'8002A610')]:
@@ -132,12 +139,12 @@ def inventory(rom):
     # the parent instead of guessing another record from a magic scan.
     for row in list(rows):
         a,b=row['start'],row['end']
-        if row['classification']!='packed_graphics' or row['compressed']=='y':continue
+        if row['classification'] not in ('character_sprites','ui_sprites') or row['compressed']=='y':continue
         if rom[a+4:a+6]==b'\x11\x72':
             p=a
             while p+6<b and rom[p+4:p+6]==b'\x11\x72':
                 size=u(p);assert size>=6 and p+size<=b
-                add(p,p+size,'packed_graphics',row['reference'],'8002136C',1,f'{a:06X}',p+4)
+                add(p,p+size,row['classification'],row['reference'],'8002136C',1,f'{a:06X}',p+4)
                 p+=size
             continue
         p=a

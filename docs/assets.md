@@ -2,7 +2,7 @@
 
 All ROM ranges are start inclusive, end exclusive. Verified against SHA1 `ba52e91b44450c548467044b26951353dc491e04`. The ROM was read only; no ROM-derived binary is included. CPU instruction addresses identify the decompressed image, never an offset inside its compressed ROM stream.
 
-> **Correction (T-014, lead-verified 2026-10-18):** main-table +08/+0C blocks are Huffman decoding trees, not palettes; +18/+1C are arrays of 16-color RGBA5551 palettes; the 0x9900-byte 7DF8 images are 256×150 CI8 portraits with RGB888 palettes. See docs/gfx_format.md. Class labels in assets.csv are not yet updated.
+> **Correction (T-014, lead-verified 2026-10-18):** main-table +08/+0C blocks are Huffman decoding trees, not palettes; +18/+1C are arrays of 16-color RGBA5551 palettes; the 0x9900-byte 7DF8 images are 256×150 CI8 portraits with RGB888 palettes. See docs/gfx_format.md. These corrections are applied to assets.csv (T-017).
 
 ## Coverage and summary
 
@@ -12,17 +12,21 @@ Counts below are unique top-level intervals, after merging identical references.
 
 | Class | Count | ROM bytes | % region | Confidence |
 |---|---:|---:|---:|---|
-| asset_index | 13 | 3,232 | 0.029215 | high |
 | audio_adpcm | 482 | 1,269,582 | 11.475970 | high |
 | audio_bank | 2 | 97,280 | 0.879331 | high |
 | audio_raw16 | 2 | 16,342 | 0.147718 | high |
 | audio_sequence | 48 | 116,706 | 1.054926 | high |
 | audio_sequence_index | 1 | 388 | 0.003507 | high |
+| character_sprites | 23 | 9,231,216 | 83.442551 | high |
+| huffman_tree | 13 | 53,248 | 0.481318 | high |
 | metadata | 5 | 2,640 | 0.023863 | high |
-| packed_graphics | 43 | 9,496,256 | 85.838293 | medium |
-| palette | 13 | 53,248 | 0.481318 | medium |
+| palette16 | 13 | 3,232 | 0.029215 | high |
+| portrait_ci8 | 10 | 117,504 | 1.062139 | high |
+| ui_sprites | 10 | 147,536 | 1.333603 | high |
 | unreferenced | 400 | 1,526 | 0.013794 | unknown |
 | unresolved | 12 | 5,760 | 0.052066 | unknown |
+
+The 13 boot stage slots are also inventoried as 12 unique `stage_packet` rows (slot 12 aliases slot 6). They lie beyond this region, have depth 1 and parent `boot_stage_table`, and do not alter the depth-0 partition. Their 1172 bounds/hashes are measured in the same way.
 
 ## Reproduction and CSV contract
 
@@ -33,7 +37,7 @@ python3 tools/analysis/assets.py baserom.us.z64 --output /tmp/assets.csv
 
 The generator uses only Python standard library, validates the full source SHA1, decompresses main/7DF8 in memory, reads table fields and follows the audio pointer graph. It does not require `asm/` or extracted segment files. Analysis disassembly used `.venv/bin/python` and rabbitizer in `/tmp/kig-t011/`; source images were the verified extracted segments.
 
-CSV fields give ROM bounds, sizes, hierarchy, classification/confidence, table slot or immediate-reference evidence, loader call instruction, compression bounds and SHA1s. Hex references without a ROM prefix are CPU addresses. `depth=0` rows (including gaps) form an exact disjoint partition; `depth=1` rows overlap their parent and must not be added to coverage. `parent` is its ROM start. `compressed=n` means the entry itself is not a validated 1172 stream; it does not exclude child streams or another encoding. For a length-prefixed child, `stream_start=start+4`; its four-byte length field remains in the entry hash. `stream_end` includes the last DEFLATE byte, excludes trailing bytes. Expanded size/hash refer only to the inflated stream. Trailing size and whether all trailing bytes are zero are measured, not inferred from alignment. No payload bytes are serialized.
+CSV fields give ROM bounds, sizes, hierarchy, classification/confidence, table slot or immediate-reference evidence, loader call instruction, compression bounds and SHA1s. Hex references without a ROM prefix are CPU addresses. `depth=0` rows (including gaps) form an exact disjoint partition; `depth=1` rows must not be added to coverage. For region containers they overlap their parent, whose ROM start is in `parent`; external stage rows use `boot_stage_table`. `compressed=n` means the entry itself is not a validated 1172 stream; it does not exclude child streams or another encoding. For a length-prefixed child, `stream_start=start+4`; its four-byte length field remains in the entry hash. `stream_end` includes the last DEFLATE byte, excludes trailing bytes. Expanded size/hash refer only to the inflated stream. Trailing size and whether all trailing bytes are zero are measured, not inferred from alignment. No payload bytes are serialized.
 
 ## Verified asset tables and consumers
 
@@ -45,11 +49,11 @@ CSV fields give ROM bounds, sizes, hierarchy, classification/confidence, table s
 | ROM `8F9FA0–907580`, B1 bank | 1 bank; 229 unique waves | DMA `8002A5B8`, bank relocation `8002A5C8` -> `80037874` |
 | ROM `9AF4B0–9B9AD0`, B1 bank | 1 bank; 255 unique waves | DMA `8002A610`, bank relocation `8002A620` -> `80037874` |
 
-Main record layout: +00/+04 packed-record bounds; +08/+0C two 0x800-byte palette blocks; +10/+14 small compressed data bounds; +18/+1C per-character index records. The palette reads are at `8002167C/8002169C` and `80021A78/80021A98`; index reads at `8001D3CC/8001D414/8001D464` use base+character*32, DMA length 32. The small stream loader uses +10 at `80021B08–80021B20`, DMA `80021B1C`; its end is the adjacent table word. Semantic purpose of that expanded small data remains unresolved.
+Main record layout: +00/+04 packed-record bounds; +08/+0C two 0x800-byte Huffman tree blocks; +10/+14 small compressed data bounds; +18/+1C 16-color RGBA5551 palette arrays. The Huffman-tree reads are at `8002167C/8002169C` and `80021A78/80021A98`; palette reads at `8001D3CC/8001D414/8001D464` use base+character*32, DMA length 32. The small stream loader uses +10 at `80021B08–80021B20`, DMA `80021B1C`; its end is the adjacent table word. Semantic purpose of that expanded small data remains unresolved.
 
-Large-record consumers `80020E98` and `800216D4` read little-endian IDs at +0 and record size at +4. The latter scans via that size (`80021824–80021860`) then fetches the selected record at `80021880`. The former can bulk load at `800213E4`, or decompress eleven BE-length-prefixed streams using `8002133C/8002136C`. Graphics packets are processed by `800238C4`, `800245B4` and rendering code. The +00 class is deliberately broad; medium confidence does not establish individual character, stage, animation or font names.
+Large-record consumers `80020E98` and `800216D4` read little-endian IDs at +0 and record size at +4. The latter scans via that size (`80021824–80021860`) then fetches the selected record at `80021880`. The former can bulk load at `800213E4`, or decompress eleven BE-length-prefixed streams using `8002133C/8002136C`. Graphics packets are processed by `800238C4`, `800245B4` and rendering code. T-014 establishes the character sprite, tree, palette and portrait format classes; individual visual names remain unassigned.
 
-| Index | CPU record | +00 packed data | +08 palette | +10 compressed data | +18 index |
+| Index | CPU record | +00 packed data | +08 Huffman trees | +10 compressed data | +18 palette16 |
 |---:|---|---|---|---|---|
 | 0 | `80045E50` | `0566D0–120F70` | `120F70–121F70` | `121F70–121FF0` | `007F10–008030` |
 | 1 | `80045E70` | `121FF0–1EB6D0` | `1F3200–1F4200` | `1F4200–1F4290` | `008030–008150` |
@@ -70,7 +74,7 @@ Index 11 reuses index 10 palette/small stream/index bounds; indices 12 and 13 al
 
 ### 7DF8 compressed graphics table
 
-The consumer converts expanded bytes into RGBA5551-like words at `801C5FC4–801C600C`. Each expands to 0x9900 bytes, compatible with a 144×136×2 image; dimensions and intended screen/character identity remain hypotheses. The ROM order differs from table index order.
+The consumer converts expanded bytes into RGBA5551-like words at `801C5FC4–801C600C`. Each expands to 0x9900 bytes: a 0x300-byte RGB888 palette followed by 256×150 CI8 pixels, verified by T-014. Character identities remain unnamed. The ROM order differs from table index order.
 
 | Slot CPU | ROM span | Expanded bytes | Trailing zero bytes |
 |---|---|---:|---:|
@@ -91,32 +95,32 @@ These complete the table coverage. Loader addresses are jal instruction addresse
 
 | ROM span | Class | DMA call(s) |
 |---|---|---|
-| `008B70–0119F0` | packed_graphics | `800244B0;80024570` |
-| `0119F0–013200` | packed_graphics | `80021594;80024428` |
-| `013200–01D640` | packed_graphics | `80024234` |
-| `01D640–024D60` | packed_graphics | `800242DC` |
-| `024D60–02ECB0` | packed_graphics | `8002431C` |
-| `049FD0–0566D0` | packed_graphics | `80021880` |
-| `1EB6D0–1F3200` | packed_graphics | `800247A0;80021880` |
-| `1F4290–1F6700` | packed_graphics | `80014270` |
-| `1F6700–1F7780` | packed_graphics | `800142AC` |
-| `2C2280–2CF0A0` | packed_graphics | `80024814` |
-| `469660–470390` | packed_graphics | `800248F0;80021880` |
-| `471440–472FB0` | packed_graphics | `8002435C` |
-| `53CC40–543D10` | packed_graphics | `80024964` |
-| `543D10–54D720` | packed_graphics | `800243B4` |
-| `54E7D0–551E60` | packed_graphics | `80013CA4` |
-| `8F6AE0–8F9FA0` | packed_graphics | `80024D2C` |
+| `008B70–0119F0` | ui_sprites | `800244B0;80024570` |
+| `0119F0–013200` | ui_sprites | `80021594;80024428` |
+| `013200–01D640` | character_sprites | `80024234` |
+| `01D640–024D60` | character_sprites | `800242DC` |
+| `024D60–02ECB0` | character_sprites | `8002431C` |
+| `049FD0–0566D0` | character_sprites | `80021880` |
+| `1EB6D0–1F3200` | character_sprites | `800247A0;80021880` |
+| `1F4290–1F6700` | ui_sprites | `80014270` |
+| `1F6700–1F7780` | ui_sprites | `800142AC` |
+| `2C2280–2CF0A0` | character_sprites | `80024814` |
+| `469660–470390` | character_sprites | `800248F0;80021880` |
+| `471440–472FB0` | ui_sprites | `8002435C` |
+| `53CC40–543D10` | character_sprites | `80024964` |
+| `543D10–54D720` | character_sprites | `800243B4` |
+| `54E7D0–551E60` | ui_sprites | `80013CA4` |
+| `8F6AE0–8F9FA0` | ui_sprites | `80024D2C` |
 | `8F9FA0–907580` | audio_bank | `8002A5B8` |
 | `992AF0–992C74` | audio_sequence_index | `8002A670;8002A6BC` |
 | `9AF4B0–9B9AD0` | audio_bank | `8002A610` |
 | `A68A20–A69A20` | unresolved | `8001BB30` |
 | `A69A20–A69A40` | metadata | `800281FC` |
 | `A69A40–A69A70` | metadata | `800281FC` |
-| `A69A70–A6A990` | packed_graphics | `800123BC` |
+| `A69A70–A6A990` | ui_sprites | `800123BC` |
 | `A6A990–A6AA70` | metadata | `80012484` |
-| `A6AA70–A73980` | packed_graphics | `801ADF38` |
-| `A73980–A77960` | packed_graphics | `801AC384` |
+| `A6AA70–A73980` | ui_sprites | `801ADF38` |
+| `A73980–A77960` | ui_sprites | `801AC384` |
 | `A94460–A94560` | metadata | `80020F70` |
 | `A94560–A94D80` | metadata | `80020F94` |
 
@@ -138,7 +142,7 @@ All 1172-positive rows reach raw-DEFLATE EOF within their recorded entry. There 
 
 Verified: source hash; ROM-pair values; static indexed/immediate DMA paths; exact disjoint top-level coverage; bank pointer graph and rates; sequence table/count/lengths; complete DEFLATE EOF and hashes; self-size record arithmetic. All 400 gaps lie in or beside the audio sample/sequence region.
 
-Hypotheses: exact visual names, character/stage ordering, animation versus sprite versus font ownership, image dimensions and the purpose of the small compressed data. `packed_graphics` and `palette` are medium-confidence content/consumer classifications. `unresolved` is retained for eleven unique small compressed/table-derived spans and one raw 0x1000 block; these have verified references but no established semantic identity. No claim is made that the full graphics encoding has been decoded.
+Hypotheses: exact visual names, character/stage ordering, animation versus sprite versus font ownership, image dimensions and the purpose of the small compressed data. `character_sprites`, `ui_sprites`, `huffman_tree`, `palette16` and `portrait_ci8` apply the verified T-014 format distinctions; exact visual identities remain unnamed. `unresolved` is retained for eleven unique small compressed/table-derived spans and one raw 0x1000 block; these have verified references but no established semantic identity. No claim is made that the full graphics encoding has been decoded.
 
 Exhaustiveness is byte accounting at the referenced container level, not recovery of every original source asset. Direct DMA call sites in all three CPU images and aligned ROM-word runs in initialized data were inspected without using `asm/`; instruction-like RSP words and packed byte data were excluded as spurious tables. Arithmetic addressing and runtime index reachability can introduce additional aliases. The generator deliberately records verified tables and paths rather than treating every integer in range as a reference.
 
