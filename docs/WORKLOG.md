@@ -154,3 +154,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-b86aa93e (base 05f18d0). Matched func_8001D37C, func_8001C1B0, func_8001BF1C (788 B) and improved 12 drafts (func_80018E88 now 2 words, func_8001C370 4, func_8001CF1C 6). Merging onto HEAD hit a declaration conflict: D_8004CE90 is `[]` here but `[][32]` in T-032's func_80024144. I unified it to `[][32]`; the ROM is unchanged.
 - Clean vet build: the ROM and all 3 images are byte-identical. 171 T4; M1 = M2 = 27,584 B (8.63%). Deleted 3 drafts and their T2 rows; imported the updated T-022 drafts/README and T-036/REPORT.md.
 - T-038 also stopped on the usage limit (same 00:30 reset). The 00:33 job resumes it too.
+
+## 2026-10-19 — T-037 vetted (Opus: FU-15 -mips1 pfs TUs)
+- Worktree t3-7bfc6e48. main_24E70.c (osPfsChecker, osPfsReadWriteFile, osPfsAllocateFile, …; 8 fns), main_26480.c (osPfsNumFiles) and main_26860.c (osPfsDeleteFile, __osPfsReleasePages, __osBlockSum) are fully C. Added 3 Makefile -mips1 overrides. osPfsAllocateFile needs an unused `u8 pad[4]` local. main_265B0 (osPfsFileState) is still 2 words off (a spill slot); its candidate is saved in T-037/.
+- Clean vet build: the ROM and all 3 images are byte-identical. 183 T4; M1 = M2 = 34,724 B (10.87%). Deleted 12 T-026 drafts and their T2 rows. Imported REPORT.md, the main_265B0 candidate and score.py (a fast standalone compile+compare). The suggested libultra names are in T-037/REPORT.md (FU-15 naming todo).

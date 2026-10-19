@@ -31,10 +31,10 @@ Source of truth for per-function tiers is `docs/functions.csv` (created once spl
 | Metric | Value |
 |---|---|
 | Scope measured | all CPU text of boot/main/ovl_7DF8/ovl_7E00 (999 fns). Text not in fns: boot 432 B pad, main 708 B, 7DF8 92 B, 7E00 4,040 B (31 inline data pools, listed in symbol_addrs.ovl_7E00.us.txt) |
-| M1 | 27,584 / 319,544 B (8.63%) |
-| M2 | 27,584 / 319,544 B (8.63%) |
-| Functions | 28 T1 · 370 T2 · 0 T3 · 171 T4 · 430 excluded (137,648 B: 267 libultra + boot entry asm + 162 ovl_7E00 handwritten asm) |
-| Per image (eligible B / T1 fns / excluded) | boot 8,468/21/99 · main 173,204/0/169 (98 T4, 192 T2) · ovl_7DF8 137,428/0/0 (73 T4, 178 T2) · ovl_7E00 444/7/162 |
+| M1 | 34,724 / 319,544 B (10.87%) |
+| M2 | 34,724 / 319,544 B (10.87%) |
+| Functions | 28 T1 · 358 T2 · 0 T3 · 183 T4 · 430 excluded (137,648 B: 267 libultra + boot entry asm + 162 ovl_7E00 handwritten asm) |
+| Per image (eligible B / T1 fns / excluded) | boot 8,468/21/99 · main 173,204/0/169 (110 T4, 180 T2) · ovl_7DF8 137,428/0/0 (73 T4, 178 T2) · ovl_7E00 444/7/162 |
 
 Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html). Tier overrides: tools/progress/status.csv (lead-maintained). Never hand-edit numbers; paste the `--markdown` output here.
 
@@ -98,6 +98,6 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | T-034 | Match ovl_7DF8 leftovers outside T-030: T-019's 3 (ovl_7DF8.c) + T-021's 22 at 0x801C8000–0x801CD440 (ovl_7DF8_1BD90.c ≥0x801C8000, ovl_7DF8_200C0.c): 25 T1 fns, 21,688 B | opus-1 (Opus 5.5 low) | Done (verified): 11 matched (incl. func_801CCBCC via lead prototype fix), 14 T2 drafts, 0 not attempted | those src files (range only), tools/scratch/nonmatching/T-034/ | worktree isolation; T-030 owns 1BD90.c <0x801C8000 |
 | T-035 | Match main's last 8 T1 fns ≥0x80040000 (main_30A90/319D0/321A0.c) + polish T-026 drafts (main 0x80030000–0x80040000, smallest diff first) | opus-2 (Opus 5.5 low) | Done (verified): 20 matched (func_800414F0 + 19 libultra pfs fns built -mips1), 7 T2 drafts, 2 T-026 drafts improved | those src files (range only), tools/scratch/nonmatching/T-026/ (update drafts), tools/scratch/nonmatching/T-035/ | worktree isolation; no overlap with T-032/T-033 |
 | T-036 | Polish T2 drafts → match: main 0x80018000–0x80020000 (T-022's 31 drafts in src/main/main_2FF0.c, smallest diff first) | sol-C14 | Done (verified): 3 matched (788 B), 12 drafts improved, 16 unchanged | main_2FF0.c (those 31 fns only), tools/scratch/nonmatching/T-022/ (update/delete drafts), tools/scratch/nonmatching/T-036/REPORT.md | worktree isolation; T-032/T-033 own other main_2FF0.c ranges |
-| T-037 | FU-15: try -O2 -mips1 (libultra pfs) on main_24E70/26480/265B0/26860.c functions, using the T-026 drafts; deliver full-file C plus the needed Makefile overrides | opus-2 (Opus 5.5 low) | In progress | those 4 src files, Makefile (per-object CFLAGS lines only), tools/scratch/nonmatching/T-026/ (delete matched), tools/scratch/nonmatching/T-037/ | worktree isolation |
+| T-037 | FU-15: try -O2 -mips1 (libultra pfs) on main_24E70/26480/265B0/26860.c functions, using the T-026 drafts; deliver full-file C plus the needed Makefile overrides | opus-2 (Opus 5.5 low) | Done (verified): 12 libultra pfs fns matched (main_24E70/26480/26860 -mips1); osPfsFileState (main_265B0) 2 words off | those 4 src files, Makefile (per-object CFLAGS lines only), tools/scratch/nonmatching/T-026/ (delete matched), tools/scratch/nonmatching/T-037/ | worktree isolation |
 | T-038 | Boot C infra + match: turn kig.us.yaml boot [0x1000, asm] into c subsegments (src/boot/, GLOBAL_ASM, split at definite TU boundaries, libultra kept excluded), then match its 21 T1 fns (8,468 B) | sol-A16 | Paused (usage limit, resets 2026-10-20 00:30; auto-resume scheduled 00:33) | kig.us.yaml (boot subsegments only), src/boot/*, Makefile (generic only, if unavoidable), tools/scratch/nonmatching/T-038/ | worktree isolation |
 | T-039 | Polish ovl_7DF8 T2 drafts → match (all 178; near-misses first: register/scheduling-only diffs from T-029/T-030/T-034 reports, then others) | sol-B14 | Paused (usage limit, resets 2026-10-20 00:30; auto-resume scheduled 00:33) | src/ovl_7DF8/*.c (drafted fns only), tools/scratch/nonmatching/T-0xx/ (ovl_7DF8 drafts: update/delete), tools/scratch/nonmatching/T-039/REPORT.md | worktree isolation; nobody else in ovl_7DF8 |

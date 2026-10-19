@@ -375,21 +375,21 @@ main,func_800343F4,0x800343F4,0x24A94,180,T4,
 main,func_800344B0,0x800344B0,0x24B50,164,T4,
 main,func_80034554,0x80034554,0x24BF4,220,T4,
 main,func_80034630,0x80034630,0x24CD0,404,T4,
-main,func_800347D0,0x800347D0,0x24E70,1516,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
-main,func_80034DBC,0x80034DBC,0x2545C,740,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
-main,func_800350A0,0x800350A0,0x25740,416,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
-main,func_80035240,0x80035240,0x258E0,224,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
-main,func_80035320,0x80035320,0x259C0,880,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
-main,func_80035690,0x80035690,0x25D30,1012,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
-main,func_80035A84,0x80035A84,0x26124,512,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
-main,func_80035C84,0x80035C84,0x26324,160,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
+main,func_800347D0,0x800347D0,0x24E70,1516,T4,
+main,func_80034DBC,0x80034DBC,0x2545C,740,T4,
+main,func_800350A0,0x800350A0,0x25740,416,T4,
+main,func_80035240,0x80035240,0x258E0,224,T4,
+main,func_80035320,0x80035320,0x259C0,880,T4,
+main,func_80035690,0x80035690,0x25D30,1012,T4,
+main,func_80035A84,0x80035A84,0x26124,512,T4,
+main,func_80035C84,0x80035C84,0x26324,160,T4,
 main,osContStartQuery,0x80035D30,0x263D0,132,excluded,libultra (T-005)
 main,osContGetQuery,0x80035DB4,0x26454,40,excluded,libultra (T-005)
-main,func_80035DE0,0x80035DE0,0x26480,296,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
+main,func_80035DE0,0x80035DE0,0x26480,296,T4,
 main,func_80035F10,0x80035F10,0x265B0,676,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
-main,func_800361C0,0x800361C0,0x26860,640,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
-main,func_80036440,0x80036440,0x26AE0,516,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
-main,func_80036644,0x80036644,0x26CE4,228,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
+main,func_800361C0,0x800361C0,0x26860,640,T4,
+main,func_80036440,0x80036440,0x26AE0,516,T4,
+main,func_80036644,0x80036644,0x26CE4,228,T4,
 main,osEepromProbe,0x80036730,0x26DD0,108,excluded,libultra (T-005)
 main,osEepromLongWrite,0x800367A0,0x26E40,316,excluded,libultra (T-005)
 main,osEepromLongRead,0x800368E0,0x26F80,316,excluded,libultra (T-005)

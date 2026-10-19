@@ -1,4 +1,4 @@
-/* DRAFT. Remaining diff: IMPROVED (T-035: libultra 2.0-era osPfsFileState). Under IDO 5.3 -O2 -mips1, structure and size match; remaining ~32 words are saved-register permutation (pfs in s3 vs s2, bank s0 vs s3, &next s2 vs s1, &inode s1 vs s0) and the page spill slot (0x3D vs 0x3E). Needs a per-object `-mips1` override for build/src/main/main_265B0.c.o. */
+/* DRAFT. See tools/scratch/nonmatching/T-037/main_265B0.c for a closer -mips1 candidate (2 words: one spill slot). Remaining diff: IMPROVED (T-035: libultra 2.0-era osPfsFileState). Under IDO 5.3 -O2 -mips1, structure and size match; remaining ~32 words are saved-register permutation (pfs in s3 vs s2, bank s0 vs s3, &next s2 vs s1, &inode s1 vs s0) and the page spill slot (0x3D vs 0x3E). Needs a per-object `-mips1` override for build/src/main/main_265B0.c.o. */
 
 typedef struct T035Pfs {
     /* 0x00 */ s32 status;
