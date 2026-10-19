@@ -69,3 +69,6 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 - T-027 also stopped on the usage limit (same 07:41 reset). The 07:44 job resumes it too.
 - T-026 also stopped on the usage limit (same 07:41 reset). All three workers are paused; the 07:44 job resumes all of them.
+
+## 2026-10-19 14:18 — T-026/T-027/T-028 resumed
+- The 07:44 auto-resume job never ran; it lived in the previous session only. I checked manually: all three were limit-stopped with no pending runs, so I sent "continue" to each child thread (new taskIds: `...thread-send%3Akig-T-02N-resume-2`, prefix `command%3Amcp%3Ade391ba9-0c69-4f89-8c2e-85b298158213`).
