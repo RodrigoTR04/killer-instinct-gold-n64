@@ -79,3 +79,8 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Added docs/tu_boundaries.md and tools/analysis/tu_boundaries.py. Main has 86 definite boundaries; it is split only after T-026/T-027 land.
 
 - T-029 launched (sol-A14): ovl_7DF8 0x801B4000–0x801BA000, 19 T1 fns, 23,828 B, base after the T-028 split.
+
+## 2026-10-19 — T-027 vetted (polish T-024 drafts)
+- Worktree t3-0356ecbe (base 7dcd581). Only the func_8002B8B0 stub was replaced, with clean C (a switch). Applied to HEAD and did a clean vet build: the ROM and all 3 images are byte-identical. 115 T4; M1 = M2 = 11,320 B (3.54%).
+- Removed its T2 row and deleted T-024/func_8002B8B0.c. Imported the 5 improved T-024 drafts (A1A0, A40C, E680, F31C, F3DC; 3–16 words of diff left) and T-027/REPORT.md. Skipped T-027/probe.py, which is a scratch tool.
+- Notes: func_8002AB64 is blocked on the main TU split (FU-14). func_8002FFDC needs its parameter declarations reviewed outside the range.

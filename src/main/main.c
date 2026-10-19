@@ -878,7 +878,24 @@ void func_8002B6EC(void) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002B7E0.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002B8B0.s")
+extern s32 D_800695B0;
+extern s8 D_800695B4;
+void func_8002B8B0(s32 mode) {
+    switch (mode) {
+        case 1:
+            D_800695B0 = 0x2B750;
+            break;
+        case 2:
+        case 3:
+            D_800695B0 = 0x11170;
+            break;
+        case 0:
+        default:
+            D_800695B0 = 0x17ED0;
+            break;
+    }
+    D_800695B4 = mode;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8002B91C.s")
 

@@ -1,5 +1,7 @@
 # T-024 results
 
+T-027 follow-up: `func_8002B8B0` now matches (108 bytes); its draft was deleted. Five improved drafts remain: `func_8002A1A0` (4 linked words), `func_8002A40C` (6), `func_8002E680` (16), `func_8002F31C` (4), and `func_8002F3DC` (3). See `../T-027/REPORT.md`. Original aggregate totals and validation below describe the T-024 run. Updated rows use the T-027 linked counts.
+
 All 78 assigned functions attempted in ascending size order. 19 matched, 1,288 bytes; 59 drafts. No commits made.
 
 Only verified matches remain in `src/main/main.c`. Drafts are real reconstructions with corrected types/control flow; none are raw m2c output.
@@ -20,7 +22,7 @@ Word counts compare linked instruction words at corresponding function positions
 | `func_8002B6EC` | 36 | MATCHED | — |
 | `func_80029770` | 52 | MATCHED | — |
 | `func_8002B3A8` | 56 | DRAFT | 2 differing words; 56/56 bytes |
-| `func_8002A1A0` | 60 | DRAFT | 13 differing words; 56/60 bytes |
+| `func_8002A1A0` | 60 | DRAFT | 4 linked differing words; 60/60 bytes |
 | `func_8002A888` | 60 | MATCHED | — |
 | `func_8002A8C4` | 60 | MATCHED | — |
 | `func_8002B1EC` | 64 | DRAFT | 4 differing words; 64/64 bytes |
@@ -35,27 +37,27 @@ Word counts compare linked instruction words at corresponding function positions
 | `func_8002BB74` | 92 | MATCHED | — |
 | `func_8002970C` | 100 | DRAFT | 2 differing words; 100/100 bytes |
 | `func_800281C4` | 108 | DRAFT | 11 differing words; 108/108 bytes |
-| `func_8002B8B0` | 108 | DRAFT | 20 differing words; 108/108 bytes |
+| `func_8002B8B0` | 108 | MATCHED | — |
 | `func_8002DBDC` | 108 | MATCHED | — |
 | `func_8002F2B0` | 108 | DRAFT | 21 differing words; 100/108 bytes |
 | `func_8002A1E0` | 116 | DRAFT | 6 differing words; 116/116 bytes |
 | `func_8002B500` | 124 | DRAFT | 4 differing words; 124/124 bytes |
 | `func_8002F234` | 124 | MATCHED | — |
 | `func_8002DC48` | 128 | MATCHED | — |
-| `func_8002F3DC` | 128 | DRAFT | 31 differing words; 128/128 bytes |
+| `func_8002F3DC` | 128 | DRAFT | 3 linked differing words; 128/128 bytes |
 | `func_8002BAF0` | 132 | MATCHED | — |
-| `func_8002E680` | 164 | DRAFT | 18 differing words; 164/164 bytes |
+| `func_8002E680` | 164 | DRAFT | 16 linked differing words; 164/164 bytes |
 | `func_8002A254` | 172 | DRAFT | 27 differing words; 172/172 bytes |
 | `func_8002FAC0` | 180 | DRAFT | 41 differing words; 168/180 bytes |
 | `func_8002E08C` | 184 | DRAFT | 19 differing words; 192/184 bytes |
 | `func_8002F944` | 184 | DRAFT | 46 differing words; 176/184 bytes |
 | `func_8002A9DC` | 188 | DRAFT | 45 differing words; 192/188 bytes |
-| `func_8002F31C` | 192 | DRAFT | 6 differing words; 192/192 bytes |
+| `func_8002F31C` | 192 | DRAFT | 4 linked differing words; 192/192 bytes |
 | `func_8002B710` | 196 | DRAFT | 34 differing words; 180/196 bytes |
 | `func_80028708` | 204 | MATCHED | — |
 | `func_8002B7E0` | 208 | DRAFT | 2 differing words; 208/208 bytes |
 | `func_8002F5F0` | 212 | DRAFT | 50 differing words; 220/212 bytes |
-| `func_8002A40C` | 220 | DRAFT | 14 differing words; 220/220 bytes |
+| `func_8002A40C` | 220 | DRAFT | 6 linked differing words; 220/220 bytes |
 | `func_8002A900` | 220 | DRAFT | 55 differing words; 224/220 bytes |
 | `func_8002DF98` | 244 | DRAFT | 57 differing words; 240/244 bytes |
 | `func_80028600` | 264 | DRAFT | 18 differing words; 264/264 bytes |

@@ -292,7 +292,7 @@ main,func_8002B57C,0x8002B57C,0x1BC1C,368,T2,draft tools/scratch/nonmatching/T-0
 main,func_8002B6EC,0x8002B6EC,0x1BD8C,36,T4,
 main,func_8002B710,0x8002B710,0x1BDB0,196,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
 main,func_8002B7E0,0x8002B7E0,0x1BE80,208,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
-main,func_8002B8B0,0x8002B8B0,0x1BF50,108,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002B8B0,0x8002B8B0,0x1BF50,108,T4,
 main,func_8002B91C,0x8002B91C,0x1BFBC,64,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
 main,func_8002B95C,0x8002B95C,0x1BFFC,88,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
 main,func_8002B9B4,0x8002B9B4,0x1C054,316,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
