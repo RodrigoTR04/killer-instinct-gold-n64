@@ -31,10 +31,10 @@ Source of truth for per-function tiers is `docs/functions.csv` (created once spl
 | Metric | Value |
 |---|---|
 | Scope measured | all CPU text of boot/main/ovl_7DF8/ovl_7E00 (999 fns). Text not in fns: boot 432 B pad, main 708 B, 7DF8 92 B, 7E00 4,040 B (31 inline data pools, listed in symbol_addrs.ovl_7E00.us.txt) |
-| M1 | 10,876 / 319,544 B (3.40%) |
-| M2 | 10,876 / 319,544 B (3.40%) |
-| Functions | 271 T1 · 191 T2 · 0 T3 · 107 T4 · 430 excluded (137,648 B: 267 libultra + boot entry asm + 162 ovl_7E00 handwritten asm) |
-| Per image (eligible B / T1 fns / excluded) | boot 8,468/21/99 · main 173,204/135/169 (56 T4, 99 T2) · ovl_7DF8 137,428/108/0 (51 T4, 92 T2) · ovl_7E00 444/7/162 |
+| M1 | 11,160 / 319,544 B (3.49%) |
+| M2 | 11,160 / 319,544 B (3.49%) |
+| Functions | 232 T1 · 224 T2 · 0 T3 · 113 T4 · 430 excluded (137,648 B: 267 libultra + boot entry asm + 162 ovl_7E00 handwritten asm) |
+| Per image (eligible B / T1 fns / excluded) | boot 8,468/21/99 · main 173,204/135/169 (56 T4, 99 T2) · ovl_7DF8 137,428/69/0 (57 T4, 125 T2) · ovl_7E00 444/7/162 |
 
 Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html). Tier overrides: tools/progress/status.csv (lead-maintained). Never hand-edit numbers; paste the `--markdown` output here.
 
@@ -53,6 +53,7 @@ Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html)
 - FU-11 (T-018): main inventory folds a separate `jr ra; nop` stub at 0x80039AC0 into osAiGetLength (24 B; SM64 body is 12 B) → add a symbol at 0x80039AC0 and refresh original-functions.json baseline.
 - FU-12 (T-018): integrate SM64-US libultra objects into the build (52 MATCH + 96 MATCH_MASKED fns, 93/94 whole-object placements; osAiSetFrequency needs 0x10 tail trim). 118 SDK fns (mostly libaudio, __lookupVoice etc.) absent from SM64 → stay asm. See docs/libultra_rebuild.md.
 - FU-13: cleanup pass on matched C: replace m2c raw offset casts with structs (e.g. func_80018418 on D_8004A4C0/D_8004A998), unify duplicated per-function externs into headers, apply suggested names (T-020/T-021/T-022 replies). Must keep the build matching.
+- FU-14 (T-024/T-025): translation-unit boundaries found. Drafts whose body matches but whose trailing padding differs mark the end of an original .c file: IDO pads each TU's .text to 16 bytes. Evidence: main func_8002AB64 ends at 0x8002AB88, then 2 nops before func_8002AB90; ovl_7DF8 func_801AFA48 ends at 0x801AFA7C, then 1 nop before func_801AFA80. Also, func_801AFA80 and func_801B19F0 are identical lerp functions, a per-TU copy. Action: split src files (and the splat yaml) at these boundaries, then those drafts will match. Find more boundaries by scanning for trailing nop padding before 16-aligned function starts.
 
 ## Task board
 Status values: Todo · In progress (owner) · Review · Done (verified by lead) · Rejected
@@ -84,6 +85,6 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | T-022 | Match main 0x80018000–0x80020000 (src/main/main.c, range only): 52 T1 fns, 36,084 B | sol-C8 | Done (verified): 21 matched (2,548 B), 31 T2 drafts (all attempted) | src/main/main.c (range only), tools/scratch/nonmatching/T-022/ | worktree isolation |
 | T-023 | Match ovl_7DF8 0x801BA000–0x801C2000 (src/ovl_7DF8/ovl_7DF8_2380.c, range only): 55 T1 fns, 32,884 B | sol-B8 | Done (verified): 4 matched (352 B), 51 T2 drafts (all attempted; low yield, mostly regalloc/scheduling diffs) | src/ovl_7DF8/ovl_7DF8_2380.c (range only), tools/scratch/nonmatching/T-023/ | worktree isolation |
 | T-024 | Match main 0x80028000–0x80030000 (src/main/main.c, range only): 78 T1 fns, 32,272 B (chosen over 0x80020000 range: smaller fns) | sol-C9 | Done (verified): 19 matched (1,288 B), 59 T2 drafts (all attempted) | src/main/main.c (range only), tools/scratch/nonmatching/T-024/ | worktree isolation |
-| T-025 | Match ovl_7DF8 0x801ADEA0–0x801B4000 (src/ovl_7DF8/ovl_7DF8_2380.c, range only): 39 T1 fns, 25,580 B | sol-A10 | In progress | src/ovl_7DF8/ovl_7DF8_2380.c (range only), tools/scratch/nonmatching/T-025/ | worktree isolation |
+| T-025 | Match ovl_7DF8 0x801ADEA0–0x801B4000 (src/ovl_7DF8/ovl_7DF8_2380.c, range only): 39 T1 fns, 25,580 B | sol-A10 | Done (verified): 6 matched (284 B), 33 T2 drafts (all attempted) | src/ovl_7DF8/ovl_7DF8_2380.c (range only), tools/scratch/nonmatching/T-025/ | worktree isolation |
 | T-026 | Match main 0x80030000–0x80040000 (src/main/main.c, range only): 71 T1 fns, 38,452 B (small fns, best yield) | sol-B11 | In progress | src/main/main.c (range only), tools/scratch/nonmatching/T-026/ | worktree isolation |
 | T-027 | Polish T2 drafts → match: main 0x80028000–0x80030000 (T-024's 59 drafts, smallest diff first) | sol-C12 | In progress | src/main/main.c (range only), tools/scratch/nonmatching/T-024/ (update drafts) | worktree isolation |

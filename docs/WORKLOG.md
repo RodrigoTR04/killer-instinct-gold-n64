@@ -56,3 +56,10 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Near-misses worth a later pass: func_8002AB64 (body matches, only a trailing 8-byte alignment issue), and several 2–4-word diffs (func_8002B3A8, func_8002F8F8, func_8002B95C, func_8002970C, func_8002B7E0, func_8002B1EC, func_8002B91C, func_8002B500, func_8002DCC8).
 - Worker flag: the existing func_8002FFDC prototype (s16 forwarding args) outside its range needs review → FU-13.
 - M1 = M2 = 10,876 / 319,544 B (3.40%).
+
+## 2026-10-19 — T-025 vetted (ovl_7DF8 0x801ADEA0–0x801B4000)
+- Worker reported 6/39 matched and 33 DRAFT, with all 39 attempted. The diff removed exactly 6 in-range GLOBAL_ASM stubs and nothing else; plain C (array indexing for IDO's 4-way unroll, `-1 ^ mask`).
+- Applied to HEAD in a clean /tmp worktree. The build is byte-identical, T4 107 → 113.
+- Imported the 33 drafts plus REPORT.md, skipping the worker's build/diff logs → 33 T2 rows.
+- New FU-14: two drafts (func_8002AB64, func_801AFA48) match except for trailing padding, which marks original TU ends (16-byte .text alignment). Splitting src files there should make them match and exposes the original file layout.
+- M1 = M2 = 11,160 / 319,544 B (3.49%).
