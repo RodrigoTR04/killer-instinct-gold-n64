@@ -158,3 +158,5 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-19 — T-037 vetted (Opus: FU-15 -mips1 pfs TUs)
 - Worktree t3-7bfc6e48. main_24E70.c (osPfsChecker, osPfsReadWriteFile, osPfsAllocateFile, …; 8 fns), main_26480.c (osPfsNumFiles) and main_26860.c (osPfsDeleteFile, __osPfsReleasePages, __osBlockSum) are fully C. Added 3 Makefile -mips1 overrides. osPfsAllocateFile needs an unused `u8 pad[4]` local. main_265B0 (osPfsFileState) is still 2 words off (a spill slot); its candidate is saved in T-037/.
 - Clean vet build: the ROM and all 3 images are byte-identical. 183 T4; M1 = M2 = 34,724 B (10.87%). Deleted 12 T-026 drafts and their T2 rows. Imported REPORT.md, the main_265B0 candidate and score.py (a fast standalone compile+compare). The suggested libultra names are in T-037/REPORT.md (FU-15 naming todo).
+
+- T-040 launched (opus-3, user-requested): polish main drafts, near-misses first. When vetting, remove T2 rows for drafts it matches and merge the Makefile with T-038.
