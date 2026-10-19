@@ -778,7 +778,34 @@ void func_8001BA94(f32 arg0) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_8001BDE0.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_8001BF1C.s")
+extern void guTranslate(void *, f32, f32, f32);
+extern u8 D_80044A24;
+extern f32 D_800489F8;
+extern f32 D_800489FC;
+extern u8 D_801D7E00;
+
+void func_8001BF1C(u8 **arg0, s32 arg1, s32 arg2, f32 arg3) {
+    u8 *temp_v0;
+    f32 y;
+
+    temp_v0 = (arg2 * 0x30) + &D_801D7E00;
+    y = (*(f32 *)(temp_v0 + 0xF4)) * D_800489F8 - D_800489FC;
+    y -= (*(f32 *)(temp_v0 + 0x114)) * 500.0f;
+    guTranslate((void *)((((D_80044A24 * 0x28) + arg2) << 6) + 0x80190000), arg3, y, 767.0f);
+    temp_v0 = *arg0;
+    *arg0 = temp_v0 + 8;
+    (*(s32 *)((u8 *)(temp_v0) + 0)) = 0x01040040;
+    (*(s32 *)((u8 *)(temp_v0) + 4)) = (s32) ((((D_80044A24 * 0x28) + arg2) << 6) + 0x80190000);
+    temp_v0 = *arg0;
+    *arg0 = temp_v0 + 8;
+    (*(s32 *)((u8 *)(temp_v0) + 0)) = 0x06000000;
+    (*(s32 *)((u8 *)(temp_v0) + 4)) = (s32) *(void **)((u8 *)D_8004A4C0 + (arg1 * 0xC));
+    temp_v0 = *arg0;
+    *arg0 = temp_v0 + 8;
+    (*(s32 *)((u8 *)(temp_v0) + 4)) = 0;
+    (*(s32 *)((u8 *)(temp_v0) + 0)) = 0xBD000000;
+}
+
 
 extern u8 D_8004ACC5, D_8004ACC6, D_8004ACC7, D_8004ACC8, D_8004ACC9, D_8004ACCA;
 extern u8 D_8004ACCC[3], D_8004ACD0[3], D_8004ACD3;
@@ -824,7 +851,16 @@ void func_8001C0E4(s32 *arg0, s16 *arg1, s32 *arg2, s16 *arg3, s32 arg4, s32 *ar
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_8001C1B0.s")
+
+void func_8001C1B0(u8 **arg0, s32 arg1, u8 arg2, u8 arg3) {
+    s32 i;
+    for (i = 0; i < arg1; i++) {
+        u8 value = (arg0[i] + arg2)[12];
+        (arg0[i] + arg2)[12] = (arg0[i] + arg3)[12];
+        (arg0[i] + arg3)[12] = value;
+    }
+}
+
 
 void func_8001C2D4(u8 **arg0, int arg1, int arg2) {
     int i, j;
@@ -881,9 +917,18 @@ void func_8001CD0C(void *arg0, f32 arg1, f32 arg2, f32 arg3) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_8001D080.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_8001D37C.s")
 
 typedef struct { u8 *start; u8 pad[28]; } T022DmaEntry;
+
+extern T022DmaEntry D_80045E68[];
+extern u8 D_8004EA9E[];
+extern u8 D_8004CE90[][32], D_8004CEB0[], D_8004EA9F;
+void func_8001D37C(u8 arg0, u8 arg1) {
+    s32 index = arg0;
+    boot_dma(((D_8004EA9E[0] == 9 ? 0 : D_8004EA9E[0]) << 5) + D_80045E68[index].start, D_8004CE90, 0x20);
+    boot_dma(((D_8004EA9F == 9 ? 0 : D_8004EA9F) << 5) + D_80045E68[arg1].start, D_8004CEB0, 0x20);
+}
+
 extern T022DmaEntry D_80045E68[];
 void func_8001D42C(u8 arg0, u8 arg1, void *arg2) {
     s32 index = (u8)arg0;

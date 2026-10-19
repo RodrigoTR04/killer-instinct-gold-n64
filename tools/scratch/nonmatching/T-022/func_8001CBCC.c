@@ -1,4 +1,4 @@
-/* T-022 DRAFT: 47 instruction words differ; compiled 312 bytes, original 320 bytes */
+/* DRAFT. Remaining diff: 16 linked instruction words; compiled 320 bytes, original 320 bytes. */
 
 extern void func_8001CBCC(f32 *, f32, f32, f32);
 s32 guMtxIdentF(f32 *);                         /* extern */
@@ -34,9 +34,9 @@ void func_8001CBCC(f32 *arg0, f32 arg1, f32 arg2, f32 arg3) {
     (*(f32 *)((u8 *)(arg0) + 4)) = (f32) (temp_f0 * sp3C);
     (*(f32 *)((u8 *)(arg0) + 0x10)) = (f32) ((temp_f14_2 * sp30) - (temp_f22 * sp3C));
     temp_f0_2 = temp_f22 * sp40;
-    (*(f32 *)((u8 *)(arg0) + 0x18)) = (f32) (temp_f20 * sp34);
     (*(f32 *)((u8 *)(arg0) + 0x14)) = (f32) ((temp_f14_2 * sp3C) + (temp_f22 * sp30));
+    (*(f32 *)((u8 *)(arg0) + 0x18)) = (f32) (temp_f20 * sp34);
     (*(f32 *)((u8 *)(arg0) + 0x20)) = (f32) ((temp_f0_2 * sp30) + (temp_f20 * sp3C));
-    (*(f32 *)((u8 *)(arg0) + 0x28)) = (f32) (temp_f22 * sp34);
     (*(f32 *)((u8 *)(arg0) + 0x24)) = (f32) ((temp_f0_2 * sp3C) - (temp_f20 * sp30));
+    (*(f32 *)((u8 *)(arg0) + 0x28)) = (f32) (temp_f22 * sp34);
 }

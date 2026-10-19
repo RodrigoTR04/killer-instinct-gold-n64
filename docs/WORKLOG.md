@@ -149,3 +149,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 ## 2026-10-19 — T-039 paused (worker usage limit)
 - T-039 stopped on the Codex usage limit (resets 2026-10-20 00:30). A one-shot resume is scheduled for 00:33 (session-only cron). If it does not run, resume by hand.
+
+## 2026-10-19 — T-036 vetted (polish T-022 drafts)
+- Worktree t3-b86aa93e (base 05f18d0). Matched func_8001D37C, func_8001C1B0, func_8001BF1C (788 B) and improved 12 drafts (func_80018E88 now 2 words, func_8001C370 4, func_8001CF1C 6). Merging onto HEAD hit a declaration conflict: D_8004CE90 is `[]` here but `[][32]` in T-032's func_80024144. I unified it to `[][32]`; the ROM is unchanged.
+- Clean vet build: the ROM and all 3 images are byte-identical. 171 T4; M1 = M2 = 27,584 B (8.63%). Deleted 3 drafts and their T2 rows; imported the updated T-022 drafts/README and T-036/REPORT.md.

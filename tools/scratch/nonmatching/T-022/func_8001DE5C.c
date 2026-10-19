@@ -1,4 +1,4 @@
-/* T-022 DRAFT: 156 instruction words differ; compiled 628 bytes, original 600 bytes */
+/* DRAFT. Remaining diff: 149 linked instruction words; compiled 624 bytes, original 600 bytes. */
 
 s32 func_80031050(s32, s32, u8 *);            /* extern */
 s32 func_80031DD0(u8 *, s32, s32, u8 *);    /* extern */
@@ -31,7 +31,7 @@ void func_8001DE5C(u8 *arg0, u8 *arg1, u8 arg2) {
     s32 var_t3;
     s32 var_v0;
     s32 var_v1;
-    s32 var_v1_2;
+
     u8 *temp_v0;
 
     var_v1 = ((*(u8 *)((u8 *)(arg0) + 1)) << 8) + (*(u8 *)((u8 *)(arg0) + 0));
@@ -78,32 +78,32 @@ void func_8001DE5C(u8 *arg0, u8 *arg1, u8 arg2) {
     sp50 = temp_t9;
     sp54 += temp_a2;
     var_t1 = temp_t4;
-    var_v1_2 = temp_t5;
+    var_v1 = temp_t5;
     if (arg1 != 0) {
         if (temp_t9 >= temp_t4) {
             var_t1 = temp_t9;
         }
         if (sp54 >= temp_t5) {
-            var_v1_2 = sp54;
+            var_v1 = sp54;
         }
     }
     temp_t6_2 = (var_t1 + 9) & 0xFFF8;
     sp18 = temp_a2;
-    if ((temp_t6_2 * ((var_v1_2 + 1) & 0xFFFE)) < 0x8891) {
+    if ((temp_t6_2 * ((var_v1 + 1) & 0xFFFE)) < 0x8891) {
         temp_v0 = (D_8004EA78 * 0x1C) + &D_8004CED0;
         (*(s16 *)((u8 *)(temp_v0) + 8)) = (s16) var_t2;
         (*(s16 *)((u8 *)(temp_v0) + 0xA)) = (s16) var_t3;
         (*(s16 *)((u8 *)(temp_v0) + 0xC)) = (s16) temp_t4;
-        (*(s16 *)((u8 *)(temp_v0) + 0xE)) = (s16) var_v1_2;
+        (*(s16 *)((u8 *)(temp_v0) + 0xE)) = (s16) var_v1;
         (*(s16 *)((u8 *)(temp_v0) + 0x10)) = temp_t6_2;
         (*(s16 *)((u8 *)(temp_v0) + 0x14)) = (s16) var_t1;
-        (*(s16 *)((u8 *)(temp_v0) + 0x16)) = (s16) var_v1_2;
-        sp30 = var_v1_2;
+        (*(s16 *)((u8 *)(temp_v0) + 0x16)) = (s16) var_v1;
+        sp30 = var_v1;
         (*(s16 *)((u8 *)(temp_v0) + 0x1A)) = (s16) arg2;
-        func_80031050(sp24, ((var_v1_2 - temp_t5) << 0x10) | temp_ra, arg1);
+        func_80031050(sp24, ((var_v1 - temp_t5) << 0x10) | temp_ra, arg1);
         D_8004F2C8 = D_8004F2CC;
         if (arg1 != 0) {
-            func_80031DD0(arg1, sp20, ((var_v1_2 - sp54) << 0x10) | sp18, arg1);
+            func_80031DD0(arg1, sp20, ((var_v1 - sp54) << 0x10) | sp18, arg1);
         }
     }
 }

@@ -1,8 +1,6 @@
-/* T-022 DRAFT: 436 instruction words differ; compiled 1748 bytes, original 1656 bytes */
+/* DRAFT. Remaining diff: 413 linked instruction words; compiled 1748 bytes, original 1656 bytes. */
 
-
-
-
+extern u8 D_8004EA9C[];
 s32 func_8001D47C(u8);                          /* extern */
 s32 func_8001DE5C(u8 *, u8 *, u8, u8 *);  /* extern */
 s32 func_80024144(u8, u8);                      /* extern */

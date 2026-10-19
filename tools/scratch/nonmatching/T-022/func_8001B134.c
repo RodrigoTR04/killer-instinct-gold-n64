@@ -1,4 +1,4 @@
-/* T-022 DRAFT: 228 instruction words differ; compiled 984 bytes, original 984 bytes */
+/* DRAFT. Remaining diff: 228 linked instruction words; compiled 984 bytes, original 984 bytes. */
 
 extern f32 D_8004A800[];
 extern f32 D_8004A8C0[];
@@ -18,7 +18,7 @@ extern f32 D_80048988;
 extern f32 D_8004898C;
 extern f32 D_80048990;
 extern s32 D_8004A264;
-extern u8 D_8004A7A0;
+
 extern s16 D_8004AA2A;
 
 void func_8001B134(s32 arg0, s32 arg1) {
@@ -41,7 +41,7 @@ void func_8001B134(s32 arg0, s32 arg1) {
     temp_v0 = temp_t8 * 4;
     temp_a2 = temp_v0 + ((u8 *)D_8004A800);
     sp2C = temp_t8;
-    temp_v1 = temp_v0 + &D_8004A7A0;
+    temp_v1 = temp_v0 + (u8 *)&D_8004A7A0;
     sp28 = (*(s32 *)((u8 *)((D_8004A4C0 + (arg1 * 0xC))) + 8));
     if (D_8004896C < *temp_a2) {
         func_8001B620(temp_a2, 0xC);
@@ -53,7 +53,7 @@ void func_8001B134(s32 arg0, s32 arg1) {
         func_8002FA5C(D_8004A264, 8, (s32) (((temp_f0 + 2000.0f) * D_80048970) / D_80048974), (f32 *)0xC);
         temp_f0_2 = *temp_v1;
         D_8004AA2A = (s16) (u32) (((temp_f0_2 + 2000.0f) * D_80048978) / D_8004897C);
-        temp_v0_2 = (sp28 * 4) + &D_8004A7A0;
+        temp_v0_2 = (sp28 * 4) + (u8 *)&D_8004A7A0;
         *temp_v1 = temp_f0_2 + 30.0f;
         *temp_v0_2 += 30.0f;
         return;

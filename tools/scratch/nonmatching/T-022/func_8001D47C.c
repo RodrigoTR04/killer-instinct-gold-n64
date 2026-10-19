@@ -1,6 +1,6 @@
-/* T-022 DRAFT: 213 instruction words differ; compiled 892 bytes, original 748 bytes */
+/* DRAFT. Remaining diff: 177 linked instruction words; compiled 892 bytes, original 748 bytes. */
 
-extern u8 D_8004CE90;
+extern u8 D_8004CE90[];
 extern s32 D_8004EA78;
 extern u8 D_8004EA9A;
 extern u8 D_8004EAB8;
@@ -29,7 +29,7 @@ void func_8001D47C(s32 arg0) {
     if (D_8004EA9A == 0xB) {
         var_v0 = &D_800614A0;
     } else {
-        var_v0 = (temp_t6 << 5) + &D_8004CE90;
+        var_v0 = (temp_t6 << 5) + D_8004CE90;
     }
     if (D_8004AC88 == 0xC) {
         if (D_8004EA78 == 1) {

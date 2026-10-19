@@ -1,10 +1,9 @@
-/* T-022 DRAFT: 61 instruction words differ; compiled 648 bytes, original 648 bytes */
+/* DRAFT. Remaining diff: 61 linked instruction words; compiled 648 bytes, original 648 bytes. */
+
 s32 func_8001EC74(u8 **, s32, s32, u32, u32, s32, s32, s32); /* extern */
 extern u8 D_80046100;
 extern u8 D_8004A408;
 extern u8 D_8004A450;
-extern u8 D_8004AC89;
-extern u8 D_8004AC8A;
 extern u8 D_8004CEE8;
 extern s16 D_8004D26E;
 extern s32 D_8004EA78;
@@ -77,11 +76,11 @@ void func_8001E0B4(u8 **arg0) {
                             if (D_8004EA9E[var_s0] == 9) {
                                 var_v1 = 1;
                             } else {
-                                var_v1 = D_8004AC89;
+                                var_v1 = ((u8)D_8004AC89);
                             }
                             if (!((*(u8 *)((u8 *)(temp_t0) + 0x95)) & 0x10)) {
                                 temp_v0_2 = (*(s32 *)((u8 *)(temp_t0) + 0x70));
-                                func_8001EC74(arg0, (s32) (*(s32 *)((u8 *)(temp_t0) + 0x68)) / 16, (*(s32 *)((u8 *)(temp_t3) + 0x1C)), (u32) (temp_v0_2 * var_t2) >> 0xC, (u32) (temp_v0_2 * var_t1) >> 0xC, (s32) var_v1, var_t4, (s32) D_8004AC8A);
+                                func_8001EC74(arg0, (s32) (*(s32 *)((u8 *)(temp_t0) + 0x68)) / 16, (*(s32 *)((u8 *)(temp_t3) + 0x1C)), (u32) (temp_v0_2 * var_t2) >> 0xC, (u32) (temp_v0_2 * var_t1) >> 0xC, (s32) var_v1, var_t4, (s32) ((u8)D_8004AC8A));
                             }
                         }
                     }

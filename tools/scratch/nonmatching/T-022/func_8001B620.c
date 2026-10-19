@@ -1,8 +1,9 @@
-/* T-022 DRAFT: 238 instruction words differ; compiled 1024 bytes, original 1016 bytes */
+/* DRAFT. Remaining diff: 87 linked instruction words; compiled 1016 bytes, original 1016 bytes. */
+
 extern f32 D_8004ACE8;
 s32 func_8002F6F4(s32, s32, s32 *);         /* extern */
 s32 func_8002F8F8(s32);                         /* extern */
-s32 func_800326F0(s32);                         /* extern */
+s32 func_800326F0(void);                         /* extern */
 extern f32 D_800489B8;
 extern f32 D_800489BC;
 extern f32 D_800489C0;
@@ -18,14 +19,12 @@ void func_8001B620(s32 arg0, s32 arg1) {
     s32 sp20;
     u8 *sp18;
     s32 var_v0;
-    u8 *temp_t7;
 
-    temp_t7 = D_8004A4C0 + (arg0 * 0xC);
-    sp18 = temp_t7;
-    sp24 = (*(s32 *)((u8 *)(temp_t7) + 8));
-    sp20 = (*(s32 *)((u8 *)((D_8004A4C0 + (arg1 * 0xC))) + 8));
+    sp18 = (u8 *)D_8004A4C0 + (arg0 * 0xC);
+    sp24 = (*(s32 *)((u8 *)(sp18) + 8));
+    sp20 = (*(s32 *)((u8 *)(((u8 *)D_8004A4C0 + (arg1 * 0xC))) + 8));
     if (D_8004ACF0 == 2) {
-        D_8004ACF0 = func_800326F0(0xC) & 3;
+        D_8004ACF0 = func_800326F0() & 3;
     } else {
         D_8004ACF0 = 2;
     }
