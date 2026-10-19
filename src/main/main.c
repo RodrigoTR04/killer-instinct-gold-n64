@@ -1039,7 +1039,8 @@ u16 func_8002FAA0(u8 index) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_800300DC.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_80030218.s")
+void func_80030218(void) {
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_80030220.s")
 
@@ -1197,7 +1198,11 @@ u16 func_8002FAA0(u8 index) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/alHeapDBAlloc.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_80037770.s")
+void func_80037770(void) {
+}
+
+void func_80037778(void) {
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_80037780.s")
 
@@ -1265,7 +1270,8 @@ u16 func_8002FAA0(u8 index) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/osAiGetLength.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_80039AC0.s")
+void func_80039AC0(void) {
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/_timeToSamples.s")
 
@@ -1277,7 +1283,8 @@ u16 func_8002FAA0(u8 index) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/__allocParam.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_80039C00.s")
+void func_80039C00(void) {
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_80039C08.s")
 
@@ -1381,7 +1388,8 @@ u16 func_8002FAA0(u8 index) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/__initFromBank.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8003D348.s")
+void func_8003D348(void) {
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/__vsDelta.s")
 

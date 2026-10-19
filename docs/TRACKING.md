@@ -31,10 +31,10 @@ Source of truth for per-function tiers is `docs/functions.csv` (created once spl
 | Metric | Value |
 |---|---|
 | Scope measured | all CPU text of boot/main/ovl_7DF8/ovl_7E00 (999 fns). Text not in fns: boot 432 B pad, main 708 B, 7DF8 92 B, 7E00 4,040 B (31 inline data pools, listed in symbol_addrs.ovl_7E00.us.txt) |
-| M1 | 11,320 / 319,544 B (3.54%) |
-| M2 | 11,320 / 319,544 B (3.54%) |
-| Functions | 232 T1 · 222 T2 · 0 T3 · 115 T4 · 430 excluded (137,648 B: 267 libultra + boot entry asm + 162 ovl_7E00 handwritten asm) |
-| Per image (eligible B / T1 fns / excluded) | boot 8,468/21/99 · main 173,204/135/169 (57 T4, 98 T2) · ovl_7DF8 137,428/69/0 (58 T4, 124 T2) · ovl_7E00 444/7/162 |
+| M1 | 11,368 / 319,544 B (3.56%) |
+| M2 | 11,368 / 319,544 B (3.56%) |
+| Functions | 161 T1 · 288 T2 · 0 T3 · 120 T4 · 430 excluded (137,648 B: 267 libultra + boot entry asm + 162 ovl_7E00 handwritten asm) |
+| Per image (eligible B / T1 fns / excluded) | boot 8,468/21/99 · main 173,204/64/169 (62 T4, 164 T2) · ovl_7DF8 137,428/69/0 (58 T4, 124 T2) · ovl_7E00 444/7/162 |
 
 Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html). Tier overrides: tools/progress/status.csv (lead-maintained). Never hand-edit numbers; paste the `--markdown` output here.
 
@@ -86,7 +86,7 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | T-023 | Match ovl_7DF8 0x801BA000–0x801C2000 (src/ovl_7DF8/ovl_7DF8_2380.c, range only): 55 T1 fns, 32,884 B | sol-B8 | Done (verified): 4 matched (352 B), 51 T2 drafts (all attempted; low yield, mostly regalloc/scheduling diffs) | src/ovl_7DF8/ovl_7DF8_2380.c (range only), tools/scratch/nonmatching/T-023/ | worktree isolation |
 | T-024 | Match main 0x80028000–0x80030000 (src/main/main.c, range only): 78 T1 fns, 32,272 B (chosen over 0x80020000 range: smaller fns) | sol-C9 | Done (verified): 19 matched (1,288 B), 59 T2 drafts (all attempted) | src/main/main.c (range only), tools/scratch/nonmatching/T-024/ | worktree isolation |
 | T-025 | Match ovl_7DF8 0x801ADEA0–0x801B4000 (src/ovl_7DF8/ovl_7DF8_2380.c, range only): 39 T1 fns, 25,580 B | sol-A10 | Done (verified): 6 matched (284 B), 33 T2 drafts (all attempted) | src/ovl_7DF8/ovl_7DF8_2380.c (range only), tools/scratch/nonmatching/T-025/ | worktree isolation |
-| T-026 | Match main 0x80030000–0x80040000 (src/main/main.c, range only): 71 T1 fns, 38,452 B (small fns, best yield) | sol-B11 | In progress (resumed 2026-10-19 14:18) | src/main/main.c (range only), tools/scratch/nonmatching/T-026/ | worktree isolation |
+| T-026 | Match main 0x80030000–0x80040000 (src/main/main.c, range only): 71 T1 fns, 38,452 B (small fns, best yield) | sol-B11 | Done (verified): 5 matched (48 B, empty stubs), 66 T2 drafts, 0 not attempted | src/main/main.c (range only), tools/scratch/nonmatching/T-026/ | worktree isolation |
 | T-027 | Polish T2 drafts → match: main 0x80028000–0x80030000 (T-024's 59 drafts, smallest diff first) | sol-C12 | Done (verified; func_8002B8B0 matched, 5 drafts improved; 115 T4) | src/main/main.c (range only), tools/scratch/nonmatching/T-024/ (update drafts) | worktree isolation |
 | T-028 | FU-14: scan all images for TU boundaries (doc); split ovl_7DF8 src+yaml at them (main split deferred until T-026/T-027 land) | sol-A13 | Done (verified; 12 new ovl_7DF8 TUs, func_801AFA48 matched; 114 T4) | kig.ovl_7DF8.us.yaml, src/ovl_7DF8/*, docs/tu_boundaries.md, tools/analysis/tu_boundaries.py | worktree isolation |
 | T-029 | Match ovl_7DF8 0x801B4000–0x801BA000 (src/ovl_7DF8/ovl_7DF8_5ED0.c, range only): 19 T1 fns, 23,828 B | sol-A14 | In progress | src/ovl_7DF8/ovl_7DF8_5ED0.c (range only), tools/scratch/nonmatching/T-029/ | worktree isolation |

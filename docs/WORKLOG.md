@@ -86,3 +86,8 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Notes: func_8002AB64 is blocked on the main TU split (FU-14). func_8002FFDC needs its parameter declarations reviewed outside the range.
 
 - T-030 launched (sol-C13): the 25 T1 functions T-021 did not attempt, in ovl_7DF8 0x801C2000–0x801C8000 (19,624 B).
+
+## 2026-10-19 — T-026 vetted (main 0x80030000–0x80040000)
+- Worktree t3-e798001a (base 8730f2e). 5 matched, all empty void stubs: func_80030218, func_80039AC0 (closes FU-11), func_80039C00, func_8003D348, and func_80037770 together with func_80037778. Applied to HEAD and did a clean vet build: the ROM and all 3 images are byte-identical. 120 T4; M1 = M2 = 11,368 B (3.56%).
+- Imported the 66 drafts plus REPORT.md (spot-checked: genuine attempts, not raw m2c) and added 66 T2 rows. Low yield: most functions in this range are large.
+- Notes: func_80030EF0's body matches and only lacks a 4-byte alignment gap, so it is an FU-14 TU-boundary candidate. func_800326F0 uses native 64-bit ops (dsll), so it is probably not IDO -mips2 C (an asm or -mips3 candidate).
