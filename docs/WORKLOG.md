@@ -63,3 +63,6 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Imported the 33 drafts plus REPORT.md, skipping the worker's build/diff logs → 33 T2 rows.
 - New FU-14: two drafts (func_8002AB64, func_801AFA48) match except for trailing padding, which marks original TU ends (16-byte .text alignment). Splitting src files there should make them match and exposes the original file layout.
 - M1 = M2 = 11,160 / 319,544 B (3.49%).
+
+## 2026-10-19 03:09 — T-028 paused (worker usage limit)
+- T-028 stopped on the Codex usage limit (resets 07:41). A one-shot resume is scheduled for 07:44: "continue" in the same child thread, no relaunch.
