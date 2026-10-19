@@ -99,3 +99,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - func_8002AB64 and func_80030EF0 now match, since IDO pads their TU end. Deleted both drafts and their T2 rows. Clean vet build: the ROM and all 3 images are byte-identical. 122 T4; M1 = M2 = 11,752 B (3.68%). FU-14 is closed.
 
 - T-032 launched (sol-B13): main 0x80020000–0x80028000, 29 T1 fns, 29,468 B (base after the main split).
+
+## 2026-10-19 — T-029 vetted (ovl_7DF8 0x801B4000–0x801BA000)
+- Worktree t3-84f71892. func_801B4300 and func_801B4324 matched with clean C. Applied to HEAD and did a clean vet build: the ROM and all 3 images are byte-identical. 124 T4; M1 = M2 = 11,920 B (3.73%).
+- Imported the 17 drafts plus REPORT.md (skipped build/diff logs and results.json) and added 17 T2 rows. Suggested names: func_801B4324 = getSelectionUnlockTier; T029Portrait is a partial 0x8C-byte asset record.

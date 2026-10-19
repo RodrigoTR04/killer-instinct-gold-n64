@@ -52,9 +52,25 @@ f32 func_801B1A14(f32 arg0, f32 arg1, f32 arg2) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B3DB0.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B4300.s")
+extern s8 D_8012834B;
+extern void func_801B43A8(void);
+void func_801B4300(void) {
+    D_8012834B = 0;
+    func_801B43A8();
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B4324.s")
+extern u8 D_802C8CB8[];
+extern u8 D_80127D58[];
+extern u8 D_8004A407;
+s32 func_801B4324(u8 arg0) {
+    u8 value;
+    value = D_80127D58[D_802C8CB8[arg0] + arg0 * 16];
+    if (D_8004A407 & (arg0 + 1)) value = 0;
+    if (value >= 120) return 3;
+    if (value >= 55) return 2;
+    if (value >= 5) return 1;
+    return 0;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B43A8.s")
 
