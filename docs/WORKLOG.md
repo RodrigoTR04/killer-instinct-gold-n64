@@ -109,3 +109,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-19 — T-030 paused (worker usage limit)
 - T-030 stopped on the Codex usage limit (resets 19:18). A one-shot resume is scheduled for 19:21 (cron 39ad6eb1, session-only): "continue" in the same child thread.
 - T-032 also stopped on the usage limit (same 19:18 reset). The 19:21 job resumes it too.
+- T-033 also stopped on the usage limit (same 19:18 reset). All three workers are paused; the 19:21 job resumes all of them.
