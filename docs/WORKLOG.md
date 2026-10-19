@@ -146,3 +146,6 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Imported the 23 drafts plus REPORT.md and added 23 T2 rows. main now has 0 T1: every eligible function is matched or drafted.
 
 - T-039 launched (sol-B14): polish ovl_7DF8 drafts, near-misses first. When vetting, remove T2 rows for drafts it matches.
+
+## 2026-10-19 — T-039 paused (worker usage limit)
+- T-039 stopped on the Codex usage limit (resets 2026-10-20 00:30). A one-shot resume is scheduled for 00:33 (session-only cron). If it does not run, resume by hand.
