@@ -105,3 +105,6 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Imported the 17 drafts plus REPORT.md (skipped build/diff logs and results.json) and added 17 T2 rows. Suggested names: func_801B4324 = getSelectionUnlockTier; T029Portrait is a partial 0x8C-byte asset record.
 
 - T-033 launched (sol-A15): the 27 T1 functions T-020 did not attempt, in main 0x8000F960–0x80018000 (31,504 B).
+
+## 2026-10-19 — T-030 paused (worker usage limit)
+- T-030 stopped on the Codex usage limit (resets 19:18). A one-shot resume is scheduled for 19:21 (cron 39ad6eb1, session-only): "continue" in the same child thread.
