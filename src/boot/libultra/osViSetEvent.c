@@ -1,0 +1,12 @@
+/* Pinned SM64-US SDK source; see docs/libultra_rebuild.md (T-080). */
+#include "sdk/libultra.h"
+
+extern OSViContext *__osViNext;
+
+void osViSetEvent(OSMesgQueue *mq, OSMesg msg, u32 retraceCount) {
+    register u32 int_disabled = __osDisableInt();
+    (__osViNext)->mq = mq;
+    (__osViNext)->msg = msg;
+    (__osViNext)->retraceCount = retraceCount;
+    __osRestoreInt(int_disabled);
+}

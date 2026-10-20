@@ -356,3 +356,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-081 vetted (huge main drafts)
 - Worktree t3-10b1f013. 0 matched; 4 improved slightly (e.g. func_8002E724 699→660, func_8001E33C 602→571), func_800142E0 unchanged. It reports an audio jump-table ownership blocker. Scratch-only changes; I imported the drafts and REPORT.md. Huge drafts are not productive for Sol low.
 - T-082 launched (sol-A28): install decomp-permuter and run it on the 25 near-misses.
+
+## 2026-10-20 — T-080 vetted (FU-12: libultra SDK C integrated)
+- Worktree t3-b88fd56c. 117 of the excluded SDK functions are now built from SM64-US libultra C (pinned commit) across 71 objects: src/boot/libultra (44 files) and src/main/libultra (27). The boot TUs holding them were split, with two boot_sdk_gap_*.c files for the leftovers. Per-object SDK_CFLAGS follow SM64's US flags: O1 -mips2 default, O3 for gu*, O2 for string, O1 -mips3 for llmuldiv. tools/build/ido_o32.py only sets the ELF o32 header flags for the -mips3 object, as SM64's patch_elf_32bit does. Headers are in include/sdk/libultra.h, plus SDK symbol tables in linker_scripts/libultra.*_symbols.txt. osAiSetFrequency stays asm (its object padding overlaps audio).
+- They stay tier "excluded", so M2 is unchanged (290 T4, 22.11%), but these 117 functions are no longer assembly. Clean vet build: the ROM and all 3 images are byte-identical.

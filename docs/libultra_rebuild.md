@@ -328,3 +328,92 @@ Objects in proposed address order (hex end is exclusive):
 - main `0x8003EC00–0x8003EC30`: `lib/src/__osAiDeviceBusy.o`; whole text MATCH (relocations masked).
 - main `0x80041220–0x800412B0`: `lib/src/osGetTime.o`; whole text MATCH (relocations masked).
 - main `0x80041330–0x800414B0`: `lib/src/crc.o`; whole text MATCH (relocations masked).
+
+## Integration (T-080)
+
+T-080 integrates 117 excluded SDK functions as 71 ordinary C objects: 44 boot
+objects (69 functions) and 27 main objects (48 functions). The per-function list,
+T-018 classifications, flags, and linked results are in
+`tools/scratch/nonmatching/T-080/REPORT.md`. All remain excluded; status.csv and
+eligible progress are unchanged. SDK handwritten assembly, absent sources, and
+main libaudio remain assembly. No fetched archive or vendor tree is a build input.
+
+### Source and build recipe
+
+1. Fetch the pinned input with `tools/scratch/libultra/fetch.sh`. Copy only the
+   relevant original `lib/src/*.c` files into `src/boot/libultra/` or
+   `src/main/libultra/`. Preserve complete original objects, including helper
+   functions and storage definitions. Replace their includes with
+   `#include "sdk/libultra.h"`. This isolated header contains the required SDK
+   declaration/macro subset, rather than a full SDK/game/graphics/audio tree.
+   Main's three string exports use the established `main_` symbol prefix.
+2. Split the YAML text ranges at the original SDK object starts/ends, using
+   T-018's complete object spans and the boundary guidance in
+   `docs/tu_boundaries.md` and T-038's `boundaries.md`. Leave unrelated functions
+   in their existing files. The remaining mixed main TUs retain their original
+   audio bodies and flags; only the migrated SDK pragmas disappear.
+3. Use the Makefile's explicit per-object CFLAGS. The common flags are the
+   T-018 US defines, `-G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -nostdinc
+   -signed -32`. OS C uses `-O1 -mips2`, gu uses `-O3 -mips2`, string and
+   sinf/cosf use `-O2 -mips2`, and boot llmuldiv uses `-O1 -mips3 -32`.
+   Boot uses the existing asm-processor route. Pure main SDK C uses the same
+   IDO driver directly: the installed asm-processor argument parser rejects
+   `-O3`, and these files need no GLOBAL_ASM insertion.
+4. Place each nonempty SDK data/rodata/BSS section explicitly, not merely its
+   text. The retained JSON section manifests record original addresses and
+   complete ELF section sizes. `.data`, `.rodata`, and `.bss` YAML subsegments
+   attach the original storage definitions to the corresponding C object.
+   Assembly-owned gaps remain assembly. Main's SDK data is physically among
+   the existing rodata-ordered blocks, so its `.data` subsegments explicitly
+   use `linker_section_order: .rodata`.
+5. Keep external address aliases in
+   `linker_scripts/libultra.boot_symbols.txt` and
+   `linker_scripts/libultra.main_symbols.txt`. These map the pinned SDK names
+   to existing addresses, including main's calls into boot and compatibility
+   `D_*` names still used by assembly. `PROVIDE` leaves actual C definitions
+   in control. They contain no machine code or ROM data.
+6. Run `make clean && make extract && make all && make progress`, then
+   `.venv/bin/python tools/scratch/nonmatching/T-080/audit.py`. The latter
+   verifies actual C ownership, original function addresses, exact linked
+   object text, and data/rodata/BSS input-section addresses and sizes. If the
+   pinned source is fetched, it also checks verbatim provenance apart from
+   the include replacement and main string symbol spelling.
+
+### Placement details and rejected approaches
+
+The 64 zero bytes at boot ROM `0x3740–0x3780` follow osSetThreadPri's complete
+0xE0-byte object. A Splat `pad` subsegment preserves them without manufacturing
+an extra function, changing the original inventory, or padding the C body.
+No SDK instruction bytes are patched or trimmed.
+
+IDO 5.3's `-mips3 -32` llmuldiv object is ELF32/o32 code but omits the ELF
+`EF_MIPS_ABI_O32` and `EF_MIPS_32BITMODE` metadata expected by modern GNU ld.
+`tools/build/ido_o32.py` sets those two header bits for this object only. It
+checks the ELF class, endian, machine, and ISA first, and leaves every section
+byte unchanged. Without this metadata correction GNU ld rejects the mixed
+MIPS II/MIPS III link as “linking 32-bit code with 64-bit code”.
+
+Main's original SDK BSS lives at `0x8006F070–0x8006F1C0`, beyond the previously
+modelled `0x8004A230–0x8004A740` BSS range. The main YAML now models the intervening
+unknown storage as an assembly NOLOAD gap and explicitly places the SDK BSS at
+its original addresses. No bytes are appended to the main image. In particular,
+guRotateF's initialized local static uses IDO's original runtime initialization
+and BSS slot; it is not converted into a different constant representation.
+
+Changing file-scope SDK definitions to extern declarations is insufficient:
+IDO changes address reuse and scheduling in osInitialize, osCreatePiManager,
+osCreateViManager, and osTimer. The final sources therefore retain their
+verbatim definitions. The full linked comparison validates constants and
+relocations, not just masked instruction fields.
+
+osAiSetFrequency remains assembly. Its T-018 0x160-byte body matches, but the
+unmodified 0x170-byte input text section would overlap alUnlink. A later task
+can investigate original packing/assembler settings or a separately reviewed
+padding-only repack. osAiGetLength was outside the requested positive-result
+set and also remains assembly; its formerly folded stub has already been split
+by the intervening boundary work.
+
+T-080's required clean build matches the ROM SHA1
+`ba52e91b44450c548467044b26951353dc491e04` and all three payload images exactly.
+Eligible progress stays 70,556 / 319,100 bytes (22.11%); SDK source integration
+changes neither the denominator nor the tier assignments.

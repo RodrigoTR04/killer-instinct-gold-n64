@@ -1,7 +1,5 @@
 #include "common.h"
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2F2A0/__osAiDeviceBusy.s")
-
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2F2A0/alSaveNew.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2F2A0/alMainBusNew.s")
@@ -102,7 +100,6 @@ void func_8003EF90(ALFx *r, ALSynConfig *c, ALHeap *hp)
       case 6:	param = c->params;		break;
       default:			param = D_800485E8;		break;
     }
-
 
     j = 0;
 

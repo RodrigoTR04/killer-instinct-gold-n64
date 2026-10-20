@@ -1,0 +1,93 @@
+[
+  {
+    "name": "libultra/guPerspectiveF",
+    "section": ".rodata",
+    "base": 2147782640,
+    "end": 2147782656,
+    "bytes": 16
+  },
+  {
+    "name": "libultra/guRotateF",
+    "section": ".rodata",
+    "base": 2147782688,
+    "end": 2147782704,
+    "bytes": 16
+  },
+  {
+    "name": "libultra/guRotateF",
+    "section": ".bss",
+    "base": 2147938416,
+    "end": 2147938432,
+    "bytes": 16
+  },
+  {
+    "name": "libultra/guLookAtRef",
+    "section": ".rodata",
+    "base": 2147782704,
+    "end": 2147782720,
+    "bytes": 16
+  },
+  {
+    "name": "libultra/sinf",
+    "section": ".rodata",
+    "base": 2147782720,
+    "end": 2147782800,
+    "bytes": 80
+  },
+  {
+    "name": "libultra/cosf",
+    "section": ".rodata",
+    "base": 2147782800,
+    "end": 2147782880,
+    "bytes": 80
+  },
+  {
+    "name": "libultra/osAiSetNextBuffer",
+    "section": ".data",
+    "base": 2147779664,
+    "end": 2147779680,
+    "bytes": 16
+  },
+  {
+    "name": "libultra/osContInit",
+    "section": ".data",
+    "base": 2147779680,
+    "end": 2147779696,
+    "bytes": 16
+  },
+  {
+    "name": "libultra/osContInit",
+    "section": ".bss",
+    "base": 2147938576,
+    "end": 2147938656,
+    "bytes": 80
+  },
+  {
+    "name": "libultra/osContStartReadData",
+    "section": ".bss",
+    "base": 2147938512,
+    "end": 2147938576,
+    "bytes": 64
+  },
+  {
+    "name": "libultra/__osSiCreateAccessQueue",
+    "section": ".data",
+    "base": 2147779696,
+    "end": 2147779712,
+    "bytes": 16
+  },
+  {
+    "name": "libultra/__osSiCreateAccessQueue",
+    "section": ".bss",
+    "base": 2147938656,
+    "end": 2147938688,
+    "bytes": 32
+  },
+  {
+    "name": "libultra/osEepromWrite",
+    "section": ".bss",
+    "base": 2147938688,
+    "end": 2147938752,
+    "bytes": 64
+  }
+]

@@ -1,9 +1,5 @@
 #include "common.h"
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_319D0/__osContAddressCrc.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_319D0/__osContDataCrc.s")
-
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_319D0/alSeqGetLoc.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_319D0/alSeqSetLoc.s")
