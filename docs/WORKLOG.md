@@ -444,3 +444,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-095 vetted (screen tier 20-49)
 - Worktree t3-28bf0f96 (auto-resumed after the limit; cron 94277b83 cancelled). func_801B17BC and func_8002B034 match (696 B). 7 improved, 7 unchanged.
 - Clean vet build: the ROM and all 3 images are byte-identical. 294 T4; M1 = M2 = 63,432 / 289,876 B (21.88%).
+- Launched T-098 (family B), T-099 (screen refresh + closest drafts) and T-100 (screen tier 50-90).
