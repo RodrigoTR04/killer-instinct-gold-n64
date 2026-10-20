@@ -3,14 +3,14 @@
 
 typedef struct { u32 w0,w1; } T030Cmd23C0;
 typedef struct { u32 id,ticks; } T030Frame23C0;
-typedef struct { u8 pad[0xD4]; f32 x,z,y,pitch,yaw; } T030Camera23C0;
+typedef struct { u8 pad[0xD4]; f32 x,z,y,pitch,yaw; u8 padE8[0x10]; u8 *matrices; } T030Camera23C0;
 typedef struct { s16 sound; u8 pad[0x8A]; } T030Sound23C0;
 extern f32 cosf(f32), sinf(f32);
 extern void func_80012B7C(T030Cmd23C0 **,f32,f32,f32,f32,f32,f32);
 extern void func_800131A4(T030Cmd23C0 **,f32,f32,f32,f32,f32,f32);
 extern void func_8001AA90(f32);
 extern void func_8001C5A0(void),func_80028708(void),func_800287D4(void),func_8002B9B4(void);
-extern void func_8002F6F4();
+extern void func_8002F6F4(s32, s16, void *);
 extern void func_801C2D34(T030Cmd23C0 **,s32,s32,s32,s32);
 extern void func_801C2F5C(T030Cmd23C0 **,s32,s32);
 extern s32 func_801C317C(T030Cmd23C0 **,s32,s32,s32);
@@ -36,9 +36,6 @@ u8 func_801C23C0(T030Cmd23C0 **arg0, T030Frame23C0 *arg1) {
     f32 sp4C;
     u8 sp4B;
     s32 sp3C;
-    f32 sp34;
-    f32 sp30;
-    s32 sp28;
     f32 temp_f10;
     f32 temp_f12;
     f32 temp_f12_2;
@@ -46,7 +43,6 @@ u8 func_801C23C0(T030Cmd23C0 **arg0, T030Frame23C0 *arg1) {
     f32 var_f0;
     f32 var_f14;
     s32 temp_f16;
-    s32 temp_t8;
     s32 var_v1;
     u8 temp_v0_3;
     u8 temp_v0_4;
@@ -70,20 +66,17 @@ u8 func_801C23C0(T030Cmd23C0 **arg0, T030Frame23C0 *arg1) {
                 }
             }
             temp_f14 = sp4C / 120.0f;
-            sp34 = temp_f14;
             func_801C2110(temp_f14, D_802D3898, position, velocity);
-            var_f14 = sp34;
+            var_f14 = temp_f14;
         }
         temp_f12 = (f32) ((f64) var_f14 * D_80293788);
-        sp30 = temp_f12;
-        sp54 = (((1.0f - cosf(temp_f12)) / 2.0f) * (D_802D3880[1] - D_802D3880[0])) + D_802D3880[0];
-        sp50 = (((1.0f - cosf(temp_f12)) / 2.0f) * (D_802D3880[3] - D_802D3880[2])) + D_802D3880[2];
+        sp54 = (((1.0f - cosf(temp_f12)) / 2) * (D_802D3880[1] - D_802D3880[0])) + D_802D3880[0];
+        sp50 = (((1.0f - cosf(temp_f12)) / 2) * (D_802D3880[3] - D_802D3880[2])) + D_802D3880[2];
         if ((sp4C > 60.0f) && !(sp4C < 120.0f)) {
             sp50 = D_802D3880[3];
             sp54 = D_802D3880[1] - ((sp4C - 120.0f) / 35.0f);
             if (D_802D3874 != 0) {
                 temp_f12_2 = (f32) ((f64) sp54 * D_80293790);
-                sp34 = temp_f12_2;
                 position[0] += D_802D3878 * sinf(temp_f12_2);
                 position[2] += D_802D3878 * cosf(temp_f12_2);
                 D_802D3878 = (f32) ((f64) D_802D3878 * D_80293798);
@@ -104,12 +97,10 @@ u8 func_801C23C0(T030Cmd23C0 **arg0, T030Frame23C0 *arg1) {
         if (D_8004AC88 == 2) {
             D_800695D8 = 5.0f;
         }
-        temp_v0 = *arg0;
-        *arg0 = temp_v0 + 1;
+        temp_v0 = (*arg0)++;
         temp_v0->w1 = 0xFF;
         temp_v0->w0 = 0xFB000000;
-        temp_v0_2 = *arg0;
-        *arg0 = temp_v0_2 + 1;
+        temp_v0_2 = (*arg0)++;
         temp_v0_2->w1 = 0xFF;
         temp_v0_2->w0 = 0xFA000000;
         func_8002B9B4();
@@ -141,7 +132,6 @@ u8 func_801C23C0(T030Cmd23C0 **arg0, T030Frame23C0 *arg1) {
         if (sp4C > 90.0f) {
             sp3C = 0x15E;
             temp_f10 = sp4C - 120.0f;
-            sp34 = temp_f10;
             if (sp4C < 120.0f) {
                 var_v1 = D_802D3894;
                 sp3C = (s32) ((((temp_f10 + 30.0f) / 30.0f) * -280.0f) + D_802937A0);
@@ -154,7 +144,6 @@ u8 func_801C23C0(T030Cmd23C0 **arg0, T030Frame23C0 *arg1) {
                 }
             }
             temp_f16 = (s32) sp4C;
-            sp28 = temp_f16;
             func_801C2F5C(arg0, (var_v1 >> 2) + sp3C, temp_f16);
             if (D_802D3874 != 0) {
                 temp_v0_3 = func_801C3524(arg0, D_802D3874);
@@ -162,8 +151,8 @@ u8 func_801C23C0(T030Cmd23C0 **arg0, T030Frame23C0 *arg1) {
                 sp4B = temp_v0_3;
                 D_802D3874 += 1;
             }
-            func_801C2D34(arg0, sp28, -0xFA, D_802D3894 - 0x4B0, sp28);
-            if (func_801C317C(arg0, sp3C, D_802D3894, (s32) sp34) != 0) {
+            func_801C2D34(arg0, temp_f16, -0xFA, D_802D3894 - 0x4B0, temp_f16);
+            if (func_801C317C(arg0, sp3C, D_802D3894, (s32) temp_f10) != 0) {
                 D_80285570 = 1;
             }
             if (D_80285570 != 0) {
