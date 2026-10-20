@@ -1,0 +1,235 @@
+[
+  {
+    "tu": "src/main/main_1A880.c",
+    "flags": "baseline",
+    "functions": 2,
+    "changed": []
+  },
+  {
+    "tu": "src/main/main_1A880.c",
+    "flags": "mips1",
+    "functions": 2,
+    "changed": [
+      "func_8002A254"
+    ]
+  },
+  {
+    "tu": "src/main/main_1A880.c",
+    "flags": "no-Xcpluscomm",
+    "functions": 2,
+    "changed": []
+  },
+  {
+    "tu": "src/main/main_1A880.c",
+    "flags": "signed",
+    "functions": 2,
+    "changed": []
+  },
+  {
+    "tu": "src/main/main_1AB90.c",
+    "flags": "baseline",
+    "functions": 5,
+    "changed": []
+  },
+  {
+    "tu": "src/main/main_1AB90.c",
+    "flags": "mips1",
+    "functions": 5,
+    "changed": [
+      "func_8002A888",
+      "func_8002A8C4",
+      "func_8002A9DC",
+      "func_8002AB40",
+      "func_8002AB64"
+    ]
+  },
+  {
+    "tu": "src/main/main_1AB90.c",
+    "flags": "no-Xcpluscomm",
+    "functions": 5,
+    "changed": []
+  },
+  {
+    "tu": "src/main/main_1AB90.c",
+    "flags": "signed",
+    "functions": 5,
+    "changed": []
+  },
+  {
+    "tu": "src/main/main_1B230.c",
+    "flags": "baseline",
+    "functions": 2,
+    "changed": []
+  },
+  {
+    "tu": "src/main/main_1B230.c",
+    "flags": "mips1",
+    "functions": 2,
+    "changed": [
+      "func_8002B3A8",
+      "func_8002B3E0"
+    ]
+  },
+  {
+    "tu": "src/main/main_1B230.c",
+    "flags": "no-Xcpluscomm",
+    "functions": 2,
+    "changed": []
+  },
+  {
+    "tu": "src/main/main_1B230.c",
+    "flags": "signed",
+    "functions": 2,
+    "changed": []
+  },
+  {
+    "tu": "src/main/main_1BBA0.c",
+    "flags": "baseline",
+    "functions": 3,
+    "changed": []
+  },
+  {
+    "tu": "src/main/main_1BBA0.c",
+    "flags": "mips1",
+    "functions": 3,
+    "changed": [
+      "func_8002B500",
+      "func_8002B710"
+    ]
+  },
+  {
+    "tu": "src/main/main_1BBA0.c",
+    "flags": "no-Xcpluscomm",
+    "functions": 3,
+    "changed": []
+  },
+  {
+    "tu": "src/main/main_1BBA0.c",
+    "flags": "signed",
+    "functions": 3,
+    "changed": []
+  },
+  {
+    "tu": "src/main/main_1BE80.c",
+    "flags": "baseline",
+    "functions": 6,
+    "changed": []
+  },
+  {
+    "tu": "src/main/main_1BE80.c",
+    "flags": "mips1",
+    "functions": 6,
+    "changed": [
+      "func_8002B8B0",
+      "func_8002BAF0",
+      "func_8002BB74",
+      "func_8002DBDC",
+      "func_8002DC48",
+      "func_8002E08C"
+    ]
+  },
+  {
+    "tu": "src/main/main_1BE80.c",
+    "flags": "no-Xcpluscomm",
+    "functions": 6,
+    "changed": []
+  },
+  {
+    "tu": "src/main/main_1BE80.c",
+    "flags": "signed",
+    "functions": 6,
+    "changed": []
+  },
+  {
+    "tu": "src/main/main_1EB40.c",
+    "flags": "baseline",
+    "functions": 15,
+    "changed": []
+  },
+  {
+    "tu": "src/main/main_1EB40.c",
+    "flags": "mips1",
+    "functions": 15,
+    "changed": [
+      "func_8002E680",
+      "func_8002F234",
+      "func_8002F2B0",
+      "func_8002F31C",
+      "func_8002F3DC",
+      "func_8002F6DC",
+      "func_8002F8F8",
+      "func_8002F944",
+      "func_8002FAA0",
+      "func_8002FAC0"
+    ]
+  },
+  {
+    "tu": "src/main/main_1EB40.c",
+    "flags": "no-Xcpluscomm",
+    "functions": 15,
+    "changed": []
+  },
+  {
+    "tu": "src/main/main_1EB40.c",
+    "flags": "signed",
+    "functions": 15,
+    "changed": []
+  },
+  {
+    "tu": "src/main/main_2FF0.c",
+    "flags": "baseline",
+    "functions": 46,
+    "changed": []
+  },
+  {
+    "tu": "src/main/main_2FF0.c",
+    "flags": "mips1",
+    "functions": 46,
+    "changed": [
+      "func_80012950",
+      "func_80012A8C",
+      "func_8001383C",
+      "func_80013BE0",
+      "func_80013CD8",
+      "func_8001414C",
+      "func_80014C40",
+      "func_80015B64",
+      "func_80015CD0",
+      "func_80016258",
+      "func_80016760",
+      "func_80016824",
+      "func_80016910",
+      "func_80016BE0",
+      "func_80017064",
+      "func_80018418",
+      "func_80018664",
+      "func_80018E88",
+      "func_8001971C",
+      "func_8001A9E8",
+      "func_8001AA20",
+      "func_8001AC80",
+      "func_8001B50C",
+      "func_8001B620",
+      "func_8001BA18",
+      "func_8001BA94",
+      "func_8001BB10",
+      "func_8001BF1C",
+      "func_8001C05C",
+      "func_8001C0E4",
+      "func_8001C1B0",
+      "func_8001C2D4"
+    ]
+  },
+  {
+    "tu": "src/main/main_2FF0.c",
+    "flags": "no-Xcpluscomm",
+    "functions": 46,
+    "changed": []
+  },
+  {
+    "tu": "src/main/main_2FF0.c",
+    "flags": "signed",
+    "functions": 46,
+    "changed": []
+  }
+]

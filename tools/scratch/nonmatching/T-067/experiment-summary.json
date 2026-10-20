@@ -1,0 +1,41 @@
+{
+  "near": {
+    "records": 42,
+    "errors": 0,
+    "best": {
+      "func_8002F45C": 27
+    }
+  },
+  "loops": {
+    "records": 39,
+    "errors": 0,
+    "best": {
+      "func_8002AEE4": 13,
+      "func_8002A900": 16,
+      "func_8002A300": 65,
+      "func_80015F6C": 73
+    }
+  },
+  "follow": {
+    "records": 8,
+    "errors": 0,
+    "best": {
+      "func_8002A900": 16
+    }
+  },
+  "stage": {
+    "records": 12,
+    "errors": 0,
+    "best": {
+      "func_80017378": 8
+    }
+  },
+  "lines": {
+    "records": 120,
+    "errors": 0
+  },
+  "remaining": {
+    "records": 28,
+    "errors": 0
+  }
+}

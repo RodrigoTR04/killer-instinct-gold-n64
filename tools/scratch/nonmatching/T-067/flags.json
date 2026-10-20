@@ -1,0 +1,602 @@
+[
+  {
+    "label": "baseline",
+    "bytes": 244,
+    "words": 2,
+    "function": "func_8002DF98",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002DF98.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "mips1",
+    "bytes": 240,
+    "words": 40,
+    "function": "func_8002DF98",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002DF98.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "no-Xcpluscomm",
+    "bytes": 244,
+    "words": 2,
+    "function": "func_8002DF98",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002DF98.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "signed",
+    "bytes": 244,
+    "words": 2,
+    "function": "func_8002DF98",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002DF98.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "mips1-signed",
+    "bytes": 240,
+    "words": 40,
+    "function": "func_8002DF98",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002DF98.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "baseline",
+    "bytes": 88,
+    "words": 2,
+    "function": "func_8002B95C",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B95C.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "mips1",
+    "bytes": 88,
+    "words": 2,
+    "function": "func_8002B95C",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B95C.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "no-Xcpluscomm",
+    "bytes": 88,
+    "words": 2,
+    "function": "func_8002B95C",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B95C.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "signed",
+    "bytes": 88,
+    "words": 2,
+    "function": "func_8002B95C",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B95C.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "mips1-signed",
+    "bytes": 88,
+    "words": 2,
+    "function": "func_8002B95C",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B95C.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "baseline",
+    "bytes": 208,
+    "words": 2,
+    "function": "func_8002B7E0",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B7E0.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "mips1",
+    "bytes": 208,
+    "words": 5,
+    "function": "func_8002B7E0",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B7E0.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "no-Xcpluscomm",
+    "bytes": 208,
+    "words": 2,
+    "function": "func_8002B7E0",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B7E0.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "signed",
+    "bytes": 208,
+    "words": 2,
+    "function": "func_8002B7E0",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B7E0.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "mips1-signed",
+    "bytes": 208,
+    "words": 5,
+    "function": "func_8002B7E0",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B7E0.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "baseline",
+    "bytes": 368,
+    "words": 4,
+    "function": "func_8002B57C",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B57C.c",
+    "tu": "src/main/main_1BBA0.c"
+  },
+  {
+    "label": "mips1",
+    "bytes": 392,
+    "words": 62,
+    "function": "func_8002B57C",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B57C.c",
+    "tu": "src/main/main_1BBA0.c"
+  },
+  {
+    "label": "no-Xcpluscomm",
+    "bytes": 368,
+    "words": 4,
+    "function": "func_8002B57C",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B57C.c",
+    "tu": "src/main/main_1BBA0.c"
+  },
+  {
+    "label": "signed",
+    "bytes": 368,
+    "words": 4,
+    "function": "func_8002B57C",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B57C.c",
+    "tu": "src/main/main_1BBA0.c"
+  },
+  {
+    "label": "mips1-signed",
+    "bytes": 392,
+    "words": 62,
+    "function": "func_8002B57C",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B57C.c",
+    "tu": "src/main/main_1BBA0.c"
+  },
+  {
+    "label": "baseline",
+    "bytes": 64,
+    "words": 4,
+    "function": "func_8002B1EC",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B1EC.c",
+    "tu": "src/main/main_1B230.c"
+  },
+  {
+    "label": "mips1",
+    "bytes": 68,
+    "words": 12,
+    "function": "func_8002B1EC",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B1EC.c",
+    "tu": "src/main/main_1B230.c"
+  },
+  {
+    "label": "no-Xcpluscomm",
+    "bytes": 64,
+    "words": 4,
+    "function": "func_8002B1EC",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B1EC.c",
+    "tu": "src/main/main_1B230.c"
+  },
+  {
+    "label": "signed",
+    "bytes": 64,
+    "words": 4,
+    "function": "func_8002B1EC",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B1EC.c",
+    "tu": "src/main/main_1B230.c"
+  },
+  {
+    "label": "mips1-signed",
+    "bytes": 68,
+    "words": 12,
+    "function": "func_8002B1EC",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B1EC.c",
+    "tu": "src/main/main_1B230.c"
+  },
+  {
+    "label": "baseline",
+    "bytes": 64,
+    "words": 4,
+    "function": "func_8002B91C",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B91C.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "mips1",
+    "bytes": 64,
+    "words": 8,
+    "function": "func_8002B91C",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B91C.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "no-Xcpluscomm",
+    "bytes": 64,
+    "words": 4,
+    "function": "func_8002B91C",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B91C.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "signed",
+    "bytes": 64,
+    "words": 4,
+    "function": "func_8002B91C",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B91C.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "mips1-signed",
+    "bytes": 64,
+    "words": 8,
+    "function": "func_8002B91C",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002B91C.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "baseline",
+    "bytes": 268,
+    "words": 4,
+    "function": "func_8002DCC8",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002DCC8.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "mips1",
+    "bytes": 264,
+    "words": 27,
+    "function": "func_8002DCC8",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002DCC8.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "no-Xcpluscomm",
+    "bytes": 268,
+    "words": 4,
+    "function": "func_8002DCC8",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002DCC8.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "signed",
+    "bytes": 268,
+    "words": 4,
+    "function": "func_8002DCC8",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002DCC8.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "mips1-signed",
+    "bytes": 264,
+    "words": 27,
+    "function": "func_8002DCC8",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002DCC8.c",
+    "tu": "src/main/main_1BE80.c"
+  },
+  {
+    "label": "baseline",
+    "bytes": 80,
+    "words": 9,
+    "function": "func_8002AA98",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002AA98.c",
+    "tu": "src/main/main_1AB90.c"
+  },
+  {
+    "label": "mips1",
+    "bytes": 80,
+    "words": 17,
+    "function": "func_8002AA98",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002AA98.c",
+    "tu": "src/main/main_1AB90.c"
+  },
+  {
+    "label": "no-Xcpluscomm",
+    "bytes": 80,
+    "words": 9,
+    "function": "func_8002AA98",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002AA98.c",
+    "tu": "src/main/main_1AB90.c"
+  },
+  {
+    "label": "signed",
+    "bytes": 80,
+    "words": 9,
+    "function": "func_8002AA98",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002AA98.c",
+    "tu": "src/main/main_1AB90.c"
+  },
+  {
+    "label": "mips1-signed",
+    "bytes": 80,
+    "words": 17,
+    "function": "func_8002AA98",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002AA98.c",
+    "tu": "src/main/main_1AB90.c"
+  },
+  {
+    "label": "baseline",
+    "bytes": 80,
+    "words": 9,
+    "function": "func_8002AAEC",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002AAEC.c",
+    "tu": "src/main/main_1AB90.c"
+  },
+  {
+    "label": "mips1",
+    "bytes": 80,
+    "words": 17,
+    "function": "func_8002AAEC",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002AAEC.c",
+    "tu": "src/main/main_1AB90.c"
+  },
+  {
+    "label": "no-Xcpluscomm",
+    "bytes": 80,
+    "words": 9,
+    "function": "func_8002AAEC",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002AAEC.c",
+    "tu": "src/main/main_1AB90.c"
+  },
+  {
+    "label": "signed",
+    "bytes": 80,
+    "words": 9,
+    "function": "func_8002AAEC",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002AAEC.c",
+    "tu": "src/main/main_1AB90.c"
+  },
+  {
+    "label": "mips1-signed",
+    "bytes": 80,
+    "words": 17,
+    "function": "func_8002AAEC",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002AAEC.c",
+    "tu": "src/main/main_1AB90.c"
+  },
+  {
+    "label": "baseline",
+    "bytes": 1752,
+    "words": 8,
+    "function": "func_80017378",
+    "draft": "tools/scratch/nonmatching/T-033/func_80017378.c",
+    "tu": "src/main/main_2FF0.c"
+  },
+  {
+    "label": "mips1",
+    "bytes": 1748,
+    "words": 107,
+    "function": "func_80017378",
+    "draft": "tools/scratch/nonmatching/T-033/func_80017378.c",
+    "tu": "src/main/main_2FF0.c"
+  },
+  {
+    "label": "no-Xcpluscomm",
+    "bytes": 1752,
+    "words": 8,
+    "function": "func_80017378",
+    "draft": "tools/scratch/nonmatching/T-033/func_80017378.c",
+    "tu": "src/main/main_2FF0.c"
+  },
+  {
+    "label": "signed",
+    "bytes": 1752,
+    "words": 8,
+    "function": "func_80017378",
+    "draft": "tools/scratch/nonmatching/T-033/func_80017378.c",
+    "tu": "src/main/main_2FF0.c"
+  },
+  {
+    "label": "mips1-signed",
+    "bytes": 1748,
+    "words": 107,
+    "function": "func_80017378",
+    "draft": "tools/scratch/nonmatching/T-033/func_80017378.c",
+    "tu": "src/main/main_2FF0.c"
+  },
+  {
+    "label": "baseline",
+    "bytes": 268,
+    "words": 7,
+    "function": "func_8002A300",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002A300.c",
+    "tu": "src/main/main_1A880.c"
+  },
+  {
+    "label": "mips1",
+    "bytes": 268,
+    "words": 8,
+    "function": "func_8002A300",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002A300.c",
+    "tu": "src/main/main_1A880.c"
+  },
+  {
+    "label": "no-Xcpluscomm",
+    "bytes": 268,
+    "words": 7,
+    "function": "func_8002A300",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002A300.c",
+    "tu": "src/main/main_1A880.c"
+  },
+  {
+    "label": "signed",
+    "bytes": 268,
+    "words": 7,
+    "function": "func_8002A300",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002A300.c",
+    "tu": "src/main/main_1A880.c"
+  },
+  {
+    "label": "mips1-signed",
+    "bytes": 268,
+    "words": 8,
+    "function": "func_8002A300",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002A300.c",
+    "tu": "src/main/main_1A880.c"
+  },
+  {
+    "label": "baseline",
+    "bytes": 336,
+    "words": 13,
+    "function": "func_8002AEE4",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002AEE4.c",
+    "tu": "src/main/main_1B230.c"
+  },
+  {
+    "label": "mips1",
+    "bytes": 364,
+    "words": 66,
+    "function": "func_8002AEE4",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002AEE4.c",
+    "tu": "src/main/main_1B230.c"
+  },
+  {
+    "label": "no-Xcpluscomm",
+    "bytes": 336,
+    "words": 13,
+    "function": "func_8002AEE4",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002AEE4.c",
+    "tu": "src/main/main_1B230.c"
+  },
+  {
+    "label": "signed",
+    "bytes": 336,
+    "words": 13,
+    "function": "func_8002AEE4",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002AEE4.c",
+    "tu": "src/main/main_1B230.c"
+  },
+  {
+    "label": "mips1-signed",
+    "bytes": 364,
+    "words": 66,
+    "function": "func_8002AEE4",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002AEE4.c",
+    "tu": "src/main/main_1B230.c"
+  },
+  {
+    "label": "baseline",
+    "bytes": 220,
+    "words": 18,
+    "function": "func_8002A900",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002A900.c",
+    "tu": "src/main/main_1AB90.c"
+  },
+  {
+    "label": "mips1",
+    "bytes": 228,
+    "words": 43,
+    "function": "func_8002A900",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002A900.c",
+    "tu": "src/main/main_1AB90.c"
+  },
+  {
+    "label": "no-Xcpluscomm",
+    "bytes": 220,
+    "words": 18,
+    "function": "func_8002A900",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002A900.c",
+    "tu": "src/main/main_1AB90.c"
+  },
+  {
+    "label": "signed",
+    "bytes": 220,
+    "words": 18,
+    "function": "func_8002A900",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002A900.c",
+    "tu": "src/main/main_1AB90.c"
+  },
+  {
+    "label": "mips1-signed",
+    "bytes": 228,
+    "words": 43,
+    "function": "func_8002A900",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002A900.c",
+    "tu": "src/main/main_1AB90.c"
+  },
+  {
+    "label": "baseline",
+    "bytes": 268,
+    "words": 21,
+    "function": "func_80015F6C",
+    "draft": "tools/scratch/nonmatching/T-020/func_80015F6C.c",
+    "tu": "src/main/main_2FF0.c"
+  },
+  {
+    "label": "mips1",
+    "bytes": 280,
+    "words": 61,
+    "function": "func_80015F6C",
+    "draft": "tools/scratch/nonmatching/T-020/func_80015F6C.c",
+    "tu": "src/main/main_2FF0.c"
+  },
+  {
+    "label": "no-Xcpluscomm",
+    "bytes": 268,
+    "words": 21,
+    "function": "func_80015F6C",
+    "draft": "tools/scratch/nonmatching/T-020/func_80015F6C.c",
+    "tu": "src/main/main_2FF0.c"
+  },
+  {
+    "label": "signed",
+    "bytes": 268,
+    "words": 21,
+    "function": "func_80015F6C",
+    "draft": "tools/scratch/nonmatching/T-020/func_80015F6C.c",
+    "tu": "src/main/main_2FF0.c"
+  },
+  {
+    "label": "mips1-signed",
+    "bytes": 280,
+    "words": 61,
+    "function": "func_80015F6C",
+    "draft": "tools/scratch/nonmatching/T-020/func_80015F6C.c",
+    "tu": "src/main/main_2FF0.c"
+  },
+  {
+    "label": "baseline",
+    "bytes": 404,
+    "words": 27,
+    "function": "func_8002F45C",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002F45C.c",
+    "tu": "src/main/main_1EB40.c"
+  },
+  {
+    "label": "mips1",
+    "bytes": 416,
+    "words": 81,
+    "function": "func_8002F45C",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002F45C.c",
+    "tu": "src/main/main_1EB40.c"
+  },
+  {
+    "label": "no-Xcpluscomm",
+    "bytes": 404,
+    "words": 27,
+    "function": "func_8002F45C",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002F45C.c",
+    "tu": "src/main/main_1EB40.c"
+  },
+  {
+    "label": "signed",
+    "bytes": 404,
+    "words": 27,
+    "function": "func_8002F45C",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002F45C.c",
+    "tu": "src/main/main_1EB40.c"
+  },
+  {
+    "label": "mips1-signed",
+    "bytes": 416,
+    "words": 81,
+    "function": "func_8002F45C",
+    "draft": "tools/scratch/nonmatching/T-024/func_8002F45C.c",
+    "tu": "src/main/main_1EB40.c"
+  }
+]
