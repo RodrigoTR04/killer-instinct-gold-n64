@@ -216,3 +216,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-048 vetted (ovl_7DF8 polish round 4)
 - Worktree t3-8a5c1cd2. All 53 listed functions were attempted. 3 match: func_801AD3BC, func_801CCDE8 and func_801C407C (1,068 B). 32 drafts improved, 18 unchanged. ovl_7DF8_18520 now owns its rodata (0xE7CC0–0xE7D10).
 - Clean vet build: the ROM and all 3 images are byte-identical. 250 T4; M1 = M2 = 51,716 / 319,100 B (16.21%).
+- T-052 launched (sol-A20): main round 3, 43 screened-only drafts with an explicit list.
