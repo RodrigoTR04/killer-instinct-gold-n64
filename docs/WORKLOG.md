@@ -183,3 +183,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-043 vetted (ovl_7DF8 rodata ownership)
 - Worktree t3-d4e34849. Three TUs (ovl_7DF8, _12C70, _200C0) now own their .rodata via `[off, .rodata, <tu>]` splat subsegments; the leftover rodata stays in asm data files. Makefile: IMAGE_OBJECTS now wildcards every asm/<image>/data/*.s. func_801ADCFC and func_801CBCCC match (736 B). The glyph functions func_801BF720 and func_801BF914 are still 2 words off each. The recipe is in T-043/REPORT.md and unblocks FU-16 (main float literals).
 - It merged cleanly onto T-044 (bf39222). Clean vet build: the ROM and all 3 images are byte-identical. 232 T4; M1 = M2 = 43,756 / 319,100 B (13.71%).
+- T-046 launched (sol-B16): main rodata ownership (FU-16 part 1).
