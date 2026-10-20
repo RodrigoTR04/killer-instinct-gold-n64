@@ -31,11 +31,11 @@ Source of truth for per-function tiers is `docs/functions.csv` (created once spl
 | Metric | Value |
 |---|---|
 | Scope measured | all CPU text of boot/main/ovl_7DF8/ovl_7E00 (999 fns). Text not in fns: boot 432 B pad, main 708 B, 7DF8 92 B, 7E00 4,040 B (31 inline data pools, listed in symbol_addrs.ovl_7E00.us.txt) |
-| M1 | 55,924 / 289,876 B (19.29%) — game code only; SDK excluded (2026-10-20 user decision) |
-| M2 | 55,924 / 289,876 B (19.29%) |
+| M1 | 56,616 / 289,876 B (19.53%) — game code only; SDK excluded (2026-10-20 user decision) |
+| M2 | 56,616 / 289,876 B (19.53%) |
 | SDK decompiled | ~262 excluded SDK functions now built from C (T-037/T-055 pfs, T-073 gu, T-075/T-078 libaudio at -O3, T-080 libultra); not counted in M1/M2 |
-| Functions | 0 T1 · 239 T2 · 0 T3 · 270 T4 · 490 excluded (167,316 B: libultra/libaudio/gu/pfs SDK + boot entry asm + 169 ovl_7E00 handwritten asm) |
-| Per image (eligible B / T1 fns / excluded) | boot 8,468/0/99 (21 T4, 0 T2 — 100%) · main 143,980/0/222 (135 T4, 102 T2) · ovl_7DF8 137,428/0/0 (114 T4, 137 T2) · ovl_7E00 0/0/169 (all handwritten asm) |
+| Functions | 0 T1 · 238 T2 · 0 T3 · 271 T4 · 490 excluded (167,316 B: libultra/libaudio/gu/pfs SDK + boot entry asm + 169 ovl_7E00 handwritten asm) |
+| Per image (eligible B / T1 fns / excluded) | boot 8,468/0/99 (21 T4, 0 T2 — 100%) · main 143,980/0/222 (135 T4, 102 T2) · ovl_7DF8 137,428/0/0 (115 T4, 136 T2) · ovl_7E00 0/0/169 (all handwritten asm) |
 
 Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html). Tier overrides: tools/progress/status.csv (lead-maintained). Never hand-edit numbers; paste the `--markdown` output here.
 
@@ -152,4 +152,4 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | T-087 | ovl_7DF8 'finish the TU' (mostly-matched TUs: ovl_7DF8.c, _200C0, _2380, _18520, _1B790, _190B0) reusing each TU's structs/externs + line placement; skip T-082's permuter fns | sol-A29 | Done (verified) | those src/ovl_7DF8 TUs (listed fns + declarations), tools/scratch/nonmatching/T-0xx/ (those drafts), tools/scratch/nonmatching/T-087/ | worktree isolation |
 | T-088 | decomp-permuter round 2 (longer budgets, more parallel jobs) on remaining near-misses: main func_8002AA98/AAEC (2), func_8002F45C (13), func_80017378 (8), func_8002A900 (15); ovl_7DF8 func_801BF720/BF914 (2), func_801C4E38 (2), func_801B6528 (3), func_801B695C (4), func_801C5064 (4), func_801C7998 (6), func_801C6A80 (8), family A func_801B2010 (14) | sol-B29 | In progress | src/main + src/ovl_7DF8 (listed fns only), tools/permuter/, tools/scratch/nonmatching/T-0xx/ (listed drafts), tools/scratch/nonmatching/T-088/ | worktree isolation; T-085/T-087 skip these fns |
 | T-089 | decomp-permuter on equal-size main drafts (scheduling/register-only diffs): func_8002F6F4 (18), func_80015F6C (21), func_8001E0B4 (24), func_8002E4A0 (33), func_8002A4F0 (53), func_800121C8 (54), func_8001256C (63) | sol-C33 | In progress | src/main (listed fns only), tools/scratch/nonmatching/T-0xx/ (listed drafts), tools/scratch/nonmatching/T-089/ | worktree isolation; T-088 runs other fns |
-| T-090 | Land func_801C67CC (exact body, T-087): give ovl_7DF8_190B0 ownership of its .rodata via the T-043 recipe (360.0/360.0/372.0 doubles), promote it; then any other 190B0 drafts unblocked by the ownership | sol-A30 | In progress | kig.ovl_7DF8.us.yaml (rodata lines), src/ovl_7DF8/ovl_7DF8_190B0.c (func_801C67CC + rodata decls), tools/scratch/nonmatching/T-090/ | worktree isolation; T-088 permutes other 190B0 fns |
+| T-090 | Land func_801C67CC (exact body, T-087): give ovl_7DF8_190B0 ownership of its .rodata via the T-043 recipe (360.0/360.0/372.0 doubles), promote it; then any other 190B0 drafts unblocked by the ownership | sol-A30 | Done (verified) | kig.ovl_7DF8.us.yaml (rodata lines), src/ovl_7DF8/ovl_7DF8_190B0.c (func_801C67CC + rodata decls), tools/scratch/nonmatching/T-090/ | worktree isolation; T-088 permutes other 190B0 fns |
