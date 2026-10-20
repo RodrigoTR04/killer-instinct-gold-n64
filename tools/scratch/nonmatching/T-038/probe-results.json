@@ -1,0 +1,230 @@
+{
+  "boot_dma_chunked": {
+    "O2 mips2": {
+      "size": 328,
+      "target": 328,
+      "differing_words": 36,
+      "match": false
+    },
+    "O1 mips2": {
+      "size": 352,
+      "target": 328,
+      "differing_words": 81,
+      "match": false
+    },
+    "O1 mips1": {
+      "size": 364,
+      "target": 328,
+      "differing_words": 82,
+      "match": false
+    },
+    "O2 mips1": {
+      "size": 328,
+      "target": 328,
+      "differing_words": 46,
+      "match": false
+    },
+    "O2 mips3": {
+      "size": 360,
+      "target": 328,
+      "differing_words": 51,
+      "match": false
+    },
+    "O1 mips3": {
+      "size": 384,
+      "target": 328,
+      "differing_words": 81,
+      "match": false
+    }
+  },
+  "func_80001564": {
+    "O2 mips2": {
+      "size": 360,
+      "target": 360,
+      "differing_words": 8,
+      "match": false
+    },
+    "O1 mips2": {
+      "size": 464,
+      "target": 360,
+      "differing_words": 88,
+      "match": false
+    },
+    "O1 mips1": {
+      "size": 516,
+      "target": 360,
+      "differing_words": 88,
+      "match": false
+    },
+    "O2 mips1": {
+      "size": 360,
+      "target": 360,
+      "differing_words": 14,
+      "match": false
+    },
+    "O2 mips3": {
+      "size": 360,
+      "target": 360,
+      "differing_words": 8,
+      "match": false
+    },
+    "O1 mips3": {
+      "size": 464,
+      "target": 360,
+      "differing_words": 88,
+      "match": false
+    }
+  },
+  "func_80001F2C": {
+    "O2 mips2": {
+      "size": 880,
+      "target": 916,
+      "differing_words": 209,
+      "match": false
+    },
+    "O1 mips2": {
+      "size": 1012,
+      "target": 916,
+      "differing_words": 224,
+      "match": false
+    },
+    "O1 mips1": {
+      "size": 1040,
+      "target": 916,
+      "differing_words": 223,
+      "match": false
+    },
+    "O2 mips1": {
+      "size": 912,
+      "target": 916,
+      "differing_words": 216,
+      "match": false
+    },
+    "O2 mips3": {
+      "size": 976,
+      "target": 916,
+      "differing_words": 220,
+      "match": false
+    },
+    "O1 mips3": {
+      "size": 1076,
+      "target": 916,
+      "differing_words": 224,
+      "match": false
+    }
+  },
+  "func_80000FA0": {
+    "O2 mips2": {
+      "size": 1260,
+      "target": 1136,
+      "differing_words": 283,
+      "match": false
+    },
+    "O1 mips2": {
+      "size": 1896,
+      "target": 1136,
+      "differing_words": 284,
+      "match": false
+    },
+    "O1 mips1": {
+      "size": 1952,
+      "target": 1136,
+      "differing_words": 284,
+      "match": false
+    },
+    "O2 mips1": {
+      "size": 1328,
+      "target": 1136,
+      "differing_words": 281,
+      "match": false
+    },
+    "O2 mips3": {
+      "size": 1744,
+      "target": 1136,
+      "differing_words": 283,
+      "match": false
+    },
+    "O1 mips3": {
+      "size": 2568,
+      "target": 1136,
+      "differing_words": 284,
+      "match": false
+    }
+  },
+  "func_800016CC": {
+    "O2 mips2": {
+      "size": 1468,
+      "target": 1316,
+      "differing_words": 328,
+      "match": false
+    },
+    "O1 mips2": {
+      "size": 2080,
+      "target": 1316,
+      "differing_words": 329,
+      "match": false
+    },
+    "O1 mips1": {
+      "size": 2120,
+      "target": 1316,
+      "differing_words": 329,
+      "match": false
+    },
+    "O2 mips1": {
+      "size": 1532,
+      "target": 1316,
+      "differing_words": 324,
+      "match": false
+    },
+    "O2 mips3": {
+      "size": 1788,
+      "target": 1316,
+      "differing_words": 329,
+      "match": false
+    },
+    "O1 mips3": {
+      "size": 2412,
+      "target": 1316,
+      "differing_words": 329,
+      "match": false
+    }
+  },
+  "func_80000960": {
+    "O2 mips2": {
+      "size": 2176,
+      "target": 1600,
+      "differing_words": 398,
+      "match": false
+    },
+    "O1 mips2": {
+      "size": 2660,
+      "target": 1600,
+      "differing_words": 400,
+      "match": false
+    },
+    "O1 mips1": {
+      "size": 2804,
+      "target": 1600,
+      "differing_words": 400,
+      "match": false
+    },
+    "O2 mips1": {
+      "size": 2316,
+      "target": 1600,
+      "differing_words": 397,
+      "match": false
+    },
+    "O2 mips3": {
+      "size": 2620,
+      "target": 1600,
+      "differing_words": 399,
+      "match": false
+    },
+    "O1 mips3": {
+      "size": 3104,
+      "target": 1600,
+      "differing_words": 399,
+      "match": false
+    }
+  }
+}

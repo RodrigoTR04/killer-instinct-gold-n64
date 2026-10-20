@@ -66,7 +66,13 @@ void func_801C7F40(void) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C85C0.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C8668.s")
+extern u8 D_80127D58[];
+void func_801C8668(u8 arg0) {
+    s32 i;
+    for (i = 0; i < 16; i++) {
+        D_80127D58[i + arg0 * 16] = 0;
+    }
+}
 
 extern u8 D_80127CC0[];
 

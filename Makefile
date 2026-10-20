@@ -25,7 +25,8 @@ ELF := build/kig.us.elf
 SCRIPT := linker_scripts/kig.us.ld
 UNDEFINED := linker_scripts/undefined_funcs_auto.txt linker_scripts/undefined_syms_auto.txt
 OBJECTS := build/asm/header.s.o build/assets/ipl3.bin.o \
-           build/asm/boot.s.o build/asm/data/boot.data.s.o \
+           build/asm/boot_entry.s.o $(patsubst src/%.c,build/src/%.c.o,$(wildcard src/boot/*.c)) \
+           build/asm/data/boot.data.s.o \
            build/asm/data/boot.bss.s.o build/assets/opaque.bin.o
 
 .PHONY: all extract verify clean verify-images
@@ -36,7 +37,7 @@ all: $(ROM) verify $(addprefix build/,$(addsuffix .bin,$(IMAGES))) verify-images
 
 # The stamp is written only after a successful extraction. Grouped outputs also
 # allow make to recover when an individual generated file has been removed.
-EXTRACTED := asm/ovl_7E00/ovl_7E00.s asm/header.s asm/boot.s asm/data/boot.data.s asm/data/boot.bss.s \
+EXTRACTED := asm/ovl_7E00/ovl_7E00.s asm/header.s asm/boot_entry.s asm/data/boot.data.s asm/data/boot.bss.s \
              assets/ipl3.bin assets/opaque.bin $(SCRIPT) $(UNDEFINED) include/macro.inc \
              $(foreach image,$(IMAGES),asm/$(image)/data/$(image).data.s linker_scripts/$(image).ld linker_scripts/$(image).undefined_funcs.txt linker_scripts/$(image).undefined_syms.txt) \
              $(addprefix assets/main/,$(addsuffix .bin,rspboot gfx_text audio_text gfx_data audio_data))

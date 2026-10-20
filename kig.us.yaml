@@ -6,6 +6,9 @@ options:
   compiler: IDO
   base_path: .
   target_path: baserom.us.z64
+  src_path: src/boot
+  nonmatchings_path: nonmatchings/boot
+  generated_c_preamble: '#include "common.h"'
   asm_path: asm
   asset_path: assets
   build_path: build
@@ -26,7 +29,58 @@ segments:
     vram: 0x80000400
     bss_size: 0x8690
     subsegments:
-      - [0x1000, asm, boot]
+      - [0x1000, hasm, boot_entry]
+      - [0x1050, c, boot]
+      - [0x12B0, c, boot_12B0]
+      - [0x1500, c, boot_1500]
+      - [0x1560, c, boot_1560]
+      - [0x29F0, c, boot_29F0]
+      - [0x3190, c, boot_3190]
+      - [0x3510, c, boot_3510]
+      - [0x3780, c, boot_3780]
+      - [0x3820, c, boot_3820]
+      - [0x38A0, c, boot_38A0]
+      - [0x3950, c, boot_3950]
+      - [0x3AD0, c, boot_3AD0]
+      - [0x3B00, c, boot_3B00]
+      - [0x3C10, c, boot_3C10]
+      - [0x3D50, c, boot_3D50]
+      - [0x3DF0, c, boot_3DF0]
+      - [0x4150, c, boot_4150]
+      - [0x41C0, c, boot_41C0]
+      - [0x4230, c, boot_4230]
+      - [0x4510, c, boot_4510]
+      - [0x4660, c, boot_4660]
+      - [0x4860, c, boot_4860]
+      - [0x48D0, c, boot_48D0]
+      - [0x48F0, c, boot_48F0]
+      - [0x49A0, c, boot_49A0]
+      - [0x5290, c, boot_5290]
+      - [0x52F0, c, boot_52F0]
+      - [0x5350, c, boot_5350]
+      - [0x5650, c, boot_5650]
+      - [0x5770, c, boot_5770]
+      - [0x59D0, c, boot_59D0]
+      - [0x5B50, c, boot_5B50]
+      - [0x6080, c, boot_6080]
+      - [0x6090, c, boot_6090]
+      - [0x63F0, c, boot_63F0]
+      - [0x6400, c, boot_6400]
+      - [0x6410, c, boot_6410]
+      - [0x6720, c, boot_6720]
+      - [0x67A0, c, boot_67A0]
+      - [0x67E0, c, boot_67E0]
+      - [0x6870, c, boot_6870]
+      - [0x68A0, c, boot_68A0]
+      - [0x68B0, c, boot_68B0]
+      - [0x68E0, c, boot_68E0]
+      - [0x6910, c, boot_6910]
+      - [0x6D90, c, boot_6D90]
+      - [0x6EC0, c, boot_6EC0]
+      - [0x7020, c, boot_7020]
+      - [0x7030, c, boot_7030]
+      - [0x70F0, c, boot_70F0]
+      - [0x7100, c, boot_7100]
       - [0x7160, data, boot]
       - {type: bss, vram: 0x800072D0, name: boot}
   # Assets and compressed code remain opaque until decompression-aware builds.

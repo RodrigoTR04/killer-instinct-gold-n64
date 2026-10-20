@@ -127,3 +127,20 @@ handwritten provenance). There is no evidence here requiring a mixed C/asm
 module, although the compatible leaves prevent proving wholesale assembly
 source with certainty. Semantic identification as an engine/renderer remains
 a hypothesis; instruction provenance does not establish the module's name.
+
+## T-041 result
+
+All seven uncertain leaves were tried as separate C files with IDO 5.3
+`-O2 -mips2`; none can be integrated under that constraint. The three 8-byte
+return stubs and the 20-byte `801C2508` reproduce every instruction, but their
+TUs emit 16/32 bytes and overlap the following code or inline pool. The
+276-byte `801ADD20` and 60-byte `801B6858` also cannot fit independent exact
+TUs because of 16-byte section-size padding, and their drafts differ in
+register allocation and scheduling. The 64-byte `801AF2E8` fits but remains
+nonmatching. These are reasons to retain assembly, not proof of handwritten
+provenance; the seven entries remain uncertain. See the
+[T-041 report](../tools/scratch/nonmatching/T-041/REPORT.md) for drafts,
+reproducible disassembly comparisons and per-entry evidence. Temporary C
+subsegments and build changes were reverted. A full clean extraction/build
+passed with a byte-identical ROM (SHA1
+`ba52e91b44450c548467044b26951353dc491e04`); `make progress` also passed.

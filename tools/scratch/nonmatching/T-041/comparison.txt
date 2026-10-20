@@ -1,0 +1,403 @@
+func_801ADD20: original 276 B; draft body 260 B; draft TU .text 272 B; 64/68 overlapping words differ.
+Mismatch offsets: +0x00, +0x04, +0x0C, +0x10, +0x14, +0x1C, +0x20, +0x24, +0x28, +0x2C, +0x30, +0x34, +0x38, +0x3C, +0x44, +0x48, +0x4C, +0x50, +0x54, +0x58, +0x5C, +0x60, +0x68, +0x6C, +0x70, +0x74, +0x78, +0x7C, +0x80, +0x84, +0x88, +0x8C, +0x90, +0x94, +0x98, +0x9C, +0xA0, +0xA4, +0xA8, +0xAC, +0xB0, +0xB4, +0xB8, +0xBC, +0xC0, +0xC4, +0xC8, +0xCC, +0xD0, +0xD4, +0xD8, +0xDC, +0xE0, +0xE4, +0xE8, +0xEC, +0xF0, +0xF4, +0xF8, +0xFC, +0x100, +0x104, +0x108, +0x10C
+
+Original (includes 16 bytes after the slot):
+
+build/segments/ovl_7E00.bin:     file format binary
+
+
+Disassembly of section .data:
+
+00000000801add20 <.data+0x420>:
+    801add20:	3c03801e 	lui	v1,0x801e
+    801add24:	90639fc8 	lbu	v1,-24632(v1)
+    801add28:	24020032 	li	v0,50
+    801add2c:	1460003e 	bnez	v1,0x801ade28
+    801add30:	00000000 	nop
+    801add34:	3c03801e 	lui	v1,0x801e
+    801add38:	90639fc4 	lbu	v1,-24636(v1)
+    801add3c:	2861000f 	slti	at,v1,15
+    801add40:	14200002 	bnez	at,0x801add4c
+    801add44:	00000000 	nop
+    801add48:	2403000f 	li	v1,15
+    801add4c:	3c04801e 	lui	a0,0x801e
+    801add50:	9084a001 	lbu	a0,-24575(a0)
+    801add54:	3c02801c 	lui	v0,0x801c
+    801add58:	24423fc0 	addiu	v0,v0,16320
+    801add5c:	28810006 	slti	at,a0,6
+    801add60:	54200003 	bnezl	at,0x801add70
+    801add64:	00042100 	sll	a0,a0,0x4
+    801add68:	24040005 	li	a0,5
+    801add6c:	00042100 	sll	a0,a0,0x4
+    801add70:	00441021 	addu	v0,v0,a0
+    801add74:	3c0c801e 	lui	t4,0x801e
+    801add78:	804b000e 	lb	t3,14(v0)
+    801add7c:	818c87e6 	lb	t4,-30746(t4)
+    801add80:	018b082a 	slt	at,t4,t3
+    801add84:	50200003 	beqzl	at,0x801add94
+    801add88:	804b000f 	lb	t3,15(v0)
+    801add8c:	01606025 	move	t4,t3
+    801add90:	804b000f 	lb	t3,15(v0)
+    801add94:	016c082a 	slt	at,t3,t4
+    801add98:	10200002 	beqz	at,0x801adda4
+    801add9c:	00000000 	nop
+    801adda0:	01606025 	move	t4,t3
+    801adda4:	3c01801e 	lui	at,0x801e
+    801adda8:	a02c87e6 	sb	t4,-30746(at)
+    801addac:	00431021 	addu	v0,v0,v1
+    801addb0:	14600003 	bnez	v1,0x801addc0
+    801addb4:	90420000 	lbu	v0,0(v0)
+    801addb8:	3c01801e 	lui	at,0x801e
+    801addbc:	a02087e6 	sb	zero,-30746(at)
+    801addc0:	3c03801e 	lui	v1,0x801e
+    801addc4:	806387e6 	lb	v1,-30746(v1)
+    801addc8:	00431021 	addu	v0,v0,v1
+    801addcc:	5c400003 	bgtzl	v0,0x801adddc
+    801addd0:	28410033 	slti	at,v0,51
+    801addd4:	24020001 	li	v0,1
+    801addd8:	28410033 	slti	at,v0,51
+    801adddc:	14200012 	bnez	at,0x801ade28
+    801adde0:	2841003c 	slti	at,v0,60
+    801adde4:	54200010 	bnezl	at,0x801ade28
+    801adde8:	24020032 	li	v0,50
+    801addec:	3c0b801e 	lui	t3,0x801e
+    801addf0:	916b9f37 	lbu	t3,-24777(t3)
+    801addf4:	3c0a801d 	lui	t2,0x801d
+    801addf8:	254a3430 	addiu	t2,t2,13360
+    801addfc:	15600007 	bnez	t3,0x801ade1c
+    801ade00:	00000000 	nop
+    801ade04:	3c0b801e 	lui	t3,0x801e
+    801ade08:	916b9f33 	lbu	t3,-24781(t3)
+    801ade0c:	51600006 	beqzl	t3,0x801ade28
+    801ade10:	24020032 	li	v0,50
+    801ade14:	3c0a801d 	lui	t2,0x801d
+    801ade18:	254a3530 	addiu	t2,t2,13616
+    801ade1c:	3c01801e 	lui	at,0x801e
+    801ade20:	ac2a919c 	sw	t2,-28260(at)
+    801ade24:	24020032 	li	v0,50
+    801ade28:	3c01801e 	lui	at,0x801e
+    801ade2c:	03e00008 	jr	ra
+    801ade30:	a02287e4 	sb	v0,-30748(at)
+    801ade34:	3c03801e 	lui	v1,0x801e
+    801ade38:	8c639f6c 	lw	v1,-24724(v1)
+    801ade3c:	24560020 	addiu	s6,v0,32
+    801ade40:	0017b842 	srl	s7,s7,0x1
+
+Draft (linked at original address):
+
+func_801ADD20.elf:     file format elf32-bigmips
+
+
+Disassembly of section .text:
+
+801add20 <func_801ADD20>:
+801add20:	3c0e801e 	lui	t6,0x801e
+801add24:	91ce9fc8 	lbu	t6,-24632(t6)
+801add28:	24020032 	li	v0,50
+801add2c:	3c03801e 	lui	v1,0x801e
+801add30:	15c00039 	bnez	t6,801ade18 <func_801ADD20+0xf8>
+801add34:	3c07801e 	lui	a3,0x801e
+801add38:	90639fc4 	lbu	v1,-24636(v1)
+801add3c:	3c02801e 	lui	v0,0x801e
+801add40:	24e787e6 	addiu	a3,a3,-30746
+801add44:	2861000f 	slti	at,v1,15
+801add48:	14200002 	bnez	at,801add54 <func_801ADD20+0x34>
+801add4c:	3c18801c 	lui	t8,0x801c
+801add50:	2403000f 	li	v1,15
+801add54:	9042a001 	lbu	v0,-24575(v0)
+801add58:	27183fc0 	addiu	t8,t8,16320
+801add5c:	28410006 	slti	at,v0,6
+801add60:	54200003 	bnezl	at,801add70 <func_801ADD20+0x50>
+801add64:	00027900 	sll	t7,v0,0x4
+801add68:	24020005 	li	v0,5
+801add6c:	00027900 	sll	t7,v0,0x4
+801add70:	01f82021 	addu	a0,t7,t8
+801add74:	80e50000 	lb	a1,0(a3)
+801add78:	8086000e 	lb	a2,14(a0)
+801add7c:	0083c821 	addu	t9,a0,v1
+801add80:	00a6082a 	slt	at,a1,a2
+801add84:	50200003 	beqzl	at,801add94 <func_801ADD20+0x74>
+801add88:	8082000f 	lb	v0,15(a0)
+801add8c:	00c02825 	move	a1,a2
+801add90:	8082000f 	lb	v0,15(a0)
+801add94:	0045082a 	slt	at,v0,a1
+801add98:	50200003 	beqzl	at,801adda8 <func_801ADD20+0x88>
+801add9c:	a0e50000 	sb	a1,0(a3)
+801adda0:	00402825 	move	a1,v0
+801adda4:	a0e50000 	sb	a1,0(a3)
+801adda8:	14600002 	bnez	v1,801addb4 <func_801ADD20+0x94>
+801addac:	93220000 	lbu	v0,0(t9)
+801addb0:	a0e00000 	sb	zero,0(a3)
+801addb4:	80e80000 	lb	t0,0(a3)
+801addb8:	00481021 	addu	v0,v0,t0
+801addbc:	5c400003 	bgtzl	v0,801addcc <func_801ADD20+0xac>
+801addc0:	28410033 	slti	at,v0,51
+801addc4:	24020001 	li	v0,1
+801addc8:	28410033 	slti	at,v0,51
+801addcc:	14200012 	bnez	at,801ade18 <func_801ADD20+0xf8>
+801addd0:	2841003c 	slti	at,v0,60
+801addd4:	14200010 	bnez	at,801ade18 <func_801ADD20+0xf8>
+801addd8:	24020032 	li	v0,50
+801adddc:	3c09801e 	lui	t1,0x801e
+801adde0:	91299f37 	lbu	t1,-24777(t1)
+801adde4:	3c0a801d 	lui	t2,0x801d
+801adde8:	254a3430 	addiu	t2,t2,13360
+801addec:	11200004 	beqz	t1,801ade00 <func_801ADD20+0xe0>
+801addf0:	3c0b801e 	lui	t3,0x801e
+801addf4:	3c01801e 	lui	at,0x801e
+801addf8:	10000007 	b	801ade18 <func_801ADD20+0xf8>
+801addfc:	ac2a919c 	sw	t2,-28260(at)
+801ade00:	916b9f33 	lbu	t3,-24781(t3)
+801ade04:	3c0c801d 	lui	t4,0x801d
+801ade08:	258c3530 	addiu	t4,t4,13616
+801ade0c:	11600002 	beqz	t3,801ade18 <func_801ADD20+0xf8>
+801ade10:	3c01801e 	lui	at,0x801e
+801ade14:	ac2c919c 	sw	t4,-28260(at)
+801ade18:	3c01801e 	lui	at,0x801e
+801ade1c:	03e00008 	jr	ra
+801ade20:	a02287e4 	sb	v0,-30748(at)
+801ade24:	00000000 	nop
+801ade28:	00000000 	nop
+801ade2c:	00000000 	nop
+
+func_801AF2E8: original 64 B; draft body 60 B; draft TU .text 64 B; 15/16 overlapping words differ.
+Mismatch offsets: +0x00, +0x04, +0x08, +0x0C, +0x10, +0x14, +0x18, +0x1C, +0x20, +0x24, +0x28, +0x2C, +0x30, +0x34, +0x38
+
+Original (includes 16 bytes after the slot):
+
+build/segments/ovl_7E00.bin:     file format binary
+
+
+Disassembly of section .data:
+
+00000000801af2e8 <.data+0x19e8>:
+    801af2e8:	3c06801e 	lui	a2,0x801e
+    801af2ec:	90c687ad 	lbu	a2,-30803(a2)
+    801af2f0:	10c00004 	beqz	a2,0x801af304
+    801af2f4:	00000000 	nop
+    801af2f8:	00063200 	sll	a2,a2,0x8
+    801af2fc:	3c01801e 	lui	at,0x801e
+    801af300:	a42687ac 	sh	a2,-30804(at)
+    801af304:	3c06801e 	lui	a2,0x801e
+    801af308:	90c687ac 	lbu	a2,-30804(a2)
+    801af30c:	10c00004 	beqz	a2,0x801af320
+    801af310:	00000000 	nop
+    801af314:	24c6ffff 	addiu	a2,a2,-1
+    801af318:	3c01801e 	lui	at,0x801e
+    801af31c:	a02687ac 	sb	a2,-30804(at)
+    801af320:	03e00008 	jr	ra
+    801af324:	00000000 	nop
+    801af328:	3c04801e 	lui	a0,0x801e
+    801af32c:	90848778 	lbu	a0,-30856(a0)
+    801af330:	27bdfff8 	addiu	sp,sp,-8
+    801af334:	afbf0000 	sw	ra,0(sp)
+
+Draft (linked at original address):
+
+func_801AF2E8.elf:     file format elf32-bigmips
+
+
+Disassembly of section .text:
+
+801af2e8 <func_801AF2E8>:
+801af2e8:	3c02801e 	lui	v0,0x801e
+801af2ec:	904287ad 	lbu	v0,-30803(v0)
+801af2f0:	3c03801e 	lui	v1,0x801e
+801af2f4:	246387ac 	addiu	v1,v1,-30804
+801af2f8:	10400002 	beqz	v0,801af304 <func_801AF2E8+0x1c>
+801af2fc:	00027200 	sll	t6,v0,0x8
+801af300:	a46e0000 	sh	t6,0(v1)
+801af304:	3c03801e 	lui	v1,0x801e
+801af308:	246387ac 	addiu	v1,v1,-30804
+801af30c:	90620000 	lbu	v0,0(v1)
+801af310:	10400002 	beqz	v0,801af31c <func_801AF2E8+0x34>
+801af314:	244fffff 	addiu	t7,v0,-1
+801af318:	a06f0000 	sb	t7,0(v1)
+801af31c:	03e00008 	jr	ra
+801af320:	00000000 	nop
+801af324:	00000000 	nop
+
+func_801B6858: original 60 B; draft body 60 B; draft TU .text 64 B; 14/15 overlapping words differ.
+Mismatch offsets: +0x00, +0x04, +0x08, +0x0C, +0x10, +0x14, +0x18, +0x1C, +0x20, +0x24, +0x28, +0x2C, +0x30, +0x38
+
+Original (includes 16 bytes after the slot):
+
+build/segments/ovl_7E00.bin:     file format binary
+
+
+Disassembly of section .data:
+
+00000000801b6858 <.data+0x8f58>:
+    801b6858:	3c04801e 	lui	a0,0x801e
+    801b685c:	8c849f48 	lw	a0,-24760(a0)
+    801b6860:	3c030002 	lui	v1,0x2
+    801b6864:	0064082a 	slt	at,v1,a0
+    801b6868:	50200003 	beqzl	at,0x801b6878
+    801b686c:	3c03fffe 	lui	v1,0xfffe
+    801b6870:	00602025 	move	a0,v1
+    801b6874:	3c03fffe 	lui	v1,0xfffe
+    801b6878:	0083082a 	slt	at,a0,v1
+    801b687c:	10200002 	beqz	at,0x801b6888
+    801b6880:	00000000 	nop
+    801b6884:	00602025 	move	a0,v1
+    801b6888:	3c01801e 	lui	at,0x801e
+    801b688c:	03e00008 	jr	ra
+    801b6890:	ac249f48 	sw	a0,-24760(at)
+    801b6894:	8fca0010 	lw	t2,16(s8)
+    801b6898:	2941fc00 	slti	at,t2,-1024
+    801b689c:	5020011f 	beqzl	at,0x801b6d1c
+    801b68a0:	8fc80004 	lw	t0,4(s8)
+
+Draft (linked at original address):
+
+func_801B6858.elf:     file format elf32-bigmips
+
+
+Disassembly of section .text:
+
+801b6858 <func_801B6858>:
+801b6858:	3c03801e 	lui	v1,0x801e
+801b685c:	24639f48 	addiu	v1,v1,-24760
+801b6860:	8c620000 	lw	v0,0(v1)
+801b6864:	3c010002 	lui	at,0x2
+801b6868:	34210001 	ori	at,at,0x1
+801b686c:	0041082a 	slt	at,v0,at
+801b6870:	14200002 	bnez	at,801b687c <func_801B6858+0x24>
+801b6874:	3c04fffe 	lui	a0,0xfffe
+801b6878:	3c020002 	lui	v0,0x2
+801b687c:	0044082a 	slt	at,v0,a0
+801b6880:	10200002 	beqz	at,801b688c <func_801B6858+0x34>
+801b6884:	00000000 	nop
+801b6888:	00801025 	move	v0,a0
+801b688c:	03e00008 	jr	ra
+801b6890:	ac620000 	sw	v0,0(v1)
+801b6894:	00000000 	nop
+
+func_801BABFC: original 8 B; draft body 8 B; draft TU .text 16 B; 0/2 overlapping words differ.
+Mismatch offsets: 
+
+Original (includes 16 bytes after the slot):
+
+build/segments/ovl_7E00.bin:     file format binary
+
+
+Disassembly of section .data:
+
+00000000801babfc <.data+0xd2fc>:
+    801babfc:	03e00008 	jr	ra
+    801bac00:	00000000 	nop
+    801bac04:	03e00008 	jr	ra
+    801bac08:	00000000 	nop
+	...
+
+Draft (linked at original address):
+
+func_801BABFC.elf:     file format elf32-bigmips
+
+
+Disassembly of section .text:
+
+801babfc <func_801BABFC>:
+801babfc:	03e00008 	jr	ra
+801bac00:	00000000 	nop
+801bac04:	00000000 	nop
+801bac08:	00000000 	nop
+
+func_801BAC04: original 8 B; draft body 8 B; draft TU .text 16 B; 0/2 overlapping words differ.
+Mismatch offsets: 
+
+Original (includes 16 bytes after the slot):
+
+build/segments/ovl_7E00.bin:     file format binary
+
+
+Disassembly of section .data:
+
+00000000801bac04 <.data+0xd304>:
+    801bac04:	03e00008 	jr	ra
+    801bac08:	00000000 	nop
+	...
+    801bac14:	8266702a 	lb	a2,28714(s3)
+    801bac18:	20560f2b 	addi	s6,v0,3883
+
+Draft (linked at original address):
+
+func_801BAC04.elf:     file format elf32-bigmips
+
+
+Disassembly of section .text:
+
+801bac04 <func_801BAC04>:
+801bac04:	03e00008 	jr	ra
+801bac08:	00000000 	nop
+801bac0c:	00000000 	nop
+801bac10:	00000000 	nop
+
+func_801BB8AC: original 8 B; draft body 8 B; draft TU .text 16 B; 0/2 overlapping words differ.
+Mismatch offsets: 
+
+Original (includes 16 bytes after the slot):
+
+build/segments/ovl_7E00.bin:     file format binary
+
+
+Disassembly of section .data:
+
+00000000801bb8ac <.data+0xdfac>:
+    801bb8ac:	03e00008 	jr	ra
+    801bb8b0:	00000000 	nop
+    801bb8b4:	93c5fe12 	lbu	a1,-494(s8)
+    801bb8b8:	3c07801c 	lui	a3,0x801c
+    801bb8bc:	24e74900 	addiu	a3,a3,18688
+    801bb8c0:	a3c5fe81 	sb	a1,-383(s8)
+
+Draft (linked at original address):
+
+func_801BB8AC.elf:     file format elf32-bigmips
+
+
+Disassembly of section .text:
+
+801bb8ac <func_801BB8AC>:
+801bb8ac:	03e00008 	jr	ra
+801bb8b0:	00000000 	nop
+801bb8b4:	00000000 	nop
+801bb8b8:	00000000 	nop
+
+func_801C2508: original 20 B; draft body 20 B; draft TU .text 32 B; 0/5 overlapping words differ.
+Mismatch offsets: 
+
+Original (includes 16 bytes after the slot):
+
+build/segments/ovl_7E00.bin:     file format binary
+
+
+Disassembly of section .data:
+
+00000000801c2508 <.data+0x14c08>:
+    801c2508:	3c01801e 	lui	at,0x801e
+    801c250c:	ac249ed4 	sw	a0,-24876(at)
+    801c2510:	3c01801e 	lui	at,0x801e
+    801c2514:	03e00008 	jr	ra
+    801c2518:	ac259ed8 	sw	a1,-24872(at)
+    801c251c:	00001825 	move	v1,zero
+    801c2520:	27bdfff0 	addiu	sp,sp,-16
+    801c2524:	afa6000c 	sw	a2,12(sp)
+    801c2528:	3c06801e 	lui	a2,0x801e
+
+Draft (linked at original address):
+
+func_801C2508.elf:     file format elf32-bigmips
+
+
+Disassembly of section .text:
+
+801c2508 <func_801C2508>:
+801c2508:	3c01801e 	lui	at,0x801e
+801c250c:	ac249ed4 	sw	a0,-24876(at)
+801c2510:	3c01801e 	lui	at,0x801e
+801c2514:	03e00008 	jr	ra
+801c2518:	ac259ed8 	sw	a1,-24872(at)
+801c251c:	00000000 	nop
+801c2520:	00000000 	nop
+801c2524:	00000000 	nop

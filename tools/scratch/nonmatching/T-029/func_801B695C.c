@@ -1,15 +1,16 @@
-/* DRAFT. Remaining diff: Frame is 0x30 instead of 0x28; bank/frame-pointer temporaries and scheduling differ. */
+/* DRAFT. Remaining diff: 39 relocation-masked instruction words differ in standalone comparison; frame remains 0x30 instead of 0x28, with bank/frame-pointer registers and scheduling unresolved. */
 extern void *memcpy(void *, const void *, u32);
 extern u8 D_802C8CC8[];
 extern u8 D_802C8D08[];
 extern u8 D_802C8808[];
 typedef struct T029Asset { u8 pad[8]; u8 *frames; } T029Asset;
 void func_801B695C(T029Asset *arg0, s32 arg1) {
-    u8 *frame;
     s32 offset;
-    u8 *bank;
     u8 index;
+    u8 *bank;
     u8 toggle;
+    u8 *frame;
+
     if (arg0 != 0 && arg0->frames != 0) {
         index = D_802C8CC8[arg1];
         bank = &D_802C8D08[arg1];

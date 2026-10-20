@@ -112,7 +112,25 @@ s32 func_801B55DC(u8 arg0) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B849C.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B994C.s")
+typedef struct T039Gfx801B994C { u32 w0, w1; } T039Gfx801B994C;
+extern void guTranslate(void *, f32, f32, f32);
+extern void func_8002F6F4(s32, s32, void *);
+extern s16 D_801F35AC;
+extern u8 D_802C8800[];
+extern s32 D_80066C40;
+extern u8 D_8004A264[];
+s32 func_801B994C(T039Gfx801B994C **arg0, s32 arg1, void *arg2, s32 arg3) {
+    T039Gfx801B994C *command;
+    guTranslate(arg2, 0.0f, 50.0f, 0.0f);
+    command = (*arg0)++;
+    command->w0 = 0xFA000000;
+    command->w1 = (u32)(D_801F35AC & 0xFF) | ~0xFFU;
+    if (D_802C8800[1] == 0 && D_801F35AC >= 51) {
+        func_8002F6F4(D_80066C40, 70, D_8004A264);
+        D_802C8800[1] = 1;
+    }
+    return 1;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B9A04.s")
 

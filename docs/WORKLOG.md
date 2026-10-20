@@ -162,3 +162,10 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - T-040 launched (opus-3, user-requested): polish main drafts, near-misses first. When vetting, remove T2 rows for drafts it matches and merge the Makefile with T-038.
 - Limits refreshed early: T-038 and T-039 resumed by hand ("continue"). The 00:33 cron was cancelled.
 - T-041 launched (sol-C16): ovl_7E00 C infra plus its 7 uncertain T1 leaves. Disjoint from T-038 (boot), T-039 (ovl_7DF8) and T-040 (main).
+
+## 2026-10-20 — T-038, T-039 and T-041 vetted together
+- T-038 (sol-A16, boot): boot text is split into an hasm entry plus 51 C TUs. The Makefile wildcards src/boot/*.c. inventory.py's GLOBAL_ASM inclusion test now uses whole-symbol matching (boot_dma vs boot_dma_chunked). 15 of the 21 functions match at default -O2 -mips2. 6 are drafts (T2): boot_dma_chunked, func_80000960, func_80000FA0, func_80001564 (8 words off), func_800016CC, func_80001F2C.
+- T-039 (sol-B14, ovl_7DF8): func_801AF424, func_801B994C, func_801C8668 and func_801CBF8C match. func_801CD174 is now 2 words off. I deleted the 4 matched drafts and their T2 rows.
+- T-041 (sol-C16, ovl_7E00): none of the 7 leaves can be C. The 4 exact bodies (jr ra stubs and func_801C2508) can't fit because a 1-function TU pads to 16 B and overwrites the neighbouring code. The other 3 use non-IDO registers and scheduling. Lead decision: exclude all 7 as handwritten asm, so ovl_7E00 has no eligible bytes left.
+- Clean vet build: the ROM and all 3 images are byte-identical. 202 T4; M1 = M2 = 38,508 / 319,100 B (12.07%). T1 = 0 everywhere.
+- T-040 (Opus) stopped on a Claude rate limit with a turn already queued, so I left it alone. When vetting it, the Makefile now has T-038's boot wildcard.
