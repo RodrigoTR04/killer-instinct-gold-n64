@@ -337,3 +337,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 ## 2026-10-20 — T-074 vetted (ovl_7DF8 mid drafts, declarations + line placement)
 - Worktree t3-ea890a10. All 17 attempted: 0 matched, 10 drafts improved, 7 unchanged. Scratch-only changes; I imported the drafts and REPORT.md.
+- T-077 launched (sol-C29): ovl_7DF8 clone families deep dive.
