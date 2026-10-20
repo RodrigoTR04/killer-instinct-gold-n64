@@ -267,3 +267,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 ## 2026-10-20 — T-055 Opus stopped (user), rework handed to Sol T-063
 - The user asked me to stop the running Opus worker and give its work to 6.1 Sol, and not to spawn more Opus without asking. Cancelled T-055. Its work is saved in tools/scratch/nonmatching/T-055/: t055-original-vs-2827f78.patch is the original verified-in-its-tree patch, t055-wip-rebased-vs-18238fb.patch is the partial rebase. T-063 (sol-C24) finishes the rebase onto master.
+
+## 2026-10-20 — T-058 vetted (main near-misses)
+- Worktree t3-d0b8576b. func_80012950 matches (316 B). 4 drafts improved, 10 unchanged after 4,336 probes. I imported REPORT.md, the candidates and the probe scripts, but not the 2.4 MB of per-round probe logs.
+- Clean vet build: the ROM and all 3 images are byte-identical. 265 T4; M1 = M2 = 56,160 / 319,100 B (17.60%).
