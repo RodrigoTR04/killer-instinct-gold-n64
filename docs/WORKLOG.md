@@ -193,3 +193,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-047 vetted (ovl_7DF8 polish round 3)
 - Worktree t3-95ad912c. 3 functions match: func_801CA784, func_801CC2C8 and func_801BF0E8 (400 B). 4 drafts improved, 7 unchanged; only 14 were attempted. D_80127D30 is now declared u8[8] (FU-13 item). No new rodata splits.
 - Clean vet build: the ROM and all 3 images are byte-identical. 240 T4; M1 = M2 = 49,452 / 319,100 B (15.50%).
+- T-048 launched (sol-A19): ovl_7DF8 round 4 with an explicit attempt list (clone families first).
