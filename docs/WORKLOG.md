@@ -409,3 +409,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-089 vetted (permuter on equal-size main drafts)
 - Worktree t3-386c77c3. func_80015F6C and func_8001256C match (624 B); 4 drafts improved, 1 unchanged.
 - Clean vet build: the ROM and all 3 images are byte-identical. 273 T4; M1 = M2 = 57,240 / 289,876 B (19.75%).
+- T-092 launched (sol-C34): permuter round 3 plus an equal-size screen of all drafts.
