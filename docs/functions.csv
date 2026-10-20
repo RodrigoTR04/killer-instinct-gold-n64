@@ -355,7 +355,7 @@ main,osViSetSpecialFeatures,0x80032C30,0x232D0,440,excluded,libultra (T-005)
 main,guPerspectiveF,0x80032DF0,0x23490,560,excluded,libultra (T-005)
 main,guPerspective,0x80033020,0x236C0,88,excluded,libultra (T-005)
 main,guRandom,0x80033080,0x23720,44,excluded,libultra (T-005)
-main,func_800330B0,0x800330B0,0x23750,1900,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
+main,func_800330B0,0x800330B0,0x23750,1900,T4,
 main,guLookAtHilite,0x8003381C,0x23EBC,184,excluded,libultra (T-005)
 main,guTranslateF,0x800338E0,0x23F80,72,excluded,libultra (T-005)
 main,guTranslate,0x80033928,0x23FC8,84,excluded,libultra (T-005)

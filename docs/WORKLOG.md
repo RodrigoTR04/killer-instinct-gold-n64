@@ -325,3 +325,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-a5d29587. All 10 attempted: 0 matched, 9 improved (func_801C4240 326→167, func_801B0CDC 301→209, func_801B0668 231→159), 1 unchanged. Signedness fixes to globals in ovl_7DF8_18520.c and _1B790.c (s8→u8, s16→u16); the build still matches.
 - Clean vet build: the ROM and all 3 images are byte-identical. Metrics unchanged (288 T4, 21.19%).
 - T-074 launched (sol-C28): ovl_7DF8 mid drafts with declaration-first fixes plus line placement.
+
+## 2026-10-20 — T-073 vetted (guLookAtHiliteF)
+- Worktree t3-1fffe101. main_23750 now owns .rodata 0x396A0–0x396C0 (0.1, 0.1, 127.0 + padding), and the rest is main_after_23750 asm data. func_800330B0 = SDK guLookAtHiliteF (libreultra lookathil.c) matches (1,900 B). FU-15: an SDK name to apply later.
+- Clean vet build: the ROM and all 3 images are byte-identical. 289 T4; M1 = M2 = 69,508 / 319,100 B (21.78%). Main is at 24.96%.
