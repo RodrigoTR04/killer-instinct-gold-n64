@@ -1,3 +1,7 @@
+/* T-050: retained improvement; 193 differing words including size penalty, 828 compiled bytes. Full function remains nonmatching. */
+void func_801AF5EC(s32 arg0);
+void func_801AF5D4(s32 arg0);
+f32 func_801AFA80(f32 arg0, f32 arg1, s32 arg2, s32 arg3);
 /* DRAFT. Remaining diff: Float/global temporaries, matrix stack layout and call/display-list scheduling differ. */
 typedef struct { u32 w0, w1; } T025Gfx01EC;
 extern f32 cosf(f32), sinf(f32);
@@ -19,24 +23,24 @@ extern u8 D_802C8740[];
 extern s32 D_802C8750;
 
 s32 func_801B01EC(T025Gfx01EC **arg0, s32 arg1, u8 *arg2, u32 arg3) {
-    u8 sp70[0x40];
-    s32 sp68;
-    s32 sp64;
+    T025Gfx01EC *temp_v1_3;
     f32 sp60;
-    u32 sp48;
-    f32 temp_f0;
-    f32 temp_f10;
-    f32 temp_f2;
+    T025Gfx01EC *temp_v1_5;
     s32 temp_f4;
     s32 temp_t3;
-    u32 temp_a1;
-    u32 temp_a2;
-    u32 temp_v0;
-    T025Gfx01EC *temp_v1;
+    u8 sp70[0x40];
     T025Gfx01EC *temp_v1_2;
-    T025Gfx01EC *temp_v1_3;
+    s32 sp68;
+    f32 temp_f2;
+    f32 temp_f10;
+    u32 temp_a1;
     T025Gfx01EC *temp_v1_4;
-    T025Gfx01EC *temp_v1_5;
+    u32 sp48;
+    u32 temp_v0;
+    u32 temp_a2;
+    s32 sp64;
+    T025Gfx01EC *temp_v1;
+    f32 temp_f0;
 
     temp_a1 = arg3;
     sp68 = 1;

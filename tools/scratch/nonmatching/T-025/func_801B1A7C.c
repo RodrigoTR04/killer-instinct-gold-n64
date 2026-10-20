@@ -1,3 +1,5 @@
+/* T-050: retained improvement; 206 differing words including size penalty, 596 compiled bytes. Full function remains nonmatching. */
+f32 func_801B1A14(f32 arg0, f32 arg1, f32 arg2);
 /* DRAFT. Remaining diff: Compiler unrolls the vertex loop twice rather than four times; saved/float registers and scheduling differ. */
 typedef struct { s16 x, y, z; u8 rest[10]; } T025Vertex;
 f32 func_801B1A7C(T025Vertex *arg0, T025Vertex *arg1, f32 distance, s32 count) {

@@ -1,3 +1,4 @@
+/* T-050: retained improvement; 225 differing words including size penalty, 940 compiled bytes. Full function remains nonmatching. */
 /* DRAFT. Remaining diff: Text-position float temporaries, saved counters, stack slots and call scheduling differ. */
 #include "common.h"
 
@@ -10,21 +11,21 @@ extern f32 D_802937B8, D_802937BC;
 extern T030Render317C D_802C9F70;
 
 s32 func_801C317C(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
-    s32 sp68;
-    f32 temp_f20;
-    f32 temp_f22;
-    f32 temp_f24;
-    s32 **var_a1;
-    s32 *var_a0;
-    s32 temp_a3;
-    s32 temp_t0;
-    s32 temp_t2;
     s32 temp_t5;
-    s32 var_a2;
-    s32 var_s0;
-    s32 var_s2;
+    s32 **var_a1;
+    s32 temp_a3;
     s32 var_s3;
+    f32 temp_f22;
+    s32 temp_t0;
     s32 var_v1;
+    f32 temp_f20;
+    s32 var_s0;
+    s32 temp_t2;
+    s32 var_a2;
+    s32 sp68;
+    s32 *var_a0;
+    f32 temp_f24;
+    s32 var_s2;
 
     sp68 = 0;
     if (arg3 < 0) {

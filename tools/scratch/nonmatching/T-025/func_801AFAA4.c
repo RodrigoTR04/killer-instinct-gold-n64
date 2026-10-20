@@ -1,3 +1,4 @@
+/* T-050: retained improvement; 290 differing words including size penalty, 1264 compiled bytes. Full function remains nonmatching. */
 /* DRAFT. Remaining diff: Texture-swap condition/control flow, float temporaries and display-list/call scheduling differ. */
 typedef struct { u32 w0, w1; } T025GfxFAA4;
 extern f32 cosf(f32), sinf(f32);
@@ -34,18 +35,18 @@ extern f32 D_802C8728;
 extern u8 D_802C872C[];
 
 s32 func_801AFAA4(T025GfxFAA4 **arg0, s32 arg1, u8 *arg2, u32 arg3) {
+    T025GfxFAA4 *temp_v1_2;
+    u32 temp_v0;
+    T025GfxFAA4 *temp_v1;
     s32 sp1EC;
     u8 sp128[0xC0];
-    u8 sp38[0xF0];
-    u32 sp24;
-    f32 angle;
-    T025GfxFAA4 *temp_v1;
-    T025GfxFAA4 *temp_v1_2;
-    T025GfxFAA4 *temp_v1_3;
-    T025GfxFAA4 *var_v1;
     s32 temp_f8;
+    T025GfxFAA4 *var_v1;
+    u8 sp38[0xF0];
     s32 temp_t2;
-    u32 temp_v0;
+    f32 angle;
+    T025GfxFAA4 *temp_v1_3;
+    u32 sp24;
 
     sp1EC = 0xFF;
     temp_v1 = *arg0;

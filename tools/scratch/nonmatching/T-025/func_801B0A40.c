@@ -1,3 +1,5 @@
+/* T-050: retained improvement; 163 differing words including size penalty, 684 compiled bytes. Full function remains nonmatching. */
+f32 func_801AFA80(f32 arg0, f32 arg1, s32 arg2, s32 arg3);
 /* DRAFT. Remaining diff: Float temporaries, matrix local stack layout and call/display-list scheduling differ. */
 typedef struct { u32 w0, w1; } T025Gfx0A40;
 extern f32 cosf(f32), sinf(f32);
@@ -50,16 +52,13 @@ s32 func_801B0A40(T025Gfx0A40 **arg0, s32 arg1, u8 *arg2, s32 arg3) {
     guLookAtReflect(&sp70, &D_802C8780, sp58 * 60.0f, cosf(temp_f12) * 60.0f, 220.0f, 6.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
     guScale(arg2, D_80292900, D_80292900, 1.0f);
     guTranslate(arg2 + 0x40, (f32) ((f64) (height + 75.0f) - 8.0), 28.0f, 170.0f);
-    temp_v1 = *arg0;
-    *arg0 = temp_v1 + 1;
+    temp_v1 = (*arg0)++;
     temp_v1->w0 = 0x03840010;
     temp_v1->w1 = (u32)&D_802C8780;
-    temp_v1_2 = *arg0;
-    *arg0 = temp_v1_2 + 1;
+    temp_v1_2 = (*arg0)++;
     temp_v1_2->w0 = 0x03820010;
     temp_v1_2->w1 = (u32)&D_802C8790;
-    temp_v1_3 = *arg0;
-    *arg0 = temp_v1_3 + 1;
+    temp_v1_3 = (*arg0)++;
     temp_v1_3->w0 = 0x06000000;
     temp_v1_3->w1 = (u32)&D_801D2DF8;
     return 2;

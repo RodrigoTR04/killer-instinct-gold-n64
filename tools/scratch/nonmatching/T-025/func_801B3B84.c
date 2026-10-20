@@ -1,3 +1,5 @@
+/* T-050: retained improvement; 114 differing words including size penalty, 552 compiled bytes. Full function remains nonmatching. */
+f32 func_801B19F0(f32 arg0, f32 arg1, s32 arg2, s32 arg3);
 /* DRAFT. Remaining diff: Frame/local alpha slot, counter update, unsigned float conversion and display-list scheduling differ. */
 typedef struct { u32 w0, w1; } T025Gfx3B84;
 extern void guTranslate(void *, f32, f32, f32);

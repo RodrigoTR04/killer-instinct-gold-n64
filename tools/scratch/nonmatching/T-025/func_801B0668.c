@@ -1,3 +1,5 @@
+/* T-050: retained improvement; 231 differing words including size penalty, 976 compiled bytes. Full function remains nonmatching. */
+f32 func_801AFA80(f32 arg0, f32 arg1, s32 arg2, s32 arg3);
 /* DRAFT. Remaining diff: Float temporaries, matrix stack layout and call/display-list scheduling differ. */
 typedef struct { u32 w0, w1; } T025Gfx0668;
 extern f32 cosf(f32), sinf(f32);

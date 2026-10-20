@@ -1,3 +1,4 @@
+/* T-050: retained improvement; 135 differing words including size penalty, 1148 compiled bytes. Full function remains nonmatching. */
 /* DRAFT. Remaining diff (~65 lines, same instruction count): frame is 0xC8 here vs 0xB0; float constant hoisting differs (target keeps -400.0f in f28, 0.0f in f30 and the D_802954E0 x in f26, re-materialises 70.0f), and s1..s5 colour/name/index registers are rotated. D_802954E0/E4 are rodata floats referenced as externs to avoid emitting new rodata. */
 typedef struct {
     u8 pad0[0xF8];
@@ -19,16 +20,16 @@ extern u8 D_802D39FC;
 extern u8 D_802D3A01;
 
 void func_801C9698(s32 arg0, T034TextCtx *arg1) {
-    u8 label[3];
-    f32 y;
     f32 x;
-    f32 scale;
-    s32 r;
-    s32 g;
-    s32 b;
     s32 alpha;
+    s32 b;
     u8 *name;
+    s32 g;
     u8 i;
+    f32 y;
+    u8 label[3];
+    s32 r;
+    f32 scale;
 
     y = 225.0f;
     x = D_802954E0;

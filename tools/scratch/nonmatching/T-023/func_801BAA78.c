@@ -1,3 +1,4 @@
+/* T-050: retained improvement; 222 differing words including size penalty, 912 compiled bytes. Full function remains nonmatching. */
 /* DRAFT. Remaining diff: Rendering temporaries, stack spills and display-list command scheduling differ. */
 typedef struct { u8 pad[0x7E]; u16 scale; s16 yOffset; } T023State801BAA78;
 extern void func_801BC1B0(s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, f32, f32, s32, s32);
@@ -6,21 +7,21 @@ extern s32 D_801F3A58;
 extern u8 D_801F3A5C[];
 
 void func_801BAA78(u8 **arg0, s32 arg1, s32 arg2, s32 arg3, T023State801BAA78 *arg4, s32 arg5) {
-    s32 sp6C, sp68;
-    s32 *sp54;
-    s32 *temp_t2;
-    s32 temp_a3;
-    s32 temp_t3;
-    s32 temp_t7;
-    s32 temp_v1;
-    s32 var_t1;
-    s32 var_t4;
-    s32 var_v0;
-    u16 temp_v0;
-    u8 *temp_v0_2;
-    u8 *temp_v0_3;
-    u8 *temp_v0_4;
     u8 *temp_v0_5;
+    s32 temp_v1;
+    s32 sp6C, sp68;
+    u8 *temp_v0_3;
+    s32 temp_a3;
+    s32 var_v0;
+    s32 *temp_t2;
+    s32 *sp54;
+    s32 var_t1;
+    u8 *temp_v0_2;
+    u16 temp_v0;
+    s32 var_t4;
+    u8 *temp_v0_4;
+    s32 temp_t7;
+    s32 temp_t3;
 
     temp_v0 = arg4->scale;
     temp_v1 = arg1 * 4;

@@ -1,3 +1,4 @@
+/* T-050: retained improvement; 129 differing words including size penalty, 532 compiled bytes. Full function remains nonmatching. */
 /* DRAFT. Remaining diff: Rendering-coordinate temporaries, stack spills, table loads and scheduling differ. */
 typedef struct { u8 pad[0x7E]; u16 scale; s16 yOffset; } T023State801BA280;
 extern void func_801BC1B0(s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, f32, f32, s32, s32);
@@ -13,11 +14,11 @@ void func_801BA280(s32 arg0, s32 arg1, s32 arg2, s32 arg3, T023State801BA280 *ar
     s32 var_t3;
     u16 temp_v1;
 
+    temp_t9 = arg4->yOffset * 4;
     temp_v1 = arg4->scale;
     temp_v0 = arg1 * 4;
     var_t2 = temp_v0 + ((s32) (temp_v1 * 0x120) >> 0xA);
     temp_t0 = arg2 * 4;
-    temp_t9 = arg4->yOffset * 4;
     var_t3 = temp_v0 + ((s32) (temp_v1 * 0xB5) >> 0xA);
     temp_t5 = temp_t0 + ((s32) (temp_v1 * 0x11C) >> 0xA) + temp_t9;
     if (arg5 != 0) {

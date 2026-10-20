@@ -1,3 +1,6 @@
+/* T-050: retained improvement; 113 differing words including size penalty, 556 compiled bytes. Full function remains nonmatching. */
+f32 func_801B19F0(f32 arg0, f32 arg1, s32 arg2, s32 arg3);
+void func_801AF5EC(s32 arg0);
 /* DRAFT. Remaining diff: Counter/interpolation globals, pointer lifetime across the vertex helper, float temporaries and display-list scheduling differ. */
 typedef struct { u32 w0, w1; } T025Gfx1DE4;
 extern f32 func_801B1A7C(void *, void *, f32, s32);
@@ -46,15 +49,13 @@ s32 func_801B1DE4(T025Gfx1DE4 **arg0, s32 arg1, void *arg2, s32 arg3) {
     *arg0 = temp_v1 + 1;
     temp_v1->w0 = 0xFB000000;
     temp_v1->w1 = (s32) ((alpha & 0xFF) | 0xFFC80000);
-    temp_v1_2 = *arg0;
-    *arg0 = temp_v1_2 + 1;
+    temp_v1_2 = (*arg0)++;
     temp_v1_2->w1 = 0x64000000;
     temp_v1_2->w0 = 0xFA000000;
     if ((distance < 1.0f) && ((s32) D_801D3088 <= 0)) {
         D_801D3088 += 1;
     }
-    temp_v1_3 = *arg0;
-    *arg0 = temp_v1_3 + 1;
+    temp_v1_3 = (*arg0)++;
     temp_v1_3->w0 = 0x06000000;
     temp_v1_3->w1 = (s32) &D_801D3058;
     return 1;
