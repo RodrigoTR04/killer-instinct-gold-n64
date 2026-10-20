@@ -455,3 +455,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Clean vet build: the ROM and all 3 images are byte-identical. 299 T4; M1 = M2 = 65,028 / 289,876 B (22.43%).
 - T-102 launched (sol-C38): screen tier 88-111.
 - T-102 stopped on the Codex usage limit (resets 22:03). T3 usually resumes these itself; backup cron c1612fb1 at 22:06 resumes only workers still stopped.
+- T-099 was interrupted near completion (limit). The 22:06 backup cron covers resuming it.
