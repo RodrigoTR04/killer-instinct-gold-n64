@@ -395,3 +395,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-594a799d. All 23 attempted: func_8002A1E0 and func_8003037C match (304 B), 11 drafts improved, 10 unchanged.
 - Clean vet build: the ROM and all 3 images are byte-identical. 262 T4; M1 = M2 = 54,208 / 289,876 B (18.70%).
 - T-089 launched (sol-C33): permuter on 7 equal-size main drafts.
+
+## 2026-10-20 — T-087 vetted (ovl_7DF8 finish-the-TU)
+- Worktree t3-ee1658a8. 8 functions match (1,716 B): func_801AD568, func_801C4780, func_801C4D28, func_801C4D6C, func_801C780C, func_801CBBE0, func_801CC0CC and func_801CC1A4. 5 improved, 8 unchanged. func_801C67CC has an exact body but needs its TU (ovl_7DF8_190B0) to own its rodata (yaml); that is the follow-up.
+- Clean vet build: the ROM and all 3 images are byte-identical. 270 T4; M1 = M2 = 55,924 / 289,876 B (19.29%).

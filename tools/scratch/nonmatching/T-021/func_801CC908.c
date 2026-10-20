@@ -1,18 +1,17 @@
-/* DRAFT (T-044). Remaining diff: 13 relocation-masked instruction words; see T-044/REPORT.md. */
-extern s32 func_8002F6F4();
+/* T-087: actual allocation-wrapper ABI/prototypes reconciled; still nonmatching. */
 extern s32 func_801CBF8C();
-s32 func_801CC350(s32 *, s32);                      /* extern */
+s32 func_801CC350(s32 *, s32);
 extern s32 func_801CC3BC();
-s32 func_801CC58C(s32 *, s32);                      /* extern */
-s32 func_801CC600(s32, s32);                        /* extern */
-extern u8 D_8004A25C;
+
+s32 func_801CC600(s32, s32);
+
 extern s32 D_80066C40;
 extern u8 *D_802927A4[];
 extern u8 D_80295684;
 extern u8 D_8029568C;
 extern u8 *D_802D3E04;
 extern u8 D_802D3E0D;
-extern s8 D_802D3E14;
+
 
 s32 func_801CC908(s32 arg0) {
     s32 sp2C;
@@ -63,7 +62,7 @@ s32 func_801CC908(s32 arg0) {
         if (var_v0_2 == 0) {
             D_802D3E04 = &D_8029568C;
             sp28 = var_a3;
-            func_8002F6F4(D_80066C40, 0x10A, &D_8004A25C, var_a3);
+            func_8002F6F4(D_80066C40, 0x10A, D_8004A25C);
         }
     }
     if (var_a3 == 7) {

@@ -78,4 +78,11 @@ void func_801C4238(void) {}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_18520/func_801C4240.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_18520/func_801C4780.s")
+extern u64 D_802D3678[];
+extern u8 D_80295720;
+void func_801C4780(s32 arg0, u64 arg1) {
+    if ((arg1 & 0xD00F) && arg0 + 1 == D_80295720) {
+        D_802D3958 = 3;
+    }
+    D_802D3678[arg0] = arg1;
+}

@@ -1,5 +1,4 @@
-/* T-070: nonmatching, 167 differing words including size penalty; 1344 compiled bytes.
- * Compiles in the complete production TU through asm-processor; see T-070/REPORT.md. */
+/* T-087: nonmatching; 150 differing words, 1344 compiled bytes. See T-087/REPORT.md. */
 #include "common.h"
 
 typedef struct { u32 w0,w1; } T030Cmd4240;
@@ -41,7 +40,7 @@ void func_801C4240(T030Cmd4240 **arg0, T030Render4240 *arg1) {
     s32 temp_t5;
     s32 var_a2;
     u32 temp_t4;
-    T030Cmd4240 *temp_v0;
+
 
     var_a2 = D_802D395C;
     if (var_a2 == 0) {
@@ -79,38 +78,38 @@ void func_801C4240(T030Cmd4240 **arg0, T030Render4240 *arg1) {
     sp48 = temp_f2;
     func_8002DCC8(0.0f, -350.0f, temp_f2, &sp80);
     guTranslate(arg1->matrices + (D_802956F4 << 6), 0.0f, -350.0f, sp50);
-    temp_v0 = *arg0;
-    *arg0 = temp_v0 + 1;
+    { T030Cmd4240 *temp_v0 = (*arg0)++;
     temp_v0->w1 = (u32)&D_802918C0;
     temp_v0->w0 = 0x06000000;
-    temp_v0 = *arg0;
-    *arg0 = temp_v0 + 1;
+    }
+    { T030Cmd4240 *temp_v0 = (*arg0)++;
     temp_v0->w0 = 0x01020040;
     temp_v0->w1 = (u32) (arg1->matrices + (D_802956F4 << 6));
-    temp_v0 = *arg0;
-    *arg0 = temp_v0 + 1;
+    }
+    { T030Cmd4240 *temp_v0 = (*arg0)++;
     temp_v0->w0 = 0xFB000000;
     temp_v0->w1 = (u32) ((D_802D3960 << 0x18) | (D_802D3960 << 0x10) | (D_802D3960 << 8) | 0xFF);
-    temp_v0 = *arg0;
-    *arg0 = temp_v0 + 1;
+    }
+    { T030Cmd4240 *temp_v0 = (*arg0)++;
     temp_v0->w1 = (u32)&D_802AA5A0;
     temp_v0->w0 = 0x06000000;
+    }
     D_802956F4 += 1;
     func_8002DDD4(-13.0f, -350.0f, sp48, &sp78, &sp74);
     temp_t4 = (u32) ((0x38 - ((u8)D_802C8724 * 8)) * sp80) >> 5;
     sp80 = temp_t4;
     func_801C49A8(arg0, 0, 0x12C000, sp74 >> 3, temp_t4, 4, (s32) D_802D3960);
-    temp_v0 = *arg0;
-    *arg0 = temp_v0 + 1;
+    { T030Cmd4240 *temp_v0 = (*arg0)++;
     temp_v0->w1 = 0;
     temp_v0->w0 = 0xE7000000;
-    temp_v0 = *arg0;
-    *arg0 = temp_v0 + 1;
+    }
+    { T030Cmd4240 *temp_v0 = (*arg0)++;
     temp_v0->w1 = (u32)0x80000;
     temp_v0->w0 = 0xBA001301;
     temp_f0_2 = (f32) (s32) (360.0f - temp_f20);
     sp50 = temp_f0_2;
     temp_t5 = D_802956F4 + func_801BDF94(arg0, arg1->matrices + (D_802956F4 << 6), D_802D3950, -240.0f - sp84, 30.0f, -300.0f, 1, 1.0f, temp_f0_2);
+    }
     D_802956F4 = temp_t5;
     temp_t4_2 = D_802956F4 + func_801BDF94(arg0, arg1->matrices + (temp_t5 << 6), &D_802937F8, -230.0f + sp84, -40.0f, -300.0f, 1, 1.0f, sp50);
     D_802956F4 = temp_t4_2;

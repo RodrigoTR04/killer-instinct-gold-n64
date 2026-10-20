@@ -57,9 +57,48 @@ void func_801C4C64(f32 *arg0, f32 *arg1) {
     D_802D388C = arg1[3];
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_190B0/func_801C4D28.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_190B0/func_801C4D6C.s")
+typedef struct { f32 x, y, z; } T021Vec;
+extern T021Vec D_80291E8C[], D_802D3990;
+extern u8 D_802D3985;
+void func_801C4D28(void)
+{
+    D_802D3990.x = D_80291E8C[D_802D3985].x;
+    D_802D3990.y = D_80291E8C[D_802D3985].y;
+    D_802D3990.z = D_80291E8C[D_802D3985].z;
+}
+
+
+extern s8 D_802D399F;
+extern s32 *D_802D39A0;
+extern s32 *D_802D39A4;
+extern s32 *D_802D39A8;
+extern s32 *D_802D39AC;
+extern u8 D_802D39BA;
+
+void func_801C4D6C(void) {
+    s32 var_v1;
+    s32 *list;
+
+
+    if (D_802D39BA & 1) {
+        D_802D39AC = D_802D39A0;
+    } else if (D_802D39BA & 2) {
+        D_802D39AC = D_802D39A4;
+    } else if (D_802D39BA & 4) {
+        D_802D39AC = D_802D39A8;
+    } else {
+        D_802D39AC = D_802D39A0;
+    }
+    list = D_802D39AC;
+    var_v1 = (u8)(D_802D399F = 0);
+    if (list[var_v1] != 0) {
+        do {
+            var_v1 = (u8)(D_802D399F = var_v1 + 1);
+        } while (list[var_v1] != 0);
+    }
+}
+
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_190B0/func_801C4E38.s")
 

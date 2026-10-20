@@ -1,6 +1,6 @@
 /* T-050: retained improvement; 88 differing words including size penalty, 364 compiled bytes. Full function remains nonmatching. */
 /* DRAFT. Remaining diff: Call arguments, stack frame and control/register allocation differ. */
-s32 func_800347D0(void *);          /* extern */
+s32 osPfsChecker(void *);          /* extern */
 s32 func_801CBF8C(void);                       /* extern */
 extern u8 D_80295560;
 extern u8 D_80295580;
@@ -22,7 +22,7 @@ s32 func_801CC3BC(s32 arg0, s32 arg1) {
         }
     }
     if (arg0 == 3) {
-        arg0 = func_800347D0((arg1 * 0x68) + &D_802D3D30);
+        arg0 = osPfsChecker((arg1 * 0x68) + &D_802D3D30);
     }
     if (arg0 == 2) {
         D_802D3E0D &= var_a2 ^ 0xFF;

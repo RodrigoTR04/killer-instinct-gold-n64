@@ -22,4 +22,20 @@ void func_801C72B0(void) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1B790/func_801C7310.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1B790/func_801C780C.s")
+extern void func_8002AB40(void);
+extern void func_8002AB64(void);
+extern void func_801ADC64(s32);
+extern s8 D_8029571A;
+extern u64 D_802D3678[];
+extern u8 D_802D39D5;
+
+void func_801C780C(s32 arg0, u64 arg1) {
+
+    if (((arg1 & 0x1000) && !(D_802D3678[arg0] & 0x1000)) || D_802D39D5 == 2) {
+        func_801ADC64(3);
+        func_8002AB64();
+        func_8002AB40();
+        D_8029571A = 1;
+    }
+    D_802D3678[arg0] = arg1;
+}

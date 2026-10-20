@@ -1,6 +1,35 @@
 #include "common.h"
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_200C0/func_801CBBE0.s")
+typedef struct { u16 type; u8 status, error; } ControllerStatus;
+
+extern void osContGetQuery(ControllerStatus *);
+extern s32 osContStartQuery(void *);
+extern s32 osRecvMesg(void *, void *, s32);
+
+u8 func_801CBBE0(void *arg0, u8 *arg1) {
+    ControllerStatus status[4];
+    u8 result;
+
+    *arg1 = 0;
+    osContStartQuery(arg0);
+    osRecvMesg(arg0, 0, 1);
+    osContGetQuery(status);
+    if ((status[0].status & 1) && (status[0].error == 0)) {
+        *arg1 |= 1;
+    }
+    if ((status[1].status & 1) && (status[1].error == 0)) {
+        *arg1 |= 2;
+    }
+    if ((status[2].status & 1) && (status[2].error == 0)) {
+        *arg1 |= 4;
+    }
+    if ((status[3].status & 1) && (status[3].error == 0)) {
+        *arg1 |= 8;
+    }
+    result = status[0].error;
+    return result;
+}
+
 
 extern s32 osRecvMesg(void *, void *, s32);
 extern void osDestroyThread(void *);
@@ -109,7 +138,7 @@ void func_801CBF50(void) {
 
 extern void func_8002B57C(void);
 extern s32 osPfsInit();
-extern void func_801CBBE0();
+extern u8 func_801CBBE0(void *, u8 *);
 extern s32 func_801CC3BC();
 s32 osEepromProbe();
 extern u8 D_800684E0;
@@ -150,9 +179,43 @@ s32 func_801CBF8C(void) {
     return ret;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_200C0/func_801CC0CC.s")
+s32 func_801CC0CC(u8 *arg0, s32 arg1)
+{
+    s32 n, i, j, sum, next;
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_200C0/func_801CC1A4.s")
+    n = (arg1 + 127) >> 7;
+    for (i = 0; i < n - 1; i++) {
+        sum = 0;
+        for (j = 0; j < 4; j++) {
+            next = __osContDataCrc((i << 6) + arg0 + (j << 5));
+            next = sum + next;
+            sum = next & 255;
+        }
+        if (*(u8 *)((arg1 - n) + i + arg0 + 1) != sum) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+extern s32 __osContDataCrc();
+s32 func_801CC1A4(u8 *arg0, s32 arg1)
+{
+    s32 n, i, j, sum, next;
+
+    n = (arg1 + 127) >> 7;
+    for (i = 0; i < n - 1; i++) {
+        sum = 0;
+        for (j = 0; j < 4; j++) {
+            next = __osContDataCrc((i << 6) + arg0 + (j << 5));
+            next = sum + next;
+            sum = next & 255;
+        }
+        *(u8 *)(arg0 + arg1 - n + i + 1) = sum;
+    }
+    return 0;
+}
+
 
 s32 __osContDataCrc();
 
@@ -215,8 +278,8 @@ extern u8 D_80292790;
 extern u8 D_80292794;
 extern u8 D_802D3D30;
 
-void func_801CC58C(s32 arg0, s32 arg1) {
-    osPfsAllocateFile((arg1 * 0x68) + &D_802D3D30, 0x3031, 0x4E4B4945, &D_80292794, &D_80292790, 0x300, arg0);
+s32 func_801CC58C(s32 *arg0, s32 arg1) {
+    return osPfsAllocateFile((arg1 * 0x68) + &D_802D3D30, 0x3031, 0x4E4B4945, &D_80292794, &D_80292790, 0x300, arg0);
 }
 
 extern s32 osPfsReadWriteFile();
@@ -338,8 +401,8 @@ extern void func_801BFA40(void *, void *);
 extern void func_801C86A8(void *);
 extern void func_801C8AE0(void *);
 extern void func_801C8DBC(void *);
-extern void func_801CC1A4(void *, s32);
-extern void func_801CC908(s32);
+extern s32 func_801CC1A4(u8 *, s32);
+extern s32 func_801CC908(s32);
 extern u8 D_80127D58[];
 extern u8 D_8012834C;
 extern u8 D_802D3AA0[];
@@ -379,7 +442,7 @@ s32 func_801CBF8C(void);
 s32 func_801CCAB0(s32 arg0);
 extern u8 *D_802D3E04;
 extern s32 func_801CC3BC(s32, s32);
-extern void func_801CC1A4(void *, s32);
+extern s32 func_801CC1A4(u8 *, s32);
 extern u8 D_80127D58[];
 extern u8 *D_802927A4[];
 const u8 D_80295698[] = "SAVING PLAYER 2";

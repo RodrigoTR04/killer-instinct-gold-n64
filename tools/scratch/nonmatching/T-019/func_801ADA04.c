@@ -1,13 +1,4 @@
-/* T-019 nonmatching draft. Remaining diff: 204-byte reconstruction versus 208-byte target; pending-mode global-address reuse and register allocation differ.
- */
-#include "common.h"
-typedef struct RenderState {
-    s32 index, unk4;
-    u8 pad8[0xCC];
-    f32 unkD4, unkD8, unkDC, unkE0, unkE4;
-    s32 width, height, mode, height2;
-    void *unkF8;
-} RenderState;
+/* T-087: nonmatching; 39 differing words, 204 compiled bytes. See T-087/REPORT.md. */
 extern void osViBlack(s32);
 
 extern s32 D_80000300, D_801CD4B8, D_801CD4BC;
@@ -31,7 +22,7 @@ void func_801ADA04(RenderState *arg0) {
     return;
     }
         D_801CD4BC = pending;
-        osViSetMode(&D_800066D0[pending], arg0);
+        osViSetMode(&D_800066D0[D_801CD4BC = pending]);
         osViBlack(1);
     osViSetSpecialFeatures(0xAA);
     osViBlack(1);
@@ -39,7 +30,3 @@ void func_801ADA04(RenderState *arg0) {
         D_801CD4BC = -1;
     }
 }
-
-
-
-

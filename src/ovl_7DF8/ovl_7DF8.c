@@ -210,7 +210,58 @@ void func_801AD3BC(DisplayCommand **arg0, RenderState *arg1) {
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8/func_801AD568.s")
+extern u8 D_801CD454;
+extern u8 D_80044A24;
+extern DisplayCommand D_80068930[][200];
+extern u32 D_8004A428[];
+extern s32 D_802956F8, D_802956FC, D_80295700;
+extern void func_801BBE88(DisplayCommand **, RenderState *);
+void func_801AD568(DisplayCommand **arg0, s32 *arg1, RenderState *arg2) {
+    DisplayCommand *p = D_80068930[D_80044A24];
+    s32 color;
+    *arg0 = p;
+    {
+        DisplayCommand *q = p++;
+        q->w0 = 0xE7000000;
+        q->w1 = 0;
+    }
+    {
+        DisplayCommand *q = p++;
+        q->w0 = ((arg2->width - 1) & 0xFFF) | 0xFF100000;
+        q->w1 = D_8004A428[D_80044A24];
+    }
+    { DisplayCommand *q = p++; q->w0 = 0xED000000; q->w1 = 0xA00780; }
+    if (D_801CD454 == 0 || arg2->height2 != arg2->height) {
+        {
+            DisplayCommand *q = p++;
+            q->w1 = 0;
+            q->w0 = 0xEF300000;
+        }
+        {
+            DisplayCommand *q = p++;
+            q->w0 = 0xF7000000;
+            color = ((D_802956F8 << 8) & 0xF800) | ((D_802956FC * 8) & 0x7C0) | ((D_80295700 >> 2) & 0x3E) | 1;
+            q->w1 = (color << 16) | color;
+        }
+        {
+            DisplayCommand *q = p++;
+            q->w0 = (((arg2->width - 1) & 0x3FF) << 14) | 0xF6000000 | (((arg2->height2 - 1) & 0x3FF) * 4);
+            q->w1 = 0;
+        }
+    }
+    if (D_801CD454 != 0) func_801BBE88(&p, arg2);
+    if (p == D_80068930[D_80044A24]) {
+        *arg0 = 0;
+        *arg1 = 0;
+        return;
+    }
+    {
+        DisplayCommand *q = p++;
+        q->w0 = 0xE9000000;
+        q->w1 = 0;
+    }
+    *arg1 = (p - *arg0) * 8;
+}
 
 extern void func_8002B7E0(RenderState *);
 void func_801AD794(RenderState *arg0, s32 arg1, s32 arg2, s32 arg3) {
@@ -347,4 +398,3 @@ void func_801ADE48(unsigned char a, unsigned char b, unsigned char c, unsigned c
     D_8004EA9E[1] = d;
     func_801ADC64(10);
 }
-
