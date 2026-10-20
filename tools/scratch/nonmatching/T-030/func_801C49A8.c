@@ -1,9 +1,18 @@
-/* DRAFT. Remaining diff: Frame (0x58 vs 0x48), mode/flag registers, argument spills and call scheduling differ. */
+/* T-074 DRAFT: 83 differing words; 548 bytes. Not matching. */
 #include "common.h"
 
-typedef struct { u32 w0, w1; } T030Cmd49A8;
-typedef struct { u8 *vertices; u8 *matrices; u8 pad[0x14]; } T030Buffer49;
-typedef struct { u8 pad[0x38]; T030Buffer49 buffers[2]; } T030State49;
+typedef struct {
+    u32 w0, w1;
+} T030Cmd49A8;
+typedef struct {
+    u8 *vertices;
+    u8 *matrices;
+    u8 pad[0x14];
+} T030Buffer49;
+typedef struct {
+    u8 pad[0x38];
+    T030Buffer49 buffers[2];
+} T030State49;
 extern void func_8001EC74(T030Cmd49A8 **, s32, s32, u32, u32, s32, s32, s32);
 extern T030State49 D_8004CED0;
 extern s16 D_8004D26E;
@@ -21,7 +30,6 @@ void func_801C49A8(T030Cmd49A8 **arg0, s32 arg1, s32 arg2, s32 arg3, u32 arg4, u
     T030Cmd49A8 *temp_v0_4;
     T030Cmd49A8 *temp_v0_5;
     T030Cmd49A8 *temp_v0_6;
-
     buffer = &D_8004CED0.buffers[arg1];
     buffer->vertices = D_8007D900 + arg1 * 0x11120;
     buffer->matrices = D_800B0C60 + arg1 * 0x8890;
@@ -29,14 +37,14 @@ void func_801C49A8(T030Cmd49A8 **arg0, s32 arg1, s32 arg2, s32 arg3, u32 arg4, u
     D_8004EA78 = arg1 + 2;
     var_t4 = arg4;
     D_8004D26E = 0x80;
-    if (temp_v1 == 9) {
+    if (temp_v1 == 9)
+    {
         var_t4 = arg4 * 6;
     }
     if ((temp_v1 == 9) || (arg5 & 4)) {
         temp_v0_2 = *arg0;
         *arg0 = temp_v0_2 + 1;
-        temp_v0_2->w1 = (u32)&D_802918F0;
-    temp_v0_2->w0 = 0x06000000;
+        temp_v0_2->w1 = (u32)&D_802918F0; temp_v0_2->w0 = 0x06000000;
         temp_v0_3 = *arg0;
         *arg0 = temp_v0_3 + 1;
         temp_v0_3->w1 = (u32)0xFF;

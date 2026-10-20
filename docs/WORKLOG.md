@@ -334,3 +334,6 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-072 vetted (main line placement on mid drafts)
 - Worktree t3-9be005ec. All 16 attempted: 0 matched, 5 drafts improved, 11 unchanged. Scratch-only changes; I imported the drafts and REPORT.md. Line placement mostly helps when only a few scheduling differences remain.
 - T-076 launched (sol-A26): ovl_7DF8 structure-first round 2 on T-070's drafts.
+
+## 2026-10-20 — T-074 vetted (ovl_7DF8 mid drafts, declarations + line placement)
+- Worktree t3-ea890a10. All 17 attempted: 0 matched, 10 drafts improved, 7 unchanged. Scratch-only changes; I imported the drafts and REPORT.md.
