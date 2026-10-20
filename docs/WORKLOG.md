@@ -347,3 +347,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - T-076 (t3-7415a74e): 10 large drafts, 9 improved by small amounts (e.g. func_801B3DB0 277→255, func_801C1C34 262→242), 0 matched.
 - T-077 (t3-1da7ab54): instruction-level analysis of clone family A, now 14 words per copy (from 16-17); family B is still 65. 0 matched. The analysis is in T-077/REPORT.md.
 - Scratch-only changes, so I imported the drafts and reports. The low-effort Sol rounds on ovl_7DF8 are giving clearly diminishing returns.
+- Launched T-078 (sol-A27: libaudio at -O3), T-079 (sol-B26: untouched big ovl_7DF8 drafts) and T-080 (sol-C30: FU-12 libultra integration, starting with boot).
