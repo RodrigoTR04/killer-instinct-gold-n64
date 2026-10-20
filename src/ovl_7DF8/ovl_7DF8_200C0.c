@@ -318,9 +318,40 @@ u8 func_801CD038(s32 arg0, s32 arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_200C0/func_801CD078.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_200C0/func_801CD100.s")
+void func_801CD100(s8 *arg0, u32 arg1) {
+    s32 var_v0;
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_200C0/func_801CD174.s")
+    for (var_v0 = 3; var_v0 >= 0; var_v0--) {
+        if ((var_v0 != 3) && (arg1 == 0)) {
+            arg0[var_v0] = 0x20;
+        } else {
+            arg0[var_v0] = (arg1 % 10U) + 0x30;
+        }
+
+        arg1 = arg1 / 10U;
+    }
+}
+
+s32 func_8003C750(void *, s32 *);
+extern s32 func_801CC3BC();
+extern u8 D_802D3D30;
+extern s32 D_802D3E10;
+
+void func_801CD174(s32 arg0) {
+    s32 var_v0;
+    struct { void *ptr; s32 value; } local;
+
+    local.ptr = (arg0 * 0x68) + &D_802D3D30;
+
+    var_v0 = func_8003C750(local.ptr, &local.value);
+    if (var_v0 != 0) {
+        func_801CC3BC(var_v0, arg0);
+        var_v0 = func_8003C750(local.ptr, &local.value);
+    }
+    if (var_v0 == 0) {
+        D_802D3E10 = (s32) (local.value + 0xFF) >> 8;
+    }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_200C0/func_801CD1F0.s")
 

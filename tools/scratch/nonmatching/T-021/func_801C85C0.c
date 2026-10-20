@@ -1,4 +1,4 @@
-/* DRAFT. Remaining diff: Saved pointer register assignment and loop scheduling differ. */
+/* DRAFT (T-044). Remaining diff: 9 relocation-masked instruction words; see T-044/REPORT.md. */
 extern void func_801C7E98();
 extern s32 D_80127D00;
 extern s8 D_80127D20;
@@ -12,10 +12,10 @@ void func_801C85C0(void) {
     s8 *var_s2;
     u8 *var_s4;
 
-    var_s4 = &D_80127D30;
-    var_s3 = &D_80127D00;
-    var_s2 = &D_80127D28;
     var_s1 = &D_80127D20;
+    var_s2 = &D_80127D28;
+    var_s3 = &D_80127D00;
+    var_s4 = &D_80127D30;
     var_s0 = 0;
     do {
         *var_s1 = 0;

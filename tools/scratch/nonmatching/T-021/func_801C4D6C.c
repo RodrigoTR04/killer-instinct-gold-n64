@@ -1,4 +1,4 @@
-/* DRAFT. Remaining diff: Instruction/register/control-flow mismatch; see saved asm-differ output. */
+/* DRAFT (T-044). Remaining diff: 17 relocation-masked instruction words; see T-044/REPORT.md. */
 extern s8 D_802D399F;
 extern s32 *D_802D39A0;
 extern s32 *D_802D39A4;
@@ -7,7 +7,7 @@ extern s32 *D_802D39AC;
 extern u8 D_802D39BA;
 
 void func_801C4D6C(void) {
-    s32 var_v1;
+    s16 var_v1;
     s8 temp_t6;
 
     if (D_802D39BA & 1) {
