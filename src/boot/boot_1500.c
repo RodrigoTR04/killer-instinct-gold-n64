@@ -1,15 +1,13 @@
-#include "common.h"
+#include "boot.h"
 
-extern s32 func_80001D10(void);
-extern s32 D_8000BF80, D_8000BF84, D_8000BF88, D_8000BF8C, D_8000BF90;
-
-s32 boot_inflate(s32 arg0, s32 arg1, s32 arg2) {
-    D_8000BF80 = arg0;
-    D_8000BF84 = arg1;
-    D_8000BF90 = arg2;
-    D_8000BF80 += 2;
-    D_8000BF8C = 0;
-    D_8000BF88 = 0;
-    func_80001D10();
-    return D_8000BF8C;
+/* Rare's 0x1172 wrapper replaces the gzip header; the body is raw DEFLATE. */
+s32 boot_inflate(u8 *source, u8 *destination, huft *scratch) {
+    inflate_input = source;
+    inflate_output = destination;
+    inflate_huft_pool = scratch;
+    inflate_input += 2;
+    wp = 0;
+    inflate_inptr = 0;
+    inflate();
+    return wp;
 }

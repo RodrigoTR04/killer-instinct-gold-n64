@@ -1,26 +1,13 @@
-#include "common.h"
+#include "boot.h"
 
-typedef struct Huft {
-    u8 e, b;
-    union { u16 n; struct Huft *t; } v;
-} Huft;
-extern void bzero(void *, s32);
 extern void *memcpy(void *, void *, u32);
-extern Huft *D_8000BF90;
-extern u32 D_8000BF9C;
-extern u8 *D_8000BF80, *D_8000BF84;
-extern s32 D_8000BF88;
-extern u32 D_8000BF8C, D_8000BF94, D_8000BF98;
-extern u8 D_80006560[], D_800065B4[], D_80006610[];
-extern u16 D_80006574[], D_800065D4[], D_80006630[];
-extern s32 D_80006654, D_80006658;
-#define NEEDBITS(n) while (k < (n)) { b |= (u32)D_8000BF80[D_8000BF88++] << k; k += 8; }
+
+/* gzip names are retained to make comparison with inflate.c straightforward. */
+#define NEEDBITS(n) while (k < (n)) { b |= (u32)inflate_input[inflate_inptr++] << k; k += 8; }
 #define DUMPBITS(n) { b >>= (n); k -= (n); }
 
-s32 func_80001410(void), func_80001564(void), func_800016CC(void);
-s32 func_80001BF0(s32 *);
-
-s32 func_80000960(u32 *b, u32 n, u32 s, u16 *d, u8 *e, Huft **t, s32 *m)
+/* Build lookup tables in caller-supplied scratch instead of using malloc. */
+s32 huft_build(u32 *b, u32 n, u32 s, u16 *d, u8 *e, huft **t, s32 *m)
 {
     unsigned a;
     unsigned c[16 + 1]; /* Code counts by bit length. */
@@ -32,9 +19,9 @@ s32 func_80000960(u32 *b, u32 n, u32 s, u16 *d, u8 *e, Huft **t, s32 *m)
     int k;
     int l;
     unsigned *p;
-    Huft *q;
-    Huft r;
-    Huft *u[16];
+    huft *q;
+    huft r;
+    huft *u[16];
     unsigned v[288]; /* Symbols sorted by bit length. */
     int w;
     unsigned x[16 + 1];
@@ -50,7 +37,7 @@ s32 func_80000960(u32 *b, u32 n, u32 s, u16 *d, u8 *e, Huft **t, s32 *m)
     } while (--i);
     if (c[0] == n)
     {
-        *t = (Huft *)0;
+        *t = (huft *)0;
         *m = 0;
         return 0;
     }
@@ -91,8 +78,8 @@ s32 func_80000960(u32 *b, u32 n, u32 s, u16 *d, u8 *e, Huft **t, s32 *m)
     p = v;
     h = -1;
     w = -l;
-    u[0] = (Huft *)0;
-    q = (Huft *)0;
+    u[0] = (huft *)0;
+    q = (huft *)0;
     z = 0;
 
     for (; k <= g; k++)
@@ -120,10 +107,10 @@ s32 func_80000960(u32 *b, u32 n, u32 s, u16 *d, u8 *e, Huft **t, s32 *m)
                 }
                 z = 1 << j;
 
-                q = D_8000BF90 + D_8000BF9C;
-                D_8000BF9C += z + 1;
+                q = inflate_huft_pool + hufts;
+                hufts += z + 1;
                 *t = q + 1;
-                *(t = &(q->v.t)) = (Huft *)0;
+                *(t = &(q->v.t)) = (huft *)0;
                 u[h] = ++q;
 
                 if (h)
@@ -172,22 +159,23 @@ s32 func_80000960(u32 *b, u32 n, u32 s, u16 *d, u8 *e, Huft **t, s32 *m)
 }
 
 
-s32 func_80000FA0(Huft *tl, Huft *td, s32 bl, s32 bd)
+/* Output is contiguous: no gzip sliding-window flush or wrap is needed. */
+s32 inflate_codes(huft *tl, huft *td, s32 bl, s32 bd)
 {
     unsigned e;
     unsigned n, d;
     unsigned w;
-    Huft *t;
+    huft *t;
     unsigned ml, md;
     u32 b;
     unsigned k;
 
-    b = D_8000BF94;
-    k = D_8000BF98;
-    w = D_8000BF8C;
+    b = bb;
+    k = bk;
+    w = wp;
 
-    ml = D_80006630[bl];
-    md = D_80006630[bd];
+    ml = mask_bits[bl];
+    md = mask_bits[bd];
     for (;;)
     {
         NEEDBITS((unsigned)bl)
@@ -197,11 +185,11 @@ s32 func_80000FA0(Huft *tl, Huft *td, s32 bl, s32 bd)
                 DUMPBITS(t->b)
                 e -= 16;
                 NEEDBITS(e)
-            } while ((e = (t = t->v.t + ((unsigned)b & D_80006630[e]))->e) > 16);
+            } while ((e = (t = t->v.t + ((unsigned)b & mask_bits[e]))->e) > 16);
         DUMPBITS(t->b)
         if (e == 16)
         {
-            D_8000BF84[w++] = (u8)t->v.n;
+            inflate_output[w++] = (u8)t->v.n;
 
         }
         else
@@ -211,7 +199,7 @@ s32 func_80000FA0(Huft *tl, Huft *td, s32 bl, s32 bd)
                 break;
 
             NEEDBITS(e)
-            n = t->v.n + ((unsigned)b & D_80006630[e]);
+            n = t->v.n + ((unsigned)b & mask_bits[e]);
             DUMPBITS(e);
 
             NEEDBITS((unsigned)bd)
@@ -220,77 +208,77 @@ s32 func_80000FA0(Huft *tl, Huft *td, s32 bl, s32 bd)
                     DUMPBITS(t->b)
                     e -= 16;
                     NEEDBITS(e)
-                } while ((e = (t = t->v.t + ((unsigned)b & D_80006630[e]))->e) > 16);
+                } while ((e = (t = t->v.t + ((unsigned)b & mask_bits[e]))->e) > 16);
             DUMPBITS(t->b)
             NEEDBITS(e)
-            d = w - t->v.n - ((unsigned)b & D_80006630[e]);
+            d = w - t->v.n - ((unsigned)b & mask_bits[e]);
             DUMPBITS(e)
 
             do {
                 n -= (e = n);
                 if (w - d >= e)
                 {
-                    memcpy(D_8000BF84 + w, D_8000BF84 + d, e);
+                    memcpy(inflate_output + w, inflate_output + d, e);
                     w += e;
                     d += e;
                 }
                 else
                     do {
-                        D_8000BF84[w++] = D_8000BF84[d++];
+                        inflate_output[w++] = inflate_output[d++];
                     } while (--e);
 
             } while (n);
         }
     }
 
-    D_8000BF8C = w;
-    D_8000BF94 = b;
-    D_8000BF98 = k;
+    wp = w;
+    bb = b;
+    bk = k;
 
     return 0;
 }
 
 
-s32 func_80001410(void) {
+s32 inflate_stored(void) {
     u32 length;
-    u32 bits = D_8000BF94;
-    u32 count = D_8000BF98;
-    s32 out = D_8000BF8C;
+    u32 bits = bb;
+    u32 count = bk;
+    s32 out = wp;
     length = count & 7;
     bits >>= length;
     count -= length;
     while (count < 16) {
-        bits |= D_8000BF80[D_8000BF88++] << count;
+        bits |= inflate_input[inflate_inptr++] << count;
         count += 8;
     }
     length = bits & 0xFFFF;
     bits >>= 16;
     count -= 16;
     while (count < 16) {
-        bits |= D_8000BF80[D_8000BF88++] << count;
+        bits |= inflate_input[inflate_inptr++] << count;
         count += 8;
     }
     bits >>= 16;
     count -= 16;
     while (length--) {
         while (count < 8) {
-            bits |= D_8000BF80[D_8000BF88++] << count;
+            bits |= inflate_input[inflate_inptr++] << count;
             count += 8;
         }
-        D_8000BF84[out++] = bits;
+        inflate_output[out++] = bits;
         bits >>= 8;
         count -= 8;
     }
-    D_8000BF8C = out;
-    D_8000BF94 = bits;
-    D_8000BF98 = count;
+    wp = out;
+    bb = bits;
+    bk = count;
     return 0;
 }
 
-s32 func_80001564(void) {
+s32 inflate_fixed(void) {
     int i;
-    Huft *tl;
-    Huft *td;
+    huft *tl;
+    huft *td;
     s32 bl;
     s32 bd;
     u32 l[288];
@@ -304,25 +292,25 @@ s32 func_80001564(void) {
     for (; i < 288; i++)
         l[i] = 8;
     bl = 7;
-    func_80000960(l, 288, 257, D_80006574, D_800065B4, &tl, &bl);
+    huft_build(l, 288, 257, cplens, cplext, &tl, &bl);
     for (i = 0; i < 30; i++)
         l[i] = 5;
     bd = 5;
-    func_80000960(l, 30, 0, D_800065D4, D_80006610, &td, &bd);
-    func_80000FA0(tl, td, bl, bd);
+    huft_build(l, 30, 0, cpdist, cpdext, &td, &bd);
+    inflate_codes(tl, td, bl, bd);
     return 0;
 }
 
 
-s32 func_800016CC(void)
+s32 inflate_dynamic(void)
 {
     int i;
     unsigned j;
     unsigned l;
     unsigned m;
     unsigned n;
-    Huft *tl;
-    Huft *td;
+    huft *tl;
+    huft *td;
     int bl;
     int bd;
     unsigned nb;
@@ -332,8 +320,8 @@ s32 func_800016CC(void)
     u32 b;
     unsigned ll[286 + 30];
 
-    b = D_8000BF94;
-    k = D_8000BF98;
+    b = bb;
+    k = bk;
 
     NEEDBITS(5)
     nl = 257 + ((unsigned)b & 0x1f);
@@ -348,17 +336,17 @@ s32 func_800016CC(void)
     for (j = 0; j < nb; j++)
     {
         NEEDBITS(3)
-        ll[D_80006560[j]] = (unsigned)b & 7;
+        ll[border[j]] = (unsigned)b & 7;
         DUMPBITS(3)
     }
     for (; j < 19; j++)
-        ll[D_80006560[j]] = 0;
+        ll[border[j]] = 0;
 
     bl = 7;
-    func_80000960(ll, 19, 19, 0, 0, &tl, &bl);
+    huft_build(ll, 19, 19, 0, 0, &tl, &bl);
 
     n = nl + nd;
-    m = D_80006630[bl];
+    m = mask_bits[bl];
     i = l = 0;
     while ((unsigned)i < n)
     {
@@ -399,63 +387,63 @@ s32 func_800016CC(void)
         }
     }
 
-    D_8000BF94 = b;
-    D_8000BF98 = k;
+    bb = b;
+    bk = k;
 
-    bl = D_80006654;
-    func_80000960(ll, nl, 257, D_80006574, D_800065B4, &tl, &bl);
-    bd = D_80006658;
-    func_80000960(ll + nl, nd, 0, D_800065D4, D_80006610, &td, &bd);
+    bl = lbits;
+    huft_build(ll, nl, 257, cplens, cplext, &tl, &bl);
+    bd = dbits;
+    huft_build(ll + nl, nd, 0, cpdist, cpdext, &td, &bd);
 
-    func_80000FA0(tl, td, bl, bd);
+    inflate_codes(tl, td, bl, bd);
 
     return 0;
 }
 
 
-s32 func_80001BF0(s32 *last) {
+s32 inflate_block(s32 *last) {
     u32 type;
-    u32 bits = D_8000BF94;
-    u32 count = D_8000BF98;
+    u32 bits = bb;
+    u32 count = bk;
     while (count < 1) {
-        bits |= D_8000BF80[D_8000BF88++] << count;
+        bits |= inflate_input[inflate_inptr++] << count;
         count += 8;
     }
     *last = bits & 1;
     bits >>= 1;
     count--;
     while (count < 2) {
-        bits |= D_8000BF80[D_8000BF88++] << count;
+        bits |= inflate_input[inflate_inptr++] << count;
         count += 8;
     }
     type = bits & 3;
     bits >>= 2;
     count -= 2;
-    D_8000BF94 = bits;
-    D_8000BF98 = count;
-    if (type == 2) return func_800016CC();
-    if (type == 0) return func_80001410();
-    if (type == 1) return func_80001564();
+    bb = bits;
+    bk = count;
+    if (type == 2) return inflate_dynamic();
+    if (type == 0) return inflate_stored();
+    if (type == 1) return inflate_fixed();
     return 2;
 }
 
-s32 func_80001D10(void) {
+s32 inflate(void) {
     s32 last;
     s32 status;
     u32 maximum;
-    D_8000BF8C = 0;
-    D_8000BF98 = 0;
-    D_8000BF94 = 0;
+    wp = 0;
+    bk = 0;
+    bb = 0;
     maximum = 0;
     do {
-        D_8000BF9C = 0;
-        status = func_80001BF0(&last);
+        hufts = 0;
+        status = inflate_block(&last);
         if (status != 0) return status;
-        if (maximum < D_8000BF9C) maximum = D_8000BF9C;
+        if (maximum < hufts) maximum = hufts;
     } while (!last);
-    while (D_8000BF98 >= 8) {
-        D_8000BF98 -= 8;
-        D_8000BF88--;
+    while (bk >= 8) {
+        bk -= 8;
+        inflate_inptr--;
     }
     return 0;
 }

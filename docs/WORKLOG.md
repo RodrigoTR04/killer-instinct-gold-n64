@@ -379,3 +379,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - The user chose to exclude identified SDK code from the progress % (consistent with the libultra convention). Added 53 `excluded` rows in status.csv: 32 pfs (osPfs*/__osPfs*/__osContRam*), guLookAtHiliteF, alFxNew and the 19 libaudio functions from T-078 (_bnkfPatchInst, __getTrackByte, alAudioFrame, alFxParamHdl + 15 more). The code is unchanged and stays C.
 - New baseline: eligible 289,876 B; M1 = M2 = 52,808 B (18.22%); 256 T4. Main is at 18.43% of game code. The ROM is still byte-identical. TRACKING now has an "SDK decompiled" line (~262 SDK functions are C).
 - T-085 launched (sol-C32): finish the remaining drafts in mostly-matched main TUs.
+
+## 2026-10-20 — T-084 vetted (boot readability, FU-13 boot)
+- Worktree t3-cba8d4ed. include/boot.h holds shared types and declarations. Boot functions and state are named after gzip inflate.c and their roles (boot_start, boot_load_main, huft_build, inflate_codes/stored/fixed/dynamic/block, boot_scheduler_thread, ...), with struct member access and boot-flow comments. docs/boot.md is new. Name-only caller edits in main.c. No readability change needed reverting.
+- Clean vet build: the ROM and all 3 images are byte-identical; boot is 21/21 T4.

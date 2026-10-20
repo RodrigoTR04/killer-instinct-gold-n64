@@ -5,10 +5,10 @@ extern void *D_8004A294;
 extern u8 D_8004A298[], D_8004A2D0[], D_8004EA9C[], D_8004EA9E[];
 extern s32 D_8004A414, D_80127D80;
 extern void bzero(void *, s32);
-extern void func_8000FA50(void), func_80001DF0(void), func_800006FC(void);
+extern void func_8000FA50(void), boot_init_scheduler(void), boot_init_dma_events(void);
 extern void func_8002A4F0(void), func_80027DA0(void), func_8002B500(void), func_8000FA80(void);
 extern void osViBlack(s32);
-extern void func_80001EF4(void *, void *);
+extern void boot_subscribe_retrace(void *, void *);
 extern void func_8002FAC0(s32, s32);
 extern void func_8002A900(s32);
 
@@ -17,10 +17,10 @@ void func_8000F960(void) {
     bzero(D_80128350, 0x4A380);
     D_8004A294 = D_8006F1C0;
     func_8000FA50();
-    func_80001DF0();
+    boot_init_scheduler();
     osViBlack(1);
-    func_80001EF4(D_8004A2D0, D_8004A298);
-    func_800006FC();
+    boot_subscribe_retrace(D_8004A2D0, D_8004A298);
+    boot_init_dma_events();
     func_8002A4F0();
     func_8002FAC0(0, 0x4E20);
     func_80027DA0();
