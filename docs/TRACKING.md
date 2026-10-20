@@ -31,10 +31,11 @@ Source of truth for per-function tiers is `docs/functions.csv` (created once spl
 | Metric | Value |
 |---|---|
 | Scope measured | all CPU text of boot/main/ovl_7DF8/ovl_7E00 (999 fns). Text not in fns: boot 432 B pad, main 708 B, 7DF8 92 B, 7E00 4,040 B (31 inline data pools, listed in symbol_addrs.ovl_7E00.us.txt) |
-| M1 | 82,032 / 319,100 B (25.71%) |
-| M2 | 82,032 / 319,100 B (25.71%) |
-| Functions | 0 T1 · 253 T2 · 0 T3 · 309 T4 · 437 excluded (138,092 B: 267 libultra + boot entry asm + 169 ovl_7E00 handwritten asm) |
-| Per image (eligible B / T1 fns / excluded) | boot 8,468/0/99 (21 T4, 0 T2 — 100%) · main 173,204/0/169 (183 T4, 107 T2) · ovl_7DF8 137,428/0/0 (105 T4, 146 T2) · ovl_7E00 0/0/169 (all handwritten asm, T-041) |
+| M1 | 52,808 / 289,876 B (18.22%) — game code only; SDK excluded (2026-10-20 user decision) |
+| M2 | 52,808 / 289,876 B (18.22%) |
+| SDK decompiled | ~262 excluded SDK functions now built from C (T-037/T-055 pfs, T-073 gu, T-075/T-078 libaudio at -O3, T-080 libultra); not counted in M1/M2 |
+| Functions | 0 T1 · 253 T2 · 0 T3 · 256 T4 · 490 excluded (167,316 B: libultra/libaudio/gu/pfs SDK + boot entry asm + 169 ovl_7E00 handwritten asm) |
+| Per image (eligible B / T1 fns / excluded) | boot 8,468/0/99 (21 T4, 0 T2 — 100%) · main 143,980/0/222 (130 T4, 107 T2) · ovl_7DF8 137,428/0/0 (105 T4, 146 T2) · ovl_7E00 0/0/169 (all handwritten asm) |
 
 Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html). Tier overrides: tools/progress/status.csv (lead-maintained). Never hand-edit numbers; paste the `--markdown` output here.
 

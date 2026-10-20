@@ -374,3 +374,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-078 vetted after rework (libaudio at IDO -O3)
 - Rebased onto T-080's libultra layout. Libaudio TUs are built at IDO -O3 (interprocedural; asm-processor uses its -O2 placeholder model via per-object ASMPROC), with headers in include/libaudio/. This explains the old "private register ABI". 19 eligible functions match (11,476 B): func_80037780 (_bnkfPatchInst), func_80038DE0 (__getTrackByte), func_80039C08 (alAudioFrame), func_80042198 (alFxParamHdl), plus the 15 T-035/T-045 private-ABI functions. 111 GLOBAL_ASM stubs were replaced in total (the rest are already-excluded SDK).
 - Clean vet build: the ROM and all 3 images are byte-identical. 309 T4; M1 = M2 = 82,032 / 319,100 B (25.71%). Main is at 32.20%.
+
+## 2026-10-20 — T-086 SDK reclassification (user decision)
+- The user chose to exclude identified SDK code from the progress % (consistent with the libultra convention). Added 53 `excluded` rows in status.csv: 32 pfs (osPfs*/__osPfs*/__osContRam*), guLookAtHiliteF, alFxNew and the 19 libaudio functions from T-078 (_bnkfPatchInst, __getTrackByte, alAudioFrame, alFxParamHdl + 15 more). The code is unchanged and stays C.
+- New baseline: eligible 289,876 B; M1 = M2 = 52,808 B (18.22%); 256 T4. Main is at 18.43% of game code. The ROM is still byte-identical. TRACKING now has an "SDK decompiled" line (~262 SDK functions are C).

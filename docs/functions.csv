@@ -355,7 +355,7 @@ main,osViSetSpecialFeatures,0x80032C30,0x232D0,440,excluded,libultra (T-005)
 main,guPerspectiveF,0x80032DF0,0x23490,560,excluded,libultra (T-005)
 main,guPerspective,0x80033020,0x236C0,88,excluded,libultra (T-005)
 main,guRandom,0x80033080,0x23720,44,excluded,libultra (T-005)
-main,func_800330B0,0x800330B0,0x23750,1900,T4,
+main,func_800330B0,0x800330B0,0x23750,1900,excluded,SDK guLookAtHiliteF (T-086 reclass: SDK
 main,guLookAtHilite,0x8003381C,0x23EBC,184,excluded,libultra (T-005)
 main,guTranslateF,0x800338E0,0x23F80,72,excluded,libultra (T-005)
 main,guTranslate,0x80033928,0x23FC8,84,excluded,libultra (T-005)
@@ -369,27 +369,27 @@ main,sqrtf,0x800340D0,0x24770,8,excluded,libultra (T-005)
 main,main_memcpy,0x800340E0,0x24780,44,excluded,libultra (T-005)
 main,main_strlen,0x8003410C,0x247AC,40,excluded,libultra (T-005)
 main,main_strchr,0x80034134,0x247D4,64,excluded,libultra (T-005)
-main,func_80034180,0x80034180,0x24820,412,T4,
-main,func_8003431C,0x8003431C,0x249BC,216,T4,
-main,func_800343F4,0x800343F4,0x24A94,180,T4,
-main,func_800344B0,0x800344B0,0x24B50,164,T4,
-main,func_80034554,0x80034554,0x24BF4,220,T4,
-main,func_80034630,0x80034630,0x24CD0,404,T4,
-main,func_800347D0,0x800347D0,0x24E70,1516,T4,
-main,func_80034DBC,0x80034DBC,0x2545C,740,T4,
-main,func_800350A0,0x800350A0,0x25740,416,T4,
-main,func_80035240,0x80035240,0x258E0,224,T4,
-main,func_80035320,0x80035320,0x259C0,880,T4,
-main,func_80035690,0x80035690,0x25D30,1012,T4,
-main,func_80035A84,0x80035A84,0x26124,512,T4,
-main,func_80035C84,0x80035C84,0x26324,160,T4,
+main,func_80034180,0x80034180,0x24820,412,excluded,SDK osPfsIsPlug (T-086 reclass: SDK
+main,func_8003431C,0x8003431C,0x249BC,216,excluded,SDK __osPfsRequestData (T-086 reclass: SDK
+main,func_800343F4,0x800343F4,0x24A94,180,excluded,SDK __osPfsGetInitData (T-086 reclass: SDK
+main,func_800344B0,0x800344B0,0x24B50,164,excluded,SDK osPfsInit (T-086 reclass: SDK
+main,func_80034554,0x80034554,0x24BF4,220,excluded,SDK __osPfsGetStatus (T-086 reclass: SDK
+main,func_80034630,0x80034630,0x24CD0,404,excluded,SDK osPfsFindFile (T-086 reclass: SDK
+main,func_800347D0,0x800347D0,0x24E70,1516,excluded,SDK osPfsChecker (T-086 reclass: SDK
+main,func_80034DBC,0x80034DBC,0x2545C,740,excluded,SDK corrupted_init (T-086 reclass: SDK
+main,func_800350A0,0x800350A0,0x25740,416,excluded,SDK corrupted (T-086 reclass: SDK
+main,func_80035240,0x80035240,0x258E0,224,excluded,SDK __osPfsGetNextPage (T-086 reclass: SDK
+main,func_80035320,0x80035320,0x259C0,880,excluded,SDK osPfsReadWriteFile (T-086 reclass: SDK
+main,func_80035690,0x80035690,0x25D30,1012,excluded,SDK osPfsAllocateFile (T-086 reclass: SDK
+main,func_80035A84,0x80035A84,0x26124,512,excluded,SDK __osPfsDeclearPage (T-086 reclass: SDK
+main,func_80035C84,0x80035C84,0x26324,160,excluded,SDK __osClearPage (T-086 reclass: SDK
 main,osContStartQuery,0x80035D30,0x263D0,132,excluded,libultra (T-005)
 main,osContGetQuery,0x80035DB4,0x26454,40,excluded,libultra (T-005)
-main,func_80035DE0,0x80035DE0,0x26480,296,T4,
-main,func_80035F10,0x80035F10,0x265B0,676,T4,
-main,func_800361C0,0x800361C0,0x26860,640,T4,
-main,func_80036440,0x80036440,0x26AE0,516,T4,
-main,func_80036644,0x80036644,0x26CE4,228,T4,
+main,func_80035DE0,0x80035DE0,0x26480,296,excluded,SDK osPfsNumFiles (T-086 reclass: SDK
+main,func_80035F10,0x80035F10,0x265B0,676,excluded,SDK osPfsFileState (T-086 reclass: SDK
+main,func_800361C0,0x800361C0,0x26860,640,excluded,SDK osPfsDeleteFile (T-086 reclass: SDK
+main,func_80036440,0x80036440,0x26AE0,516,excluded,SDK __osPfsReleasePages (T-086 reclass: SDK
+main,func_80036644,0x80036644,0x26CE4,228,excluded,SDK __osBlockSum (T-086 reclass: SDK
 main,osEepromProbe,0x80036730,0x26DD0,108,excluded,libultra (T-005)
 main,osEepromLongWrite,0x800367A0,0x26E40,316,excluded,libultra (T-005)
 main,osEepromLongRead,0x800368E0,0x26F80,316,excluded,libultra (T-005)
@@ -412,14 +412,14 @@ main,guOrtho,0x80037664,0x27D04,104,excluded,libultra (T-005)
 main,alHeapInit,0x800376D0,0x27D70,52,excluded,libultra (T-005)
 main,alHeapDBAlloc,0x80037710,0x27DB0,84,excluded,libultra (T-005)
 main,func_80037770,0x80037770,0x27E10,16,T4,
-main,func_80037780,0x80037780,0x27E20,244,T4,
+main,func_80037780,0x80037780,0x27E20,244,excluded,SDK _bnkfPatchInst (T-086 reclass: SDK
 main,alBnkfNew,0x80037874,0x27F14,260,excluded,libultra (T-005)
 main,alSeqFileNew,0x80037978,0x28018,64,excluded,libultra (T-005)
 main,__CSPPostNextSeqEvent,0x800379C0,0x28060,112,excluded,libultra (T-005)
-main,func_80037A30,0x80037A30,0x280D0,60,T4,
-main,func_80037A6C,0x80037A6C,0x2810C,464,T4,
-main,func_80037C3C,0x80037C3C,0x282DC,2096,T4,
-main,func_8003846C,0x8003846C,0x28B0C,1556,T4,
+main,func_80037A30,0x80037A30,0x280D0,60,excluded,SDK libaudio (T-086 reclass: SDK
+main,func_80037A6C,0x80037A6C,0x2810C,464,excluded,SDK libaudio (T-086 reclass: SDK
+main,func_80037C3C,0x80037C3C,0x282DC,2096,excluded,SDK libaudio (T-086 reclass: SDK
+main,func_8003846C,0x8003846C,0x28B0C,1556,excluded,SDK libaudio (T-086 reclass: SDK
 main,alCSPNew,0x80038A80,0x29120,364,excluded,libultra (T-005)
 main,alCSPSetBank,0x80038BF0,0x29290,52,excluded,libultra (T-005)
 main,alCSPGetState,0x80038C30,0x292D0,8,excluded,libultra (T-005)
@@ -427,8 +427,8 @@ main,alCSPPlay,0x80038C40,0x292E0,48,excluded,libultra (T-005)
 main,alCSPStop,0x80038C70,0x29310,48,excluded,libultra (T-005)
 main,alCSeqGetLoc,0x80038CA0,0x29340,160,excluded,libultra (T-005)
 main,alCSeqSetLoc,0x80038D40,0x293E0,160,excluded,libultra (T-005)
-main,func_80038DE0,0x80038DE0,0x29480,196,T4,
-main,func_80038EA4,0x80038EA4,0x29544,96,T4,
+main,func_80038DE0,0x80038DE0,0x29480,196,excluded,SDK __getTrackByte (T-086 reclass: SDK
+main,func_80038EA4,0x80038EA4,0x29544,96,excluded,SDK libaudio (T-086 reclass: SDK
 main,alCSeqNextEvent,0x80038F04,0x295A4,760,excluded,libultra (T-005)
 main,alCSeqNew,0x800391FC,0x2989C,276,excluded,libultra (T-005)
 main,alCSeqNewMarker,0x80039310,0x299B0,364,excluded,libultra (T-005)
@@ -452,7 +452,7 @@ main,_collectPVoices,0x80039B58,0x2A1F8,96,excluded,libultra (T-005)
 main,__freeParam,0x80039BB8,0x2A258,24,excluded,libultra (T-005)
 main,__allocParam,0x80039BD0,0x2A270,48,excluded,libultra (T-005)
 main,func_80039C00,0x80039C00,0x2A2A0,8,T4,
-main,func_80039C08,0x80039C08,0x2A2A8,648,T4,
+main,func_80039C08,0x80039C08,0x2A2A8,648,excluded,SDK alAudioFrame (T-086 reclass: SDK
 main,alSynNew,0x80039E90,0x2A530,768,excluded,libultra (T-005)
 main,osContInit,0x8003A190,0x2A830,508,excluded,libultra (T-005)
 main,__osContGetInitData,0x8003A38C,0x2AA2C,208,excluded,libultra (T-005)
@@ -481,19 +481,19 @@ main,__osSiCreateAccessQueue,0x8003B270,0x2B910,80,excluded,libultra (T-005)
 main,__osSiGetAccess,0x8003B2C0,0x2B960,68,excluded,libultra (T-005)
 main,__osSiRelAccess,0x8003B304,0x2B9A4,44,excluded,libultra (T-005)
 main,__osSiRawStartDma,0x8003B330,0x2B9D0,172,excluded,libultra (T-005)
-main,func_8003B3E0,0x8003B3E0,0x2BA80,124,T4,
-main,func_8003B45C,0x8003B45C,0x2BAFC,252,T4,
-main,func_8003B558,0x8003B558,0x2BBF8,844,T4,
-main,func_8003B8A4,0x8003B8A4,0x2BF44,356,T4,
-main,func_8003BA08,0x8003BA08,0x2C0A8,516,T4,
-main,func_8003BC0C,0x8003BC0C,0x2C2AC,280,T4,
-main,func_8003BD24,0x8003BD24,0x2C3C4,668,T4,
-main,func_8003BFC0,0x8003BFC0,0x2C660,112,T4,
-main,func_8003C030,0x8003C030,0x2C6D0,556,T4,
-main,func_8003C25C,0x8003C25C,0x2C8FC,348,T4,
-main,func_8003C3C0,0x8003C3C0,0x2CA60,548,T4,
-main,func_8003C5E4,0x8003C5E4,0x2CC84,360,T4,
-main,func_8003C750,0x8003C750,0x2CDF0,424,T4,
+main,func_8003B3E0,0x8003B3E0,0x2BA80,124,excluded,SDK __osSumcalc (T-086 reclass: SDK
+main,func_8003B45C,0x8003B45C,0x2BAFC,252,excluded,SDK __osIdCheckSum (T-086 reclass: SDK
+main,func_8003B558,0x8003B558,0x2BBF8,844,excluded,SDK __osRepairPackId (T-086 reclass: SDK
+main,func_8003B8A4,0x8003B8A4,0x2BF44,356,excluded,SDK __osCheckPackId (T-086 reclass: SDK
+main,func_8003BA08,0x8003BA08,0x2C0A8,516,excluded,SDK __osGetId (T-086 reclass: SDK
+main,func_8003BC0C,0x8003BC0C,0x2C2AC,280,excluded,SDK __osCheckId (T-086 reclass: SDK
+main,func_8003BD24,0x8003BD24,0x2C3C4,668,excluded,SDK __osPfsRWInode (T-086 reclass: SDK
+main,func_8003BFC0,0x8003BFC0,0x2C660,112,excluded,SDK __osPfsSelectBank (T-086 reclass: SDK
+main,func_8003C030,0x8003C030,0x2C6D0,556,excluded,SDK __osContRamRead (T-086 reclass: SDK
+main,func_8003C25C,0x8003C25C,0x2C8FC,348,excluded,SDK __osPackRamReadData (T-086 reclass: SDK
+main,func_8003C3C0,0x8003C3C0,0x2CA60,548,excluded,SDK __osContRamWrite (T-086 reclass: SDK
+main,func_8003C5E4,0x8003C5E4,0x2CC84,360,excluded,SDK __osPackRamWriteData (T-086 reclass: SDK
+main,func_8003C750,0x8003C750,0x2CDF0,424,excluded,SDK osPfsFreeBlocks (T-086 reclass: SDK
 main,osEepromWrite,0x8003C900,0x2CFA0,432,excluded,libultra (T-005)
 main,__osPackEepWriteData,0x8003CAB0,0x2D150,268,excluded,libultra (T-005)
 main,__osEepStatus,0x8003CBBC,0x2D25C,548,excluded,libultra (T-005)
@@ -510,13 +510,13 @@ main,__seqpReleaseVoice,0x8003D3FC,0x2DA9C,300,excluded,libultra (T-005)
 main,__voiceNeedsNoteKill,0x8003D528,0x2DBC8,168,excluded,libultra (T-005)
 main,__unmapVoice,0x8003D5D0,0x2DC70,112,excluded,libultra (T-005)
 main,__postNextSeqEvent,0x8003D640,0x2DCE0,220,excluded,libultra (T-005)
-main,func_8003D71C,0x8003D71C,0x2DDBC,120,T4,
+main,func_8003D71C,0x8003D71C,0x2DDBC,120,excluded,SDK libaudio (T-086 reclass: SDK
 main,__vsPan,0x8003D794,0x2DE34,72,excluded,libultra (T-005)
 main,__lookupVoice,0x8003D7DC,0x2DE7C,116,excluded,libultra (T-005)
 main,__mapVoice,0x8003D850,0x2DEF0,112,excluded,libultra (T-005)
 main,__lookupSoundQuick,0x8003D8C0,0x2DF60,252,excluded,libultra (T-005)
-main,func_8003D9BC,0x8003D9BC,0x2E05C,2080,T4,
-main,func_8003E1DC,0x8003E1DC,0x2E87C,1572,T4,
+main,func_8003D9BC,0x8003D9BC,0x2E05C,2080,excluded,SDK libaudio (T-086 reclass: SDK
+main,func_8003E1DC,0x8003E1DC,0x2E87C,1572,excluded,SDK libaudio (T-086 reclass: SDK
 main,__seqpStopOsc,0x8003E800,0x2EEA0,260,excluded,libultra (T-005)
 main,__initChanState,0x8003E904,0x2EFA4,112,excluded,libultra (T-005)
 main,alSeqpNew,0x8003E974,0x2F014,384,excluded,libultra (T-005)
@@ -530,22 +530,22 @@ main,alResampleNew,0x8003ED1C,0x2F3BC,136,excluded,libultra (T-005)
 main,alLoadNew,0x8003EDA4,0x2F444,168,excluded,libultra (T-005)
 main,alEnvmixerNew,0x8003EE4C,0x2F4EC,164,excluded,libultra (T-005)
 main,init_lpfilter,0x8003EEF0,0x2F590,160,excluded,libultra (T-005)
-main,func_8003EF90,0x8003EF90,0x2F630,1048,T4,
+main,func_8003EF90,0x8003EF90,0x2F630,1048,excluded,SDK alFxNew (T-086 reclass: SDK
 main,alSynAllocFX,0x8003F3B0,0x2FA50,152,excluded,libultra (T-005)
 main,alMainBusParam,0x8003F450,0x2FAF0,48,excluded,libultra (T-005)
 main,alMainBusPull,0x8003F480,0x2FB20,288,excluded,libultra (T-005)
 main,alLoadParam,0x8003F5A0,0x2FC40,468,excluded,libultra (T-005)
 main,alRaw16Pull,0x8003F774,0x2FE14,940,excluded,libultra (T-005)
-main,func_8003FB20,0x8003FB20,0x301C0,300,T4,
+main,func_8003FB20,0x8003FB20,0x301C0,300,excluded,SDK libaudio (T-086 reclass: SDK
 main,alAdpcmPull,0x8003FC4C,0x302EC,1184,excluded,libultra (T-005)
 main,alResampleParam,0x800400F0,0x30790,236,excluded,libultra (T-005)
 main,alResamplePull,0x800401DC,0x3087C,520,excluded,libultra (T-005)
 main,_ldexpf,0x800403F0,0x30A90,40,excluded,libultra (T-005)
 main,_frexpf,0x80040418,0x30AB8,236,excluded,libultra (T-005)
 main,alEnvmixerParam,0x80040504,0x30BA4,224,excluded,libultra (T-005)
-main,func_800405E4,0x800405E4,0x30C84,464,T4,
-main,func_800407B4,0x800407B4,0x30E54,664,T4,
-main,func_80040A4C,0x80040A4C,0x310EC,176,T4,
+main,func_800405E4,0x800405E4,0x30C84,464,excluded,SDK libaudio (T-086 reclass: SDK
+main,func_800407B4,0x800407B4,0x30E54,664,excluded,SDK libaudio (T-086 reclass: SDK
+main,func_80040A4C,0x80040A4C,0x310EC,176,excluded,SDK libaudio (T-086 reclass: SDK
 main,alEnvmixerPull,0x80040AFC,0x3119C,1352,excluded,libultra (T-005)
 main,alAuxBusParam,0x80041050,0x316F0,48,excluded,libultra (T-005)
 main,alAuxBusPull,0x80041080,0x31720,216,excluded,libultra (T-005)
@@ -559,14 +559,14 @@ main,alSeqGetLoc,0x800414B0,0x31B50,28,excluded,libultra (T-005)
 main,alSeqSetLoc,0x800414CC,0x31B6C,28,excluded,libultra (T-005)
 main,alSeqGetTicks,0x800414E8,0x31B88,8,excluded,libultra (T-005)
 main,func_800414F0,0x800414F0,0x31B90,8,T4,
-main,func_800414F8,0x800414F8,0x31B98,76,T4,
+main,func_800414F8,0x800414F8,0x31B98,76,excluded,SDK libaudio (T-086 reclass: SDK
 main,alSeqNextEvent,0x80041544,0x31BE4,388,excluded,libultra (T-005)
 main,alSeqNewMarker,0x800416C8,0x31D68,288,excluded,libultra (T-005)
 main,alSeqSecToTicks,0x800417E8,0x31E88,228,excluded,libultra (T-005)
 main,alSeqTicksToSec,0x800418CC,0x31F6C,84,excluded,libultra (T-005)
 main,__alSeqNextDelta,0x80041920,0x31FC0,88,excluded,libultra (T-005)
-main,func_80041978,0x80041978,0x32018,80,T4,
-main,func_800419C8,0x800419C8,0x32068,48,T4,
+main,func_80041978,0x80041978,0x32018,80,excluded,SDK libaudio (T-086 reclass: SDK
+main,func_800419C8,0x800419C8,0x32068,48,excluded,SDK libaudio (T-086 reclass: SDK
 main,alSeqNew,0x800419F8,0x32098,216,excluded,libultra (T-005)
 main,alSynSetPriority,0x80041AD0,0x32170,16,excluded,libultra (T-005)
 main,alFilterNew,0x80041AE0,0x32180,28,excluded,libultra (T-005)
@@ -575,7 +575,7 @@ main,_filterBuffer,0x80041BA8,0x32248,184,excluded,libultra (T-005)
 main,_saveBuffer,0x80041C60,0x32300,392,excluded,libultra (T-005)
 main,_loadBuffer,0x80041DE8,0x32488,396,excluded,libultra (T-005)
 main,_loadOutputBuffer,0x80041F74,0x32614,548,excluded,libultra (T-005)
-main,func_80042198,0x80042198,0x32838,536,T4,
+main,func_80042198,0x80042198,0x32838,536,excluded,SDK alFxParamHdl (T-086 reclass: SDK
 main,alFxParam,0x800423B0,0x32A50,24,excluded,libultra (T-005)
 main,alFxPull,0x800423C8,0x32A68,832,excluded,libultra (T-005)
 ovl_7DF8,func_801ABB20,0x801ABB20,0x0,3644,T2,draft tools/scratch/nonmatching/T-034/ (non-matching)
