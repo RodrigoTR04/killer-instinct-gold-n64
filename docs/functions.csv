@@ -627,7 +627,7 @@ ovl_7DF8,func_801B0CDC,0x801B0CDC,0x51BC,1332,T2,draft tools/scratch/nonmatching
 ovl_7DF8,func_801B1210,0x801B1210,0x56F0,284,T2,draft tools/scratch/nonmatching/T-025/ (non-matching)
 ovl_7DF8,func_801B132C,0x801B132C,0x580C,1168,T2,draft tools/scratch/nonmatching/T-025/ (non-matching)
 ovl_7DF8,func_801B17BC,0x801B17BC,0x5C9C,256,T2,draft tools/scratch/nonmatching/T-025/ (non-matching)
-ovl_7DF8,func_801B18BC,0x801B18BC,0x5D9C,300,T2,draft tools/scratch/nonmatching/T-025/ (non-matching)
+ovl_7DF8,func_801B18BC,0x801B18BC,0x5D9C,300,T4,
 ovl_7DF8,func_801B19F0,0x801B19F0,0x5ED0,36,T4,
 ovl_7DF8,func_801B1A14,0x801B1A14,0x5EF4,104,T4,
 ovl_7DF8,func_801B1A7C,0x801B1A7C,0x5F5C,872,T2,draft tools/scratch/nonmatching/T-025/ (non-matching)
@@ -703,7 +703,7 @@ ovl_7DF8,func_801BF0E8,0x801BF0E8,0x135C8,168,T4,
 ovl_7DF8,func_801BF190,0x801BF190,0x13670,1256,T2,draft tools/scratch/nonmatching/T-023/ (non-matching)
 ovl_7DF8,func_801BF678,0x801BF678,0x13B58,168,T2,draft tools/scratch/nonmatching/T-023/ (non-matching)
 ovl_7DF8,func_801BF720,0x801BF720,0x13C00,104,T2,draft tools/scratch/nonmatching/T-023/ (non-matching)
-ovl_7DF8,func_801BF788,0x801BF788,0x13C68,200,T2,draft tools/scratch/nonmatching/T-023/ (non-matching)
+ovl_7DF8,func_801BF788,0x801BF788,0x13C68,200,T4,
 ovl_7DF8,func_801BF850,0x801BF850,0x13D30,196,T2,draft tools/scratch/nonmatching/T-023/ (non-matching)
 ovl_7DF8,func_801BF914,0x801BF914,0x13DF4,116,T2,draft tools/scratch/nonmatching/T-023/ (non-matching)
 ovl_7DF8,func_801BF988,0x801BF988,0x13E68,184,T2,draft tools/scratch/nonmatching/T-023/ (non-matching)

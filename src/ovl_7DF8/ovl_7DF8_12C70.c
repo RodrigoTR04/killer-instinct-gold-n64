@@ -73,7 +73,27 @@ s32 func_801BF0E8(s32 *arg0, s32 count, s32 used) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_12C70/func_801BF720.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_12C70/func_801BF788.s")
+extern s32 func_801BF720(s32);
+u8 *func_801BF788(u8 *arg0, u8 *arg1, s32 count) {
+    s32 i;
+    s32 first;
+    u16 packed;
+    i = 0;
+    if (count > 0) {
+        do {
+            packed = (arg0[0] << 8) + arg0[1];
+            first = func_801BF720((packed >> 10) & 31) << 24;
+            first |= (func_801BF720((packed >> 5) & 31) << 16);
+            first |= func_801BF720(packed & 31) << 8;
+            *(s32 *)arg1 = first;
+            i++;
+            arg1 += 8;
+            arg0 += 3;
+            *(s16 *)(arg1 - 4) = arg0[-1];
+        } while (i != count);
+    }
+    return arg0;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_12C70/func_801BF850.s")
 

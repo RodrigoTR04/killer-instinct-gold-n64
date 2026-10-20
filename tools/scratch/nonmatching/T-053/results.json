@@ -1,0 +1,204 @@
+[
+  {
+    "function": "func_801B2010",
+    "old": [
+      87,
+      412
+    ],
+    "new": [
+      23,
+      420
+    ]
+  },
+  {
+    "function": "func_801B21B4",
+    "old": [
+      87,
+      412
+    ],
+    "new": [
+      23,
+      420
+    ]
+  },
+  {
+    "function": "func_801B2358",
+    "old": [
+      87,
+      412
+    ],
+    "new": [
+      23,
+      420
+    ]
+  },
+  {
+    "function": "func_801B24FC",
+    "old": [
+      87,
+      412
+    ],
+    "new": [
+      23,
+      420
+    ]
+  },
+  {
+    "function": "func_801B26A0",
+    "old": [
+      87,
+      412
+    ],
+    "new": [
+      23,
+      420
+    ]
+  },
+  {
+    "function": "func_801B2844",
+    "old": [
+      87,
+      412
+    ],
+    "new": [
+      23,
+      420
+    ]
+  },
+  {
+    "function": "func_801B29E8",
+    "old": [
+      88,
+      412
+    ],
+    "new": [
+      22,
+      420
+    ]
+  },
+  {
+    "function": "func_801B2EF4",
+    "old": [
+      88,
+      536
+    ],
+    "new": [
+      70,
+      536
+    ]
+  },
+  {
+    "function": "func_801B310C",
+    "old": [
+      88,
+      536
+    ],
+    "new": [
+      70,
+      536
+    ]
+  },
+  {
+    "function": "func_801B3324",
+    "old": [
+      88,
+      536
+    ],
+    "new": [
+      70,
+      536
+    ]
+  },
+  {
+    "function": "func_801B353C",
+    "old": [
+      88,
+      536
+    ],
+    "new": [
+      70,
+      536
+    ]
+  },
+  {
+    "function": "func_801B3754",
+    "old": [
+      88,
+      536
+    ],
+    "new": [
+      70,
+      536
+    ]
+  },
+  {
+    "function": "func_801B396C",
+    "old": [
+      88,
+      536
+    ],
+    "new": [
+      70,
+      536
+    ]
+  },
+  {
+    "function": "func_801C51F8",
+    "old": [
+      26,
+      160
+    ],
+    "new": [
+      2,
+      160
+    ]
+  },
+  {
+    "function": "func_801B18BC",
+    "old": [
+      4,
+      300
+    ],
+    "new": [
+      0,
+      300
+    ],
+    "result": "MATCHED"
+  },
+  {
+    "function": "func_801BF788",
+    "old": [
+      21,
+      200
+    ],
+    "new": [
+      0,
+      200
+    ],
+    "result": "MATCHED"
+  },
+  {
+    "function": "func_801B6A68",
+    "old": [
+      20,
+      368
+    ],
+    "new": [
+      20,
+      368
+    ],
+    "result": "UNCHANGED"
+  },
+  {
+    "function": "func_801C6A80",
+    "old": [
+      30,
+      292
+    ],
+    "new": [
+      30,
+      292
+    ],
+    "result": "UNCHANGED"
+  }
+]

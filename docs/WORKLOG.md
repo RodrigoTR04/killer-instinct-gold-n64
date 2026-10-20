@@ -227,3 +227,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Clean vet build: the ROM and all 3 images are byte-identical. 251 T4; M1 = M2 = 51,912 / 319,100 B (16.27%).
 - T-054 launched (sol-C21): main round 4, 30 mid-size drafts disjoint from T-052.
 - The user asked for two Opus 5.5 (low) workers alongside Sol, and no extras after: T-055 (opus-4, main/boot near-misses + largest main drafts) and T-056 (opus-5, ovl_7DF8 near-misses outside T-053).
+
+## 2026-10-20 — T-053 vetted (ovl_7DF8 near-misses)
+- Worktree t3-e988a6dc. func_801B18BC and func_801BF788 match (500 B). 14 drafts improved and 2 unchanged; both clone families are still unmatched.
+- Clean vet build: the ROM and all 3 images are byte-identical. 253 T4; M1 = M2 = 52,412 / 319,100 B (16.42%).
