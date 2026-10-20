@@ -1,38 +1,39 @@
-/* DRAFT. Remaining diff: Flag/global address reuse, byte temporaries and store scheduling differ. */
+/* DRAFT (T-056). 34 words off (was 72): flags value cached in a local, 2D tables. Remaining: target keeps &D_802C8CE0 in a base register (t0) and schedules the or/stores differently. */
 extern u8 D_802C8CE0;
 extern u8 D_802C8D06;
 extern u8 D_802C8CEA[];
 extern s32 D_802C8C18[];
-extern s8 D_80127CE8[];
+extern s8 D_80127CE8[][11];
 extern u8 D_80127CFE[];
-extern s8 D_802C8CF0[];
-extern s8 D_802C8D0F;
+extern s8 D_802C8CF0[][11];
+extern u8 D_802C8D0F;
 extern u8 D_802C8D0C;
 extern s32 D_802C8CDC, D_802C8CD4;
 void func_801B446C(u8 arg0) {
     s32 bit;
+    s32 flags;
     s32 choice;
     u8 *cursor;
-    u8 previous;
-    u8 next;
-    u8 signedNext;
+    u8 pos;
+    u8 *flagsp = &D_802C8CE0;
+
+    flags = *flagsp;
     bit = 1 << arg0;
-    if (!(D_802C8CE0 & bit)) {
+    if (!(flags & bit)) {
         if (D_802C8D06 & 8) {
             cursor = &D_802C8CEA[arg0];
-            previous = *cursor;
+            pos = *cursor;
             choice = D_802C8C18[arg0];
-            next = previous + 1;
-            D_80127CE8[arg0 * 11 + (previous & 15)] = choice;
-            *cursor = next;
-            signedNext = next;
-            if (signedNext >= D_80127CFE[arg0]) {
-                D_802C8CE0 |= bit;
+            D_80127CE8[arg0][pos & 15] = choice;
+            *cursor = pos + 1;
+            pos = *cursor;
+            if (pos >= D_80127CFE[arg0]) {
+                *flagsp = flags | bit;
                 if (D_8004A407 != 0) D_802C8D0F = 1;
             }
-            D_802C8CF0[arg0 * 11 + choice] = signedNext;
+            D_802C8CF0[arg0][choice] = pos;
         } else {
-            D_802C8CE0 |= bit;
+            *flagsp = flags | bit;
             D_802C8CDC = D_802C8CD4 + 1;
         }
         if (D_802C8D0C == 2) D_802C8D0C = arg0;

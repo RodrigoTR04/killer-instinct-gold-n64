@@ -76,7 +76,24 @@ s32 func_801B4324(u8 arg0) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B446C.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B4590.s")
+extern void func_801AC95C(u8 *, s32);
+extern u8 D_80127CE8[][11];
+extern u8 D_80127CFE[];
+extern u8 D_802C8D06;
+extern u8 D_802C8CE0;
+extern u8 D_802C8CEA[];
+extern u8 D_802C8D0F;
+void func_801B4590(u8 arg0) {
+    u8 *entry;
+
+    if (D_802C8D06 & 8) {
+        entry = &D_80127CFE[arg0];
+        func_801AC95C(D_80127CE8[arg0], *entry);
+        D_802C8CE0 |= 1 << arg0;
+        if (D_8004A407 & (1 << (1 - arg0))) D_802C8D0F = 1;
+        D_802C8CEA[arg0] = *entry + 16;
+    }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B465C.s")
 

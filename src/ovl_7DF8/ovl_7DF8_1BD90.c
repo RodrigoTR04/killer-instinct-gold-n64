@@ -40,7 +40,13 @@ void func_801C7E4C(u8 arg0) {
     p->b[5] = 0;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C7E98.s")
+void func_801C7E98(u8 arg0, u8 arg1) {
+    s32 i;
+
+    for (i = 0; i < 6; i++) {
+        D_80127C68[arg1].b[i] = D_80127C68[arg0].b[i];
+    }
+}
 
 extern void func_801C78B0();
 
@@ -138,7 +144,16 @@ s32 func_801C8868(u8 *arg0) {
 }
 
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C8A38.s")
+void func_801C8A38(u8 *arg0, s32 arg1) {
+    s32 j;
+    u32 v;
+
+    arg0 += arg1 * 3;
+    v = arg0[0] + (arg0[1] << 8) + (arg0[2] << 16);
+    for (j = 0; j < 6; j++) {
+        D_80127C68[arg1].b[j] = (v >> (j * 3)) & 7;
+    }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C8AE0.s")
 

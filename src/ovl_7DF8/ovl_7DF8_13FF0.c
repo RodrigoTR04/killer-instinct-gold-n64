@@ -64,7 +64,21 @@ void func_801C0784(s32 arg0, u32 arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C1434.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C1704.s")
+extern s32 D_80127C30[];
+extern u8 D_80128308[], D_8012830A[];
+extern u8 D_80128310[][11], D_80128328[][11];
+void func_801C1704(u8 player) {
+    s32 i;
+
+
+    D_80128308[player] = 0;
+    D_8012830A[player] = 0;
+    for (i = 0; i < 11; i++) {
+        D_80128310[player][i] = 0;
+        D_80128328[player][i] = 0;
+    }
+    D_80127C30[player] = 100;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C17D0.s")
 

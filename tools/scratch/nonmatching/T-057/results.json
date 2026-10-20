@@ -1,0 +1,50 @@
+[
+  {
+    "name": "func_801B2010",
+    "baseline": [
+      23,
+      420
+    ],
+    "best": [
+      23,
+      420
+    ],
+    "count": 476
+  },
+  {
+    "name": "func_801B2EF4",
+    "baseline": [
+      70,
+      536
+    ],
+    "best": [
+      70,
+      536
+    ],
+    "count": 476
+  },
+  {
+    "name": "func_801C6A80",
+    "baseline": [
+      30,
+      292
+    ],
+    "best": [
+      30,
+      292
+    ],
+    "count": 476
+  },
+  {
+    "name": "func_801B6A68",
+    "baseline": [
+      20,
+      368
+    ],
+    "best": [
+      20,
+      368
+    ],
+    "count": 476
+  }
+]

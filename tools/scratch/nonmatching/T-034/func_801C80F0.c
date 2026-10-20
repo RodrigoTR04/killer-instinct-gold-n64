@@ -1,4 +1,5 @@
-/* DRAFT. Same instruction count (308); ~200 diff lines from register allocation (s-regs and f20..f30 hoisted constants) and scheduling. Logic follows the asm: 7 rows, row 6 highlighted with a sin() pulse, per-player columns from D_80127C68 (T021Six) and D_802925CC strings. Needs T021Six + the T034_D_80127D30 macro (see func_801CA7E4). */
+/* T-056: now compiles in ovl_7DF8_1BD90.c context (uses the real u8 D_80127D30[8]; func_801CA784 takes 1 arg). */
+/* DRAFT. Same instruction count (308); ~200 diff lines from register allocation (s-regs and f20..f30 hoisted constants) and scheduling. Logic follows the asm: 7 rows, row 6 highlighted with a sin() pulse, per-player columns from D_80127C68 (T021Six) and D_802925CC strings. Needs T021Six + the D_80127D30 macro (see func_801CA7E4). */
 typedef struct {
     u8 pad0[4];
     u32 frame;
@@ -43,10 +44,10 @@ void func_801C80F0(s32 arg0, T034TextCtx2 *arg1) {
     names = D_80292698[D_802D3A00];
     pulse = sinf(arg1->frame * D_802954B8 * 5.0) * 63.0f + 192.0f;
     if (D_802D3A06) {
-        p2 = T034_D_80127D30[0] + 1;
-        p1 = T034_D_80127D30[1] + 1;
-        name1 = D_80127D00[T034_D_80127D30[0] - 1];
-        name2 = D_80127D00[T034_D_80127D30[1] - 1];
+        p2 = D_80127D30[0] + 1;
+        p1 = D_80127D30[1] + 1;
+        name1 = D_80127D00[D_80127D30[0] - 1];
+        name2 = D_80127D00[D_80127D30[1] - 1];
     } else {
         name1 = D_8029530C;
         name2 = D_80295310;

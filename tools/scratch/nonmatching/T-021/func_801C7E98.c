@@ -1,2 +1,0 @@
-/* DRAFT. Remaining diff: Six-byte copy loop has multiplication and register/scheduling differences. */
-void func_801C7E98(u8 arg0,u8 arg1) { s32 i; for(i=0;i<6;i++) ((u8 *)D_80127C68)[arg1*3*2+i]=((u8 *)D_80127C68)[arg0*3*2+i]; }

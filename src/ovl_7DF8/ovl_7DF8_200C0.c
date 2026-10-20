@@ -227,7 +227,46 @@ s32 func_801CC600(s32 arg0, s32 arg1) {
     return func_80035320((arg1 * 0x68) + &D_802D3D30, arg0, 1, 0, 0x300, &D_802D3A30);
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_200C0/func_801CC668.s")
+extern s32 func_801CC0CC();
+extern u8 *D_802D3E04;
+const u8 D_80295618[] = "LOADING DATA";
+const u8 D_80295628[] = "NO KI DATA ON CONTROLLER PAK";
+
+s32 func_801CC668(s32 arg0) {
+    s32 handle;
+    s32 err;
+
+    if (!(D_802D3E0D & (1 << arg0))) {
+        func_801CBF8C();
+        if (!(D_802D3E0D & (1 << arg0))) {
+            return 1;
+        }
+    }
+    D_802D3E04 = D_80295618;
+    err = func_801CC350(&handle, arg0);
+    if (err != 0) {
+        if (err != 5) {
+            func_801CC3BC(err, arg0);
+            err = func_801CC350(&handle, arg0);
+        } else {
+            D_802D3E04 = D_80295628;
+        }
+    }
+    if (err == 0) {
+        err = func_801CC524(handle, arg0);
+        if (err != 0) {
+            func_801CC3BC(err, arg0);
+            err = func_801CC524(handle, arg0);
+        }
+    }
+    if (err == 0) {
+        if (func_801CC0CC(&D_802D3A30, 0x300) != 0) {
+            err = 1;
+        }
+    }
+    return err;
+}
+
 
 typedef struct {
     u8 unk0;
@@ -278,7 +317,20 @@ s32 func_801CC784(void) {
 }
 
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_200C0/func_801CC878.s")
+const u8 D_80295664[] = "LOADED CONTROLLER PAK 2 DATA";
+
+void func_801CC878(void) {
+    s32 i;
+
+    if (func_801CC668(1) == 0) {
+        D_802D3E04 = D_80295664;
+        for (i = 0; i < 12; i++) {
+            D_80127D58[i + 16] = ((T034SaveHeader *)&D_802D3A30)->unk10[i] & 0xFF;
+        }
+        func_801C8A38(D_802D3AA0, 1);
+        func_801C7A98();
+    }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_200C0/func_801CC908.s")
 
@@ -435,7 +487,27 @@ u8 func_801CD038(s32 arg0, s32 arg1) {
     return D_802D3E0E;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_200C0/func_801CD078.s")
+typedef struct {
+    u32 file_size;
+    u32 game_code;
+    u16 company_code;
+    u8 ext_name[4];
+    u8 game_name[16];
+} T056PfsState;
+
+extern s32 func_80035F10(void *, s32, T056PfsState *);
+extern s32 func_800361C0(void *, u16, u32, u8 *, u8 *);
+
+void func_801CD078(s32 arg0, s32 arg1) {
+    T056PfsState state;
+    void *pfs;
+
+    pfs = (arg1 * 0x68) + &D_802D3D30;
+    if (func_80035F10(pfs, arg0, &state) == 0) {
+        func_800361C0(pfs, state.company_code, state.game_code, state.game_name, state.ext_name);
+        func_8002F6F4(D_80066C40, 0x10A, D_8004A25C);
+    }
+}
 
 void func_801CD100(s8 *arg0, u32 arg1) {
     s32 var_v0;
