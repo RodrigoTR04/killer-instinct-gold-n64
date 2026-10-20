@@ -418,3 +418,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-091 vetted (rodata-ownership sweep)
 - Worktree t3-d4515633. 10 more TUs own .rodata. Main: 1BE80, 1E7F0, 1EB40, 27490, 2B780. ovl_7DF8: 2380, 3F60, 116E0, 17E70, 1B790. Constants used by asm functions are kept via new function_owner hints (func_8002BBD0, func_8002E150, ...). 3 migrations were reverted because they didn't stay byte-identical. No additional draft became exact. Metrics unchanged. Clean vet build: the ROM and all 3 images are byte-identical.
 - T-093 stopped on the Codex usage limit (resets 17:03). Cron 35ad101c resumes it at 17:06.
+
+## 2026-10-20 — T-092 vetted (permuter round 3 + screen)
+- Worktree t3-57500b83. tools/permuter/screen.py compiles every remaining T2 draft in TU context; the ranked table is in T-092/screen.md (all 230 compile). 6 matches (1,156 B): func_8002E4A0, func_800244F0, func_801C3580, func_801C35AC, func_801BF850 and func_801BFA40. 5 improved, 8 unchanged.
+- Clean vet build: the ROM and all 3 images are byte-identical. 279 T4; M1 = M2 = 58,396 / 289,876 B (20.15%). Note: func_800244F0 was on paused T-093's list, so T-093 must drop it on resume.

@@ -59,13 +59,13 @@ void *func_8002F6F4(T024SoundBank *bank, s16 id, void **owner)
       if (voice->flags & 0x10)
       {
         voice->flags &= 0xFFEF;
-        alEvtqPostEvent(D_8004827C->queue, &start, delay + 1);
+        alEvtqPostEvent(((T024VoicePlayer *)D_8004827C)->queue, &start, delay + 1);
         repeatTime = step + 1;
         repeat = id;
       }
       else
       {
-        alEvtqPostEvent(D_8004827C->queue, &start, step + 1);
+        alEvtqPostEvent(((T024VoicePlayer *)D_8004827C)->queue, &start, step + 1);
       }
       last = voice;
     }
@@ -85,7 +85,7 @@ void *func_8002F6F4(T024SoundBank *bank, s16 id, void **owner)
       event.voice = last;
       event.bank = bank;
       event.id = repeat;
-      alEvtqPostEvent(D_8004827C->queue, &event, repeatTime);
+      alEvtqPostEvent(((T024VoicePlayer *)D_8004827C)->queue, &event, repeatTime);
     }
   }
   if (owner)

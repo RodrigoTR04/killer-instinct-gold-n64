@@ -182,9 +182,19 @@ void func_801C2D34(T030Cmd2D34 **arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C3524.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C3580.s")
+extern void func_801C35D8();
+extern u8 D_80290DF8;
+void func_801C3580(s32 arg0, s32 arg1)
+{
+  func_801C35D8(arg0, &D_80290DF8, 0x17, arg1);
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C35AC.s")
+extern void func_801C35D8();
+extern u8 D_80290F0C;
+void func_801C35AC(s32 arg0, s32 arg1)
+{
+  func_801C35D8(arg0, &D_80290F0C, 0xB, arg1);
+}
 
 typedef struct { u32 w0,w1; } CloudCmd;
 

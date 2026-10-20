@@ -1,6 +1,67 @@
 #include "common.h"
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_1EB40/func_8002E4A0.s")
+typedef struct {
+ u32 voices,events;
+ s32 priority;
+ void *heap;
+ u16 groups;
+ }
+ T024AudioConfig;
+ typedef struct {
+ void *next,*client,*handler;
+ u8 padC[8];
+ u8 queue[0x14],event[0x10];
+ void *synth;
+ u8 pad3C[4];
+ void *current,*voices;
+ s32 priority,interval,delta,time;
+ }
+ T024AudioPlayer;
+ extern void *D_8004827C;
+ extern void *D_80048278,*D_80048440;
+ extern u16 *D_80069928;
+ extern void *alHeapDBAlloc(s32,s32,void *,s32,s32);
+ extern void alEvtqNew(void *,void *,s32),alLink(void *,void *),alSynAddPlayer(void *,void *);
+ extern void func_8002E680();
+ extern void alEvtqPostEvent(void *,void *,s32);
+ extern s32 alEvtqNextEvent(void *,void *);
+
+void func_8002E4A0(T024AudioConfig *config)
+{
+  u32 i;
+  u8 *voice;
+  struct
+  {
+    s16 type;
+    u8 data[14];
+  } event;
+  ((T024AudioPlayer *)D_8004827C)->priority = config->priority;
+  ((T024AudioPlayer *)D_8004827C)->current = 0;
+  ((T024AudioPlayer *)D_8004827C)->interval = 0x80E8;
+  ((T024AudioPlayer *)D_8004827C)->voices = alHeapDBAlloc(0, 0, config->heap, 1, config->voices << 6);
+  alEvtqNew(((T024AudioPlayer *)D_8004827C)->queue, alHeapDBAlloc(0, 0, config->heap, 1, config->events * 0x1C), config->events);
+  D_80048278 = ((T024AudioPlayer *)D_8004827C)->voices;
+  for (i = 1; i < config->voices; i++)
+  {
+    voice = (u8 *) ((T024AudioPlayer *)D_8004827C)->voices;
+    alLink(&voice[i << 6], (&voice[i << 6]) - 64);
+  }
+
+  D_80069928 = alHeapDBAlloc(0, 0, config->heap, 2, config->groups);
+  for (i = 0; i < config->groups; i++)
+  {
+    D_80069928[i] = 0x7FFF;
+  }
+
+  ((T024AudioPlayer *)D_8004827C)->synth = D_80048440;
+  ((T024AudioPlayer *)D_8004827C)->next = 0;
+  ((T024AudioPlayer *)D_8004827C)->handler = func_8002E680;
+  ((T024AudioPlayer *)D_8004827C)->client = D_8004827C;
+  alSynAddPlayer(((T024AudioPlayer *)D_8004827C)->synth, D_8004827C);
+  event.type = 0x20;
+  alEvtqPostEvent(((T024AudioPlayer *)D_8004827C)->queue, &event, ((T024AudioPlayer *)D_8004827C)->interval);
+  ((T024AudioPlayer *)D_8004827C)->delta = alEvtqNextEvent(((T024AudioPlayer *)D_8004827C)->queue, ((T024AudioPlayer *)D_8004827C)->event);
+}
 
 typedef struct { u16 type; u8 data[14]; } T040Event;
 typedef struct { s16 type; u8 body[0x22]; } T040NextEvent;
@@ -32,17 +93,17 @@ void func_8002E680(T040Player *p) {
 
 typedef struct { u8 pad[0x14]; u8 queue[0x24]; void *synth; } T024VoicePlayer;
 typedef struct { u8 pad[0xC]; u8 synthVoice[0x32]; u8 flags; } T024FreeVoice;
-extern T024VoicePlayer *D_8004827C;
+extern void *D_8004827C;
 extern void alSynStopVoice(void *,void *),alSynFreeVoice(void *,void *);
 extern void func_8002F5F0(T024FreeVoice *);
 extern void func_8002F31C(void *,void *,u16);
 void func_8002F234(T024FreeVoice *voice) {
     if (voice->flags & 4) {
-        alSynStopVoice(D_8004827C->synth,voice->synthVoice);
-        alSynFreeVoice(D_8004827C->synth,voice->synthVoice);
+        alSynStopVoice(((T024VoicePlayer *)D_8004827C)->synth,voice->synthVoice);
+        alSynFreeVoice(((T024VoicePlayer *)D_8004827C)->synth,voice->synthVoice);
     }
     func_8002F5F0(voice);
-    func_8002F31C(D_8004827C->queue,voice,0xFFFF);
+    func_8002F31C(((T024VoicePlayer *)D_8004827C)->queue,voice,0xFFFF);
 }
 
 typedef struct { u8 pad[5]; s8 detune; } T024Sound;
@@ -59,7 +120,7 @@ void func_8002F2B0(T024PitchVoice *voice) {
     event.type = 0x10;
     event.voice = voice;
     event.pitch = *(s32 *)&pitch;
-    alEvtqPostEvent(D_8004827C->queue, &event, 0x8235);
+    alEvtqPostEvent(((T024VoicePlayer *)D_8004827C)->queue, &event, 0x8235);
 }
 
 
@@ -136,7 +197,7 @@ void func_8002F8F8(T024VoiceFlags *voice) {
     event.voice = voice;
     if (voice) {
         voice->flags &= ~0x10;
-        alEvtqPostEvent(D_8004827C->queue, &event, 0);
+        alEvtqPostEvent(((T024VoicePlayer *)D_8004827C)->queue, &event, 0);
     }
 }
 
@@ -154,7 +215,7 @@ void func_8002F944(u8 mask) {
         event.voice = p;
         if ((p->flags & mask) == mask) {
             p->flags &= ~0x10;
-            alEvtqPostEvent(D_8004827C->queue, &event, 0);
+            alEvtqPostEvent(((T024VoicePlayer *)D_8004827C)->queue, &event, 0);
         }
         p = p->next;
     }
@@ -177,14 +238,14 @@ void func_8002FA3C(void) {
 }
 
 typedef struct { s16 type; s32 object; s32 value; s32 pad; } T024Event;
-extern T024VoicePlayer *D_8004827C;
+extern void *D_8004827C;
 extern void alEvtqPostEvent(void *, void *, s32);
 void func_8002FA5C(s32 object, s16 type, s32 value) {
     T024Event event;
     event.type=type;
     event.object=object;
     event.value=value;
-    if (object) alEvtqPostEvent(D_8004827C->queue,&event,0);
+    if (object) alEvtqPostEvent(((T024VoicePlayer *)D_8004827C)->queue,&event,0);
 }
 
 extern u16 *D_80069928;
@@ -214,7 +275,7 @@ void func_8002FAC0(u8 group, u16 volume) {
         if ((p->instrument->sound->group & 0x3F) == group) {
             event.type = 0x800;
             event.voice = p;
-            alEvtqPostEvent(D_8004827C->queue, &event, 0);
+            alEvtqPostEvent(((T024VoicePlayer *)D_8004827C)->queue, &event, 0);
         }
         p = p->next;
     }

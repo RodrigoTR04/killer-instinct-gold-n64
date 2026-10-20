@@ -50,3 +50,19 @@ Validate all images and the ROM with
 `make clean && make extract && make all && make progress`. Do not commit ROMs,
 objects or generated permuter output. T-082 changes are left uncommitted for
 lead review.
+
+Screen all current T2 drafts (including equal-size and size-mismatched bodies):
+
+```sh
+.venv/bin/python tools/permuter/screen.py -j 6 --json /tmp/kig-screen.json
+```
+
+The default report is `tools/scratch/nonmatching/T-092/screen.md`. Full TU
+compilation is preferred. Legacy declaration conflicts fall back to the TU
+prefix, then to preprocessed TU declarations with the draft's explicit views
+taking precedence; each row identifies its context. A few older drafts need
+audited shared sprite/global declarations, supplied only in that last mode.
+Errors are reported rather than treated as large scores. No draft or build
+input is modified. `pycparser` (already required by decomp-permuter) is needed
+for declaration fallback. The screener uses the existing ELF reader in
+`tools/scratch/flagprobe/compare.py`; only actual relocation fields are masked.

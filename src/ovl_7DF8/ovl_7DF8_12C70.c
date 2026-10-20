@@ -95,10 +95,48 @@ u8 *func_801BF788(u8 *arg0, u8 *arg1, s32 count) {
     return arg0;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_12C70/func_801BF850.s")
+extern u8 *func_801BF788(u8 *, u8 *, s32);
+extern u8 D_80127F90;
+extern u8 D_80128148;
+extern u8 D_80128300;
+
+void func_801BF850(u8 *arg0)
+{
+  u8 *next;
+  u8 *next_2;
+  u8 *first;
+  u8 *second;
+  u8 *cursor;
+  cursor = func_801BF788(func_801BF788(func_801BF788(arg0, (u8 *)&D_80127EA0, 10), (u8 *)&D_80127EF0, 0xA), (u8 *)&D_80127F40, 0xA);
+  /* Keep these loop statements joined: IDO schedules by source line. */
+  first = &D_80127F90; do { next = func_801BF788(cursor, first, 5); first += 0x28; cursor = next; } while (((u32) first) < ((u32) (&D_80128148))); second = &D_80128148; do { next_2 = func_801BF788(cursor, second, 5); second += 0x28;  cursor = next_2; } while (second != (&D_80128300));
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_12C70/func_801BF914.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_12C70/func_801BF988.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_12C70/func_801BFA40.s")
+extern u8 *func_801BF988(u8 *, u8 *, s32);
+extern u8 D_80127F90;
+extern u8 D_80128148;
+extern u8 D_80128300;
+
+void func_801BFA40(u8 *arg0)
+{
+  u8 *next;
+  u8 *next_2;
+  u8 *first;
+  u8 *second;
+  int stride;
+  u8 *cursor;
+  stride = 0x28;
+  cursor = func_801BF988(func_801BF988(func_801BF988(arg0, (u8 *)&D_80127EA0, 10), (u8 *)&D_80127EF0, 0xA), (u8 *)&D_80127F40, 0xA);
+  /* Keep these loop statements joined: IDO schedules by source line. */
+  first = &D_80127F90; do { next = func_801BF988(cursor, first, 5); first += stride; cursor = next; } while (((u32) first) < ((u32) (&D_80128148))); second = &D_80128148; do {
+    next = second;
+    next_2 = func_801BF988(cursor, next, 5);
+    second += stride;
+    cursor = next_2;
+  }
+  while (second != (&D_80128300));
+}
