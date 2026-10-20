@@ -404,3 +404,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-090 vetted (ovl_7DF8_190B0 rodata, func_801C67CC)
 - Worktree t3-7a435a7f. ovl_7DF8_190B0 now owns .rodata 0xE7D10–0xE8DA0, and func_801C67CC matches (692 B).
 - Clean vet build: the ROM and all 3 images are byte-identical. 271 T4; M1 = M2 = 56,616 / 289,876 B (19.53%).
+- T-091 launched (sol-B30): rodata-ownership sweep across all main and ovl_7DF8 TUs.
