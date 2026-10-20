@@ -231,3 +231,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-053 vetted (ovl_7DF8 near-misses)
 - Worktree t3-e988a6dc. func_801B18BC and func_801BF788 match (500 B). 14 drafts improved and 2 unchanged; both clone families are still unmatched.
 - Clean vet build: the ROM and all 3 images are byte-identical. 253 T4; M1 = M2 = 52,412 / 319,100 B (16.42%).
+- T-057 launched (sol-B19): follow-up on T-053's near-misses and clone families.
