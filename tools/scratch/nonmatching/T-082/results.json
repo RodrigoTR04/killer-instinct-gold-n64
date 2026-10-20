@@ -1,0 +1,313 @@
+{
+  "permuter_revision": "8556c81d80d1c1af98a858c8f4dc951357f29139",
+  "runs": [
+    {
+      "function": "func_80017378",
+      "seconds": 900.0,
+      "exit": 137
+    },
+    {
+      "function": "func_8002A900",
+      "seconds": 900.0,
+      "exit": 137
+    },
+    {
+      "function": "func_8002AA98",
+      "seconds": 900.0,
+      "exit": 137
+    },
+    {
+      "function": "func_8002AAEC",
+      "seconds": 900.0,
+      "exit": 137
+    },
+    {
+      "function": "func_8002AEE4",
+      "seconds": 434.6,
+      "exit": 0
+    },
+    {
+      "function": "func_8002B1EC",
+      "seconds": 15.5,
+      "exit": 0
+    },
+    {
+      "function": "func_8002B9B4",
+      "seconds": 4.4,
+      "exit": 0
+    },
+    {
+      "function": "func_8002F45C",
+      "seconds": 900.0,
+      "exit": 137
+    },
+    {
+      "function": "func_801B2010",
+      "seconds": 900.0,
+      "exit": 137
+    },
+    {
+      "function": "func_801B6528",
+      "seconds": 900.0,
+      "exit": 137
+    },
+    {
+      "function": "func_801B695C",
+      "seconds": 900.0,
+      "exit": 137
+    },
+    {
+      "function": "func_801BF720",
+      "seconds": 900.0,
+      "exit": 137
+    },
+    {
+      "function": "func_801BF914",
+      "seconds": 900.0,
+      "exit": 137
+    },
+    {
+      "function": "func_801C4E38",
+      "seconds": 900.0,
+      "exit": 137
+    },
+    {
+      "function": "func_801C5064",
+      "seconds": 900.0,
+      "exit": 137
+    },
+    {
+      "function": "func_801C6A80",
+      "seconds": 900.0,
+      "exit": 137
+    },
+    {
+      "function": "func_801C7998",
+      "seconds": 900.0,
+      "exit": 137
+    },
+    {
+      "function": "func_801C7CD0",
+      "seconds": 19.9,
+      "exit": 0
+    }
+  ],
+  "functions": [
+    {
+      "function": "func_801BF720",
+      "initial_permuter_score": 105,
+      "best_raw_permuter_score": 60,
+      "old_words": 2,
+      "final_words": 2,
+      "status": "UNCHANGED",
+      "change": "No retained improvement; default return register remains."
+    },
+    {
+      "function": "func_801BF914",
+      "initial_permuter_score": 105,
+      "best_raw_permuter_score": 105,
+      "old_words": 2,
+      "final_words": 2,
+      "status": "UNCHANGED",
+      "change": "No improvement; default register/return delay slot remains."
+    },
+    {
+      "function": "func_801C4E38",
+      "initial_permuter_score": 28,
+      "best_raw_permuter_score": 28,
+      "old_words": 2,
+      "final_words": 2,
+      "status": "UNCHANGED",
+      "change": "No improvement; switch spill/reload slot remains."
+    },
+    {
+      "function": "func_801B6528",
+      "initial_permuter_score": 235,
+      "best_raw_permuter_score": 95,
+      "old_words": 3,
+      "final_words": 3,
+      "status": "UNCHANGED",
+      "change": "Lower weighted score has more differing words; retained 3-word draft."
+    },
+    {
+      "function": "func_801B695C",
+      "initial_permuter_score": 26,
+      "best_raw_permuter_score": 26,
+      "old_words": 4,
+      "final_words": 4,
+      "status": "UNCHANGED",
+      "change": "No improvement; 0x30 versus 0x28 frame remains."
+    },
+    {
+      "function": "func_801C5064",
+      "initial_permuter_score": 215,
+      "best_raw_permuter_score": 20,
+      "old_words": 4,
+      "final_words": 4,
+      "status": "UNCHANGED",
+      "change": "Recovered the existing 4-word draft after normalization; no further improvement."
+    },
+    {
+      "function": "func_801C7998",
+      "initial_permuter_score": 218,
+      "best_raw_permuter_score": 5,
+      "old_words": 6,
+      "final_words": 6,
+      "status": "UNCHANGED",
+      "change": "Best raw score changes button semantics with &0xFF; rejected."
+    },
+    {
+      "function": "func_801C7CD0",
+      "initial_permuter_score": 35,
+      "best_raw_permuter_score": 0,
+      "old_words": 6,
+      "final_words": 0,
+      "status": "MATCHED",
+      "change": "Inline replay-byte read at call; cleaned unused local/empty statement."
+    },
+    {
+      "function": "func_801C6A80",
+      "initial_permuter_score": 225,
+      "best_raw_permuter_score": 180,
+      "old_words": 8,
+      "final_words": 8,
+      "status": "UNCHANGED",
+      "change": "Lower weighted candidate has more differing words; retained 8-word draft."
+    },
+    {
+      "function": "func_801B2010",
+      "initial_permuter_score": 1505,
+      "best_raw_permuter_score": 1180,
+      "old_words": 14,
+      "final_words": 14,
+      "status": "UNCHANGED",
+      "change": "No useful prefix solution; lower weighted candidates worsen word count."
+    },
+    {
+      "function": "func_8002AEE4",
+      "initial_permuter_score": 405,
+      "best_raw_permuter_score": 5,
+      "old_words": 3,
+      "final_words": 0,
+      "status": "MATCHED",
+      "change": "u16 quit flag, then independently recover 8-byte client object; final match."
+    },
+    {
+      "function": "func_8002B1EC",
+      "initial_permuter_score": 225,
+      "best_raw_permuter_score": 0,
+      "old_words": 4,
+      "final_words": 0,
+      "status": "MATCHED",
+      "change": "Named zero temporary before osAiGetLength."
+    },
+    {
+      "function": "func_80017378",
+      "initial_permuter_score": 190,
+      "best_raw_permuter_score": 190,
+      "old_words": 8,
+      "final_words": 8,
+      "status": "UNCHANGED",
+      "change": "No improvement; loop endpoint/increment scheduling remains."
+    },
+    {
+      "function": "func_8002AA98",
+      "initial_permuter_score": 325,
+      "best_raw_permuter_score": 10,
+      "old_words": 10,
+      "final_words": 2,
+      "status": "IMPROVED",
+      "change": "Explicit narrowed s16 temporary; remaining mflo v0 versus a2 (2 words)."
+    },
+    {
+      "function": "func_8002AAEC",
+      "initial_permuter_score": 325,
+      "best_raw_permuter_score": 10,
+      "old_words": 10,
+      "final_words": 2,
+      "status": "IMPROVED",
+      "change": "Explicit narrowed s16 temporary; remaining mflo v0 versus a2 (2 words)."
+    },
+    {
+      "function": "func_8002B9B4",
+      "initial_permuter_score": 0,
+      "best_raw_permuter_score": 0,
+      "old_words": 10,
+      "final_words": 0,
+      "status": "MATCHED",
+      "change": "Initial parser formatting: separate matrix-call lines."
+    },
+    {
+      "function": "func_8002A900",
+      "initial_permuter_score": 745,
+      "best_raw_permuter_score": 135,
+      "old_words": 15,
+      "final_words": 15,
+      "status": "UNCHANGED",
+      "change": "Lower weighted score worsens aligned word differences; retained existing draft."
+    },
+    {
+      "function": "func_8002F45C",
+      "initial_permuter_score": 343,
+      "best_raw_permuter_score": 193,
+      "old_words": 20,
+      "final_words": 13,
+      "status": "IMPROVED",
+      "change": "Extra key-pointer temporary; removed dead if(0). Retained penalty-253 candidate (13 words), rather than raw best."
+    },
+    {
+      "function": "func_801B21B4",
+      "initial_permuter_score": null,
+      "best_raw_permuter_score": null,
+      "old_words": 14,
+      "final_words": 14,
+      "status": "UNCHANGED",
+      "change": "No family-A solution to transfer; sibling draft retained."
+    },
+    {
+      "function": "func_801B2358",
+      "initial_permuter_score": null,
+      "best_raw_permuter_score": null,
+      "old_words": 14,
+      "final_words": 14,
+      "status": "UNCHANGED",
+      "change": "No family-A solution to transfer; sibling draft retained."
+    },
+    {
+      "function": "func_801B24FC",
+      "initial_permuter_score": null,
+      "best_raw_permuter_score": null,
+      "old_words": 14,
+      "final_words": 14,
+      "status": "UNCHANGED",
+      "change": "No family-A solution to transfer; sibling draft retained."
+    },
+    {
+      "function": "func_801B26A0",
+      "initial_permuter_score": null,
+      "best_raw_permuter_score": null,
+      "old_words": 14,
+      "final_words": 14,
+      "status": "UNCHANGED",
+      "change": "No family-A solution to transfer; sibling draft retained."
+    },
+    {
+      "function": "func_801B2844",
+      "initial_permuter_score": null,
+      "best_raw_permuter_score": null,
+      "old_words": 14,
+      "final_words": 14,
+      "status": "UNCHANGED",
+      "change": "No family-A solution to transfer; sibling draft retained."
+    },
+    {
+      "function": "func_801B29E8",
+      "initial_permuter_score": null,
+      "best_raw_permuter_score": null,
+      "old_words": 14,
+      "final_words": 14,
+      "status": "UNCHANGED",
+      "change": "No family-A solution to transfer; sibling draft retained."
+    }
+  ]
+}

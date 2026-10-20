@@ -281,9 +281,9 @@ main,func_8002AAEC,0x8002AAEC,0x1B18C,84,T2,draft tools/scratch/nonmatching/T-02
 main,func_8002AB40,0x8002AB40,0x1B1E0,36,T4,
 main,func_8002AB64,0x8002AB64,0x1B204,36,T4,
 main,func_8002AB90,0x8002AB90,0x1B230,852,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
-main,func_8002AEE4,0x8002AEE4,0x1B584,336,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002AEE4,0x8002AEE4,0x1B584,336,T4,
 main,func_8002B034,0x8002B034,0x1B6D4,440,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
-main,func_8002B1EC,0x8002B1EC,0x1B88C,64,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002B1EC,0x8002B1EC,0x1B88C,64,T4,
 main,func_8002B22C,0x8002B22C,0x1B8CC,380,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
 main,func_8002B3A8,0x8002B3A8,0x1BA48,56,T4,
 main,func_8002B3E0,0x8002B3E0,0x1BA80,280,T4,
@@ -295,7 +295,7 @@ main,func_8002B7E0,0x8002B7E0,0x1BE80,208,T4,
 main,func_8002B8B0,0x8002B8B0,0x1BF50,108,T4,
 main,func_8002B91C,0x8002B91C,0x1BFBC,64,T4,
 main,func_8002B95C,0x8002B95C,0x1BFFC,88,T4,
-main,func_8002B9B4,0x8002B9B4,0x1C054,316,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002B9B4,0x8002B9B4,0x1C054,316,T4,
 main,func_8002BAF0,0x8002BAF0,0x1C190,132,T4,
 main,func_8002BB74,0x8002BB74,0x1C214,92,T4,
 main,func_8002BBD0,0x8002BBD0,0x1C270,7668,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
@@ -773,7 +773,7 @@ ovl_7DF8,func_801C780C,0x801C780C,0x1BCEC,160,T2,draft tools/scratch/nonmatching
 ovl_7DF8,func_801C78B0,0x801C78B0,0x1BD90,232,T4,
 ovl_7DF8,func_801C7998,0x801C7998,0x1BE78,256,T2,draft tools/scratch/nonmatching/T-030/ (non-matching)
 ovl_7DF8,func_801C7A98,0x801C7A98,0x1BF78,568,T2,draft tools/scratch/nonmatching/T-030/ (non-matching)
-ovl_7DF8,func_801C7CD0,0x801C7CD0,0x1C1B0,380,T2,draft tools/scratch/nonmatching/T-030/ (non-matching)
+ovl_7DF8,func_801C7CD0,0x801C7CD0,0x1C1B0,380,T4,
 ovl_7DF8,func_801C7E4C,0x801C7E4C,0x1C32C,76,T4,
 ovl_7DF8,func_801C7E98,0x801C7E98,0x1C378,120,T4,
 ovl_7DF8,func_801C7F10,0x801C7F10,0x1C3F0,48,T4,

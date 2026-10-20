@@ -26,7 +26,61 @@ u8 arg1;
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C7A98.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C7CD0.s")
+extern void func_801ADAD4(s32);
+extern void func_801C7A98(void);
+extern u8 func_801CD038(s32, s32);
+extern u8 D_800F4070[];
+extern s8 D_801CD454, D_802923F5;
+extern void *D_802925AC, *D_802926AC;
+extern u8 D_802952E0[], D_802952FC[];
+extern s32 D_802956F8, D_802956FC, D_80295700, D_802CA064;
+extern u64 D_802D3678[2];
+extern f32 D_802D39F8;
+extern s8 D_802D39FC, D_802D3A01, D_802D3A02, D_802D3A07;
+extern u8 D_802D3A00, D_802D3A06, D_802D3E15;
+
+void func_801C7CD0(u8 arg0)
+{
+    if (D_802D3E15)
+    {
+        arg0 = 5;
+    }
+    func_801C7A98();
+    D_802D39F8 = 0.0f;
+    if (D_802D3A06)
+    {
+        arg0 = 3;
+        D_802925AC = D_802952E0;
+    }
+    else
+    {
+        D_802925AC = D_802952FC;
+    }
+    D_802D39FC = 0;
+    D_802956F8 = D_802956FC = D_80295700 = 0;
+    D_802CA064 = 480;
+    D_801CD454 = 0;
+    D_802D3A00 = arg0;
+    if (D_802D3A00 == 5)
+    {
+        if (D_802D3E15 == 0)
+        {
+            D_802D3E15 = 1;
+        }
+        D_802D3678[0] = 0x1000;
+        D_802D3678[1] = 0x1000;
+        D_802923F5 = 0;
+        func_801CD038((s32) D_800F4070, D_802D3E15 - 1);
+        D_802926AC = D_800F4070;
+    }
+    else if (D_802D3A00 != 4 && D_802D3A06 == 0)
+    {
+        func_801ADAD4(40);
+    }
+    D_802D3A01 = 0;
+    D_802D3A02 = 65;
+    D_802D3A07 = 0;
+}
 
 void func_801C7E4C(u8 arg0) {
     T021Six *p;

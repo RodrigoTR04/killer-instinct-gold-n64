@@ -384,3 +384,8 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-cba8d4ed. include/boot.h holds shared types and declarations. Boot functions and state are named after gzip inflate.c and their roles (boot_start, boot_load_main, huft_build, inflate_codes/stored/fixed/dynamic/block, boot_scheduler_thread, ...), with struct member access and boot-flow comments. docs/boot.md is new. Name-only caller edits in main.c. No readability change needed reverting.
 - Clean vet build: the ROM and all 3 images are byte-identical; boot is 21/21 T4.
 - T-087 launched (sol-A29): finish the remaining drafts in mostly-matched ovl_7DF8 TUs.
+
+## 2026-10-20 — T-082 vetted (decomp-permuter)
+- Worktree t3-7d9a7f68. decomp-permuter is installed in the shared tools/ext; tools/permuter/ has the import helper and README. 4 matches (1,096 B): func_8002AEE4 (u16 quit flag + 8-byte client object), func_8002B1EC (named zero temporary, documented), func_8002B9B4 (line layout) and func_801C7CD0 (inline replay-byte read). Improved: func_8002AA98/AAEC 10→2, func_8002F45C 20→13. The permuter output was cleaned into readable C.
+- The lead fixed one name-only conflict: func_80001EF4 → boot_subscribe_retrace (T-084 rename) in main_1B230.c.
+- Clean vet build: the ROM and all 3 images are byte-identical. 260 T4; M1 = M2 = 53,904 / 289,876 B (18.60%).
