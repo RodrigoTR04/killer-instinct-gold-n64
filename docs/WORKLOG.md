@@ -369,3 +369,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-083 vetted (address-based inventory + FU-15 renames)
 - Worktree t3-c949349c. inventory.py now accepts a function's original name OR any symbol_addrs/linked-src name at its address, and keeps every safety check (unit tests pass). 33 SDK renames: 32 pfs functions (osPfs*/__osPfs*/__osContRam*...) and guLookAtHiliteF, including name-only caller edits in ovl_7DF8_200C0.c. Tiers and counts are unchanged (290 T4, 22.11%). The ROM is byte-identical.
 - T-083 recommends classifying these 33 (16,700 B) as SDK (excluded), consistent with the libultra convention.
+- T-084 launched (sol-B28): FU-13 readability cleanup of boot plus docs/boot.md. SDK reclassification (pfs + gu + libaudio) is pending until T-078 lands.
