@@ -413,3 +413,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 ## 2026-10-20 — T-088 vetted (permuter round 2)
 - Worktree t3-c3e99abb. 14 functions × 45-minute searches on 16 workers: 0 matches. func_8002F45C improved 13→11 (declaration order). Scratch-only changes; I imported the draft and report. These 14 (the glyph functions, func_801C4E38, func_801B6528, func_801B695C, func_801C5064, func_801C7998, func_801C6A80, family A, func_8002AA98/AAEC, func_80017378, func_8002A900) are the hardest residue.
+- T-093 launched (sol-A31): finish the remaining stubs in main_2FF0 and main_D3F0.
