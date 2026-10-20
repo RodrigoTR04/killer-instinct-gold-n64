@@ -324,3 +324,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-070 vetted (ovl_7DF8 mid-large drafts)
 - Worktree t3-a5d29587. All 10 attempted: 0 matched, 9 improved (func_801C4240 326→167, func_801B0CDC 301→209, func_801B0668 231→159), 1 unchanged. Signedness fixes to globals in ovl_7DF8_18520.c and _1B790.c (s8→u8, s16→u16); the build still matches.
 - Clean vet build: the ROM and all 3 images are byte-identical. Metrics unchanged (288 T4, 21.19%).
+- T-074 launched (sol-C28): ovl_7DF8 mid drafts with declaration-first fixes plus line placement.
