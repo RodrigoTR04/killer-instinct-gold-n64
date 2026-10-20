@@ -57,11 +57,51 @@ void func_801BFC8C(void) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801BFCBC.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C0610.s")
+typedef struct { u8 pad[0xF8]; u8 *matrices; } T030Render2D34;
+extern T030Render2D34 D_802C9F70;
+typedef struct { u32 w0, w1; } T023Gfx0610;
+extern void guTranslate(void *, f32, f32, f32);
+extern s32 D_802956F4, D_802CA068;
+extern u8 D_8029C4B0[], D_8029C8B0[];
+void func_801C0610(arg0)
+s32 arg0; {
+    T023Gfx0610 **list = (T023Gfx0610 **)arg0;
+
+    {
+        T023Gfx0610 *p;
+        p = (*list)++; p->w0 = 0xFB000000; p->w1 = 0x0F000410;
+    }
+    {
+        T023Gfx0610 *p;
+        p = (*list)++; p->w0 = 0xFA000000; p->w1 = 0x3C010110;
+    }
+    guTranslate((void *)((D_802956F4 << 6) + D_802CA068), 60.0f, 5.0f, 270.0f);
+    {
+        T023Gfx0610 *p;
+        p = (*list)++; p->w0 = 0x01020040;
+        p->w1 = (D_802956F4 << 6) + (s32)D_802C9F70.matrices;
+    }
+    {
+        T023Gfx0610 *p;
+        p = (*list)++; p->w0 = 0x06000000; p->w1 = (u32)D_8029C4B0;
+    }
+    guTranslate((void *)(((D_802956F4 + 1) << 6) + (s32)D_802C9F70.matrices), -40.0f, -15.0f, 270.0f);
+    {
+        T023Gfx0610 *p;
+        p = (*list)++; p->w0 = 0x01020040;
+        p->w1 = ((D_802956F4 + 1) << 6) + D_802CA068;
+    }
+    {
+        T023Gfx0610 *p;
+        p = (*list)++; p->w0 = 0x06000000; p->w1 = (u32)D_8029C8B0;
+    }
+    D_802956F4 += 2;
+}
+
 
 extern void func_801BF190(s32, s32, s32);
 extern void func_801BFC08(s32);
-extern void func_801C0610(s32, u32);
+
 extern s8 D_801CD454;
 extern s32 D_802CA068, D_802D37D0;
 extern s32 D_802D37F8;
@@ -127,12 +167,12 @@ void func_801C2110(f32 t, f32 *coef, f32 *position, f32 *velocity) {
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C2ADC.s")
 
 typedef union { struct { u32 w0, w1; } words; u64 full; } T030Cmd2D34;
-typedef struct { u8 pad[0xF8]; u8 *matrices; } T030Render2D34;
+
 extern void guRotate(void *, f32, f32, f32, f32);
 extern void guTranslate(void *, f32, f32, f32);
 extern u8 D_80285168[];
 extern s32 D_802956F4;
-extern T030Render2D34 D_802C9F70;
+
 
 void func_801C2D34(T030Cmd2D34 **arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)
 {

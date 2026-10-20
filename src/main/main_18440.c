@@ -89,7 +89,13 @@ void func_8002970C(s32 group, s32 index) {
 }
 
 
-typedef struct { u8 pad[0x12C]; s16 timer; u8 tail[0x12]; } T024ResetEffect;
+typedef struct {
+    u8 pad[0x90];
+    float velocity[12], position[12];
+    u8 padF0[0xC];
+    s16 age[12], duration[12], timer, limit;
+    u8 tail[0x10];
+} T024ResetEffect;
 extern T024ResetEffect D_80061D60[];
 void func_80029770(void) {
     s32 i;
@@ -98,7 +104,26 @@ void func_80029770(void) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_18440/func_800297A4.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_18440/func_80029AB0.s")
+
+
+
+void func_80029AB0(void) {
+    s32 i, j;
+    for (i = 0; i < 4; i++) {
+        if (D_80061D60[i].timer >= 0) {
+            D_80061D60[i].timer++;
+            if (D_80061D60[i].limit < D_80061D60[i].timer) D_80061D60[i].timer = -1;
+            for (j = 0; j < 12; j += 2) {
+                if (D_80061D60[i].age[j] < D_80061D60[i].duration[j]) D_80061D60[i].age[j]++;
+                D_80061D60[i].position[j] += D_80061D60[i].velocity[j] - (D_80061D60[i].velocity[j] / 3.0f * (float)D_80061D60[i].age[j]) / (float)D_80061D60[i].duration[j];
+                if (D_80061D60[i].age[j + 1] < D_80061D60[i].duration[j + 1]) D_80061D60[i].age[j + 1]++;
+                D_80061D60[i].position[j + 1] += D_80061D60[i].velocity[j + 1] - (D_80061D60[i].velocity[j + 1] / 3.0f * (float)D_80061D60[i].age[j + 1]) / (float)D_80061D60[i].duration[j + 1];
+            }
+        }
+    }
+}
+
+
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_18440/func_80029BE0.s")
 

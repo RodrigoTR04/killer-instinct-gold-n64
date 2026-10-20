@@ -1,4 +1,4 @@
-/* T-052 DRAFT: 61 relocation-masked positional words differ; 488/496 bytes. */
+/* T-100 improved draft; measurements and remaining causes in T-100/REPORT.md. */
 extern u8 D_8004AC88;
 extern f32 cosf(f32);
 extern f32 sinf(f32);
@@ -20,11 +20,11 @@ void func_8001AA90(f32 arg0) {
     s32 var_v0;
     u8 temp_t8;
 
-    var_f14 = arg0;
+
     if (D_8004AC88 == 0) {
-        var_f14 = arg0 - 90.0f;
+        arg0 -= 90.0f;
     }
-    temp_f12 = (f32) (((f64) var_f14 * D_80048930) / D_80048938);
+    temp_f12 = (f32) (((f64) arg0 * D_80048930) / D_80048938);
     sp18 = temp_f12;
     sp24 = sinf(temp_f12);
     temp_f0 = cosf(temp_f12);

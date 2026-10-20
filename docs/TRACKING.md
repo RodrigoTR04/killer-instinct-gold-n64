@@ -31,11 +31,11 @@ Source of truth for per-function tiers is `docs/functions.csv` (created once spl
 | Metric | Value |
 |---|---|
 | Scope measured | all CPU text of boot/main/ovl_7DF8/ovl_7E00 (999 fns). Text not in fns: boot 432 B pad, main 708 B, 7DF8 92 B, 7E00 4,040 B (31 inline data pools, listed in symbol_addrs.ovl_7E00.us.txt) |
-| M1 | 63,432 / 289,876 B (21.88%) — game code only; SDK excluded (2026-10-20 user decision) |
-| M2 | 63,432 / 289,876 B (21.88%) |
+| M1 | 65,028 / 289,876 B (22.43%) — game code only; SDK excluded (2026-10-20 user decision) |
+| M2 | 65,028 / 289,876 B (22.43%) |
 | SDK decompiled | ~262 excluded SDK functions now built from C (T-037/T-055 pfs, T-073 gu, T-075/T-078 libaudio at -O3, T-080 libultra); not counted in M1/M2 |
-| Functions | 0 T1 · 215 T2 · 0 T3 · 294 T4 · 490 excluded (167,316 B: libultra/libaudio/gu/pfs SDK + boot entry asm + 169 ovl_7E00 handwritten asm) |
-| Per image (eligible B / T1 fns / excluded) | boot 8,468/0/99 (21 T4, 0 T2 — 100%) · main 143,980/0/222 (143 T4, 94 T2) · ovl_7DF8 137,428/0/0 (130 T4, 121 T2) · ovl_7E00 0/0/169 (all handwritten asm) |
+| Functions | 0 T1 · 210 T2 · 0 T3 · 299 T4 · 490 excluded (167,316 B: libultra/libaudio/gu/pfs SDK + boot entry asm + 169 ovl_7E00 handwritten asm) |
+| Per image (eligible B / T1 fns / excluded) | boot 8,468/0/99 (21 T4, 0 T2 — 100%) · main 143,980/0/222 (145 T4, 92 T2) · ovl_7DF8 137,428/0/0 (133 T4, 118 T2) · ovl_7E00 0/0/169 (all handwritten asm) |
 
 Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html). Tier overrides: tools/progress/status.csv (lead-maintained). Never hand-edit numbers; paste the `--markdown` output here.
 
@@ -162,5 +162,5 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | T-097 | Hard residue round 2 from T-096's instruction-level diagnoses: func_8002F6F4 (step slot sp+64 vs sp+74), func_801B695C (frame 0x28 vs 0x30), func_801C7998 (arg homing/sign-extension → u64/width), func_801C6A80 (byte flag through v0), func_801C4E38, func_801B6528, func_801BF720/BF914, func_80017378, family A | sol-C36 | Done (verified; family A ×7 + func_801C6A80) | src (listed fns only), tools/scratch/nonmatching/T-0xx/ (listed drafts), tools/scratch/nonmatching/T-097/ | worktree isolation |
 | T-098 | Clone family B (6 × 536 B, 65 words): func_801B2EF4/310C/3324/353C/3754/396C, using T-097's family-A method (instruction-level diagnosis, local counter pointer, call-argument stores, line grouping) | sol-A33 | Done (verified; family B 65→57, unsolved) | src/ovl_7DF8/ovl_7DF8_5ED0.c (those 6 fns), tools/scratch/nonmatching/T-025/ (their drafts), tools/scratch/nonmatching/T-098/ | worktree isolation |
 | T-099 | Re-run tools/permuter/screen.py on all current T2 drafts (refresh T-092/screen.md → T-099/screen.md), then fix the closest ≤30-word drafts not already in T-097's residue list, by diagnosis + permuter | sol-B32 | In progress | src (chosen fns only), tools/scratch/nonmatching/T-0xx/ (those drafts), tools/scratch/nonmatching/T-099/ | worktree isolation |
-| T-100 | Screen tier 50–90 words, structure-first + permuter: func_8002F5F0, func_8001AA90, func_8001373C, func_80015450, func_80029AB0, func_801BE540, func_80023EF0, func_801B465C, func_801C0610, func_801C2ADC, func_801C6D40, func_800300DC, func_800287D4, func_80030220, func_801BB464, func_801BE790, func_801C49A8, func_801BA884, func_801BED0C, func_800245B4 | sol-C37 | In progress | src (listed fns only), tools/scratch/nonmatching/T-0xx/ (listed drafts), tools/scratch/nonmatching/T-100/ | worktree isolation |
+| T-100 | Screen tier 50–90 words, structure-first + permuter: func_8002F5F0, func_8001AA90, func_8001373C, func_80015450, func_80029AB0, func_801BE540, func_80023EF0, func_801B465C, func_801C0610, func_801C2ADC, func_801C6D40, func_800300DC, func_800287D4, func_80030220, func_801BB464, func_801BE790, func_801C49A8, func_801BA884, func_801BED0C, func_800245B4 | sol-C37 | Done (verified) | src (listed fns only), tools/scratch/nonmatching/T-0xx/ (listed drafts), tools/scratch/nonmatching/T-100/ | worktree isolation |
 | T-101 | Clone family B round 2 from T-098's diagnosis (57 words, 536 B ×6): func_801B2EF4/310C/3324/353C/3754/396C | sol-A34 | In progress | src/ovl_7DF8/ovl_7DF8_5ED0.c (those 6), tools/scratch/nonmatching/T-025/ (drafts), tools/scratch/nonmatching/T-101/ | worktree isolation |

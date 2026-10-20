@@ -95,7 +95,7 @@ typedef struct { u8 pad[0x14]; u8 queue[0x24]; void *synth; } T024VoicePlayer;
 typedef struct { u8 pad[0xC]; u8 synthVoice[0x32]; u8 flags; } T024FreeVoice;
 extern void *D_8004827C;
 extern void alSynStopVoice(void *,void *),alSynFreeVoice(void *,void *);
-extern void func_8002F5F0(T024FreeVoice *);
+extern void func_8002F5F0();
 extern void func_8002F31C(void *,void *,u16);
 void func_8002F234(T024FreeVoice *voice) {
     if (voice->flags & 4) {
@@ -172,7 +172,48 @@ s32 func_8002F3DC(s16 *allocated, s16 *freeCount) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_1EB40/func_8002F45C.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_1EB40/func_8002F5F0.s")
+typedef struct T024ReleasedVoice {
+ struct T024ReleasedVoice *next,*prev;
+ u8 pad[0x28];
+ struct T024ReleasedVoice **owner;
+ u8 pad34[0xA];
+ u8 flags,state;
+} T024ReleasedVoice;
+
+typedef struct {
+ T024ReleasedVoice *head,*tail,*free;
+} T024ReleaseLists;
+
+
+extern s16 D_80048280;
+
+extern void alUnlink(void *);
+
+void func_8002F5F0(T024ReleasedVoice *voice) {
+    if(voice==((T024ReleaseLists *)&D_80048270)->head) ((T024ReleaseLists *)&D_80048270)->head=voice->next;
+    if(voice==((T024ReleaseLists *)&D_80048270)->tail) ((T024ReleaseLists *)&D_80048270)->tail=voice->prev;
+    alUnlink(voice);
+    if(((T024ReleaseLists *)&D_80048270)->free) {
+        voice->next=((T024ReleaseLists *)&D_80048270)->free;
+        voice->prev=0;
+        ((T024ReleaseLists *)&D_80048270)->free->prev=voice;
+        ((T024ReleaseLists *)&D_80048270)->free=voice;
+    }
+    else {
+        voice->prev=0;
+        voice->next=0;
+        ((T024ReleaseLists *)&D_80048270)->free=voice;
+    }
+    if(voice->flags&4) D_80048280--;
+    voice->state=0;
+    if(voice->owner) {
+        if(voice==*voice->owner) *voice->owner=0;
+        voice->owner=0;
+    }
+}
+
+
+
 
 typedef struct { u8 pad[0x36]; u8 value; } T024Value;
 void func_8002F6C4(T024Value *p, u8 value) {

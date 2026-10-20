@@ -1,4 +1,4 @@
-/* T-093 DRAFT: 66 -> 48 relocation-masked words; 256/256 bytes. See T-093/REPORT.md. */
+/* T-100 improved draft; measurements and remaining causes in T-100/REPORT.md. */
 typedef struct {
     u8 pad0[0xC];
     f32 x, y, z;
@@ -13,9 +13,9 @@ void func_8001373C(T020ForceTarget *arg0, f32 arg1, f32 arg2, f32 arg3, u8 arg4,
     dx = arg0->x - arg1;
     dy = arg0->y - arg2;
     dz = arg0->z - arg3;
-    dx = dx * dx + dy * dy + dz * dz;
-    if (dx < D_800487F4) dx = D_800487F8;
-    arg0->vx = arg0->vx + (s32)((f32)(arg4 * 30000) / dx);
-    arg0->vy = arg0->vy + (s32)((f32)(arg5 * 30000) / dx);
-    arg0->vz = arg0->vz + (s32)((f32)(arg6 * 30000) / dx);
+    arg1 = dx * dx + dy * dy + dz * dz;
+    if (arg1 < 50000.0f) arg1 = 50000.0f;
+    arg0->vx = arg0->vx + (s32)((f32)(arg4 * 30000) / arg1);
+    arg0->vy = arg0->vy + (s32)((f32)(arg5 * 30000) / arg1);
+    arg0->vz = arg0->vz + (s32)((f32)(arg6 * 30000) / arg1);
 }

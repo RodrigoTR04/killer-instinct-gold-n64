@@ -1,0 +1,183 @@
+{
+  "func_8002F5F0": {
+    "matched": true
+  },
+  "func_8001AA90": {
+    "function": "func_8001AA90",
+    "draft": "tools/scratch/nonmatching/T-022/func_8001AA90.c",
+    "tu": "src/main/main_2FF0.c",
+    "compiled": 488,
+    "original": 496,
+    "words": 60,
+    "context": "full",
+    "error": "",
+    "full_error": ""
+  },
+  "func_8001373C": {
+    "function": "func_8001373C",
+    "draft": "tools/scratch/nonmatching/T-020/func_8001373C.c",
+    "tu": "src/main/main_2FF0.c",
+    "compiled": 256,
+    "original": 256,
+    "words": 36,
+    "context": "prefix",
+    "error": "",
+    "full_error": "cfe: Warning 709: /tmp/kig-screen-_7pc9xfw/candidate.c, line 245: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045220, &D_80045260, &D_80045280, &D_800452C0, &D_802F02A0, &D_800452E0, &D_80045320, 0x10);\n ------------------^\ncfe: Warning 709: /tmp/kig-screen-_7pc9xfw/candidate.c, line 245: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045220, &D_80045260, &D_80045280, &D_800452C0, &D_802F02A0, &D_800452E0, &D_80045320, 0x10);\n -------------------------------^\ncfe: Warning 709: /tmp/kig-screen-_7pc9xfw/candidate.c, line 245: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045220, &D_80045260, &D_80045280, &D_800452C0, &D_802F02A0, &D_800452E0, &D_80045320, 0x10);\n --------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-_7pc9xfw/candidate.c, line 245: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045220, &D_80045260, &D_80045280, &D_800452C0, &D_802F02A0, &D_800452E0, &D_80045320, 0x10);\n ---------------------------------------------------------^\ncfe: Warning 712: /tmp/kig-screen-_7pc9xfw/candidate.c, line 245: illegal combination of pointer and integer\n     func_8001C0E4(&D_80045220, &D_80045260, &D_80045280, &D_800452C0, &D_802F02A0, &D_800452E0, &D_80045320, 0x10);\n ----------------------------------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-_7pc9xfw/candidate.c, line 245: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045220, &D_80045260, &D_80045280, &D_800452C0, &D_802F02A0, &D_800452E0, &D_80045320, 0x10);\n -----------------------------------------------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-_7pc9xfw/candidate.c, line 245: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045220, &D_80045260, &D_80045280, &D_800452C0, &D_802F02A0, &D_800452E0, &D_80045320, 0x10);\n ------------------------------------------------------------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-_7pc9xfw/candidate.c, line 434: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045374, &D_800453A8, &D_800453C4, &D_800453F8, &D_802EABF8, &D_80045414, &D_80045448, 0xD);\n ------------------^\ncfe: Warning 709: /tmp/kig-screen-_7pc9xfw/candidate.c, line 434: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045374, &D_800453A8, &D_800453C4, &D_800453F8, &D_802EABF8, &D_80045414, &D_80045448, 0xD);\n -------------------------------^\ncfe: Warning 709: /tmp/kig-screen-_7pc9xfw/candidate.c, line 434: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045374, &D_800453A8, &D_800453C4, &D_800453F8, &D_802EABF8, &D_80045414, &D_80045448, 0xD);\n --------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-_7pc9xfw/candidate.c, line 434: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045374, &D_800453A8, &D_800453C4, &D_800453F8, &D_802EABF8, &D_80045414, &D_80045448, 0xD);\n ---------------------------------------------------------^\ncfe: Warning 712: /tmp/kig-screen-_7pc9xfw/candidate.c, line 434: illegal combination of pointer and integer\n     func_8001C0E4(&D_80045374, &D_800453A8, &D_800453C4, &D_800453F8, &D_802EABF8, &D_80045414, &D_80045448, 0xD);\n ----------------------------------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-_7pc9xfw/candidate.c, line 434: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045374, &D_800453A8, &D_800453C4, &D_800453F8, &D_802EABF8, &D_80045414, &D_80045448, 0xD);\n -----------------------------------------------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-_7pc9xfw/candidate.c, line 434: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045374, &D_800453A8, &D_800453C4, &D_800453F8, &D_802EABF8, &D_80045414, &D_80045448, 0xD);\n ------------------------------------------------------------------------------------------------^\ncfe: Error: /tmp/kig-screen-_7pc9xfw/candidate.c, line 503: redeclaration of 'func_8001373C'; previous declaration at line 98 in file '/tmp/kig-screen-_7pc9xfw/candidate.c'\n extern void func_8001373C(void *, f32, f32, f32, s32, s32, s32);\n ------------^\ncfe: Error: /tmp/kig-screen-_7pc9xfw/candidate.c, line 503: Incompatible type for the function parameter\n extern void func_8001373C(void *, f32, f32, f32, s32, s32, s32);\n --------------------------^\ncfe: Warning 709: /tmp/kig-screen-_7pc9xfw/candidate.c, line 510: Incompatible pointer type assignment\n         func_8001373C(arg0, -268.0f, 210.0f, -652.0f, 96, 0, 0);\n ----------------------^\ncfe: Warning 709: /tmp/kig-screen-_7pc9xfw/candidate.c, line 512: Incompatible pointer type assignment\n         func_8001373C(arg0, -268.0f, 210.0f, -652.0f, 0, 96, 0);\n ----------------------^\ncfe: Warning 709: /tmp/kig-screen-_7pc9xfw/candidate.c, line 514: Incompatible pointer type assignment\n     func_8001373C(arg0, 29.0f, 230.0f, -216.0f, 96, 96, 96);\n ------------------^\ncfe: Warning 709: /tmp/kig-screen-_7pc9xfw/candidate.c, line 515: Incompatible pointer type assignment\n     func_8001373C(arg0, -690.0f, 230.0f, -645.0f, 96, 96, 96);\n ------------------^\ncfe: Warning 709: /tmp/kig-screen-_7pc9xfw/candidate.c, line 516: Incompatible pointer type assignment\n     func_8001373C(arg0, -570.0f, 230.0f, 292.0f, 96, 96, 96);\n ------------------^\n"
+  },
+  "func_80015450": {
+    "function": "func_80015450",
+    "draft": "tools/scratch/nonmatching/T-033/func_80015450.c",
+    "tu": "src/main/main_2FF0.c",
+    "compiled": 328,
+    "original": 324,
+    "words": 66,
+    "context": "prefix",
+    "error": "",
+    "full_error": "cfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 224: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045220, &D_80045260, &D_80045280, &D_800452C0, &D_802F02A0, &D_800452E0, &D_80045320, 0x10);\n ------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 224: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045220, &D_80045260, &D_80045280, &D_800452C0, &D_802F02A0, &D_800452E0, &D_80045320, 0x10);\n -------------------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 224: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045220, &D_80045260, &D_80045280, &D_800452C0, &D_802F02A0, &D_800452E0, &D_80045320, 0x10);\n --------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 224: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045220, &D_80045260, &D_80045280, &D_800452C0, &D_802F02A0, &D_800452E0, &D_80045320, 0x10);\n ---------------------------------------------------------^\ncfe: Warning 712: /tmp/kig-screen-bl7xp9zl/candidate.c, line 224: illegal combination of pointer and integer\n     func_8001C0E4(&D_80045220, &D_80045260, &D_80045280, &D_800452C0, &D_802F02A0, &D_800452E0, &D_80045320, 0x10);\n ----------------------------------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 224: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045220, &D_80045260, &D_80045280, &D_800452C0, &D_802F02A0, &D_800452E0, &D_80045320, 0x10);\n -----------------------------------------------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 224: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045220, &D_80045260, &D_80045280, &D_800452C0, &D_802F02A0, &D_800452E0, &D_80045320, 0x10);\n ------------------------------------------------------------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 413: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045374, &D_800453A8, &D_800453C4, &D_800453F8, &D_802EABF8, &D_80045414, &D_80045448, 0xD);\n ------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 413: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045374, &D_800453A8, &D_800453C4, &D_800453F8, &D_802EABF8, &D_80045414, &D_80045448, 0xD);\n -------------------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 413: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045374, &D_800453A8, &D_800453C4, &D_800453F8, &D_802EABF8, &D_80045414, &D_80045448, 0xD);\n --------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 413: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045374, &D_800453A8, &D_800453C4, &D_800453F8, &D_802EABF8, &D_80045414, &D_80045448, 0xD);\n ---------------------------------------------------------^\ncfe: Warning 712: /tmp/kig-screen-bl7xp9zl/candidate.c, line 413: illegal combination of pointer and integer\n     func_8001C0E4(&D_80045374, &D_800453A8, &D_800453C4, &D_800453F8, &D_802EABF8, &D_80045414, &D_80045448, 0xD);\n ----------------------------------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 413: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045374, &D_800453A8, &D_800453C4, &D_800453F8, &D_802EABF8, &D_80045414, &D_80045448, 0xD);\n -----------------------------------------------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 413: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045374, &D_800453A8, &D_800453C4, &D_800453F8, &D_802EABF8, &D_80045414, &D_80045448, 0xD);\n ------------------------------------------------------------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 628: Incompatible pointer type assignment\n     D_8004AA3C = &D_8018E6D0;\n ---------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 638: Incompatible pointer type assignment\n     func_8001C0E4(&D_800454E8, &D_80045520, &D_8004553C, &D_80045574, &D_802E7E74, &D_80045590, &D_800455C8, 0xF);\n ------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 638: Incompatible pointer type assignment\n     func_8001C0E4(&D_800454E8, &D_80045520, &D_8004553C, &D_80045574, &D_802E7E74, &D_80045590, &D_800455C8, 0xF);\n -------------------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 638: Incompatible pointer type assignment\n     func_8001C0E4(&D_800454E8, &D_80045520, &D_8004553C, &D_80045574, &D_802E7E74, &D_80045590, &D_800455C8, 0xF);\n --------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 638: Incompatible pointer type assignment\n     func_8001C0E4(&D_800454E8, &D_80045520, &D_8004553C, &D_80045574, &D_802E7E74, &D_80045590, &D_800455C8, 0xF);\n ---------------------------------------------------------^\ncfe: Warning 712: /tmp/kig-screen-bl7xp9zl/candidate.c, line 638: illegal combination of pointer and integer\n     func_8001C0E4(&D_800454E8, &D_80045520, &D_8004553C, &D_80045574, &D_802E7E74, &D_80045590, &D_800455C8, 0xF);\n ----------------------------------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 638: Incompatible pointer type assignment\n     func_8001C0E4(&D_800454E8, &D_80045520, &D_8004553C, &D_80045574, &D_802E7E74, &D_80045590, &D_800455C8, 0xF);\n -----------------------------------------------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 638: Incompatible pointer type assignment\n     func_8001C0E4(&D_800454E8, &D_80045520, &D_8004553C, &D_80045574, &D_802E7E74, &D_80045590, &D_800455C8, 0xF);\n ------------------------------------------------------------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 817: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045630, &D_80045684, &D_800456B0, &D_80045704, (s32)&D_802E8EA0, &D_80045730, &D_80045784, 0x15);\n ------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 817: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045630, &D_80045684, &D_800456B0, &D_80045704, (s32)&D_802E8EA0, &D_80045730, &D_80045784, 0x15);\n -------------------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 817: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045630, &D_80045684, &D_800456B0, &D_80045704, (s32)&D_802E8EA0, &D_80045730, &D_80045784, 0x15);\n --------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 817: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045630, &D_80045684, &D_800456B0, &D_80045704, (s32)&D_802E8EA0, &D_80045730, &D_80045784, 0x15);\n ---------------------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 817: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045630, &D_80045684, &D_800456B0, &D_80045704, (s32)&D_802E8EA0, &D_80045730, &D_80045784, 0x15);\n ----------------------------------------------------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 817: Incompatible pointer type assignment\n     func_8001C0E4(&D_80045630, &D_80045684, &D_800456B0, &D_80045704, (s32)&D_802E8EA0, &D_80045730, &D_80045784, 0x15);\n -----------------------------------------------------------------------------------------------------^\ncfe: Error: /tmp/kig-screen-bl7xp9zl/candidate.c, line 867: redeclaration of 'D_801D3430'; previous declaration at line 514 in file '/tmp/kig-screen-bl7xp9zl/candidate.c'\n extern T05518664Obj D_801D3430[40];\n --------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 999: Incompatible pointer type assignment\n     func_8001C0E4(&D_800457D8, &D_800457FC, &D_80045810, &D_80045834, (s32)&D_802E44E8, &D_80045848, &D_8004586C, 9);\n ------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 999: Incompatible pointer type assignment\n     func_8001C0E4(&D_800457D8, &D_800457FC, &D_80045810, &D_80045834, (s32)&D_802E44E8, &D_80045848, &D_8004586C, 9);\n -------------------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 999: Incompatible pointer type assignment\n     func_8001C0E4(&D_800457D8, &D_800457FC, &D_80045810, &D_80045834, (s32)&D_802E44E8, &D_80045848, &D_8004586C, 9);\n --------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 999: Incompatible pointer type assignment\n     func_8001C0E4(&D_800457D8, &D_800457FC, &D_80045810, &D_80045834, (s32)&D_802E44E8, &D_80045848, &D_8004586C, 9);\n ---------------------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 999: Incompatible pointer type assignment\n     func_8001C0E4(&D_800457D8, &D_800457FC, &D_80045810, &D_80045834, (s32)&D_802E44E8, &D_80045848, &D_8004586C, 9);\n ----------------------------------------------------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-bl7xp9zl/candidate.c, line 999: Incompatible pointer type assignment\n     func_8001C0E4(&D_800457D8, &D_800457FC, &D_80045810, &D_80045834, (s32)&D_802E44E8, &D_80045848, &D_8004586C, 9);\n -----------------------------------------------------------------------------------------------------^\n"
+  },
+  "func_80029AB0": {
+    "matched": true
+  },
+  "func_801BE540": {
+    "function": "func_801BE540",
+    "draft": "tools/scratch/nonmatching/T-023/func_801BE540.c",
+    "tu": "src/ovl_7DF8/ovl_7DF8_116E0.c",
+    "compiled": 280,
+    "original": 288,
+    "words": 69,
+    "context": "full",
+    "error": "",
+    "full_error": ""
+  },
+  "func_80023EF0": {
+    "function": "func_80023EF0",
+    "draft": "tools/scratch/nonmatching/T-032/func_80023EF0.c",
+    "tu": "src/main/main_D3F0.c",
+    "compiled": 296,
+    "original": 312,
+    "words": 71,
+    "context": "full",
+    "error": "",
+    "full_error": "",
+    "note": "Rejected the s32-facing experiment: it also widened the point-record field. Original draft restored."
+  },
+  "func_801B465C": {
+    "function": "func_801B465C",
+    "draft": "tools/scratch/nonmatching/T-029/func_801B465C.c",
+    "tu": "src/ovl_7DF8/ovl_7DF8_5ED0.c",
+    "compiled": 332,
+    "original": 328,
+    "words": 71,
+    "context": "full",
+    "error": "",
+    "full_error": ""
+  },
+  "func_801C0610": {
+    "matched": true
+  },
+  "func_801C2ADC": {
+    "function": "func_801C2ADC",
+    "draft": "tools/scratch/nonmatching/T-030/func_801C2ADC.c",
+    "tu": "src/ovl_7DF8/ovl_7DF8_13FF0.c",
+    "compiled": 600,
+    "original": 600,
+    "words": 71,
+    "context": "full",
+    "error": "",
+    "full_error": ""
+  },
+  "func_801C6D40": {
+    "matched": true
+  },
+  "func_800300DC": {
+    "function": "func_800300DC",
+    "draft": "tools/scratch/nonmatching/T-026/func_800300DC.c",
+    "tu": "src/main/main_20220.c",
+    "compiled": 312,
+    "original": 316,
+    "words": 76,
+    "context": "declarations",
+    "error": "",
+    "full_error": "cfe: Error: /tmp/kig-screen-1cg10q0e/candidate.c, line 49: redeclaration of 'func_800300DC'; previous declaration at line 15 in file '/tmp/kig-screen-1cg10q0e/candidate.c'\n void func_800300DC(u8 *src, s32 outputAddress, s32 length) {\n -----^\ncfe: Error: /tmp/kig-screen-1cg10q0e/candidate.c, line 49: Incompatible type for the function parameter\n void func_800300DC(u8 *src, s32 outputAddress, s32 length) {\n -----------------------^\n"
+  },
+  "func_800287D4": {
+    "function": "func_800287D4",
+    "draft": "tools/scratch/nonmatching/T-024/func_800287D4.c",
+    "tu": "src/main/main_18440.c",
+    "compiled": 560,
+    "original": 556,
+    "words": 77,
+    "context": "prefix",
+    "error": "",
+    "full_error": "cfe: Error: /tmp/kig-screen-6u1xrr28/candidate.c, line 123: redeclaration of 'D_80061538'; previous declaration at line 83 in file '/tmp/kig-screen-6u1xrr28/candidate.c'\n extern T024Particle D_80061538[][20];\n --------------------^\ncfe: Error: /tmp/kig-screen-6u1xrr28/candidate.c, line 126: 'active' undefined; reoccurrences will not be reported.\n     D_80061538[group][index].active = 1;\n ----------------------------^\ncfe: Error: /tmp/kig-screen-6u1xrr28/candidate.c, line 126: member of structure or union required\n     D_80061538[group][index].active = 1;\n -----------------------------^\n"
+  },
+  "func_80030220": {
+    "function": "func_80030220",
+    "draft": "tools/scratch/nonmatching/T-026/func_80030220.c",
+    "tu": "src/main/main_20220.c",
+    "compiled": 340,
+    "original": 348,
+    "words": 77,
+    "context": "full",
+    "error": "",
+    "full_error": ""
+  },
+  "func_801BB464": {
+    "function": "func_801BB464",
+    "draft": "tools/scratch/nonmatching/T-023/func_801BB464.c",
+    "tu": "src/ovl_7DF8/ovl_7DF8_5ED0.c",
+    "compiled": 308,
+    "original": 304,
+    "words": 76,
+    "context": "full",
+    "error": "",
+    "full_error": ""
+  },
+  "func_801BE790": {
+    "function": "func_801BE790",
+    "draft": "tools/scratch/nonmatching/T-023/func_801BE790.c",
+    "tu": "src/ovl_7DF8/ovl_7DF8_12C70.c",
+    "compiled": 372,
+    "original": 384,
+    "words": 78,
+    "context": "prefix",
+    "error": "",
+    "full_error": "cfe: Error: /tmp/kig-screen-vnrzzfz5/candidate.c, line 44: redeclaration of 'D_80127D80'; previous declaration at line 5 in file '/tmp/kig-screen-vnrzzfz5/candidate.c'\n extern T100ScoreTable D_80127D80[];\n ----------------------^\ncfe: Error: /tmp/kig-screen-vnrzzfz5/candidate.c, line 53: Selector requires struct/union as left hand side\n         if (packed % 11 != 0) D_80127D80[i].entries[(packed % 11) - 1].name = text;\n ----------------------------------------------------------------------^\ncfe: Error: /tmp/kig-screen-vnrzzfz5/candidate.c, line 58: Selector requires struct/union as left hand side\n         if (packed % 6 != 0) D_80127D80[i].entries[(packed % 6) - 1].name = text;\n --------------------------------------------------------------------^\ncfe: Error: /tmp/kig-screen-vnrzzfz5/candidate.c, line 67: redeclaration of 'func_801BE910'; previous declaration at line 6 in file '/tmp/kig-screen-vnrzzfz5/candidate.c'\n extern void func_801BE910(s32 *, s32, s32, s32);\n ------------^\ncfe: Error: /tmp/kig-screen-vnrzzfz5/candidate.c, line 67: Incompatible type for the function parameter\n extern void func_801BE910(s32 *, s32, s32, s32);\n --------------------------^\ncfe: Error: /tmp/kig-screen-vnrzzfz5/candidate.c, line 70: redeclaration of 'D_80127E50'; previous declaration at line 9 in file '/tmp/kig-screen-vnrzzfz5/candidate.c'\n extern s32 D_80127E50;\n -----------^\ncfe: Error: /tmp/kig-screen-vnrzzfz5/candidate.c, line 71: redeclaration of 'D_80127EA0'; previous declaration at line 9 in file '/tmp/kig-screen-vnrzzfz5/candidate.c'\n extern s32 D_80127EA0;\n -----------^\ncfe: Error: /tmp/kig-screen-vnrzzfz5/candidate.c, line 72: redeclaration of 'D_80127EF0'; previous declaration at line 9 in file '/tmp/kig-screen-vnrzzfz5/candidate.c'\n extern s32 D_80127EF0;\n -----------^\ncfe: Error: /tmp/kig-screen-vnrzzfz5/candidate.c, line 73: redeclaration of 'D_80127F40'; previous declaration at line 9 in file '/tmp/kig-screen-vnrzzfz5/candidate.c'\n extern s32 D_80127F40;\n -----------^\ncfe: Warning 709: /tmp/kig-screen-vnrzzfz5/candidate.c, line 81: Incompatible pointer type assignment\n     temp_s3 = func_801BF0E8(&D_80127F40, 0xA, func_801BF0E8(&D_80127EF0, 0xA, func_801BF0E8(&D_80127EA0, 0xA, 0)));\n ----------------------------^\ncfe: Warning 709: /tmp/kig-screen-vnrzzfz5/candidate.c, line 81: Incompatible pointer type assignment\n     temp_s3 = func_801BF0E8(&D_80127F40, 0xA, func_801BF0E8(&D_80127EF0, 0xA, func_801BF0E8(&D_80127EA0, 0xA, 0)));\n ------------------------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-vnrzzfz5/candidate.c, line 81: Incompatible pointer type assignment\n     temp_s3 = func_801BF0E8(&D_80127F40, 0xA, func_801BF0E8(&D_80127EF0, 0xA, func_801BF0E8(&D_80127EA0, 0xA, 0)));\n --------------------------------------------------------------------------------------------^\ncfe: Warning 709: /tmp/kig-screen-vnrzzfz5/candidate.c, line 82: Incompatible pointer type assignment\n     func_801BE910(&D_80127E50, 0xA, 0, 0);\n ------------------^\n"
+  },
+  "func_801C49A8": {
+    "function": "func_801C49A8",
+    "draft": "tools/scratch/nonmatching/T-030/func_801C49A8.c",
+    "tu": "src/ovl_7DF8/ovl_7DF8_18CC0.c",
+    "compiled": 548,
+    "original": 548,
+    "words": 83,
+    "context": "full",
+    "error": "",
+    "full_error": ""
+  },
+  "func_801BA884": {
+    "function": "func_801BA884",
+    "draft": "tools/scratch/nonmatching/T-023/func_801BA884.c",
+    "tu": "src/ovl_7DF8/ovl_7DF8_5ED0.c",
+    "compiled": 496,
+    "original": 500,
+    "words": 86,
+    "context": "full",
+    "error": "",
+    "full_error": ""
+  },
+  "func_801BED0C": {
+    "matched": true
+  },
+  "func_800245B4": {
+    "function": "func_800245B4",
+    "draft": "tools/scratch/nonmatching/T-032/func_800245B4.c",
+    "tu": "src/main/main_D3F0.c",
+    "compiled": 348,
+    "original": 352,
+    "words": 83,
+    "context": "declarations",
+    "error": "",
+    "full_error": "cfe: Error: /tmp/kig-screen-y_v85_bk/candidate.c, line 171: redeclaration of 'D_8004D278'; previous declaration at line 144 in file '/tmp/kig-screen-y_v85_bk/candidate.c'\n extern T032Cache245 D_8004D278[];\n --------------------^\ncfe: Error: /tmp/kig-screen-y_v85_bk/candidate.c, line 175: redeclaration of 'func_800245B4'; previous declaration at line 141 in file '/tmp/kig-screen-y_v85_bk/candidate.c'\n void func_800245B4(s32 player, u32 start, s32 size) {\n -----^\ncfe: Error: /tmp/kig-screen-y_v85_bk/candidate.c, line 175: Incompatible type for the function parameter\n void func_800245B4(s32 player, u32 start, s32 size) {\n -----------------------------------^\ncfe: Error: /tmp/kig-screen-y_v85_bk/candidate.c, line 177: Subscripting a non-array.\n     T032Cache245 *bank = &D_8004D278[player];\n ------------------------------------^\n"
+  }
+}

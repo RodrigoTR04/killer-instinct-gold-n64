@@ -448,7 +448,25 @@ u32 func_801C6C78(s32 arg0, u32 arg1) {
     return arg1;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_190B0/func_801C6D40.s")
+extern f32 D_80291EBC;
+u32 func_801C6D40(s32 arg0, u32 arg1) {
+    u8 phase;
+    /* Reuse the tick argument to preserve its caller-save spill. */
+    if (arg1 < 240U) {
+        phase = ++D_802D399C;
+        if (phase >= 17) phase = D_802D399C = 1;
+        if (phase == 1 || phase == 8) func_8002F6F4(D_80066C40, 44, &D_8004A258);
+        D_802D3990.x = D_80291EBC + (double)(240U-arg1)*0.6;
+    } else {
+        if (D_802D399E == 1) func_801C4BD0(133);
+        D_802D399C += 2;
+        if (D_802D399C >= 24) D_802D399C = 23;
+        arg1 = 240;
+    }
+    D_802D39B4 = 1;
+    return arg1;
+}
+
 
 extern u8 D_802D399C;
 
