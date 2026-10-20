@@ -310,3 +310,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-f91372f3. 7 functions match (1,508 B): func_8002DF98, func_8002B95C, func_8002B7E0, func_8002B57C, func_8002B91C, func_8002DCC8 and func_8002A300. The key was source line placement: IDO -O2 scheduling depends on which statements share a source line, the known IDO quirk. No flag changes (-mips1 etc. rejected). 3 drafts improved, 5 unchanged. The code style is compact and gets tidied in FU-13.
 - Clean vet build: the ROM and all 3 images are byte-identical. 284 T4; M1 = M2 = 64,944 / 319,100 B (20.35%). Main is at 22.96%.
 - T-071 launched (sol-C27): IDO line-placement technique on the stuck ovl_7DF8 near-misses.
+
+## 2026-10-20 — T-071 vetted (ovl_7DF8 line placement)
+- Worktree t3-3f489538. 3 functions match with multiline layouts (1,096 B): func_801C51F8, func_801C35D8 and func_801C2D34. 8 drafts improved, 8 unchanged.
+- Clean vet build: the ROM and all 3 images are byte-identical. 287 T4; M1 = M2 = 66,040 / 319,100 B (20.70%).

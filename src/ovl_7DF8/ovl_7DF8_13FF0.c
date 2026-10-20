@@ -126,7 +126,55 @@ void func_801C2110(f32 t, f32 *coef, f32 *position, f32 *velocity) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C2ADC.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C2D34.s")
+typedef union { struct { u32 w0, w1; } words; u64 full; } T030Cmd2D34;
+typedef struct { u8 pad[0xF8]; u8 *matrices; } T030Render2D34;
+extern void guRotate(void *, f32, f32, f32, f32);
+extern void guTranslate(void *, f32, f32, f32);
+extern u8 D_80285168[];
+extern s32 D_802956F4;
+extern T030Render2D34 D_802C9F70;
+
+void func_801C2D34(T030Cmd2D34 **arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)
+{
+    T030Cmd2D34 *temp_v0;
+    T030Cmd2D34 *temp_v0_2;
+    T030Cmd2D34 *temp_v0_3;
+    T030Cmd2D34 *temp_v0_4;
+    T030Cmd2D34 *temp_v0_5;
+    T030Cmd2D34 *temp_v0_6;
+    T030Cmd2D34 *temp_v0_7;
+    temp_v0 = (*arg0)++;
+    temp_v0->words.w0 = 0xBA001301; temp_v0->words.w1 = 0x80000;
+    temp_v0_2 = (*arg0)++;
+    temp_v0_2->words.w1 = 0;
+    temp_v0_2->words.w0 = 0xBA000E02;
+    temp_v0_3 = (*arg0)++;
+    temp_v0_3->full = 0xB600000000060004ULL;
+    guRotate(((D_802956F4 + 2) << 6) + D_802C9F70.matrices, (f32) (arg4 * 2), 0.0f, 1.0f, 0.0f);
+    guRotate(((D_802956F4 + 1) << 6) + D_802C9F70.matrices, -8.0f, 1.0f, 0.0f, 0.0f);
+    if (arg1 >= 0x77)
+    {
+        arg1 = -0x163;
+    }
+    else
+    {
+        arg1 = (arg1 * 3) - 0x2C6;
+    }
+    guTranslate((D_802956F4 << 6) + D_802C9F70.matrices, (f32) arg1, (f32) arg2, (f32) arg3);
+    temp_v0_4 = (*arg0)++;
+    temp_v0_4->words.w0 = 0x01020040;
+    temp_v0_4->words.w1 = (u32) ((D_802956F4 << 6) + D_802C9F70.matrices);
+    temp_v0_5 = (*arg0)++;
+    temp_v0_5->words.w0 = 0x01000040;
+    temp_v0_5->words.w1 = (u32) (((D_802956F4 + 1) << 6) + D_802C9F70.matrices);
+    temp_v0_6 = (*arg0)++;
+    temp_v0_6->words.w0 = 0x01000040;
+    temp_v0_6->words.w1 = (u32) (((D_802956F4 + 2) << 6) + D_802C9F70.matrices);
+    D_802956F4 += 3;
+    temp_v0_7 = (*arg0)++;
+    temp_v0_7->words.w0 = 0x06000000; temp_v0_7->words.w1 = (u32)&D_80285168;
+}
+
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C2F5C.s")
 
@@ -138,6 +186,62 @@ void func_801C2110(f32 t, f32 *coef, f32 *position, f32 *velocity) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C35AC.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C35D8.s")
+typedef struct { u32 w0,w1; } CloudCmd;
+
+typedef struct {
+    s16 x, y, z, angle, width;
+    u8 padA;
+    s8 alpha;
+} T030Cloud;
+extern void func_801C3758(CloudCmd **, T030Cloud *, s32);
+extern u8 D_800F4070[];
+extern s32 D_80290D88;
+extern u32 D_80290F90[];
+extern u8 *D_802D38E0;
+
+void func_801C35D8(CloudCmd **arg0, T030Cloud *arg1, s32 arg2, s32 arg3)
+{
+    CloudCmd *dl;
+    s32 i, offset;
+    s32 visible;
+    T030Cloud *cloud;
+    s16 start;
+    s32 end;
+    dl = (*arg0)++;
+    dl->w0 = 0x06000000; dl->w1 = (u32)D_80290F90;
+    D_802D38E0 = D_800F4070;
+    i = 0;
+    if (arg2 > 0)
+    {
+        offset = 0; cloud = arg1; do
+        {
+            start = cloud->angle;
+            end = cloud->width + start;
+            if ((arg3 >= start && arg3 < end) || arg3 + 360 < end) visible = 1;
+            else visible = 0;
+            if (visible || cloud->alpha > 0)
+            {
+                if (visible)
+                {
+                    cloud->alpha += 1;
+                    if (cloud->alpha >= 17) cloud->alpha = 16;
+                }
+                else
+                {
+                    cloud->alpha -= 2;
+                    if (cloud->alpha <= 0) cloud->alpha = 0;
+                }
+                func_801C3758(arg0, (T030Cloud *)((u32)offset + (u8 *)arg1), cloud->alpha);
+            }
+            else cloud->alpha = 0;
+            i++;
+            offset += 12;
+            if (D_80290D88 >= 60) D_80290D88 = 0;
+            cloud++;
+        }
+        while (i != arg2);
+    }
+}
+
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C3758.s")

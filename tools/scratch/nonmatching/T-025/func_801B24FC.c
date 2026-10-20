@@ -1,5 +1,5 @@
+/* T-071 DRAFT: 17 differing words; layout-sensitive scheduling. */
 extern f32 func_801B19F0(f32, f32, s32, s32);
-/* DRAFT. Remaining diff: 420-byte body; counter comparison/address allocation and command scheduling still differ. */
 typedef struct { u32 w0, w1; } T025Gfx24FC;
 extern f32 func_801B1A7C(void *, void *, f32, s32);
 extern void guTranslate(void *, f32, f32, f32);
@@ -12,21 +12,25 @@ extern s32 D_801D30A8;
 extern u8 D_802C3E00[];
 extern u8 D_802C4A40[];
 
-s32 func_801B24FC(T025Gfx24FC **arg0, s32 arg1, void *arg2, s32 arg3) {
+s32 func_801B24FC(T025Gfx24FC **arg0, s32 arg1, void *arg2, s32 arg3)
+{
     f32 position;
     s32 alpha;
     T025Gfx24FC *env;
-
-    if ((s32) D_801D308C >= 5) {
+    if ((s32) D_801D308C >= 5)
+    {
         return 0;
     }
     arg1 = D_801D30A8;
     arg3 = arg1 < 1;
     arg1++;
     D_801D30A8 = arg1;
-    if (arg3 == 1) {
+    if (arg3 == 1)
+    {
         position = func_801B19F0(133.0f, -11.0f, D_801D30A8, 1);
-    } else {
+    }
+    else
+    {
         position = -11.0f;
     }
     guTranslate(arg2, position + 25.0f, 0.0f, (f32) D_801D3094);
@@ -34,17 +38,15 @@ s32 func_801B24FC(T025Gfx24FC **arg0, s32 arg1, void *arg2, s32 arg3) {
     alpha = (s32) func_801B1A7C(&D_802C3E00, &D_802C4A40, position, 0xC3);
     env = *arg0;
     *arg0 = env + 1;
-    env->w0 = 0xFB000000;
-    env->w1 = (s32) ((alpha & 0xFF) | 0xFFC80000);
+    env->w0 = 0xFB000000; env->w1 = (s32) ((alpha & 0xFF) | 0xFFC80000);
     env = *arg0;
     *arg0 = env + 1;
-    env->w0 = 0xFA000000;
-    env->w1 = 0x64000000;
+    env->w0 = 0xFA000000; env->w1 = 0x64000000;
     env = *arg0;
     *arg0 = env + 1;
-    env->w0 = 0x06000000;
-    env->w1 = (s32) &D_801D3058;
-    if ((position < 1.0f) && ((s32) D_801D3088 < 5)) {
+    env->w0 = 0x06000000; env->w1 = (s32) &D_801D3058;
+    if ((position < 1.0f) && ((s32) D_801D3088 < 5))
+    {
         D_801D3088 += 1;
     }
     return 1;

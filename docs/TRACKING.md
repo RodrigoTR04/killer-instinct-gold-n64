@@ -31,10 +31,10 @@ Source of truth for per-function tiers is `docs/functions.csv` (created once spl
 | Metric | Value |
 |---|---|
 | Scope measured | all CPU text of boot/main/ovl_7DF8/ovl_7E00 (999 fns). Text not in fns: boot 432 B pad, main 708 B, 7DF8 92 B, 7E00 4,040 B (31 inline data pools, listed in symbol_addrs.ovl_7E00.us.txt) |
-| M1 | 64,944 / 319,100 B (20.35%) |
-| M2 | 64,944 / 319,100 B (20.35%) |
-| Functions | 0 T1 · 278 T2 · 0 T3 · 284 T4 · 437 excluded (138,092 B: 267 libultra + boot entry asm + 169 ovl_7E00 handwritten asm) |
-| Per image (eligible B / T1 fns / excluded) | boot 8,468/0/99 (21 T4, 0 T2 — 100%) · main 173,204/0/169 (161 T4, 129 T2) · ovl_7DF8 137,428/0/0 (102 T4, 149 T2) · ovl_7E00 0/0/169 (all handwritten asm, T-041) |
+| M1 | 66,040 / 319,100 B (20.70%) |
+| M2 | 66,040 / 319,100 B (20.70%) |
+| Functions | 0 T1 · 275 T2 · 0 T3 · 287 T4 · 437 excluded (138,092 B: 267 libultra + boot entry asm + 169 ovl_7E00 handwritten asm) |
+| Per image (eligible B / T1 fns / excluded) | boot 8,468/0/99 (21 T4, 0 T2 — 100%) · main 173,204/0/169 (161 T4, 129 T2) · ovl_7DF8 137,428/0/0 (105 T4, 146 T2) · ovl_7E00 0/0/169 (all handwritten asm, T-041) |
 
 Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html). Tier overrides: tools/progress/status.csv (lead-maintained). Never hand-edit numbers; paste the `--markdown` output here.
 
@@ -133,4 +133,4 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | T-068 | ovl_7DF8 6–8-word near-misses: func_801C7998 (6), func_801C5064 (6), func_801C2D34 (6), func_801C6A80 (8) + per-TU compiler-flag hypothesis (-mips1 etc.) for ovl_7DF8 TUs with persistent 1–2-slot scheduling misses | sol-C26 | Done (verified; 0 matched; flag hypothesis rejected for ovl_7DF8) | src/ovl_7DF8/*.c (listed fns + declarations), Makefile (per-object CFLAGS only), tools/scratch/nonmatching/T-0xx/ (listed drafts), tools/scratch/nonmatching/T-068/ | worktree isolation; T-066 edits other ovl_7DF8 fns |
 | T-069 | main large drafts never seriously attempted (1.3–1.9 KB each): func_800257FC, func_80031DD0, func_80015594, func_8001C5AC, func_800238C4, func_80024CE0, func_8001D7E4, func_80014D5C, func_800330B0, func_80025FC4 — structure-first rewrites in TU context | sol-A24 | In progress | src/main/*.c (listed fns + declarations), tools/scratch/nonmatching/T-0xx/ (listed drafts), tools/scratch/nonmatching/T-069/ | worktree isolation; T-067 edits other main fns |
 | T-070 | ovl_7DF8 mid-large drafts never seriously rewritten, structure-first: func_801B0668 (231), func_801BD640 (265), func_801B3DB0 (273), func_801B132C (296), func_801B0CDC (301), func_801BF190 (310), func_801C1C34 (310), func_801C7310 (316), func_801C4240 (326), func_801BDA6C (348) | sol-B23 | In progress | src/ovl_7DF8/*.c (listed fns + declarations), kig.ovl_7DF8.us.yaml (rodata only if needed), tools/scratch/nonmatching/T-0xx/ (listed drafts), tools/scratch/nonmatching/T-070/ | worktree isolation; T-071 edits other ovl_7DF8 fns |
-| T-071 | ovl_7DF8 stuck near-misses with T-067's IDO line-placement technique: func_801C4E38 (2), func_801BF720/BF914 (2), func_801C51F8 (2), func_801B6528 (3), func_801C35D8 (4), func_801B695C (4), func_801C7998/C5064/C2D34/C7CD0 (6), func_801C6A80 (8), clone family A func_801B2010×7 (22–23) | sol-C27 | In progress | src/ovl_7DF8/*.c (listed fns only), tools/scratch/nonmatching/T-0xx/ (listed drafts), tools/scratch/nonmatching/T-071/ | worktree isolation; T-070 edits other ovl_7DF8 fns |
+| T-071 | ovl_7DF8 stuck near-misses with T-067's IDO line-placement technique: func_801C4E38 (2), func_801BF720/BF914 (2), func_801C51F8 (2), func_801B6528 (3), func_801C35D8 (4), func_801B695C (4), func_801C7998/C5064/C2D34/C7CD0 (6), func_801C6A80 (8), clone family A func_801B2010×7 (22–23) | sol-C27 | Done (verified) | src/ovl_7DF8/*.c (listed fns only), tools/scratch/nonmatching/T-0xx/ (listed drafts), tools/scratch/nonmatching/T-071/ | worktree isolation; T-070 edits other ovl_7DF8 fns |
