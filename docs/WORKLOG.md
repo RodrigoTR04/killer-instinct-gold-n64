@@ -319,3 +319,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-069 vetted (main large drafts)
 - Worktree t3-93331984. func_8001C5AC matches (1,568 B, in main_CA10). func_800330B0 has an exact masked body but is blocked on rodata ownership (follow-up). 8 drafts improved, 1 unchanged.
 - Clean vet build: the ROM and all 3 images are byte-identical. 288 T4; M1 = M2 = 67,608 / 319,100 B (21.19%).
+- T-073 launched (sol-B24): land guLookAtHiliteF (func_800330B0) by giving main_23750 its rodata.
