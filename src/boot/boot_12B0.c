@@ -28,4 +28,24 @@ void boot_dma(s32 arg0, s32 arg1, s32 arg2) {
     osRecvMesg(&D_8000BF18, &sp28, 1);
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/boot/boot_12B0/boot_dma_chunked.s")
+void boot_dma_chunked(s32 rom, s32 dest, u32 length) {
+    u8 io[0x14];
+    s16 *completion;
+    s16 *event = 0;
+    u32 done = 0;
+    u32 chunk;
+    osInvalDCache(dest, length);
+    while (osRecvMesg(&D_8000BF50, &event, 0) == 0) {}
+    while (done < length) {
+        osRecvMesg(&D_8000BF50, &event, 1);
+        if (*event != 1) {
+            continue;
+        }
+        chunk = length - done < 0x14000 ? length - done : 0x14000;
+        osPiStartDma(io, 0, 0, rom, dest, chunk, &D_8000BF18);
+        osRecvMesg(&D_8000BF18, &completion, 1);
+        done += chunk;
+        rom += chunk;
+        dest += chunk;
+    }
+}

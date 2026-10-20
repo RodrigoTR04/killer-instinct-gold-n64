@@ -7,18 +7,18 @@ boot,func_800005EC,0x800005EC,0x11EC,184,T4,
 boot,func_800006B0,0x800006B0,0x12B0,76,T4,
 boot,func_800006FC,0x800006FC,0x12FC,68,T4,
 boot,boot_dma,0x80000740,0x1340,116,T4,
-boot,boot_dma_chunked,0x800007B4,0x13B4,328,T2,draft tools/scratch/nonmatching/T-038/ (non-matching)
+boot,boot_dma_chunked,0x800007B4,0x13B4,328,T4,
 boot,boot_inflate,0x80000900,0x1500,88,T4,
-boot,func_80000960,0x80000960,0x1560,1600,T2,draft tools/scratch/nonmatching/T-038/ (non-matching)
-boot,func_80000FA0,0x80000FA0,0x1BA0,1136,T2,draft tools/scratch/nonmatching/T-038/ (non-matching)
+boot,func_80000960,0x80000960,0x1560,1600,T4,
+boot,func_80000FA0,0x80000FA0,0x1BA0,1136,T4,
 boot,func_80001410,0x80001410,0x2010,340,T4,
 boot,func_80001564,0x80001564,0x2164,360,T2,draft tools/scratch/nonmatching/T-038/ (non-matching)
-boot,func_800016CC,0x800016CC,0x22CC,1316,T2,draft tools/scratch/nonmatching/T-038/ (non-matching)
+boot,func_800016CC,0x800016CC,0x22CC,1316,T4,
 boot,func_80001BF0,0x80001BF0,0x27F0,288,T4,
 boot,func_80001D10,0x80001D10,0x2910,212,T4,
 boot,func_80001DF0,0x80001DF0,0x29F0,260,T4,
 boot,func_80001EF4,0x80001EF4,0x2AF4,56,T4,
-boot,func_80001F2C,0x80001F2C,0x2B2C,916,T2,draft tools/scratch/nonmatching/T-038/ (non-matching)
+boot,func_80001F2C,0x80001F2C,0x2B2C,916,T4,
 boot,func_800022C0,0x800022C0,0x2EC0,352,T4,
 boot,func_80002420,0x80002420,0x3020,360,T4,
 boot,osInitialize,0x80002590,0x3190,560,excluded,libultra (T-005)

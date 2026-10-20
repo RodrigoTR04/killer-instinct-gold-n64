@@ -184,3 +184,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-d4e34849. Three TUs (ovl_7DF8, _12C70, _200C0) now own their .rodata via `[off, .rodata, <tu>]` splat subsegments; the leftover rodata stays in asm data files. Makefile: IMAGE_OBJECTS now wildcards every asm/<image>/data/*.s. func_801ADCFC and func_801CBCCC match (736 B). The glyph functions func_801BF720 and func_801BF914 are still 2 words off each. The recipe is in T-043/REPORT.md and unblocks FU-16 (main float literals).
 - It merged cleanly onto T-044 (bf39222). Clean vet build: the ROM and all 3 images are byte-identical. 232 T4; M1 = M2 = 43,756 / 319,100 B (13.71%).
 - T-046 launched (sol-B16): main rodata ownership (FU-16 part 1).
+
+## 2026-10-20 — T-042 vetted (boot polish)
+- Worktree t3-a418e171. 5 of 6 match (5,296 B): boot_dma_chunked, func_80000960, func_80000FA0, func_800016CC and func_80001F2C (the inflate/Huffman code was rewritten as idiomatic C with refined extern types). func_80001564 is still 8 words off. FU-2 was not needed. Boot is now at 95.75%.
+- Clean vet build: the ROM and all 3 images are byte-identical. 237 T4; M1 = M2 = 49,052 / 319,100 B (15.37%).
