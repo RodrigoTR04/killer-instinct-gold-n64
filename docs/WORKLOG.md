@@ -456,3 +456,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - T-102 launched (sol-C38): screen tier 88-111.
 - T-102 stopped on the Codex usage limit (resets 22:03). T3 usually resumes these itself; backup cron c1612fb1 at 22:06 resumes only workers still stopped.
 - T-099 was interrupted near completion (limit). The 22:06 backup cron covers resuming it.
+- T-101 was interrupted near completion (limit). Family B is at 19 words in its worktree. The 22:06 backup cron covers resuming it.
