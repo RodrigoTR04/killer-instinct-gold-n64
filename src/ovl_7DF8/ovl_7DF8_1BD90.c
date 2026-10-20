@@ -50,11 +50,11 @@ void func_801C7F10(void) {
 }
 
 extern void func_801C78B0();
-extern u8 D_80127D30;
+extern u8 D_80127D30[8];
 extern u8 D_80127D31;
 
 void func_801C7F40(void) {
-    func_801C78B0(0, (D_80127D30 + 1) & 0xFF);
+    func_801C78B0(0, (D_80127D30[0] + 1) & 0xFF);
     func_801C78B0(1, (D_80127D31 + 1) & 0xFF);
 }
 
@@ -217,9 +217,20 @@ char *func_801C9584(u8 arg0, u8 arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C9B14.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801CA784.s")
+void func_801CA784(s32 arg0) {
+    s32 i;
 
-/* D_80127D30 is declared as a scalar u8 above; it is really a u8[8] queue. */
+    for (i = 0; i < 7 && D_80127D30[i]; i++) {
+        if (arg0 == D_80127D30[i]) {
+            return;
+        }
+    }
+    if (i < 8) {
+        D_80127D30[i] = arg0;
+    }
+}
+
+/* Queue alias retained for the following functions. */
 typedef u8 T034Queue8[8];
 #define T034_D_80127D30 (*(T034Queue8 *)&D_80127D30)
 

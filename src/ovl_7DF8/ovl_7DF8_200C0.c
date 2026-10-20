@@ -171,7 +171,25 @@ void func_801CC264(u8 *arg0) {
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_200C0/func_801CC2C8.s")
+extern s32 osEepromLongRead();
+
+s32 func_801CC2C8(u8 *arg0) {
+    s8 v;
+    u32 crc;
+
+    v = osEepromProbe(&D_800684E0);
+    D_802D3E16 = v;
+    if (D_802D3E16) {
+        osEepromLongRead(&D_800684E0, 0, arg0, 512);
+    } else {
+        return 1;
+    }
+    crc = __osContDataCrc(arg0);
+    if ((arg0[511] - crc) != 0) {
+        return 1;
+    }
+    return 0;
+}
 
 extern s32 func_80034630();
 extern u8 D_80292790;
@@ -218,7 +236,7 @@ typedef struct {
     u64 unk10[12];
 } T034SaveHeader;
 
-extern s32 func_801CC2C8(void *);
+extern s32 func_801CC2C8(u8 *);
 extern void func_801C8868(void *);
 extern void func_801BF850(void *);
 extern void func_801C8C24(void *);

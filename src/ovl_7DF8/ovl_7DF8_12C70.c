@@ -41,7 +41,31 @@ void func_801BEFFC(void) {
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_12C70/func_801BF0E8.s")
+s32 func_801BF0E8(s32 *arg0, s32 count, s32 used) {
+    s32 i, j, value;
+    s32 *score;
+    i = 0;
+    if (count > 0) {
+        do {
+            value = *arg0;
+            j = 0;
+            while (j < used && value != D_802D36D0[j]) {
+                j++;
+            }
+            if (j == used) {
+                D_802D36D0[j] = value;
+                D_802D3748[j] = 10 - i;
+                used++;
+            } else {
+                score = &D_802D3748[j];
+                *score = (*score - i) + 10;
+            }
+            i++;
+            arg0 += 2;
+        } while (i != count);
+    }
+    return used;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_12C70/func_801BF190.s")
 

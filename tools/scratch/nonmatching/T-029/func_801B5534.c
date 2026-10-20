@@ -1,4 +1,4 @@
-/* DRAFT. Remaining diff: Frame is 0x28 instead of 0x20; player/index registers and call delay slot differ. */
+/* DRAFT (T-047). See T-047/REPORT.md for comparison counts and remaining differences. */
 extern s32 guRandom(void);
 extern u8 D_802C8C2A;
 extern s32 D_802C8C18[];
@@ -6,7 +6,7 @@ extern s8 D_8004EA9C[];
 extern s32 D_802C8C08[];
 extern s8 D_802C8C28[];
 extern void func_801B465C(u8, s32);
-void func_801B5534(u8 arg0) {
+void func_801B5534(s32 arg0) {
     s32 index;
     s32 choice;
     choice = guRandom() % (s32)D_802C8C2A;

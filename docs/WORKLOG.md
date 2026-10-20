@@ -189,3 +189,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-a418e171. 5 of 6 match (5,296 B): boot_dma_chunked, func_80000960, func_80000FA0, func_800016CC and func_80001F2C (the inflate/Huffman code was rewritten as idiomatic C with refined extern types). func_80001564 is still 8 words off. FU-2 was not needed. Boot is now at 95.75%.
 - Clean vet build: the ROM and all 3 images are byte-identical. 237 T4; M1 = M2 = 49,052 / 319,100 B (15.37%).
 - T-047 launched (sol-A18): ovl_7DF8 polish round 3 plus rodata ownership extension.
+
+## 2026-10-20 — T-047 vetted (ovl_7DF8 polish round 3)
+- Worktree t3-95ad912c. 3 functions match: func_801CA784, func_801CC2C8 and func_801BF0E8 (400 B). 4 drafts improved, 7 unchanged; only 14 were attempted. D_80127D30 is now declared u8[8] (FU-13 item). No new rodata splits.
+- Clean vet build: the ROM and all 3 images are byte-identical. 240 T4; M1 = M2 = 49,452 / 319,100 B (15.50%).

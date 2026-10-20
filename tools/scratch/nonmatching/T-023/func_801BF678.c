@@ -1,18 +1,18 @@
-/* DRAFT. Remaining diff: Pointer/counter registers and division scheduling differ. */
-void func_801BF678(s32 arg0, s32 arg1) {
-    s8 *var_v1;
-    s32 var_v0;
+/* DRAFT (T-047). See T-047/REPORT.md for comparison counts and remaining differences. */
+void func_801BF678(s8 *out, s32 value) {
+    s32 i;
+    s8 *p;
 
-    var_v1 = (s8 *)(arg0 + 5);
-    var_v0 = 5;
+    i = 5;
+    p = out + 5;
     do {
-        if ((arg1 != 0) || (var_v0 == 5)) {
-            *var_v1 = (arg1 % 10) + 0x30;
+        if (value || i == 5) {
+            *p = value % 10 + 48;
         } else {
-            *var_v1 = 0x20;
+            *p = 32;
         }
-        var_v0 -= 1;
-        arg1 = arg1 / 10;
-        var_v1 -= 1;
-    } while (var_v0 >= 0);
+        value /= 10;
+        i--;
+        p--;
+    } while (i >= 0);
 }
