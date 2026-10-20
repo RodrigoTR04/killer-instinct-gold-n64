@@ -247,7 +247,48 @@ void func_801C8DBC(u8 *arg0) {
 }
 
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C8F28.s")
+void func_801C8F28(u8 *arg0)
+{
+    u8 i;
+    u8 v;
+    /* Keep the first row value in a signed halfword for IDO register allocation. */
+    s16 intensity;
+    u64 bits;
+    bits = (u64)arg0[0] + ((u64)arg0[1] << 8) + ((u64)arg0[2] << 16) + ((u64)arg0[3] << 24) + ((u64)arg0[4] << 32);
+    for (i = 0; i < 20; i++)
+    {
+        switch ((s32)(bits >> (i * 2)) & 3)
+        {
+            default:
+                v = 0;
+                break;
+
+            case 3:
+                v = 120;
+                break;
+
+            case 2:
+                v = 55;
+                break;
+
+            case 1:
+                v = 5;
+                break;
+
+        }
+
+        if (i < 10)
+        {
+            intensity = v;
+            D_80127D58[i] = intensity;
+        }
+        else
+        {
+            D_80127D58[i + 6] = v;
+        }
+    }
+
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C90D4.s")
 

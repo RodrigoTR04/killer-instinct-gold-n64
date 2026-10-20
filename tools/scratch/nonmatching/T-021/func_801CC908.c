@@ -1,4 +1,4 @@
-/* T-092 DRAFT: 4 relocation-masked differing words; 424 bytes. */
+/* T-094 DRAFT: 2 relocation-masked differing words; 424/424 bytes. Local declaration order fixes the status spill slot. */
 extern s32 func_801CBF8C();
 s32 func_801CC350(s32 *, s32);
 extern s32 func_801CC3BC();
@@ -15,13 +15,13 @@ extern u8 D_802D3E0D;
 
 s32 func_801CC908(s32 arg0)
 {
-  s32 sp28;
-  s32 sp24;
-  s32 temp_v1;
-  s32 var_a3;
-  s32 sp2C;
-  s32 var_v0;
-  temp_v1 = 1 << arg0;
+    s32 sp24;
+    s32 sp28;
+    s32 var_v0;
+    s32 temp_v1;
+    s32 sp2C;
+    s32 var_a3;
+    temp_v1 = 1 << arg0;
   if (!(D_802D3E0D & temp_v1))
   {
     sp24 = temp_v1;

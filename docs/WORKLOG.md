@@ -436,3 +436,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-540121f1. All 7 family-A functions match (func_801B2010/21B4/2358/24FC/26A0/2844/29E8, 420 B each), plus func_801C6A80: 3,232 B in total. The fix uses an explicit local pointer to each counter, `arg1++ < 1`, and `*counter = arg1` as the lerp's third argument (that recovers the jal delay-slot store), with token-preserving line grouping for the last two setup instructions. Honest C, commented. 8 residue functions remain.
 - Clean vet build: the ROM and all 3 images are byte-identical. 290 T4; M1 = M2 = 62,200 / 289,876 B (21.46%). ovl_7DF8 is at 17.98%.
 - T-095 stopped on the Codex usage limit (resets 21:15). Cron 94277b83 resumes it at 21:18.
+
+## 2026-10-20 — T-094 vetted (permuter on never-permuted near-misses)
+- Worktree t3-47b9f108. func_800281C4 and func_801C8F28 match (536 B). 4 drafts improved, 7 unchanged.
+- Clean vet build: the ROM and all 3 images are byte-identical. 292 T4; M1 = M2 = 62,736 / 289,876 B (21.64%).

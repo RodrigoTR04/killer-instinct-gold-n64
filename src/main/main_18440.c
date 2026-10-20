@@ -11,7 +11,24 @@ void func_80027DA0(void) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_18440/func_80027E1C.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_18440/func_800281C4.s")
+extern u8 D_A69A20[], D_A69A40[], D_A69A70[];
+extern s16 D_80061CD8, D_80061CDA;
+extern void boot_dma(void *, void *, s32);
+
+void func_800281C4(s32 index) {
+    u8 *start, *end;
+
+    if (index == 0) {
+        start = D_A69A20;
+        end = D_A69A40;
+    } else {
+        start = D_A69A40;
+        end = D_A69A70;
+    }
+    boot_dma(start, (void *)0x803A5200, end - start);
+    D_80061CD8 = ((s32 *)0x803A5200)[0];
+    D_80061CDA = ((s32 *)0x803A5200)[1];
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_18440/func_80028230.s")
 

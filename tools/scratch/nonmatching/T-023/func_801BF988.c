@@ -1,27 +1,23 @@
-/* DRAFT. Remaining diff: Saved input/accumulator registers and final result temporaries differ. */
+/* T-094 DRAFT: 5 relocation-masked differing words; 184/184 bytes. Use the input/output parameters directly and a single unsigned packing accumulator. */
 extern s32 func_801BF914(s32);
 u8 *func_801BF988(u8 *arg0, u8 *arg1, s32 count) {
-    s32 first, combined, i;
-    u32 packed;
     u16 score;
-    u8 *in;
-    u8 *out;
-    in = arg1;
-    out = arg0;
+    u32 packed;
+    s32 i;
     i = 0;
     if (count > 0) {
         do {
-            first = func_801BF914((*(s32 *)in >> 24) & 255) << 10;
-            first |= (func_801BF914((*(s32 *)in >> 16) & 255) << 5);
-            packed = first | func_801BF914((*(s32 *)in >> 8) & 255);
-            out[0] = packed >> 8;
-            out[1] = packed;
-            score = *(u16 *)(in + 4);
+            packed = func_801BF914((*(s32 *)arg1 >> 24) & 255) << 10;
+            packed |= (func_801BF914((*(s32 *)arg1 >> 16) & 255) << 5);
+            packed |= func_801BF914((*(s32 *)arg1 >> 8) & 255);
+            arg0[0] = packed >> 8;
+            arg0[1] = packed;
+            score = *(u16 *)(arg1 + 4);
             i++;
-            in += 8;
-            out += 3;
-            out[-1] = score;
+            arg1 += 8;
+            arg0 += 3;
+            arg0[-1] = score;
         } while (i != count);
     }
-    return out;
+    return arg0;
 }
