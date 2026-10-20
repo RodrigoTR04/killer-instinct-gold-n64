@@ -39,17 +39,17 @@ typedef struct T037Dir {
     /* 0x10 */ u8 game_name[16];
 } T037Dir;
 
-s32 func_80034630(T037Pfs *pfs, u16 company_code, u32 game_code, u8 *game_name, u8 *ext_name, s32 *file_no);
-u16 func_8003B3E0(u8 *ptr, s32 length);
-s32 func_8003BC0C(T037Pfs *pfs);
-s32 func_8003BD24(T037Pfs *pfs, T037Inode *inode, u8 flag, u8 bank);
-s32 func_8003BFC0(T037Pfs *pfs);
-s32 func_8003C030(void *mq, s32 channel, u16 address, u8 *buffer);
-s32 func_8003C3C0(void *mq, s32 channel, u16 address, u8 *buffer, s32 force);
-s32 func_80036440(T037Pfs *pfs, T037Inode *inode, u8 start_page, u16 *sum, u8 bank, T037InodeUnit *last_page, s32 flag);
-s32 func_80036644(T037Pfs *pfs, u8 page_no, u16 *sum, u8 bank);
+s32 osPfsFindFile(T037Pfs *pfs, u16 company_code, u32 game_code, u8 *game_name, u8 *ext_name, s32 *file_no);
+u16 __osSumcalc(u8 *ptr, s32 length);
+s32 __osCheckId(T037Pfs *pfs);
+s32 __osPfsRWInode(T037Pfs *pfs, T037Inode *inode, u8 flag, u8 bank);
+s32 __osPfsSelectBank(T037Pfs *pfs);
+s32 __osContRamRead(void *mq, s32 channel, u16 address, u8 *buffer);
+s32 __osContRamWrite(void *mq, s32 channel, u16 address, u8 *buffer, s32 force);
+s32 __osPfsReleasePages(T037Pfs *pfs, T037Inode *inode, u8 start_page, u16 *sum, u8 bank, T037InodeUnit *last_page, s32 flag);
+s32 __osBlockSum(T037Pfs *pfs, u8 page_no, u16 *sum, u8 bank);
 
-s32 func_800361C0(T037Pfs *pfs, u16 company_code, u32 game_code, u8 *game_name, u8 *ext_name) {
+s32 osPfsDeleteFile(T037Pfs *pfs, u16 company_code, u32 game_code, u8 *game_name, u8 *ext_name) {
     s32 file_no;
     s32 ret;
     s32 j;
@@ -66,38 +66,38 @@ s32 func_800361C0(T037Pfs *pfs, u16 company_code, u32 game_code, u8 *game_name, 
     if ((pfs->status & 1) == 0) {
         return 5;
     }
-    if (func_8003BC0C(pfs) == 2) {
+    if (__osCheckId(pfs) == 2) {
         return 2;
     }
     if (pfs->activebank != 0) {
         pfs->activebank = 0;
-        ret = func_8003BFC0(pfs);
+        ret = __osPfsSelectBank(pfs);
         if (ret != 0) {
             return ret;
         }
     }
-    ret = func_80034630(pfs, company_code, game_code, game_name, ext_name, &file_no);
+    ret = osPfsFindFile(pfs, company_code, game_code, game_name, ext_name, &file_no);
     if (ret != 0) {
         return ret;
     }
     if (file_no == -1) {
         return 5;
     }
-    ret = func_8003C030(pfs->queue, pfs->channel, pfs->dir_table + file_no, (u8 *)&dir);
+    ret = __osContRamRead(pfs->queue, pfs->channel, pfs->dir_table + file_no, (u8 *)&dir);
     if (ret != 0) {
         return ret;
     }
     startpage = dir.start_page.inode_t.page;
     for (bank = dir.start_page.inode_t.bank; bank < pfs->banks;) {
-        ret = func_8003BD24(pfs, &inode, 0, bank);
+        ret = __osPfsRWInode(pfs, &inode, 0, bank);
         if (ret != 0) {
             return ret;
         }
-        ret = func_80036440(pfs, &inode, startpage, &sum, bank, &last_page, 1);
+        ret = __osPfsReleasePages(pfs, &inode, startpage, &sum, bank, &last_page, 1);
         if (ret != 0) {
             return ret;
         }
-        ret = func_8003BD24(pfs, &inode, 1, bank);
+        ret = __osPfsRWInode(pfs, &inode, 1, bank);
         if (ret != 0) {
             return ret;
         }
@@ -121,11 +121,11 @@ s32 func_800361C0(T037Pfs *pfs, u16 company_code, u32 game_code, u8 *game_name, 
         dir.ext_name[j] = 0;
     }
     dir.status = 0;
-    ret = func_8003C3C0(pfs->queue, pfs->channel, pfs->dir_table + file_no, (u8 *)&dir, 0);
+    ret = __osContRamWrite(pfs->queue, pfs->channel, pfs->dir_table + file_no, (u8 *)&dir, 0);
     return ret;
 }
 
-s32 func_80036440(T037Pfs *pfs, T037Inode *inode, u8 start_page, u16 *sum, u8 bank, T037InodeUnit *last_page, s32 flag) {
+s32 __osPfsReleasePages(T037Pfs *pfs, T037Inode *inode, u8 start_page, u16 *sum, u8 bank, T037InodeUnit *last_page, s32 flag) {
     T037InodeUnit next_page;
     T037InodeUnit old_page;
     s32 ret;
@@ -144,7 +144,7 @@ s32 func_80036440(T037Pfs *pfs, T037Inode *inode, u8 start_page, u16 *sum, u8 ba
     if (flag == 1) {
         inode->inode_page[start_page].ipage = 3;
     }
-    ret = func_80036644(pfs, start_page, sum, bank);
+    ret = __osBlockSum(pfs, start_page, sum, bank);
     if (ret != 0) {
         return ret;
     }
@@ -155,7 +155,7 @@ s32 func_80036440(T037Pfs *pfs, T037Inode *inode, u8 start_page, u16 *sum, u8 ba
         old_page = next_page;
         next_page = inode->inode_page[next_page.inode_t.page];
         inode->inode_page[old_page.inode_t.page].ipage = 3;
-        ret = func_80036644(pfs, old_page.inode_t.page, sum, bank);
+        ret = __osBlockSum(pfs, old_page.inode_t.page, sum, bank);
         if (ret != 0) {
             return ret;
         }
@@ -170,26 +170,26 @@ s32 func_80036440(T037Pfs *pfs, T037Inode *inode, u8 start_page, u16 *sum, u8 ba
     return 0;
 }
 
-s32 func_80036644(T037Pfs *pfs, u8 page_no, u16 *sum, u8 bank) {
+s32 __osBlockSum(T037Pfs *pfs, u8 page_no, u16 *sum, u8 bank) {
     s32 i;
     s32 ret;
     u8 buf[32];
 
     pfs->activebank = bank;
-    ret = func_8003BFC0(pfs);
+    ret = __osPfsSelectBank(pfs);
     if (ret != 0) {
         return ret;
     }
     for (i = 0; i < 8; i++) {
-        ret = func_8003C030(pfs->queue, pfs->channel, page_no * 8 + i, buf);
+        ret = __osContRamRead(pfs->queue, pfs->channel, page_no * 8 + i, buf);
         if (ret != 0) {
             pfs->activebank = 0;
-            func_8003BFC0(pfs);
+            __osPfsSelectBank(pfs);
             return ret;
         }
-        *sum = *sum + func_8003B3E0(buf, 32);
+        *sum = *sum + __osSumcalc(buf, 32);
     }
     pfs->activebank = 0;
-    ret = func_8003BFC0(pfs);
+    ret = __osPfsSelectBank(pfs);
     return ret;
 }

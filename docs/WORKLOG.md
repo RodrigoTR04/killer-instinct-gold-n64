@@ -365,3 +365,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-078 vet: structural conflict with T-080 (sent back)
 - Worktree t3-a5f157f5 (base bbdd23e). Libaudio at IDO -O3 (interprocedural) solved the "private register ABI": all 19 targeted eligible functions match (11,476 B; main would go to ~32%), and 111 GLOBAL_ASM stubs were replaced in total. Per-object -O3 CFLAGS + ASMPROC -O2, include/libaudio/.
 - On master (after T-080) it conflicts in kig.main.us.yaml (0x2A830 and 0x319D0 boundaries, plus rodata ranges given to libultra objects), the Makefile, main_2A160.c and main_319D0.c. Sent back to rebase onto T-080's layout.
+
+## 2026-10-20 — T-083 vetted (address-based inventory + FU-15 renames)
+- Worktree t3-c949349c. inventory.py now accepts a function's original name OR any symbol_addrs/linked-src name at its address, and keeps every safety check (unit tests pass). 33 SDK renames: 32 pfs functions (osPfs*/__osPfs*/__osContRam*...) and guLookAtHiliteF, including name-only caller edits in ovl_7DF8_200C0.c. Tiers and counts are unchanged (290 T4, 22.11%). The ROM is byte-identical.
+- T-083 recommends classifying these 33 (16,700 B) as SDK (excluded), consistent with the libultra convention.

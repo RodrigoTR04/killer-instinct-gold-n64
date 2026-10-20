@@ -108,7 +108,7 @@ void func_801CBF50(void) {
 }
 
 extern void func_8002B57C(void);
-extern s32 func_800344B0();
+extern s32 osPfsInit();
 extern void func_801CBBE0();
 extern s32 func_801CC3BC();
 s32 osEepromProbe();
@@ -129,7 +129,7 @@ s32 func_801CBF8C(void) {
     func_801CBBE0(&D_800684E0, &D_802D3E0D);
     D_802D3E16 = osEepromProbe(&D_800684E0);
     if ((D_802D3E0D & 2) && ((old ^ D_802D3E0D) & 2) == 2) {
-        ret = func_800344B0(&D_800684E0, &D_802D3D98, 1);
+        ret = osPfsInit(&D_800684E0, &D_802D3D98, 1);
         if (ret != 0) {
             D_802D3E0D ^= 2;
             ret = func_801CC3BC(ret, 1);
@@ -137,7 +137,7 @@ s32 func_801CBF8C(void) {
         changed = 1;
     }
     if ((D_802D3E0D & 1) && ((old ^ D_802D3E0D) & 1) == 1) {
-        ret = func_800344B0(&D_800684E0, &D_802D3D30, 0);
+        ret = osPfsInit(&D_800684E0, &D_802D3D30, 0);
         changed = 1;
         if (ret != 0) {
             D_802D3E0D ^= 1;
@@ -191,40 +191,40 @@ s32 func_801CC2C8(u8 *arg0) {
     return 0;
 }
 
-extern s32 func_80034630();
+extern s32 osPfsFindFile();
 extern u8 D_80292790;
 extern u8 D_80292794;
 extern u8 D_802D3D30;
 
 s32 func_801CC350(s32 *arg0, s32 arg1) {
-    return func_80034630((arg1 * 0x68) + &D_802D3D30, 0x3031, 0x4E4B4945, &D_80292794, &D_80292790, arg0);
+    return osPfsFindFile((arg1 * 0x68) + &D_802D3D30, 0x3031, 0x4E4B4945, &D_80292794, &D_80292790, arg0);
 }
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_200C0/func_801CC3BC.s")
 
-extern s32 func_80035320();
+extern s32 osPfsReadWriteFile();
 extern u8 D_802D3A30;
 extern u8 D_802D3D30;
 
 s32 func_801CC524(s32 arg0, s32 arg1) {
-    return func_80035320((arg1 * 0x68) + &D_802D3D30, arg0, 0, 0, 0x300, &D_802D3A30);
+    return osPfsReadWriteFile((arg1 * 0x68) + &D_802D3D30, arg0, 0, 0, 0x300, &D_802D3A30);
 }
 
-extern s32 func_80035690();
+extern s32 osPfsAllocateFile();
 extern u8 D_80292790;
 extern u8 D_80292794;
 extern u8 D_802D3D30;
 
 void func_801CC58C(s32 arg0, s32 arg1) {
-    func_80035690((arg1 * 0x68) + &D_802D3D30, 0x3031, 0x4E4B4945, &D_80292794, &D_80292790, 0x300, arg0);
+    osPfsAllocateFile((arg1 * 0x68) + &D_802D3D30, 0x3031, 0x4E4B4945, &D_80292794, &D_80292790, 0x300, arg0);
 }
 
-extern s32 func_80035320();
+extern s32 osPfsReadWriteFile();
 extern u8 D_802D3A30;
 extern u8 D_802D3D30;
 
 s32 func_801CC600(s32 arg0, s32 arg1) {
-    return func_80035320((arg1 * 0x68) + &D_802D3D30, arg0, 1, 0, 0x300, &D_802D3A30);
+    return osPfsReadWriteFile((arg1 * 0x68) + &D_802D3D30, arg0, 1, 0, 0x300, &D_802D3A30);
 }
 
 extern s32 func_801CC0CC();
@@ -495,16 +495,16 @@ typedef struct {
     u8 game_name[16];
 } T056PfsState;
 
-extern s32 func_80035F10(void *, s32, T056PfsState *);
-extern s32 func_800361C0(void *, u16, u32, u8 *, u8 *);
+extern s32 osPfsFileState(void *, s32, T056PfsState *);
+extern s32 osPfsDeleteFile(void *, u16, u32, u8 *, u8 *);
 
 void func_801CD078(s32 arg0, s32 arg1) {
     T056PfsState state;
     void *pfs;
 
     pfs = (arg1 * 0x68) + &D_802D3D30;
-    if (func_80035F10(pfs, arg0, &state) == 0) {
-        func_800361C0(pfs, state.company_code, state.game_code, state.game_name, state.ext_name);
+    if (osPfsFileState(pfs, arg0, &state) == 0) {
+        osPfsDeleteFile(pfs, state.company_code, state.game_code, state.game_name, state.ext_name);
         func_8002F6F4(D_80066C40, 0x10A, D_8004A25C);
     }
 }
@@ -523,7 +523,7 @@ void func_801CD100(s8 *arg0, u32 arg1) {
     }
 }
 
-s32 func_8003C750(void *, s32 *);
+s32 osPfsFreeBlocks(void *, s32 *);
 extern s32 func_801CC3BC();
 extern u8 D_802D3D30;
 extern s32 D_802D3E10;
@@ -534,10 +534,10 @@ void func_801CD174(s32 arg0) {
 
     local.ptr = (arg0 * 0x68) + &D_802D3D30;
 
-    var_v0 = func_8003C750(local.ptr, &local.value);
+    var_v0 = osPfsFreeBlocks(local.ptr, &local.value);
     if (var_v0 != 0) {
         func_801CC3BC(var_v0, arg0);
-        var_v0 = func_8003C750(local.ptr, &local.value);
+        var_v0 = osPfsFreeBlocks(local.ptr, &local.value);
     }
     if (var_v0 == 0) {
         D_802D3E10 = (s32) (local.value + 0xFF) >> 8;

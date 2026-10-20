@@ -48,11 +48,11 @@ typedef struct T037PfsState {
     /* 0x0E */ char game_name[16];
 } T037PfsState;
 
-s32 func_8003BFC0(T037Pfs *pfs);
-s32 func_8003BD24(T037Pfs *pfs, T037Inode *inode, u8 flag, u8 bank);
-s32 func_8003C030(void *mq, s32 channel, u16 address, u8 *buffer);
+s32 __osPfsSelectBank(T037Pfs *pfs);
+s32 __osPfsRWInode(T037Pfs *pfs, T037Inode *inode, u8 flag, u8 bank);
+s32 __osContRamRead(void *mq, s32 channel, u16 address, u8 *buffer);
 
-s32 func_80035F10(T037Pfs *pfs, s32 file_no, T037PfsState *state) {
+s32 osPfsFileState(T037Pfs *pfs, s32 file_no, T037PfsState *state) {
     s32 ret;
     int pages;
     T037Inode inode;
@@ -68,17 +68,17 @@ s32 func_80035F10(T037Pfs *pfs, s32 file_no, T037PfsState *state) {
     if ((pfs->status & 1) == 0) {
         return 5;
     }
-    if (func_8003BC0C(pfs) == 2) {
+    if (__osCheckId(pfs) == 2) {
         return 2;
     }
     if (pfs->activebank != 0) {
         pfs->activebank = 0;
-        ret = func_8003BFC0(pfs);
+        ret = __osPfsSelectBank(pfs);
         if (ret != 0) {
             return ret;
         }
     }
-    ret = func_8003C030(pfs->queue, pfs->channel, pfs->dir_table + file_no, (u8 *)&dir);
+    ret = __osContRamRead(pfs->queue, pfs->channel, pfs->dir_table + file_no, (u8 *)&dir);
     if (ret != 0) {
         return ret;
     }
@@ -92,7 +92,7 @@ s32 func_80035F10(T037Pfs *pfs, s32 file_no, T037PfsState *state) {
     start_page = dir.start_page.inode_t.page;
     bank = dir.start_page.inode_t.bank;
     while (bank < pfs->banks) {
-        ret = func_8003BD24(pfs, &inode, 0, bank);
+        ret = __osPfsRWInode(pfs, &inode, 0, bank);
         if (ret != 0) {
             return ret;
         }

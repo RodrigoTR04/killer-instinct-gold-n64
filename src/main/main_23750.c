@@ -6,7 +6,7 @@ typedef struct { struct { s32 x1,y1,x2,y2; } h; } Hilite;
 extern void guMtxIdentF(float [4][4]);
 extern f32 sqrtf(f32);
 #define FTOFRAC8(x) (u16)((s32)(((x)*128.0 < 127.0) ? (x)*128.0 : 127.0))
-void func_800330B0(float mf[4][4], LookAt *l, Hilite *h,
+void guLookAtHiliteF(float mf[4][4], LookAt *l, Hilite *h,
 		float xEye, float yEye, float zEye,
 		float xAt,  float yAt,  float zAt,
 		float xUp,  float yUp,  float zUp,

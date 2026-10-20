@@ -5,7 +5,7 @@
  *   build/src/main/main_2BA80.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O2 -mips1 -32
  */
 #include "common.h"
-u16 func_8003B3E0(u8 *ptr, s32 length) {
+u16 __osSumcalc(u8 *ptr, s32 length) {
     s32 i;
     u32 sum = 0;
     u8 *tmp = ptr;
@@ -17,7 +17,7 @@ u16 func_8003B3E0(u8 *ptr, s32 length) {
     return sum;
 }
 
-s32 func_8003B45C(u16 *ptr, u16 *csum, u16 *icsum) {
+s32 __osIdCheckSum(u16 *ptr, u16 *csum, u16 *icsum) {
     u16 data = 0;
     u32 j;
 
@@ -59,12 +59,12 @@ typedef struct T035Pfs {
 } T035Pfs;
 
 u32 osGetCount(void);
-s32 func_8003B45C(u16 *ptr, u16 *csum, u16 *icsum);
-s32 func_8003BFC0(T035Pfs *pfs);
-s32 func_8003C030(void *mq, s32 channel, u16 address, u8 *buffer);
-s32 func_8003C3C0(void *mq, s32 channel, u16 address, u8 *buffer, s32 force);
+s32 __osIdCheckSum(u16 *ptr, u16 *csum, u16 *icsum);
+s32 __osPfsSelectBank(T035Pfs *pfs);
+s32 __osContRamRead(void *mq, s32 channel, u16 address, u8 *buffer);
+s32 __osContRamWrite(void *mq, s32 channel, u16 address, u8 *buffer, s32 force);
 
-s32 func_8003B558(T035Pfs *pfs, T035PackId *badid, T035PackId *newid) {
+s32 __osRepairPackId(T035Pfs *pfs, T035PackId *badid, T035PackId *newid) {
     s32 ret = 0;
     u8 temp[32];
     u8 comp[32];
@@ -75,7 +75,7 @@ s32 func_8003B558(T035Pfs *pfs, T035PackId *badid, T035PackId *newid) {
 
     if (pfs->activebank != 0) {
         pfs->activebank = 0;
-        ret = func_8003BFC0(pfs);
+        ret = __osPfsSelectBank(pfs);
         if (ret != 0) {
             return ret;
         }
@@ -87,11 +87,11 @@ s32 func_8003B558(T035Pfs *pfs, T035PackId *badid, T035PackId *newid) {
     j = 0;
     do {
         pfs->activebank = j;
-        ret = func_8003BFC0(pfs);
+        ret = __osPfsSelectBank(pfs);
         if (ret != 0) {
             return ret;
         }
-        ret = func_8003C030(pfs->queue, pfs->channel, 0, temp);
+        ret = __osContRamRead(pfs->queue, pfs->channel, 0, temp);
         if (ret != 0) {
             return ret;
         }
@@ -99,11 +99,11 @@ s32 func_8003B558(T035Pfs *pfs, T035PackId *badid, T035PackId *newid) {
         for (i = 1; i < 32; i++) {
             temp[i] = ~temp[i];
         }
-        ret = func_8003C3C0(pfs->queue, pfs->channel, 0, temp, 0);
+        ret = __osContRamWrite(pfs->queue, pfs->channel, 0, temp, 0);
         if (ret != 0) {
             return ret;
         }
-        ret = func_8003C030(pfs->queue, pfs->channel, 0, comp);
+        ret = __osContRamRead(pfs->queue, pfs->channel, 0, comp);
         if (ret != 0) {
             return ret;
         }
@@ -117,11 +117,11 @@ s32 func_8003B558(T035Pfs *pfs, T035PackId *badid, T035PackId *newid) {
         }
         if (j > 0) {
             pfs->activebank = 0;
-            ret = func_8003BFC0(pfs);
+            ret = __osPfsSelectBank(pfs);
             if (ret != 0) {
                 return ret;
             }
-            ret = func_8003C030(pfs->queue, pfs->channel, 0, temp);
+            ret = __osContRamRead(pfs->queue, pfs->channel, 0, temp);
             if (ret != 0) {
                 return ret;
             }
@@ -132,7 +132,7 @@ s32 func_8003B558(T035Pfs *pfs, T035PackId *badid, T035PackId *newid) {
         j++;
     } while (j < 62);
     pfs->activebank = 0;
-    ret = func_8003BFC0(pfs);
+    ret = __osPfsSelectBank(pfs);
     if (ret != 0) {
         return ret;
     }
@@ -140,18 +140,18 @@ s32 func_8003B558(T035Pfs *pfs, T035PackId *badid, T035PackId *newid) {
     newid->deviceid = (badid->deviceid & 0xFFFE) | mask;
     newid->banks = j;
     newid->version = badid->version;
-    func_8003B45C((u16 *)newid, &newid->checksum, &newid->inverted_checksum);
+    __osIdCheckSum((u16 *)newid, &newid->checksum, &newid->inverted_checksum);
     index[0] = 1;
     index[1] = 3;
     index[2] = 4;
     index[3] = 6;
     for (i = 0; i < 4; i++) {
-        ret = func_8003C3C0(pfs->queue, pfs->channel, index[i], (u8 *)newid, 1);
+        ret = __osContRamWrite(pfs->queue, pfs->channel, index[i], (u8 *)newid, 1);
         if (ret != 0) {
             return ret;
         }
     }
-    ret = func_8003C030(pfs->queue, pfs->channel, 1, temp);
+    ret = __osContRamRead(pfs->queue, pfs->channel, 1, temp);
     if (ret != 0) {
         return ret;
     }
@@ -163,7 +163,7 @@ s32 func_8003B558(T035Pfs *pfs, T035PackId *badid, T035PackId *newid) {
     return 0;
 }
 
-s32 func_8003B8A4(T035Pfs *pfs, T035PackId *temp) {
+s32 __osCheckPackId(T035Pfs *pfs, T035PackId *temp) {
     u16 index[4];
     s32 ret = 0;
     u16 sum;
@@ -173,7 +173,7 @@ s32 func_8003B8A4(T035Pfs *pfs, T035PackId *temp) {
 
     if (pfs->activebank != 0) {
         pfs->activebank = 0;
-        ret = func_8003BFC0(pfs);
+        ret = __osPfsSelectBank(pfs);
         if (ret != 0) {
             return ret;
         }
@@ -183,11 +183,11 @@ s32 func_8003B8A4(T035Pfs *pfs, T035PackId *temp) {
     index[2] = 4;
     index[3] = 6;
     for (i = 1; i < 4; i++) {
-        ret = func_8003C030(pfs->queue, pfs->channel, index[i], (u8 *)temp);
+        ret = __osContRamRead(pfs->queue, pfs->channel, index[i], (u8 *)temp);
         if (ret != 0) {
             return ret;
         }
-        func_8003B45C((u16 *)temp, &sum, &isum);
+        __osIdCheckSum((u16 *)temp, &sum, &isum);
         if (temp->checksum == sum && temp->inverted_checksum == isum) {
             break;
         }
@@ -197,7 +197,7 @@ s32 func_8003B8A4(T035Pfs *pfs, T035PackId *temp) {
     }
     for (j = 0; j < 4; j++) {
         if (j != i) {
-            ret = func_8003C3C0(pfs->queue, pfs->channel, index[j], (u8 *)temp, 1);
+            ret = __osContRamWrite(pfs->queue, pfs->channel, index[j], (u8 *)temp, 1);
             if (ret != 0) {
                 return ret;
             }
@@ -206,10 +206,10 @@ s32 func_8003B8A4(T035Pfs *pfs, T035PackId *temp) {
     return 0;
 }
 
-s32 func_8003B558(T035Pfs *pfs, T035PackId *badid, T035PackId *newid);
-s32 func_8003B8A4(T035Pfs *pfs, T035PackId *temp);
+s32 __osRepairPackId(T035Pfs *pfs, T035PackId *badid, T035PackId *newid);
+s32 __osCheckPackId(T035Pfs *pfs, T035PackId *temp);
 
-s32 func_8003BA08(T035Pfs *pfs) {
+s32 __osGetId(T035Pfs *pfs) {
     s32 k;
     u16 sum;
     u16 isum;
@@ -220,21 +220,21 @@ s32 func_8003BA08(T035Pfs *pfs) {
 
     if (pfs->activebank != 0) {
         pfs->activebank = 0;
-        ret = func_8003BFC0(pfs);
+        ret = __osPfsSelectBank(pfs);
         if (ret != 0) {
             return ret;
         }
     }
-    ret = func_8003C030(pfs->queue, pfs->channel, 1, temp);
+    ret = __osContRamRead(pfs->queue, pfs->channel, 1, temp);
     if (ret != 0) {
         return ret;
     }
-    func_8003B45C((u16 *)temp, &sum, &isum);
+    __osIdCheckSum((u16 *)temp, &sum, &isum);
     id = (T035PackId *)temp;
     if (id->checksum != sum || id->inverted_checksum != isum) {
-        ret = func_8003B8A4(pfs, id);
+        ret = __osCheckPackId(pfs, id);
         if (ret == 10) {
-            ret = func_8003B558(pfs, id, &newid);
+            ret = __osRepairPackId(pfs, id, &newid);
             if (ret != 0) {
                 return ret;
             }
@@ -244,7 +244,7 @@ s32 func_8003BA08(T035Pfs *pfs) {
         }
     }
     if ((id->deviceid & 1) == 0) {
-        ret = func_8003B558(pfs, id, &newid);
+        ret = __osRepairPackId(pfs, id, &newid);
         if (ret != 0) {
             return ret;
         }
@@ -263,31 +263,31 @@ s32 func_8003BA08(T035Pfs *pfs) {
     pfs->inode_table = 1 * 8;
     pfs->minode_table = (1 + pfs->banks) * 8;
     pfs->dir_table = pfs->minode_table + (pfs->banks * 8);
-    ret = func_8003C030(pfs->queue, pfs->channel, 7, pfs->label);
+    ret = __osContRamRead(pfs->queue, pfs->channel, 7, pfs->label);
     if (ret != 0) {
         return ret;
     }
     return 0;
 }
 
-s32 func_8003BC0C(T035Pfs *pfs) {
+s32 __osCheckId(T035Pfs *pfs) {
     s32 k;
     u8 temp[32];
     s32 ret;
 
     if (pfs->activebank != 0) {
         pfs->activebank = 0;
-        ret = func_8003BFC0(pfs);
+        ret = __osPfsSelectBank(pfs);
         if (ret != 0) {
             return ret;
         }
     }
-    ret = func_8003C030(pfs->queue, pfs->channel, 1, temp);
+    ret = __osContRamRead(pfs->queue, pfs->channel, 1, temp);
     if (ret != 0) {
         if (ret != 2) {
             return ret;
         }
-        ret = func_8003C030(pfs->queue, pfs->channel, 1, temp);
+        ret = __osContRamRead(pfs->queue, pfs->channel, 1, temp);
         if (ret != 0) {
             return ret;
         }
@@ -312,9 +312,9 @@ typedef struct T035Inode {
     /* 0x000 */ T035InodeUnit inode_page[128];
 } T035Inode;
 
-u16 func_8003B3E0(u8 *ptr, s32 length);
+u16 __osSumcalc(u8 *ptr, s32 length);
 
-s32 func_8003BD24(T035Pfs *pfs, T035Inode *inode, u8 flag, u8 bank) {
+s32 __osPfsRWInode(T035Pfs *pfs, T035Inode *inode, u8 flag, u8 bank) {
     u8 sum;
     s32 j;
     s32 ret;
@@ -323,7 +323,7 @@ s32 func_8003BD24(T035Pfs *pfs, T035Inode *inode, u8 flag, u8 bank) {
 
     if (pfs->activebank != 0) {
         pfs->activebank = 0;
-        ret = func_8003BFC0(pfs);
+        ret = __osPfsSelectBank(pfs);
         if (ret != 0) {
             return ret;
         }
@@ -334,45 +334,45 @@ s32 func_8003BD24(T035Pfs *pfs, T035Inode *inode, u8 flag, u8 bank) {
         offset = pfs->inode_start_page;
     }
     if (flag == 1) {
-        inode->inode_page[0].inode_t.page = func_8003B3E0((u8 *)(inode->inode_page + offset), (128 - offset) * 2);
+        inode->inode_page[0].inode_t.page = __osSumcalc((u8 *)(inode->inode_page + offset), (128 - offset) * 2);
     }
     for (j = 0; j < 8; j++) {
         addr = (u8 *)inode->inode_page + j * 32;
         if (flag == 1) {
-            ret = func_8003C3C0(pfs->queue, pfs->channel, pfs->inode_table + bank * 8 + j, addr, 0);
-            ret = func_8003C3C0(pfs->queue, pfs->channel, pfs->minode_table + bank * 8 + j, addr, 0);
+            ret = __osContRamWrite(pfs->queue, pfs->channel, pfs->inode_table + bank * 8 + j, addr, 0);
+            ret = __osContRamWrite(pfs->queue, pfs->channel, pfs->minode_table + bank * 8 + j, addr, 0);
         } else {
-            ret = func_8003C030(pfs->queue, pfs->channel, pfs->inode_table + bank * 8 + j, addr);
+            ret = __osContRamRead(pfs->queue, pfs->channel, pfs->inode_table + bank * 8 + j, addr);
         }
         if (ret != 0) {
             return ret;
         }
     }
     if (flag == 0) {
-        sum = func_8003B3E0((u8 *)(inode->inode_page + offset), (128 - offset) * 2);
+        sum = __osSumcalc((u8 *)(inode->inode_page + offset), (128 - offset) * 2);
         if (sum != inode->inode_page[0].inode_t.page) {
             for (j = 0; j < 8; j++) {
                 addr = (u8 *)inode->inode_page + j * 32;
-                ret = func_8003C030(pfs->queue, pfs->channel, pfs->minode_table + bank * 8 + j, addr);
+                ret = __osContRamRead(pfs->queue, pfs->channel, pfs->minode_table + bank * 8 + j, addr);
             }
             if (sum != inode->inode_page[0].inode_t.page) {
                 return 3;
             }
             for (j = 0; j < 8; j++) {
                 addr = (u8 *)inode->inode_page + j * 32;
-                ret = func_8003C3C0(pfs->queue, pfs->channel, pfs->inode_table + bank * 8 + j, addr, 0);
+                ret = __osContRamWrite(pfs->queue, pfs->channel, pfs->inode_table + bank * 8 + j, addr, 0);
             }
         } else {
             for (j = 0; j < 8; j++) {
                 addr = (u8 *)inode->inode_page + j * 32;
-                ret = func_8003C3C0(pfs->queue, pfs->channel, pfs->minode_table + bank * 8 + j, addr, 0);
+                ret = __osContRamWrite(pfs->queue, pfs->channel, pfs->minode_table + bank * 8 + j, addr, 0);
             }
         }
     }
     return 0;
 }
 
-s32 func_8003BFC0(T035Pfs *pfs) {
+s32 __osPfsSelectBank(T035Pfs *pfs) {
     u8 temp[32];
     s32 i;
     s32 ret = 0;
@@ -380,7 +380,7 @@ s32 func_8003BFC0(T035Pfs *pfs) {
     for (i = 0; i < 32; i++) {
         temp[i] = pfs->activebank;
     }
-    ret = func_8003C3C0(pfs->queue, pfs->channel, 0x400, temp, 0);
+    ret = __osContRamWrite(pfs->queue, pfs->channel, 0x400, temp, 0);
     return ret;
 }
 
@@ -408,10 +408,10 @@ void __osSiRelAccess(void);
 s32 __osSiRawStartDma(s32 direction, void *dramAddr);
 s32 osRecvMesg(void *mq, void **msg, s32 flag);
 u8 __osContDataCrc(u8 *data);
-s32 func_80034554(void *queue, s32 channel);
-void func_8003C25C(s32 channel, u16 address);
+s32 __osPfsGetStatus(void *queue, s32 channel);
+void __osPackRamReadData(s32 channel, u16 address);
 
-s32 func_8003C030(void *mq, s32 channel, u16 address, u8 *buffer) {
+s32 __osContRamRead(void *mq, s32 channel, u16 address, u8 *buffer) {
     s32 ret;
     s32 i;
     u8 *ptr;
@@ -423,7 +423,7 @@ s32 func_8003C030(void *mq, s32 channel, u16 address, u8 *buffer) {
     retry = 2;
     __osSiGetAccess();
     D_8006F110 = 2;
-    func_8003C25C(channel, address);
+    __osPackRamReadData(channel, address);
     ret = __osSiRawStartDma(1, &D_8006F080);
     osRecvMesg(mq, 0, 1);
     do {
@@ -443,7 +443,7 @@ s32 func_8003C030(void *mq, s32 channel, u16 address, u8 *buffer) {
         ret = (ramreadformat.rxsize & 0xC0) >> 4;
         if (ret == 0) {
             if (__osContDataCrc(ramreadformat.data) != ramreadformat.datacrc) {
-                ret = func_80034554(mq, channel);
+                ret = __osPfsGetStatus(mq, channel);
                 if (ret != 0) {
                     __osSiRelAccess();
                     return ret;
@@ -473,7 +473,7 @@ typedef struct T035ContRamPackFormat {
 extern T035PifRam D_8006F080; /* __osPfsPifRam */
 u8 __osContAddressCrc(u16 addr);
 
-void func_8003C25C(s32 channel, u16 address) {
+void __osPackRamReadData(s32 channel, u16 address) {
     u8 *ptr;
     T035ContRamPackFormat ramreadformat;
     s32 i;

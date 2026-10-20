@@ -29,10 +29,10 @@ void __osSiRelAccess(void);
 s32 __osSiRawStartDma(s32 direction, void *dramAddr);
 s32 osRecvMesg(void *mq, void **msg, s32 flag);
 u8 __osContDataCrc(u8 *data);
-s32 func_80034554(void *queue, s32 channel);
-void func_8003C5E4(s32 channel, u16 address, u8 *buffer);
+s32 __osPfsGetStatus(void *queue, s32 channel);
+void __osPackRamWriteData(s32 channel, u16 address, u8 *buffer);
 
-s32 func_8003C3C0(void *mq, s32 channel, u16 address, u8 *buffer, s32 force) {
+s32 __osContRamWrite(void *mq, s32 channel, u16 address, u8 *buffer, s32 force) {
     s32 ret;
     s32 i;
     u8 *ptr;
@@ -47,7 +47,7 @@ s32 func_8003C3C0(void *mq, s32 channel, u16 address, u8 *buffer, s32 force) {
     }
     __osSiGetAccess();
     D_8006F110 = 3;
-    func_8003C5E4(channel, address, buffer);
+    __osPackRamWriteData(channel, address, buffer);
     ret = __osSiRawStartDma(1, &D_8006F080);
     osRecvMesg(mq, 0, 1);
     do {
@@ -67,7 +67,7 @@ s32 func_8003C3C0(void *mq, s32 channel, u16 address, u8 *buffer, s32 force) {
         ret = (ramwriteformat.rxsize & 0xC0) >> 4;
         if (ret == 0) {
             if (__osContDataCrc(buffer) != ramwriteformat.datacrc) {
-                ret = func_80034554(mq, channel);
+                ret = __osPfsGetStatus(mq, channel);
                 if (ret != 0) {
                     __osSiRelAccess();
                     return ret;
@@ -93,7 +93,7 @@ typedef struct T035ContRamPackFormat {
 extern T035PifRam D_8006F080; /* __osPfsPifRam */
 u8 __osContAddressCrc(u16 addr);
 
-void func_8003C5E4(s32 channel, u16 address, u8 *buffer) {
+void __osPackRamWriteData(s32 channel, u16 address, u8 *buffer) {
     u8 *ptr;
     T035ContRamPackFormat ramwriteformat;
     s32 i;

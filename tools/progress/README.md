@@ -54,21 +54,23 @@ not functions. Such padding does not enter either function denominator.
 T4 is never assigned manually. It requires all of:
 
 1. An original function is absent from the current assembly function inventory.
-2. A C source under `src/` contains its function definition, after stripping
+2. A C source under `src/` contains a definition using its original name, the current name assigned to
+   its image/VRAM in `symbol_addrs*.txt`, or a src-owned linked name at that
+   address, after stripping
    comments. An `INCLUDE_ASM` or `GLOBAL_ASM` invocation mentioning the symbol
    anywhere under `src/` prevents T4, even if the referenced assembly moved.
 3. `make` succeeds during this inventory run, and `build/kig.us.z64` equals
    `baserom.us.z64` byte for byte. For decompressed images, `build/<area>.bin` must also
    equal `build/segments/<area>.bin`.
 4. The image linker map (`build/kig.us.map` for boot, `build/<area>.map`
-   otherwise) attributes the symbol at its original VRAM to an object
+   otherwise) attributes that C-defined symbol at its original VRAM to an object
    under a `src/` directory. A merely unused C definition is insufficient.
 
 Explicit exclusions take precedence. Otherwise a qualifying match supersedes
 a manual T1/T2/T3. Build failures abort rather than silently trusting stale
 results. No C means no T4. C and GNU linker-map recognition are deliberately
 conservative: unusual macros, split map lines, different object directory
-conventions, or renamed C symbols can undercount until the parser is extended.
+conventions can undercount until the parser is extended.
 The build must correctly depend on every C source and use the ROM's matching
 configuration. Keep extraction outputs current; a stale assembly definition
 will conservatively prevent credit. The current Makefile compiles assembly

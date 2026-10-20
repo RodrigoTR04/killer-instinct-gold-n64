@@ -23,10 +23,10 @@ void __osSiGetAccess(void);
 void __osSiRelAccess(void);
 s32 __osSiRawStartDma(s32 direction, void *dramAddr);
 s32 osRecvMesg(void *mq, void **msg, s32 flag);
-void func_8003431C(u8 command);
-void func_800343F4(u8 *pattern, T035ContStatus *data);
+void __osPfsRequestData(u8 command);
+void __osPfsGetInitData(u8 *pattern, T035ContStatus *data);
 
-s32 func_80034180(void *queue, u8 *pattern) {
+s32 osPfsIsPlug(void *queue, u8 *pattern) {
     s32 ret = 0;
     void *dummy;
     u8 bitpattern;
@@ -37,12 +37,12 @@ s32 func_80034180(void *queue, u8 *pattern) {
 
     __osSiGetAccess();
     do {
-        func_8003431C(0);
+        __osPfsRequestData(0);
         ret = __osSiRawStartDma(1, &D_8006F080);
         osRecvMesg(queue, &dummy, 1);
         ret = __osSiRawStartDma(0, &D_8006F080);
         osRecvMesg(queue, &dummy, 1);
-        func_800343F4(&bitpattern, data);
+        __osPfsGetInitData(&bitpattern, data);
         for (channel = 0; channel < D_8006F111; channel++) {
             if ((data[channel].status & 4) == 0) {
                 crc_error_cnt--;
@@ -78,7 +78,7 @@ typedef struct T035ContRequestFormat {
 extern T035PifRam D_8006F080; /* __osPfsPifRam */
 extern u8 D_8006F111;         /* __osMaxControllers */
 
-void func_8003431C(u8 command) {
+void __osPfsRequestData(u8 command) {
     u8 *ptr;
     T035ContRequestFormat requestformat;
     s32 i;
@@ -105,7 +105,7 @@ void func_8003431C(u8 command) {
 extern T035PifRam D_8006F080; /* __osPfsPifRam */
 extern u8 D_8006F111;   /* __osMaxControllers */
 
-void func_800343F4(u8 *pattern, T035ContStatus *data) {
+void __osPfsGetInitData(u8 *pattern, T035ContStatus *data) {
     u8 *ptr;
     T035ContRequestFormat requestformat;
     s32 i;

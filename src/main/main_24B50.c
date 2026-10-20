@@ -14,15 +14,15 @@ typedef struct T035Pfs {
 extern u8 D_8006F110; /* __osContLastCmd */
 void __osSiGetAccess(void);
 void __osSiRelAccess(void);
-s32 func_80034554(void *queue, s32 channel);
-s32 func_8003BA08(T035Pfs *pfs);
-s32 func_800347D0(T035Pfs *pfs);
+s32 __osPfsGetStatus(void *queue, s32 channel);
+s32 __osGetId(T035Pfs *pfs);
+s32 osPfsChecker(T035Pfs *pfs);
 
-s32 func_800344B0(void *queue, T035Pfs *pfs, s32 channel) {
+s32 osPfsInit(void *queue, T035Pfs *pfs, s32 channel) {
     s32 ret;
 
     __osSiGetAccess();
-    ret = func_80034554(queue, channel);
+    ret = __osPfsGetStatus(queue, channel);
     D_8006F110 = 0xFF;
     __osSiRelAccess();
     if (ret != 0) {
@@ -31,11 +31,11 @@ s32 func_800344B0(void *queue, T035Pfs *pfs, s32 channel) {
     pfs->queue = queue;
     pfs->channel = channel;
     pfs->status = 0;
-    ret = func_8003BA08(pfs);
+    ret = __osGetId(pfs);
     if (ret != 0) {
         return ret;
     }
-    ret = func_800347D0(pfs);
+    ret = osPfsChecker(pfs);
     pfs->status |= 1;
     return ret;
 }
@@ -47,23 +47,23 @@ typedef struct T035ContStatus {
 } T035ContStatus;
 
 extern u8 D_8006F080[];
-void func_8003431C(u8 command);
-void func_800343F4(u8 *pattern, T035ContStatus *data);
+void __osPfsRequestData(u8 command);
+void __osPfsGetInitData(u8 *pattern, T035ContStatus *data);
 s32 __osSiRawStartDma(s32 direction, void *dramAddr);
 s32 osRecvMesg(void *mq, void * *msg, s32 flag);
 
-s32 func_80034554(void *queue, s32 channel) {
+s32 __osPfsGetStatus(void *queue, s32 channel) {
     s32 ret = 0;
     void * dummy;
     u8 pattern;
     T035ContStatus data[4];
 
-    func_8003431C(0xFF);
+    __osPfsRequestData(0xFF);
     ret = __osSiRawStartDma(1, D_8006F080);
     osRecvMesg(queue, &dummy, 1);
     ret = __osSiRawStartDma(0, D_8006F080);
     osRecvMesg(queue, &dummy, 1);
-    func_800343F4(&pattern, data);
+    __osPfsGetInitData(&pattern, data);
     if ((data[channel].status & 1) && (data[channel].status & 2)) {
         return 2;
     }
@@ -98,21 +98,21 @@ typedef struct T035PfsFull {
     /* 0x5C */ s32 dir_table;
 } T035PfsFull;
 
-s32 func_8003BC0C(T035PfsFull *pfs);
-s32 func_8003C030(void *mq, s32 channel, u16 address, u8 *buffer);
+s32 __osCheckId(T035PfsFull *pfs);
+s32 __osContRamRead(void *mq, s32 channel, u16 address, u8 *buffer);
 
-s32 func_80034630(T035PfsFull *pfs, u16 company_code, u32 game_code, u8 *game_name, u8 *ext_name, s32 *file_no) {
+s32 osPfsFindFile(T035PfsFull *pfs, u16 company_code, u32 game_code, u8 *game_name, u8 *ext_name, s32 *file_no) {
     s32 j;
     s32 i;
     T035Dir dir;
     s32 ret = 0;
     s32 fail;
 
-    if (func_8003BC0C(pfs) == 2) {
+    if (__osCheckId(pfs) == 2) {
         return 2;
     }
     for (j = 0; j < pfs->dir_size; j++) {
-        ret = func_8003C030(pfs->queue, pfs->channel, pfs->dir_table + j, (u8 *)&dir);
+        ret = __osContRamRead(pfs->queue, pfs->channel, pfs->dir_table + j, (u8 *)&dir);
         if (ret != 0) {
             return ret;
         }

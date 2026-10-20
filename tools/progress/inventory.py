@@ -50,6 +50,39 @@ def scan(root):
     return rows
 
 
+def linked_source_symbols(root, areas):
+    """Read image-qualified addresses and names actually owned by src objects."""
+    linked = {}
+    for area in sorted(areas):
+        owner = ''
+        path = root / ('build/kig.us.map' if area == 'boot' else f'build/{area}.map')
+        if not path.exists():
+            continue
+        for line in path.read_text().splitlines():
+            obj = re.search(r'\s(\S+\.o)\s*$', line)
+            if obj:
+                owner = obj[1]
+            symbol = re.fullmatch(r'\s*0x([0-9a-fA-F]+)\s+(\w+)\s*', line)
+            if symbol and ('/src/' in owner or owner.startswith('src/')):
+                key = f'{area}:0x{int(symbol[1],16):08X}'
+                linked.setdefault(key, set()).add(symbol[2])
+    return linked
+
+
+def function_names(root, original):
+    names = {key: {row['function']} for key, row in original.items()}
+    for path in sorted(root.glob('symbol_addrs*.txt')):
+        area = 'boot' if path.name == 'symbol_addrs.us.txt' else path.name.removeprefix('symbol_addrs.').removesuffix('.us.txt')
+        for name, value in re.findall(r'^\s*(\w+)\s*=\s*(0x[0-9a-fA-F]+)\s*;', path.read_text(), re.M):
+            key = f'{area}:0x{int(value,16):08X}'
+            if key in names:
+                names[key].add(name)
+    for key, symbols in linked_source_symbols(root, {r['area'] for r in original.values()}).items():
+        if key in names:
+            names[key].update(symbols)
+    return names
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path, default=ROOT)
@@ -93,12 +126,17 @@ def main():
     # T4 requires disappearance from assembly, a real C definition, no assembly
     # inclusion mentioning the symbol, and a fresh successful matching make.
     candidates = set()
+    defined_names = {}
+    names = function_names(root, original)
+    inclusions = list(re.finditer(r'(?:INCLUDE_ASM|GLOBAL_ASM)\s*\(.*?\)', sources, re.S))
     for address, row in original.items():
-        name = re.escape(row['function'])
-        definition = re.search(r'\b' + name + r'\s*\([^;{}]*\)\s*(?:[^;{}()]+;\s*)*\{', sources)  # also K&R param decls
-        included = any(re.search(r'\b' + name + r'\b', m[0]) for m in re.finditer(r'(?:INCLUDE_ASM|GLOBAL_ASM)\s*\(.*?\)', sources, re.S))
-        if address not in current and definition and not included:
+        definitions = {name for name in names[address] if re.search(
+            r'\b' + re.escape(name) + r'\s*\([^;{}]*\)\s*(?:[^;{}()]+;\s*)*\{', sources)}
+        included = any(re.search(r'\b' + re.escape(name) + r'\b', m[0])
+                       for name in names[address] for m in inclusions)
+        if address not in current and definitions and not included:
             candidates.add(address)
+            defined_names[address] = definitions
     if candidates:
         subprocess.run(['make'], cwd=root, check=True)
         # Verify independently too: a successful custom/default target alone is insufficient.
@@ -109,23 +147,9 @@ def main():
                 raise ValueError(f'build image {area} does not match extracted original')
     # Confirm the linker actually took each symbol from a src object, at its
     # original address. An unused C definition must never earn T4 credit.
-    linked = set()
     if candidates:
-        for area in sorted({original[key]['area'] for key in candidates}):
-            owner = ''
-            map_path = root / ('build/kig.us.map' if area == 'boot' else f'build/{area}.map')
-            if not map_path.exists():
-                continue
-            for line in map_path.read_text().splitlines():
-                obj = re.search(r'\s(\S+\.o)\s*$', line)
-                if obj:
-                    owner = obj[1]
-                symbol = re.fullmatch(r'\s*0x([0-9a-fA-F]+)\s+(\w+)\s*', line)
-                if symbol and ('/src/' in owner or owner.startswith('src/')):
-                    address = f'{area}:0x{int(symbol[1],16):08X}'
-                    if address in candidates and original[address]['function'] == symbol[2]:
-                        linked.add(address)
-        candidates &= linked
+        linked = linked_source_symbols(root, {original[key]['area'] for key in candidates})
+        candidates = {key for key in candidates if defined_names[key] & linked.get(key, set())}
     used = set()
     output = []
     for address, row in sorted(original.items(), key=lambda pair: (pair[1]['area'], int(pair[1]['vram'], 16))):

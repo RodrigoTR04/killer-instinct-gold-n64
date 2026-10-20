@@ -33,10 +33,10 @@ typedef struct T035Inode {
     /* 0x000 */ T035InodeUnit inode_page[128];
 } T035Inode;
 
-s32 func_8003BC0C(T035Pfs *pfs);
-s32 func_8003BD24(T035Pfs *pfs, T035Inode *inode, u8 flag, u8 bank);
+s32 __osCheckId(T035Pfs *pfs);
+s32 __osPfsRWInode(T035Pfs *pfs, T035Inode *inode, u8 flag, u8 bank);
 
-s32 func_8003C750(T035Pfs *pfs, s32 *bytes_not_used) {
+s32 osPfsFreeBlocks(T035Pfs *pfs, s32 *bytes_not_used) {
     s32 j;
     s32 pages = 0;
     T035Inode inode;
@@ -47,11 +47,11 @@ s32 func_8003C750(T035Pfs *pfs, s32 *bytes_not_used) {
     if ((pfs->status & 1) == 0) {
         return 5;
     }
-    if (func_8003BC0C(pfs) == 2) {
+    if (__osCheckId(pfs) == 2) {
         return 2;
     }
     for (bank = 0; bank < pfs->banks; bank++) {
-        ret = func_8003BD24(pfs, &inode, 0, bank);
+        ret = __osPfsRWInode(pfs, &inode, 0, bank);
         if (ret != 0) {
             return ret;
         }

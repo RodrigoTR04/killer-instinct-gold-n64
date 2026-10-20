@@ -27,11 +27,11 @@ typedef struct T037Dir {
     /* 0x10 */ u8 game_name[16];
 } T037Dir;
 
-s32 func_8003BC0C(T037Pfs *pfs);
-s32 func_8003BFC0(T037Pfs *pfs);
-s32 func_8003C030(void *mq, s32 channel, u16 address, u8 *buffer);
+s32 __osCheckId(T037Pfs *pfs);
+s32 __osPfsSelectBank(T037Pfs *pfs);
+s32 __osContRamRead(void *mq, s32 channel, u16 address, u8 *buffer);
 
-s32 func_80035DE0(T037Pfs *pfs, s32 *max_files, s32 *files_used) {
+s32 osPfsNumFiles(T037Pfs *pfs, s32 *max_files, s32 *files_used) {
     s32 j;
     s32 ret;
     T037Dir dir;
@@ -40,18 +40,18 @@ s32 func_80035DE0(T037Pfs *pfs, s32 *max_files, s32 *files_used) {
     if ((pfs->status & 1) == 0) {
         return 5;
     }
-    if (func_8003BC0C(pfs) == 2) {
+    if (__osCheckId(pfs) == 2) {
         return 2;
     }
     if (pfs->activebank != 0) {
         pfs->activebank = 0;
-        ret = func_8003BFC0(pfs);
+        ret = __osPfsSelectBank(pfs);
         if (ret != 0) {
             return ret;
         }
     }
     for (j = 0; j < pfs->dir_size; j++) {
-        ret = func_8003C030(pfs->queue, pfs->channel, pfs->dir_table + j, (u8 *)&dir);
+        ret = __osContRamRead(pfs->queue, pfs->channel, pfs->dir_table + j, (u8 *)&dir);
         if (ret != 0) {
             return ret;
         }
