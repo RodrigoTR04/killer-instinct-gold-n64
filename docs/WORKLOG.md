@@ -232,3 +232,6 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-e988a6dc. func_801B18BC and func_801BF788 match (500 B). 14 drafts improved and 2 unchanged; both clone families are still unmatched.
 - Clean vet build: the ROM and all 3 images are byte-identical. 253 T4; M1 = M2 = 52,412 / 319,100 B (16.42%).
 - T-057 launched (sol-B19): follow-up on T-053's near-misses and clone families.
+
+## 2026-10-20 — T-052 vet failed (sent back)
+- Worktree t3-ac9efe1b. It reports func_8002A9DC and func_8001C43C matched (C43C's owner hints removed) and 15 drafts improved. Merging onto master conflicts in main_2FF0.c: T-051 defines `u8 D_8004A730[8]` and scalar `s8 D_8004A738`, while T-052 declares extern s8 arrays and `D_8004A5E0[][7]`. Sent back to rebase and reconcile the types while keeping T-051's bss ownership.
