@@ -453,3 +453,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-100 vetted (screen tier 50-90)
 - Worktree t3-8db54426. 5 functions match (1,596 B): func_8002F5F0, func_80029AB0, func_801C0610, func_801C6D40 and func_801BED0C. 6 improved, 9 unchanged. Scratch trimmed to files under 40 KB.
 - Clean vet build: the ROM and all 3 images are byte-identical. 299 T4; M1 = M2 = 65,028 / 289,876 B (22.43%).
+- T-102 launched (sol-C38): screen tier 88-111.
