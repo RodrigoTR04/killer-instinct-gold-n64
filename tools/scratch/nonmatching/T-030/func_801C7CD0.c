@@ -1,4 +1,4 @@
-/* DRAFT. Remaining diff: Narrow mode argument, global-base registers, initialization and call scheduling differ. */
+/* DRAFT (T-060). 63 differing words (was 74); target size 380 bytes. Reload replay after its conditional initialization. Remaining: mode/global/call register allocation and scheduling. */
 #include "common.h"
 
 extern void func_801ADAD4(s32, s32 *, s32 *, u8 *);
@@ -33,11 +33,8 @@ void func_801C7CD0(u8 arg0) {
     D_801CD454 = 0;
     D_802D3A00 = mode;
     if (mode == 5) {
+        if (D_802D3E15 == 0) D_802D3E15 = 1;
         replay = D_802D3E15;
-        if (!replay) {
-            D_802D3E15 = 1;
-            replay = 1;
-        }
         D_802D3678[1] = 0x1000;
         D_802D3678[0] = 0;
         D_802D3678[3] = 0x1000;

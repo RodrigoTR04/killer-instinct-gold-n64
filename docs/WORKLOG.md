@@ -260,3 +260,6 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-059 vetted (main mid drafts)
 - Worktree t3-45b42cd9. All 12 attempted: 0 matched, 5 drafts improved, 7 unchanged. Scratch-only changes, so I imported the drafts and REPORT.md. No build impact.
 - T-061 launched (sol-C23): ovl_7DF8 stuck near-misses with the declaration-first method, a list disjoint from T-060.
+
+## 2026-10-20 — T-060 vetted (ovl_7DF8 declaration-first)
+- Worktree t3-489ed93b. All 15 attempted: 0 matched, 5 drafts improved (func_801C35D8 65→5, func_801BFB40 12→8), 10 unchanged. Scratch-only changes; I imported the drafts and REPORT.md.

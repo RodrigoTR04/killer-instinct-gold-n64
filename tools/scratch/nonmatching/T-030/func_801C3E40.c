@@ -1,4 +1,4 @@
-/* DRAFT. Remaining diff: Display-list/count/index registers, vertex updates and instruction scheduling differ. */
+/* DRAFT (T-060). 88 differing words (was 96); target size 504 bytes. Byte ring index and slot. Remaining: vertex-update and command scheduling/register allocation. */
 #include "common.h"
 
 typedef struct { u32 w0, w1; } T030Cmd3E40;
@@ -12,7 +12,7 @@ extern T030Triangle3E40 *D_802D3940;
 
 void func_801C3E40(T030Cmd3E40 **arg0) {
     T030Cmd3E40 *dl;
-    s32 count, index, slot;
+    s32 count; u8 index, slot;
     s8 dx, dy;
     D_802D38F4 = D_802D38F0;
     D_802D38F0 = D_802937D0;
