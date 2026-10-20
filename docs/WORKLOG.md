@@ -330,3 +330,6 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-1fffe101. main_23750 now owns .rodata 0x396A0–0x396C0 (0.1, 0.1, 127.0 + padding), and the rest is main_after_23750 asm data. func_800330B0 = SDK guLookAtHiliteF (libreultra lookathil.c) matches (1,900 B). FU-15: an SDK name to apply later.
 - Clean vet build: the ROM and all 3 images are byte-identical. 289 T4; M1 = M2 = 69,508 / 319,100 B (21.78%). Main is at 24.96%.
 - T-075 launched (sol-B25): SDK identification sweep over the remaining main drafts.
+
+## 2026-10-20 — T-072 vetted (main line placement on mid drafts)
+- Worktree t3-9be005ec. All 16 attempted: 0 matched, 5 drafts improved, 11 unchanged. Scratch-only changes; I imported the drafts and REPORT.md. Line placement mostly helps when only a few scheduling differences remain.

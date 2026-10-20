@@ -1,11 +1,8 @@
-/* T-059 DRAFT: 90 relocation-masked positional words differ; 696 emitted bytes. See T-059/REPORT.md. */
+/* T-072 DRAFT: 141 -> 140 differing words in owning TU; 688/696 bytes.
+ * Requires TU declarations; see T-072/REPORT.md. */
 extern void *D_8004A4C0[];
 extern u8 D_8004AA28;
 extern u8 D_8004A730[8];
-extern s8 D_8004A5E0;
-extern s8 D_8004A738;
-extern s8 D_8004AC89;
-extern s8 D_8004AC8A;
 extern s8 D_8004AC8C;
 extern f32 D_8004A740[];
 extern f32 D_8004A800[];
@@ -23,7 +20,7 @@ extern void (*D_8004AA38)();
 extern void func_80019880(void);
 extern void func_8001372C(T020Position *);
 extern s32 func_800191D8(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void func_800191F0();                               /* extern */
+void func_800191F0();
 extern u8 D_80044E58;
 extern s32 D_80045B78;
 extern s16 D_80045B84;
@@ -34,19 +31,16 @@ extern s32 D_80045BAC;
 extern f32 D_800488F8;
 extern f32 D_800488FC;
 extern f32 D_80048900;
-extern u8 D_800614D8;
 extern u8 D_80061520;
-extern u8 D_80061CB8;
 extern u8 D_80183ED0;
 extern u8 D_80186990;
 extern u8 D_8018AA00;
 extern u8 D_802DEEB0;
 extern u8 D_802DEEF8;
 extern u8 D_802DEF40;
-
-void func_80018F20(void) {
+void func_80018F20(void)
+{
     f32 temp_f0;
-
     (*(s16 *)((u8 *)(D_8004A4C0) + 4)) = 3;
     (*(s32 *)((u8 *)(D_8004A4C0) + 8)) = 0;
     (*(s16 *)((u8 *)(D_8004A4C0) + 0x10)) = 3;
@@ -61,7 +55,7 @@ void func_80018F20(void) {
     (*(s8 *)((u8 *)(&D_8004A5E0) + 7)) = 1;
     (*(s8 *)((u8 *)(&D_8004A5E0) + 0xE)) = 2;
     (*(s8 *)((u8 *)(&D_8004A5E0) + 0x15)) = 3;
-    D_8004A738 = 0;
+    D_8004A738[0] = 0;
     *D_8004A740 = 42.0f;
     D_8004A7A0 = 65.0f;
     *D_8004A800 = (1289.0f);
@@ -75,7 +69,8 @@ void func_80018F20(void) {
     func_8001C05C(&D_80044E58);
     D_8004AA38 = func_800191F0;
     D_8004AA34 = func_8001372C;
-    if (D_8004AA28 == 0) {
+    if (D_8004AA28 == 0)
+    {
         func_800281C4(1);
     }
     D_8004AC80 = 0.0f;
@@ -89,9 +84,7 @@ void func_80018F20(void) {
     (*(s8 *)((u8 *)(&D_80061520) + 1)) = 0x1E;
     (*(u8 *)((u8 *)(&D_80061CB8) + 0)) = 0x80;
     (*(u8 *)((u8 *)(&D_80061CB8) + 1)) = 0x80;
-    (*(u8 *)((u8 *)(&D_80061CB8) + 2)) = 0x80;
-    (*(u8 *)((u8 *)(&D_80061CB8) + 3)) = 0x40;
-    (*(u8 *)((u8 *)(&D_80061CB8) + 4)) = 0x40;
+    (*(u8 *)((u8 *)(&D_80061CB8) + 2)) = 0x80; (*(u8 *)((u8 *)(&D_80061CB8) + 3)) = 0x40; (*(u8 *)((u8 *)(&D_80061CB8) + 4)) = 0x40;
     (*(u8 *)((u8 *)(&D_80061CB8) + 5)) = 0x40;
     (*(u8 *)((u8 *)(&D_80061CB8) + 6)) = 0;
     (*(u8 *)((u8 *)(&D_80061CB8) + 7)) = 0;
