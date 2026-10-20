@@ -199,3 +199,6 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-8fad5136. main_18440 and main_2FF0 now own their .rodata (kig.main.us.yaml). symbol_addrs.main gets force_migration/function_owner hints so constants used by asm functions stay in their pool slots. func_80018E88 and func_8002A004 match. func_8001CBCC is still 2 words off (an early constant needs more ownership work).
 - Clean vet build: the ROM and all 3 images are byte-identical. 242 T4; M1 = M2 = 49,928 / 319,100 B (15.65%).
 - T-049 launched (sol-C19): func_80001564 + FU-2 + FU-8 (boot/ROM infra).
+
+## 2026-10-20 — T-045 vet failed (sent back)
+- Worktree t3-ce4f7418. It reports 5 matches (func_80013C84, func_8001BB10, func_8002F944, func_8002FAC0, func_80030020), boot_dma unified to (s32,s32,s32), and 8 drafts improved. On top of master it fails to link: T-046 pinned the constants D_800489D0/D8/E0/E8 to func_8001BB10 via function_owner hints, and T-045 converted that function to C. Sent back to rebase on master and fix this honestly (literals or reassigned hints).
