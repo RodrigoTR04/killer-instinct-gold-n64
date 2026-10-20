@@ -198,3 +198,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-046 vetted (main rodata ownership, FU-16 part 1)
 - Worktree t3-8fad5136. main_18440 and main_2FF0 now own their .rodata (kig.main.us.yaml). symbol_addrs.main gets force_migration/function_owner hints so constants used by asm functions stay in their pool slots. func_80018E88 and func_8002A004 match. func_8001CBCC is still 2 words off (an early constant needs more ownership work).
 - Clean vet build: the ROM and all 3 images are byte-identical. 242 T4; M1 = M2 = 49,928 / 319,100 B (15.65%).
+- T-049 launched (sol-C19): func_80001564 + FU-2 + FU-8 (boot/ROM infra).
