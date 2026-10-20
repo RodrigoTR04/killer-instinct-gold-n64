@@ -1,5 +1,5 @@
-/* T-022 DRAFT: 66 instruction words differ; compiled 488 bytes, original 496 bytes */
-
+/* T-052 DRAFT: 61 relocation-masked positional words differ; 488/496 bytes. */
+extern u8 D_8004AC88;
 extern f32 cosf(f32);
 extern f32 sinf(f32);
 
@@ -39,8 +39,7 @@ void func_8001AA90(f32 arg0) {
     } else {
         var_v0 = 1;
     }
-    temp_t8 = D_8004AD09 + 1;
-    D_8004AD09 = temp_t8;
+    temp_t8 = ++D_8004AD09;
     if (var_v0 < (temp_t8 & 0xFF)) {
         D_8004AD09 = 0;
         D_8004AD0C += var_f2;

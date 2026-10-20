@@ -1,0 +1,479 @@
+t052-small.log
+func_8002B1EC baseline 4 64
+func_8002B1EC osAiGetLength() < 4 7 64
+func_8002B1EC !(osAiGetLength() / 4) 4 64
+func_8002B1EC osAiGetLength() / 4 == 0 4 64
+func_8002B1EC early return 4 64
+func_8002B1EC volatile 4 64
+func_8002B91C baseline 4 64
+func_8002B91C order 01234 4 64
+func_8002B91C order 01243 9 64
+func_8002B91C order 01324 6 64
+func_8002B91C order 01342 10 64
+func_8002B91C order 01423 11 64
+func_8002B91C order 01432 10 64
+func_8002B91C order 02134 6 64
+func_8002B91C order 02143 11 64
+func_8002B91C order 02314 10 64
+func_8002B91C order 02341 14 64
+func_8002B91C order 02413 13 64
+func_8002B91C order 02431 14 64
+func_8002B91C order 03124 8 64
+func_8002B91C order 03142 11 64
+func_8002B91C order 03214 10 64
+func_8002B91C order 03241 14 64
+func_8002B91C order 03412 13 64
+func_8002B91C order 03421 14 64
+func_8002B91C order 04123 11 64
+func_8002B91C order 04132 11 64
+func_8002B91C order 04213 12 64
+func_8002B91C order 04231 13 64
+func_8002B91C order 04312 12 64
+func_8002B91C order 04321 13 64
+func_8002B91C order 10234 4 64
+func_8002B91C order 10243 9 64
+func_8002B91C order 10324 6 64
+func_8002B91C order 10342 10 64
+func_8002B91C order 10423 11 64
+func_8002B91C order 10432 10 64
+func_8002B91C order 12034 6 64
+func_8002B91C order 12043 11 64
+func_8002B91C order 12304 10 64
+func_8002B91C order 12340 14 64
+func_8002B91C order 12403 13 64
+func_8002B91C order 12430 14 64
+func_8002B91C order 13024 8 64
+func_8002B91C order 13042 11 64
+func_8002B91C order 13204 10 64
+func_8002B91C order 13240 14 64
+func_8002B91C order 13402 13 64
+func_8002B91C order 13420 14 64
+func_8002B91C order 14023 12 64
+func_8002B91C order 14032 12 64
+func_8002B91C order 14203 13 64
+func_8002B91C order 14230 14 64
+func_8002B91C order 14302 13 64
+func_8002B91C order 14320 14 64
+func_8002B91C order 20134 8 64
+func_8002B91C order 20143 12 64
+func_8002B91C order 20314 10 64
+func_8002B91C order 20341 14 64
+func_8002B91C order 20413 13 64
+func_8002B91C order 20431 14 64
+func_8002B91C order 21034 7 64
+func_8002B91C order 21043 11 64
+func_8002B91C order 21304 10 64
+func_8002B91C order 21340 14 64
+func_8002B91C order 21403 12 64
+func_8002B91C order 21430 13 64
+func_8002B91C order 23014 9 64
+func_8002B91C order 23041 13 64
+func_8002B91C order 23104 9 64
+func_8002B91C order 23140 13 64
+func_8002B91C order 23401 13 64
+func_8002B91C order 23410 13 64
+func_8002B91C order 24013 13 64
+func_8002B91C order 24031 14 64
+func_8002B91C order 24103 13 64
+func_8002B91C order 24130 14 64
+func_8002B91C order 24301 14 64
+func_8002B91C order 24310 14 64
+func_8002B91C order 30124 9 64
+func_8002B91C order 30142 12 64
+func_8002B91C order 30214 10 64
+func_8002B91C order 30241 14 64
+func_8002B91C order 30412 13 64
+func_8002B91C order 30421 14 64
+func_8002B91C order 31024 8 64
+func_8002B91C order 31042 11 64
+func_8002B91C order 31204 10 64
+func_8002B91C order 31240 14 64
+func_8002B91C order 31402 12 64
+func_8002B91C order 31420 13 64
+func_8002B91C order 32014 9 64
+func_8002B91C order 32041 13 64
+func_8002B91C order 32104 9 64
+func_8002B91C order 32140 13 64
+func_8002B91C order 32401 13 64
+func_8002B91C order 32410 13 64
+func_8002B91C order 34012 13 64
+func_8002B91C order 34021 14 64
+func_8002B91C order 34102 13 64
+func_8002B91C order 34120 14 64
+func_8002B91C order 34201 14 64
+func_8002B91C order 34210 14 64
+func_8002B91C order 40123 11 64
+func_8002B91C order 40132 11 64
+func_8002B91C order 40213 13 64
+func_8002B91C order 40231 14 64
+func_8002B91C order 40312 13 64
+func_8002B91C order 40321 14 64
+func_8002B91C order 41023 11 64
+func_8002B91C order 41032 11 64
+func_8002B91C order 41203 12 64
+func_8002B91C order 41230 13 64
+func_8002B91C order 41302 12 64
+func_8002B91C order 41320 13 64
+func_8002B91C order 42013 12 64
+func_8002B91C order 42031 13 64
+func_8002B91C order 42103 12 64
+func_8002B91C order 42130 13 64
+func_8002B91C order 42301 13 64
+func_8002B91C order 42310 13 64
+func_8002B91C order 43012 13 64
+func_8002B91C order 43021 14 64
+func_8002B91C order 43102 13 64
+func_8002B91C order 43120 14 64
+func_8002B91C order 43201 14 64
+func_8002B91C order 43210 14 64
+func_8002AA98 baseline 9 80
+func_8002AA98 call s16 9 80
+func_8002AA98 call u16 8 76
+func_8002AA98 call u32 9 80
+func_8002AA98 scaled s16 11 88
+func_8002AA98 scaled u16 5 84
+func_8002AA98 scaled u32 9 80
+func_8002AA98 unsigned multiply 9 80
+func_8002AA98 assignment to volume 8 80
+func_8002AAEC baseline 9 80
+func_8002AAEC call s16 9 80
+func_8002AAEC call u16 8 76
+func_8002AAEC call u32 9 80
+func_8002AAEC scaled s16 11 88
+func_8002AAEC scaled u16 5 84
+func_8002AAEC scaled u32 9 80
+func_8002AAEC unsigned multiply 9 80
+func_8002AAEC assignment to volume 8 80
+func_8002B95C baseline 2 88
+func_8002B95C local norm 2 88
+func_8002B95C const matrix 2 88
+func_8002B95C pointer matrix 2 88
+func_800281C4 baseline 4 108
+func_800281C4 reverse assignments 4 108
+func_800281C4 integer addresses 4 108
+func_8002A1E0 baseline 3 116
+func_8002A1E0 loop i=16; do { D_800669A8=(D_800669A8<<1)+func_8003278C(); } while(--i); 23 104
+func_8002A1E0 loop for(i=0;i<16;i++) { D_800669A8=(D_800669A8<<1)+func_8003278C(); } 6 116
+func_8002B7E0 baseline 2 208
+func_8002B7E0 separate stores 31 176
+func_8002B7E0 norm s32 3 208
+func_8002B7E0 reverse condition 22 204
+func_8002DCC8 baseline 4 268
+func_8002DCC8 declaration ('dx', 'dy', 'dz') 4 268
+func_8002DCC8 declaration ('dx', 'dz', 'dy') 14 268
+func_8002DCC8 declaration ('dy', 'dx', 'dz') 19 268
+func_8002DCC8 declaration ('dy', 'dz', 'dx') 66 272
+func_8002DCC8 declaration ('dz', 'dx', 'dy') 19 268
+func_8002DCC8 declaration ('dz', 'dy', 'dx') 66 272
+func_8002DCC8 length temp 4 268
+
+t052-more.log
+func_8002AA98 baseline 9 80
+func_8002AA98 s32 (s16)(scaled >> 16) 9 80
+func_8002AA98 s32 (s16)((u32)scaled >> 16) 9 80
+func_8002AA98 s32 (scaled >> 16) 8 76
+func_8002AA98 s32 (s16)((scaled >> 16) & 0xFFFF) 9 80
+func_8002AA98 u32 (s16)(scaled >> 16) 9 80
+func_8002AA98 u32 (s16)((u32)scaled >> 16) 9 80
+func_8002AA98 u32 (scaled >> 16) 8 76
+func_8002AA98 u32 (s16)((scaled >> 16) & 0xFFFF) 9 80
+func_8002AA98 s16 (s16)(scaled >> 16) 9 80
+func_8002AA98 s16 (s16)((u32)scaled >> 16) 9 80
+func_8002AA98 s16 (scaled >> 16) 9 80
+func_8002AA98 s16 (s16)((scaled >> 16) & 0xFFFF) 9 80
+func_8002AA98 u16 (s16)(scaled >> 16) 9 80
+func_8002AA98 u16 (s16)((u32)scaled >> 16) 9 80
+func_8002AA98 u16 (scaled >> 16) 9 80
+func_8002AA98 u16 (s16)((scaled >> 16) & 0xFFFF) 8 76
+func_8002AAEC baseline 9 80
+func_8002AAEC s32 (s16)(scaled >> 16) 9 80
+func_8002AAEC s32 (s16)((u32)scaled >> 16) 9 80
+func_8002AAEC s32 (scaled >> 16) 8 76
+func_8002AAEC s32 (s16)((scaled >> 16) & 0xFFFF) 9 80
+func_8002AAEC u32 (s16)(scaled >> 16) 9 80
+func_8002AAEC u32 (s16)((u32)scaled >> 16) 9 80
+func_8002AAEC u32 (scaled >> 16) 8 76
+func_8002AAEC u32 (s16)((scaled >> 16) & 0xFFFF) 9 80
+func_8002AAEC s16 (s16)(scaled >> 16) 9 80
+func_8002AAEC s16 (s16)((u32)scaled >> 16) 9 80
+func_8002AAEC s16 (scaled >> 16) 9 80
+func_8002AAEC s16 (s16)((scaled >> 16) & 0xFFFF) 9 80
+func_8002AAEC u16 (s16)(scaled >> 16) 9 80
+func_8002AAEC u16 (s16)((u32)scaled >> 16) 9 80
+func_8002AAEC u16 (scaled >> 16) 9 80
+func_8002AAEC u16 (s16)((scaled >> 16) & 0xFFFF) 8 76
+
+t052-attempts.log
+func_8002A9DC baseline 44 192
+func_8002A9DC word index with mask 46 192
+func_8002A9DC do wait 40 176
+func_8002A9DC word index 0 188
+func_8002F5F0 baseline 50 220
+func_8002F5F0 clear next then prev 50 220
+func_8002F5F0 owner temporary 50 220
+func_8002F5F0 early free head 50 216
+func_8002A900 baseline 55 224
+func_8002A900 u16 index 56 224
+func_8002A900 for wait 55 224
+func_8002A900 signed count 55 224
+func_8002DF98 baseline 56 240
+func_8002DF98 row loop 71 288
+func_8002DF98 sum operand order 2 244
+func_8002DF98 float temporaries 55 232
+func_8001C43C baseline 65 272
+func_8001C43C indexed loops 10 248
+func_8001C43C pointer parameters 65 272
+func_8001373C baseline 66 264
+func_8001373C literal constants 66 264
+func_8001373C separate divisions 66 264
+func_8001373C reordered distance locals 66 264
+func_80015F6C baseline 34 268
+func_80015F6C chain white stores 27 268
+func_80015F6C reload timer 55 272
+func_80015F6C compound timer decrement 34 268
+func_8002A300 baseline 42 296
+func_8002A300 word run length 39 280
+func_8002A300 do run 41 292
+func_8002A300 indexed run 72 300
+func_80029AB0 baseline 64 284
+func_80029AB0 indexed effects 68 284
+func_80029AB0 single element loop 64 284
+func_80029AB0 postincrement age 64 284
+func_80023EF0 baseline 81 324
+func_80023EF0 word player index 81 324
+func_80023EF0 direct count access 80 320
+func_80023EF0 boolean facing 67 296
+func_80012950 baseline 56 316
+func_80012950 chain floats 79 332
+func_80012950 forward clears 56 316
+func_80012950 word argument 40 312
+func_8001BDE0 baseline 15 316
+func_8001BDE0 structured forward loop 80 344
+func_8001BDE0 load factors reverse 17 316
+func_8001BDE0 inline factor loads 75 360
+func_8002AEE4 baseline 71 320
+func_8002AEE4 while message loop 48 336
+func_8002AEE4 signed frame modulo 71 320
+func_8002AEE4 word message type 71 320
+func_800245B4 baseline 85 344
+func_800245B4 indexed rows 93 376
+func_800245B4 field copies 85 344
+func_8001256C baseline 63 356
+func_8001256C unsigned color 63 356
+func_8001256C store command first 63 356
+func_8001256C cursor indexed commands 72 304
+func_8002B57C baseline 66 348
+func_8002B57C typed controller loop 4 368
+func_8002B57C do initialization wait 68 328
+func_8002B22C baseline 94 396
+func_8002B22C for cache traversal 94 396
+func_8002B22C unsigned length 94 396
+func_8002B22C mask aligned address 93 392
+func_80026738 baseline 95 388
+func_80026738 word scale 95 384
+func_80026738 late advance effect 96 388
+func_80026738 unsigned kind 95 388
+func_8002F45C baseline 76 416
+func_8002F45C key after interrupt 93 400
+func_8002F45C word pan 39 404
+func_8002F45C clear next first 79 416
+func_8002B034 baseline 30 440
+func_8002B034 unsigned sample compare 63 440
+func_8002B034 command byte mask 40 440
+func_8002B034 direct command subtraction 40 440
+func_8002DDD4 baseline 102 444
+func_8002DDD4 float depth test 96 428
+func_8002DDD4 reorder screen locals 102 444
+func_8002DDD4 explicit screen conversions 102 444
+func_8001CD50 baseline 92 436
+func_8001CD50 share zero local 92 436
+func_8001CD50 chain paired clears 98 448
+func_80012390 baseline 110 480
+func_80012390 simple byte sentinel 106 464
+func_80012390 indexed pixel copy 115 476
+func_80012390 copy then advance 110 480
+func_80016078 baseline 112 448
+func_80016078 unsigned color 112 448
+func_80016078 postincrement command pointers 104 444
+func_80016078 integer dimensions 102 408
+func_8002E4A0 baseline 102 428
+func_8002E4A0 signed loops 102 428
+func_8002E4A0 pointer voice linking 104 428
+func_8002E4A0 clear current late 99 428
+func_800191F0 baseline 123 508
+func_800191F0 typed indexed actor loop 151 620
+func_800191F0 remove redundant stores 106 476
+func_8001AA90 baseline 62 488
+func_8001AA90 simple increment 61 488
+func_8001AA90 while wrapping 62 488
+func_8001AA90 reuse sine local 84 484
+func_8002F6F4 baseline 30 516
+func_8002F6F4 clear bit complement 30 516
+func_8002F6F4 signed word repeat 30 516
+func_8002F6F4 event local order 30 516
+func_8002D9C4 baseline 119 476
+func_8002D9C4 explicit pose copies 105 424
+func_8002D9C4 separate frame conversion 119 476
+func_8002D9C4 reverse pose local order 119 476
+func_8001272C baseline 105 544
+func_8001272C for objects 138 556
+func_8001272C word fade 105 544
+func_8001272C local fade compare 105 544
+func_8002FB80 baseline 101 512
+func_8002FB80 unsigned loop 101 512
+func_8002FB80 pointer end loop 125 508
+func_8002FB80 signed byte input 104 512
+func_800287D4 baseline 90 560
+func_800287D4 advance particle cursor 139 564
+func_800287D4 reverse random comparison 90 560
+func_800287D4 xyz store order 89 560
+func_8002FDA0 baseline 143 580
+func_8002FDA0 word flags 141 568
+func_8002FDA0 explicit initial vertex 143 580
+func_8002FDA0 unsigned decoded value 136 584
+func_8001DE5C baseline 155 624
+func_8001DE5C literal sign extension 155 624
+func_8001DE5C word flag argument 155 624
+func_8001DE5C signed aligned width 151 620
+
+t052-near.log
+func_8002B57C best baseline 4 368
+func_8002B57C unrolled 0 62 336
+func_8002B57C unrolled 1 62 336
+func_8002B57C unrolled 2 62 336
+func_8002B57C unrolled 3 62 336
+func_8002B57C unrolled 4 62 336
+func_8002B57C unrolled 5 62 336
+func_8002B57C unrolled 6 62 336
+func_8002B57C unrolled 7 62 336
+func_8002B57C unrolled 8 62 336
+func_8002B57C unrolled 9 62 336
+func_8002B57C unrolled 10 62 336
+func_8002B57C unrolled 11 62 336
+func_8002B57C unrolled 12 62 336
+func_8002B57C unrolled 13 62 336
+func_8002B57C unrolled 14 62 336
+func_8002B57C unrolled 15 62 336
+func_8002B57C index s32 4 368
+func_8002B57C index u32 4 368
+func_8002B57C index u8 41 232
+func_8002B57C index s8 41 232
+func_8001C43C best baseline 10 248
+func_8001C43C s32 i,j,second=0,first=0; 8 248
+func_8001C43C s32 first=0,second=0,i,j; 10 248
+func_8001C43C s32 second=0,first=0,i,j; 8 248
+func_8001C43C pointer cursors 52 224
+func_8001C43C do outer 16 248
+func_8001C43C decl ('i', 'j', 'first', 'second') 10 248
+func_8001C43C decl ('i', 'j', 'second', 'first') 8 248
+func_8001C43C decl ('i', 'first', 'j', 'second') 10 248
+func_8001C43C decl ('i', 'first', 'second', 'j') 10 248
+func_8001C43C decl ('i', 'second', 'j', 'first') 8 248
+func_8001C43C decl ('i', 'second', 'first', 'j') 8 248
+func_8001C43C decl ('j', 'i', 'first', 'second') 10 248
+func_8001C43C decl ('j', 'i', 'second', 'first') 8 248
+func_8001C43C decl ('j', 'first', 'i', 'second') 10 248
+func_8001C43C decl ('j', 'first', 'second', 'i') 10 248
+func_8001C43C decl ('j', 'second', 'i', 'first') 8 248
+func_8001C43C decl ('j', 'second', 'first', 'i') 8 248
+func_8001C43C decl ('first', 'i', 'j', 'second') 10 248
+func_8001C43C decl ('first', 'i', 'second', 'j') 10 248
+func_8001C43C decl ('first', 'j', 'i', 'second') 10 248
+func_8001C43C decl ('first', 'j', 'second', 'i') 10 248
+func_8001C43C decl ('first', 'second', 'i', 'j') 10 248
+func_8001C43C decl ('first', 'second', 'j', 'i') 10 248
+func_8001C43C decl ('second', 'i', 'j', 'first') 8 248
+func_8001C43C decl ('second', 'i', 'first', 'j') 8 248
+func_8001C43C decl ('second', 'j', 'i', 'first') 8 248
+func_8001C43C decl ('second', 'j', 'first', 'i') 8 248
+func_8001C43C decl ('second', 'first', 'i', 'j') 8 248
+func_8001C43C decl ('second', 'first', 'j', 'i') 8 248
+func_8002DF98 best baseline 2 244
+func_8002DF98 float X=x; 11 244
+func_8002DF98 float X=x,Y=y; 59 244
+func_8002DF98 float X=x,Y=y,Z=z; 59 244
+func_8002DF98 x expression first 3 244
+func_8002DF98 matrix const 2 244
+func_8002A1E0 best baseline 3 116
+func_8002A1E0 i!=17D_800669A8=0; 6 116
+func_8002A1E0 i!=17*(s32 *)&D_800669A8=0; 6 116
+func_8002A1E0 i<17D_800669A8=0; 6 116
+func_8002A1E0 i<17*(s32 *)&D_800669A8=0; 6 116
+func_8002A1E0 i<=16D_800669A8=0; 6 116
+func_8002A1E0 i<=16*(s32 *)&D_800669A8=0; 6 116
+func_8002B91C best baseline 4 64
+func_8002B91C copies (False, False, False, False, False) 4 64
+func_8002B91C copies (False, False, False, False, True) 4 64
+func_8002B91C copies (False, False, False, True, False) 4 64
+func_8002B91C copies (False, False, False, True, True) 4 64
+func_8002B91C copies (False, False, True, False, False) 4 64
+func_8002B91C copies (False, False, True, False, True) 4 64
+func_8002B91C copies (False, False, True, True, False) 4 64
+func_8002B91C copies (False, False, True, True, True) 4 64
+func_8002B91C copies (False, True, False, False, False) 4 64
+func_8002B91C copies (False, True, False, False, True) 4 64
+func_8002B91C copies (False, True, False, True, False) 4 64
+func_8002B91C copies (False, True, False, True, True) 4 64
+func_8002B91C copies (False, True, True, False, False) 4 64
+func_8002B91C copies (False, True, True, False, True) 4 64
+func_8002B91C copies (False, True, True, True, False) 4 64
+func_8002B91C copies (False, True, True, True, True) 4 64
+func_8002B91C copies (True, False, False, False, False) 4 64
+func_8002B91C copies (True, False, False, False, True) 4 64
+func_8002B91C copies (True, False, False, True, False) 4 64
+func_8002B91C copies (True, False, False, True, True) 4 64
+func_8002B91C copies (True, False, True, False, False) 4 64
+func_8002B91C copies (True, False, True, False, True) 4 64
+func_8002B91C copies (True, False, True, True, False) 4 64
+func_8002B91C copies (True, False, True, True, True) 4 64
+func_8002B91C copies (True, True, False, False, False) 4 64
+func_8002B91C copies (True, True, False, False, True) 4 64
+func_8002B91C copies (True, True, False, True, False) 4 64
+func_8002B91C copies (True, True, False, True, True) 4 64
+func_8002B91C copies (True, True, True, False, False) 4 64
+func_8002B91C copies (True, True, True, False, True) 4 64
+func_8002B91C copies (True, True, True, True, False) 4 64
+func_8002B91C copies (True, True, True, True, True) 4 64
+func_8002B95C best baseline 2 88
+func_8002B95C copies ('float fovyCopy=fovy;', 'float aspectCopy=aspect;', 'float nearCopy=near;') 2 88
+func_8002B95C copies ('float fovyCopy=fovy;', 'float nearCopy=near;', 'float aspectCopy=aspect;') 18 84
+func_8002B95C copies ('float aspectCopy=aspect;', 'float fovyCopy=fovy;', 'float nearCopy=near;') 6 88
+func_8002B95C copies ('float aspectCopy=aspect;', 'float nearCopy=near;', 'float fovyCopy=fovy;') 19 84
+func_8002B95C copies ('float nearCopy=near;', 'float fovyCopy=fovy;', 'float aspectCopy=aspect;') 19 84
+func_8002B95C copies ('float nearCopy=near;', 'float aspectCopy=aspect;', 'float fovyCopy=fovy;') 19 84
+func_8002B95C matrix pointer local 2 88
+func_8002B7E0 best baseline 2 208
+func_8002B7E0 norm norm=0 45 212
+func_8002B7E0 norm norm=1 47 216
+func_8002B7E0 norm norm 2 208
+func_8002B7E0 conditional assignment 2 208
+func_800281C4 best baseline 4 108
+func_800281C4 separate declarations 4 108
+func_800281C4 end ternary 29 120
+
+t052-b57.log
+func_8002B57C baseline 4 368
+func_8002B57C ((D_80068518&(1<<i)) && !(D_800684A8[i].error&8))for(i=0;i<4;i++)D_800684A0++; 4 368
+func_8002B57C ((D_80068518&(1<<i)) && !(D_800684A8[i].error&8))for(i=0;i<4;i++)++D_800684A0; 4 368
+func_8002B57C ((D_80068518&(1<<i)) && !(D_800684A8[i].error&8))for(i=0;i<4;i++)D_800684A0+=1; 4 368
+func_8002B57C ((D_80068518&(1<<i)) && !(D_800684A8[i].error&8))for(i=0;i<=3;i++)D_800684A0++; 4 368
+func_8002B57C ((D_80068518&(1<<i)) && !(D_800684A8[i].error&8))for(i=0;i<=3;i++)++D_800684A0; 4 368
+func_8002B57C ((D_80068518&(1<<i)) && !(D_800684A8[i].error&8))for(i=0;i<=3;i++)D_800684A0+=1; 4 368
+func_8002B57C (((1<<i)&D_80068518) && !(D_800684A8[i].error&8))for(i=0;i<4;i++)D_800684A0++; 4 368
+func_8002B57C (((1<<i)&D_80068518) && !(D_800684A8[i].error&8))for(i=0;i<4;i++)++D_800684A0; 4 368
+func_8002B57C (((1<<i)&D_80068518) && !(D_800684A8[i].error&8))for(i=0;i<4;i++)D_800684A0+=1; 4 368
+func_8002B57C (((1<<i)&D_80068518) && !(D_800684A8[i].error&8))for(i=0;i<=3;i++)D_800684A0++; 4 368
+func_8002B57C (((1<<i)&D_80068518) && !(D_800684A8[i].error&8))for(i=0;i<=3;i++)++D_800684A0; 4 368
+func_8002B57C (((1<<i)&D_80068518) && !(D_800684A8[i].error&8))for(i=0;i<=3;i++)D_800684A0+=1; 4 368
+func_8002B57C ((D_80068518&(1<<i)) && (D_800684A8[i].error&8)==0)for(i=0;i<4;i++)D_800684A0++; 4 368
+func_8002B57C ((D_80068518&(1<<i)) && (D_800684A8[i].error&8)==0)for(i=0;i<4;i++)++D_800684A0; 4 368
+func_8002B57C ((D_80068518&(1<<i)) && (D_800684A8[i].error&8)==0)for(i=0;i<4;i++)D_800684A0+=1; 4 368
+func_8002B57C ((D_80068518&(1<<i)) && (D_800684A8[i].error&8)==0)for(i=0;i<=3;i++)D_800684A0++; 4 368
+func_8002B57C ((D_80068518&(1<<i)) && (D_800684A8[i].error&8)==0)for(i=0;i<=3;i++)++D_800684A0; 4 368
+func_8002B57C ((D_80068518&(1<<i)) && (D_800684A8[i].error&8)==0)for(i=0;i<=3;i++)D_800684A0+=1; 4 368
+func_8002B57C (!(D_800684A8[i].error&8) && (D_80068518&(1<<i)))for(i=0;i<4;i++)D_800684A0++; 75 392
+func_8002B57C (!(D_800684A8[i].error&8) && (D_80068518&(1<<i)))for(i=0;i<4;i++)++D_800684A0; 75 392
+func_8002B57C (!(D_800684A8[i].error&8) && (D_80068518&(1<<i)))for(i=0;i<4;i++)D_800684A0+=1; 75 392
+func_8002B57C (!(D_800684A8[i].error&8) && (D_80068518&(1<<i)))for(i=0;i<=3;i++)D_800684A0++; 75 392
+func_8002B57C (!(D_800684A8[i].error&8) && (D_80068518&(1<<i)))for(i=0;i<=3;i++)++D_800684A0; 75 392
+func_8002B57C (!(D_800684A8[i].error&8) && (D_80068518&(1<<i)))for(i=0;i<=3;i++)D_800684A0+=1; 75 392

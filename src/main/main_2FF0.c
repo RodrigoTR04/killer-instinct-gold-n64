@@ -1,6 +1,10 @@
 #include "common.h"
 
-extern s8 D_8004A738;
+u8 D_8004A730[8];
+s8 D_8004A738[8];
+extern s8 D_8004A5E0[][7];
+extern s8 D_8004A688[][7];
+
 
 extern void boot_inflate(void *, void *, void *);
 
@@ -108,7 +112,7 @@ extern void func_80013C84();
 extern void func_80015594();
 extern void func_80016078();
 extern void func_8001C0E4(s32 *, s16 *, s32 *, s16 *, s32, s32 *, s32 *, s32);
-extern void func_8001C43C(s32, void *, void *, void *, void *);
+extern void func_8001C43C(s32, u8 *, u8 *, u8 *, u8 *);
 extern s32 func_80028600(s32, f32, f32, s32);
 extern s32 func_80030020(u8 *, u8 *, u8 *, s32);
 
@@ -237,7 +241,6 @@ void func_80013C84(void) {
 
 extern u8 D_8004A401;
 extern void *D_8004A4C0[];
-extern u8 D_8004A730[8];
 extern u8 D_8019C890[], D_8019F450[];
 
 s32 func_8001414C(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
@@ -304,8 +307,8 @@ extern u8 D_80196730[], D_80197B10[], D_80198470[], D_80198F00[];
 
 s32 func_80015B64(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 x;
-    if (D_800698C4 != 0) D_8004A738 = 2;
-    else D_8004A738 = 0;
+    if (D_800698C4 != 0) D_8004A738[0] = 2;
+    else D_8004A738[0] = 0;
     if (arg2 >= 191) {
         D_8004A4C0[12] = D_8018E6D0;
         D_8004A4C0[15] = D_8018EA70;
@@ -381,7 +384,6 @@ extern void func_80015F6C();
 extern void func_80019880();
 extern void func_8001C05C(u8 *);
 extern void func_8001C0E4(s32 *, s16 *, s32 *, s16 *, s32, s32 *, s32 *, s32);
-extern void func_8001C43C(s32, void *, void *, void *, void *);
 extern s32 func_80028600(s32, f32, f32, s32);
 extern s32 func_80030020(u8 *, u8 *, u8 *, s32);
 extern u32 func_800326F0();
@@ -450,9 +452,6 @@ void func_80015CD0(void) {
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80016258.s")
 
 extern u8 D_8004509C[], D_800450A4[], D_8004511C[], D_80045124[];
-u8 D_8004A730[8];
-s8 D_8004A738;
-extern void func_8001C43C(s32, void *, void *, void *, void *);
 
 void func_80016760(s32 arg0) {
     s32 i;
@@ -464,7 +463,6 @@ void func_80016760(s32 arg0) {
 
 extern u8 D_8004514C[], D_80045154[], D_800451DC[], D_800451E4[];
 extern u8 D_8004A401;
-extern void func_8001C43C(s32, void *, void *, void *, void *);
 
 s32 func_80016824(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 result;
@@ -545,7 +543,6 @@ extern void func_8001BB10(void);
 extern void func_8001C05C(u8 *);
 extern s32 func_80028600(s32, f32, f32, s32);
 extern s32 func_80030020(u8 *, u8 *, u8 *, s32);
-extern s8 D_8004A5E0;
 extern void (*D_8004AA34)(T020Position *);
 extern u8 *D_8004AA3C;
 extern f32 D_8004AC80;
@@ -588,8 +585,8 @@ void func_80018418(void) {
     (*(u8 **)((u8 *)(D_8004A4C0) + 0xC)) = &D_80199ED0;
     (*(s16 *)((u8 *)(D_8004A4C0) + 0x10)) = 0;
     D_8004A730[0] = 1;
-    D_8004A5E0 = 0;
-    D_8004A738 = 0;
+    D_8004A5E0[0][0] = 0;
+    D_8004A738[0] = 0;
     (*(s32 *)((u8 *)(&D_8004A998) + 0)) = 0;
     (*(s32 *)((u8 *)(&D_8004A998) + 4)) = 0;
     (*(u8 **)((u8 *)(&D_8004A998) + 8)) = &D_801A3350;
@@ -674,7 +671,6 @@ void D_8001AC78();                                  /* extern */
 s32 func_80028600(s32, f32, f32, s32);  /* extern */
 s32 func_80030020(u8 *, u8 *, u8 *, s32); /* extern */
 extern u8 D_80044EAC;
-extern s8 D_8004A5E0;
 extern void (*D_8004AA34)(T020Position *);
 extern u8 *D_8004AA3C;
 extern f32 D_8004AC80;
@@ -692,8 +688,8 @@ extern u8 D_802D60B0;
 
 void func_8001971C(void) {
     D_8004A730[0] = 0;
-    D_8004A5E0 = 0;
-    D_8004A738 = 0;
+    D_8004A5E0[0][0] = 0;
+    D_8004A738[0] = 0;
     D_8004AA3C = &D_801755F0;
     D_8004AEAC = func_80019868;
     D_8004AA30 = &func_80019880;
@@ -823,8 +819,6 @@ void func_8001BB10(void) {
 
 extern void guTranslate(void *, f32, f32, f32);
 extern u8 D_80044A24;
-extern f32 D_800489F8;
-extern f32 D_800489FC;
 extern u8 D_801D7E00;
 
 void func_8001BF1C(u8 **arg0, s32 arg1, s32 arg2, f32 arg3) {
@@ -832,7 +826,7 @@ void func_8001BF1C(u8 **arg0, s32 arg1, s32 arg2, f32 arg3) {
     f32 y;
 
     temp_v0 = (arg2 * 0x30) + &D_801D7E00;
-    y = (*(f32 *)(temp_v0 + 0xF4)) * D_800489F8 - D_800489FC;
+    y = (*(f32 *)(temp_v0 + 0xF4)) * 1500.0f - 4525.0f;
     y -= (*(f32 *)(temp_v0 + 0x114)) * 500.0f;
     guTranslate((void *)((((D_80044A24 * 0x28) + arg2) << 6) + 0x80190000), arg3, y, 767.0f);
     temp_v0 = *arg0;
@@ -928,7 +922,24 @@ void func_8001C370(u8 **arg0, s32 arg1, s32 arg2, u8 *arg3) {
 }
 
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_8001C43C.s")
+
+void func_8001C43C(s32 count, u8 *n, u8 *data, u8 *m, u8 *other) {
+    s32 i, j, second = 0, first = 0;
+
+    for (i = 0; i < count; i++) {
+        D_8004A730[i] = n[i];
+        for (j = 0; j < n[i];) {
+            j++;
+            D_8004A5E0[j - 1][i] = data[first++];
+        }
+        D_8004A738[i] = m[i];
+        for (j = 0; j < m[i];) {
+            j++;
+            D_8004A688[j - 1][i] = other[second++];
+        }
+    }
+}
+
 
 extern u8 D_80044ECC[];
 extern u8 D_8004AA28, D_8004AC88;

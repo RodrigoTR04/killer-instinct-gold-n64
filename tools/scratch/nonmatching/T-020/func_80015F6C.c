@@ -1,4 +1,4 @@
-/* DRAFT T-020: Same size/control flow; v0/v1 and byte temporary register allocation differ. */
+/* T-052 DRAFT: 27 relocation-masked positional words differ; 268/268 bytes. */
 extern u8 D_80044E4C[], D_8004ACD0[];
 extern s32 D_8004A264, D_8004ACF8, D_80066C40;
 extern s16 D_8004A986;
@@ -9,9 +9,7 @@ extern s32 func_800326F0(void);
 void func_80015F6C(void) {
     s32 timer = D_8004ACF8;
     if (timer < 20 && timer % 10 < 5) {
-        D_8004ACD0[1] = 255;
-        D_8004ACD0[0] = 255;
-        D_8004ACD0[2] = 255;
+        D_8004ACD0[0] = D_8004ACD0[1] = D_8004ACD0[2] = 255;
     } else {
         D_8004ACD0[0] = D_80044E4C[3];
         D_8004ACD0[1] = D_80044E4C[4];

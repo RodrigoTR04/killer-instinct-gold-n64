@@ -1,4 +1,4 @@
-/* DRAFT. Remaining diff: 57 positional differing words; 316/316 bytes */
+/* T-052 DRAFT: 40 relocation-masked positional words differ; 312/316 bytes. */
 extern void func_80012B24(u16 *, f32, f32, f32, f32, f32);
 extern f32 D_800487A0;
 extern u8 D_8004AA28;
@@ -11,7 +11,7 @@ extern s32 D_8004ACF0, D_8004AD00, D_8004AD04;
 extern f32 D_8004AC80, D_8004ACE0, D_8004AD0C, D_8004AD10;
 extern u16 D_8004ACFC;
 
-void func_80012950(u8 arg0) {
+void func_80012950(s32 arg0) {
     D_8004AA28 = arg0;
     D_8004ACD3 = 0xFF;
     D_8004ACD4 = 0;

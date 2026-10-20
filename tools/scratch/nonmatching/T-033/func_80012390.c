@@ -1,4 +1,4 @@
-/* DRAFT. Remaining diff: 110 positional differing words; 480/476 bytes */
+/* T-052 DRAFT: 106 relocation-masked positional words differ; 464/476 bytes. */
 typedef struct { u8 width, height, flags, pad; } T033ImageSize;
 typedef struct { s32 width, height; u8 pixels[1]; } T033PackedImage;
 extern u8 D_A69A70[], D_A6A990[], D_A6AA70[], D_8030000F;
@@ -23,7 +23,7 @@ void func_80012390(void) {
     end = length + 0x80300000;
     index = 0;
     while ((u32)(cursor + 8) < end) {
-        if (*cursor * 0x01010101 == 0) break;
+        if (*cursor == 0) break;
         func_80030440(cursor, index);
         cursor += (*cursor << 24) + (*cursor << 16) + (*cursor << 8) + *cursor;
         index++;
