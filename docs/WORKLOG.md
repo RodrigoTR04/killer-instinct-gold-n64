@@ -370,3 +370,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-c949349c. inventory.py now accepts a function's original name OR any symbol_addrs/linked-src name at its address, and keeps every safety check (unit tests pass). 33 SDK renames: 32 pfs functions (osPfs*/__osPfs*/__osContRam*...) and guLookAtHiliteF, including name-only caller edits in ovl_7DF8_200C0.c. Tiers and counts are unchanged (290 T4, 22.11%). The ROM is byte-identical.
 - T-083 recommends classifying these 33 (16,700 B) as SDK (excluded), consistent with the libultra convention.
 - T-084 launched (sol-B28): FU-13 readability cleanup of boot plus docs/boot.md. SDK reclassification (pfs + gu + libaudio) is pending until T-078 lands.
+
+## 2026-10-20 — T-078 vetted after rework (libaudio at IDO -O3)
+- Rebased onto T-080's libultra layout. Libaudio TUs are built at IDO -O3 (interprocedural; asm-processor uses its -O2 placeholder model via per-object ASMPROC), with headers in include/libaudio/. This explains the old "private register ABI". 19 eligible functions match (11,476 B): func_80037780 (_bnkfPatchInst), func_80038DE0 (__getTrackByte), func_80039C08 (alAudioFrame), func_80042198 (alFxParamHdl), plus the 15 T-035/T-045 private-ABI functions. 111 GLOBAL_ASM stubs were replaced in total (the rest are already-excluded SDK).
+- Clean vet build: the ROM and all 3 images are byte-identical. 309 T4; M1 = M2 = 82,032 / 319,100 B (25.71%). Main is at 32.20%.

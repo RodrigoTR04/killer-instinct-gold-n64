@@ -94,6 +94,8 @@ segments:
       - [0x2A830, c, libultra/osContInit]
       - [0x2ABF0, c, libultra/osContStartReadData]
       - [0x2AE50, c, main_2AE50]
+      - [0x2B190, c, main_2B190]
+      - [0x2B1E0, c, main_2B1E0]
       - [0x2B410, c, main_2B410]
       - [0x2B4B0, c, main_2B4B0]
       - [0x2B540, c, main_2B540]
@@ -117,6 +119,7 @@ segments:
       - [0x2F2D0, c, main_2F2A0]
       - [0x2FA50, c, main_2FA50]
       - [0x2FAF0, c, main_2FAF0]
+      - [0x2FC40, c, main_2FC40]
       - [0x30790, c, main_30790]
       - [0x30A90, c, main_30A90]
       - [0x316F0, c, main_316F0]
@@ -138,6 +141,8 @@ segments:
       - {start: 0x38B00, type: .data, name: libultra/osContInit, linker_section_order: .rodata}
       - {start: 0x38B10, type: .data, name: libultra/__osSiCreateAccessQueue, linker_section_order: .rodata}
       - {start: 0x38B20, type: data, name: main_sdk_data_80048480, linker_section_order: .rodata}
+      - {start: 0x38CB0, type: .data, name: main_30A90, linker_section_order: .rodata}
+      - {start: 0x38DF0, type: data, name: main_after_env_data, linker_section_order: .rodata}
       - [0x38E00, .rodata, main]
       - [0x38E40, .rodata, main_2FF0]
       - [0x390A0, .rodata, main_D3F0]
@@ -150,8 +155,15 @@ segments:
       - {start: 0x396E0, type: .rodata, name: libultra/sinf, linker_section_order: .rodata}
       - {start: 0x39730, type: .rodata, name: libultra/cosf, linker_section_order: .rodata}
       - {start: 0x39780, type: data, name: main_sdk_data_800490E0, linker_section_order: .rodata}
+      - [0x39790, .rodata, main_28060]
+      - [0x399D0, .rodata, main_292E0]
+      - [0x399E0, .rodata, main_2A160]
+      - {start: 0x399F0, type: data, name: main_after_2A160, linker_section_order: .rodata}
+      - [0x39A10, .rodata, main_2D860]
       - [0x39C50, .rodata, main_2F2A0]
-      - {start: 0x39C80, type: data, name: main_after_2F2A0, linker_section_order: .rodata}
+      - [0x39C80, .rodata, main_30790]
+      - [0x39CC0, .rodata, main_30A90]
+      - [0x39D20, .rodata, main_319D0]
       - [0x39D30, .rodata, main_321A0]
       - {start: 0x39D60, type: data, name: main_remaining_1, linker_section_order: .rodata}
       - {start: 0x39E10, type: bin, name: gfx_data, linker_section_order: .rodata}

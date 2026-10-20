@@ -412,14 +412,14 @@ main,guOrtho,0x80037664,0x27D04,104,excluded,libultra (T-005)
 main,alHeapInit,0x800376D0,0x27D70,52,excluded,libultra (T-005)
 main,alHeapDBAlloc,0x80037710,0x27DB0,84,excluded,libultra (T-005)
 main,func_80037770,0x80037770,0x27E10,16,T4,
-main,func_80037780,0x80037780,0x27E20,244,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
+main,func_80037780,0x80037780,0x27E20,244,T4,
 main,alBnkfNew,0x80037874,0x27F14,260,excluded,libultra (T-005)
 main,alSeqFileNew,0x80037978,0x28018,64,excluded,libultra (T-005)
 main,__CSPPostNextSeqEvent,0x800379C0,0x28060,112,excluded,libultra (T-005)
-main,func_80037A30,0x80037A30,0x280D0,60,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
-main,func_80037A6C,0x80037A6C,0x2810C,464,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
-main,func_80037C3C,0x80037C3C,0x282DC,2096,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
-main,func_8003846C,0x8003846C,0x28B0C,1556,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
+main,func_80037A30,0x80037A30,0x280D0,60,T4,
+main,func_80037A6C,0x80037A6C,0x2810C,464,T4,
+main,func_80037C3C,0x80037C3C,0x282DC,2096,T4,
+main,func_8003846C,0x8003846C,0x28B0C,1556,T4,
 main,alCSPNew,0x80038A80,0x29120,364,excluded,libultra (T-005)
 main,alCSPSetBank,0x80038BF0,0x29290,52,excluded,libultra (T-005)
 main,alCSPGetState,0x80038C30,0x292D0,8,excluded,libultra (T-005)
@@ -427,8 +427,8 @@ main,alCSPPlay,0x80038C40,0x292E0,48,excluded,libultra (T-005)
 main,alCSPStop,0x80038C70,0x29310,48,excluded,libultra (T-005)
 main,alCSeqGetLoc,0x80038CA0,0x29340,160,excluded,libultra (T-005)
 main,alCSeqSetLoc,0x80038D40,0x293E0,160,excluded,libultra (T-005)
-main,func_80038DE0,0x80038DE0,0x29480,196,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
-main,func_80038EA4,0x80038EA4,0x29544,96,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
+main,func_80038DE0,0x80038DE0,0x29480,196,T4,
+main,func_80038EA4,0x80038EA4,0x29544,96,T4,
 main,alCSeqNextEvent,0x80038F04,0x295A4,760,excluded,libultra (T-005)
 main,alCSeqNew,0x800391FC,0x2989C,276,excluded,libultra (T-005)
 main,alCSeqNewMarker,0x80039310,0x299B0,364,excluded,libultra (T-005)
@@ -452,7 +452,7 @@ main,_collectPVoices,0x80039B58,0x2A1F8,96,excluded,libultra (T-005)
 main,__freeParam,0x80039BB8,0x2A258,24,excluded,libultra (T-005)
 main,__allocParam,0x80039BD0,0x2A270,48,excluded,libultra (T-005)
 main,func_80039C00,0x80039C00,0x2A2A0,8,T4,
-main,func_80039C08,0x80039C08,0x2A2A8,648,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
+main,func_80039C08,0x80039C08,0x2A2A8,648,T4,
 main,alSynNew,0x80039E90,0x2A530,768,excluded,libultra (T-005)
 main,osContInit,0x8003A190,0x2A830,508,excluded,libultra (T-005)
 main,__osContGetInitData,0x8003A38C,0x2AA2C,208,excluded,libultra (T-005)
@@ -510,13 +510,13 @@ main,__seqpReleaseVoice,0x8003D3FC,0x2DA9C,300,excluded,libultra (T-005)
 main,__voiceNeedsNoteKill,0x8003D528,0x2DBC8,168,excluded,libultra (T-005)
 main,__unmapVoice,0x8003D5D0,0x2DC70,112,excluded,libultra (T-005)
 main,__postNextSeqEvent,0x8003D640,0x2DCE0,220,excluded,libultra (T-005)
-main,func_8003D71C,0x8003D71C,0x2DDBC,120,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
+main,func_8003D71C,0x8003D71C,0x2DDBC,120,T4,
 main,__vsPan,0x8003D794,0x2DE34,72,excluded,libultra (T-005)
 main,__lookupVoice,0x8003D7DC,0x2DE7C,116,excluded,libultra (T-005)
 main,__mapVoice,0x8003D850,0x2DEF0,112,excluded,libultra (T-005)
 main,__lookupSoundQuick,0x8003D8C0,0x2DF60,252,excluded,libultra (T-005)
-main,func_8003D9BC,0x8003D9BC,0x2E05C,2080,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
-main,func_8003E1DC,0x8003E1DC,0x2E87C,1572,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
+main,func_8003D9BC,0x8003D9BC,0x2E05C,2080,T4,
+main,func_8003E1DC,0x8003E1DC,0x2E87C,1572,T4,
 main,__seqpStopOsc,0x8003E800,0x2EEA0,260,excluded,libultra (T-005)
 main,__initChanState,0x8003E904,0x2EFA4,112,excluded,libultra (T-005)
 main,alSeqpNew,0x8003E974,0x2F014,384,excluded,libultra (T-005)
@@ -536,16 +536,16 @@ main,alMainBusParam,0x8003F450,0x2FAF0,48,excluded,libultra (T-005)
 main,alMainBusPull,0x8003F480,0x2FB20,288,excluded,libultra (T-005)
 main,alLoadParam,0x8003F5A0,0x2FC40,468,excluded,libultra (T-005)
 main,alRaw16Pull,0x8003F774,0x2FE14,940,excluded,libultra (T-005)
-main,func_8003FB20,0x8003FB20,0x301C0,300,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
+main,func_8003FB20,0x8003FB20,0x301C0,300,T4,
 main,alAdpcmPull,0x8003FC4C,0x302EC,1184,excluded,libultra (T-005)
 main,alResampleParam,0x800400F0,0x30790,236,excluded,libultra (T-005)
 main,alResamplePull,0x800401DC,0x3087C,520,excluded,libultra (T-005)
 main,_ldexpf,0x800403F0,0x30A90,40,excluded,libultra (T-005)
 main,_frexpf,0x80040418,0x30AB8,236,excluded,libultra (T-005)
 main,alEnvmixerParam,0x80040504,0x30BA4,224,excluded,libultra (T-005)
-main,func_800405E4,0x800405E4,0x30C84,464,T2,draft tools/scratch/nonmatching/T-035/ (non-matching)
-main,func_800407B4,0x800407B4,0x30E54,664,T2,draft tools/scratch/nonmatching/T-035/ (non-matching)
-main,func_80040A4C,0x80040A4C,0x310EC,176,T2,draft tools/scratch/nonmatching/T-035/ (non-matching)
+main,func_800405E4,0x800405E4,0x30C84,464,T4,
+main,func_800407B4,0x800407B4,0x30E54,664,T4,
+main,func_80040A4C,0x80040A4C,0x310EC,176,T4,
 main,alEnvmixerPull,0x80040AFC,0x3119C,1352,excluded,libultra (T-005)
 main,alAuxBusParam,0x80041050,0x316F0,48,excluded,libultra (T-005)
 main,alAuxBusPull,0x80041080,0x31720,216,excluded,libultra (T-005)
@@ -559,14 +559,14 @@ main,alSeqGetLoc,0x800414B0,0x31B50,28,excluded,libultra (T-005)
 main,alSeqSetLoc,0x800414CC,0x31B6C,28,excluded,libultra (T-005)
 main,alSeqGetTicks,0x800414E8,0x31B88,8,excluded,libultra (T-005)
 main,func_800414F0,0x800414F0,0x31B90,8,T4,
-main,func_800414F8,0x800414F8,0x31B98,76,T2,draft tools/scratch/nonmatching/T-035/ (non-matching)
+main,func_800414F8,0x800414F8,0x31B98,76,T4,
 main,alSeqNextEvent,0x80041544,0x31BE4,388,excluded,libultra (T-005)
 main,alSeqNewMarker,0x800416C8,0x31D68,288,excluded,libultra (T-005)
 main,alSeqSecToTicks,0x800417E8,0x31E88,228,excluded,libultra (T-005)
 main,alSeqTicksToSec,0x800418CC,0x31F6C,84,excluded,libultra (T-005)
 main,__alSeqNextDelta,0x80041920,0x31FC0,88,excluded,libultra (T-005)
-main,func_80041978,0x80041978,0x32018,80,T2,draft tools/scratch/nonmatching/T-035/ (non-matching)
-main,func_800419C8,0x800419C8,0x32068,48,T2,draft tools/scratch/nonmatching/T-035/ (non-matching)
+main,func_80041978,0x80041978,0x32018,80,T4,
+main,func_800419C8,0x800419C8,0x32068,48,T4,
 main,alSeqNew,0x800419F8,0x32098,216,excluded,libultra (T-005)
 main,alSynSetPriority,0x80041AD0,0x32170,16,excluded,libultra (T-005)
 main,alFilterNew,0x80041AE0,0x32180,28,excluded,libultra (T-005)
@@ -575,7 +575,7 @@ main,_filterBuffer,0x80041BA8,0x32248,184,excluded,libultra (T-005)
 main,_saveBuffer,0x80041C60,0x32300,392,excluded,libultra (T-005)
 main,_loadBuffer,0x80041DE8,0x32488,396,excluded,libultra (T-005)
 main,_loadOutputBuffer,0x80041F74,0x32614,548,excluded,libultra (T-005)
-main,func_80042198,0x80042198,0x32838,536,T2,draft tools/scratch/nonmatching/T-035/ (non-matching)
+main,func_80042198,0x80042198,0x32838,536,T4,
 main,alFxParam,0x800423B0,0x32A50,24,excluded,libultra (T-005)
 main,alFxPull,0x800423C8,0x32A68,832,excluded,libultra (T-005)
 ovl_7DF8,func_801ABB20,0x801ABB20,0x0,3644,T2,draft tools/scratch/nonmatching/T-034/ (non-matching)

@@ -98,6 +98,101 @@ build/src/main/libultra/crc.c.o: CFLAGS := $(SDK_CFLAGS) -O1 -mips2
 
 ASMPROC := tools/ext/asm-processor/build.py
 
+# Libaudio uses IDO interprocedural optimization (T-078).
+# asm-processor uses its O2 placeholder model while IDO receives O3.
+build/src/main/main_27E10.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_27E10.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2 --force --convert-statics global
+
+build/src/main/main_319D0.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_319D0.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2 --force --convert-statics global
+
+build/src/main/main_292E0.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_292E0.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2 --force --convert-statics global
+
+build/src/main/main_2FAF0.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_2FAF0.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2 --force --convert-statics global
+
+build/src/main/main_30A90.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_30A90.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2 --force --convert-statics global
+
+build/src/main/main_2D860.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_2D860.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2 --force --convert-statics global
+
+build/src/main/main_28060.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_28060.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2 --force --convert-statics global
+
+build/src/main/main_2A160.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_2A160.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2 --force --convert-statics global
+
+build/src/main/main_321A0.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_321A0.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2
+
+build/src/main/main_2FC40.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_2FC40.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2 --force --convert-statics global
+
+build/src/main/main_27D70.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_27D70.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2
+
+build/src/main/main_27DB0.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_27DB0.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2
+
+build/src/main/main_29290.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_29290.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2
+
+build/src/main/main_292D0.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_292D0.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2
+
+build/src/main/main_29E00.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_29E00.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2
+
+build/src/main/main_29E40.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_29E40.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2
+
+build/src/main/main_2B410.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_2B410.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2
+
+build/src/main/main_2B4B0.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_2B4B0.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2
+
+build/src/main/main_2B540.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_2B540.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2
+
+build/src/main/main_2B5D0.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_2B5D0.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2
+
+build/src/main/main_2B660.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_2B660.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2
+
+build/src/main/main_2B700.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_2B700.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2
+
+build/src/main/main_2F1A0.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_2F1A0.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2
+
+build/src/main/main_2F290.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_2F290.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2
+
+build/src/main/main_2FA50.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_2FA50.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2
+
+build/src/main/main_316F0.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_316F0.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2
+
+build/src/main/main_31950.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_31950.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2
+
+build/src/main/main_30790.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_30790.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2
+
+build/src/main/main_2AE50.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_2AE50.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2
+
+build/src/main/main_2B190.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_2B190.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2
+
+build/src/main/main_2B1E0.c.o: CFLAGS := -c -G 0 -non_shared -Xcpluscomm -Wab,-r4300_mul -O3 -mips2 -32
+build/src/main/main_2B1E0.c.o: ASMPROC := tools/ext/asm-processor/build.py -O2 --force --convert-statics global
+
 ASFLAGS := -EB -mips3 -32 -G 0 -I include
 ROM := build/kig.us.z64
 ELF := build/kig.us.elf
@@ -218,3 +313,6 @@ build/src/%.c.o: src/%.c include/common.h include/ultra64.h include/include_asm.
 	$(if $(FIX_IDO_O32),$(PYTHON) tools/build/ido_o32.py $@)
 
 -include $(wildcard build/src/*/*.d build/src/*/libultra/*.d)
+
+# Shared SDK audio declarations and command macros.
+build/src/main/main_27E10.c.o build/src/main/main_319D0.c.o build/src/main/main_292E0.c.o build/src/main/main_2FAF0.c.o build/src/main/main_30A90.c.o build/src/main/main_2D860.c.o build/src/main/main_28060.c.o build/src/main/main_2A160.c.o build/src/main/main_321A0.c.o build/src/main/main_2FC40.c.o build/src/main/main_27D70.c.o build/src/main/main_27DB0.c.o build/src/main/main_29290.c.o build/src/main/main_292D0.c.o build/src/main/main_29E00.c.o build/src/main/main_29E40.c.o build/src/main/main_2B410.c.o build/src/main/main_2B4B0.c.o build/src/main/main_2B540.c.o build/src/main/main_2B5D0.c.o build/src/main/main_2B660.c.o build/src/main/main_2B700.c.o build/src/main/main_2F1A0.c.o build/src/main/main_2F290.c.o build/src/main/main_2FA50.c.o build/src/main/main_316F0.c.o build/src/main/main_31950.c.o build/src/main/main_30790.c.o build/src/main/main_2AE50.c.o build/src/main/main_2B190.c.o build/src/main/main_2B1E0.c.o: $(wildcard include/libaudio/*.h)
