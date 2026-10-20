@@ -430,3 +430,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-096 vetted (hard residue, fresh eyes)
 - Worktree t3-dbe9ade7. 3 of the residue match (572 B): func_8002AA98 and func_8002AAEC (reusing the incoming volume argument fixes the mflo a2/v0 register) and func_801C5064 (zero and depth go to the right FP registers via argument/value order). 16 unchanged, with instruction-level diagnoses in T-096/REPORT.md.
 - Clean vet build: the ROM and all 3 images are byte-identical. 282 T4; M1 = M2 = 58,968 / 289,876 B (20.34%).
+- T-097 launched (sol-C36): hard residue round 2 from T-096's diagnoses.
