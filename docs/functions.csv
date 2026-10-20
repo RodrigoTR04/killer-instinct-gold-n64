@@ -530,7 +530,7 @@ main,alResampleNew,0x8003ED1C,0x2F3BC,136,excluded,libultra (T-005)
 main,alLoadNew,0x8003EDA4,0x2F444,168,excluded,libultra (T-005)
 main,alEnvmixerNew,0x8003EE4C,0x2F4EC,164,excluded,libultra (T-005)
 main,init_lpfilter,0x8003EEF0,0x2F590,160,excluded,libultra (T-005)
-main,func_8003EF90,0x8003EF90,0x2F630,1048,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
+main,func_8003EF90,0x8003EF90,0x2F630,1048,T4,
 main,alSynAllocFX,0x8003F3B0,0x2FA50,152,excluded,libultra (T-005)
 main,alMainBusParam,0x8003F450,0x2FAF0,48,excluded,libultra (T-005)
 main,alMainBusPull,0x8003F480,0x2FB20,288,excluded,libultra (T-005)

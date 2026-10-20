@@ -1,39 +1,33 @@
-/* DRAFT. Remaining diff: 64 differing instruction words; emitted 256 / original 244 bytes (positional comparison). */
-void func_80037780(u8 *instrument, s32 base, s32 unused, s32 samples) {
-    s32 i;
-    u8 *slot;
-    if (instrument[3] == 0) {
-        instrument[3] = 1;
-        i = 0;
-        if (*(s16 *)(instrument + 0xE) > 0) {
-            slot = instrument;
-            do {
-                u8 *sound = (u8 *)(*(s32 *)(slot + 0x10) + base);
-                *(u8 **)(slot + 0x10) = sound;
-                if (sound[0xE] == 0) {
-                    u8 *wave;
-                    sound[0xE] = 1;
-                    *(s32 *)sound += base;
-                    wave = (u8 *)(*(s32 *)(sound + 8) + base);
-                    *(s32 *)(sound + 4) += base;
-                    *(u8 **)(sound + 8) = wave;
-                    if (wave[9] == 0) {
-                        u8 type = wave[8];
-                        wave[9] = 1;
-                        *(s32 *)wave += samples;
-                        if (type == 0) {
-                            s32 loop = *(s32 *)(wave + 0xC);
-                            *(s32 *)(wave + 0x10) += base;
-                            if (loop != 0) *(s32 *)(wave + 0xC) = loop + base;
-                        } else if (type == 1) {
-                            s32 loop = *(s32 *)(wave + 0xC);
-                            if (loop != 0) *(s32 *)(wave + 0xC) = loop + base;
-                        }
-                    }
-                }
-                i++;
-                slot += 4;
-            } while (i < *(s16 *)(instrument + 0xE));
-        }
-    }
+/* T-075 DRAFT: 63 relocation-masked words differ in owning TU; 252/244 bytes (was 64, 256/244). SDK _bnkfPatchInst with inlined sound/wave patches. Original has an additional return stub; private fourth-argument table ABI. */
+#include "common.h"
+typedef struct {u8 *base;s32 len;u8 type,flags;u8 pad[2];void *loop,*book;} Wave;
+typedef struct {void *envelope,*keyMap;Wave *wavetable;u8 pan,vol,flags;} Sound;
+typedef struct {u8 volume,pan,priority,flags;u8 rest[10];s16 soundCount;Sound *soundArray[1];} Instrument;
+void func_80037780(Instrument *inst,s32 offset,s32 unused,s32 table){
+ s32 i;
+ if(inst->flags)return;
+ inst->flags=1;
+ for(i=0;i<inst->soundCount;i++){
+ Sound *s;
+ inst->soundArray[i]=(Sound *)((u8 *)inst->soundArray[i]+offset);
+ s=inst->soundArray[i];
+ if(!s->flags){
+ Wave *w;
+ s->flags=1;
+ s->envelope=(u8 *)s->envelope+offset;
+ s->keyMap=(u8 *)s->keyMap+offset;
+ s->wavetable=(Wave *)((u8 *)s->wavetable+offset);
+ w=s->wavetable;
+ if(!w->flags){
+ w->flags=1;
+ w->base+=table;
+ if(w->type==0){
+ w->book=(u8 *)w->book+offset;
+ if(w->loop)w->loop=(u8 *)w->loop+offset;
+ }else if(w->type==1){
+ if(w->loop)w->loop=(u8 *)w->loop+offset;
+ }
+ }
+ }
+ }
 }

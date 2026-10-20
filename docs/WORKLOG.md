@@ -338,3 +338,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-074 vetted (ovl_7DF8 mid drafts, declarations + line placement)
 - Worktree t3-ea890a10. All 17 attempted: 0 matched, 10 drafts improved, 7 unchanged. Scratch-only changes; I imported the drafts and REPORT.md.
 - T-077 launched (sol-C29): ovl_7DF8 clone families deep dive.
+
+## 2026-10-20 — T-075 vetted (main SDK sweep)
+- Worktree t3-4e2e0daf. All 127 main drafts screened. func_8003EF90 = SDK alFxNew matches (1,048 B); main_2F2A0 now owns rodata 0x39C50–0x39C80. _bnkfPatchInst improved. The shortlist and names (for FU-15) are in T-075/REPORT.md.
+- Clean vet build: the ROM and all 3 images are byte-identical. 290 T4; M1 = M2 = 70,556 / 319,100 B (22.11%). Main is at 25.57%.
