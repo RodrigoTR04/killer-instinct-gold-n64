@@ -251,3 +251,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - T-056 (opus-5, worktree t3-f41c5900): 7 ovl_7DF8 functions match: func_801C8A38, func_801C7E98, func_801CC878, func_801CC668, func_801CD078, func_801B4590 and func_801C1704. Mostly declaration fixes: the TU's own structs, the right global types, string literals defined in C in an owned rodata TU. 7 drafts improved; func_801C4E38 now compiles and is 2 words off (spill slot), func_801B6528 3, func_801B695C 4. The glyph functions are still 2 each.
 - T-057 (sol-B19, t3-a689d98e): 0 matched and 0 improved across the 16 listed functions (func_801C51F8 is still 2 words off; clone family A 23, family B 70). Only the report was imported.
 - Clean vet build: the ROM and all 3 images are byte-identical. 264 T4; M1 = M2 = 55,844 / 319,100 B (17.50%).
+- T-060 launched (sol-B20): ovl_7DF8 with T-056's declaration-first method (15 functions).
