@@ -448,3 +448,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 ## 2026-10-20 — T-098 vetted (clone family B)
 - Worktree t3-334eee02. Family B is unsolved: all 6 drafts improved 65→57 words at the correct 536 B. The A-vs-B analysis and diagnosis are in T-098/REPORT.md. Drafts only; I imported them.
+- T-101 launched (sol-A34): family B round 2 from T-098's diagnosis.
