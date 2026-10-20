@@ -160,3 +160,5 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Clean vet build: the ROM and all 3 images are byte-identical. 183 T4; M1 = M2 = 34,724 B (10.87%). Deleted 12 T-026 drafts and their T2 rows. Imported REPORT.md, the main_265B0 candidate and score.py (a fast standalone compile+compare). The suggested libultra names are in T-037/REPORT.md (FU-15 naming todo).
 
 - T-040 launched (opus-3, user-requested): polish main drafts, near-misses first. When vetting, remove T2 rows for drafts it matches and merge the Makefile with T-038.
+- Limits refreshed early: T-038 and T-039 resumed by hand ("continue"). The 00:33 cron was cancelled.
+- T-041 launched (sol-C16): ovl_7E00 C infra plus its 7 uncertain T1 leaves. Disjoint from T-038 (boot), T-039 (ovl_7DF8) and T-040 (main).
