@@ -394,3 +394,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-085 vetted (main finish-the-TU)
 - Worktree t3-594a799d. All 23 attempted: func_8002A1E0 and func_8003037C match (304 B), 11 drafts improved, 10 unchanged.
 - Clean vet build: the ROM and all 3 images are byte-identical. 262 T4; M1 = M2 = 54,208 / 289,876 B (18.70%).
+- T-089 launched (sol-C33): permuter on 7 equal-size main drafts.
