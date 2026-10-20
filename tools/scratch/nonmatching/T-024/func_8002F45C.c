@@ -1,4 +1,4 @@
-/* T-082 DRAFT: 13 relocation-masked differing words; target-sized. */
+/* T-088 DRAFT: 11 relocation-masked differing words; target-sized. */
 typedef struct { s32 pad;
  s32 loop;
  } T024Envelope;
@@ -38,8 +38,8 @@ T024AllocatedVoice *func_8002F45C(void *unused, T024SoundDef *sound)
 {
   T024AllocatedVoice *voice;
   T024KeyMap *savedKey;
-  s32 old;
   T024KeyMap *key;
+  s32 old;
   s32 pan;
   voice = ((T024AllocationLists *)&D_80048270)->free;
   savedKey = sound->key;

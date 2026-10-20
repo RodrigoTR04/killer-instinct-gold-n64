@@ -410,3 +410,6 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-386c77c3. func_80015F6C and func_8001256C match (624 B); 4 drafts improved, 1 unchanged.
 - Clean vet build: the ROM and all 3 images are byte-identical. 273 T4; M1 = M2 = 57,240 / 289,876 B (19.75%).
 - T-092 launched (sol-C34): permuter round 3 plus an equal-size screen of all drafts.
+
+## 2026-10-20 — T-088 vetted (permuter round 2)
+- Worktree t3-c3e99abb. 14 functions × 45-minute searches on 16 workers: 0 matches. func_8002F45C improved 13→11 (declaration order). Scratch-only changes; I imported the draft and report. These 14 (the glyph functions, func_801C4E38, func_801B6528, func_801B695C, func_801C5064, func_801C7998, func_801C6A80, family A, func_8002AA98/AAEC, func_80017378, func_8002A900) are the hardest residue.
