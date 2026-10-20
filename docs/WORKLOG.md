@@ -292,3 +292,6 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-c7be63b5. The old main_2FF0 (0x2FF0–0x15380) is now three TUs: main_2FF0, main_CA10 [0xCA10,0xD3F0) and main_D3F0 (the tail). main_CA10 owns rodata 0x362A0 (its one-float block); main_D3F0 owns rodata from 0x390A0. func_8001CBCC matches with the literal 0.017453292f. func_80017378 improved 41→8 words.
 - Clean vet build: the ROM and all 3 images are byte-identical. 276 T4; M1 = M2 = 63,068 / 319,100 B (19.76%).
 - T-067 launched (sol-B22): main near-misses plus the per-TU -mips1 flag hypothesis.
+
+## 2026-10-20 — T-065 vetted (ovl_7DF8 argument widths)
+- Worktree t3-69854cd4. All 11 attempted: 0 matched, 3 improved (func_801C7998 55→6, func_801C5064 93→6, func_801B1210 39→38). Scratch-only changes; I imported the drafts and REPORT.md.

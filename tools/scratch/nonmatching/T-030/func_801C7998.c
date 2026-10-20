@@ -1,9 +1,10 @@
-/* DRAFT. Remaining diff: C emits a jump table; 64-bit switch high-word setup, narrow increments and registers differ. */
+/* T-065 DRAFT: 6 differing words, 256 bytes. Byte result and explicit zero case recover the table range; high-word initialization remains. */
 #include "common.h"
 
 u8 func_801C7998(u8 arg0, u16 buttons) {
-    s32 index = 0;
-    switch ((u64)buttons) {
+    u8 index = 0;
+    switch ((u64)(buttons & 0xFFFF)) {
+    case 0: break;
     case 0x8000: index++;
     case 0x4000: index++;
     case 0x20: index++;

@@ -1,6 +1,6 @@
-/* DRAFT. Remaining diff: Alpha/global/display-list temporary registers and store/call scheduling differ; same body size. */
+/* T-065 DRAFT: 38 differing words, 284 bytes. Float fourth renderer argument; alpha/global and command scheduling remain. */
 typedef struct { u32 w0, w1; } T025Gfx1210;
-extern s32 func_801BE540(s32, s32, s32, s32, f32, f32, s32, s32, s32, s32, f32);
+extern s32 func_801BE540(s32, s32, s32, f32, f32, f32, s32, s32, s32, s32, f32);
 extern u8 D_802927F0[];
 extern f32 D_80292918;
 extern u32 D_802C87C0;
@@ -19,5 +19,5 @@ s32 func_801B1210(T025Gfx1210 **arg0, s32 arg1, s32 arg2, s32 arg3) {
     g->w1 = 0;
     g->w0 = 0xB9000002;
     D_802C87C0 = alpha;
-    return func_801BE540((s32)arg0, arg2, (s32)D_802927F0, 0, -470.0f, D_80292918, 0x14, 0x28, 0xC8, alpha, 1.0f) & 0xFF;
+    return func_801BE540((s32)arg0, arg2, (s32)D_802927F0, 0.0f, -470.0f, D_80292918, 0x14, 0x28, 0xC8, alpha, 1.0f) & 0xFF;
 }
