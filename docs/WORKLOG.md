@@ -206,3 +206,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-049 vetted (boot/ROM infra)
 - Worktree t3-ef42faf2. FU-2: boot_49A0 owns rodata 0x7D40–0x7D70; the rest stays as boot_remaining asm data, and the Makefile wildcards asm/data/*.s. FU-8: opaque.bin is split into opaque_assets / opaque_main_gap / opaque_tail. The 3 code slots (main 0xA94D80, ovl_7DF8 0xAB5810, ovl_7E00 0xB00EB0) are extract:False bins linked straight from the rebuilt .1172 streams. splice_rom.py now only verifies them, so no baserom code bytes reach the ROM. func_80001564 is still 8 words off after 34 probes.
 - Clean vet build: the ROM and all 3 images are byte-identical. Metrics unchanged (242 T4, 15.65%).
+- T-050 launched (sol-B17): ovl_7DF8 round 5, a 45-function list disjoint from T-048.
