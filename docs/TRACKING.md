@@ -31,10 +31,10 @@ Source of truth for per-function tiers is `docs/functions.csv` (created once spl
 | Metric | Value |
 |---|---|
 | Scope measured | all CPU text of boot/main/ovl_7DF8/ovl_7E00 (999 fns). Text not in fns: boot 432 B pad, main 708 B, 7DF8 92 B, 7E00 4,040 B (31 inline data pools, listed in symbol_addrs.ovl_7E00.us.txt) |
-| M1 | 49,452 / 319,100 B (15.50%) |
-| M2 | 49,452 / 319,100 B (15.50%) |
-| Functions | 0 T1 · 322 T2 · 0 T3 · 240 T4 · 437 excluded (138,092 B: 267 libultra + boot entry asm + 169 ovl_7E00 handwritten asm) |
-| Per image (eligible B / T1 fns / excluded) | boot 8,468/0/99 (20 T4, 1 T2) · main 173,204/0/169 (133 T4, 157 T2) · ovl_7DF8 137,428/0/0 (87 T4, 164 T2) · ovl_7E00 0/0/169 (all handwritten asm, T-041) |
+| M1 | 49,928 / 319,100 B (15.65%) |
+| M2 | 49,928 / 319,100 B (15.65%) |
+| Functions | 0 T1 · 320 T2 · 0 T3 · 242 T4 · 437 excluded (138,092 B: 267 libultra + boot entry asm + 169 ovl_7E00 handwritten asm) |
+| Per image (eligible B / T1 fns / excluded) | boot 8,468/0/99 (20 T4, 1 T2) · main 173,204/0/169 (135 T4, 155 T2) · ovl_7DF8 137,428/0/0 (87 T4, 164 T2) · ovl_7E00 0/0/169 (all handwritten asm, T-041) |
 
 Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html). Tier overrides: tools/progress/status.csv (lead-maintained). Never hand-edit numbers; paste the `--markdown` output here.
 
@@ -108,6 +108,6 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | T-043 | ovl_7DF8 rodata ownership: move the jump tables/rodata used by func_801ADCFC, func_801CBCCC, func_801BF720 and func_801BF914 from the asm data file into their C TUs, then match those 4 | sol-B15 | Done (verified, partial: 2/4) | kig.ovl_7DF8.us.yaml, asm data split, src/ovl_7DF8/*.c (those 4 fns only + their rodata), tools/scratch/nonmatching/T-043/ | worktree isolation |
 | T-044 | ovl_7DF8 polish round 2: the other 170 drafts, using T-039's screening order (fewest differing words first); skip T-043's 4 fns | sol-C17 | Done (verified) | src/ovl_7DF8/*.c (drafted fns only, not T-043's), tools/scratch/nonmatching/T-0xx/ (ovl_7DF8 drafts), tools/scratch/nonmatching/T-044/ | worktree isolation |
 | T-045 | main polish round 2: 157 remaining main drafts (drafts T-040 didn't attempt first) + FU-16 part 2 (boot_dma prototype reconcile so func_80013C84 matches); skip rodata-blocked float-literal drafts | sol-C18 | In progress | src/main/*.c (drafted fns + boot_dma decl), Makefile (per-object CFLAGS only), tools/scratch/nonmatching/T-0xx/ (main drafts), tools/scratch/nonmatching/T-045/ | worktree isolation |
-| T-046 | FU-16 part 1: main rodata ownership (T-043 recipe) for drafts blocked on float literals/jump tables (func_8001CBCC, func_8002A004, func_80018E88 + others found), then match them | sol-B16 | In progress | kig.main.us.yaml (rodata subsegments), src/main/*.c (those fns + rodata), tools/scratch/nonmatching/T-0xx/ (those drafts), tools/scratch/nonmatching/T-046/ | worktree isolation; T-045 polishes other main drafts in parallel |
+| T-046 | FU-16 part 1: main rodata ownership (T-043 recipe) for drafts blocked on float literals/jump tables (func_8001CBCC, func_8002A004, func_80018E88 + others found), then match them | sol-B16 | Done (verified, 2/3) | kig.main.us.yaml (rodata subsegments), src/main/*.c (those fns + rodata), tools/scratch/nonmatching/T-0xx/ (those drafts), tools/scratch/nonmatching/T-046/ | worktree isolation; T-045 polishes other main drafts in parallel |
 | T-047 | ovl_7DF8 polish round 3: 167 remaining drafts (not attempted by T-039/T-044 first) + extend T-043 rodata ownership to other ovl_7DF8 TUs whose drafts need rodata; glyph fns func_801BF720/func_801BF914 (2 words each) | sol-A18 | Done (verified) | kig.ovl_7DF8.us.yaml (rodata subsegments), src/ovl_7DF8/*.c, tools/scratch/nonmatching/T-0xx/ (ovl_7DF8 drafts), tools/scratch/nonmatching/T-047/ | worktree isolation; sole ovl_7DF8 owner |
 | T-048 | ovl_7DF8 polish round 4: explicit list of drafts not tried by T-044/T-047. Clone families first (func_801B2EF4…801B396C ×6 @98 words; func_801B2010…801B29E8 ×7 @101), then the ~40 closest (func_801C8AE0 … func_801BE910) | sol-A19 | In progress | kig.ovl_7DF8.us.yaml (rodata subsegments), src/ovl_7DF8/*.c, tools/scratch/nonmatching/T-0xx/ (ovl_7DF8 drafts), tools/scratch/nonmatching/T-048/ | worktree isolation; sole ovl_7DF8 owner |

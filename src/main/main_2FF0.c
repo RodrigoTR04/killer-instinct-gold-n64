@@ -622,7 +622,16 @@ s32 func_80018E70(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     return 0;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80018E88.s")
+extern f32 D_8004A8C0[];
+void func_80018E88(void) {
+    s32 i;
+    for (i = 0; i < 2; i++) {
+        D_8004A8C0[i] = (f64)D_8004A8C0[i] + 0.2;
+        if (359.0f < D_8004A8C0[i]) D_8004A8C0[i] = 0.0f;
+    }
+    D_8004A8C0[2] = (f64)D_8004A8C0[2] - 0.2;
+    if (D_8004A8C0[2] < 0.0f) D_8004A8C0[2] = 359.0f;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80018F20.s")
 

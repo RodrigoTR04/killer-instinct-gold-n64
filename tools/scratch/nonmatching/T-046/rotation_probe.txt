@@ -1,0 +1,12 @@
+extern bytes: 320 masked differences: ['0x4', '0x8']
+00000000 R_MIPS_HI16       D_80045C00
+00000008 R_MIPS_LO16       D_80045C00
+const extern bytes: 320 masked differences: ['0x4', '0x8']
+00000000 R_MIPS_HI16       D_80045C00
+00000008 R_MIPS_LO16       D_80045C00
+local factor bytes: 320 masked differences: ['0x4', '0x8']
+00000000 R_MIPS_HI16       D_80045C00
+00000008 R_MIPS_LO16       D_80045C00
+literal bytes: 320 masked differences: []
+00000000 R_MIPS_HI16       .rodata
+00000004 R_MIPS_LO16       .rodata

@@ -458,3 +458,21 @@ _loadOutputBuffer = 0x80041F74; // type:func
 func_80042198 = 0x80042198; // type:func
 alFxParam = 0x800423B0; // type:func
 alFxPull = 0x800423C8; // type:func
+// Keep constants used by existing C in their original pool positions.
+// The adjacent asm owners reserve these bytes without changing C codegen.
+D_800487FC = 0x800487FC; // type:f32 force_migration:True function_owner:func_8001373C
+D_80048800 = 0x80048800; // type:f32 force_migration:True function_owner:func_8001373C
+D_80048804 = 0x80048804; // type:f32 force_migration:True function_owner:func_8001373C
+D_800488CC = 0x800488CC; // type:f32 force_migration:True function_owner:func_80018664
+D_80048998 = 0x80048998; // type:f64 force_migration:True function_owner:func_8001B620
+D_800489A0 = 0x800489A0; // type:f64 force_migration:True function_owner:func_8001B620
+D_800489A8 = 0x800489A8; // type:f64 force_migration:True function_owner:func_8001B620
+D_800489B0 = 0x800489B0; // type:f64 force_migration:True function_owner:func_8001B620
+D_800489D0 = 0x800489D0; // type:f64 force_migration:True function_owner:func_8001BB10
+D_800489D8 = 0x800489D8; // type:f64 force_migration:True function_owner:func_8001BB10
+D_800489E0 = 0x800489E0; // type:f64 force_migration:True function_owner:func_8001BB10
+D_800489E8 = 0x800489E8; // type:f64 force_migration:True function_owner:func_8001BB10
+D_800489F8 = 0x800489F8; // type:f32 force_migration:True function_owner:func_8001C43C
+D_800489FC = 0x800489FC; // type:f32 force_migration:True function_owner:func_8001C43C
+D_800480C0 = 0x800480C0; // force_migration:True function_owner:func_80029BE0
+D_80048100 = 0x80048100; // force_migration:True function_owner:func_80029BE0

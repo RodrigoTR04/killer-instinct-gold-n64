@@ -194,3 +194,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-95ad912c. 3 functions match: func_801CA784, func_801CC2C8 and func_801BF0E8 (400 B). 4 drafts improved, 7 unchanged; only 14 were attempted. D_80127D30 is now declared u8[8] (FU-13 item). No new rodata splits.
 - Clean vet build: the ROM and all 3 images are byte-identical. 240 T4; M1 = M2 = 49,452 / 319,100 B (15.50%).
 - T-048 launched (sol-A19): ovl_7DF8 round 4 with an explicit attempt list (clone families first).
+
+## 2026-10-20 — T-046 vetted (main rodata ownership, FU-16 part 1)
+- Worktree t3-8fad5136. main_18440 and main_2FF0 now own their .rodata (kig.main.us.yaml). symbol_addrs.main gets force_migration/function_owner hints so constants used by asm functions stay in their pool slots. func_80018E88 and func_8002A004 match. func_8001CBCC is still 2 words off (an early constant needs more ownership work).
+- Clean vet build: the ROM and all 3 images are byte-identical. 242 T4; M1 = M2 = 49,928 / 319,100 B (15.65%).

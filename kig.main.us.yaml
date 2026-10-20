@@ -116,6 +116,10 @@ segments:
       - [0x32E80, bin, gfx_text]
       - [0x34290, bin, audio_text]
       - [0x350B0, data, main]
-      - [0x39E10, bin, gfx_data]
-      - [0x3A610, bin, audio_data]
+      - [0x38760, .rodata, main_18440]
+      - {start: 0x387E0, type: data, name: main_remaining_early, linker_section_order: .rodata}
+      - [0x38E40, .rodata, main_2FF0]
+      - {start: 0x393B0, type: data, name: main_remaining_0, linker_section_order: .rodata}
+      - {start: 0x39E10, type: bin, name: gfx_data, linker_section_order: .rodata}
+      - {start: 0x3A610, type: bin, name: audio_data, linker_section_order: .rodata}
   - [0x3A8D0]

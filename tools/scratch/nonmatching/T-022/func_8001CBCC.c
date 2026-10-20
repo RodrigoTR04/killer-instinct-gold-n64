@@ -1,4 +1,4 @@
-/* DRAFT. Remaining diff: 2 linked instruction words; 320/320 bytes. BLOCKED BY RODATA (T-040): D_80045C00 is the literal 0.017453292f from this TU's .rodata (owned by the data asm); with the literal the lwc1/mtc1 order matches (as in func_8002A004). Frame and spill slots now match. */
+/* DRAFT (T-046). UNCHANGED: 2 linked instruction words (+0x04/+0x08); 320/320 bytes. D_80045C00 is at image offset 0x362A0, outside main_2FF0's later 0x38E40-0x393B0 rodata pool. A 0.017453292f literal fixes scheduling standalone but emits a constant in the later pool, so its load address does not match. The T-043 ownership recipe alone does not solve this function; retain the extern load until the early constant's section/TU provenance is resolved. */
 
 s32 guMtxIdentF(f32 *);
 extern f32 D_80045C00;
