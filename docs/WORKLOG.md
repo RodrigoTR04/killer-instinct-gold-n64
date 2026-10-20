@@ -276,3 +276,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-e5a426dc (base bbb858d). The 8 T-055 functions are in: func_80014250, osPfsFileState (main_265B0, verbatim ultralib, -mips1 Makefile line), func_800249DC, boot func_80001564 (gzip inflate_fixed; boot is 100%), func_80013CD8, func_80018664 (D_800488CC hint dropped), func_80016BE0 and func_80016258.
 - The lead resolved a merge clash with T-058 (acb6e4f): `D_8004AE88/89` were declared s8 at the top and u8 later. Unified to one `u8` declaration, and all functions still match.
 - Clean vet build: the ROM and all 3 images are byte-identical. 273 T4; M1 = M2 = 62,376 / 319,100 B (19.55%). Boot 100%, main 21.91%.
+- T-064 launched (sol-B21): main TU split for func_8001CBCC, plus func_80017378.
