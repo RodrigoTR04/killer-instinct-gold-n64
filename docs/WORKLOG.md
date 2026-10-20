@@ -445,3 +445,6 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-28bf0f96 (auto-resumed after the limit; cron 94277b83 cancelled). func_801B17BC and func_8002B034 match (696 B). 7 improved, 7 unchanged.
 - Clean vet build: the ROM and all 3 images are byte-identical. 294 T4; M1 = M2 = 63,432 / 289,876 B (21.88%).
 - Launched T-098 (family B), T-099 (screen refresh + closest drafts) and T-100 (screen tier 50-90).
+
+## 2026-10-20 — T-098 vetted (clone family B)
+- Worktree t3-334eee02. Family B is unsolved: all 6 drafts improved 65→57 words at the correct 536 B. The A-vs-B analysis and diagnosis are in T-098/REPORT.md. Drafts only; I imported them.

@@ -1,4 +1,5 @@
-/* T-074 DRAFT: 65 differing words; 536 bytes. Not matching. */
+/* T-098 DRAFT: 57 differing words; 536 bytes. Not matching.
+ * The late branch retains the inherited uninitialized alpha read; scratch only. */
 extern f32 func_801B19F0(f32, f32, s32, s32);
 
 typedef struct {
@@ -15,8 +16,9 @@ extern s16 D_802C87D0;
 s32 func_801B310C(T025Gfx310C **arg0, s32 arg1, void *arg2, s32 arg3)
 {
     u8 alpha;
+    s32 *counter = &D_801D30C4;
     T025Gfx310C *p0, *p1, *p2, *p3;
-    u16 color;
+    u8 color;
     s32 color2;
     s32 packed;
     u32 value;
@@ -24,18 +26,22 @@ s32 func_801B310C(T025Gfx310C **arg0, s32 arg1, void *arg2, s32 arg3)
     {
         return 0;
     }
-    if (D_801D30C4++ < 10)
+    arg1 = *counter;
+    if (arg1++ < 10)
     {
-        value = (u32) func_801B19F0(0.0f, 255.0f, D_801D30C4, 10);
-        color = value & 0xFF;
+        value = (u32) func_801B19F0(0.0f, 255.0f, *counter = arg1, 10);
+        color = (u16)value;
         p0 = *arg0;
-        packed = (color << 0x18) | (color << 0x10) | (color << 8);
+        packed = ((color & 0xFF) << 0x18) | ((color & 0xFF) << 0x10) | ((color & 0xFF) << 8);
         *arg0 = p0 + 1;
-        alpha = value & 0xFF; p0->w1 = (s32) (packed | color);
+        /* Keep alpha assignment separate from the command store for IDO scheduling. */
+        alpha = color;
+        p0->w1 = (s32) (packed | (color & 0xFF));
         p0->w0 = 0xFA000000;
     }
     else
     {
+        *counter = arg1;
         p1 = (*arg0)++;
         p1->w0 = 0xFA000000;
         color2 = D_802C87D0 & 0xFF;
