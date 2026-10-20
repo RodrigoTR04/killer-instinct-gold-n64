@@ -342,3 +342,8 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-075 vetted (main SDK sweep)
 - Worktree t3-4e2e0daf. All 127 main drafts screened. func_8003EF90 = SDK alFxNew matches (1,048 B); main_2F2A0 now owns rodata 0x39C50–0x39C80. _bnkfPatchInst improved. The shortlist and names (for FU-15) are in T-075/REPORT.md.
 - Clean vet build: the ROM and all 3 images are byte-identical. 290 T4; M1 = M2 = 70,556 / 319,100 B (22.11%). Main is at 25.57%.
+
+## 2026-10-20 — T-076 and T-077 vetted (ovl_7DF8, drafts only)
+- T-076 (t3-7415a74e): 10 large drafts, 9 improved by small amounts (e.g. func_801B3DB0 277→255, func_801C1C34 262→242), 0 matched.
+- T-077 (t3-1da7ab54): instruction-level analysis of clone family A, now 14 words per copy (from 16-17); family B is still 65. 0 matched. The analysis is in T-077/REPORT.md.
+- Scratch-only changes, so I imported the drafts and reports. The low-effort Sol rounds on ovl_7DF8 are giving clearly diminishing returns.

@@ -1,5 +1,7 @@
+/* T-076: nonmatching, 255 differing words including size penalty; 1360 compiled bytes.
+ * See T-076/REPORT.md for TU compilation and remaining differences. */
 /* DRAFT. Remaining diff: Typed initialization loops have different induction/unrolling, saved registers and scheduling. */
-extern s8 D_8004A407;
+extern u8 D_8004A407;
 extern s32 D_8004A4B0;
 extern u8 D_8004EA9C[];
 extern u8 D_8004EA9D[];
@@ -10,7 +12,7 @@ extern u8 D_80127CFE[];
 extern u8 D_80127D38;
 extern u8 D_8012830A[];
 extern u8 D_80128340[];
-extern u8 D_8012834B;
+extern s8 D_8012834B;
 extern s8 D_801CD454;
 extern s8 D_801F3D64;
 extern s32 D_802956F8;
@@ -23,14 +25,14 @@ extern s32 D_802C8C18[];
 extern f32 D_802C8C20[];
 extern u8 D_802C8C28[];
 extern u8 D_802C8C2A;
-extern s16 D_802C8C30[];
-extern f32 D_802C8C60[];
+extern s16 D_802C8C30[][2];
+extern f32 D_802C8C60[][2];
 extern u8 D_802C8CB8[];
 extern u8 D_802C8CC8[];
 extern s32 D_802C8CD4;
 extern s32 D_802C8CD8;
 extern s32 D_802C8CDC;
-extern s8 D_802C8CE0;
+extern u8 D_802C8CE0;
 extern s16 D_802C8CE2;
 extern s16 D_802C8CE4[];
 extern s16 D_802C8CE6[];
@@ -41,7 +43,7 @@ extern u8 D_802C8D0A[];
 extern s8 D_802C8D0C;
 extern s8 D_802C8D0D;
 extern s8 D_802C8D0E;
-extern s8 D_802C8D0F;
+extern u8 D_802C8D0F;
 extern s16 D_802C8D12;
 extern s32 D_802C8D14;
 extern s32 D_802C8D18;
@@ -65,7 +67,7 @@ void func_801B3DB0(u8 player, s32 mode) {
     if (D_8004A4B0 == 2) D_8004A4B0 = 0;
     if (kind == 2) {
         initial = 200;
-        D_8012834B++;
+        (*(u8 *)&D_8012834B)++;
         position = 150.0f;
     }
     if (kind == 1) {
@@ -90,10 +92,10 @@ void func_801B3DB0(u8 player, s32 mode) {
         D_802C8C28[i] = 0;
     }
     for (i = 0; i < 11; i++) {
-        D_802C8C30[i * 2 + player] = initial;
-        D_802C8C60[i * 2 + player] = position;
-        D_802C8C30[i * 2 + 1 - player] = 0;
-        D_802C8C60[i * 2 + 1 - player] = 0.0f;
+        D_802C8C30[i][player] = initial;
+        D_802C8C60[i][player] = position;
+        D_802C8C30[i][1 - player] = 0;
+        D_802C8C60[i][1 - player] = 0.0f;
     }
     func_801AF5EC(0xFFFF);
     func_801AF5D4(0x60);
@@ -109,8 +111,8 @@ void func_801B3DB0(u8 player, s32 mode) {
     if (selection == 3 || kind == 5) D_8004A407 = 0;
     else {
         D_8004A407 = 2 - player;
-        D_802C8CE2 = D_8012834B * -70 + 1190;
-        D_8004EA9D[-player] = D_80128340[D_8012834B];
+        D_802C8CE2 = (*(u8 *)&D_8012834B) * -70 + 1190;
+        D_8004EA9D[-player] = D_80128340[*(u8 *)&D_8012834B];
     }
     if (D_80127CCA != 0 && kind != 2 && D_8012830A[player] >= D_80127CCA) func_801B5534(player, 2);
     if (D_8012830A[player] != 0) D_802C8D07 = player;

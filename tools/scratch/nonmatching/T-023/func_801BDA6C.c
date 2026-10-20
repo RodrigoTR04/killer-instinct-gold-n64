@@ -1,5 +1,5 @@
-/* T-070: nonmatching, 300 differing words including size penalty; 1328 compiled bytes.
- * Compiles in the complete production TU through asm-processor; see T-070/REPORT.md. */
+/* T-076: nonmatching, 289 differing words including size penalty; 1336 compiled bytes.
+ * See T-076/REPORT.md for TU compilation and remaining differences. */
 typedef struct { u32 w0, w1; } T023801BDA6CGfx;
 typedef struct { u32 image; f32 width; } T023801BDA6CGlyph;
 extern void guScale(void *, f32, f32, f32);
@@ -67,33 +67,27 @@ s32 func_801BDA6C(T023801BDA6CGfx **arg0, s32 arg1, u8 *arg2, f32 arg3, f32 arg4
         guScale(arg1, var_f26, var_f26, 1.0f);
         var_s7 = 1;
     }
-    temp_s0 = *arg0;
-    *arg0 = temp_s0 + 1;
+    temp_s0 = (*arg0)++;
     ((T023801BDA6CGfx *)temp_s0)->w1 = 0;
     ((T023801BDA6CGfx *)temp_s0)->w0 = 0xE7000000;
-    temp_s0_2 = *arg0;
-    *arg0 = temp_s0_2 + 1;
+    temp_s0_2 = (*arg0)++;
     ((T023801BDA6CGfx *)temp_s0_2)->w0 = 0xFA000000;
     sp78 = (s32) arg9;
     temp_t6 = (arg6 << 0x18) | (arg7 << 0x10) | (arg8 << 8) | sp78;
     sp74 = temp_t6;
     ((T023801BDA6CGfx *)temp_s0_2)->w1 = temp_t6;
-    temp_s0_3 = *arg0;
-    *arg0 = temp_s0_3 + 1;
+    temp_s0_3 = (*arg0)++;
     ((T023801BDA6CGfx *)temp_s0_3)->w1 = 0xFFFDF6FB;
     ((T023801BDA6CGfx *)temp_s0_3)->w0 = 0xFCFFFFFF;
-    temp_s0_4 = *arg0;
-    *arg0 = temp_s0_4 + 1;
+    temp_s0_4 = (*arg0)++;
     ((T023801BDA6CGfx *)temp_s0_4)->w0 = 0xB6000000;
     ((T023801BDA6CGfx *)temp_s0_4)->w1 = 0x22000;
     if (arg9 == 0xFF) {
-        temp_s0_5 = *arg0;
-        *arg0 = temp_s0_5 + 1;
+        temp_s0_5 = (*arg0)++;
         ((T023801BDA6CGfx *)temp_s0_5)->w0 = 0xB900031D;
         ((T023801BDA6CGfx *)temp_s0_5)->w1 = 0x0F0A4000;
     } else {
-        temp_s0_6 = *arg0;
-        *arg0 = temp_s0_6 + 1;
+        temp_s0_6 = (*arg0)++;
         ((T023801BDA6CGfx *)temp_s0_6)->w0 = 0xB900031D;
         ((T023801BDA6CGfx *)temp_s0_6)->w1 = 0x5041C8;
     }
@@ -113,41 +107,34 @@ s32 func_801BDA6C(T023801BDA6CGfx **arg0, s32 arg1, u8 *arg2, f32 arg3, f32 arg4
                 temp_s1 = (var_s7 << 6) + arg1;
                 var_f22 = (f32) ((f64) var_f22 + (temp_f20 * var_f0));
                 guTranslate(temp_s1, var_f22, arg4, arg5);
-                temp_s0_7 = *arg0;
-                *arg0 = temp_s0_7 + 1;
+                temp_s0_7 = (*arg0)++;
                 var_s7 += 1;
                 ((T023801BDA6CGfx *)temp_s0_7)->w0 = 0x01020040;
                 ((T023801BDA6CGfx *)temp_s0_7)->w1 = (u32)temp_s1;
                 if (var_f26 != 1.0f) {
-                    temp_s0_8 = *arg0;
-                    *arg0 = temp_s0_8 + 1;
+                    temp_s0_8 = (*arg0)++;
                     ((T023801BDA6CGfx *)temp_s0_8)->w0 = 0x01000040;
                     ((T023801BDA6CGfx *)temp_s0_8)->w1 = (u32)arg1;
                 }
                 if (var_s4 == spCC) {
-                    temp_s0_9 = *arg0;
-                    *arg0 = temp_s0_9 + 1;
+                    temp_s0_9 = (*arg0)++;
                     ((T023801BDA6CGfx *)temp_s0_9)->w1 = 0;
                     ((T023801BDA6CGfx *)temp_s0_9)->w0 = 0xE7000000;
                     temp_f12 = (f32) ((f64) D_80282D20 + temp_f28);
                     D_80282D20 = temp_f12;
                     temp_f10 = sinf(temp_f12) * 63.0f;
-                    temp_v0_3 = *arg0;
-                    *arg0 = temp_v0_3 + 1;
+                    temp_v0_3 = (*arg0)++;
                     ((T023801BDA6CGfx *)temp_v0_3)->w0 = 0xFA000000;
                     ((T023801BDA6CGfx *)temp_v0_3)->w1 = (s32) (((u32) (temp_f10 + 192.0f) << 0x18) | sp78);
                 }
-                temp_s0_10 = *arg0;
-                *arg0 = temp_s0_10 + 1;
+                temp_s0_10 = (*arg0)++;
                 ((T023801BDA6CGfx *)temp_s0_10)->w0 = 0x06000000;
                 ((T023801BDA6CGfx *)temp_s0_10)->w1 = (s32) temp_s3->image;
                 if (var_s4 == spCC) {
-                    temp_s0_11 = *arg0;
-                    *arg0 = temp_s0_11 + 1;
+                    temp_s0_11 = (*arg0)++;
                     ((T023801BDA6CGfx *)temp_s0_11)->w1 = 0;
                     ((T023801BDA6CGfx *)temp_s0_11)->w0 = 0xE7000000;
-                    temp_s0_12 = *arg0;
-                    *arg0 = temp_s0_12 + 1;
+                    temp_s0_12 = (*arg0)++;
                     ((T023801BDA6CGfx *)temp_s0_12)->w0 = 0xFA000000;
                     ((T023801BDA6CGfx *)temp_s0_12)->w1 = sp74;
                 }

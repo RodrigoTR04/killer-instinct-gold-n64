@@ -1,5 +1,5 @@
-/* T-070: nonmatching, 240 differing words including size penalty; 1144 compiled bytes.
- * Compiles in the complete production TU through asm-processor; see T-070/REPORT.md. */
+/* T-076: nonmatching, 237 differing words including size penalty; 1144 compiled bytes.
+ * See T-076/REPORT.md for TU compilation and remaining differences. */
 extern s32 func_801BE540(s32, s32, s32, f32, f32, f32, u8, u8, u8, u8, f32);
 extern f32 sinf(f32);
 extern u8 D_80127D50;
@@ -22,7 +22,7 @@ s32 func_801B132C(s32 arg0, s32 arg1, s32 arg2, u32 arg3) {
     f32 scale;
     f64 var_f6;
     s32 temp_a0;
-    s32 temp_f10;
+    s8 temp_f10;
     s32 temp_v0;
     s32 var_a1;
     s32 position;

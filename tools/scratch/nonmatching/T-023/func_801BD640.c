@@ -1,5 +1,5 @@
-/* T-070: nonmatching, 195 differing words including size penalty; 1068 compiled bytes.
- * Compiles in the complete production TU through asm-processor; see T-070/REPORT.md. */
+/* T-076: nonmatching, 191 differing words including size penalty; 1068 compiled bytes.
+ * See T-076/REPORT.md for TU compilation and remaining differences. */
 typedef struct { u32 w0, w1; } T023801BD640Gfx;
 typedef struct { u32 image; f32 width; } T023801BD640Glyph;
 extern void guScale(void *, f32, f32, f32);
@@ -7,7 +7,6 @@ extern void guTranslate(void *, f32, f32, f32);
 extern T023801BD640Glyph D_80282A70[];
 
 s32 func_801BD640(T023801BD640Gfx **arg0, u8 *arg1, u8 *arg2, f32 arg3, f32 arg4, f32 arg5, u8 arg6, u8 arg7, u8 arg8, u8 arg9) {
-    f32 temp_f20;
     f32 var_f20;
     f64 var_f0;
     f64 var_f0_2;
@@ -18,7 +17,7 @@ s32 func_801BD640(T023801BD640Gfx **arg0, u8 *arg1, u8 *arg2, f32 arg3, f32 arg4
     s32 var_s5;
     u8 *var_s4;
     u8 temp_t1;
-    u8 var_v1;
+    u32 var_v1;
     T023801BD640Glyph *temp_s0;
     T023801BD640Gfx *temp_v0;
 
@@ -72,8 +71,8 @@ s32 func_801BD640(T023801BD640Gfx **arg0, u8 *arg1, u8 *arg2, f32 arg3, f32 arg4
                         var_f0 = (f64) (((T023801BD640Glyph *)temp_s0)->width * 10.0f);
                     }
                     temp_s1 = (var_s5 << 6) + arg1;
-                    temp_f20 = (f32) ((f64) var_f20 + var_f0);
-                    guTranslate(temp_s1, temp_f20, arg4, arg5);
+                    var_f20 = (f32) ((f64) var_f20 + var_f0);
+                    guTranslate(temp_s1, var_f20, arg4, arg5);
                     temp_v0 = *arg0;
                     *arg0 = temp_v0 + 1;
                     ((T023801BD640Gfx *)temp_v0)->w1 = (u32)temp_s1;
@@ -88,9 +87,9 @@ s32 func_801BD640(T023801BD640Gfx **arg0, u8 *arg1, u8 *arg2, f32 arg3, f32 arg4
                     ((T023801BD640Gfx *)temp_v0)->w0 = 0xBD000000;
                     ((T023801BD640Gfx *)temp_v0)->w1 = 0;
                     if (var_s3 != 0) {
-                        var_f18 = (f64) temp_f20 + 25.0;
+                        var_f18 = (f64) var_f20 + 25.0;
                     } else {
-                        var_f18 = (f64) temp_f20 + (f64) (((T023801BD640Glyph *)temp_s0)->width * 10.0f);
+                        var_f18 = (f64) var_f20 + (f64) (((T023801BD640Glyph *)temp_s0)->width * 10.0f);
                     }
                     goto block_24;
                 }

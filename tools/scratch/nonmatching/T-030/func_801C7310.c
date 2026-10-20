@@ -1,5 +1,5 @@
-/* T-070: nonmatching, 301 differing words including size penalty; 1256 compiled bytes.
- * Compiles in the complete production TU through asm-processor; see T-070/REPORT.md. */
+/* T-076: nonmatching, 281 differing words including size penalty; 1264 compiled bytes.
+ * See T-076/REPORT.md for TU compilation and remaining differences. */
 #include "common.h"
 
 typedef struct { u32 id,ticks; u8 pad8[0xF0]; u8 *matrices; } T030Render7310;
@@ -47,7 +47,7 @@ void func_801C7310(s32 arg0, T030Render7310 *arg1) {
     var_f20 = (f32) (((f64) (var_f16 - D_802D39D0) * 1.5) - 400.0);
     func_801C0610(arg0);
     func_801C2D34(arg0, 0x3E8, -0xFA, -0x258, arg1->ticks);
-    var_s1 = D_802921E0;
+    var_s1 = &D_802921E0[i];
     if (*var_s1 && D_80294EF0 < var_f20) {
         do {
             D_802D39D5 = 1;
@@ -55,12 +55,10 @@ void func_801C7310(s32 arg0, T030Render7310 *arg1) {
             var_a0 = 0;
             if (*var_a2 != 'c') {
                 var_f22 = 85.0f;
-                switch (*var_a2) {
-                default: var_f0 = 1.0f; break;
-                case 't': var_f0 = D_80294EF4; var_a2++; break;
-                case 'h': var_a0 = 1; var_f0 = D_80294EF8; break;
-                case 'g': var_a0 = 1; var_f0 = 1.0f; break;
-                }
+                if (*var_a2 == 'g') { var_a0 = 1; var_f0 = 1.0f; }
+                else if (*var_a2 == 'h') { var_a0 = 1; var_f0 = D_80294EF8; }
+                else if (*var_a2 == 't') { var_f0 = D_80294EF4; var_a2++; }
+                else { var_f0 = 1.0f; }
             } else {
                 var_f22 = 75.0f;
                 var_f0 = 0.75f;

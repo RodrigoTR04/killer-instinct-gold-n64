@@ -1,5 +1,5 @@
-/* T-070: nonmatching, 159 differing words including size penalty; 984 compiled bytes.
- * Compiles in the complete production TU through asm-processor; see T-070/REPORT.md. */
+/* T-076: nonmatching, 156 differing words including size penalty; 984 compiled bytes.
+ * See T-076/REPORT.md for TU compilation and remaining differences. */
 f32 func_801AFA80(f32 arg0, f32 arg1, s32 arg2, s32 arg3);
 /* DRAFT. Remaining diff: Float temporaries, matrix stack layout and call/display-list scheduling differ. */
 typedef struct { u32 w0, w1; } T025Gfx0668;
@@ -79,16 +79,13 @@ s32 func_801B0668(T025Gfx0668 **arg0, s32 arg1, u8 *arg2, u32 arg3) {
     sp48 = sinf((f32) (temp_f2 / 2.0));
     guLookAtReflect(&sp60, &D_802C8760, sp48 * 60.0f, cosf((f32) temp_f2) * 60.0f, 220.0f, 6.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
     func_801C35AC(arg0, (s32) ((u32) arg3 >> 1) % 360);
-    temp_v1 = *arg0;
-    *arg0 = temp_v1 + 1;
+    temp_v1 = (*arg0)++;
     temp_v1->w1 = (u32)&D_802C8760;
     temp_v1->w0 = 0x03840010;
-    temp_v1_2 = *arg0;
-    *arg0 = temp_v1_2 + 1;
+    temp_v1_2 = (*arg0)++;
     temp_v1_2->w0 = 0x03820010;
     temp_v1_2->w1 = (u32)&D_802C8770;
-    temp_v1_3 = *arg0;
-    *arg0 = temp_v1_3 + 1;
+    temp_v1_3 = (*arg0)++;
     temp_v1_3->w0 = 0x06000000;
     temp_v1_3->w1 = (u32)&D_801D2DF8;
     return 2;

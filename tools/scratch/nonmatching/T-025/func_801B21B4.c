@@ -1,4 +1,4 @@
-/* T-071 DRAFT: 17 differing words; layout-sensitive scheduling. */
+/* T-077 DRAFT: 14 differing words; 420 bytes. Not matching. */
 extern f32 func_801B19F0(f32, f32, s32, s32);
 typedef struct { u32 w0, w1; } T025Gfx21B4;
 extern f32 func_801B1A7C(void *, void *, f32, s32);
@@ -22,15 +22,14 @@ s32 func_801B21B4(T025Gfx21B4 **arg0, s32 arg1, void *arg2, s32 arg3)
         return 0;
     }
     arg1 = D_801D30A0;
-    arg3 = arg1 < 1;
-    arg1++;
-    D_801D30A0 = arg1;
-    if (arg3 == 1)
+    if (arg1 < 1)
     {
-        position = func_801B19F0(44.0f, -100.0f, D_801D30A0, 1);
+        position = func_801B19F0(44.0f, -100.0f, D_801D30A0 = ++arg1, 1);
     }
     else
     {
+        ++arg1;
+        D_801D30A0 = arg1;
         position = -100.0f;
     }
     guTranslate(arg2, position + 25.0f, 0.0f, (f32) D_801D3094);

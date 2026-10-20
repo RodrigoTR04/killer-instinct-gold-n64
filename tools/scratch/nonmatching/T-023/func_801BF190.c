@@ -1,5 +1,5 @@
-/* T-070: nonmatching, 303 differing words including size penalty; 1248 compiled bytes.
- * Compiles in the complete production TU through asm-processor; see T-070/REPORT.md. */
+/* T-076: nonmatching, 284 differing words including size penalty; 1256 compiled bytes.
+ * See T-076/REPORT.md for TU compilation and remaining differences. */
 typedef struct { u32 name; u16 score, pad; } T023Score190;
 typedef struct { T023Score190 *entries; u8 count, descending; u16 pad; } T023Table190;
 extern s32 func_801BD640(s32, void *, s8 *, f32, f32, f32, u8, u8, u8, u8);
@@ -66,6 +66,6 @@ void func_801BF190(s32 list, s32 unused, s32 table) {
                 } while (row != count);
             }
             header++; pass++; label++; titleY -= 450; scoreY -= 340;
-        } while (pass < ((header >= D_80127D80 + 5) + 1));
+        } while (pass < (((u32)header >= (u32)(D_80127D80 + 5)) + 1));
     }
 }

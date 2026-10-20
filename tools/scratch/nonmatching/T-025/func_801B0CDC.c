@@ -1,5 +1,5 @@
-/* T-070: nonmatching, 209 differing words including size penalty; 1336 compiled bytes.
- * Compiles in the complete production TU through asm-processor; see T-070/REPORT.md. */
+/* T-076: nonmatching, 204 differing words including size penalty; 1336 compiled bytes.
+ * See T-076/REPORT.md for TU compilation and remaining differences. */
 typedef struct { u32 w0, w1; } T025Gfx0CDC;
 typedef struct { u8 pad[0x10]; s32 state; } T070State0CDC;
 extern f32 cosf(f32), sinf(f32);
@@ -61,32 +61,26 @@ s32 func_801B0CDC(T025Gfx0CDC **arg0, T070State0CDC *arg1, u8 *arg2, u32 arg3) {
         temp_v1->w1 = (u32)&D_801D2FC8;
         temp_v1->w0 = 0x06000000;
         if (alpha >= 0x100U) {
-            temp_v1 = *arg0;
-            *arg0 = temp_v1 + 1;
+            temp_v1 = (*arg0)++;
             alpha = 0xFF;
             temp_v1->w0 = 0xB900031D;
             temp_v1->w1 = 0x0F0A4000;
         } else {
-            temp_v1 = *arg0;
-            *arg0 = temp_v1 + 1;
+            temp_v1 = (*arg0)++;
             temp_v1->w0 = 0xB900031D;
             temp_v1->w1 = 0x504240;
         }
-        temp_v1 = *arg0;
-        *arg0 = temp_v1 + 1;
+        temp_v1 = (*arg0)++;
         temp_v1->w1 = 1;
         temp_v1->w0 = 0xB9000002;
-        temp_v1 = *arg0;
-        *arg0 = temp_v1 + 1;
+        temp_v1 = (*arg0)++;
         temp_v1->w1 = 0;
         temp_v1->w0 = 0xFA000000;
-        temp_v1 = *arg0;
-        *arg0 = temp_v1 + 1;
+        temp_v1 = (*arg0)++;
         temp_v1->w1 = (alpha & 0xFF);
         temp_v1->w0 = 0xFB000000;
         func_801BC1B0(arg0, &D_8008EA20, 0, 0x1F8, 0x46, 0x1F8, 2, 0, 0, 0x1F7, 0x45, 270.0f, D_80292904, 0x400, 0);
-        temp_v1 = *arg0;
-        *arg0 = temp_v1 + 1;
+        temp_v1 = (*arg0)++;
         temp_v1->w1 = 0x80000;
         temp_v1->w0 = 0xBA001301;
         if ((u32) (D_802C9F74 - D_802D36A0) >= 0x3E9U) {
@@ -140,16 +134,13 @@ s32 func_801B0CDC(T025Gfx0CDC **arg0, T070State0CDC *arg1, u8 *arg2, u32 arg3) {
             }
         }
     }
-    temp_v1 = *arg0;
-    *arg0 = temp_v1 + 1;
+    temp_v1 = (*arg0)++;
     temp_v1->w0 = 0x03840010;
     temp_v1->w1 = (u32)&D_802C87A0;
-    temp_v1 = *arg0;
-    *arg0 = temp_v1 + 1;
+    temp_v1 = (*arg0)++;
     temp_v1->w0 = 0x03820010;
     temp_v1->w1 = (u32)&D_802C87B0;
-    temp_v1 = *arg0;
-    *arg0 = temp_v1 + 1;
+    temp_v1 = (*arg0)++;
     temp_v1->w0 = 0x06000000;
     temp_v1->w1 = (u32)&D_801D2DF8;
     return sp94;

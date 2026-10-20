@@ -1,5 +1,5 @@
-/* T-070: nonmatching, 262 differing words including size penalty; 1232 compiled bytes.
- * Compiles in the complete production TU through asm-processor; see T-070/REPORT.md. */
+/* T-076: nonmatching, 242 differing words including size penalty; 1224 compiled bytes.
+ * See T-076/REPORT.md for TU compilation and remaining differences. */
 extern s32 func_801BDA6C(s32, void *, s8 *, f32, f32, f32, u8, u8, u8, u8, f32);
 extern s32 func_801BE660(s32, void *, s8 *, f32, f32, f32, f32);
 extern void func_801BF678(s8 *, s32);
@@ -39,8 +39,10 @@ void func_801C1C34(s32 list, s32 unused, u8 *characters, s32 side) {
     D_802956F4 += func_801BDA6C(list, (D_802956F4 << 6) + D_802C9F70.matrices, buffer, valueX, -45.0f, -1200.0f, 255, 255, 255, 255, 0.75f);
     a = D_80128310[player]; b = D_80128328[player];
     for (i = 0; i != 11; i++) {
-        if (maxA < a[i]) maxA = a[i];
-        if (maxB < b[i]) maxB = b[i];
+        if (maxA < *a) maxA = *a;
+        a++;
+        if (maxB < *b) maxB = *b;
+        b++;
     }
     func_801BF678(buffer, (u8)maxA); buffer[0] = 'j';
     D_802956F4 += func_801BDA6C(list, (D_802956F4 << 6) + D_802C9F70.matrices, buffer, valueX, -95.0f, -1200.0f, 255, 255, 255, 255, 0.75f);
