@@ -425,3 +425,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 ## 2026-10-20 — T-093 vetted (main finish-the-TU round 2)
 - Worktree t3-2bc90ca6 (resumed automatically after the limit). Its only match, func_800244F0, had already landed via T-092 (0acaa37), so its src change was dropped. 11 drafts improved and 22 unchanged in main_2FF0/main_D3F0; I imported the improved drafts and REPORT.md. The 17:06 resume cron was cancelled because it is no longer needed.
+- Launched T-094 (permuter: never-permuted near-misses), T-095 (screen tier 20-49) and T-096 (the hard residue, instruction-level analysis).
