@@ -221,3 +221,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-050 vetted (ovl_7DF8 polish round 5)
 - Worktree t3-a74efb12. All 45 listed functions were attempted: 0 matched, 16 drafts improved, 29 unchanged. Only scratch drafts changed; src is untouched, so no build impact. I imported the updated drafts and REPORT.md. The large ovl_7DF8 drafts (>100 words off) give diminishing returns.
 - T-053 launched (sol-B18): ovl_7DF8 finishing pass on T-048 near-misses and the clone families.
+
+## 2026-10-20 — T-051 vetted (main rodata ownership round 2)
+- Worktree t3-b276eca3. New .rodata owners: main (0x38E00), main_17140 (0x393B0) and main_321A0 (0x39D30). The main bss is split so main_2FF0 owns .bss at 0x8004A730, which lets C define `u8 D_8004A730[8]` (an allow_addend hint covers the asm users). func_80016760 matches. func_800249DC improved 63→10 words and func_8001346C 170→163. 7 unchanged; the jump-table functions have other codegen diffs.
+- Clean vet build: the ROM and all 3 images are byte-identical. 251 T4; M1 = M2 = 51,912 / 319,100 B (16.27%).

@@ -472,3 +472,6 @@ D_800489F8 = 0x800489F8; // type:f32 force_migration:True function_owner:func_80
 D_800489FC = 0x800489FC; // type:f32 force_migration:True function_owner:func_8001C43C
 D_800480C0 = 0x800480C0; // force_migration:True function_owner:func_80029BE0
 D_80048100 = 0x80048100; // force_migration:True function_owner:func_80029BE0
+
+// T-051: byte-array extent lets asm references use array addends.
+D_8004A730 = 0x8004A730; // type:u8 size:0x8 allow_addend:True

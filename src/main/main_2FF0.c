@@ -1,5 +1,7 @@
 #include "common.h"
 
+extern s8 D_8004A738;
+
 extern void boot_inflate(void *, void *, void *);
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80012950.s")
@@ -235,7 +237,7 @@ void func_80013C84(void) {
 
 extern u8 D_8004A401;
 extern void *D_8004A4C0[];
-extern s8 D_8004A736;
+extern u8 D_8004A730[8];
 extern u8 D_8019C890[], D_8019F450[];
 
 s32 func_8001414C(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
@@ -245,9 +247,9 @@ s32 func_8001414C(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     else D_8004A4C0[9] = D_8019C890;
     if (arg2 < -518 && arg0 >= -697 && arg0 < 170) {
         if (D_8004A401 == 1) {
-            D_8004A736 = 9;
+            D_8004A730[6] = 9;
         } else {
-            D_8004A736 = 12;
+            D_8004A730[6] = 12;
         }
         return 6;
     }
@@ -296,7 +298,6 @@ void func_80014C40(T033ForceTarget *arg0) {
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80015594.s")
 
 extern void *D_8004A4C0[];
-extern s8 D_8004A738;
 extern s32 D_800698C4;
 extern u8 D_8018E6D0[], D_8018EA70[], D_80193F40[], D_80195310[];
 extern u8 D_80196730[], D_80197B10[], D_80198470[], D_80198F00[];
@@ -448,7 +449,18 @@ void func_80015CD0(void) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80016258.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80016760.s")
+extern u8 D_8004509C[], D_800450A4[], D_8004511C[], D_80045124[];
+u8 D_8004A730[8];
+s8 D_8004A738;
+extern void func_8001C43C(s32, void *, void *, void *, void *);
+
+void func_80016760(s32 arg0) {
+    s32 i;
+    func_8001C43C(7, D_8004509C, D_800450A4, D_8004511C, D_80045124);
+    for (i = 0; i < 7; i++) {
+        D_8004A730[i] = D_8004A730[i] - arg0;
+    }
+}
 
 extern u8 D_8004514C[], D_80045154[], D_800451DC[], D_800451E4[];
 extern u8 D_8004A401;
@@ -534,8 +546,6 @@ extern void func_8001C05C(u8 *);
 extern s32 func_80028600(s32, f32, f32, s32);
 extern s32 func_80030020(u8 *, u8 *, u8 *, s32);
 extern s8 D_8004A5E0;
-extern s8 D_8004A730;
-extern s8 D_8004A738;
 extern void (*D_8004AA34)(T020Position *);
 extern u8 *D_8004AA3C;
 extern f32 D_8004AC80;
@@ -577,7 +587,7 @@ void func_80018418(void) {
     (*(s32 *)((u8 *)(D_8004A4C0) + 8)) = 0;
     (*(u8 **)((u8 *)(D_8004A4C0) + 0xC)) = &D_80199ED0;
     (*(s16 *)((u8 *)(D_8004A4C0) + 0x10)) = 0;
-    D_8004A730 = 1;
+    D_8004A730[0] = 1;
     D_8004A5E0 = 0;
     D_8004A738 = 0;
     (*(s32 *)((u8 *)(&D_8004A998) + 0)) = 0;
@@ -665,8 +675,6 @@ s32 func_80028600(s32, f32, f32, s32);  /* extern */
 s32 func_80030020(u8 *, u8 *, u8 *, s32); /* extern */
 extern u8 D_80044EAC;
 extern s8 D_8004A5E0;
-extern s8 D_8004A730;
-extern s8 D_8004A738;
 extern void (*D_8004AA34)(T020Position *);
 extern u8 *D_8004AA3C;
 extern f32 D_8004AC80;
@@ -683,7 +691,7 @@ extern u8 D_802D60A4;
 extern u8 D_802D60B0;
 
 void func_8001971C(void) {
-    D_8004A730 = 0;
+    D_8004A730[0] = 0;
     D_8004A5E0 = 0;
     D_8004A738 = 0;
     D_8004AA3C = &D_801755F0;

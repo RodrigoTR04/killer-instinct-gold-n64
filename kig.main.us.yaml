@@ -24,6 +24,7 @@ segments:
     type: code
     start: 0
     vram: 0x8000F960
+    bss_size: 0x510
     subsegments:
       - [0, c, main]
       - [0x2FF0, c, main_2FF0]
@@ -118,8 +119,14 @@ segments:
       - [0x350B0, data, main]
       - [0x38760, .rodata, main_18440]
       - {start: 0x387E0, type: data, name: main_remaining_early, linker_section_order: .rodata}
+      - [0x38E00, .rodata, main]
       - [0x38E40, .rodata, main_2FF0]
-      - {start: 0x393B0, type: data, name: main_remaining_0, linker_section_order: .rodata}
+      - [0x393B0, .rodata, main_17140]
+      - {start: 0x39410, type: data, name: main_remaining_0, linker_section_order: .rodata}
+      - [0x39D30, .rodata, main_321A0]
+      - {start: 0x39D60, type: data, name: main_remaining_1, linker_section_order: .rodata}
       - {start: 0x39E10, type: bin, name: gfx_data, linker_section_order: .rodata}
       - {start: 0x3A610, type: bin, name: audio_data, linker_section_order: .rodata}
+      - {type: bss, vram: 0x8004A230, name: main_bss_before_2FF0}
+      - {type: .bss, vram: 0x8004A730, name: main_2FF0}
   - [0x3A8D0]

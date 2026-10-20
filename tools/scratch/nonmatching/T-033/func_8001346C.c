@@ -1,4 +1,4 @@
-/* DRAFT. Remaining diff: 170 positional differing words; 732/704 bytes */
+/* DRAFT T-051: 163 relocation-masked positional differing words; 696 bytes. Transform drawing now stays inside switch cases 1/2 through a common label. Original is 704 bytes; remaining instruction scheduling/register allocation and control flow differ; rodata ownership is resolved. */
 typedef struct { void *display; s16 flags, pad; s32 transform; } T033DrawPart;
 typedef struct { u32 command, value; } T033DrawCommand;
 extern void *D_8004A4C0[];
@@ -45,16 +45,17 @@ void func_8001346C(T033DrawCommand **arg0, s32 arg1, s32 arg2) {
             g->value = (u32)part->display;
         }
         break;
-    case 1: transformed = 0; break;
-    case 2: transformed = 1; break;
-    case 3: func_80028A00(arg0, part->transform); break;
-    case 5: func_8001BDE0(arg0, arg1, arg2, mode); break;
-    }
-    if (mode == 1 || mode == 2) {
+    case 1: transformed = 0; goto draw;
+    case 2: transformed = 1;
+    draw:
         if (D_8004AC88 == 8 && part == (T033DrawPart *)&D_8004A5D4) D_8004A984 = 1;
         i = part->transform;
         func_8001C5AC(arg0, transformed, part->display, 0, 0, D_8004A740[i], (&D_8004A7A0)[i], D_8004A800[i], D_8004A860[i], D_8004A8C0[i], D_8004A920[i], 0);
         D_8004A984 = 0;
+
+        break;
+    case 3: func_80028A00(arg0, part->transform); break;
+    case 5: func_8001BDE0(arg0, arg1, arg2, mode); break;
     }
     if ((part->flags & 0xF0) >= 16) {
         a = D_8004AC92;
