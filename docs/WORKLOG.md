@@ -226,3 +226,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-b276eca3. New .rodata owners: main (0x38E00), main_17140 (0x393B0) and main_321A0 (0x39D30). The main bss is split so main_2FF0 owns .bss at 0x8004A730, which lets C define `u8 D_8004A730[8]` (an allow_addend hint covers the asm users). func_80016760 matches. func_800249DC improved 63→10 words and func_8001346C 170→163. 7 unchanged; the jump-table functions have other codegen diffs.
 - Clean vet build: the ROM and all 3 images are byte-identical. 251 T4; M1 = M2 = 51,912 / 319,100 B (16.27%).
 - T-054 launched (sol-C21): main round 4, 30 mid-size drafts disjoint from T-052.
+- The user asked for two Opus 5.5 (low) workers alongside Sol, and no extras after: T-055 (opus-4, main/boot near-misses + largest main drafts) and T-056 (opus-5, ovl_7DF8 near-misses outside T-053).
