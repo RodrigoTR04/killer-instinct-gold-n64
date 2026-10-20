@@ -170,3 +170,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Clean vet build: the ROM and all 3 images are byte-identical. 202 T4; M1 = M2 = 38,508 / 319,100 B (12.07%). T1 = 0 everywhere.
 - T-040 (Opus) stopped on a Claude rate limit with a turn already queued, so I left it alone. When vetting it, the Makefile now has T-038's boot wildcard.
 - Launched T-042 (boot polish + FU-2), T-043 (ovl_7DF8 rodata ownership, 4 fns) and T-044 (ovl_7DF8 polish round 2). All disjoint from T-040 (main).
+
+## 2026-10-20 — T-040 vetted (Opus opus-3: main draft polish)
+- Worktree t3-b057ab66 (base 13b3eeb), applied cleanly onto 3f951c9. 23 main functions match (T-020 ×4, T-022 ×2, T-024 ×17). I deleted those drafts and their T2 rows. 5 drafts improved: func_8001CBCC and func_8002A004 are now 2 words off and blocked on rodata. Declarations were unified in main_1A880, main_1BBA0 and main_1B230. No Makefile changes. osPfsFileState is still 2 words off after an exhaustive declaration-order search.
+- Clean vet build: the ROM and all 3 images are byte-identical. 225 T4; M1 = M2 = 42,300 / 319,100 B (13.26%). FU-16 opened: main rodata ownership and the boot_dma prototype.

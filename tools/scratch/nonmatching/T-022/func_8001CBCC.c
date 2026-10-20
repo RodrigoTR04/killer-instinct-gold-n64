@@ -1,42 +1,29 @@
-/* DRAFT. Remaining diff: 16 linked instruction words; compiled 320 bytes, original 320 bytes. */
+/* DRAFT. Remaining diff: 2 linked instruction words; 320/320 bytes. BLOCKED BY RODATA (T-040): D_80045C00 is the literal 0.017453292f from this TU's .rodata (owned by the data asm); with the literal the lwc1/mtc1 order matches (as in func_8002A004). Frame and spill slots now match. */
 
-extern void func_8001CBCC(f32 *, f32, f32, f32);
-s32 guMtxIdentF(f32 *);                         /* extern */
+s32 guMtxIdentF(f32 *);
 extern f32 D_80045C00;
 
-void func_8001CBCC(f32 *arg0, f32 arg1, f32 arg2, f32 arg3) {
-    f32 sp40;
-    f32 sp3C;
-    f32 sp34;
-    f32 sp30;
-    f32 temp_f0;
-    f32 temp_f0_2;
-    f32 temp_f12;
-    f32 temp_f14;
-    f32 temp_f14_2;
-    f32 temp_f20;
-    f32 temp_f22;
+void func_8001CBCC(f32 *m, f32 x, f32 y, f32 z) {
+    f32 pad0, siny, sinz, pad, cosy, cosz;
+    f32 sinx, cosx;
 
-    arg1 *= D_80045C00;
-    arg2 *= D_80045C00;
-    arg3 *= D_80045C00;
-    temp_f20 = sinf(arg1);
-    temp_f22 = cosf(arg1);
-    sp40 = sinf(arg2);
-    sp34 = cosf(arg2);
-    sp3C = sinf(arg3);
-    sp30 = cosf(arg3);
-    guMtxIdentF(arg0);
-    temp_f0 = -sp34;
-    (*(f32 *)((u8 *)(arg0) + 8)) = sp40;
-    temp_f14_2 = temp_f20 * sp40;
-    (*(f32 *)((u8 *)(arg0) + 0)) = temp_f0 * sp30;
-    (*(f32 *)((u8 *)(arg0) + 4)) = (f32) (temp_f0 * sp3C);
-    (*(f32 *)((u8 *)(arg0) + 0x10)) = (f32) ((temp_f14_2 * sp30) - (temp_f22 * sp3C));
-    temp_f0_2 = temp_f22 * sp40;
-    (*(f32 *)((u8 *)(arg0) + 0x14)) = (f32) ((temp_f14_2 * sp3C) + (temp_f22 * sp30));
-    (*(f32 *)((u8 *)(arg0) + 0x18)) = (f32) (temp_f20 * sp34);
-    (*(f32 *)((u8 *)(arg0) + 0x20)) = (f32) ((temp_f0_2 * sp30) + (temp_f20 * sp3C));
-    (*(f32 *)((u8 *)(arg0) + 0x24)) = (f32) ((temp_f0_2 * sp3C) - (temp_f20 * sp30));
-    (*(f32 *)((u8 *)(arg0) + 0x28)) = (f32) (temp_f22 * sp34);
+    x *= D_80045C00;
+    y *= D_80045C00;
+    z *= D_80045C00;
+    sinx = sinf(x);
+    cosx = cosf(x);
+    siny = sinf(y);
+    cosy = cosf(y);
+    sinz = sinf(z);
+    cosz = cosf(z);
+    guMtxIdentF(m);
+    m[0] = -cosy * cosz;
+    m[1] = -cosy * sinz;
+    m[2] = siny;
+    m[4] = sinx * siny * cosz - cosx * sinz;
+    m[5] = sinx * siny * sinz + cosx * cosz;
+    m[6] = sinx * cosy;
+    m[8] = cosx * siny * cosz + sinx * sinz;
+    m[9] = cosx * siny * sinz - sinx * cosz;
+    m[10] = cosx * cosy;
 }

@@ -1,4 +1,4 @@
-/* DRAFT. Remaining diff: 2 linked instruction words; compiled 152 bytes, original 152 bytes. */
+/* DRAFT. Remaining diff: 2 linked words; 152/152 bytes. BLOCKED BY RODATA (T-040): the original uses float/double literals (359.0f, 0.2) from this TU's .rodata (now owned by the data asm). With literals the code matches standalone; with extern constants the two constant loads are scheduled in the opposite order. */
 
 extern const f32 D_800488E8;
 extern f32 D_8004A8C0[], D_8004A8C8;

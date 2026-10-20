@@ -203,7 +203,26 @@ s32 func_80013BA4(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     return 0;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80013BE0.s")
+/* DRAFT T-020: Two instruction words differ: IDO folds division by 2.0f to multiplication by 0.5f. */
+extern f32 D_8004A9FC, D_8004AC84;
+extern s32 D_8004ACF0;
+extern f32 D_80061CC8[];
+extern s16 D_8004A530;
+extern s32 func_80028600(s32, f32, f32, s32);
+
+void func_80013BE0(void) {
+    f32 half;
+    if (D_8004A9FC == 0.0f && D_8004ACF0 == 0) {
+        half = D_8004AC84 / 2;
+        func_80028600(1, half, half, 240);
+        D_80061CC8[0] = 3.0f;
+        D_80061CC8[2] = 3.0f;
+        D_80061CC8[1] = 0.0f;
+        D_8004A530 = 3;
+        D_8004ACF0 = 1;
+    }
+}
+
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80013C84.s")
 
@@ -872,7 +891,18 @@ void func_8001C2D4(u8 **arg0, int arg1, int arg2) {
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_8001C370.s")
+void func_8001C370(u8 **arg0, s32 arg1, s32 arg2, u8 *arg3) {
+    s32 i, j;
+    s32 value;
+    for (i = 0; i < arg1; i++) {
+        for (j = 0; j < 3; j++) {
+            value = arg3[i * 16 + j + 12] - (func_800326F0() & arg2);
+            if (value < 0) arg0[i][j + 12] = 0;
+            else arg0[i][j + 12] = value;
+        }
+    }
+}
+
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_8001C43C.s")
 
@@ -913,7 +943,27 @@ void func_8001CD0C(void *arg0, f32 arg1, f32 arg2, f32 arg3) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_8001CD50.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_8001CF1C.s")
+extern u8 D_8004EA9C[];
+s32 osMapTLB(s32, s32, s32, s32, s32, s32);
+s32 osUnmapTLB(s32);
+
+void func_8001CF1C(void) {
+    s32 i;
+
+    for (i = 0; i < 31; i++) {
+        osUnmapTLB(i);
+    }
+    osMapTLB(0, 0, 0, 0x3A4000, -1, -1);
+    for (i = 0; i < 5; i++) {
+        osMapTLB(i + 1, 0, (D_8004EA9C[0] << 16) + i * 0x2000 + 0x10000, 0x1DB000 + i * 0x2000, 0x1DC000 + i * 0x2000, -1);
+    }
+    if (D_8004EA9C[0] != D_8004EA9C[1]) {
+        for (i = 0; i < 5; i++) {
+            osMapTLB(i + 6, 0, (D_8004EA9C[1] << 16) + i * 0x2000 + 0x10000, 0x1E5000 + i * 0x2000, 0x1E6000 + i * 0x2000, -1);
+        }
+    }
+}
+
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_8001D080.s")
 
