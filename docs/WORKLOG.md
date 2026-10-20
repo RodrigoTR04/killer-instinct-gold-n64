@@ -383,3 +383,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-084 vetted (boot readability, FU-13 boot)
 - Worktree t3-cba8d4ed. include/boot.h holds shared types and declarations. Boot functions and state are named after gzip inflate.c and their roles (boot_start, boot_load_main, huft_build, inflate_codes/stored/fixed/dynamic/block, boot_scheduler_thread, ...), with struct member access and boot-flow comments. docs/boot.md is new. Name-only caller edits in main.c. No readability change needed reverting.
 - Clean vet build: the ROM and all 3 images are byte-identical; boot is 21/21 T4.
+- T-087 launched (sol-A29): finish the remaining drafts in mostly-matched ovl_7DF8 TUs.
