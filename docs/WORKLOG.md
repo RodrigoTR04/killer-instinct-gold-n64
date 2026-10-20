@@ -300,3 +300,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-066 vetted (ovl_7DF8 stuck near-misses, type angle)
 - Worktree t3-f34be619. func_801B6A68 matches (512-byte palette rows); func_801C7CD0 improved 34→6. 8 unchanged (the glyph functions, func_801C4E38, func_801B6528, func_801C35D8, func_801C51F8, func_801B695C, func_801B446C).
 - Clean vet build: the ROM and all 3 images are byte-identical. 277 T4; M1 = M2 = 63,436 / 319,100 B (19.88%).
+- T-069 launched (sol-A24): 10 large main drafts (1.3–1.9 KB), a list disjoint from T-067.
