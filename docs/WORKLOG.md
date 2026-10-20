@@ -263,3 +263,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 ## 2026-10-20 — T-060 vetted (ovl_7DF8 declaration-first)
 - Worktree t3-489ed93b. All 15 attempted: 0 matched, 5 drafts improved (func_801C35D8 65→5, func_801BFB40 12→8), 10 unchanged. Scratch-only changes; I imported the drafts and REPORT.md.
+- T-062 launched (sol-A22): ovl_7DF8 finishing pass on the 2-8-word near-misses.
