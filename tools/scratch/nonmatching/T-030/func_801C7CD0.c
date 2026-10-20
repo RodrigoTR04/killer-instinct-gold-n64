@@ -1,9 +1,9 @@
-/* DRAFT (T-062). 34 differing words (was 63), 380 bytes. Use the byte argument directly, no extra callee arguments, and two 64-bit replay values. Remaining: global pointer and mode/replay register allocation, narrowing and scheduling. */
+/* DRAFT (T-066). 6 differing words, 380 bytes. Remaining: replay-state base uses a2 rather than target v1. */
 #include "common.h"
 
 extern void func_801ADAD4(s32);
-extern void func_801C7A98();
-extern void func_801CD038(void *, s32);
+extern void func_801C7A98(void);
+extern u8 func_801CD038(s32, s32);
 extern u8 D_800F4070[];
 extern s8 D_801CD454, D_802923F5;
 extern void *D_802925AC, *D_802926AC;
@@ -15,7 +15,7 @@ extern s8 D_802D39FC, D_802D3A01, D_802D3A02, D_802D3A07;
 extern u8 D_802D3A00, D_802D3A06, D_802D3E15;
 
 void func_801C7CD0(u8 arg0) {
-    u8 replay;
+    u32 replay;
     if (D_802D3E15) arg0 = 5;
     func_801C7A98();
     D_802D39F8 = 0.0f;
@@ -28,15 +28,15 @@ void func_801C7CD0(u8 arg0) {
     D_802CA064 = 480;
     D_801CD454 = 0;
     D_802D3A00 = arg0;
-    if (arg0 == 5) {
+    if (D_802D3A00 == 5) {
         if (D_802D3E15 == 0) D_802D3E15 = 1;
         replay = D_802D3E15;
         D_802D3678[0] = 0x1000;
         D_802D3678[1] = 0x1000;
         D_802923F5 = 0;
-        func_801CD038(D_800F4070, replay - 1);
+        func_801CD038((s32)D_800F4070, replay - 1);
         D_802926AC = D_800F4070;
-    } else if (arg0 != 4 && D_802D3A06 == 0) {
+    } else if (D_802D3A00 != 4 && D_802D3A06 == 0) {
         func_801ADAD4(40);
     }
     D_802D3A01 = 0;

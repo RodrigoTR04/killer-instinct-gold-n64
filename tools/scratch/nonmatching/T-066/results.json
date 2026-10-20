@@ -1,0 +1,122 @@
+{
+  "func_801C4E38": {
+    "baseline": [
+      2,
+      556
+    ],
+    "best": [
+      2,
+      556
+    ],
+    "tested": 25,
+    "wins": []
+  },
+  "func_801B6528": {
+    "baseline": [
+      3,
+      596
+    ],
+    "best": [
+      3,
+      596
+    ],
+    "tested": 14,
+    "wins": []
+  },
+  "func_801C35D8": {
+    "baseline": [
+      4,
+      384
+    ],
+    "best": [
+      4,
+      384
+    ],
+    "tested": 18,
+    "wins": []
+  },
+  "func_801BF720": {
+    "baseline": [
+      2,
+      104
+    ],
+    "best": [
+      2,
+      104
+    ],
+    "tested": 18,
+    "wins": []
+  },
+  "func_801BF914": {
+    "baseline": [
+      2,
+      116
+    ],
+    "best": [
+      2,
+      116
+    ],
+    "tested": 18,
+    "wins": []
+  },
+  "func_801C51F8": {
+    "baseline": [
+      2,
+      160
+    ],
+    "best": [
+      2,
+      160
+    ],
+    "tested": 10,
+    "wins": []
+  },
+  "func_801B695C": {
+    "baseline": [
+      4,
+      268
+    ],
+    "best": [
+      4,
+      268
+    ],
+    "tested": 14,
+    "wins": []
+  },
+  "func_801B6A68": {
+    "baseline": [
+      20,
+      368
+    ],
+    "best": [
+      20,
+      368
+    ],
+    "tested": 9,
+    "wins": []
+  },
+  "func_801B446C": {
+    "baseline": [
+      31,
+      292
+    ],
+    "best": [
+      31,
+      292
+    ],
+    "tested": 15,
+    "wins": []
+  },
+  "func_801C7CD0": {
+    "baseline": [
+      34,
+      380
+    ],
+    "best": [
+      34,
+      380
+    ],
+    "tested": 14,
+    "wins": []
+  }
+}

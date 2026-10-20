@@ -296,3 +296,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-065 vetted (ovl_7DF8 argument widths)
 - Worktree t3-69854cd4. All 11 attempted: 0 matched, 3 improved (func_801C7998 55→6, func_801C5064 93→6, func_801B1210 39→38). Scratch-only changes; I imported the drafts and REPORT.md.
 - T-068 launched (sol-C26): ovl_7DF8 6-8-word near-misses plus the flag hypothesis.
+
+## 2026-10-20 — T-066 vetted (ovl_7DF8 stuck near-misses, type angle)
+- Worktree t3-f34be619. func_801B6A68 matches (512-byte palette rows); func_801C7CD0 improved 34→6. 8 unchanged (the glyph functions, func_801C4E38, func_801B6528, func_801C35D8, func_801C51F8, func_801B695C, func_801B446C).
+- Clean vet build: the ROM and all 3 images are byte-identical. 277 T4; M1 = M2 = 63,436 / 319,100 B (19.88%).
