@@ -1,4 +1,5 @@
 #include "common.h"
+#include "libaudio/abi.h"
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_1B230/func_8002AB90.s")
 
@@ -13,7 +14,9 @@ extern void *D_80066C50[];
 
 extern u32 D_80048150;
 
-extern s32 osRecvMesg(void *,void *,s32),func_8002B034(void *,s32);
+struct T095AudioTask;
+extern s32 osRecvMesg(void *,void *,s32);
+extern s32 func_8002B034(struct T095AudioTask *, s32);
 
 extern void boot_subscribe_retrace(void *, void *);
 extern void func_8002B1EC(s32),alClose(void *);
@@ -56,7 +59,96 @@ void func_8002AEE4(s32 unused)
     alClose(D_80066E88);
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_1B230/func_8002B034.s")
+typedef struct {
+  s32 taskType;
+  s32 flags;
+  void *boot;
+  u32 bootSize;
+  void *code;
+  u8 pad34[4];
+  void *data;
+  u32 dataSize;
+  u8 pad40[0x10];
+  void *commands;
+  u32 commandSize;
+  s32 yield;
+  u32 yieldSize;
+} T095RspTask;
+typedef struct T095AudioTask
+{
+  void *buffer;
+  s16 samples;
+  u8 pad6[2];
+  s32 state;
+  u8 padC[8];
+  s32 type;
+  u8 pad18[8];
+  T095RspTask rsp;
+  void *queue;
+  void *message;
+  u8 body[8];
+} T095AudioTask;
+extern void func_8002B3E0(void);
+extern u32 osVirtualToPhysical(void *);
+extern u32 osAiGetLength(void);
+extern s32 osAiSetNextBuffer(void *, u32);
+extern void osWritebackDCacheAll(void);
+extern Acmd *func_80039C08(Acmd *, s32 *, s16 *, s32);
+extern s32 osSendMesg(void *, void *, s32);
+extern s32 D_80048158;
+extern s32 D_80068168;
+extern u32 D_80068164;
+extern u8 D_80042710[];
+extern u8 D_800427E0[];
+extern u8 D_80043BF0[];
+extern u8 D_80049F70[];
+extern u8 D_80066E50[];
+extern u8 boot_audio_queue[];
+
+s32 func_8002B034(T095AudioTask *task, s32 previousAddress)
+{
+  u32 physical;
+  T095RspTask *rsp;
+  s32 count;
+  u8 *end;
+  func_8002B3E0();
+  physical = osVirtualToPhysical(task->buffer);
+  if (previousAddress)
+  {
+    osAiSetNextBuffer(((T095AudioTask *)previousAddress)->buffer, ((T095AudioTask *)previousAddress)->samples * 4);
+  }
+  task->samples = ((D_80068168 - (osAiGetLength() >> 2)) + 0x60) & 0xFFF0;
+  if (((u32) task->samples) < D_80068164)
+  {
+    task->samples = D_80068164;
+  }
+  end = (u8 *) func_80039C08(D_80066C50[D_80048158], &count, (s16 *)physical, task->samples);
+  if (count == 0)
+  {
+    return 0;
+  }
+  task->state = 0;
+  task->queue = D_80066E50;
+  task->message = task->body;
+  task->type = 2;
+  task->rsp.commands = D_80066C50[D_80048158];
+  task->rsp.commandSize = ((end - (u8 *)D_80066C50[D_80048158]) >> 3) * 8;
+  task->rsp.taskType = 2;
+  task->rsp.boot = D_80042710;
+  task->rsp.bootSize = D_800427E0 - D_80042710;
+  task->rsp.flags = 2;
+  task->rsp.code = D_80043BF0;
+  task->rsp.data = D_80049F70;
+  task->rsp.dataSize = 0x800;
+  /* Keep the RSP task view for the two yield-buffer fields. */
+  (rsp = &task->rsp)->yield = 0;
+  rsp->yieldSize = 0x400;
+  osWritebackDCacheAll();
+  osSendMesg(boot_audio_queue, &task->state, 1);
+  D_80048158 ^= 1;
+  return 1;
+}
+
 
 extern u32 osAiGetLength(void);
 extern s32 D_80048264;

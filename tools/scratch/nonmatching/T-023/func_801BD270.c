@@ -1,4 +1,4 @@
-/* DRAFT. Remaining diff: 64-bit return packing, stack temporaries and pad-field scheduling differ. */
+/* T-095 DRAFT: remaining differences recorded in T-095/REPORT.md. */
 typedef struct { u16 buttons; s8 x, y; } T023Pad270;
 extern void func_8002B6EC(s32);
 extern T023Pad270 **func_8002B710(void);
@@ -8,7 +8,7 @@ extern T023Pad270 **D_802D3670;
 u64 func_801BD270(s32 player) {
     T023Pad270 *pad;
     u16 buttons;
-    s8 x, y;
+    s8 x; s8 y;
     u64 result;
     if (player == 0 && D_802D3698) {
         D_802D3699 = 1;
@@ -24,8 +24,8 @@ u64 func_801BD270(s32 player) {
     else if (x < -48) buttons |= 0x200;
     if (y >= 33) buttons |= 0x800;
     else if (y < -32) buttons |= 0x400;
-    result = (u64)(x & 0xFFFF) << 32;
-    result += (y << 16) & 0xFFFF0000;
+    result = x & 0xFFFF;
+    result = (result << 32) + ((y << 16) & 0xFFFF0000);
     result += buttons;
     return result;
 }

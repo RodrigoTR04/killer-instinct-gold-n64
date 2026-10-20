@@ -22,7 +22,39 @@ f32 func_801AFA80(f32 arg0, f32 arg1, s32 arg2, s32 arg3) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_3F60/func_801B132C.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_3F60/func_801B17BC.s")
+extern void func_801C47E0(s32, s32, void *, u8);
+extern void func_801C48E4(s32, u8, s32);
+extern u8 D_800F4070;
+extern s8 D_801CD454;
+extern s32 D_802956F8, D_802956FC, D_80295700;
+extern u8 D_802C8724;
+s32 func_801B17BC(u8 arg0, u8 arg1, u8 arg2)
+{
+    u8 colors[3];
+    s32 i;
+    u8 *p;
+    u8 color;
+    void *image = &D_800F4070;
+    colors[0] = arg0;
+    colors[1] = arg1;
+    colors[2] = arg2;
+    D_802C8724 = 0;
+    /* These setup statements share a line for IDO scheduling. */
+    p = colors; i = 0; do {
+        color = *p;
+        if (color == 8) {
+            D_802C8724 |= 1 << i;
+        }
+        func_801C47E0((color + 0x80) & 0xFF, 0, image, color);
+        func_801C48E4(i, *p, 1);
+        i++;
+        p++;
+    } while (i != 3);
+    D_801CD454 = 0;
+    D_802956F8 = D_802956FC = D_80295700 = 0;
+    return 0;
+}
+
 
 typedef struct { u8 pad[0x10]; s32 state; } T025State;
 extern void func_801C0610(s32);

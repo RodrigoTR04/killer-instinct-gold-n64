@@ -440,3 +440,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-094 vetted (permuter on never-permuted near-misses)
 - Worktree t3-47b9f108. func_800281C4 and func_801C8F28 match (536 B). 4 drafts improved, 7 unchanged.
 - Clean vet build: the ROM and all 3 images are byte-identical. 292 T4; M1 = M2 = 62,736 / 289,876 B (21.64%).
+
+## 2026-10-20 — T-095 vetted (screen tier 20-49)
+- Worktree t3-28bf0f96 (auto-resumed after the limit; cron 94277b83 cancelled). func_801B17BC and func_8002B034 match (696 B). 7 improved, 7 unchanged.
+- Clean vet build: the ROM and all 3 images are byte-identical. 294 T4; M1 = M2 = 63,432 / 289,876 B (21.88%).
