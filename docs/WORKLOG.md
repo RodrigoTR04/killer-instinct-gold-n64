@@ -399,3 +399,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-087 vetted (ovl_7DF8 finish-the-TU)
 - Worktree t3-ee1658a8. 8 functions match (1,716 B): func_801AD568, func_801C4780, func_801C4D28, func_801C4D6C, func_801C780C, func_801CBBE0, func_801CC0CC and func_801CC1A4. 5 improved, 8 unchanged. func_801C67CC has an exact body but needs its TU (ovl_7DF8_190B0) to own its rodata (yaml); that is the follow-up.
 - Clean vet build: the ROM and all 3 images are byte-identical. 270 T4; M1 = M2 = 55,924 / 289,876 B (19.29%).
+- T-090 launched (sol-A30): ovl_7DF8_190B0 rodata ownership to land func_801C67CC.
