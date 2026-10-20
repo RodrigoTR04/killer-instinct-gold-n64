@@ -50,9 +50,29 @@ void func_8002A9DC(s32 index) {
     alCSPSetSeq(D_800669C4, D_80066B30);
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_1AB90/func_8002AA98.s")
+extern s32 D_80048140[];
+extern u8 D_80127CC9;
+extern void alCSPSetVol(void *, s32);
+void func_8002AA98(s32 volume)
+{
+    s16 narrowed;
+    volume = D_80048140[D_80127CC9] * volume;
+    volume >>= 16;
+    narrowed = volume;
+    alCSPSetVol(D_800669C0, narrowed);
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_1AB90/func_8002AAEC.s")
+extern s32 D_80048140[];
+extern u8 D_80127CC9;
+extern void alCSPSetVol(void *, s32);
+void func_8002AAEC(s32 volume)
+{
+    s16 narrowed;
+    volume = D_80048140[D_80127CC9] * volume;
+    volume >>= 16;
+    narrowed = volume;
+    alCSPSetVol(D_800669C4, narrowed);
+}
 
 extern void *D_800669C0;
 extern void alCSPStop(void *);

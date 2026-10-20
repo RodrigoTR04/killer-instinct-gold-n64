@@ -218,7 +218,39 @@ void func_801C4D6C(void) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_190B0/func_801C4E38.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_190B0/func_801C5064.s")
+/* Keep the depth initialization on the loop line for IDO scheduling. */
+typedef struct { u8 pad[0xF8]; u8 *matrices; } T030Render5064;
+extern s32 func_801BE540(s32, void *, s32, f32, f32, f32, s32, s32, s32, u8, f32);
+extern s32 D_802956F4;
+extern s32 *D_802D39AC;
+
+void func_801C5064(s32 arg0, T030Render5064 *arg1, u8 arg2, s32 arg3) {
+    f32 scale;
+    f32 origin;
+    f32 depth;
+    s32 count;
+    s32 i, offset;
+    s32 used;
+    scale = 0.67f;
+    origin = -540.0f;
+    if (arg3 != 0) {
+        scale = 1.0f;
+        origin = -((u8)D_802D399F) * 20;
+    }
+    count = ((u8)D_802D399F);
+    i = 0;
+    offset = 0;
+    if (count > 0) {
+        depth = -1950.0f; do {
+            used = func_801BE540(arg0, arg1->matrices + (D_802956F4 << 6), *(s32 *)((u8 *)D_802D39AC + offset), 0.0f, ((count-i)*67)*scale + origin, depth, 255,255,255,arg2,scale);
+            i++;
+            offset += 4;
+            count = ((u8)D_802D399F);
+            D_802956F4 += used;
+        }
+        while (i < count);
+    }
+}
 
 typedef struct { u32 w0, w1; } T021Gfx;
 extern u8 D_4AC40;
