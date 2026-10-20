@@ -188,3 +188,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-042 vetted (boot polish)
 - Worktree t3-a418e171. 5 of 6 match (5,296 B): boot_dma_chunked, func_80000960, func_80000FA0, func_800016CC and func_80001F2C (the inflate/Huffman code was rewritten as idiomatic C with refined extern types). func_80001564 is still 8 words off. FU-2 was not needed. Boot is now at 95.75%.
 - Clean vet build: the ROM and all 3 images are byte-identical. 237 T4; M1 = M2 = 49,052 / 319,100 B (15.37%).
+- T-047 launched (sol-A18): ovl_7DF8 polish round 3 plus rodata ownership extension.
