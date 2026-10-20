@@ -101,7 +101,7 @@ progress:
 # Each executable payload has its own linker namespace, including the overlays
 # whose VRAM ranges overlap. Their matching compressed outputs feed the ROM.
 define IMAGE_RULES
-IMAGE_OBJECTS_$(1) := build/asm/$(1)/data/$(1).data.s.o
+IMAGE_OBJECTS_$(1) := $$(patsubst %.s,build/%.s.o,$$(wildcard asm/$(1)/data/*.s))
 ifeq ($(1),ovl_7E00)
 IMAGE_OBJECTS_$(1) += build/asm/$(1)/$(1).s.o
 else

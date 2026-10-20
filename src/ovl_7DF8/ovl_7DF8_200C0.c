@@ -2,7 +2,83 @@
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_200C0/func_801CBBE0.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_200C0/func_801CBCCC.s")
+extern s32 osRecvMesg(void *, void *, s32);
+extern void osDestroyThread(void *);
+extern void func_8002B6EC(void);
+extern void func_8002B710(void);
+extern void func_8002F6F4(s32, s32, void *);
+extern void func_801BFB10(void);
+extern void func_801CBF50(void);
+extern s32 func_801CCAB0(s32);
+extern s32 func_801CCBCC(u8);
+extern u8 func_801CCDE8(void);
+extern void func_801CD078(s32, s32);
+extern void func_801CD174(s32);
+extern void func_801CD1F0(s32);
+extern s32 D_80066C40;
+extern u8 D_8004A25C[];
+extern u8 D_80295722;
+extern u8 D_802D3698;
+extern u8 D_802D3699;
+extern u8 D_802D3E14;
+extern u8 D_802D3E15;
+extern u8 D_802D3FC8;
+
+void func_801CBCCC(void) {
+    s32 msg;
+
+    for (;;) {
+        osRecvMesg(&D_802D3FC8, &msg, 1);
+        D_802D3E14 = 0;
+        if (msg == 1) {
+            osDestroyThread(0);
+        }
+        if (msg == 8) {
+            D_80295722 = 1;
+            func_801CBF50();
+        }
+        D_802D3698 = 0;
+        if (D_802D3699) {
+            func_8002B710();
+        }
+        switch (msg & 0xFF) {
+            case 2:
+                func_801BFB10();
+                break;
+            case 9:
+                func_801CCAB0(-1);
+                break;
+            case 3:
+                func_801CCAB0(-1);
+                func_801CCAB0(0);
+                func_801CCAB0(1);
+                func_8002F6F4(D_80066C40, 0x109, D_8004A25C);
+                break;
+            case 4:
+                func_801CD1F0(msg >> 8);
+                break;
+            case 5:
+                func_801CD078((u32)msg >> 16, (msg & 0xFF00) >> 8);
+                break;
+            case 6:
+                func_801CD174(msg >> 8);
+                break;
+            case 7:
+                D_802D3E15 = func_801CCDE8();
+                break;
+            case 10:
+                func_801CCBCC(0);
+                break;
+            case 11:
+                func_801CCBCC(1);
+                break;
+        }
+        if (D_802D3699) {
+            func_8002B6EC();
+        }
+        D_802D3698 = 1;
+    }
+}
 
 extern s32 osCreateMesgQueue();
 extern s32 osCreateThread();
@@ -152,7 +228,7 @@ extern void func_801C8A38(void *, s32);
 extern void func_801C7A98(void);
 extern u8 D_80127D58[];
 extern u8 D_8012834C;
-extern u8 D_80295648[];
+const u8 D_80295648[] = "LOADED CONTROLLER PAK DATA";
 extern u8 D_802D3AA0[];
 extern u8 D_802D3ACF;
 extern u8 D_802D3AD0[];
@@ -236,8 +312,8 @@ extern s32 func_801CC3BC(s32, s32);
 extern void func_801CC1A4(void *, s32);
 extern u8 D_80127D58[];
 extern u8 *D_802927A4[];
-extern u8 D_80295698[];
-extern u8 D_802956A8[];
+const u8 D_80295698[] = "SAVING PLAYER 2";
+const u8 D_802956A8[] = "SAVED PLAYER 2 DATA";
 extern u8 D_802D3E0D;
 
 s32 func_801CCBCC(u8 arg0) {

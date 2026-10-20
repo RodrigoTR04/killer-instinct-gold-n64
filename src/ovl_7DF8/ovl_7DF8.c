@@ -251,7 +251,38 @@ void func_801ADC64(s32 arg0) {
     D_80295708 = arg0;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8/func_801ADCFC.s")
+extern void func_801ADC64(s32);
+extern void func_801B3DB0(u8, s32);
+extern void func_801C1704(s32);
+extern u8 D_8004A403;
+extern u8 D_80127D50;
+
+void func_801ADCFC(s32 arg0) {
+    D_8004A403 = 0;
+    func_801C1704(0);
+    func_801C1704(1);
+    switch (D_80127D50) {
+        case 0:
+            func_801B3DB0(arg0, 0);
+            break;
+        case 1:
+            func_801B3DB0(arg0, 8);
+            break;
+        case 2:
+            func_801B3DB0(arg0, 0x40);
+            break;
+        case 3:
+            func_801ADC64(9);
+            break;
+        case 4:
+            D_8004A403 = 1;
+            func_801B3DB0(arg0, 7);
+            break;
+        default:
+            func_801B3DB0(arg0, 6);
+            break;
+    }
+}
 
 extern u8 D_80127C30[], D_80128350[], D_80127D40[];
 extern void func_801BE790(void), func_801C7F90(void), func_801C85C0(void), func_801C8668(s32), func_801B4300();
