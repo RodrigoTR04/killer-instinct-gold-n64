@@ -414,3 +414,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-088 vetted (permuter round 2)
 - Worktree t3-c3e99abb. 14 functions × 45-minute searches on 16 workers: 0 matches. func_8002F45C improved 13→11 (declaration order). Scratch-only changes; I imported the draft and report. These 14 (the glyph functions, func_801C4E38, func_801B6528, func_801B695C, func_801C5064, func_801C7998, func_801C6A80, family A, func_8002AA98/AAEC, func_80017378, func_8002A900) are the hardest residue.
 - T-093 launched (sol-A31): finish the remaining stubs in main_2FF0 and main_D3F0.
+
+## 2026-10-20 — T-091 vetted (rodata-ownership sweep)
+- Worktree t3-d4515633. 10 more TUs own .rodata. Main: 1BE80, 1E7F0, 1EB40, 27490, 2B780. ovl_7DF8: 2380, 3F60, 116E0, 17E70, 1B790. Constants used by asm functions are kept via new function_owner hints (func_8002BBD0, func_8002E150, ...). 3 migrations were reverted because they didn't stay byte-identical. No additional draft became exact. Metrics unchanged. Clean vet build: the ROM and all 3 images are byte-identical.
+- T-093 stopped on the Codex usage limit (resets 17:03). Cron 35ad101c resumes it at 17:06.

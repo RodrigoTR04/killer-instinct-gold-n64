@@ -41,11 +41,17 @@ segments:
       - [0x200C0, c, ovl_7DF8_200C0]
       - [0x21930, data, ovl_7DF8]
       - [0xE6C90, .rodata, ovl_7DF8]
-      - {start: 0xE6CC0, type: data, name: ovl_7DF8_remaining_0, linker_section_order: .rodata}
+      - [0xE6CC0, .rodata, ovl_7DF8_2380]
+      - [0xE6CD0, .rodata, ovl_7DF8_3F60]
+      - {start: 0xE6E40, type: data, name: t091_after_ovl_7DF8_3F60, linker_section_order: .rodata}
+      - [0xE7030, .rodata, ovl_7DF8_116E0]
+      - {start: 0xE7070, type: data, name: t091_after_ovl_7DF8_116E0, linker_section_order: .rodata}
       - [0xE70D0, .rodata, ovl_7DF8_12C70]
       - {start: 0xE7160, type: data, name: ovl_7DF8_remaining_1, linker_section_order: .rodata}
+      - [0xE7CA0, .rodata, ovl_7DF8_17E70]
       - [0xE7CC0, .rodata, ovl_7DF8_18520]
       - [0xE7D10, .rodata, ovl_7DF8_190B0]
-      - {start: 0xE8DA0, type: data, name: ovl_7DF8_remaining_2, linker_section_order: .rodata}
+      - [0xE8DA0, .rodata, ovl_7DF8_1B790]
+      - {start: 0xE93F0, type: data, name: t091_after_ovl_7DF8_1B790, linker_section_order: .rodata}
       - [0xE9A40, .rodata, ovl_7DF8_200C0]
   - [0xE9BD0]

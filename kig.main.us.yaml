@@ -147,18 +147,21 @@ segments:
       - [0x38E40, .rodata, main_2FF0]
       - [0x390A0, .rodata, main_D3F0]
       - [0x393B0, .rodata, main_17140]
-      - {start: 0x39410, type: data, name: main_sdk_data_80048D70, linker_section_order: .rodata}
+      - [0x39410, .rodata, main_1BE80]
+      - [0x39580, .rodata, main_1E7F0]
+      - [0x39650, .rodata, main_1EB40]
       - {start: 0x39690, type: .rodata, name: libultra/guPerspectiveF, linker_section_order: .rodata}
       - [0x396A0, .rodata, main_23750]
       - {start: 0x396C0, type: .rodata, name: libultra/guRotateF, linker_section_order: .rodata}
       - {start: 0x396D0, type: .rodata, name: libultra/guLookAtRef, linker_section_order: .rodata}
       - {start: 0x396E0, type: .rodata, name: libultra/sinf, linker_section_order: .rodata}
       - {start: 0x39730, type: .rodata, name: libultra/cosf, linker_section_order: .rodata}
-      - {start: 0x39780, type: data, name: main_sdk_data_800490E0, linker_section_order: .rodata}
+      - [0x39780, .rodata, main_27490]
       - [0x39790, .rodata, main_28060]
       - [0x399D0, .rodata, main_292E0]
       - [0x399E0, .rodata, main_2A160]
-      - {start: 0x399F0, type: data, name: main_after_2A160, linker_section_order: .rodata}
+      - [0x399F0, .rodata, main_2B780]
+      - {start: 0x39A00, type: data, name: t091_after_main_2B780, linker_section_order: .rodata}
       - [0x39A10, .rodata, main_2D860]
       - [0x39C50, .rodata, main_2F2A0]
       - [0x39C80, .rodata, main_30790]
