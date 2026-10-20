@@ -1,4 +1,4 @@
-/* T-052 DRAFT: 106 relocation-masked positional words differ; 464/476 bytes. */
+/* T-085 DRAFT: 109 -> 101 differing words in owning TU; 500/476 bytes. */
 typedef struct { u8 width, height, flags, pad; } T033ImageSize;
 typedef struct { s32 width, height; u8 pixels[1]; } T033PackedImage;
 extern u8 D_A69A70[], D_A6A990[], D_A6AA70[], D_8030000F;
@@ -19,16 +19,16 @@ void func_80012390(void) {
     s32 count, i;
     length = D_A6A990 - D_A69A70;
     boot_dma_chunked(D_A69A70, (void *)0x80300000, length);
-    cursor = &D_8030000F;
+    cursor = (u8 *)0x80300000;
     end = length + 0x80300000;
     index = 0;
     while ((u32)(cursor + 8) < end) {
-        if (*cursor == 0) break;
+        if (((cursor[4] << 24) + cursor[7] + (cursor[5] << 16) + (cursor[6] << 8)) == 0) break;
         func_80030440(cursor, index);
-        cursor += (*cursor << 24) + (*cursor << 16) + (*cursor << 8) + *cursor;
+        cursor += (cursor[4] << 24) + (cursor[5] << 16) + (cursor[6] << 8) + cursor[7];
         index++;
     }
-    base = (u32)cursor & ~15;
+    base = ((u32)cursor + 15) & ~15;
     image = (T033PackedImage *)base;
     boot_dma(D_A6A990, (void *)base, D_A6AA70 - D_A6A990);
     if ((u32)image < (u32)(D_A6AA70 + base - (u32)D_A6A990)) {

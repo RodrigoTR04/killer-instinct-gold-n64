@@ -1,11 +1,11 @@
-/* T-054 DRAFT: 122 relocation-masked positional words differ; 488 emitted bytes. See T-054/REPORT.md. */
+/* T-085 DRAFT: 158 -> 156 differing words in owning TU; 520/632 bytes. */
 
 extern u8 D_80069E48[], D_80069F70[];
 void func_80030440(u8 *image, s32 index) {
-    s32 width = image[0];
-    s32 height = image[1];
+    u8 width = image[0];
+    u8 height = image[1];
     s32 stride = (width + 7) & 0xFFF8;
-    u8 *source = image + 8;
+    s32 source = 8;
     s32 y;
     s32 x;
     u8 *out = D_80069F70 + index * 0x120;
@@ -17,7 +17,7 @@ void func_80030440(u8 *image, s32 index) {
         s32 swap = (y & 1) ? 4 : 0;
         x = 0;
         while (x < width) {
-            u8 run = *source++;
+            u8 run = image[source++];
             s32 n = (run & 15) + 1;
             s32 j;
             for (j = 0; j < n; j++) out[y*stride + ((x+j)^swap)] = run & 0xF0;

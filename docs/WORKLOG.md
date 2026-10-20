@@ -390,3 +390,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - The lead fixed one name-only conflict: func_80001EF4 → boot_subscribe_retrace (T-084 rename) in main_1B230.c.
 - Clean vet build: the ROM and all 3 images are byte-identical. 260 T4; M1 = M2 = 53,904 / 289,876 B (18.60%).
 - T-088 launched (sol-B29): permuter round 2 on the remaining near-misses.
+
+## 2026-10-20 — T-085 vetted (main finish-the-TU)
+- Worktree t3-594a799d. All 23 attempted: func_8002A1E0 and func_8003037C match (304 B), 11 drafts improved, 10 unchanged.
+- Clean vet build: the ROM and all 3 images are byte-identical. 262 T4; M1 = M2 = 54,208 / 289,876 B (18.70%).

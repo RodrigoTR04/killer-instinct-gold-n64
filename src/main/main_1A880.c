@@ -1,6 +1,18 @@
 #include "common.h"
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_1A880/func_8002A1E0.s")
+extern s32 D_800669A8, D_800669AC, D_800669B0;
+extern s32 func_8003278C(void);
+void func_8002A1E0(void) {
+    s32 i;
+    D_800669A8 = 0;
+    for (i = 1;
+    i <= 16;
+    i++) {
+        D_800669A8 = (D_800669A8 << 1) + func_8003278C();
+    }
+    D_800669AC = 0;
+    D_800669B0 = 0xFFFF;
+}
 
 extern s32 D_80065C80[], D_80066188[], D_800665A0[];
 extern u8 D_80066080[];
