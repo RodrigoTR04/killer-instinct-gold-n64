@@ -314,3 +314,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-071 vetted (ovl_7DF8 line placement)
 - Worktree t3-3f489538. 3 functions match with multiline layouts (1,096 B): func_801C51F8, func_801C35D8 and func_801C2D34. 8 drafts improved, 8 unchanged.
 - Clean vet build: the ROM and all 3 images are byte-identical. 287 T4; M1 = M2 = 66,040 / 319,100 B (20.70%).
+- T-072 launched (sol-A25): main line placement on mid drafts never tried with it.
