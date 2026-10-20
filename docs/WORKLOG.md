@@ -235,3 +235,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 ## 2026-10-20 — T-052 vet failed (sent back)
 - Worktree t3-ac9efe1b. It reports func_8002A9DC and func_8001C43C matched (C43C's owner hints removed) and 15 drafts improved. Merging onto master conflicts in main_2FF0.c: T-051 defines `u8 D_8004A730[8]` and scalar `s8 D_8004A738`, while T-052 declares extern s8 arrays and `D_8004A5E0[][7]`. Sent back to rebase and reconcile the types while keeping T-051's bss ownership.
+- T-057 stopped on the Codex usage limit (resets 03:30). A one-shot resume is scheduled for 03:33 (cron 199d854c, session-only). If it doesn't fire, resume by hand.
