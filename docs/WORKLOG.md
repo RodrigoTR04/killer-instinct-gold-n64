@@ -241,3 +241,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - The 03:33 cron didn't fire before the session idled. At 06:09 I resumed T-057 (Sol, Codex limit) and T-055/T-056 (Opus, Claude rate limit) by hand with "continue".
 - T-052 rework: rebased onto 716e1db. main_2FF0.c now defines `u8 D_8004A730[8]` and `s8 D_8004A738[8]` inside T-051's bss boundary, and the declarations are consolidated. func_8002A9DC and func_8001C43C match (C43C's owner hints removed). 15 drafts improved.
 - Clean vet build: the ROM and all 3 images are byte-identical. 255 T4; M1 = M2 = 52,848 / 319,100 B (16.56%).
+
+## 2026-10-20 — T-054 vetted (main polish round 4)
+- Worktree t3-9b3124fe. All 32 listed functions were attempted. func_80016910 and func_8001B620 match (1,736 B); B620's 4 owner hints were reassigned to func_8001B134. 17 drafts improved, 13 unchanged. The lead resolved a mechanical symbol_addrs conflict with T-052: kept the B134 reassignment, dropped the C43C hints T-052 removed.
+- Clean vet build: the ROM and all 3 images are byte-identical. 257 T4; M1 = M2 = 54,584 / 319,100 B (17.11%).

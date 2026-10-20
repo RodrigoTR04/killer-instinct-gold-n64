@@ -1,4 +1,5 @@
-/* DRAFT. Remaining diff: 286 differing instruction words; emitted 1168 / original 1096 bytes (positional comparison). */
+/* T-054 DRAFT: 284 relocation-masked positional words differ; 1156 emitted bytes. See T-054/REPORT.md. */
+
 /* Arithmetic interval decode; tree links use byte offsets, counts are 32-bit. */
 extern u8 D_80066590;
 extern s32 D_80066594;
@@ -116,7 +117,7 @@ u8 func_800327E8(u32 *arg0, s32 *arg1, s32 arg2, s32 arg3) {
         var_t8 += temp_v1_8;
     }
     temp_v0 = var_v0_2 - (u8 *)var_a0;
-    var_t2 = temp_v0 + var_a1;
+    var_t2 = (s32 *)((u8 *)var_a1 + temp_v0);
     var_v0 = temp_v0 >> 2;
     if (var_v0 != 0x101) {
         temp_lo_2 = ((*(s32 *)(var_t2 + 0)) + var_t8) * temp_t4;
@@ -125,8 +126,8 @@ u8 func_800327E8(u32 *arg0, s32 *arg1, s32 arg2, s32 arg3) {
         } else {
             var_t7 = 0;
 loop_37:
-            var_a1 += 4;
-            var_a0 += 4;
+            var_a1 += 1;
+            var_a0 += 1;
             var_t7 += 1;
             *var_a1 = 1;
             var_t9 = 1;
@@ -139,19 +140,19 @@ loop_38:
             if (var_t7 != 0x101) {
                 goto loop_37;
             }
-            *(var_a1 - 0x404) = 0;
-            var_a0 -= 0x404;
+            *(var_a1 - 0x101) = 0;
+            var_a0 -= 0x101;
             *var_a0 = 0x101;
         }
         var_v1 = var_v0;
         temp_t7 = (*(s32 *)(var_t2 + 0));
-        if (temp_t7 != (*(s32 *)(var_t2 + -4))) {
+        if (temp_t7 != (var_t2[-1])) {
 
         } else {
             do {
-                var_t2 -= 4;
+                var_t2 -= 1;
                 var_v1 -= 1;
-            } while ((*(s32 *)(var_t2 + -4)) == temp_t7);
+            } while ((var_t2[-1]) == temp_t7);
         }
         temp_t7_2 = var_v1 + arg2;
         temp_t9 = var_v0 + arg2;
@@ -168,13 +169,13 @@ loop_38:
         if (temp_v1_9 > 0) {
             var_v1_2 = temp_v1_9 * 4;
             var_t9_2 = 0x3FFFC;
-            temp_s1_2 = var_v1_2 + var_a0;
+            temp_s1_2 = (s32 *)((u8 *)var_a0 + var_v1_2);
             *temp_s1_2 += 1;
             var_t7_2 = 0x3FFFC & var_v1_2;
             do {
                 if (var_v1_2 != var_t7_2) {
                     var_v1_2 = var_t7_2;
-                    temp_s1_3 = var_v1_2 + var_a0;
+                    temp_s1_3 = (s32 *)((u8 *)var_a0 + var_v1_2);
                     *temp_s1_3 += 1;
                 }
                 var_t9_2 *= 2;

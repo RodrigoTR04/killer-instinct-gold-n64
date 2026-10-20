@@ -1,5 +1,27 @@
-/* T-022 DRAFT: 141 instruction words differ; compiled 688 bytes, original 696 bytes */
-
+/* T-054 DRAFT: 91 relocation-masked positional words differ; 696 emitted bytes. See T-054/REPORT.md. */
+extern void *D_8004A4C0[];
+extern u8 D_8004AA28;
+extern u8 D_8004A730[8];
+extern s8 D_8004A5E0;
+extern s8 D_8004A738;
+extern s8 D_8004AC89;
+extern s8 D_8004AC8A;
+extern s8 D_8004AC8C;
+extern f32 D_8004A740[];
+extern f32 D_8004A800[];
+extern f32 D_8004A860[];
+extern f32 D_8004A8C0[];
+extern f32 D_8004A920[];
+extern f32 D_8004A7A0;
+extern f32 D_8004AC80;
+extern f32 D_8004AC84;
+extern u8 *D_8004AA3C;
+extern s32 (*D_8004AEAC)(s32,s32,s32,s32);
+extern void (*D_8004AA30)();
+extern void (*D_8004AA34)(T020Position *);
+extern void (*D_8004AA38)();
+extern void func_80019880(void);
+extern void func_8001372C(T020Position *);
 extern s32 func_800191D8(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void func_800191F0();                               /* extern */
 extern u8 D_80044E58;
@@ -34,7 +56,7 @@ void func_80018F20(void) {
     (*(u8 **)((u8 *)(D_8004A4C0) + 0x24)) = &D_8018AA00;
     (*(s16 *)((u8 *)(D_8004A4C0) + 0x28)) = 1;
     (*(s32 *)((u8 *)(D_8004A4C0) + 0x2C)) = 0;
-    D_8004A730 = 4;
+    D_8004A730[0] = 4;
     (*(s8 *)((u8 *)(&D_8004A5E0) + 0)) = 0;
     (*(s8 *)((u8 *)(&D_8004A5E0) + 7)) = 1;
     (*(s8 *)((u8 *)(&D_8004A5E0) + 0xE)) = 2;
@@ -42,7 +64,7 @@ void func_80018F20(void) {
     D_8004A738 = 0;
     *D_8004A740 = 42.0f;
     D_8004A7A0 = 65.0f;
-    *D_8004A800 = D_800488F8;
+    *D_8004A800 = (1289.0f);
     *D_8004A860 = 0.0f;
     *D_8004A8C0 = 0.0f;
     *D_8004A920 = 0.0f;
@@ -57,7 +79,7 @@ void func_80018F20(void) {
         func_800281C4(1);
     }
     D_8004AC80 = 0.0f;
-    D_8004AC84 = D_800488FC;
+    D_8004AC84 = (1100.0f);
     D_8004AC89 = 1;
     D_8004AC8A = 0;
     D_8004AC8C = 0x10;
@@ -76,8 +98,8 @@ void func_80018F20(void) {
     (*(s8 *)((u8 *)(&D_80061CB8) + 8)) = 0;
     (*(f32 *)((u8 *)(&D_800614D8) + 4)) = 47.0f;
     (*(f32 *)((u8 *)(&D_800614D8) + 0x10)) = 47.0f;
-    (*(f32 *)((u8 *)(&D_800614D8) + 8)) = (f32) D_80048900;
-    (*(f32 *)((u8 *)(&D_800614D8) + 0x14)) = (f32) D_80048900;
+    (*(f32 *)((u8 *)(&D_800614D8) + 8)) = (f32) (1198.0f);
+    (*(f32 *)((u8 *)(&D_800614D8) + 0x14)) = (f32) (1198.0f);
     (*(f32 *)((u8 *)(&D_800614D8) + 0)) = -64.0f;
     (*(f32 *)((u8 *)(&D_800614D8) + 0xC)) = 1.0f;
     func_8001C0E4(&D_80045B78, &D_80045B84, &D_80045B8C, &D_80045B98, (s32) &D_802DEEB0, &D_80045BA0, &D_80045BAC, 3);

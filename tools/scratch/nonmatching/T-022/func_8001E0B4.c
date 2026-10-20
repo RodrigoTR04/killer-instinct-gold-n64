@@ -1,5 +1,8 @@
-/* DRAFT. Remaining diff: 61 linked instruction words; compiled 648 bytes, original 648 bytes. */
-
+/* T-054 DRAFT: 59 relocation-masked positional words differ; 648 emitted bytes. See T-054/REPORT.md. */
+extern u8 D_8004AC88;
+extern s8 D_8004AC89;
+extern s8 D_8004AC8A;
+extern u8 D_8004EA9E[];
 s32 func_8001EC74(u8 **, s32, s32, u32, u32, s32, s32, s32); /* extern */
 extern u8 D_80046100;
 extern u8 D_8004A408;
@@ -18,8 +21,8 @@ void func_8001E0B4(u8 **arg0) {
     s32 temp_v1_2;
     s32 var_s0;
     s32 var_t4;
-    u16 var_t1;
-    u16 var_t2;
+    u32 var_t1;
+    u32 var_t2;
     u8 temp_v0;
     u8 var_v1;
     u8 *temp_t0;

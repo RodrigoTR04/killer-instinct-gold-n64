@@ -1,0 +1,510 @@
+[
+  {
+    "draft": "tools/scratch/nonmatching/T-032/func_80025D58.c",
+    "bytes": 328,
+    "words": 73,
+    "offsets": [
+      0,
+      8,
+      12,
+      28,
+      40,
+      56,
+      60,
+      64,
+      68,
+      72,
+      76,
+      80,
+      84,
+      88,
+      92,
+      96
+    ]
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-032/func_80024714.c",
+    "error": "cfe: Error: /tmp/t054-probe.c, line 23: 'D_8004AC88' undefined; reoccurrences will not be reported.\n     if (D_8004AC88 == 0xC) {\n --------^\n"
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-032/func_800241BC.c",
+    "bytes": 840,
+    "words": 166,
+    "offsets": [
+      0,
+      40,
+      44,
+      48,
+      60,
+      72,
+      80,
+      88,
+      96,
+      124,
+      128,
+      156,
+      160,
+      164,
+      168,
+      172
+    ]
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-032/func_80027E1C.c",
+    "bytes": 964,
+    "words": 238,
+    "offsets": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48,
+      52,
+      56,
+      60,
+      64
+    ]
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-032/func_800216D4.c",
+    "bytes": 1040,
+    "words": 230,
+    "offsets": [
+      4,
+      8,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48,
+      52,
+      56,
+      60,
+      64,
+      68
+    ]
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-032/func_800253D0.c",
+    "bytes": 1044,
+    "words": 205,
+    "offsets": [
+      72,
+      76,
+      80,
+      84,
+      88,
+      96,
+      100,
+      108,
+      112,
+      116,
+      120,
+      128,
+      132,
+      152,
+      156,
+      196
+    ]
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-026/func_80030440.c",
+    "bytes": 512,
+    "words": 127,
+    "offsets": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48,
+      52,
+      56,
+      60
+    ]
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-026/func_80039C08.c",
+    "bytes": 608,
+    "words": 150,
+    "offsets": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48,
+      52,
+      56,
+      60
+    ]
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-026/func_8003EF90.c",
+    "bytes": 892,
+    "words": 222,
+    "offsets": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48,
+      52,
+      56,
+      60
+    ]
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-026/func_800327E8.c",
+    "bytes": 1168,
+    "words": 286,
+    "offsets": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48,
+      52,
+      56,
+      60
+    ]
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-022/func_8001BB64.c",
+    "error": "cfe: Error: /tmp/t054-probe.c, line 32: 'D_8004AA28' undefined; reoccurrences will not be reported.\n     if (D_8004AA28 == 0) {\n --------^\n"
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-022/func_8001E0B4.c",
+    "error": "cfe: Error: /tmp/t054-probe.c, line 60: 'D_8004AC88' undefined; reoccurrences will not be reported.\n                         if (D_8004AC88 == 0) {\n ----------------------------^\ncfe: Error: /tmp/t054-probe.c, line 79: 'D_8004EA9E' undefined; reoccurrences will not be reported.\n                             if (D_8004EA9E[var_s0] == 9) {\n --------------------------------^\ncfe: Error: /tmp/t054-probe.c, line 82: 'D_8004AC89' undefined; reoccurrences will not be reported.\n                                 var_v1 = ((u8)D_8004AC89);\n ----------------------------------------------^\ncfe: Error: /tmp/t054-probe.c, line 86: 'D_8004AC8A' undefined; reoccurrences will not be reported.\n                                 func_8001EC74(arg0, (s32) (*(s32 *)((u8 *)(temp_t0) + 0x68)) / 16, (*(s32 *)((u8 *)(temp_t3) + 0x1C)), (u32) (temp_v0_2 * var_t2) >> 0xC, (u32) (temp_v0_2 * var_t1) >> 0xC, (s32) var_v1, var_t4, (s32) ((u8)D_8004AC8A));\n ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------^\n"
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-022/func_80018F20.c",
+    "error": "cfe: Error: /tmp/t054-probe.c, line 31: 'D_8004A4C0' undefined; reoccurrences will not be reported.\n     (*(s16 *)((u8 *)(D_8004A4C0) + 4)) = 3;\n ---------------------^\ncfe: Error: /tmp/t054-probe.c, line 40: 'D_8004A730' undefined; reoccurrences will not be reported.\n     D_8004A730 = 4;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 41: 'D_8004A5E0' undefined; reoccurrences will not be reported.\n     (*(s8 *)((u8 *)(&D_8004A5E0) + 0)) = 0;\n ---------------------^\ncfe: Error: /tmp/t054-probe.c, line 45: 'D_8004A738' undefined; reoccurrences will not be reported.\n     D_8004A738 = 0;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 46: 'D_8004A740' undefined; reoccurrences will not be reported.\n     *D_8004A740 = 42.0f;\n -----^\ncfe: Error: /tmp/t054-probe.c, line 47: 'D_8004A7A0' undefined; reoccurrences will not be reported.\n     D_8004A7A0 = 65.0f;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 48: 'D_8004A800' undefined; reoccurrences will not be reported.\n     *D_8004A800 = D_800488F8;\n -----^\ncfe: Error: /tmp/t054-probe.c, line 49: 'D_8004A860' undefined; reoccurrences will not be reported.\n     *D_8004A860 = 0.0f;\n -----^\ncfe: Error: /tmp/t054-probe.c, line 50: 'D_8004A8C0' undefined; reoccurrences will not be reported.\n     *D_8004A8C0 = 0.0f;\n -----^\ncfe: Error: /tmp/t054-probe.c, line 51: 'D_8004A920' undefined; reoccurrences will not be reported.\n     *D_8004A920 = 0.0f;\n -----^\ncfe: Error: /tmp/t054-probe.c, line 52: 'D_8004AA3C' undefined; reoccurrences will not be reported.\n     D_8004AA3C = &D_80183ED0;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 53: 'D_8004AEAC' undefined; reoccurrences will not be reported.\n     D_8004AEAC = func_800191D8;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 54: 'func_80019880' undefined; reoccurrences will not be reported.\n     D_8004AA30 = func_80019880;\n -----------------^\ncfe: Error: /tmp/t054-probe.c, line 57: 'D_8004AA38' undefined; reoccurrences will not be reported.\n     D_8004AA38 = func_800191F0;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 58: 'func_8001372C' undefined; reoccurrences will not be reported.\n     D_8004AA34 = func_8001372C;\n -----------------^\ncfe: Error: /tmp/t054-probe.c, line 59: 'D_8004AA28' undefined; reoccurrences will not be reported.\n     if (D_8004AA28 == 0) {\n --------^\ncfe: Error: /tmp/t054-probe.c, line 62: 'D_8004AC80' undefined; reoccurrences will not be reported.\n     D_8004AC80 = 0.0f;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 63: 'D_8004AC84' undefined; reoccurrences will not be reported.\n     D_8004AC84 = D_800488FC;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 64: 'D_8004AC89' undefined; reoccurrences will not be reported.\n     D_8004AC89 = 1;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 65: 'D_8004AC8A' undefined; reoccurrences will not be reported.\n     D_8004AC8A = 0;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 66: 'D_8004AC8C' undefined; reoccurrences will not be reported.\n     D_8004AC8C = 0x10;\n ----^\n"
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-022/func_8001D47C.c",
+    "error": "cfe: Warning 709: /tmp/t054-probe.c, line 35: Incompatible pointer type assignment\n         var_v0 = (temp_t6 << 5) + D_8004CE90;\n ---------------^\ncfe: Error: /tmp/t054-probe.c, line 37: 'D_8004AC88' undefined; reoccurrences will not be reported.\n     if (D_8004AC88 == 0xC) {\n --------^\ncfe: Error: /tmp/t054-probe.c, line 66: 'D_8004EA9E' undefined; reoccurrences will not be reported.\n     if (D_8004EA9E[temp_t6] == 9) {\n --------^\n"
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-022/func_8001D080.c",
+    "error": "cfe: Error: /tmp/t054-probe.c, line 79: 'D_8004AC88' undefined; reoccurrences will not be reported.\n     if (D_8004AC88 == 0xC) {\n --------^\n"
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-022/func_8001808C.c",
+    "error": "cfe: Error: /tmp/t054-probe.c, line 64: 'D_8004A4C0' undefined; reoccurrences will not be reported.\n     (*(u8 **)((u8 *)(D_8004A4C0) + 0)) = &D_801982C0;\n ---------------------^\n"
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-022/func_800193DC.c",
+    "error": "cfe: Error: /tmp/t054-probe.c, line 34: 'D_8004A4C0' undefined; reoccurrences will not be reported.\n     (*(s32 *)((u8 *)(D_8004A4C0) + 8)) = 0;\n ---------------------^\ncfe: Error: /tmp/t054-probe.c, line 50: 'D_8004A730' undefined; reoccurrences will not be reported.\n     D_8004A730 = 8;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 51: 'D_8004A5E0' undefined; reoccurrences will not be reported.\n     (*(s8 *)((u8 *)(&D_8004A5E0) + 0)) = 5;\n ---------------------^\ncfe: Error: /tmp/t054-probe.c, line 59: 'D_8004A738' undefined; reoccurrences will not be reported.\n     D_8004A738 = 0;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 60: 'D_8004AA3C' undefined; reoccurrences will not be reported.\n     D_8004AA3C = &D_8017E6D0;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 61: 'D_8004AEAC' undefined; reoccurrences will not be reported.\n     D_8004AEAC = func_80019704;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 62: 'func_80019880' undefined; reoccurrences will not be reported.\n     D_8004AA30 = func_80019880;\n -----------------^\ncfe: Error: /tmp/t054-probe.c, line 65: 'D_8004AA38' undefined; reoccurrences will not be reported.\n     D_8004AA38 = D_8001AC78;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 66: 'func_8001372C' undefined; reoccurrences will not be reported.\n     D_8004AA34 = func_8001372C;\n -----------------^\ncfe: Error: /tmp/t054-probe.c, line 67: 'D_8004AC80' undefined; reoccurrences will not be reported.\n     D_8004AC80 = 60.0f;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 68: 'D_8004AC84' undefined; reoccurrences will not be reported.\n     D_8004AC84 = 50.0f;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 69: 'D_8004AC89' undefined; reoccurrences will not be reported.\n     D_8004AC89 = 1;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 70: 'D_8004AC8A' undefined; reoccurrences will not be reported.\n     D_8004AC8A = 0;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 71: 'D_8004AC8C' undefined; reoccurrences will not be reported.\n     D_8004AC8C = 0x11;\n ----^\n"
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-022/func_80018AE0.c",
+    "error": "cfe: Error: /tmp/t054-probe.c, line 39: 'D_8004AA28' undefined; reoccurrences will not be reported.\n     if (D_8004AA28 == 0) {\n --------^\ncfe: Error: /tmp/t054-probe.c, line 40: 'D_8004A4C0' undefined; reoccurrences will not be reported.\n         (*(u8 **)((u8 *)(D_8004A4C0) + 8)) = &D_80186180;\n -------------------------^\ncfe: Error: /tmp/t054-probe.c, line 42: 'D_8004A4C0' undefined; reoccurrences will not be reported.\n         (*(u8 **)((u8 *)(D_8004A4C0) + 8)) = 0;\n -------------------------^\ncfe: Error: /tmp/t054-probe.c, line 44: 'D_8004A4C0' undefined; reoccurrences will not be reported.\n     (*(u8 **)((u8 *)(D_8004A4C0) + 0xC)) = &D_80186330;\n ---------------------^\ncfe: Error: /tmp/t054-probe.c, line 65: 'D_8004A740' undefined; reoccurrences will not be reported.\n     (*(f32 *)((u8 *)(D_8004A740) + 0)) = 216.0f;\n ---------------------^\ncfe: Error: /tmp/t054-probe.c, line 66: 'D_8004A7A0' undefined; reoccurrences will not be reported.\n     (*(f32 *)((u8 *)(&D_8004A7A0) + 0)) = (f32) D_800488D0;\n ----------------------^\ncfe: Error: /tmp/t054-probe.c, line 67: 'D_8004A860' undefined; reoccurrences will not be reported.\n     (*(f32 *)((u8 *)(D_8004A860) + 0)) = 0.0f;\n ---------------------^\ncfe: Error: /tmp/t054-probe.c, line 68: 'D_8004A8C0' undefined; reoccurrences will not be reported.\n     (*(f32 *)((u8 *)(D_8004A8C0) + 0)) = 0.0f;\n ---------------------^\ncfe: Error: /tmp/t054-probe.c, line 69: 'D_8004A920' undefined; reoccurrences will not be reported.\n     (*(f32 *)((u8 *)(D_8004A920) + 0)) = 0.0f;\n ---------------------^\ncfe: Error: /tmp/t054-probe.c, line 70: 'D_8004A800' undefined; reoccurrences will not be reported.\n     (*(f32 *)((u8 *)(D_8004A800) + 0)) = 256.0f;\n ---------------------^\ncfe: Error: /tmp/t054-probe.c, line 83: 'D_8004A730' undefined; reoccurrences will not be reported.\n     D_8004A730 = 9;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 84: 'D_8004A5E0' undefined; reoccurrences will not be reported.\n     (*(s8 *)((u8 *)(&D_8004A5E0) + 0)) = 6;\n ---------------------^\ncfe: Error: /tmp/t054-probe.c, line 93: 'D_8004A738' undefined; reoccurrences will not be reported.\n     D_8004A738 = 0;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 94: 'D_8004AA3C' undefined; reoccurrences will not be reported.\n     D_8004AA3C = 0;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 95: 'D_8004AEAC' undefined; reoccurrences will not be reported.\n     D_8004AEAC = func_80018E70;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 96: 'func_80019880' undefined; reoccurrences will not be reported.\n     D_8004AA30 = func_80019880;\n -----------------^\ncfe: Error: /tmp/t054-probe.c, line 99: 'D_8004AA38' undefined; reoccurrences will not be reported.\n     D_8004AA38 = func_80018E88;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 100: 'func_8001372C' undefined; reoccurrences will not be reported.\n     D_8004AA34 = func_8001372C;\n -----------------^\ncfe: Error: /tmp/t054-probe.c, line 101: 'D_8004AC80' undefined; reoccurrences will not be reported.\n     D_8004AC80 = -40.0f;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 102: 'D_8004AC84' undefined; reoccurrences will not be reported.\n     D_8004AC84 = 110.0f;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 103: 'D_8004AC89' undefined; reoccurrences will not be reported.\n     D_8004AC89 = 1;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 104: 'D_8004AC8A' undefined; reoccurrences will not be reported.\n     D_8004AC8A = 1;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 105: 'D_8004AC8C' undefined; reoccurrences will not be reported.\n     D_8004AC8C = 0xF;\n ----^\n"
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-022/func_8001B134.c",
+    "error": "cfe: Error: /tmp/t054-probe.c, line 43: 'D_8004A4C0' undefined; reoccurrences will not be reported.\n     temp_t8 = (*(s32 *)((u8 *)((D_8004A4C0 + (arg0 * 0xC))) + 8));\n --------------------------------^\ncfe: Warning 709: /tmp/t054-probe.c, line 45: Incompatible pointer type assignment\n     temp_a2 = temp_v0 + ((u8 *)D_8004A800);\n ------------^\ncfe: Error: /tmp/t054-probe.c, line 47: 'D_8004A7A0' undefined; reoccurrences will not be reported.\n     temp_v1 = temp_v0 + (u8 *)&D_8004A7A0;\n -------------------------------^\ncfe: Warning 709: /tmp/t054-probe.c, line 64: Incompatible pointer type assignment\n     temp_a3 = temp_v0 + ((u8 *)D_8004A8C0);\n ------------^\ncfe: Warning 709: /tmp/t054-probe.c, line 82: Incompatible pointer type assignment\n     temp_v0_3 = (sp28 * 4) + ((u8 *)D_8004A8C0);\n --------------^\n"
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-022/func_8001B620.c",
+    "error": "cfe: Error: /tmp/t054-probe.c, line 26: 'D_8004A4C0' undefined; reoccurrences will not be reported.\n     sp18 = (u8 *)D_8004A4C0 + (arg0 * 0xC);\n -----------------^\ncfe: Error: /tmp/t054-probe.c, line 29: 'D_8004ACF0' undefined; reoccurrences will not be reported.\n     if (D_8004ACF0 == 2) {\n --------^\ncfe: Error: /tmp/t054-probe.c, line 42: 'D_8004ACF8' undefined; reoccurrences will not be reported.\n     D_8004ACF8 = 0;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 47: 'D_8004A740' undefined; reoccurrences will not be reported.\n         D_8004A740[sp20] = -200.0f;\n --------^\ncfe: Error: /tmp/t054-probe.c, line 49: 'D_8004A7A0' undefined; reoccurrences will not be reported.\n         (&D_8004A7A0)[sp20] = -2000.0f;\n ----------^\ncfe: Error: /tmp/t054-probe.c, line 51: 'D_8004A800' undefined; reoccurrences will not be reported.\n         D_8004A800[sp20] = D_800489C0;\n --------^\ncfe: Error: /tmp/t054-probe.c, line 53: 'D_8004A860' undefined; reoccurrences will not be reported.\n         D_8004A860[sp20] = 0.0f;\n --------^\ncfe: Error: /tmp/t054-probe.c, line 55: 'D_8004A8C0' undefined; reoccurrences will not be reported.\n         D_8004A8C0[sp20] = 270.0f;\n --------^\ncfe: Error: /tmp/t054-probe.c, line 57: 'D_8004A920' undefined; reoccurrences will not be reported.\n         D_8004A920[sp20] = 0.0f;\n --------^\ncfe: Error: /tmp/t054-probe.c, line 96: 'D_8004ACE0' undefined; reoccurrences will not be reported.\n     D_8004ACE0 = 0.0f;\n ----^\ncfe: Error: /tmp/t054-probe.c, line 97: 'D_8004ACE4' undefined; reoccurrences will not be reported.\n     D_8004ACE4 = 0.0f;\n ----^\n"
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-022/func_8001AD04.c",
+    "error": "cfe: Error: /tmp/t054-probe.c, line 44: 'D_8004A4C0' undefined; reoccurrences will not be reported.\n     temp_t8 = (*(s32 *)((u8 *)((D_8004A4C0 + (arg0 * 0xC))) + 8));\n --------------------------------^\ncfe: Error: /tmp/t054-probe.c, line 46: 'D_8004A800' undefined; reoccurrences will not be reported.\n     temp_v0 = &D_8004A800[temp_t8];\n ---------------^\ncfe: Error: /tmp/t054-probe.c, line 48: 'D_8004A7A0' undefined; reoccurrences will not be reported.\n     temp_v1 = &(&D_8004A7A0)[temp_t8];\n -----------------^\ncfe: Error: /tmp/t054-probe.c, line 65: 'D_8004A8C0' undefined; reoccurrences will not be reported.\n     temp_a3 = &D_8004A8C0[temp_t8];\n ---------------^\ncfe: Warning 712: /tmp/t054-probe.c, line 90: illegal combination of pointer and integer\n     sp20 = sp28 * 4;\n ---------^\ncfe: Error: /tmp/t054-probe.c, line 93: 'D_8004A920' undefined; reoccurrences will not be reported.\n     *(D_8004A920 + sp24) = 0.0f;\n ------^\n"
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-033/func_800170C4.c",
+    "bytes": 1084,
+    "words": 266,
+    "offsets": [
+      8,
+      20,
+      24,
+      28,
+      36,
+      40,
+      44,
+      48,
+      52,
+      56,
+      60,
+      64,
+      68,
+      72,
+      76,
+      80
+    ]
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-033/func_800131A4.c",
+    "bytes": 732,
+    "words": 181,
+    "offsets": [
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48,
+      52,
+      56,
+      60,
+      64,
+      68
+    ]
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-033/func_80016910.c",
+    "bytes": 728,
+    "words": 74,
+    "offsets": [
+      320,
+      328,
+      332,
+      348,
+      352,
+      360,
+      368,
+      372,
+      380,
+      384,
+      388,
+      396,
+      404,
+      408,
+      412,
+      416
+    ]
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-033/func_80017A68.c",
+    "bytes": 768,
+    "words": 155,
+    "offsets": [
+      144,
+      152,
+      156,
+      160,
+      164,
+      168,
+      172,
+      176,
+      180,
+      184,
+      188,
+      192,
+      196,
+      200,
+      204,
+      208
+    ]
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-033/func_80017D6C.c",
+    "bytes": 824,
+    "words": 194,
+    "offsets": [
+      12,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48,
+      56,
+      60,
+      68,
+      72,
+      76,
+      80,
+      84
+    ]
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-024/func_800297A4.c",
+    "bytes": 780,
+    "words": 180,
+    "offsets": [
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48,
+      52,
+      56,
+      60,
+      64
+    ]
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-024/func_8002E150.c",
+    "bytes": 836,
+    "words": 177,
+    "offsets": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48,
+      52,
+      56,
+      60
+    ]
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-024/func_8002AB90.c",
+    "bytes": 816,
+    "words": 199,
+    "offsets": [
+      0,
+      4,
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48,
+      52,
+      60,
+      64,
+      72
+    ]
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-024/func_8002A4F0.c",
+    "bytes": 916,
+    "words": 145,
+    "offsets": [
+      0,
+      76,
+      80,
+      84,
+      88,
+      92,
+      96,
+      100,
+      104,
+      108,
+      112,
+      116,
+      120,
+      132,
+      160,
+      188
+    ]
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-024/func_80028230.c",
+    "bytes": 932,
+    "words": 231,
+    "offsets": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48,
+      52,
+      56,
+      60
+    ]
+  },
+  {
+    "draft": "tools/scratch/nonmatching/T-024/func_80029BE0.c",
+    "bytes": 1048,
+    "words": 260,
+    "offsets": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48,
+      52,
+      56,
+      60
+    ]
+  }
+]

@@ -1,5 +1,20 @@
-/* T-022 DRAFT: 194 instruction words differ; compiled 788 bytes, original 808 bytes */
-
+/* T-054 DRAFT: 186 relocation-masked positional words differ; 796 emitted bytes. See T-054/REPORT.md. */
+extern void *D_8004A4C0[];
+extern u8 D_8004A730[8];
+extern s8 D_8004A5E0;
+extern s8 D_8004A738;
+extern s8 D_8004AC89;
+extern s8 D_8004AC8A;
+extern s8 D_8004AC8C;
+extern f32 D_8004AC80;
+extern f32 D_8004AC84;
+extern u8 *D_8004AA3C;
+extern s32 (*D_8004AEAC)(s32,s32,s32,s32);
+extern void (*D_8004AA30)();
+extern void (*D_8004AA34)(T020Position *);
+extern void (*D_8004AA38)();
+extern void func_80019880(void);
+extern void func_8001372C(T020Position *);
 extern s32 func_80019704(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 extern void D_8001AC78();
 extern u8 D_80044EA0;
@@ -44,7 +59,7 @@ void func_800193DC(void) {
     (*(s16 *)((u8 *)(D_8004A4C0) + 0x4C)) = 4;
     (*(u8 **)((u8 *)(D_8004A4C0) + 0x54)) = &D_801841F0;
     (*(s16 *)((u8 *)(D_8004A4C0) + 0x58)) = 0;
-    D_8004A730 = 8;
+    D_8004A730[0] = 8;
     (*(s8 *)((u8 *)(&D_8004A5E0) + 0)) = 5;
     (*(s8 *)((u8 *)(&D_8004A5E0) + 7)) = 4;
     (*(s8 *)((u8 *)(&D_8004A5E0) + 0xE)) = 3;
@@ -74,10 +89,10 @@ void func_800193DC(void) {
     (*(s8 *)((u8 *)(&D_80061520) + 3)) = 0xA;
     (*(s8 *)((u8 *)(&D_80061520) + 2)) = 0xA;
     (*(f32 *)((u8 *)(&D_800614D8) + 4)) = (f32) D_80048904;
-    (*(f32 *)((u8 *)(&D_800614D8) + 8)) = (f32) D_80048908;
+    (*(f32 *)((u8 *)(&D_800614D8) + 8)) = (f32) (5185.0f);
     (*(f32 *)((u8 *)(&D_800614D8) + 0)) = -1400.0f;
     (*(f32 *)((u8 *)(&D_800614D8) + 0x10)) = (f32) D_80048904;
-    (*(f32 *)((u8 *)(&D_800614D8) + 0x14)) = (f32) D_80048908;
+    (*(f32 *)((u8 *)(&D_800614D8) + 0x14)) = (f32) (5185.0f);
     (*(f32 *)((u8 *)(&D_800614D8) + 0xC)) = (f32) D_80048910;
     (*(f32 *)((u8 *)(&D_800614D8) + 0x18)) = -480.0f;
     (*(f32 *)((u8 *)(&D_800614D8) + 0x1C)) = 320.0f;

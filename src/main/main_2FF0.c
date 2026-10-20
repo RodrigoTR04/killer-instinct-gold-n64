@@ -487,7 +487,40 @@ s32 func_80016824(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 void func_80016908(s32 arg0) {
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80016910.s")
+extern f32 sinf(f32), cosf(f32);
+extern void func_8002DBDC(f32, f32 *), func_8002DC48(f32 *);
+extern u32 func_800326F0();
+extern f32 D_8004A8C0[], D_8004ACE0;
+extern f32 D_8004A988, D_8004A98C, D_8004A990, D_8004A994;
+extern s16 D_8004A986;
+extern f32 D_80061CC8[], D_80061CD0;
+extern u8 D_801D3430;
+
+void func_80016910(void) {
+    if (D_8004A986 > 0) D_8004A986--;
+    else {
+        D_8004A986 = func_800326F0() & 255;
+        D_8004A98C = (f32)(func_800326F0() & 255);
+        D_8004A994 = (f32)(func_800326F0() % 360U);
+    }
+    D_8004A988 += (D_8004A98C - D_8004A988) / 5.0f;
+    func_8002DBDC(D_8004A994, &D_8004A990);
+    D_8004A990 += (D_8004A994 - D_8004A990) / 10.0f;
+    func_8002DC48(&D_8004A990);
+    D_80061CC8[0] = sinf((D_8004A990 * 3.14159) / 180.0) * D_8004A988 / (f32)256;
+    D_80061CC8[1] = 0.0f;
+    D_80061CD0 = cosf((D_8004A990 * 3.14159) / 180.0) * D_8004A988 / (f32)256;
+    if ((&D_801D3430)[-0x7B] != 0) D_8004ACE0 = 4.0f;
+    if ((&D_801D3430)[-0x7A] != 0) D_8004ACE0 = 0.0f;
+    if (D_8004ACE0 > 4.0f) D_8004ACE0 = 4.0f;
+    D_8004A8C0[1] += D_8004ACE0;
+    D_8004A8C0[2] += D_8004ACE0;
+    D_8004ACE0 -= D_8004ACE0 / 20.0f;
+    while ((359.0f) < D_8004A8C0[0]) D_8004A8C0[0] -= 360.0f;
+    while ((359.0f) < D_8004A8C0[1]) D_8004A8C0[1] -= 360.0f;
+}
+
+
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80016BE0.s")
 
@@ -779,7 +812,88 @@ void func_8001B50C(s32 arg0) {
     D_8004A740[arg0] += D_8004ACE0 * sinf((f32)(((f64)D_8004A8C0[arg0] * D_800489A8) / D_800489B0));
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_8001B620.s")
+extern f32 D_800695CC, D_8004ACE8;
+extern s32 D_8004A264, D_80066C40;
+extern s32 func_8002F8F8(s32), func_8002F6F4(s32, s32, s32 *);
+
+void func_8001B620(s32 arg0, s32 arg1) {
+    s32 first;
+    s32 second;
+
+    first = ((T0331383CStagePart *)D_8004A4C0)[arg0].transform;
+    second = ((T0331383CStagePart *)D_8004A4C0)[arg1].transform;
+    if (D_8004ACF0 == 2) {
+        D_8004ACF0 = func_800326F0() & 3;
+    } else {
+        D_8004ACF0 = 2;
+    }
+    if ((1650.0f < D_800695CC) && (D_8004ACF0 == 0)) {
+        D_8004ACF0 = 2;
+    }
+
+    if ((D_800695CC < 4750.0f) && (D_8004ACF0 == 1)) {
+        D_8004ACF0 = 2;
+
+    }
+    D_8004ACF8 = 0;
+    switch (D_8004ACF0) {                               /* irregular */
+    case 0:
+        func_8002F8F8(D_8004A264);
+        func_8002F6F4(D_80066C40, 0x1B3, &D_8004A264);
+        D_8004A740[second] = -200.0f;
+        D_8004A740[first] = -200.0f;
+        (&D_8004A7A0)[second] = -2000.0f;
+        (&D_8004A7A0)[first] = -2000.0f;
+        D_8004A800[second] = -8821.0f;
+        D_8004A800[first] = -8821.0f;
+        D_8004A860[second] = 0.0f;
+        D_8004A860[first] = 0.0f;
+        D_8004A8C0[second] = 270.0f;
+        D_8004A8C0[first] = 270.0f;
+        D_8004A920[second] = 0.0f;
+        D_8004A920[first] = 0.0f;
+        ((T0331383CStagePart *)D_8004A4C0)[arg0].flags = 1;
+        break;
+    case 1:
+        func_8002F8F8(D_8004A264);
+        func_8002F6F4(D_80066C40, 0x1B3, &D_8004A264);
+        D_8004A740[second] = 7000.0f;
+        D_8004A740[first] = 7000.0f;
+        (&D_8004A7A0)[second] = -2000.0f;
+        (&D_8004A7A0)[first] = -2000.0f;
+        D_8004A800[second] = -1000.0f;
+        D_8004A800[first] = -1000.0f;
+        D_8004A860[second] = 0.0f;
+        D_8004A860[first] = 0.0f;
+        D_8004A8C0[second] = 0.0f;
+        D_8004A8C0[first] = 0.0f;
+        D_8004A920[second] = 0.0f;
+        D_8004A920[first] = 0.0f;
+        ((T0331383CStagePart *)D_8004A4C0)[arg0].flags = 2;
+        break;
+    default:
+    case 2:
+        func_8002F8F8(D_8004A264);
+        D_8004A740[second] = 7000.0f;
+        D_8004A740[first] = 7000.0f;
+        (&D_8004A7A0)[second] = -2000.0f;
+        (&D_8004A7A0)[first] = -2000.0f;
+        D_8004A800[second] = (10000.0f);
+        D_8004A800[first] = (10000.0f);
+        D_8004A860[second] = 0.0f;
+        D_8004A860[first] = 0.0f;
+        D_8004A8C0[second] = 0.0f;
+        D_8004A8C0[first] = 0.0f;
+        D_8004A920[second] = 0.0f;
+        D_8004A920[first] = 0.0f;
+        ((T0331383CStagePart *)D_8004A4C0)[arg0].flags = 2;
+        break;
+    }
+    D_8004ACE0 = 0.0f;
+    D_8004ACE4 = 0.0f;
+    D_8004ACE8 = 0.0f;
+}
+
 
 extern f32 D_8004ACE4;
 extern f32 D_8004ACE8;
