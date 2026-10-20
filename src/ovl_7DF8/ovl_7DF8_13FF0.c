@@ -10,7 +10,25 @@ void func_801BFB10(void) {
     func_801BEFFC();
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801BFB40.s")
+typedef struct { s32 x, y; } T023PairB40;
+extern void func_801ADAD4(s32);
+extern T023PairB40 D_80128300, D_802D37D8, D_802D37E0, D_802D37F0;
+extern s32 D_80295700, D_802956FC, D_802956F8;
+extern s32 D_802D37D0, D_802D37F8, D_802D3820, D_802D3824;
+extern u8 D_802D37EA[];
+void func_801BFB40(u8 arg0) {
+    D_802D37D0 = -1;
+    D_802D37F0.x = D_80128300.x;
+    D_802D37F0.y = D_80128300.y;
+    D_802D37EA[0] = D_802D37EA[1] = 0;
+    D_802D37D8.x = D_802D37D8.y = 40;
+    D_802D37E0.x = D_802D37E0.y = 32;
+    D_802D37F8 = 0;
+    D_802D3820 = 2560;
+    D_802D3824 = 2560;
+    if (arg0) func_801ADAD4(42);
+    D_802956F8 = D_802956FC = D_80295700 = 0;
+}
 
 extern void func_801ADC64(s32);
 extern void func_801AF5D4(s32);

@@ -282,3 +282,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-19016f2e. func_801C71FC matches (a u64 argument plus the correct global array). Improved: func_801C6A80 30→8 and func_801C2D34 95→6. 13 unchanged (the glyph functions, func_801C51F8 and both clone families are still stuck).
 - Clean vet build: the ROM and all 3 images are byte-identical. 274 T4; M1 = M2 = 62,548 / 319,100 B (19.60%).
 - T-065 launched (sol-C25): ovl_7DF8 near-misses and mid drafts, angle: argument widths.
+
+## 2026-10-20 — T-062 vetted (ovl_7DF8 finishing)
+- Worktree t3-ef166d85. func_801BFB40 matches (200 B). Improved: func_801C35D8 5→4, func_801B446C 34→31, func_801C7CD0 63→34. func_801C4E38 (2) and func_801B6528 (3) are unchanged.
+- Clean vet build: the ROM and all 3 images are byte-identical. 275 T4; M1 = M2 = 62,748 / 319,100 B (19.66%).

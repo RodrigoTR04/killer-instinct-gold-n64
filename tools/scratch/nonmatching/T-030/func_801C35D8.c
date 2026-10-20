@@ -1,4 +1,4 @@
-/* DRAFT (T-060). 5 differing words (was 65); target size 384 bytes. Typed three-argument cloud call, command cursor, explicit visibility branches, direct alpha updates. Remaining: initial command and loop-initialization scheduling plus pointer-add operands. */
+/* DRAFT (T-062). 4 differing words (was 5); target size 384 bytes. Unsigned byte offset reproduces the pointer-add operand order. Remaining: initial command and loop-initialization scheduling. */
 #include "common.h"
 
 typedef struct { u32 w0,w1; } CloudCmd;
@@ -41,7 +41,7 @@ void func_801C35D8(CloudCmd **arg0, T030Cloud *arg1, s32 arg2, s32 arg3) {
                     cloud->alpha -= 2;
                     if (cloud->alpha <= 0) cloud->alpha = 0;
                 }
-                func_801C3758(arg0, (u8 *)arg1 + offset, cloud->alpha);
+                func_801C3758(arg0, (T030Cloud *)((u32)offset + (u8 *)arg1), cloud->alpha);
             } else cloud->alpha = 0;
             i++;
             offset += 12;

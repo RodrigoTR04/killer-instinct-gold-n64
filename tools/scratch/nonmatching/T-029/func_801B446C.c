@@ -1,11 +1,11 @@
-/* DRAFT (T-056). 34 words off (was 72): flags value cached in a local, 2D tables. Remaining: target keeps &D_802C8CE0 in a base register (t0) and schedules the or/stores differently. */
+/* DRAFT (T-062). 31 differing words (was 34), 292 bytes. Both byte tables are unsigned. Remaining: flag-base retention and instruction scheduling. */
 extern u8 D_802C8CE0;
 extern u8 D_802C8D06;
 extern u8 D_802C8CEA[];
 extern s32 D_802C8C18[];
-extern s8 D_80127CE8[][11];
+extern u8 D_80127CE8[][11];
 extern u8 D_80127CFE[];
-extern s8 D_802C8CF0[][11];
+extern u8 D_802C8CF0[][11];
 extern u8 D_802C8D0F;
 extern u8 D_802C8D0C;
 extern s32 D_802C8CDC, D_802C8CD4;
