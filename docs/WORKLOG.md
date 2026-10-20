@@ -355,3 +355,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 ## 2026-10-20 — T-081 vetted (huge main drafts)
 - Worktree t3-10b1f013. 0 matched; 4 improved slightly (e.g. func_8002E724 699→660, func_8001E33C 602→571), func_800142E0 unchanged. It reports an audio jump-table ownership blocker. Scratch-only changes; I imported the drafts and REPORT.md. Huge drafts are not productive for Sol low.
+- T-082 launched (sol-A28): install decomp-permuter and run it on the 25 near-misses.
