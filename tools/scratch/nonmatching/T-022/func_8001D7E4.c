@@ -1,3 +1,4 @@
+/* T-093 DRAFT: 427 -> 423 relocation-masked words; 1720/1656 bytes. Correct one-argument 244F0 ABI. */
 /* T-069 DRAFT: 427 relocation-masked positional words differ in TU context; 1724 bytes. See T-069/REPORT.md. */
 
 extern u8 D_8004EA9C[];
@@ -5,7 +6,7 @@ s32 func_8001D47C(u8);                          /* extern */
 s32 func_8001DE5C(u8 *, u8 *, u8, u8 *);  /* extern */
 void func_80024144(s32,s32);                      /* extern */
 s32 func_800241BC(u8, u8);                      /* extern */
-s32 func_800244F0(u8, u8);                      /* extern */
+void func_800244F0(s32);                      /* extern */
 s32 func_80024714(u8, u8);                      /* extern */
 s32 func_8002A1A0(u8);                          /* extern */
 s32 func_800310C0(u8 *, s32 *, s32, u8 *);  /* extern */
@@ -55,7 +56,7 @@ void func_8001D7E4(s32 arg0, s32 arg1, s32 arg2, u8 arg3, u8 arg4) {
 
     temp_t6 = arg3;
     if ((arg1 == 0xC7) && (D_8004F398 == 0)) {
-        func_800244F0(temp_t6, temp_t6);
+        func_800244F0(temp_t6);
     } else if ((((arg1 == 0xB0) && (D_8004EA9C[temp_t6] != 1)) || ((arg1 == 0xAE) && ((temp_v0 = D_8004EA9C[temp_t6], (temp_v0 == 3)) || (temp_v0 == 5))) || ((arg1 == 0xAB) && (D_8004EA9C[temp_t6] == 4)) || (((arg1 == 0x99) || (arg1 == 0xAB)) && (D_8004EA9C[temp_t6] == 2))) && (D_8004F395 == 0)) {
         func_800241BC(temp_t6, temp_t6);
     } else if (((arg1 == 0xB9) || (arg1 == 0xBA) || (arg1 == 0xBB) || (arg1 == 0xB1)) && (D_8004F394 == 0)) {

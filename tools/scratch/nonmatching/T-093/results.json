@@ -1,0 +1,398 @@
+{
+  "func_80012B7C": {
+    "old": [
+      389,
+      1564
+    ],
+    "new": [
+      389,
+      1564
+    ],
+    "retained": false,
+    "draft": "tools/scratch/nonmatching/T-033/func_80012B7C.c"
+  },
+  "func_800131A4": {
+    "old": [
+      178,
+      676
+    ],
+    "new": [
+      178,
+      676
+    ],
+    "retained": false,
+    "draft": "tools/scratch/nonmatching/T-033/func_800131A4.c"
+  },
+  "func_8001346C": {
+    "old": [
+      165,
+      696
+    ],
+    "new": [
+      165,
+      696
+    ],
+    "retained": false,
+    "draft": "tools/scratch/nonmatching/T-033/func_8001346C.c"
+  },
+  "func_8001373C": {
+    "old": [
+      66,
+      264
+    ],
+    "new": [
+      48,
+      256
+    ],
+    "retained": true,
+    "draft": "tools/scratch/nonmatching/T-020/func_8001373C.c"
+  },
+  "func_80016078": {
+    "old": [
+      120,
+      448
+    ],
+    "new": [
+      119,
+      448
+    ],
+    "retained": true,
+    "draft": "tools/scratch/nonmatching/T-033/func_80016078.c"
+  },
+  "func_800170C4": {
+    "old": [
+      164,
+      692
+    ],
+    "new": [
+      164,
+      692
+    ],
+    "retained": false,
+    "draft": "tools/scratch/nonmatching/T-033/func_800170C4.c"
+  },
+  "func_80017A68": {
+    "old": [
+      151,
+      764
+    ],
+    "new": [
+      149,
+      764
+    ],
+    "retained": true,
+    "draft": "tools/scratch/nonmatching/T-033/func_80017A68.c"
+  },
+  "func_80017D6C": {
+    "old": [
+      194,
+      824
+    ],
+    "new": [
+      194,
+      824
+    ],
+    "retained": false,
+    "draft": "tools/scratch/nonmatching/T-033/func_80017D6C.c"
+  },
+  "func_8001808C": {
+    "old": [
+      181,
+      796
+    ],
+    "new": [
+      181,
+      796
+    ],
+    "retained": false,
+    "draft": "tools/scratch/nonmatching/T-022/func_8001808C.c"
+  },
+  "func_80018AE0": {
+    "old": [
+      194,
+      900
+    ],
+    "new": [
+      194,
+      900
+    ],
+    "retained": false,
+    "draft": "tools/scratch/nonmatching/T-022/func_80018AE0.c"
+  },
+  "func_80018F20": {
+    "old": [
+      140,
+      688
+    ],
+    "new": [
+      138,
+      688
+    ],
+    "retained": true,
+    "draft": "tools/scratch/nonmatching/T-022/func_80018F20.c"
+  },
+  "func_800191F0": {
+    "old": [
+      110,
+      476
+    ],
+    "new": [
+      110,
+      476
+    ],
+    "retained": false,
+    "draft": "tools/scratch/nonmatching/T-022/func_800191F0.c"
+  },
+  "func_800193DC": {
+    "old": [
+      192,
+      788
+    ],
+    "new": [
+      192,
+      788
+    ],
+    "retained": false,
+    "draft": "tools/scratch/nonmatching/T-022/func_800193DC.c"
+  },
+  "func_8001AA90": {
+    "old": [
+      63,
+      488
+    ],
+    "new": [
+      63,
+      488
+    ],
+    "retained": false,
+    "draft": "tools/scratch/nonmatching/T-022/func_8001AA90.c"
+  },
+  "func_8001AD04": {
+    "old": [
+      194,
+      1088
+    ],
+    "new": [
+      194,
+      1088
+    ],
+    "retained": false,
+    "draft": "tools/scratch/nonmatching/T-022/func_8001AD04.c"
+  },
+  "func_8001B134": {
+    "old": [
+      215,
+      980
+    ],
+    "new": [
+      214,
+      980
+    ],
+    "retained": true,
+    "draft": "tools/scratch/nonmatching/T-022/func_8001B134.c"
+  },
+  "func_8001BB64": {
+    "old": [
+      154,
+      592
+    ],
+    "new": [
+      154,
+      592
+    ],
+    "retained": false,
+    "draft": "tools/scratch/nonmatching/T-022/func_8001BB64.c"
+  },
+  "func_8001BDE0": {
+    "old": [
+      15,
+      316
+    ],
+    "new": [
+      13,
+      316
+    ],
+    "retained": true,
+    "draft": "tools/scratch/nonmatching/T-022/func_8001BDE0.c"
+  },
+  "func_80015450": {
+    "old": [
+      68,
+      328
+    ],
+    "new": [
+      68,
+      328
+    ],
+    "retained": false,
+    "draft": "tools/scratch/nonmatching/T-033/func_80015450.c"
+  },
+  "func_80015594": {
+    "old": [
+      339,
+      1464
+    ],
+    "new": [
+      339,
+      1464
+    ],
+    "retained": false,
+    "draft": "tools/scratch/nonmatching/T-033/func_80015594.c"
+  },
+  "func_8001CD50": {
+    "old": [
+      104,
+      428
+    ],
+    "new": [
+      104,
+      428
+    ],
+    "retained": false,
+    "draft": "tools/scratch/nonmatching/T-022/func_8001CD50.c"
+  },
+  "func_8001D080": {
+    "old": [
+      177,
+      756
+    ],
+    "new": [
+      175,
+      756
+    ],
+    "retained": true,
+    "draft": "tools/scratch/nonmatching/T-022/func_8001D080.c"
+  },
+  "func_8001D47C": {
+    "old": [
+      141,
+      748
+    ],
+    "new": [
+      141,
+      748
+    ],
+    "retained": false,
+    "draft": "tools/scratch/nonmatching/T-022/func_8001D47C.c"
+  },
+  "func_8001D7E4": {
+    "old": [
+      427,
+      1724
+    ],
+    "new": [
+      423,
+      1720
+    ],
+    "retained": true,
+    "draft": "tools/scratch/nonmatching/T-022/func_8001D7E4.c"
+  },
+  "func_8001DE5C": {
+    "old": [
+      155,
+      624
+    ],
+    "new": [
+      155,
+      624
+    ],
+    "retained": false,
+    "draft": "tools/scratch/nonmatching/T-022/func_8001DE5C.c"
+  },
+  "func_80023EF0": {
+    "old": [
+      71,
+      296
+    ],
+    "new": [
+      71,
+      296
+    ],
+    "retained": false,
+    "draft": "tools/scratch/nonmatching/T-032/func_80023EF0.c"
+  },
+  "func_80024028": {
+    "old": [
+      49,
+      284
+    ],
+    "new": [
+      49,
+      284
+    ],
+    "retained": false,
+    "draft": "tools/scratch/nonmatching/T-032/func_80024028.c"
+  },
+  "func_800241BC": {
+    "old": [
+      161,
+      840
+    ],
+    "new": [
+      160,
+      840
+    ],
+    "retained": true,
+    "draft": "tools/scratch/nonmatching/T-032/func_800241BC.c"
+  },
+  "func_800245B4": {
+    "old": [
+      87,
+      344
+    ],
+    "new": [
+      87,
+      344
+    ],
+    "retained": false,
+    "draft": "tools/scratch/nonmatching/T-032/func_800245B4.c"
+  },
+  "func_80024714": {
+    "old": [
+      94,
+      712
+    ],
+    "new": [
+      94,
+      712
+    ],
+    "retained": false,
+    "draft": "tools/scratch/nonmatching/T-032/func_80024714.c"
+  },
+  "func_80024B0C": {
+    "old": [
+      99,
+      440
+    ],
+    "new": [
+      99,
+      440
+    ],
+    "retained": false,
+    "draft": "tools/scratch/nonmatching/T-032/func_80024B0C.c"
+  },
+  "func_80021B6C": {
+    "old": [
+      1727,
+      7004
+    ],
+    "new": [
+      1726,
+      7004
+    ],
+    "retained": true,
+    "draft": "tools/scratch/nonmatching/T-032/func_80021B6C.c"
+  },
+  "func_800216D4": {
+    "old": [
+      230,
+      1040
+    ],
+    "new": [
+      229,
+      1040
+    ],
+    "retained": true,
+    "draft": "tools/scratch/nonmatching/T-032/func_800216D4.c"
+  }
+}
