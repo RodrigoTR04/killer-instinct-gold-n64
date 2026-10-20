@@ -304,3 +304,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 ## 2026-10-20 — T-068 vetted (ovl_7DF8 near-misses + flags)
 - Worktree t3-b15c058b. func_801C7998, func_801C5064, func_801C2D34 and func_801C6A80 are unchanged (6/6/6/8 words). Flag hypothesis rejected for these TUs: -mips1 and -O1 break existing TU matches, and dropping -Xcpluscomm has no effect. Report only.
+- T-070 launched (sol-B23): ovl_7DF8 mid-large drafts, structure-first.
