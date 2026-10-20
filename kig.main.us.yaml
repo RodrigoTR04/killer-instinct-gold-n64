@@ -28,6 +28,8 @@ segments:
     subsegments:
       - [0, c, main]
       - [0x2FF0, c, main_2FF0]
+      - [0xCA10, c, main_CA10]
+      - [0xD3F0, c, main_D3F0]
       - [0x15380, c, main_15380]
       - [0x17140, c, main_17140]
       - [0x18440, c, main_18440]
@@ -117,10 +119,13 @@ segments:
       - [0x32E80, bin, gfx_text]
       - [0x34290, bin, audio_text]
       - [0x350B0, data, main]
+      - [0x362A0, .rodata, main_CA10]
+      - {start: 0x362B0, type: data, name: main_after_CA10, linker_section_order: .rodata}
       - [0x38760, .rodata, main_18440]
       - {start: 0x387E0, type: data, name: main_remaining_early, linker_section_order: .rodata}
       - [0x38E00, .rodata, main]
       - [0x38E40, .rodata, main_2FF0]
+      - [0x390A0, .rodata, main_D3F0]
       - [0x393B0, .rodata, main_17140]
       - {start: 0x39410, type: data, name: main_remaining_0, linker_section_order: .rodata}
       - [0x39D30, .rodata, main_321A0]

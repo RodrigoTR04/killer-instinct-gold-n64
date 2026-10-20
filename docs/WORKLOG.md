@@ -287,3 +287,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-ef166d85. func_801BFB40 matches (200 B). Improved: func_801C35D8 5→4, func_801B446C 34→31, func_801C7CD0 63→34. func_801C4E38 (2) and func_801B6528 (3) are unchanged.
 - Clean vet build: the ROM and all 3 images are byte-identical. 275 T4; M1 = M2 = 62,748 / 319,100 B (19.66%).
 - T-066 launched (sol-A23): ovl_7DF8 stuck near-misses with the argument-width angle.
+
+## 2026-10-20 — T-064 vetted (main TU split for func_8001CBCC)
+- Worktree t3-c7be63b5. The old main_2FF0 (0x2FF0–0x15380) is now three TUs: main_2FF0, main_CA10 [0xCA10,0xD3F0) and main_D3F0 (the tail). main_CA10 owns rodata 0x362A0 (its one-float block); main_D3F0 owns rodata from 0x390A0. func_8001CBCC matches with the literal 0.017453292f. func_80017378 improved 41→8 words.
+- Clean vet build: the ROM and all 3 images are byte-identical. 276 T4; M1 = M2 = 63,068 / 319,100 B (19.76%).

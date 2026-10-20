@@ -209,7 +209,7 @@ main,func_8001C43C,0x8001C43C,0xCADC,248,T4,
 main,func_8001C534,0x8001C534,0xCBD4,108,T4,
 main,func_8001C5A0,0x8001C5A0,0xCC40,12,T4,
 main,func_8001C5AC,0x8001C5AC,0xCC4C,1568,T2,draft tools/scratch/nonmatching/T-022/ (non-matching)
-main,func_8001CBCC,0x8001CBCC,0xD26C,320,T2,draft tools/scratch/nonmatching/T-022/ (non-matching)
+main,func_8001CBCC,0x8001CBCC,0xD26C,320,T4,
 main,func_8001CD0C,0x8001CD0C,0xD3AC,68,T4,
 main,func_8001CD50,0x8001CD50,0xD3F0,460,T2,draft tools/scratch/nonmatching/T-022/ (non-matching)
 main,func_8001CF1C,0x8001CF1C,0xD5BC,356,T4,
