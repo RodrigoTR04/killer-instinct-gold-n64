@@ -1,4 +1,4 @@
-/* T-054 DRAFT: 59 relocation-masked positional words differ; 648 emitted bytes. See T-054/REPORT.md. */
+/* T-059 DRAFT: 26 relocation-masked positional words differ; 648 emitted bytes. See T-059/REPORT.md. */
 extern u8 D_8004AC88;
 extern s8 D_8004AC89;
 extern s8 D_8004AC8A;
@@ -7,7 +7,7 @@ s32 func_8001EC74(u8 **, s32, s32, u32, u32, s32, s32, s32); /* extern */
 extern u8 D_80046100;
 extern u8 D_8004A408;
 extern u8 D_8004A450;
-extern u8 D_8004CEE8;
+extern s16 D_8004CEE8;
 extern s16 D_8004D26E;
 extern s32 D_8004EA78;
 extern u8 D_801D3430;
@@ -58,7 +58,7 @@ void func_8001E0B4(u8 **arg0) {
                             var_t1 = 0x1000;
                         }
                         if (D_8004AC88 == 0) {
-                            var_t1 = (u16) ((s32) var_t1 / 2);
+                            var_t1 = (s32) var_t1 / 2;
                         }
                         if (temp_v1_2 == D_801D87E0) {
                             if (D_801D87E1 != 0) {
@@ -75,7 +75,7 @@ void func_8001E0B4(u8 **arg0) {
                                 D_8004D26E = 0;
                             }
                         }
-                        if (*(&D_8004CEE8 + (D_8004EA78 * 0x1C)) != 5) {
+                        if (*(s16 *)((u8 *)&D_8004CEE8 + D_8004EA78 * 0x1C) != 5) {
                             if (D_8004EA9E[var_s0] == 9) {
                                 var_v1 = 1;
                             } else {

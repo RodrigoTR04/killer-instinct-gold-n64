@@ -1,4 +1,4 @@
-/* T-054 DRAFT: 144 relocation-masked positional words differ; 592 emitted bytes. See T-054/REPORT.md. */
+/* T-059 DRAFT: 143 relocation-masked positional words differ; 592 emitted bytes. See T-059/REPORT.md. */
 extern u8 D_8004AA28,D_801D7DFC,D_801D7DF8,D_8004AC92,D_8004AC8E;
 typedef struct { u32 w0,w1; } T054Gfx;
 void func_8001BB64(T054Gfx **list) {
@@ -21,7 +21,7 @@ void func_8001BB64(T054Gfx **list) {
     } while (src != &D_8004AC92 + 3);
     cmd = (*list)++;
     cmd->w0 = 0xFB000000;
-    cmd->w1 = (colors[0] << 24) | ((colors[1] & 255) << 16) | ((colors[2] & 255) << 8);
+    cmd->w1 = ((colors[2] & 255) << 8) | (colors[0] << 24) | ((colors[1] & 255) << 16);
     switch (mode) {
     case 2:
         b = (&D_8004AC8E)[2] + amount * 4;

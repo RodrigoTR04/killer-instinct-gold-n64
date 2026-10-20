@@ -256,3 +256,6 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-055 (Opus) vet failed on merge (sent back)
 - Worktree t3-c7619f3f (base 2827f78). It reports 8 matches (6,216 B): func_80014250, osPfsFileState (verbatim ultralib, main_265B0 -mips1), func_800249DC, boot func_80001564 (verbatim gzip inflate_fixed, so boot is 100%), func_80013CD8, func_80018664, func_80016BE0 and func_80016258. func_80017378 improved 463→41 words. func_8001CBCC needs a new code subsegment around image 0xCA10–0xD3F0 that owns rodata 0x362A0 (lead follow-up).
 - On master, main_2FF0.c doesn't compile: T-055 uses D_8004A5E0 as a scalar, but T-052 made it [][7]. There was also a duplicate prototype. Sent back to rebase and reconcile.
+
+## 2026-10-20 — T-059 vetted (main mid drafts)
+- Worktree t3-45b42cd9. All 12 attempted: 0 matched, 5 drafts improved, 7 unchanged. Scratch-only changes, so I imported the drafts and REPORT.md. No build impact.
