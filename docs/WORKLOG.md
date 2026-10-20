@@ -378,3 +378,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-086 SDK reclassification (user decision)
 - The user chose to exclude identified SDK code from the progress % (consistent with the libultra convention). Added 53 `excluded` rows in status.csv: 32 pfs (osPfs*/__osPfs*/__osContRam*), guLookAtHiliteF, alFxNew and the 19 libaudio functions from T-078 (_bnkfPatchInst, __getTrackByte, alAudioFrame, alFxParamHdl + 15 more). The code is unchanged and stays C.
 - New baseline: eligible 289,876 B; M1 = M2 = 52,808 B (18.22%); 256 T4. Main is at 18.43% of game code. The ROM is still byte-identical. TRACKING now has an "SDK decompiled" line (~262 SDK functions are C).
+- T-085 launched (sol-C32): finish the remaining drafts in mostly-matched main TUs.
