@@ -10,7 +10,7 @@ typedef struct {
 } T020RomRange;
 extern T020RomRange D_80007260[];
 extern void *D_80044DF4[];
-extern void boot_dma(void *, void *, s32);
+extern void boot_dma(s32, s32, s32);
 extern void osInvalICache(void *, s32);
 extern void osInvalDCache(void *, s32);
 
@@ -19,7 +19,7 @@ void func_80012A8C(u8 arg0) {
     osInvalICache((void *)0x802D4000, 0x927C0);
     osInvalDCache((void *)0x802D4000, 0x927C0);
     range = &D_80007260[arg0];
-    boot_dma(range->start, (void *)0x80313090, range->end - range->start);
+    boot_dma((s32)range->start, 0x80313090, (s32)range->end - (s32)range->start);
     boot_inflate((void *)0x80313090, D_80044DF4[arg0], (void *)0x80311090);
 }
 
@@ -224,7 +224,12 @@ void func_80013BE0(void) {
 }
 
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80013C84.s")
+extern u8 D_54E7D0[], D_551E60[];
+
+void func_80013C84(void) {
+    boot_dma((s32)D_54E7D0, (s32)0x802D4000, (s32)D_551E60 - (s32)D_54E7D0);
+    boot_inflate((void *)0x802D4000, (void *)0x803A4200, (void *)0x803A2000);
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80013CD8.s")
 
@@ -772,35 +777,37 @@ void func_8001B50C(s32 arg0) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_8001B620.s")
 
-extern f64 D_800489D0;
-extern f64 D_800489D8;
 extern f32 D_8004ACE4;
 extern f32 D_8004ACE8;
 
 void func_8001BA18(f32 arg0) {
     if (((D_8004ACE8 * 4.0f) + D_8004ACE4) < arg0) {
-        D_8004ACE8 = (f32) ((f64) D_8004ACE8 + D_800489D0);
+        D_8004ACE8 = (f32) ((f64) D_8004ACE8 + 0.001);
     } else {
-        D_8004ACE8 = (f32) ((f64) D_8004ACE8 - D_800489D8);
+        D_8004ACE8 = (f32) ((f64) D_8004ACE8 - 0.001);
     }
     D_8004ACE4 += D_8004ACE8;
 }
 
-extern f64 D_800489E0;
-extern f64 D_800489E8;
 extern f32 D_8004ACE4;
 extern f32 D_8004ACE8;
 
 void func_8001BA94(f32 arg0) {
     if (((D_8004ACE8 * 4.0f) + D_8004ACE4) < arg0) {
-        D_8004ACE8 = (f32) ((f64) D_8004ACE8 + D_800489E0);
+        D_8004ACE8 = (f32) ((f64) D_8004ACE8 + 0.007);
     } else {
-        D_8004ACE8 = (f32) ((f64) D_8004ACE8 - D_800489E8);
+        D_8004ACE8 = (f32) ((f64) D_8004ACE8 - 0.007);
     }
     D_8004ACE4 += D_8004ACE8;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_8001BB10.s")
+extern u8 *D_8004ACD8;
+extern u8 D_803A4200[], D_A68A20, D_A69A20;
+void func_8001BB10(void) {
+    s32 size = (s32)&D_A69A20 - (s32)&D_A68A20;
+    boot_dma((s32)&D_A68A20, (s32)D_8004ACD8, size);
+    if (D_8004AA28 == 0) D_8004ACD8 = D_803A4200;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_8001BB64.s")
 
@@ -984,14 +991,14 @@ extern u8 D_8004EA9E[];
 extern u8 D_8004CE90[][32], D_8004CEB0[], D_8004EA9F;
 void func_8001D37C(u8 arg0, u8 arg1) {
     s32 index = arg0;
-    boot_dma(((D_8004EA9E[0] == 9 ? 0 : D_8004EA9E[0]) << 5) + D_80045E68[index].start, D_8004CE90, 0x20);
-    boot_dma(((D_8004EA9F == 9 ? 0 : D_8004EA9F) << 5) + D_80045E68[arg1].start, D_8004CEB0, 0x20);
+    boot_dma((s32)(((D_8004EA9E[0] == 9 ? 0 : D_8004EA9E[0]) << 5) + D_80045E68[index].start), (s32)D_8004CE90, 0x20);
+    boot_dma((s32)(((D_8004EA9F == 9 ? 0 : D_8004EA9F) << 5) + D_80045E68[arg1].start), (s32)D_8004CEB0, 0x20);
 }
 
 extern T022DmaEntry D_80045E68[];
 void func_8001D42C(u8 arg0, u8 arg1, void *arg2) {
     s32 index = (u8)arg0;
-    boot_dma(D_80045E68[index].start + (arg1 << 5), arg2, 0x20);
+    boot_dma((s32)(D_80045E68[index].start + (arg1 << 5)), (s32)arg2, 0x20);
 }
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_8001D47C.s")
@@ -1040,7 +1047,7 @@ void func_80021ADC(u8 player, u8 entry) {
     u8 *start = p->spriteStart;
     u32 size = p->spriteEnd - start;
     if (size < 0x321U) {
-        boot_dma(start, (void *)0x802D4000, size);
+        boot_dma((s32)start, 0x802D4000, size);
         boot_inflate((void *)0x802D4000, D_8011E670 + player * 0x320, (void *)0x803A2000);
     }
 }
@@ -1079,7 +1086,7 @@ void func_80024144(s32 player,s32 kind) {
     s32 offset;
     func_80020E98((u8)player,12,0);
     if (kind==0xBA) offset=32; else offset=0;
-    boot_dma((void *)(D_80045FE8 + offset),D_8004CE90[player],32);
+    boot_dma(D_80045FE8 + offset,(s32)D_8004CE90[player],32);
     D_8004F394=1;
 }
 

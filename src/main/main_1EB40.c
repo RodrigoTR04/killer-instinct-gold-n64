@@ -141,19 +141,37 @@ void func_8002F8F8(T024VoiceFlags *voice) {
 }
 
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_1EB40/func_8002F944.s")
+typedef struct T045MaskedVoice { struct T045MaskedVoice *next; u8 pad[0x3A]; u8 flags; } T045MaskedVoice;
+typedef struct { s16 type; T045MaskedVoice *voice; s32 payload[2]; } T045MaskedEvent;
+void func_8002F944(u8 mask) {
+    s32 old;
+    T045MaskedEvent event;
+    T045MaskedVoice *p;
+    old = osSetIntMask(1);
+    p = (T045MaskedVoice *)D_80048270.free;
+    while (p) {
+        event.type = 0x400;
+        event.voice = p;
+        if ((p->flags & mask) == mask) {
+            p->flags &= ~0x10;
+            alEvtqPostEvent(D_8004827C->queue, &event, 0);
+        }
+        p = p->next;
+    }
+    osSetIntMask(old);
+}
 
-extern void func_8002F944(s32);
+extern void func_8002F944(u8);
 void func_8002F9FC(void) {
     func_8002F944(1);
 }
 
-extern void func_8002F944(s32);
+extern void func_8002F944(u8);
 void func_8002FA1C(void) {
     func_8002F944(17);
 }
 
-extern void func_8002F944(s32);
+extern void func_8002F944(u8);
 void func_8002FA3C(void) {
     func_8002F944(3);
 }
@@ -174,4 +192,30 @@ u16 func_8002FAA0(u8 index) {
     return D_80069928[index];
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_1EB40/func_8002FAC0.s")
+typedef struct { u8 pad[2]; u8 group; } T045GroupSound;
+typedef struct { u8 pad[4]; T045GroupSound *sound; } T045GroupInstrument;
+typedef struct T045GroupVoice {
+    struct T045GroupVoice *next;
+    u8 pad[4];
+    T045GroupInstrument *instrument;
+} T045GroupVoice;
+typedef struct {
+    s16 type;
+    T045GroupVoice *voice;
+    s32 payload[4];
+} T045GroupEvent;
+
+void func_8002FAC0(u8 group, u16 volume) {
+    T045GroupEvent event;
+    T045GroupVoice *p = (T045GroupVoice *)D_80048270.free;
+
+    D_80069928[group] = volume;
+    while (p) {
+        if ((p->instrument->sound->group & 0x3F) == group) {
+            event.type = 0x800;
+            event.voice = p;
+            alEvtqPostEvent(D_8004827C->queue, &event, 0);
+        }
+        p = p->next;
+    }
+}

@@ -1,7 +1,12 @@
-/* DRAFT. Remaining diff: 49 differing instruction words; emitted 180 / original 196 bytes (positional comparison). */
-void func_8003037C(s16 *vertices, s16 *delta, s32 count) {
-    s16 *end = delta + count;
+/* T-045 DRAFT: 2 linked words remain; 188-byte body (196 with TU padding). Only end-pointer setup and delta-pointer move are swapped. Was 49 positional words. */
+void func_8003037C(s16 *input, s16 *deltas, s32 count) {
+    s16 *vertices;
+    s16 *delta;
+    s16 *end;
     if (count > 0) {
+        vertices = input;
+        delta = deltas;
+        end = deltas + count;
         do {
             vertices[0] += delta[0];
             vertices[8] += delta[0];

@@ -1,8 +1,8 @@
-/* DRAFT. Remaining diff: 77 differing instruction words; emitted 308 / original 316 bytes (positional comparison). */
-void func_800300DC(u8 *input, s32 outputAddress, s32 length) {
+/* T-045 DRAFT: 76 standalone relocation-masked positional words; 312 compiled bytes. Was 77 words/308 bytes. Changed input cursor initialized inside the nonempty-input branch. Not linked/runtime validated. */
+void func_800300DC(u8 *src, s32 outputAddress, s32 length) {
     u16 *output = (u16 *)outputAddress;
-    s32 i = 0;
-    if (length > 0) {
+    u8 *input; s32 i = 0;
+    if (length > 0) { input=src;
         do {
             u8 first = *input;
             if (!(first & 1)) {

@@ -1,33 +1,23 @@
-/* DRAFT. Remaining diff: 49 differing instruction words; emitted 200 / original 196 bytes (positional comparison). */
-u8 func_80038DE0(s32 arg0, s32 arg1) {
-    u8 *sequence = (u8 *)arg0;
-    u8 **cursor = (u8 **)(sequence + arg1 * 4 + 0x18);
-    u8 **repeat = (u8 **)(sequence + arg1 * 4 + 0x58);
-    u8 *remaining = sequence + arg1 + 0x98;
-    u8 *read;
-    u8 byte;
-    if (*remaining != 0) {
-        read = *repeat;
-        *repeat = read + 1;
-        (*remaining)--;
-        return *read;
-    }
-    read = *cursor;
-    byte = *read;
-    *cursor = read + 1;
-    if (byte == 0xFE) {
-        u8 high = read[1];
-        *cursor = read + 2;
-        if (high != 0xFE) {
-            *cursor = read + 3;
-            *cursor = read + 4;
-            *repeat = read - ((high << 8) + read[2]);
-            *remaining = read[3];
-            read = *repeat;
-            byte = *read;
-            *repeat = read + 1;
-            (*remaining)--;
-        }
-    }
-    return byte;
+/* T-045 DRAFT: 47 standalone relocation-masked positional words; 192 compiled bytes. Was 49 words/200 bytes. Changed typed sequence cursor/repeat/count arrays and postincrement reads. Not linked/runtime validated. */
+typedef struct {u8 pad[0x18];u8 *cursor[16];u8 *repeat[16];u8 remaining[16];} T045Sequence;
+u8 func_80038DE0(T045Sequence *seq,s32 track){
+ u8 byte,hi,lo,count;
+ if(seq->remaining[track]) {
+ byte=*seq->repeat[track]++;
+ seq->remaining[track]--;
+ }else{
+ byte=*seq->cursor[track]++;
+ if(byte==0xFE){
+ hi=*seq->cursor[track]++;
+ if(hi!=0xFE){
+ lo=*seq->cursor[track]++;
+ count=*seq->cursor[track]++;
+ seq->repeat[track]=seq->cursor[track]-((hi<<8)+lo)-4;
+ seq->remaining[track]=count;
+ byte=*seq->repeat[track]++;
+ seq->remaining[track]--;
+ }
+ }
+ }
+ return byte;
 }
