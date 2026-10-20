@@ -351,3 +351,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 ## 2026-10-20 — T-079 vetted (untouched large ovl_7DF8 drafts)
 - Worktree t3-d89c7443. 0 matched; all 4 improved: func_801C23C0 362→222, func_801BDF94 406→353, func_801BCB70 416→391, func_801C08F8 565→561. Scratch-only changes; I imported the drafts and REPORT.md.
+- T-081 launched (sol-B27): 5 huge main drafts, structure-first.
