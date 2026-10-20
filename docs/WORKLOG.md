@@ -169,3 +169,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - T-041 (sol-C16, ovl_7E00): none of the 7 leaves can be C. The 4 exact bodies (jr ra stubs and func_801C2508) can't fit because a 1-function TU pads to 16 B and overwrites the neighbouring code. The other 3 use non-IDO registers and scheduling. Lead decision: exclude all 7 as handwritten asm, so ovl_7E00 has no eligible bytes left.
 - Clean vet build: the ROM and all 3 images are byte-identical. 202 T4; M1 = M2 = 38,508 / 319,100 B (12.07%). T1 = 0 everywhere.
 - T-040 (Opus) stopped on a Claude rate limit with a turn already queued, so I left it alone. When vetting it, the Makefile now has T-038's boot wildcard.
+- Launched T-042 (boot polish + FU-2), T-043 (ovl_7DF8 rodata ownership, 4 fns) and T-044 (ovl_7DF8 polish round 2). All disjoint from T-040 (main).
