@@ -211,3 +211,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-045 vetted after rework (main polish round 2)
 - The worker rebased onto master. func_8001BA18 and func_8001BA94 now use 0.001/0.007 double literals, and the 4 func_8001BB10 function_owner hints were dropped, which fixes the link conflict with T-046. 5 functions match: func_80013C84, func_8001BB10, func_8002F944, func_8002FAC0 and func_80030020. boot_dma is unified to (s32,s32,s32) across main (FU-16 part 2 done). 8 drafts improved; func_80014250 is 3 words off.
 - Clean vet build on cd3b413: the ROM and all 3 images are byte-identical. 247 T4; M1 = M2 = 50,648 / 319,100 B (15.87%). The undefined_syms files were regenerated.
+- T-051 launched (sol-C20): main rodata ownership round 2, 10 functions.
