@@ -202,3 +202,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 ## 2026-10-20 — T-045 vet failed (sent back)
 - Worktree t3-ce4f7418. It reports 5 matches (func_80013C84, func_8001BB10, func_8002F944, func_8002FAC0, func_80030020), boot_dma unified to (s32,s32,s32), and 8 drafts improved. On top of master it fails to link: T-046 pinned the constants D_800489D0/D8/E0/E8 to func_8001BB10 via function_owner hints, and T-045 converted that function to C. Sent back to rebase on master and fix this honestly (literals or reassigned hints).
+
+## 2026-10-20 — T-049 vetted (boot/ROM infra)
+- Worktree t3-ef42faf2. FU-2: boot_49A0 owns rodata 0x7D40–0x7D70; the rest stays as boot_remaining asm data, and the Makefile wildcards asm/data/*.s. FU-8: opaque.bin is split into opaque_assets / opaque_main_gap / opaque_tail. The 3 code slots (main 0xA94D80, ovl_7DF8 0xAB5810, ovl_7E00 0xB00EB0) are extract:False bins linked straight from the rebuilt .1172 streams. splice_rom.py now only verifies them, so no baserom code bytes reach the ROM. func_80001564 is still 8 words off after 34 probes.
+- Clean vet build: the ROM and all 3 images are byte-identical. Metrics unchanged (242 T4, 15.65%).

@@ -82,7 +82,15 @@ segments:
       - [0x70F0, c, boot_70F0]
       - [0x7100, c, boot_7100]
       - [0x7160, data, boot]
+      - [0x7D40, .rodata, boot_49A0]
+      - {start: 0x7D70, type: data, name: boot_remaining, linker_section_order: .rodata}
       - {type: bss, vram: 0x800072D0, name: boot}
-  # Assets and compressed code remain opaque until decompression-aware builds.
-  - [0x7ED0, bin, opaque]
+  # Only assets remain baserom-backed. Code slots are reserved, then filled
+  # from rebuilt .1172 outputs; extract: False prevents baserom extraction.
+  - [0x7ED0, bin, opaque_assets]
+  - {start: 0xA94D80, type: bin, name: code_main, extract: False}
+  - [0xAB5800, bin, opaque_main_gap]
+  - {start: 0xAB5810, type: bin, name: code_ovl_7DF8, extract: False}
+  - {start: 0xB00EB0, type: bin, name: code_ovl_7E00, extract: False}
+  - [0xB14BA0, bin, opaque_tail]
   - [0xC00000]

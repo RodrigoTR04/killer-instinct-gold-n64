@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
-"""Replace fixed boot-table code slots with compressed, built code images."""
+"""Validate fixed ROM code slots linked from compressed, built code images."""
 import argparse
 from pathlib import Path
 import struct
-import sys
 import zlib
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'compress'))
-from rarezip import compress
-
-
-IMAGES = ('main', 'ovl_7DF8', 'ovl_7E00')
+# Keep these slots in sync with kig.us.yaml's non-extracted code bins.
+CODE_SLOTS = (
+    ('main', 0xA94D80, 0xAB5800),
+    ('ovl_7DF8', 0xAB5810, 0xB00EB0),
+    ('ovl_7E00', 0xB00EB0, 0xB14BA0),
+)
 
 
 def splice(linked, image_dir):
@@ -23,11 +23,11 @@ def splice(linked, image_dir):
             raise ValueError(f'invalid boot table slot: {start:#x}–{end:#x}')
     result = bytearray(linked)
     slots = []
-    for name, (start, end) in zip(IMAGES, entries):
+    for index, (name, start, end) in enumerate(CODE_SLOTS):
+        if entries[index] != (start, end):
+            raise ValueError(f'{name}: boot table disagrees with reserved YAML slot')
         image = (image_dir / f'{name}.bin').read_bytes()
         cache = image_dir / f'{name}.1172'
-        if not cache.exists() or cache.stat().st_mtime_ns < (image_dir / f'{name}.bin').stat().st_mtime_ns:
-            cache.write_bytes(compress(image))
         stream = cache.read_bytes()
         inflater = zlib.decompressobj(-15)
         if (stream[:2] != b'\x11\x72' or inflater.decompress(stream[2:]) != image
@@ -40,9 +40,10 @@ def splice(linked, image_dir):
                              f'{end - start} bytes. Non-matching build; relocation unsupported')
         if any(start < other_end and other_start < end for other_start, other_end in slots):
             raise ValueError('overlapping code slots')
-        result[start:end] = padded
+        if linked[start:end] != padded:
+            raise ValueError(f'{name}: linked slot does not contain built compressed image')
         slots.append((start, end))
-        print(f'OK: spliced {name} at {start:#x}–{end:#x} ({len(stream)} + {len(padded) - len(stream)} padding bytes)')
+        print(f'OK: verified built {name} at {start:#x}–{end:#x} ({len(stream)} + {len(padded) - len(stream)} padding bytes)')
     cursor = 0
     for start, end in sorted(slots):
         if result[cursor:start] != linked[cursor:start]:

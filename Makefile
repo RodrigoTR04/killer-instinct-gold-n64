@@ -26,8 +26,9 @@ SCRIPT := linker_scripts/kig.us.ld
 UNDEFINED := linker_scripts/undefined_funcs_auto.txt linker_scripts/undefined_syms_auto.txt
 OBJECTS := build/asm/header.s.o build/assets/ipl3.bin.o \
            build/asm/boot_entry.s.o $(patsubst src/%.c,build/src/%.c.o,$(wildcard src/boot/*.c)) \
-           build/asm/data/boot.data.s.o \
-           build/asm/data/boot.bss.s.o build/assets/opaque.bin.o
+           $(patsubst asm/%.s,build/asm/%.s.o,$(wildcard asm/data/*.s)) \
+           $(addprefix build/assets/,$(addsuffix .bin.o,opaque_assets opaque_main_gap opaque_tail)) \
+           $(addprefix build/assets/code_,$(addsuffix .bin.o,main ovl_7DF8 ovl_7E00))
 
 .PHONY: all extract verify clean verify-images
 IMAGES := main ovl_7DF8 ovl_7E00
@@ -37,8 +38,8 @@ all: $(ROM) verify $(addprefix build/,$(addsuffix .bin,$(IMAGES))) verify-images
 
 # The stamp is written only after a successful extraction. Grouped outputs also
 # allow make to recover when an individual generated file has been removed.
-EXTRACTED := asm/ovl_7E00/ovl_7E00.s asm/header.s asm/boot_entry.s asm/data/boot.data.s asm/data/boot.bss.s \
-             assets/ipl3.bin assets/opaque.bin $(SCRIPT) $(UNDEFINED) include/macro.inc \
+EXTRACTED := asm/ovl_7E00/ovl_7E00.s asm/header.s asm/boot_entry.s asm/data/boot.data.s asm/data/boot.bss.s asm/data/boot_remaining.data.s \
+             assets/ipl3.bin $(addprefix assets/,$(addsuffix .bin,opaque_assets opaque_main_gap opaque_tail)) $(SCRIPT) $(UNDEFINED) include/macro.inc \
              $(foreach image,$(IMAGES),asm/$(image)/data/$(image).data.s linker_scripts/$(image).ld linker_scripts/$(image).undefined_funcs.txt linker_scripts/$(image).undefined_syms.txt) \
              $(addprefix assets/main/,$(addsuffix .bin,rspboot gfx_text audio_text gfx_data audio_data))
 $(EXTRACTED) build/.kig-extracted &: kig.us.yaml symbol_addrs.us.txt $(IMAGE_CONFIGS) $(IMAGE_SYMBOLS) $(wildcard src/*/*.c) baserom.us.z64
@@ -62,6 +63,12 @@ build/asm/%.s.o: asm/%.s include/macro.inc
 build/assets/%.bin.o: assets/%.bin
 	@mkdir -p $(@D)
 	@printf '.section .data\n.incbin "$<"\n' | $(AS) $(ASFLAGS) -o $@
+
+# These YAML bin segments are never extracted from the ROM. Assemble only the
+# rebuilt compressed stream and its zero alignment padding into each code slot.
+build/assets/code_%.bin.o: build/%.1172
+	@mkdir -p $(@D)
+	@printf '.section .data\n.incbin "$<"\n.balign 16, 0\n' | $(AS) $(ASFLAGS) -o $@
 
 $(ELF): $(OBJECTS) $(SCRIPT) $(UNDEFINED)
 	$(LD) -m elf32ebmip -e entrypoint -Map build/kig.us.map \
@@ -87,7 +94,7 @@ verify: $(ROM)
 clean:
 	rm -rf build/asm build/src build/assets asm
 	rm -f build/kig.us.z64 build/kig.us.elf build/kig.us.map build/kig.us.z64.linked $(COMPRESSED_IMAGES) build/.kig-extracted
-	rm -f assets/ipl3.bin assets/opaque.bin $(SCRIPT) $(UNDEFINED)
+	rm -f assets/opaque.bin assets/ipl3.bin $(addprefix assets/,$(addsuffix .bin,opaque_assets opaque_main_gap opaque_tail)) $(SCRIPT) $(UNDEFINED)
 	rm -rf $(addprefix assets/,$(IMAGES))
 	rm -f $(foreach image,$(IMAGES),build/$(image).bin build/$(image).elf build/$(image).map linker_scripts/$(image).ld linker_scripts/$(image).undefined_funcs.txt linker_scripts/$(image).undefined_syms.txt)
 

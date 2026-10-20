@@ -444,3 +444,30 @@ Open: original `.data`/`.rodata` boundaries (candidate starts above, especially
 index/load sequence; computed consumers of the AB5800 record. The field-level
 confidence in JSON intentionally preserves these limits. A matching build
 should retain opaque initialized bytes until these semantic splits are proven.
+
+## ROM assembly ownership (T-049)
+
+Boot ROM 0x7160–0x7D40 remains assembly data. The aligned jump table at
+0x7D40–0x7D70 belongs to `boot_49A0` (the handwritten `__osException`
+GLOBAL_ASM); splat migrates it into that function's `.late_rodata`. The shared
+interrupt-mask table and loader table at 0x7D70–0x7ED0 remain assembly data,
+ordered after that C object's rodata. No other boot rodata ownership is assumed.
+
+The former `opaque.bin` is split as follows. Bounds are half-open and all
+boundaries are 16-byte aligned. Code bins use `extract: False`: no original
+compressed code slot is extracted into an asset blob.
+
+| ROM range | Size | Build input |
+|---|---:|---|
+| 0x7ED0–0xA94D80 | 0xA8CEB0 | `assets/opaque_assets.bin` (baserom assets) |
+| 0xA94D80–0xAB5800 | 0x20A80 | `build/main.1172`, zero-padded to 16 bytes |
+| 0xAB5800–0xAB5810 | 0x10 | `assets/opaque_main_gap.bin` (original gap) |
+| 0xAB5810–0xB00EB0 | 0x4B6A0 | `build/ovl_7DF8.1172`, zero-padded to 16 bytes |
+| 0xB00EB0–0xB14BA0 | 0x13CF0 | `build/ovl_7E00.1172`, zero-padded to 16 bytes |
+| 0xB14BA0–0xC00000 | 0xEB460 | `assets/opaque_tail.bin` (data payloads/tail) |
+
+The Makefile assembles each rebuilt compressed stream directly into its ROM
+linker object. `tools/build/splice_rom.py` retains its historical command name
+but now validates the already-linked code slots, including their fixed boot-table
+bounds, exact aligned sizes, decompressed contents, and zero padding; it no longer
+overwrites hidden original code bytes. Slot relocation remains unsupported.
