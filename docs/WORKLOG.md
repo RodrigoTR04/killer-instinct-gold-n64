@@ -245,3 +245,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-054 vetted (main polish round 4)
 - Worktree t3-9b3124fe. All 32 listed functions were attempted. func_80016910 and func_8001B620 match (1,736 B); B620's 4 owner hints were reassigned to func_8001B134. 17 drafts improved, 13 unchanged. The lead resolved a mechanical symbol_addrs conflict with T-052: kept the B134 reassignment, dropped the C43C hints T-052 removed.
 - Clean vet build: the ROM and all 3 images are byte-identical. 257 T4; M1 = M2 = 54,584 / 319,100 B (17.11%).
+- T-058 (sol-A21: main near-misses) and T-059 (sol-C22: main mid drafts) launched. Lists are disjoint from each other and from T-055 (Opus).
