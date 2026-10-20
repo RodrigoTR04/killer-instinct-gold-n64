@@ -8,7 +8,7 @@ extern s32 D_802D39C8;
 extern s8 D_802D39CC;
 extern s8 D_802D39CD;
 extern f32 D_802D39D0;
-extern s8 D_802D39D5;
+extern u8 D_802D39D5;
 
 void func_801C72B0(void) {
     D_802D39CC = -1;

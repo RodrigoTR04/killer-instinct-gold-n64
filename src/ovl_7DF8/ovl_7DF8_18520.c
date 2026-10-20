@@ -17,14 +17,15 @@ extern void func_801C48E4();
 extern u8 D_8004A278[], D_800F4070[];
 extern s32 D_80066C40, D_800698C4;
 extern f32 D_800695CC, D_800695D0, D_800695D4, D_800695D8, D_800695DC, D_800695E0;
-extern s8 D_801CD454, D_802C8724;
+extern s8 D_801CD454;
+extern u8 D_802C8724;
 const u8 D_802937E0[] = "SUPREME";
 const u8 D_802937E8[] = "  ULTRA";
 const u8 D_802937F0[] = "AWESOME";
 extern s32 D_802956F8, D_802956FC, D_80295700;
 extern void *D_802D3950;
-extern s8 D_802D3954, D_802D3958;
-extern s16 D_802D3956;
+extern u8 D_802D3954, D_802D3958;
+extern u16 D_802D3956;
 extern u8 D_802D3959, D_802D395A;
 
 void func_801C407C(u8 arg0, u8 arg1) {

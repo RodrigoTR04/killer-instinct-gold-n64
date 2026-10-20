@@ -1,5 +1,6 @@
-/* DRAFT. Remaining diff: Selection interpolation/control-flow, float and saved registers, and helper-call scheduling differ. */
-extern s32 func_801BE540(s32, s32, s32, s32, f32, f32, s32, s32, s32, s32, f32);
+/* T-070: nonmatching, 240 differing words including size penalty; 1144 compiled bytes.
+ * Compiles in the complete production TU through asm-processor; see T-070/REPORT.md. */
+extern s32 func_801BE540(s32, s32, s32, f32, f32, f32, u8, u8, u8, u8, f32);
 extern f32 sinf(f32);
 extern u8 D_80127D50;
 extern s32 D_801D3000[];
@@ -14,12 +15,11 @@ extern f32 D_80292930;
 extern f64 D_80292938;
 extern f64 D_80292940;
 extern f32 D_80292948;
-extern s32 D_8029294C;
+extern f32 D_8029294C;
 extern f64 D_80292950;
 
 s32 func_801B132C(s32 arg0, s32 arg1, s32 arg2, u32 arg3) {
     f32 scale;
-    f64 var_f2;
     f64 var_f6;
     s32 temp_a0;
     s32 temp_f10;
@@ -34,9 +34,6 @@ s32 func_801B132C(s32 arg0, s32 arg1, s32 arg2, u32 arg3) {
 
     matrices = 0;
     var_f6 = (f64) arg3;
-    if ((s32)arg3 < 0) {
-        var_f6 += 4294967296.0;
-    }
     temp_f10 = (s32) (sinf((f32) (var_f6 * D_80292920 * 6.0)) * 63.0f);
     i = 0;
     pulse = (s8) temp_f10;
@@ -51,7 +48,6 @@ s32 func_801B132C(s32 arg0, s32 arg1, s32 arg2, u32 arg3) {
     if (D_801D3020 == -0x2710) {
         D_801D3020 = (D_80127D50 * 0x10) + 8;
     }
-    var_f2 = D_80292940;
     position = D_801D3020 + 0x10;
     do {
         position -= 0x10;
@@ -64,7 +60,7 @@ s32 func_801B132C(s32 arg0, s32 arg1, s32 arg2, u32 arg3) {
                 var_v0 = 0x80;
             } else if (position < 8) {
                 var_v0 = ((position * 0x10) + 0x80) & 0xFF;
-                scale = (f32) ((f64) ((f32) position / 20.0f) + var_f2);
+                scale = (f32) ((f64) ((f32) position / 20.0f) + D_80292940);
             } else if (position == 8) {
                 scale = 1.0f;
                 var_v0 = (pulse + 0xBF) & 0xFF;
@@ -78,7 +74,6 @@ s32 func_801B132C(s32 arg0, s32 arg1, s32 arg2, u32 arg3) {
             }
         }
         if (var_v0 != 0) {
-            var_f2 = D_80292950;
             matrices = (matrices + func_801BE540(arg0, (matrices << 6) + arg2, D_801D3000[i], 0.0f, (f32) (((s32) (position * 0x17) >> 3) - 0x1F4), D_8029294C, 0, 0, 0, var_v0, scale * D_801D3024)) & 0xFF;
         }
         i += 1;

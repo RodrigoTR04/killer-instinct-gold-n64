@@ -1,8 +1,9 @@
-/* DRAFT. Remaining diff: Projection-output/float stack layout, display-list temporaries and call scheduling differ. */
+/* T-070: nonmatching, 167 differing words including size penalty; 1344 compiled bytes.
+ * Compiles in the complete production TU through asm-processor; see T-070/REPORT.md. */
 #include "common.h"
 
 typedef struct { u32 w0,w1; } T030Cmd4240;
-typedef struct { s32 id,ticks; u8 pad8[0xF0]; u8 *matrices; } T030Render4240;
+typedef struct { u32 id,ticks; u8 pad8[0xF0]; u8 *matrices; } T030Render4240;
 extern void func_8002B9B4(void);
 extern void func_8002DCC8(f32,f32,f32,u32 *);
 extern void func_8002DDD4(f32,f32,f32,s32 *,s32 *);
@@ -14,14 +15,14 @@ extern s32 func_801BDF94(T030Cmd4240 **, void *, void *, f32,f32,f32,s32,f32,f32
 extern void func_801C49A8(T030Cmd4240 **,s32,s32,s32,u32,s32,s32);
 extern void guTranslate(void *,f32,f32,f32);
 extern u8 D_8004A25C[], D_8004A260[];
-extern s32 D_8004A278, D_80066C40;
+extern s32 D_80066C40;
 extern u8 D_802918C0[],D_802937F8[],D_80293800[],D_802AA5A0[];
 extern f32 D_8029381C,D_80293820,D_80293824,D_80293828;
 extern s32 D_802956F4,D_80295714;
-extern u8 D_802C8724;
+
 extern void *D_802D3950;
-extern u8 D_802D3954,D_802D3958,D_802D3960;
-extern u16 D_802D3956;
+extern u8 D_802D3960;
+
 extern s32 D_802D395C;
 
 void func_801C4240(T030Cmd4240 **arg0, T030Render4240 *arg1) {
@@ -41,22 +42,17 @@ void func_801C4240(T030Cmd4240 **arg0, T030Render4240 *arg1) {
     s32 var_a2;
     u32 temp_t4;
     T030Cmd4240 *temp_v0;
-    T030Cmd4240 *temp_v0_2;
-    T030Cmd4240 *temp_v0_3;
-    T030Cmd4240 *temp_v0_4;
-    T030Cmd4240 *temp_v0_5;
-    T030Cmd4240 *temp_v0_6;
 
     var_a2 = D_802D395C;
     if (var_a2 == 0) {
         var_a2 = arg1->ticks;
     }
+    temp_f20 = (((f32) ((arg1->ticks - var_a2) * (u8)D_802D3958) / 120.0f) * -2000.0f) + D_8029381C;
     D_802D395C = var_a2;
-    temp_f20 = (((f32) ((arg1->ticks - var_a2) * D_802D3958) / 120.0f) * -2000.0f) + D_8029381C;
     sp8C = temp_f20;
     sp84 = temp_f20;
     if ((D_802D3956 != 0) && ((temp_f20 < 1000.0f) || (D_802D3958 == 0))) {
-        func_8002F6F4(D_80066C40, (s16) D_802D3956, &D_8004A260, D_802D3956);
+        func_8002F6F4(D_80066C40, (s16) D_802D3956, &D_8004A260);
         func_8002F6F4(D_80066C40, (s16) D_802D3956, &D_8004A25C);
         D_802D3956 = 0;
     }
@@ -66,7 +62,7 @@ void func_801C4240(T030Cmd4240 **arg0, T030Render4240 *arg1) {
         }
         if (temp_f20 < 0.0f) {
             if (temp_f20 < D_80293820) {
-                func_8002FA5C(D_8004A278, 8, (s32) ((temp_f20 + D_80293824) * 100.0f));
+                func_8002FA5C(*(s32 *)D_8004A278, 8, (s32) ((temp_f20 + D_80293824) * 100.0f));
             }
             if (temp_f20 < D_80293828) {
                 func_8002FA3C();
@@ -87,31 +83,31 @@ void func_801C4240(T030Cmd4240 **arg0, T030Render4240 *arg1) {
     *arg0 = temp_v0 + 1;
     temp_v0->w1 = (u32)&D_802918C0;
     temp_v0->w0 = 0x06000000;
-    temp_v0_2 = *arg0;
-    *arg0 = temp_v0_2 + 1;
-    temp_v0_2->w0 = 0x01020040;
-    temp_v0_2->w1 = (u32) (arg1->matrices + (D_802956F4 << 6));
-    temp_v0_3 = *arg0;
-    *arg0 = temp_v0_3 + 1;
-    temp_v0_3->w0 = 0xFB000000;
-    temp_v0_3->w1 = (u32) ((D_802D3960 << 0x18) | (D_802D3960 << 0x10) | (D_802D3960 << 8) | 0xFF);
-    temp_v0_4 = *arg0;
-    *arg0 = temp_v0_4 + 1;
-    temp_v0_4->w1 = (u32)&D_802AA5A0;
-    temp_v0_4->w0 = 0x06000000;
+    temp_v0 = *arg0;
+    *arg0 = temp_v0 + 1;
+    temp_v0->w0 = 0x01020040;
+    temp_v0->w1 = (u32) (arg1->matrices + (D_802956F4 << 6));
+    temp_v0 = *arg0;
+    *arg0 = temp_v0 + 1;
+    temp_v0->w0 = 0xFB000000;
+    temp_v0->w1 = (u32) ((D_802D3960 << 0x18) | (D_802D3960 << 0x10) | (D_802D3960 << 8) | 0xFF);
+    temp_v0 = *arg0;
+    *arg0 = temp_v0 + 1;
+    temp_v0->w1 = (u32)&D_802AA5A0;
+    temp_v0->w0 = 0x06000000;
     D_802956F4 += 1;
     func_8002DDD4(-13.0f, -350.0f, sp48, &sp78, &sp74);
-    temp_t4 = (u32) ((0x38 - (D_802C8724 * 8)) * sp80) >> 5;
+    temp_t4 = (u32) ((0x38 - ((u8)D_802C8724 * 8)) * sp80) >> 5;
     sp80 = temp_t4;
     func_801C49A8(arg0, 0, 0x12C000, sp74 >> 3, temp_t4, 4, (s32) D_802D3960);
-    temp_v0_5 = *arg0;
-    *arg0 = temp_v0_5 + 1;
-    temp_v0_5->w1 = 0;
-    temp_v0_5->w0 = 0xE7000000;
-    temp_v0_6 = *arg0;
-    *arg0 = temp_v0_6 + 1;
-    temp_v0_6->w1 = (u32)0x80000;
-    temp_v0_6->w0 = 0xBA001301;
+    temp_v0 = *arg0;
+    *arg0 = temp_v0 + 1;
+    temp_v0->w1 = 0;
+    temp_v0->w0 = 0xE7000000;
+    temp_v0 = *arg0;
+    *arg0 = temp_v0 + 1;
+    temp_v0->w1 = (u32)0x80000;
+    temp_v0->w0 = 0xBA001301;
     temp_f0_2 = (f32) (s32) (360.0f - temp_f20);
     sp50 = temp_f0_2;
     temp_t5 = D_802956F4 + func_801BDF94(arg0, arg1->matrices + (D_802956F4 << 6), D_802D3950, -240.0f - sp84, 30.0f, -300.0f, 1, 1.0f, temp_f0_2);

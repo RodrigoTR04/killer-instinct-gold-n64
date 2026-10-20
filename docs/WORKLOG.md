@@ -320,3 +320,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-93331984. func_8001C5AC matches (1,568 B, in main_CA10). func_800330B0 has an exact masked body but is blocked on rodata ownership (follow-up). 8 drafts improved, 1 unchanged.
 - Clean vet build: the ROM and all 3 images are byte-identical. 288 T4; M1 = M2 = 67,608 / 319,100 B (21.19%).
 - T-073 launched (sol-B24): land guLookAtHiliteF (func_800330B0) by giving main_23750 its rodata.
+
+## 2026-10-20 — T-070 vetted (ovl_7DF8 mid-large drafts)
+- Worktree t3-a5d29587. All 10 attempted: 0 matched, 9 improved (func_801C4240 326→167, func_801B0CDC 301→209, func_801B0668 231→159), 1 unchanged. Signedness fixes to globals in ovl_7DF8_18520.c and _1B790.c (s8→u8, s16→u16); the build still matches.
+- Clean vet build: the ROM and all 3 images are byte-identical. Metrics unchanged (288 T4, 21.19%).
