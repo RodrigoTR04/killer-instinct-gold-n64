@@ -277,3 +277,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - The lead resolved a merge clash with T-058 (acb6e4f): `D_8004AE88/89` were declared s8 at the top and u8 later. Unified to one `u8` declaration, and all functions still match.
 - Clean vet build: the ROM and all 3 images are byte-identical. 273 T4; M1 = M2 = 62,376 / 319,100 B (19.55%). Boot 100%, main 21.91%.
 - T-064 launched (sol-B21): main TU split for func_8001CBCC, plus func_80017378.
+
+## 2026-10-20 — T-061 vetted (ovl_7DF8 stuck near-misses)
+- Worktree t3-19016f2e. func_801C71FC matches (a u64 argument plus the correct global array). Improved: func_801C6A80 30→8 and func_801C2D34 95→6. 13 unchanged (the glyph functions, func_801C51F8 and both clone families are still stuck).
+- Clean vet build: the ROM and all 3 images are byte-identical. 274 T4; M1 = M2 = 62,548 / 319,100 B (19.60%).

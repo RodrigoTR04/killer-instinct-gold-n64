@@ -291,4 +291,21 @@ u32 func_801C7100(s32 arg0, u32 arg1) {
     return arg1;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_190B0/func_801C71FC.s")
+extern u8 D_80295720;
+extern u8 D_802D39BA;
+extern void func_801C4D6C(void);
+extern u64 D_802D3678[];
+extern s8 D_802D39B6;
+
+void func_801C71FC(s32 arg0, u64 arg1) {
+    if (arg0 + 1 == D_80295720 && (arg1 & 0x1000) && !(D_802D3678[arg0] & 0x1000)) {
+        if (D_802D39BA & 3) {
+            D_802D39BA &= 0xFC;
+            func_801C4D6C();
+        } else {
+            D_802D39BA = 0;
+        }
+        D_802D39B6 = 1;
+    }
+    D_802D3678[arg0] = arg1;
+}
