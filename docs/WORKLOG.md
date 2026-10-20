@@ -389,3 +389,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-7d9a7f68. decomp-permuter is installed in the shared tools/ext; tools/permuter/ has the import helper and README. 4 matches (1,096 B): func_8002AEE4 (u16 quit flag + 8-byte client object), func_8002B1EC (named zero temporary, documented), func_8002B9B4 (line layout) and func_801C7CD0 (inline replay-byte read). Improved: func_8002AA98/AAEC 10→2, func_8002F45C 20→13. The permuter output was cleaned into readable C.
 - The lead fixed one name-only conflict: func_80001EF4 → boot_subscribe_retrace (T-084 rename) in main_1B230.c.
 - Clean vet build: the ROM and all 3 images are byte-identical. 260 T4; M1 = M2 = 53,904 / 289,876 B (18.60%).
+- T-088 launched (sol-B29): permuter round 2 on the remaining near-misses.
