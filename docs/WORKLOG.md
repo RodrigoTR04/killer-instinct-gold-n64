@@ -178,3 +178,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-044 vetted (ovl_7DF8 polish round 2)
 - Worktree t3-2e29617f. 5 functions match: func_801BEFFC, func_801C4BD0, func_801C72B0, func_801CD100 and func_801CD174 (720 B). I deleted those drafts and their T2 rows. 7 drafts improved; func_801B695C is now 4 words off. 12 unchanged.
 - Clean vet build: the ROM and all 3 images are byte-identical. 230 T4; M1 = M2 = 43,020 / 319,100 B (13.48%).
+- T-045 launched (sol-C18): main polish round 2 + boot_dma prototype.
