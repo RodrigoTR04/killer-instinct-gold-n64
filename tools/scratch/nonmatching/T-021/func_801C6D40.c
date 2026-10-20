@@ -31,11 +31,7 @@ u32 func_801C6D40(s32 arg0, u32 arg1) {
             func_8002F6F4(D_80066C40, 0x2C, &D_8004A258, var_a3);
             var_a3 = arg1;
         }
-        temp_t0 = 0xF0 - var_a3;
-        var_f6 = (f64) temp_t0;
-        if (temp_t0 < 0) {
-            var_f6 += 4294967296.0;
-        }
+        var_f6 = (f64)(u32)(0xF0 - var_a3);
         D_802D3990 = (f32) ((f64) D_80291EBC + (var_f6 * D_802948B8));
     } else {
         if (D_802D399E == 1) {

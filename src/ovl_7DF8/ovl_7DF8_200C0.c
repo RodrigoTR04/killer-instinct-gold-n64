@@ -380,7 +380,32 @@ s32 func_801CCBCC(u8 arg0) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_200C0/func_801CCD74.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_200C0/func_801CCDE8.s")
+extern void osContGetReadData(u16 *);
+extern s32 osContStartReadData(void *);
+
+extern u8 D_800684E0;
+extern u8 D_802D3E0D;
+
+u8 func_801CCDE8(void) {
+    u16 sp18[12];
+
+    if (D_802D3E0D == 0) {
+        func_801CBF8C();
+        if (D_802D3E0D == 0) {
+            return 0;
+        }
+    }
+    osContStartReadData(&D_800684E0);
+    osRecvMesg(&D_800684E0, 0, 1);
+    osContGetReadData(sp18);
+    if ((sp18[0] & 0x1000) && (D_802D3E0D & 1)) {
+        return 1;
+    }
+    if ((sp18[3] & 0x1000) && (D_802D3E0D & 2)) {
+        return 2;
+    }
+    return 0;
+}
 
 void func_801CCEAC(u8 *dst, u8 *src, s32 len) {
     s32 i;

@@ -12,7 +12,7 @@ void func_801C5064(s32 arg0, T030Render5064 *arg1, u8 arg2, s32 arg3) {
     f32 scale;
     f32 origin;
     f32 depth;
-    u8 count;
+    s32 count;
     s32 i, offset;
     s32 used;
     scale = D_8029488C;

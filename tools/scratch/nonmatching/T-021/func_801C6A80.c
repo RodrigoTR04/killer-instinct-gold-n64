@@ -17,9 +17,8 @@ u32 func_801C6A80(s32 arg0, u32 arg1) {
     u8 temp_t9;
 
     if (arg1 < 0xF0U) {
-        temp_t9 = D_802D399C + D_802D399D;
-        temp_v0 = temp_t9 & 0xFF;
-        D_802D399C = temp_t9;
+        D_802D399C += D_802D399D;
+        temp_v0 = D_802D399C;
         if (temp_v0 >= 0xB) {
             D_802D399D = 0xFF;
             if (D_802D3984 == 0) {

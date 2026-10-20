@@ -2,7 +2,7 @@
 #include "common.h"
 
 u8 func_801C7998(u8 arg0, u16 buttons) {
-    u8 index = 0;
+    s32 index = 0;
     switch ((u64)buttons) {
     case 0x8000: index++;
     case 0x4000: index++;

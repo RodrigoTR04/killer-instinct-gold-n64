@@ -26,7 +26,8 @@ void func_801C3E40(T030Cmd3E40 **arg0) {
                 slot = index & 255;
                 dl = (*arg0)++; count--;
                 dl->w0 = 0x04200030; dl->w1 = (u32)&D_802D3940[slot];
-                dl = (*arg0)++; dl->w1 = 0xA14; dl->w0 = 0xBF000000;
+                dl = (*arg0)++; dl->w0 = 0xBF000000;
+    dl->w1 = 0xA14;
                 D_802D3940[slot].v[0].a -= 32;
                 if (D_802D3940[slot].v[0].a < 32) {
                     D_802D3940[slot].v[0].a = 32;

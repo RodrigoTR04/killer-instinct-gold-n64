@@ -16,7 +16,7 @@ s32 func_801B18BC(s32 arg0, T025State *arg1, s32 arg2, u32 arg3) {
     do {
         if (D_802C8724 & (1 << i)) n = 12;
         else n = 15;
-        func_801C49A8(arg0, i, x, 0x172000, (n << 12) / 10, 0, 0);
+        func_801C49A8(arg0, i, 0x82000 + i * 0xC8000, 0x172000, (n << 12) / 10, 0, 0);
         i++;
         x += 0xC8000;
     } while (i != 3);

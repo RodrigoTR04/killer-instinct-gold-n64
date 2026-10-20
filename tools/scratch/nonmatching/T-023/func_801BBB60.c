@@ -6,7 +6,7 @@ extern u8 D_802C9F68, D_802C9F69;
 void func_801BBB60(void) {
     u8 *p;
     s16 *palette;
-    s32 i;
+    s16 i;
     s32 j;
     D_802C9F68 = 0;
     palette = D_802C9D20;

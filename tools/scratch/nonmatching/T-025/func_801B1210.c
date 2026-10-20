@@ -13,8 +13,8 @@ s32 func_801B1210(T025Gfx1210 **arg0, s32 arg1, s32 arg2, s32 arg3) {
     } else alpha = arg3 * 16;
     if (alpha >= 0x100U) alpha = 0xFF;
     g = (*arg0)++;
-    g->w1 = 0x30;
     g->w0 = 0xBA000402;
+    g->w1 = 0x30;
     g = (*arg0)++;
     g->w1 = 0;
     g->w0 = 0xB9000002;

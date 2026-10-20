@@ -5,8 +5,7 @@ extern u8 D_8004EA9C[], D_80128308[], D_8012830A[], D_80128310[], D_80128328[];
 extern s32 D_80127C30[];
 extern u8 D_80128300[];
 extern u64 D_802D3800[];
-s32 func_801C17D0(u32 *stats, u8 player) {
-    u8 character = D_8004EA9C[player];
+s32 func_801C17D0(u32 *stats, u8 player) {    u8 character = D_8004EA9C[player];
     u8 *a, *b;
     u32 value;
     u64 *out;

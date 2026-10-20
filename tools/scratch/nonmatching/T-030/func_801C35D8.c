@@ -32,7 +32,7 @@ void func_801C35D8(u32 **arg0, T030Cloud *arg1, s32 arg2, s32 arg3) {
         do {
             start = cloud->angle;
             end = cloud->width + start;
-            if (((arg3 >= start) && (arg3 < end)) || (visible = 0, arg3 + 360 < end)) visible = 1;
+            visible = ((arg3 >= start && arg3 < end) || arg3 + 360 < end);
             if (visible || cloud->alpha > 0) {
                 alpha = cloud->alpha;
                 if (visible) {

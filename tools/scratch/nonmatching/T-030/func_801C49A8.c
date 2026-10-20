@@ -35,8 +35,8 @@ void func_801C49A8(T030Cmd49A8 **arg0, s32 arg1, s32 arg2, s32 arg3, u32 arg4, u
     if ((temp_v1 == 9) || (arg5 & 4)) {
         temp_v0_2 = *arg0;
         *arg0 = temp_v0_2 + 1;
-        temp_v0_2->w0 = 0x06000000;
         temp_v0_2->w1 = (u32)&D_802918F0;
+    temp_v0_2->w0 = 0x06000000;
         temp_v0_3 = *arg0;
         *arg0 = temp_v0_3 + 1;
         temp_v0_3->w1 = (u32)0xFF;
