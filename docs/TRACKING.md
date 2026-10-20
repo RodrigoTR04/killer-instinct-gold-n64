@@ -31,10 +31,10 @@ Source of truth for per-function tiers is `docs/functions.csv` (created once spl
 | Metric | Value |
 |---|---|
 | Scope measured | all CPU text of boot/main/ovl_7DF8/ovl_7E00 (999 fns). Text not in fns: boot 432 B pad, main 708 B, 7DF8 92 B, 7E00 4,040 B (31 inline data pools, listed in symbol_addrs.ovl_7E00.us.txt) |
-| M1 | 56,160 / 319,100 B (17.60%) |
-| M2 | 56,160 / 319,100 B (17.60%) |
-| Functions | 0 T1 · 297 T2 · 0 T3 · 265 T4 · 437 excluded (138,092 B: 267 libultra + boot entry asm + 169 ovl_7E00 handwritten asm) |
-| Per image (eligible B / T1 fns / excluded) | boot 8,468/0/99 (20 T4, 1 T2) · main 173,204/0/169 (146 T4, 144 T2) · ovl_7DF8 137,428/0/0 (99 T4, 152 T2) · ovl_7E00 0/0/169 (all handwritten asm, T-041) |
+| M1 | 62,376 / 319,100 B (19.55%) |
+| M2 | 62,376 / 319,100 B (19.55%) |
+| Functions | 0 T1 · 289 T2 · 0 T3 · 273 T4 · 437 excluded (138,092 B: 267 libultra + boot entry asm + 169 ovl_7E00 handwritten asm) |
+| Per image (eligible B / T1 fns / excluded) | boot 8,468/0/99 (21 T4, 0 T2 — 100%) · main 173,204/0/169 (153 T4, 137 T2) · ovl_7DF8 137,428/0/0 (99 T4, 152 T2) · ovl_7E00 0/0/169 (all handwritten asm, T-041) |
 
 Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html). Tier overrides: tools/progress/status.csv (lead-maintained). Never hand-edit numbers; paste the `--markdown` output here.
 
@@ -125,4 +125,4 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | T-060 | ovl_7DF8 using T-056's declaration-first method: near-misses func_801C4E38 (2), func_801B6528 (3), func_801BFB40 (12), func_801B446C (34) + the 11 mid drafts T-056 didn't reach (func_801B1210, func_801C7998, func_801C35D8, func_801C0610, func_801BBB60, func_801C6D40, func_801C7CD0, func_801C49A8, func_801C3E40, func_801C5064, func_801C17D0) | sol-B20 | Done (verified; 0 matched, 5 drafts improved) | src/ovl_7DF8/*.c (listed fns + their TU declarations), kig.ovl_7DF8.us.yaml (rodata only if needed), tools/scratch/nonmatching/T-0xx/ (listed drafts), tools/scratch/nonmatching/T-060/ | worktree isolation; T-061 edits other ovl_7DF8 fns |
 | T-061 | ovl_7DF8 stuck near-misses, retried with T-056's declaration-first method: func_801C51F8 (2), func_801BF720/func_801BF914 (2 each), func_801B695C (4), func_801B6A68 (20), func_801C6A80 (30), func_801C71FC (38), clone family A func_801B2010×7 (23), func_801CC3BC (88), func_801C2D34 (95) | sol-C23 | In progress | src/ovl_7DF8/*.c (listed fns + TU declarations), tools/scratch/nonmatching/T-0xx/ (listed drafts), tools/scratch/nonmatching/T-061/ | worktree isolation; T-060 edits other ovl_7DF8 fns |
 | T-062 | ovl_7DF8 finishing: func_801C4E38 (2 words, spill slot), func_801B6528 (3, register choice), func_801C35D8 (5), func_801BFB40 (8), func_801B446C (34), func_801C7CD0 (63) | sol-A22 | In progress | src/ovl_7DF8/*.c (listed fns + TU declarations), tools/scratch/nonmatching/T-0xx/ (listed drafts), tools/scratch/nonmatching/T-062/ | worktree isolation; T-061 edits other ovl_7DF8 fns |
-| T-063 | Finish T-055's rework (from Opus): rebase its 8 matches (func_80014250, osPfsFileState main_265B0 -mips1, func_800249DC, boot func_80001564, func_80013CD8, func_80018664, func_80016BE0, func_80016258) onto master; reconcile main_2FF0.c with T-052's types (D_8004A5E0[][7] etc.) | sol-C24 | In progress | src/main/main_2FF0.c, main_265B0.c, src/boot/boot_1560.c, Makefile (main_265B0 -mips1 line), symbol_addrs.main.us.txt (D_800488CC hint), tools/scratch/nonmatching/T-055/ | worktree isolation; patches saved in T-055/ |
+| T-063 | Finish T-055's rework (from Opus): rebase its 8 matches (func_80014250, osPfsFileState main_265B0 -mips1, func_800249DC, boot func_80001564, func_80013CD8, func_80018664, func_80016BE0, func_80016258) onto master; reconcile main_2FF0.c with T-052's types (D_8004A5E0[][7] etc.) | sol-C24 | Done (verified) | src/main/main_2FF0.c, main_265B0.c, src/boot/boot_1560.c, Makefile (main_265B0 -mips1 line), symbol_addrs.main.us.txt (D_800488CC hint), tools/scratch/nonmatching/T-055/ | worktree isolation; patches saved in T-055/ |

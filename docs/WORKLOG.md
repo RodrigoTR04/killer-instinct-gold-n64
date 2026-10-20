@@ -271,3 +271,8 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-058 vetted (main near-misses)
 - Worktree t3-d0b8576b. func_80012950 matches (316 B). 4 drafts improved, 10 unchanged after 4,336 probes. I imported REPORT.md, the candidates and the probe scripts, but not the 2.4 MB of per-round probe logs.
 - Clean vet build: the ROM and all 3 images are byte-identical. 265 T4; M1 = M2 = 56,160 / 319,100 B (17.60%).
+
+## 2026-10-20 — T-063 vetted (T-055's 8 matches landed via Sol)
+- Worktree t3-e5a426dc (base bbb858d). The 8 T-055 functions are in: func_80014250, osPfsFileState (main_265B0, verbatim ultralib, -mips1 Makefile line), func_800249DC, boot func_80001564 (gzip inflate_fixed; boot is 100%), func_80013CD8, func_80018664 (D_800488CC hint dropped), func_80016BE0 and func_80016258.
+- The lead resolved a merge clash with T-058 (acb6e4f): `D_8004AE88/89` were declared s8 at the top and u8 later. Unified to one `u8` declaration, and all functions still match.
+- Clean vet build: the ROM and all 3 images are byte-identical. 273 T4; M1 = M2 = 62,376 / 319,100 B (19.55%). Boot 100%, main 21.91%.

@@ -287,7 +287,31 @@ s32 func_80001410(void) {
     return 0;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/boot/boot_1560/func_80001564.s")
+s32 func_80001564(void) {
+    int i;
+    Huft *tl;
+    Huft *td;
+    s32 bl;
+    s32 bd;
+    u32 l[288];
+
+    for (i = 0; i < 144; i++)
+        l[i] = 8;
+    for (; i < 256; i++)
+        l[i] = 9;
+    for (; i < 280; i++)
+        l[i] = 7;
+    for (; i < 288; i++)
+        l[i] = 8;
+    bl = 7;
+    func_80000960(l, 288, 257, D_80006574, D_800065B4, &tl, &bl);
+    for (i = 0; i < 30; i++)
+        l[i] = 5;
+    bd = 5;
+    func_80000960(l, 30, 0, D_800065D4, D_80006610, &td, &bd);
+    func_80000FA0(tl, td, bl, bd);
+    return 0;
+}
 
 
 s32 func_800016CC(void)

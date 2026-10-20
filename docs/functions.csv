@@ -12,7 +12,7 @@ boot,boot_inflate,0x80000900,0x1500,88,T4,
 boot,func_80000960,0x80000960,0x1560,1600,T4,
 boot,func_80000FA0,0x80000FA0,0x1BA0,1136,T4,
 boot,func_80001410,0x80001410,0x2010,340,T4,
-boot,func_80001564,0x80001564,0x2164,360,T2,draft tools/scratch/nonmatching/T-038/ (non-matching)
+boot,func_80001564,0x80001564,0x2164,360,T4,
 boot,func_800016CC,0x800016CC,0x22CC,1316,T4,
 boot,func_80001BF0,0x80001BF0,0x27F0,288,T4,
 boot,func_80001D10,0x80001D10,0x2910,212,T4,
@@ -145,9 +145,9 @@ main,func_8001383C,0x8001383C,0x3EDC,872,T4,
 main,func_80013BA4,0x80013BA4,0x4244,60,T4,
 main,func_80013BE0,0x80013BE0,0x4280,164,T4,
 main,func_80013C84,0x80013C84,0x4324,84,T4,
-main,func_80013CD8,0x80013CD8,0x4378,1140,T2,draft tools/scratch/nonmatching/T-033/ (non-matching)
+main,func_80013CD8,0x80013CD8,0x4378,1140,T4,
 main,func_8001414C,0x8001414C,0x47EC,260,T4,
-main,func_80014250,0x80014250,0x48F0,144,T2,draft tools/scratch/nonmatching/T-020/ (non-matching)
+main,func_80014250,0x80014250,0x48F0,144,T4,
 main,func_800142E0,0x800142E0,0x4980,2400,T2,draft tools/scratch/nonmatching/T-033/ (non-matching)
 main,func_80014C40,0x80014C40,0x52E0,284,T4,
 main,func_80014D5C,0x80014D5C,0x53FC,1780,T2,draft tools/scratch/nonmatching/T-033/ (non-matching)
@@ -157,12 +157,12 @@ main,func_80015B64,0x80015B64,0x6204,364,T4,
 main,func_80015CD0,0x80015CD0,0x6370,668,T4,
 main,func_80015F6C,0x80015F6C,0x660C,268,T2,draft tools/scratch/nonmatching/T-020/ (non-matching)
 main,func_80016078,0x80016078,0x6718,480,T2,draft tools/scratch/nonmatching/T-033/ (non-matching)
-main,func_80016258,0x80016258,0x68F8,1288,T2,draft tools/scratch/nonmatching/T-033/ (non-matching)
+main,func_80016258,0x80016258,0x68F8,1288,T4,
 main,func_80016760,0x80016760,0x6E00,196,T4,
 main,func_80016824,0x80016824,0x6EC4,228,T4,
 main,func_80016908,0x80016908,0x6FA8,8,T4,
 main,func_80016910,0x80016910,0x6FB0,720,T4,
-main,func_80016BE0,0x80016BE0,0x7280,1156,T2,draft tools/scratch/nonmatching/T-033/ (non-matching)
+main,func_80016BE0,0x80016BE0,0x7280,1156,T4,
 main,func_80017064,0x80017064,0x7704,96,T4,
 main,func_800170C4,0x800170C4,0x7764,692,T2,draft tools/scratch/nonmatching/T-033/ (non-matching)
 main,func_80017378,0x80017378,0x7A18,1752,T2,draft tools/scratch/nonmatching/T-033/ (non-matching)
@@ -174,7 +174,7 @@ main,func_800183B4,0x800183B4,0x8A54,24,T4,
 main,func_800183CC,0x800183CC,0x8A6C,76,T4,
 main,func_80018418,0x80018418,0x8AB8,564,T4,
 main,func_8001864C,0x8001864C,0x8CEC,24,T4,
-main,func_80018664,0x80018664,0x8D04,1148,T2,draft tools/scratch/nonmatching/T-022/ (non-matching)
+main,func_80018664,0x80018664,0x8D04,1148,T4,
 main,func_80018AE0,0x80018AE0,0x9180,912,T2,draft tools/scratch/nonmatching/T-022/ (non-matching)
 main,func_80018E70,0x80018E70,0x9510,24,T4,
 main,func_80018E88,0x80018E88,0x9528,152,T4,
@@ -237,7 +237,7 @@ main,func_800241BC,0x800241BC,0x1485C,820,T2,draft tools/scratch/nonmatching/T-0
 main,func_800244F0,0x800244F0,0x14B90,196,T2,draft tools/scratch/nonmatching/T-032/ (non-matching)
 main,func_800245B4,0x800245B4,0x14C54,352,T2,draft tools/scratch/nonmatching/T-032/ (non-matching)
 main,func_80024714,0x80024714,0x14DB4,712,T2,draft tools/scratch/nonmatching/T-032/ (non-matching)
-main,func_800249DC,0x800249DC,0x1507C,304,T2,draft tools/scratch/nonmatching/T-032/ (non-matching)
+main,func_800249DC,0x800249DC,0x1507C,304,T4,
 main,func_80024B0C,0x80024B0C,0x151AC,464,T2,draft tools/scratch/nonmatching/T-032/ (non-matching)
 main,func_80024CE0,0x80024CE0,0x15380,1652,T2,draft tools/scratch/nonmatching/T-032/ (non-matching)
 main,func_80025354,0x80025354,0x159F4,124,T4,
@@ -386,7 +386,7 @@ main,func_80035C84,0x80035C84,0x26324,160,T4,
 main,osContStartQuery,0x80035D30,0x263D0,132,excluded,libultra (T-005)
 main,osContGetQuery,0x80035DB4,0x26454,40,excluded,libultra (T-005)
 main,func_80035DE0,0x80035DE0,0x26480,296,T4,
-main,func_80035F10,0x80035F10,0x265B0,676,T2,draft tools/scratch/nonmatching/T-026/ (non-matching)
+main,func_80035F10,0x80035F10,0x265B0,676,T4,
 main,func_800361C0,0x800361C0,0x26860,640,T4,
 main,func_80036440,0x80036440,0x26AE0,516,T4,
 main,func_80036644,0x80036644,0x26CE4,228,T4,
