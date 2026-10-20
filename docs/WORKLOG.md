@@ -281,3 +281,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-061 vetted (ovl_7DF8 stuck near-misses)
 - Worktree t3-19016f2e. func_801C71FC matches (a u64 argument plus the correct global array). Improved: func_801C6A80 30→8 and func_801C2D34 95→6. 13 unchanged (the glyph functions, func_801C51F8 and both clone families are still stuck).
 - Clean vet build: the ROM and all 3 images are byte-identical. 274 T4; M1 = M2 = 62,548 / 319,100 B (19.60%).
+- T-065 launched (sol-C25): ovl_7DF8 near-misses and mid drafts, angle: argument widths.
