@@ -431,3 +431,8 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-dbe9ade7. 3 of the residue match (572 B): func_8002AA98 and func_8002AAEC (reusing the incoming volume argument fixes the mflo a2/v0 register) and func_801C5064 (zero and depth go to the right FP registers via argument/value order). 16 unchanged, with instruction-level diagnoses in T-096/REPORT.md.
 - Clean vet build: the ROM and all 3 images are byte-identical. 282 T4; M1 = M2 = 58,968 / 289,876 B (20.34%).
 - T-097 launched (sol-C36): hard residue round 2 from T-096's diagnoses.
+
+## 2026-10-20 — T-097 vetted (hard residue round 2): clone family A solved
+- Worktree t3-540121f1. All 7 family-A functions match (func_801B2010/21B4/2358/24FC/26A0/2844/29E8, 420 B each), plus func_801C6A80: 3,232 B in total. The fix uses an explicit local pointer to each counter, `arg1++ < 1`, and `*counter = arg1` as the lerp's third argument (that recovers the jal delay-slot store), with token-preserving line grouping for the last two setup instructions. Honest C, commented. 8 residue functions remain.
+- Clean vet build: the ROM and all 3 images are byte-identical. 290 T4; M1 = M2 = 62,200 / 289,876 B (21.46%). ovl_7DF8 is at 17.98%.
+- T-095 stopped on the Codex usage limit (resets 21:15). Cron 94277b83 resumes it at 21:18.

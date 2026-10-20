@@ -1,0 +1,1007 @@
+[
+  {
+    "label": "join-0",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-1",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-2",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-3",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-4",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-5",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-6",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-7",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-8",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-9",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-10",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-11",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-12",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-13",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-14",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-15",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-16",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-17",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-18",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-19",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-20",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-21",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-22",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-23",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-24",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-25",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-26",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-27",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-28",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-29",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-30",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-31",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-32",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "join-33",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "condition-arg1++ < 1",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "condition-arg1++ <= 0",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "condition-(arg1++) < 1",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "condition-arg1 < 1",
+    "words": 14,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40",
+      "0x44",
+      "0x48",
+      "0x4c",
+      "0x50",
+      "0x54",
+      "0x58",
+      "0x5c",
+      "0x60",
+      "0x64",
+      "0x68",
+      "0x6c",
+      "0x70"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "addiu       $a2, $a2, 0x1"
+      },
+      {
+        "offset": "0x44",
+        "target": "slti        $v0, $a2, 0x1",
+        "draft": "slti        $at, $a2, 0x2"
+      },
+      {
+        "offset": "0x48",
+        "target": "beqz        $v0, . + 4 + (0xA << 2)",
+        "draft": "beqz        $at, . + 4 + (0x9 << 2)"
+      },
+      {
+        "offset": "0x4c",
+        "target": "addiu       $a2, $a2, 0x1",
+        "draft": "lui         $at, 0xC0C0"
+      },
+      {
+        "offset": "0x50",
+        "target": "lui         $at, 0xC0C0",
+        "draft": "mtc1        $at, $f12"
+      },
+      {
+        "offset": "0x54",
+        "target": "mtc1        $at, $f12",
+        "draft": "lui         $at, 0xC316"
+      },
+      {
+        "offset": "0x58",
+        "target": "lui         $at, 0xC316",
+        "draft": "mtc1        $at, $f14"
+      },
+      {
+        "offset": "0x5c",
+        "target": "mtc1        $at, $f14",
+        "draft": "lui         $at, 0x0"
+      },
+      {
+        "offset": "0x60",
+        "target": "lui         $at, 0x801D",
+        "draft": "jal         func_80000000"
+      },
+      {
+        "offset": "0x64",
+        "target": "jal         func_801B19F0",
+        "draft": "sw          $a2, 0x0($at)"
+      },
+      {
+        "offset": "0x68",
+        "target": "sw          $a2, 0x309C($at)",
+        "draft": "b           . + 4 + (0x6 << 2)"
+      },
+      {
+        "offset": "0x6c",
+        "target": "b           . + 4 + (0x5 << 2)",
+        "draft": "mov.s       $f2, $f0"
+      },
+      {
+        "offset": "0x70",
+        "target": "mov.s       $f2, $f0",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "condition-arg1 <= 0",
+    "words": 14,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40",
+      "0x44",
+      "0x48",
+      "0x4c",
+      "0x50",
+      "0x54",
+      "0x58",
+      "0x5c",
+      "0x60",
+      "0x64",
+      "0x68",
+      "0x6c",
+      "0x70"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "addiu       $a2, $a2, 0x1"
+      },
+      {
+        "offset": "0x44",
+        "target": "slti        $v0, $a2, 0x1",
+        "draft": "slti        $at, $a2, 0x2"
+      },
+      {
+        "offset": "0x48",
+        "target": "beqz        $v0, . + 4 + (0xA << 2)",
+        "draft": "beqz        $at, . + 4 + (0x9 << 2)"
+      },
+      {
+        "offset": "0x4c",
+        "target": "addiu       $a2, $a2, 0x1",
+        "draft": "lui         $at, 0xC0C0"
+      },
+      {
+        "offset": "0x50",
+        "target": "lui         $at, 0xC0C0",
+        "draft": "mtc1        $at, $f12"
+      },
+      {
+        "offset": "0x54",
+        "target": "mtc1        $at, $f12",
+        "draft": "lui         $at, 0xC316"
+      },
+      {
+        "offset": "0x58",
+        "target": "lui         $at, 0xC316",
+        "draft": "mtc1        $at, $f14"
+      },
+      {
+        "offset": "0x5c",
+        "target": "mtc1        $at, $f14",
+        "draft": "lui         $at, 0x0"
+      },
+      {
+        "offset": "0x60",
+        "target": "lui         $at, 0x801D",
+        "draft": "jal         func_80000000"
+      },
+      {
+        "offset": "0x64",
+        "target": "jal         func_801B19F0",
+        "draft": "sw          $a2, 0x0($at)"
+      },
+      {
+        "offset": "0x68",
+        "target": "sw          $a2, 0x309C($at)",
+        "draft": "b           . + 4 + (0x6 << 2)"
+      },
+      {
+        "offset": "0x6c",
+        "target": "b           . + 4 + (0x5 << 2)",
+        "draft": "mov.s       $f2, $f0"
+      },
+      {
+        "offset": "0x70",
+        "target": "mov.s       $f2, $f0",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "limit-s32 limit = 1;",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  },
+  {
+    "label": "limit-s32 limit;",
+    "words": 2,
+    "bytes": 420,
+    "offsets": [
+      "0x3c",
+      "0x40"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "addiu       $a3, $zero, 0x1"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $a3, $zero, 0x1",
+        "draft": "lui         $at, 0x0"
+      }
+    ]
+  }
+]

@@ -20,19 +20,314 @@ f32 func_801B1A14(f32 arg0, f32 arg1, f32 arg2) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B1DE4.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B2010.s")
+extern f32 func_801B19F0(f32, f32, s32, s32);
+typedef struct { s32 w0, w1; } T025Gfx2010;
+extern f32 func_801B1A7C(void *, void *, f32, s32);
+extern void guTranslate(void *, f32, f32, f32);
+extern u8 D_801D3058[];
+extern u8 D_801D3088;
+extern u8 D_801D308C;
+extern s32 D_801D3090;
+extern s16 D_801D3094;
+extern s32 D_801D309C;
+extern u8 D_802C03E0[];
+extern u8 D_802C0BE0[];
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B21B4.s")
+s32 func_801B2010(T025Gfx2010 **arg0, s32 arg1, void *arg2, s32 arg3)
+{
+    f32 position;
+    s32 alpha;
+    s32 *counter = &D_801D309C;
+    T025Gfx2010 *env;
+    if ((s32) D_801D308C >= 2)
+    {
+        return 0;
+    }
+    /* Keep the counter block joined for IDO instruction scheduling. */
+    arg1 = *counter; if (arg1++ < 1) { position = func_801B19F0(-6.0f, -150.0f, *counter = arg1, 1); } else { *counter = arg1; position = -150.0f; }
+    guTranslate(arg2, position + 25.0f, 0.0f, (f32) D_801D3094);
+    position = position - (f32) D_801D3090;
+    alpha = (s32) func_801B1A7C(&D_802C03E0, &D_802C0BE0, position, 0x7F);
+    env = *arg0;
+    *arg0 = env + 1;
+    env->w0 = 0xFB000000; env->w1 = (s32) ((alpha & 0xFF) | 0xFFC80000);
+    env = *arg0;
+    *arg0 = env + 1;
+    env->w0 = 0xFA000000; env->w1 = 0x64000000;
+    env = *arg0;
+    *arg0 = env + 1;
+    env->w0 = 0x06000000; env->w1 = (s32) &D_801D3058;
+    if ((position < 1.0f) && ((s32) D_801D3088 < 2))
+    {
+        D_801D3088 += 1;
+    }
+    return 1;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B2358.s")
+extern f32 func_801B19F0(f32, f32, s32, s32);
+typedef struct { u32 w0, w1; } T025Gfx21B4;
+extern f32 func_801B1A7C(void *, void *, f32, s32);
+extern void guTranslate(void *, f32, f32, f32);
+extern u8 D_801D3058[];
+extern u8 D_801D3088;
+extern u8 D_801D308C;
+extern s32 D_801D3090;
+extern s16 D_801D3094;
+extern s32 D_801D30A0;
+extern u8 D_802C13E0[];
+extern u8 D_802C2020[];
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B24FC.s")
+s32 func_801B21B4(T025Gfx21B4 **arg0, s32 arg1, void *arg2, s32 arg3)
+{
+    f32 position;
+    s32 alpha;
+    s32 *counter = &D_801D30A0;
+    T025Gfx21B4 *env;
+    if ((s32) D_801D308C >= 3)
+    {
+        return 0;
+    }
+    /* Keep the counter block joined for IDO instruction scheduling. */
+    arg1 = *counter; if (arg1++ < 1) { position = func_801B19F0(44.0f, -100.0f, *counter = arg1, 1); } else { *counter = arg1; position = -100.0f; }
+    guTranslate(arg2, position + 25.0f, 0.0f, (f32) D_801D3094);
+    position = position - (f32) D_801D3090;
+    alpha = (s32) func_801B1A7C(&D_802C13E0, &D_802C2020, position, 0xC3);
+    env = *arg0;
+    *arg0 = env + 1;
+    env->w0 = 0xFB000000; env->w1 = (s32) ((alpha & 0xFF) | 0xFFC80000);
+    env = *arg0;
+    *arg0 = env + 1;
+    env->w0 = 0xFA000000; env->w1 = 0x64000000;
+    env = *arg0;
+    *arg0 = env + 1;
+    env->w0 = 0x06000000; env->w1 = (s32) &D_801D3058;
+    if ((position < 1.0f) && ((s32) D_801D3088 < 3))
+    {
+        D_801D3088 += 1;
+    }
+    return 1;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B26A0.s")
+extern f32 func_801B19F0(f32, f32, s32, s32);
+typedef struct { u32 w0, w1; } T025Gfx2358;
+extern f32 func_801B1A7C(void *, void *, f32, s32);
+extern void guTranslate(void *, f32, f32, f32);
+extern u8 D_801D3058[];
+extern u8 D_801D3088;
+extern u8 D_801D308C;
+extern s32 D_801D3090;
+extern s16 D_801D3094;
+extern s32 D_801D30A4;
+extern u8 D_802C2C60[];
+extern u8 D_802C3530[];
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B2844.s")
+s32 func_801B2358(T025Gfx2358 **arg0, s32 arg1, void *arg2, s32 arg3)
+{
+    f32 position;
+    s32 alpha;
+    s32 *counter = &D_801D30A4;
+    T025Gfx2358 *env;
+    if ((s32) D_801D308C >= 4)
+    {
+        return 0;
+    }
+    /* Keep the counter block joined for IDO instruction scheduling. */
+    arg1 = *counter; if (arg1++ < 1) { position = func_801B19F0(89.0f, -55.0f, *counter = arg1, 1); } else { *counter = arg1; position = -55.0f; }
+    guTranslate(arg2, position + 25.0f, 0.0f, (f32) D_801D3094);
+    position = position - (f32) D_801D3090;
+    alpha = (s32) func_801B1A7C(&D_802C2C60, &D_802C3530, position, 0x8C);
+    env = *arg0;
+    *arg0 = env + 1;
+    env->w0 = 0xFB000000; env->w1 = (s32) ((alpha & 0xFF) | 0xFFC80000);
+    env = *arg0;
+    *arg0 = env + 1;
+    env->w0 = 0xFA000000; env->w1 = 0x64000000;
+    env = *arg0;
+    *arg0 = env + 1;
+    env->w0 = 0x06000000; env->w1 = (s32) &D_801D3058;
+    if ((position < 1.0f) && ((s32) D_801D3088 < 4))
+    {
+        D_801D3088 += 1;
+    }
+    return 1;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B29E8.s")
+extern f32 func_801B19F0(f32, f32, s32, s32);
+typedef struct { u32 w0, w1; } T025Gfx24FC;
+extern f32 func_801B1A7C(void *, void *, f32, s32);
+extern void guTranslate(void *, f32, f32, f32);
+extern u8 D_801D3058[];
+extern u8 D_801D3088;
+extern u8 D_801D308C;
+extern s32 D_801D3090;
+extern s16 D_801D3094;
+extern s32 D_801D30A8;
+extern u8 D_802C3E00[];
+extern u8 D_802C4A40[];
+
+s32 func_801B24FC(T025Gfx24FC **arg0, s32 arg1, void *arg2, s32 arg3)
+{
+    f32 position;
+    s32 alpha;
+    s32 *counter = &D_801D30A8;
+    T025Gfx24FC *env;
+    if ((s32) D_801D308C >= 5)
+    {
+        return 0;
+    }
+    /* Keep the counter block joined for IDO instruction scheduling. */
+    arg1 = *counter; if (arg1++ < 1) { position = func_801B19F0(133.0f, -11.0f, *counter = arg1, 1); } else { *counter = arg1; position = -11.0f; }
+    guTranslate(arg2, position + 25.0f, 0.0f, (f32) D_801D3094);
+    position = position - (f32) D_801D3090;
+    alpha = (s32) func_801B1A7C(&D_802C3E00, &D_802C4A40, position, 0xC3);
+    env = *arg0;
+    *arg0 = env + 1;
+    env->w0 = 0xFB000000; env->w1 = (s32) ((alpha & 0xFF) | 0xFFC80000);
+    env = *arg0;
+    *arg0 = env + 1;
+    env->w0 = 0xFA000000; env->w1 = 0x64000000;
+    env = *arg0;
+    *arg0 = env + 1;
+    env->w0 = 0x06000000; env->w1 = (s32) &D_801D3058;
+    if ((position < 1.0f) && ((s32) D_801D3088 < 5))
+    {
+        D_801D3088 += 1;
+    }
+    return 1;
+}
+
+extern f32 func_801B19F0(f32, f32, s32, s32);
+typedef struct { u32 w0, w1; } T025Gfx26A0;
+extern f32 func_801B1A7C(void *, void *, f32, s32);
+extern void guTranslate(void *, f32, f32, f32);
+extern u8 D_801D3058[];
+extern u8 D_801D3088;
+extern u8 D_801D308C;
+extern s32 D_801D3090;
+extern s16 D_801D3094;
+extern s32 D_801D30AC;
+extern u8 D_802C5680[];
+extern u8 D_802C5D50[];
+
+s32 func_801B26A0(T025Gfx26A0 **arg0, s32 arg1, void *arg2, s32 arg3)
+{
+    f32 position;
+    s32 alpha;
+    s32 *counter = &D_801D30AC;
+    T025Gfx26A0 *env;
+    if ((s32) D_801D308C >= 6)
+    {
+        return 0;
+    }
+    /* Keep the counter block joined for IDO instruction scheduling. */
+    arg1 = *counter; if (arg1++ < 1) { position = func_801B19F0(189.0f, 45.0f, *counter = arg1, 1); } else { *counter = arg1; position = 45.0f; }
+    guTranslate(arg2, position + 25.0f, 0.0f, (f32) D_801D3094);
+    position = position - (f32) D_801D3090;
+    alpha = (s32) func_801B1A7C(&D_802C5680, &D_802C5D50, position, 0x6C);
+    env = *arg0;
+    *arg0 = env + 1;
+    env->w0 = 0xFB000000; env->w1 = (s32) ((alpha & 0xFF) | 0xFFC80000);
+    env = *arg0;
+    *arg0 = env + 1;
+    env->w0 = 0xFA000000; env->w1 = 0x64000000;
+    env = *arg0;
+    *arg0 = env + 1;
+    env->w0 = 0x06000000; env->w1 = (s32) &D_801D3058;
+    if ((position < 1.0f) && ((s32) D_801D3088 < 6))
+    {
+        D_801D3088 += 1;
+    }
+    return 1;
+}
+
+extern f32 func_801B19F0(f32, f32, s32, s32);
+typedef struct { u32 w0, w1; } T025Gfx2844;
+extern f32 func_801B1A7C(void *, void *, f32, s32);
+extern void guTranslate(void *, f32, f32, f32);
+extern u8 D_801D3058[];
+extern u8 D_801D3088;
+extern u8 D_801D308C;
+extern s32 D_801D3090;
+extern s16 D_801D3094;
+extern s32 D_801D30B0;
+extern u8 D_802C6420[];
+extern u8 D_802C6AE0[];
+
+s32 func_801B2844(T025Gfx2844 **arg0, s32 arg1, void *arg2, s32 arg3)
+{
+    f32 position;
+    s32 alpha;
+    s32 *counter = &D_801D30B0;
+    T025Gfx2844 *env;
+    if ((s32) D_801D308C >= 7)
+    {
+        return 0;
+    }
+    /* Keep the counter block joined for IDO instruction scheduling. */
+    arg1 = *counter; if (arg1++ < 1) { position = func_801B19F0(247.0f, 103.0f, *counter = arg1, 1); } else { *counter = arg1; position = 103.0f; }
+    guTranslate(arg2, position + 25.0f, 0.0f, (f32) D_801D3094);
+    position = position - (f32) D_801D3090;
+    alpha = (s32) func_801B1A7C(&D_802C6420, &D_802C6AE0, position, 0x6B);
+    env = *arg0;
+    *arg0 = env + 1;
+    env->w0 = 0xFB000000; env->w1 = (s32) ((alpha & 0xFF) | 0xFFC80000);
+    env = *arg0;
+    *arg0 = env + 1;
+    env->w0 = 0xFA000000; env->w1 = 0x64000000;
+    env = *arg0;
+    *arg0 = env + 1;
+    env->w0 = 0x06000000; env->w1 = (s32) &D_801D3058;
+    if ((position < 1.0f) && ((s32) D_801D3088 < 7))
+    {
+        D_801D3088 += 1;
+    }
+    return 1;
+}
+
+extern f32 func_801B19F0(f32, f32, s32, s32);
+typedef struct { u32 w0, w1; } T025Gfx29E8;
+extern f32 func_801B1A7C(void *, void *, f32, s32);
+extern void guTranslate(void *, f32, f32, f32);
+extern u8 D_801D3058[];
+extern u8 D_801D3088;
+extern u8 D_801D308C;
+extern s32 D_801D3090;
+extern s16 D_801D3094;
+extern s32 D_801D30B4;
+extern f32 D_80292960;
+extern u8 D_802C71A0[];
+extern u8 D_802C7A70[];
+
+s32 func_801B29E8(T025Gfx29E8 **arg0, s32 arg1, void *arg2, s32 arg3)
+{
+    f32 position;
+    s32 alpha;
+    s32 *counter = &D_801D30B4;
+    T025Gfx29E8 *env;
+    if ((s32) D_801D308C >= 8)
+    {
+        return 0;
+    }
+    /* Keep the counter block joined for IDO instruction scheduling. */
+    arg1 = *counter; if (arg1++ < 1) { position = func_801B19F0(D_80292960, 153.0f, *counter = arg1, 1); } else { *counter = arg1; position = 153.0f; }
+    guTranslate(arg2, position + 25.0f, 0.0f, (f32) D_801D3094);
+    position = position - (f32) D_801D3090;
+    alpha = (s32) func_801B1A7C(&D_802C71A0, &D_802C7A70, position, 0x8C);
+    env = *arg0;
+    *arg0 = env + 1;
+    env->w0 = 0xFB000000; env->w1 = (s32) ((alpha & 0xFF) | 0xFFC80000);
+    env = *arg0;
+    *arg0 = env + 1;
+    env->w0 = 0xFA000000; env->w1 = 0x64000000;
+    env = *arg0;
+    *arg0 = env + 1;
+    env->w0 = 0x06000000; env->w1 = (s32) &D_801D3058;
+    if ((position < 1.0f) && ((s32) D_801D3088 < 8))
+    {
+        D_801D3088 += 1;
+    }
+    return 1;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B2B8C.s")
 
