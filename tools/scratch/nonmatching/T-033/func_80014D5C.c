@@ -1,13 +1,13 @@
-/* DRAFT. Remaining diff: 400 positional differing words; 1788/1780 bytes */
+/* T-069 DRAFT: 373 relocation-masked positional words differ in TU context; 1444 bytes. See T-069/REPORT.md. */
 typedef struct { void *display; s16 flags, pad; s32 transform; } T03314D5CStagePart;
 typedef struct { f32 pitch, yaw, roll, speed, scale; } T03314D5CStageRotation;
 extern u8 D_80044ED8;
-extern f32 D_80048810;
-extern f32 D_80048814;
-extern f32 D_80048818;
-extern f32 D_8004881C;
-extern f32 D_80048820;
-extern f32 D_80048824;
+
+
+
+
+
+
 extern s32 D_8004A264;
 extern u8 D_8004A401;
 extern void *D_8004A4C0[];
@@ -24,9 +24,9 @@ extern s32 D_800698C4;
 extern u8 D_801A22E0;
 extern s8 D_801D7DF7;
 extern void func_80015450();
-extern void func_8001C1B0(void *, s32, s32, s32);
-extern void func_8002F6F4();
-extern void func_8002F8F8();
+
+extern s32 func_8002F6F4();
+extern s32 func_8002F8F8();
 extern void func_8002FA5C();
 extern u32 func_800326F0();
 
@@ -67,10 +67,10 @@ void func_80014D5C(void) {
         ((T03314D5CStagePart *)D_8004A4C0)[10].display = &D_801A22E0;
         ((T03314D5CStagePart *)D_8004A4C0)[11].display = &D_801A22E0;
         ((T03314D5CStagePart *)D_8004A4C0)[12].display = &D_801A22E0;
-        D_8004A740[0] = D_80048810;
-        D_8004A740[1] = (f32) D_80048814;
+        D_8004A740[0] = (-6000.0f);
+        D_8004A740[1] = (f32) (-5300.0f);
         D_8004ACF8 = var_v1 - 1;
-        D_8004A740[2] = (f32) D_80048818;
+        D_8004A740[2] = (f32) (-4600.0f);
         func_8002F8F8(D_8004A264);
         func_8002F6F4(D_80066C40, 0x19C, &D_8004A264);
         var_v1 = D_8004ACF8;
@@ -103,9 +103,8 @@ void func_80014D5C(void) {
         }
         do {
             temp_f6 = *var_a1;
-            var_a1++;
-            var_a1[-1] = (f32) (temp_f6 + 25.0f);
-            temp_f0 = var_a1[-1];
+            *var_a1 += 25.0f;
+            temp_f0 = *var_a1++;
             if (temp_f0 >= -260.0f) {
                 var_v0 = (s32) (temp_f0 - -260.0f);
             } else {
@@ -114,7 +113,7 @@ void func_80014D5C(void) {
             if (var_v0 < 0x190) {
                 var_v0 = 0x190;
             }
-            if ((temp_f0 < D_80048820) || (D_8004881C < temp_f0)) {
+            if ((temp_f0 < (-3000.0f)) || ((3000.0f) < temp_f0)) {
                 var_a0[0] = 0;
                 var_a0[1] = 0;
                 var_a0[2] = 0;
@@ -123,19 +122,9 @@ void func_80014D5C(void) {
                 } else {
                     var_f2 = -temp_f0;
                 }
-                var_v1_2[0] = (s8) (u32) ((var_f2 - D_8004881C) / 24.0f);
-                if (temp_f0 >= 0.0f) {
-                    var_f2_2 = temp_f0;
-                } else {
-                    var_f2_2 = -temp_f0;
-                }
-                var_v1_2[1] = (s8) (u32) ((var_f2_2 - D_8004881C) / 24.0f);
-                if (temp_f0 >= 0.0f) {
-                    var_f2_3 = temp_f0;
-                } else {
-                    var_f2_3 = -temp_f0;
-                }
-                var_v1_2[2] = (s8) (u32) ((var_f2_3 - D_8004881C) / 24.0f);
+                var_v1_2[0] = (s8) (u32) ((var_f2 - (3000.0f)) / 24.0f);
+                var_v1_2[1] = var_v1_2[0];
+                var_v1_2[2] = var_v1_2[0];
             } else {
                 var_a0[0] = (s8) (0x2710 / var_v0);
                 var_a0[1] = 0;
@@ -147,7 +136,7 @@ void func_80014D5C(void) {
             var_v1_2 += 3;
             var_a0 += 3;
         } while (var_v1_2 != &D_8004ACB9);
-        if (D_80048824 < D_8004A740[0]) {
+        if ((6000.0f) < D_8004A740[0]) {
             D_8004ACF8 = (func_800326F0() & 0x3FF) + 0x12C;
             ((T03314D5CStagePart *)D_8004A4C0)[10].display = 0;
             ((T03314D5CStagePart *)D_8004A4C0)[11].display = 0;
@@ -163,20 +152,20 @@ void func_80014D5C(void) {
             } else {
                 var_f2_4 = -D_8004A740[0];
             }
-            if (((D_80048824 - var_f2_4) * 8.0f) >= 0.0f) {
+            if ((((6000.0f) - var_f2_4) * 8.0f) >= 0.0f) {
                 if (D_8004A740[0] >= 0.0f) {
                     var_f2_5 = D_8004A740[0];
                 } else {
                     var_f2_5 = -D_8004A740[0];
                 }
-                var_a2 = (s32) ((D_80048824 - var_f2_5) * 8.0f);
+                var_a2 = (s32) (((6000.0f) - var_f2_5) * 8.0f);
             } else {
                 if (D_8004A740[0] >= 0.0f) {
                     var_f2_6 = D_8004A740[0];
                 } else {
                     var_f2_6 = -D_8004A740[0];
                 }
-                var_a2 = (s32) -((D_80048824 - var_f2_6) * 8.0f);
+                var_a2 = (s32) -(((6000.0f) - var_f2_6) * 8.0f);
             }
             if (var_a2 >= 0x8000) {
                 var_a2 = 0x7FFF;

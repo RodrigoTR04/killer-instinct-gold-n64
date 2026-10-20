@@ -62,7 +62,57 @@ void func_8001C5A0(void) {
     D_8004AEB0 = 0;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_CA10/func_8001C5AC.s")
+typedef struct { u32 w0,w1; } T069Gfx;
+extern u8 D_80044A24, D_8004A984;
+extern f32 D_8004A980;
+typedef union { s64 align; s32 words[16]; } T069Matrix;
+typedef struct { T069Matrix matrices[3][20]; } T069Frame;
+extern T069Frame D_8004AEB8[];
+extern T069Gfx *D_8004A998[][4];
+extern void func_8001BB64(T069Gfx **);
+extern void guTranslate(void *,f32,f32,f32),guRotateRPY(void *,f32,f32,f32),guScale(void *,f32,f32,f32);
+extern void func_8001CD0C(void *,f32,f32,f32);
+#define MATRIX(n) (&D_8004AEB8[D_80044A24].matrices[n][D_8004AEB0])
+#define EMIT(a,b) { T069Gfx *g=(*arg0)++; g->w0=(a); g->w1=(u32)(b); }
+#define MATRIX_CMD(n,op) { T069Gfx *g=(*arg0)++; g->w0=(op); g->w1=(u32)MATRIX(n); }
+void func_8001C5AC(T069Gfx **arg0,s32 mode,T069Gfx *display,s32 group,s32 count,f32 x,f32 y,f32 z,f32 rx,f32 ry,f32 rz,s32 scale) {
+ s32 i;
+ f32 factor;
+ if ((display || D_8004A998[group][3-count]) && D_8004AEB0 != 20) {
+  if (mode == 0) { EMIT(0xB7000000,0x2000); EMIT(0xB6000000,0x1000); }
+  else { EMIT(0xB6000000,0x2000); EMIT(0xB7000000,0x1000); }
+  EMIT(0xE7000000,0);
+  func_8001BB64(arg0);
+  guTranslate(MATRIX(0),x,y,z);
+  if (mode == 1) func_8001CD0C(MATRIX(1),rx,ry,rz);
+  else guRotateRPY(MATRIX(1),rx,ry,rz);
+  if (D_8004A984) guRotateRPY(MATRIX(1),rx,ry,rz);
+  MATRIX_CMD(0,0x01040040);
+  MATRIX_CMD(1,0x01000040);
+  if (D_8004A984) {
+   guRotateRPY(MATRIX(2),0.0f,D_8004A980,0.0f);
+   MATRIX_CMD(2,0x01000040);
+  } else if (scale != 0 && scale != 4096) {
+   factor=(f32)scale / 4096;
+   guScale(MATRIX(2),factor,factor,factor);
+   MATRIX_CMD(2,0x01000040);
+  }
+  if (display) { EMIT(0x06000000,display); }
+  else for (i=3;i>=3-count;i--) {
+   if (D_8004A998[group][i]) {
+    T069Gfx *g=(*arg0)++; g->w0=0x06000000; g->w1=(u32)D_8004A998[group][i];
+   }
+  }
+  EMIT(0xBD000000,0);
+  if (mode) { EMIT(0xB7000000,0x2000); EMIT(0xB6000000,0x1000); }
+  EMIT(0xE7000000,0); EMIT(0xB9000002,0);
+  D_8004AEB0++;
+ }
+}
+#undef MATRIX
+#undef EMIT
+#undef MATRIX_CMD
+
 
 void func_8001CBCC(f32 *m, f32 x, f32 y, f32 z) {
     f32 pad0, siny, sinz, pad, cosy, cosz;

@@ -315,3 +315,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-3f489538. 3 functions match with multiline layouts (1,096 B): func_801C51F8, func_801C35D8 and func_801C2D34. 8 drafts improved, 8 unchanged.
 - Clean vet build: the ROM and all 3 images are byte-identical. 287 T4; M1 = M2 = 66,040 / 319,100 B (20.70%).
 - T-072 launched (sol-A25): main line placement on mid drafts never tried with it.
+
+## 2026-10-20 — T-069 vetted (main large drafts)
+- Worktree t3-93331984. func_8001C5AC matches (1,568 B, in main_CA10). func_800330B0 has an exact masked body but is blocked on rodata ownership (follow-up). 8 drafts improved, 1 unchanged.
+- Clean vet build: the ROM and all 3 images are byte-identical. 288 T4; M1 = M2 = 67,608 / 319,100 B (21.19%).

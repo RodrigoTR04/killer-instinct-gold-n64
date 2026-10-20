@@ -1,220 +1,162 @@
-/* DRAFT. Remaining diff: 499 differing instruction words; emitted 2012 / original 1900 bytes (positional comparison). */
-/* Recovered matrix (float), light (byte), and reflection (s32) layouts. */
-extern void guMtxIdentF(void *);                                    /* extern */
-extern f32 sqrtf();                                /* extern */
-extern f64 D_80049000;
-extern f64 D_80049008;
-extern f64 D_80049010;
+/* T-069 DRAFT: exact 1900-byte instruction body with relocation fields masked; NOT linked matching. Requires main_23750 rodata ownership at 0x396A0. See T-069/REPORT.md.
+ * Based on n64decomp/libreultra src/gu/lookathil.c (guLookAtHiliteF). */
+#include "common.h"
+typedef union { struct { u8 col[3],pad1,colc[3],pad2; s8 dir[3]; u8 pad3; } l; s64 align[2]; } T069Light;
+typedef struct { T069Light l[2]; } LookAt;
+typedef struct { struct { s32 x1,y1,x2,y2; } h; } Hilite;
+extern void guMtxIdentF(float [4][4]);
+extern f32 sqrtf(f32);
+#define FTOFRAC8(x) (u16)((s32)(((x)*128.0 < 127.0) ? (x)*128.0 : 127.0))
+void func_800330B0(float mf[4][4], LookAt *l, Hilite *h,
+		float xEye, float yEye, float zEye,
+		float xAt,  float yAt,  float zAt,
+		float xUp,  float yUp,  float zUp,
+		float xl1,  float yl1,  float zl1,   /* light 1 direction */
+		float xl2,  float yl2,  float zl2,   /* light 2 direction */
+		int twidth, int theight)	     /* highlight txtr size*/
+{
+	float	len, xLook, yLook, zLook, xRight, yRight, zRight;
+	float	xHilite, yHilite, zHilite;
 
-void func_800330B0(void *arg0, void *arg1, void *arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, f32 arg8, f32 arg9, f32 arg10, f32 arg11, f32 arg12, f32 arg13, f32 arg14, f32 arg15, f32 arg16, f32 arg17, s32 arg18, s32 arg19) {
-    f32 sp88;
-    f32 sp5C;
-    f32 sp58;
-    f32 sp54;
-    f32 temp_f0;
-    f32 temp_f10;
-    f32 temp_f10_2;
-    f32 temp_f10_3;
-    f32 temp_f12;
-    f32 temp_f12_2;
-    f32 temp_f14;
-    f32 temp_f14_2;
-    f32 temp_f14_3;
-    f32 temp_f14_4;
-    f32 temp_f16;
-    f32 temp_f16_2;
-    f32 temp_f16_3;
-    f32 temp_f18;
-    f32 temp_f18_2;
-    f32 temp_f18_3;
-    f32 temp_f20;
-    f32 temp_f22;
-    f32 temp_f22_2;
-    f32 temp_f24;
-    f32 temp_f24_2;
-    f32 temp_f26;
-    f32 temp_f26_2;
-    f32 temp_f28;
-    f32 temp_f2;
-    f32 temp_f2_2;
-    f32 temp_f2_3;
-    f32 temp_f2_4;
-    f32 temp_f2_6;
-    f32 temp_f30;
-    f32 temp_f30_2;
-    f32 temp_f4;
-    f32 temp_f4_2;
-    f32 temp_f4_3;
-    f32 temp_f6;
-    f32 temp_f6_2;
-    f32 temp_f6_3;
-    f32 temp_f6_4;
-    f32 temp_f8;
-    f32 temp_f8_2;
-    f64 temp_f12_3;
-    f64 temp_f12_4;
-    f64 temp_f12_5;
-    f64 temp_f12_6;
-    f64 temp_f12_7;
-    f64 temp_f12_8;
-    f64 temp_f2_5;
-    f64 temp_f2_7;
-    f64 var_f0;
-    f64 var_f0_2;
-    f64 var_f0_3;
-    f64 var_f0_4;
-    f64 var_f0_5;
-    f64 var_f0_6;
+	guMtxIdentF(mf);
 
-    guMtxIdentF(arg0);
-    temp_f0 = arg6 - arg3;
-    temp_f30 = arg7 - arg4;
-    temp_f14 = arg8 - arg5;
-    sp88 = temp_f14;
-    temp_f2 = (f32) (-1.0 / (f64) sqrtf((temp_f0 * temp_f0) + (temp_f30 * temp_f30) + (temp_f14 * temp_f14), temp_f14));
-    temp_f28 = temp_f0 * temp_f2;
-    temp_f30_2 = temp_f30 * temp_f2;
-    temp_f20 = sp88 * temp_f2;
-    sp88 = temp_f20;
-    temp_f22 = (arg10 * temp_f20) - (arg11 * temp_f30_2);
-    temp_f24 = (arg11 * temp_f28) - (arg9 * temp_f20);
-    temp_f26 = (arg9 * temp_f30_2) - (arg10 * temp_f28);
-    temp_f2_2 = (f32) (1.0 / (f64) sqrtf((temp_f22 * temp_f22) + (temp_f24 * temp_f24) + (temp_f26 * temp_f26)));
-    temp_f22_2 = temp_f22 * temp_f2_2;
-    temp_f24_2 = temp_f24 * temp_f2_2;
-    temp_f26_2 = temp_f26 * temp_f2_2;
-    temp_f14_2 = (temp_f30_2 * temp_f26_2) - (sp88 * temp_f24_2);
-    arg9 = temp_f14_2;
-    temp_f16 = (sp88 * temp_f22_2) - (temp_f28 * temp_f26_2);
-    arg10 = temp_f16;
-    temp_f18 = (temp_f28 * temp_f24_2) - (temp_f30_2 * temp_f22_2);
-    arg11 = temp_f18;
-    temp_f2_3 = (f32) (1.0 / (f64) sqrtf((temp_f14_2 * temp_f14_2) + (temp_f16 * temp_f16) + (temp_f18 * temp_f18)));
-    arg9 *= temp_f2_3;
-    arg10 *= temp_f2_3;
-    arg11 *= temp_f2_3;
-    temp_f2_4 = (f32) (1.0 / (f64) sqrtf((arg12 * arg12) + (arg13 * arg13) + (arg14 * arg14)));
-    temp_f10 = arg12 * temp_f2_4;
-    temp_f8 = arg13 * temp_f2_4;
-    arg12 = temp_f10;
-    temp_f6 = arg14 * temp_f2_4;
-    temp_f4 = temp_f10 + temp_f28;
-    arg13 = temp_f8;
-    temp_f10_2 = temp_f8 + temp_f30_2;
-    arg14 = temp_f6;
-    sp5C = temp_f4;
-    temp_f6_2 = temp_f6 + sp88;
-    sp58 = temp_f10_2;
-    sp54 = temp_f6_2;
-    temp_f2_5 = (f64) sqrtf((temp_f4 * temp_f4) + (temp_f10_2 * temp_f10_2) + (temp_f6_2 * temp_f6_2));
-    if (D_80049000 < temp_f2_5) {
-        temp_f12 = (f32) (1.0 / temp_f2_5);
-        temp_f14_3 = sp5C * temp_f12;
-        temp_f16_2 = sp58 * temp_f12;
-        temp_f18_2 = sp54 * temp_f12;
-        (*(s32 *)((u8 *)arg2 + 0x0)) = (s32) ((f32) (arg18 * 4) + (((temp_f14_3 * temp_f22_2) + (temp_f16_2 * temp_f24_2) + (temp_f18_2 * temp_f26_2)) * (f32) arg18 * 2.0f));
-        (*(s32 *)((u8 *)arg2 + 0x4)) = (s32) ((f32) (arg19 * 4) + (((temp_f14_3 * arg9) + (temp_f16_2 * arg10) + (temp_f18_2 * arg11)) * (f32) arg19 * 2.0f));
-    } else {
-        (*(s32 *)((u8 *)arg2 + 0x0)) = (s32) (arg18 * 2);
-        (*(s32 *)((u8 *)arg2 + 0x4)) = (s32) (arg19 * 2);
-    }
-    temp_f2_6 = (f32) (1.0 / (f64) sqrtf((arg15 * arg15) + (arg16 * arg16) + (arg17 * arg17)));
-    temp_f4_2 = arg15 * temp_f2_6;
-    temp_f8_2 = arg16 * temp_f2_6;
-    arg15 = temp_f4_2;
-    temp_f6_3 = arg17 * temp_f2_6;
-    temp_f10_3 = temp_f4_2 + temp_f28;
-    arg16 = temp_f8_2;
-    temp_f4_3 = temp_f8_2 + temp_f30_2;
-    arg17 = temp_f6_3;
-    sp5C = temp_f10_3;
-    temp_f6_4 = temp_f6_3 + sp88;
-    sp58 = temp_f4_3;
-    sp54 = temp_f6_4;
-    temp_f2_7 = (f64) sqrtf((temp_f10_3 * temp_f10_3) + (temp_f4_3 * temp_f4_3) + (temp_f6_4 * temp_f6_4));
-    if (D_80049008 < temp_f2_7) {
-        temp_f12_2 = (f32) (1.0 / temp_f2_7);
-        temp_f14_4 = sp5C * temp_f12_2;
-        temp_f16_3 = sp58 * temp_f12_2;
-        temp_f18_3 = sp54 * temp_f12_2;
-        (*(s32 *)((u8 *)arg2 + 0x8)) = (s32) ((f32) (arg18 * 4) + (((temp_f14_4 * temp_f22_2) + (temp_f16_3 * temp_f24_2) + (temp_f18_3 * temp_f26_2)) * (f32) arg18 * 2.0f));
-        (*(s32 *)((u8 *)arg2 + 0xC)) = (s32) ((f32) (arg19 * 4) + (((temp_f14_4 * arg9) + (temp_f16_3 * arg10) + (temp_f18_3 * arg11)) * (f32) arg19 * 2.0f));
-    } else {
-        (*(s32 *)((u8 *)arg2 + 0x8)) = (s32) (arg18 * 2);
-        (*(s32 *)((u8 *)arg2 + 0xC)) = (s32) (arg19 * 2);
-    }
-    temp_f12_3 = (f64) temp_f22_2 * 128.0;
-    if (temp_f12_3 < D_80049010) {
-        var_f0 = temp_f12_3;
-    } else {
-        var_f0 = D_80049010;
-    }
-    temp_f12_4 = (f64) temp_f24_2 * 128.0;
-    (*(s8 *)((u8 *)arg1 + 0x8)) = (s8) (s32) var_f0;
-    if (temp_f12_4 < D_80049010) {
-        var_f0_2 = temp_f12_4;
-    } else {
-        var_f0_2 = D_80049010;
-    }
-    temp_f12_5 = (f64) temp_f26_2 * 128.0;
-    (*(s8 *)((u8 *)arg1 + 0x9)) = (s8) (s32) var_f0_2;
-    if (temp_f12_5 < D_80049010) {
-        var_f0_3 = temp_f12_5;
-    } else {
-        var_f0_3 = D_80049010;
-    }
-    (*(s8 *)((u8 *)arg1 + 0xA)) = (s8) (s32) var_f0_3;
-    temp_f12_6 = (f64) arg9 * 128.0;
-    if (temp_f12_6 < D_80049010) {
-        var_f0_4 = temp_f12_6;
-    } else {
-        var_f0_4 = D_80049010;
-    }
-    (*(s8 *)((u8 *)arg1 + 0x18)) = (s8) (s32) var_f0_4;
-    temp_f12_7 = (f64) arg10 * 128.0;
-    if (temp_f12_7 < D_80049010) {
-        var_f0_5 = temp_f12_7;
-    } else {
-        var_f0_5 = D_80049010;
-    }
-    (*(s8 *)((u8 *)arg1 + 0x19)) = (s8) (s32) var_f0_5;
-    temp_f12_8 = (f64) arg11 * 128.0;
-    if (temp_f12_8 < D_80049010) {
-        var_f0_6 = temp_f12_8;
-    } else {
-        var_f0_6 = D_80049010;
-    }
-    (*(s8 *)((u8 *)arg1 + 0x0)) = 0;
-    (*(s8 *)((u8 *)arg1 + 0x1)) = 0;
-    (*(s8 *)((u8 *)arg1 + 0x2)) = 0;
-    (*(s8 *)((u8 *)arg1 + 0x3)) = 0;
-    (*(s8 *)((u8 *)arg1 + 0x4)) = 0;
-    (*(s8 *)((u8 *)arg1 + 0x5)) = 0;
-    (*(s8 *)((u8 *)arg1 + 0x6)) = 0;
-    (*(s8 *)((u8 *)arg1 + 0x7)) = 0;
-    (*(s8 *)((u8 *)arg1 + 0x10)) = 0;
-    (*(s8 *)((u8 *)arg1 + 0x11)) = 0x80;
-    (*(s8 *)((u8 *)arg1 + 0x12)) = 0;
-    (*(s8 *)((u8 *)arg1 + 0x13)) = 0;
-    (*(s8 *)((u8 *)arg1 + 0x14)) = 0;
-    (*(s8 *)((u8 *)arg1 + 0x15)) = 0x80;
-    (*(s8 *)((u8 *)arg1 + 0x16)) = 0;
-    (*(s8 *)((u8 *)arg1 + 0x17)) = 0;
-    (*(s8 *)((u8 *)arg1 + 0x1A)) = (s8) (s32) var_f0_6;
-    (*(f32 *)((u8 *)arg0 + 0x0)) = temp_f22_2;
-    (*(f32 *)((u8 *)arg0 + 0x10)) = temp_f24_2;
-    (*(f32 *)((u8 *)arg0 + 0x20)) = temp_f26_2;
-    (*(f32 *)((u8 *)arg0 + 0x4)) = arg9;
-    (*(f32 *)((u8 *)arg0 + 0x14)) = arg10;
-    (*(f32 *)((u8 *)arg0 + 0x24)) = arg11;
-    (*(f32 *)((u8 *)arg0 + 0x30)) = (f32) -((arg3 * temp_f22_2) + (arg4 * temp_f24_2) + (arg5 * temp_f26_2));
-    (*(f32 *)((u8 *)arg0 + 0x34)) = (f32) -((arg3 * arg9) + (arg4 * arg10) + (arg5 * arg11));
-    (*(f32 *)((u8 *)arg0 + 0x8)) = temp_f28;
-    (*(f32 *)((u8 *)arg0 + 0x18)) = temp_f30_2;
-    (*(f32 *)((u8 *)arg0 + 0xC)) = 0.0f;
-    (*(f32 *)((u8 *)arg0 + 0x1C)) = 0.0f;
-    (*(f32 *)((u8 *)arg0 + 0x2C)) = 0.0f;
-    (*(f32 *)((u8 *)arg0 + 0x28)) = sp88;
-    (*(f32 *)((u8 *)arg0 + 0x3C)) = 1.0f;
-    (*(f32 *)((u8 *)arg0 + 0x38)) = (f32) -((arg3 * temp_f28) + (arg4 * temp_f30_2) + (arg5 * sp88));
+	xLook = xAt - xEye;
+	yLook = yAt - yEye;
+	zLook = zAt - zEye;
+
+	/* Negate because positive Z is behind us: */
+	len = -1.0 / sqrtf (xLook*xLook + yLook*yLook + zLook*zLook);
+	xLook *= len;
+	yLook *= len;
+	zLook *= len;
+
+	/* Right = Up x Look */
+
+	xRight = yUp * zLook - zUp * yLook;
+	yRight = zUp * xLook - xUp * zLook;
+	zRight = xUp * yLook - yUp * xLook;
+	len = 1.0 / sqrtf (xRight*xRight + yRight*yRight + zRight*zRight);
+	xRight *= len;
+	yRight *= len;
+	zRight *= len;
+
+	/* Up = Look x Right */
+
+	xUp = yLook * zRight - zLook * yRight;
+	yUp = zLook * xRight - xLook * zRight;
+	zUp = xLook * yRight - yLook * xRight;
+	len = 1.0 / sqrtf (xUp*xUp + yUp*yUp + zUp*zUp);
+	xUp *= len;
+	yUp *= len;
+	zUp *= len;
+
+	/* hilite vectors */
+
+	len = 1.0 / sqrtf (xl1*xl1 + yl1*yl1 + zl1*zl1);
+	xl1 *= len;
+	yl1 *= len;
+	zl1 *= len;
+
+#define THRESH2 0.1
+	xHilite = xl1 + xLook;
+	yHilite = yl1 + yLook;
+	zHilite = zl1 + zLook;
+
+	len = sqrtf (xHilite*xHilite + yHilite*yHilite + zHilite*zHilite);
+
+	if (len>THRESH2)
+	    {
+		len = 1.0 / len;
+		xHilite *= len;
+		yHilite *= len;
+		zHilite *= len;
+
+		h->h.x1 =
+		    twidth*4 + (xHilite*xRight +
+				yHilite*yRight +
+				zHilite*zRight)*twidth*2;
+
+		h->h.y1 =
+		    theight*4 + (xHilite*xUp +
+				 yHilite*yUp +
+				 zHilite*zUp)*theight*2;
+	    }
+	else
+	    {
+		h->h.x1 = twidth*2;
+		h->h.y1 = theight*2;
+	    }
+
+	len = 1.0 / sqrtf (xl2*xl2 + yl2*yl2 + zl2*zl2);
+	xl2 *= len;
+	yl2 *= len;
+	zl2 *= len;
+
+	xHilite = xl2 + xLook;
+	yHilite = yl2 + yLook;
+	zHilite = zl2 + zLook;
+	len = sqrtf (xHilite*xHilite + yHilite*yHilite + zHilite*zHilite);
+	if (len>THRESH2)
+	    {
+		len = 1.0 / len;
+		xHilite *= len;
+		yHilite *= len;
+		zHilite *= len;
+
+		h->h.x2 = twidth*4 +
+		    (xHilite*xRight + yHilite*yRight + zHilite*zRight)*twidth*2;
+
+		h->h.y2 = theight*4 +
+		    (xHilite*xUp + yHilite*yUp + zHilite*zUp)*theight*2;
+	    }
+	else
+	    {
+		h->h.x2 = twidth*2;
+		h->h.y2 = theight*2;
+	    }
+
+	/* reflectance vectors = Up and Right */
+
+	l->l[0].l.dir[0] = FTOFRAC8(xRight);
+	l->l[0].l.dir[1] = FTOFRAC8(yRight);
+	l->l[0].l.dir[2] = FTOFRAC8(zRight);
+	l->l[1].l.dir[0] = FTOFRAC8(xUp);
+	l->l[1].l.dir[1] = FTOFRAC8(yUp);
+	l->l[1].l.dir[2] = FTOFRAC8(zUp);
+	l->l[0].l.col[0] = 0x00;
+	l->l[0].l.col[1] = 0x00;
+	l->l[0].l.col[2] = 0x00;
+	l->l[0].l.pad1 = 0x00;
+	l->l[0].l.colc[0] = 0x00;
+	l->l[0].l.colc[1] = 0x00;
+	l->l[0].l.colc[2] = 0x00;
+	l->l[0].l.pad2 = 0x00;
+	l->l[1].l.col[0] = 0x00;
+	l->l[1].l.col[1] = 0x80;
+	l->l[1].l.col[2] = 0x00;
+	l->l[1].l.pad1 = 0x00;
+	l->l[1].l.colc[0] = 0x00;
+	l->l[1].l.colc[1] = 0x80;
+	l->l[1].l.colc[2] = 0x00;
+	l->l[1].l.pad2 = 0x00;
+
+	mf[0][0] = xRight;
+	mf[1][0] = yRight;
+	mf[2][0] = zRight;
+	mf[3][0] = -(xEye * xRight + yEye * yRight + zEye * zRight);
+
+	mf[0][1] = xUp;
+	mf[1][1] = yUp;
+	mf[2][1] = zUp;
+	mf[3][1] = -(xEye * xUp + yEye * yUp + zEye * zUp);
+
+	mf[0][2] = xLook;
+	mf[1][2] = yLook;
+	mf[2][2] = zLook;
+	mf[3][2] = -(xEye * xLook + yEye * yLook + zEye * zLook);
+
+	mf[0][3] = 0;
+	mf[1][3] = 0;
+	mf[2][3] = 0;
+	mf[3][3] = 1;
 }

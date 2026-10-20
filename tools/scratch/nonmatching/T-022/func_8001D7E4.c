@@ -1,16 +1,17 @@
-/* DRAFT. Remaining diff: 413 linked instruction words; compiled 1748 bytes, original 1656 bytes. */
+/* T-069 DRAFT: 427 relocation-masked positional words differ in TU context; 1724 bytes. See T-069/REPORT.md. */
 
 extern u8 D_8004EA9C[];
 s32 func_8001D47C(u8);                          /* extern */
 s32 func_8001DE5C(u8 *, u8 *, u8, u8 *);  /* extern */
-s32 func_80024144(u8, u8);                      /* extern */
+void func_80024144(s32,s32);                      /* extern */
 s32 func_800241BC(u8, u8);                      /* extern */
 s32 func_800244F0(u8, u8);                      /* extern */
 s32 func_80024714(u8, u8);                      /* extern */
 s32 func_8002A1A0(u8);                          /* extern */
 s32 func_800310C0(u8 *, s32 *, s32, u8 *);  /* extern */
 s32 func_80031A38(u8 *, s32 *, s32, u8 *);  /* extern */
-extern u8 D_8004D278;
+typedef struct { u8 *normal,*fallback; } T069Animation;
+extern T069Animation D_8004D278[][3];
 extern s32 D_8004EA78;
 extern s32 D_8004EA90;
 extern s32 D_8004EA94;
@@ -48,27 +49,22 @@ void func_8001D7E4(s32 arg0, s32 arg1, s32 arg2, u8 arg3, u8 arg4) {
     u8 *temp_v0_3;
     u8 *temp_v0_4;
     u8 *temp_v0_5;
-    u8 *temp_v1;
+    T069Animation *temp_v1;
     u8 *var_a3;
     u8 *var_v0_2;
 
-    temp_t6 = arg3 & 0xFF;
+    temp_t6 = arg3;
     if ((arg1 == 0xC7) && (D_8004F398 == 0)) {
-        arg3 = temp_t6;
         func_800244F0(temp_t6, temp_t6);
     } else if ((((arg1 == 0xB0) && (D_8004EA9C[temp_t6] != 1)) || ((arg1 == 0xAE) && ((temp_v0 = D_8004EA9C[temp_t6], (temp_v0 == 3)) || (temp_v0 == 5))) || ((arg1 == 0xAB) && (D_8004EA9C[temp_t6] == 4)) || (((arg1 == 0x99) || (arg1 == 0xAB)) && (D_8004EA9C[temp_t6] == 2))) && (D_8004F395 == 0)) {
-        arg3 = temp_t6;
         func_800241BC(temp_t6, temp_t6);
     } else if (((arg1 == 0xB9) || (arg1 == 0xBA) || (arg1 == 0xBB) || (arg1 == 0xB1)) && (D_8004F394 == 0)) {
-        arg3 = temp_t6;
         func_80024144(temp_t6, temp_t6);
     } else {
         temp_v0_2 = D_8004EA9C[temp_t6];
-        if (((temp_v0_2 == 1) && ((arg1 == 0x84) || (arg1 == 0x85))) || ((temp_v0_2 == 2) && ((arg1 == 0x84) || (arg1 == 0x86) || (arg1 == 0xAD) || (arg1 == 0xBC))) || ((temp_v0_2 == 4) && ((arg1 == 0x85) || (arg1 == 0x86))) || ((arg3 = temp_t6, (temp_v0_2 == 5)) && ((arg1 == 0x83) || (arg3 = temp_t6, (arg1 == 0x86))))) {
-            arg3 = temp_t6;
-            if (*(&D_8004F396 + temp_t6) == 0) {
-                arg3 = temp_t6;
-                func_80024714(temp_t6, temp_t6);
+        if (((temp_v0_2 == 1) && ((arg1 == 0x84) || (arg1 == 0x85))) || ((temp_v0_2 == 2) && ((arg1 == 0x84) || (arg1 == 0x86) || (arg1 == 0xAD) || (arg1 == 0xBC))) || ((temp_v0_2 == 4) && ((arg1 == 0x85) || (arg1 == 0x86))) || ((temp_v0_2 == 5) && ((arg1 == 0x83) || (arg1 == 0x86)))) {
+                if (*(&D_8004F396 + temp_t6) == 0) {
+                        func_80024714(temp_t6, temp_t6);
             }
         }
     }
@@ -86,8 +82,8 @@ void func_8001D7E4(s32 arg0, s32 arg1, s32 arg2, u8 arg3, u8 arg4) {
         var_v0 = 0xFF & 0xFFFF;
     }
     temp_t9 = arg3 * 8;
-    temp_v1 = &D_8004D278 + (var_v0 * 0x18) + temp_t9;
-    temp_a0 = (*(u8 **)((u8 *)(temp_v1) + 0));
+    temp_v1 = &D_8004D278[var_v0][arg3];
+    temp_a0 = temp_v1->normal;
     if (temp_a0 != 0) {
         var_t2 = 0;
         var_a3 = temp_a0;
@@ -96,7 +92,7 @@ void func_8001D7E4(s32 arg0, s32 arg1, s32 arg2, u8 arg3, u8 arg4) {
         }
         goto block_46;
     }
-    temp_v0_3 = (*(u8 **)((u8 *)(temp_v1) + 4));
+    temp_v0_3 = temp_v1->fallback;
     var_t2 = 5;
     var_a3 = temp_v0_3;
     if (temp_v0_3 != 0) {
@@ -175,7 +171,7 @@ block_64:
             arg4 = 0U;
         }
         if (arg4 != 0) {
-            temp_t0_2 = (*(u8 **)((u8 *)((&D_8004D278 + (arg4 * 0x18) + temp_t9)) + 4));
+            temp_t0_2 = D_8004D278[arg4][arg3].fallback;
             if (temp_t0_2 == 0) {
                 func_8001DE5C(sp1C, 0, 0U, var_a3);
                 return;
