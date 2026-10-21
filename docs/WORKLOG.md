@@ -582,3 +582,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-21 — T-125 vetted (high-byte mid band)
 - Worktree t3-6ac793bb. 3 functions matched, 2,188 B (0.75%, on target): func_800131A4 (seven-byte array view, full-width loop counter, separate command-pointer scopes), func_800287D4 (direct 2-D array references instead of a cached pointer) and func_8002A4F0 (separate DMA/allocator lengths fix the store order). Improved: func_8002FB80 67→23 (exact size), func_801C2F5C 53→47, func_801C3758 32→30.
 - Clean vet build: the ROM and all 3 images are byte-identical. 333 T4; M1 = M2 = 82,004 / 289,876 B (28.29%).
+- T-128 launched (sol-B41): func_8002FB80 (exact size, 23 words) plus the 91–119-word band, 16 drafts, about 8.3 KB.
