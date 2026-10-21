@@ -520,3 +520,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 ## 2026-10-21 — T-113 vetted (screen refresh #3)
 - Worktree t3-d83b2eba. 195 drafts screened (T-113/screen.md); 15 permuter searches. 0 matched. func_801C7998 has an exact body (its real input is one u64) but is blocked on rodata ownership of ovl_7DF8_1BD90, so I launched T-115. func_80017378 improved 8→6. I imported the drafts and screen.
+- 04:11: T-111 was still stopped after the limit reset, so I resumed it by hand. T-112/T-113 were already done and vetted.
