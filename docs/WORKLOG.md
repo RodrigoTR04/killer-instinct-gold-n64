@@ -554,3 +554,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-fd2df655. func_8001B134 matches (984 B). func_8001B50C now uses double literals and B134's 4 function_owner hints are removed; the undefined_syms files were regenerated.
 - Clean vet build: the ROM and all 3 images are byte-identical. 320 T4; M1 = M2 = 74,388 / 289,876 B (25.66%).
 - T-122 launched (sol-B39): screen band 176-219, structure-first.
+
+## 2026-10-21 — T-121 vetted (screen band 128-176)
+- Worktree t3-a7b7cc1a. func_801BEA74 matches (664 B). func_801B0A40 has exact text (668 B) but is blocked on constant-pool ownership (follow-up). 8 drafts improved.
+- Clean vet build: the ROM and all 3 images are byte-identical. 321 T4; M1 = M2 = 75,052 / 289,876 B (25.89%).

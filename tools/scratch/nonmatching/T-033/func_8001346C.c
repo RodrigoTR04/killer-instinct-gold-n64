@@ -1,4 +1,4 @@
-/* DRAFT T-051: 163 relocation-masked positional differing words; 696 bytes. Transform drawing now stays inside switch cases 1/2 through a common label. Original is 704 bytes; remaining instruction scheduling/register allocation and control flow differ; rodata ownership is resolved. */
+/* T-121 DRAFT: 165 differing words; 704/704 bytes. Loop index also carries the transform flag. */
 typedef struct { void *display; s16 flags, pad; s32 transform; } T033DrawPart;
 typedef struct { u32 command, value; } T033DrawCommand;
 extern void *D_8004A4C0[];
@@ -20,7 +20,7 @@ extern f32 D_8004A920[];
 void func_8001346C(T033DrawCommand **arg0, s32 arg1, s32 arg2) {
     T033DrawPart *part;
     T033DrawCommand *g;
-    s32 palette, mode, i, transformed;
+    s32 palette, mode, i;
     u8 *a, *b;
     part = &((T033DrawPart *)D_8004A4C0)[arg1];
     palette = part->flags & 0xF0;
@@ -45,12 +45,12 @@ void func_8001346C(T033DrawCommand **arg0, s32 arg1, s32 arg2) {
             g->value = (u32)part->display;
         }
         break;
-    case 1: transformed = 0; goto draw;
-    case 2: transformed = 1;
+    case 1: i = 0; goto draw;
+    case 2: i = 1;
     draw:
         if (D_8004AC88 == 8 && part == (T033DrawPart *)&D_8004A5D4) D_8004A984 = 1;
-        i = part->transform;
-        func_8001C5AC(arg0, transformed, part->display, 0, 0, D_8004A740[i], (&D_8004A7A0)[i], D_8004A800[i], D_8004A860[i], D_8004A8C0[i], D_8004A920[i], 0);
+        palette = part->transform;
+        func_8001C5AC(arg0, i, part->display, 0, 0, D_8004A740[palette], (&D_8004A7A0)[palette], D_8004A800[palette], D_8004A860[palette], D_8004A8C0[palette], D_8004A920[palette], 0);
         D_8004A984 = 0;
 
         break;

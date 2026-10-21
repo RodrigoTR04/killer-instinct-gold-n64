@@ -25,7 +25,35 @@ void func_801BE910(T023Entry910 *out, s32 count, s32 score, s32 step) {
 }
 
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_12C70/func_801BEA74.s")
+extern s32 func_801BEEA4(s32, s32, s32);
+extern void func_801BEFFC(void);
+extern u8 D_80127CC0[];
+u64 func_801BEA74(s32 wins, s32 games, s32 health, u8 *a, u8 *b, s32 name, s32 character) {
+    /* Keep the flag between the accumulators: IDO uses their original spill slots. */
+    u64 result = 0;
+    s32 enabled = 1;
+    u64 multiplier = 11;
+    s32 i, table;
+    u8 *pa, *pb;
+    if (D_80127CC0[31] || D_80127CC0[29]) enabled = 0;
+    if (character != 10) {
+        result = func_801BEEA4(1, wins, name);
+        result += func_801BEEA4(2, games, name) * multiplier;
+        multiplier *= 11;
+        result += func_801BEEA4(3, health, name) * multiplier;
+        multiplier *= 11;
+        if (enabled) {
+            for (table = 4, i = 5, pa = a, pb = b; i != 25; i += 2, table += 2, pa++, pb++) {
+                result += func_801BEEA4(table, *pa, name) * multiplier;
+                multiplier *= 6;
+                result += func_801BEEA4(i, *pb, name) * multiplier;
+                multiplier *= 6;
+            }
+        }
+        if (result) func_801BEFFC();
+    }
+    return result;
+}
 
 typedef struct { u32 name, score; } T100Score;
 typedef struct { T100Score *entries; u8 count, descending; u16 pad; } T100ScoreTable;

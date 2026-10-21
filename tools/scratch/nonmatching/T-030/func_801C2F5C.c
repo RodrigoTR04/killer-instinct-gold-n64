@@ -1,4 +1,4 @@
-/* DRAFT. Remaining diff: Sprite/layout pointer lifetimes, callback arguments, frame (0x90 vs 0x60) and scheduling differ. */
+/* T-121 DRAFT: see T-121/REPORT.md for measurements and remaining differences. */
 #include "frontend.h"
 
 extern void func_801B695C(FrontendSprite *, s32);
@@ -13,19 +13,15 @@ void func_801C2F5C(FrontendGfxWords **arg0, s32 arg1, s32 arg2) {
     s32 temp_a2;
     s32 var_s2;
     s32 var_v0;
-    u16 temp_v0;
     u8 temp_t1;
     FrontendSprite *temp_s0;
     FrontendSpriteLayout *temp_t0;
     FrontendSpriteLayout *temp_t0_2;
     FrontendGfxWords *temp_v0_2;
-    FrontendGfxWords *temp_v0_3;
-    FrontendGfxWords *temp_v0_4;
     temp_s0 = &D_801F2EA8[D_802D38C8];
     if (temp_s0->texture != 0) {
-        temp_v0 = temp_s0->scale;
-    sp58 = (s32) temp_v0;
-    temp_s0->scale = (u16) ((s32) (D_802854D0[D_802D38C8].scale * temp_v0) >> 8);
+        sp58 = temp_s0->scale;
+    temp_s0->scale = (u16) ((s32) (D_802854D0[D_802D38C8].scale * sp58) >> 8);
     var_s2 = arg1 + D_802854D0[D_802D38C8].x;
     func_801B695C(temp_s0, 0);
     temp_a2 = func_801B6A68(arg0, temp_s0, 0);
@@ -41,14 +37,14 @@ void func_801C2F5C(FrontendGfxWords **arg0, s32 arg1, s32 arg2) {
     *arg0 = temp_v0_2 + 1;
     temp_v0_2->w1 = 0;
     temp_v0_2->w0 = 0xE7000000;
-    temp_v0_3 = *arg0;
-    *arg0 = temp_v0_3 + 1;
-    temp_v0_3->w1 = 1;
-    temp_v0_3->w0 = 0xB9000002;
-    temp_v0_4 = *arg0;
-    *arg0 = temp_v0_4 + 1;
-    temp_v0_4->w1 = 0x800000;
-    temp_v0_4->w0 = 0xBA001701;
+    temp_v0_2 = *arg0;
+    *arg0 = temp_v0_2 + 1;
+    temp_v0_2->w1 = 1;
+    temp_v0_2->w0 = 0xB9000002;
+    temp_v0_2 = *arg0;
+    *arg0 = temp_v0_2 + 1;
+    temp_v0_2->w1 = 0x800000;
+    temp_v0_2->w0 = 0xBA001701;
     temp_t0_2 = &D_802854D0[D_802D38C8];
     temp_t1 = temp_t0_2->flip;
     if (temp_t1 != 0) {

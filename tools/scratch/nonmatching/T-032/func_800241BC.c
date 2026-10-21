@@ -1,4 +1,4 @@
-/* T-093 DRAFT: 161 -> 160 relocation-masked words; 840/820 bytes. See T-093/REPORT.md. */
+/* T-121 DRAFT: see T-121/REPORT.md for current measurements and remaining differences. */
 typedef struct {
     u8 pad0[3672];
     u8 *slotE58;
@@ -34,9 +34,9 @@ void func_800241BC(s32 arg0) {
         boot_dma((s32)(D_13200), (s32)( var_s0),  (s32)D_1D640 - (s32)D_13200);
         temp_v0_2 = (T032Resource1BC *)(D_8004D278 + arg0 * 8);
         temp_v0_2->slotE58 = var_s0;
-        temp_v0_2->slotE5C = 0; temp_s0 = (var_s0[7] << 0x18) + var_s0 + var_s0[4] + (var_s0[5] << 8) + (var_s0[6] << 0x10);
-        temp_v0_2->slot1008 = temp_s0; temp_v0_2->slot100C = 0;
-        temp_v0_2->slot1050 = 0; temp_v0_2->slot1054 = (void *) ((temp_s0[7] << 0x18) + temp_s0 + temp_s0[4] + (temp_s0[5] << 8) + (temp_s0[6] << 0x10)); break;
+        temp_v0_2->slotE5C = 0; var_s0 = (var_s0[7] << 0x18) + var_s0 + var_s0[4] + (var_s0[5] << 8) + (var_s0[6] << 0x10);
+        temp_v0_2->slot1008 = var_s0; temp_v0_2->slot100C = 0;
+        temp_v0_2->slot1050 = 0; temp_v0_2->slot1054 = (void *) ((var_s0[7] << 0x18) + var_s0 + var_s0[4] + (var_s0[5] << 8) + (var_s0[6] << 0x10)); break;
         case 3:
         boot_dma((s32)(D_1D640), (s32)( var_s0),  (s32)D_24D60 - (s32)D_1D640);
         temp_v0_3 = (T032Resource1BC *)(D_8004D278 + arg0 * 8);
