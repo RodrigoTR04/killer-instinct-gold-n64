@@ -1,12 +1,14 @@
-/* T-104 DRAFT: 5 differing words, 168/168 B. Both tables use the same sample; IDO shares the remainder and schedules the index early. */
+/* T-123 DRAFT: 2 differing words, 168/168 B. The input is a byte;
+ * func_801B465C takes a full-width index. Only the scaled-index spill
+ * remains at sp+0x18 rather than sp+0x1C. */
 extern s32 guRandom(void);
 extern u8 D_802C8C2A;
 extern s32 D_802C8C18[];
 extern s8 D_8004EA9C[];
 extern s32 D_802C8C08[];
 extern s8 D_802C8C28[];
-extern void func_801B465C(u8, s32);
-void func_801B5534(s32 arg0) {
+extern void func_801B465C(s32, s32);
+void func_801B5534(u8 arg0) {
     s32 sample = guRandom();
     D_802C8C18[arg0] = sample % (s32)D_802C8C2A;
     D_8004EA9C[arg0] = sample % (s32)D_802C8C2A;
