@@ -1,4 +1,4 @@
-#include "common.h"
+#include "render.h"
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_20AE0/func_80030440.s")
 

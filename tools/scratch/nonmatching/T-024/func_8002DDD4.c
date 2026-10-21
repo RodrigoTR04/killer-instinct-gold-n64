@@ -1,4 +1,2 @@
 /* DRAFT. Remaining diff: 104 differing words; 444/452 bytes */
-extern u8 D_80044A24;
-extern float D_80069680[][4][4],D_80069700[4][4];
 void func_8002DDD4(float x,float y,float z,s32 *screenX,s32 *screenY) { float (*m)[4]=D_80069680[D_80044A24]; float depth=-(m[3][2]+(m[0][2]*x+m[1][2]*y+m[2][2]*z)); float sx,sy,savedY; if((double)depth<0.5) depth=0.5f; sx=D_80069700[0][0]*(m[3][0]+(m[0][0]*x+m[1][0]*y+m[2][0]*z))*160.0f/depth+160.0f; sy=120.0f-D_80069700[1][1]*(m[3][1]+(m[0][1]*x+m[1][1]*y+m[2][1]*z))*120.0f/depth; savedY=sy; if(sx>500.0f) sx=500.0f; if(sx< -500.0f) sx=-500.0f; if(savedY>800.0f) sy=800.0f; if(sy< -500.0f) sy=-500.0f; *screenX=sx*65536.0f; *screenY=sy*65536.0f; }

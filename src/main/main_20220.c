@@ -1,19 +1,15 @@
-#include "common.h"
+#include "render.h"
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_20220/func_8002FB80.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_20220/func_8002FDA0.s")
 
-extern void func_8002FB80(s32, s32, s32, s32, s32);
-extern void func_8002FDA0(s32, s32, s32);
-void func_8002FFDC(s32 a, s32 b, s32 c, s32 d, s32 e, s32 f, s32 g) {
-    func_8002FB80(a, b, f, e, g);
+void func_8002FFDC(u8 *a, s32 b, u8 *c, s32 d, u32 *e, RenderVertex *f, u8 *g) {
+    func_8002FB80(a, b, (u32)f, e, g);
     func_8002FDA0(c, d, f);
 }
 
 
-extern void func_800300DC(void *, void *, s32);
-extern void func_8002A40C(void *, void *, s32);
 void func_80030020(void **sources, void **targets, u16 *lengths, u16 count) {
     void **src;
     void **dst;

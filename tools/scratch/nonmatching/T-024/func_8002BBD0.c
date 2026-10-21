@@ -1,33 +1,15 @@
 /* T-085 DRAFT: 1875 -> 1843 differing words in owning TU; 7692/7668 bytes. */
-typedef struct {
-s32 x,y,z;
-float worldX,worldY,worldZ;
-}
-T024CameraObject;
-typedef struct {
-float x,y,z,pitch,yaw,velocity,acceleration,pad,limit,pad24;
-} T024CameraPreset;
-typedef struct {
-float x,y,z,pitch,yaw;
-}
-T024CameraKeyframe;
-typedef struct {
-u8 pad[0x29];
-u8 first,second;
-}
-T024CameraFade;
-typedef struct {
-u8 pad[0x10];
-s32 first;
-u8 middle[0xFC]; s32 second;
-}
-T024CameraTracking;
-extern T024CameraPreset D_80044BCC[];
-extern T024CameraKeyframe D_80044AC8[];
-extern float D_80044BD8[]; extern u8 D_80044DD4[]; extern T024CameraFade D_801C4198;
-extern T024CameraTracking D_801D3430;
-void func_8002BBD0(T024CameraObject *,T024CameraObject *);
-void func_8002D9C4(void *,s32,s32,s32);
+
+
+
+
+
+extern RenderCameraPreset D_80044BCC[];
+extern RenderCameraPose D_80044AC8[];
+extern float D_80044BD8[]; extern u8 D_80044DD4[]; extern RenderCameraFade D_801C4198;
+extern RenderCameraTracking D_801D3430;
+void func_8002BBD0(RenderCameraObject *,RenderCameraObject *);
+
 void func_8002DBDC(float,float *);
 void func_8002DC48(float *);
 double func_8002E150(double);
@@ -111,7 +93,7 @@ extern u8 D_801D87EC;
 extern f32 D_801D87F0;
 extern f32 D_801D87F4;
 extern u8 D_801D8804;
-void func_8002BBD0(T024CameraObject *subject, T024CameraObject *opponent) {
+void func_8002BBD0(RenderCameraObject *subject, RenderCameraObject *opponent) {
 f32 spC4;
 f32 spC0;
 f32 spBC;
@@ -131,7 +113,7 @@ f32 sp30;
 f32 sp24;
 f32 sp20;
 f32 sp1C;
-T024CameraPreset *temp_a0; T024CameraPreset *temp_a0_2;
+RenderCameraPreset *temp_a0; RenderCameraPreset *temp_a0_2;
 f32 temp_f0;
 f32 temp_f0_2; f32 temp_f0_3;
 f32 temp_f0_4;

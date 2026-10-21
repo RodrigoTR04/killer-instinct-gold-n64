@@ -1,16 +1,8 @@
-/* T-085 DRAFT: 513 -> 510 differing words in owning TU; 2096/2104 bytes. */ typedef struct
-{ u32 w0, w1;
-} T081Gfx; s32 func_80030EF0(u8); typedef
-struct
-{ u8 r,g,b,a;
-} T081Color; extern T081Color D_800482A0[];
-extern
-s32 D_800482B8[]; typedef struct
-{ u8 width, height, spacing, baseline;
-} T081Glyph; extern T081Glyph D_80069E48[]; extern u8 D_80069F70[]; void func_800306B8(T081Gfx **arg0, s32 arg1,
+/* T-112: shared rendering types; nonmatching draft. */
+void func_800306B8(RenderGfx **arg0, s32 arg1,
 s32 arg2, u8 *arg3, s32 arg4,
 s32 arg5)
-{ T081Gfx *command;
+{ RenderGfx *command;
 s32 sp40; s32 *temp_s4; s32 temp_a1;
 s32 temp_a2; s32 temp_a2_2;
 s32 temp_a2_3;
@@ -25,7 +17,7 @@ s32 var_v1_3; s32
 var_v1_4; u8 *var_s2;
 u8 *var_s2_2; u8 temp_t3; u8
 temp_t4;
-u8 temp_v0_9; u8 var_a0; u8 var_a0_2; T081Glyph *temp_t2; T081Glyph *temp_t2_2; T081Color *temp_v1; var_s1 =
+u8 temp_v0_9; u8 var_a0; u8 var_a0_2; RenderGlyph *temp_t2; RenderGlyph *temp_t2_2; RenderColor *temp_v1; var_s1 =
 arg1; var_fp = -1; var_t3 = 0; if (arg1 == 0)
     {
 var_s2 = arg3; if ((s32) *arg3 >= 0x14)

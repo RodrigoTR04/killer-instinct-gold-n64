@@ -1,0 +1,72 @@
+[
+  {
+    "function": "func_800300DC",
+    "tu": "main_20220.c",
+    "words": 74,
+    "bytes": 316,
+    "target_bytes": 316
+  },
+  {
+    "function": "func_80030220",
+    "tu": "main_20220.c",
+    "words": 77,
+    "bytes": 340,
+    "target_bytes": 348
+  },
+  {
+    "function": "func_8002DDD4",
+    "tu": "main_1BE80.c",
+    "words": 104,
+    "bytes": 444,
+    "target_bytes": 452
+  },
+  {
+    "function": "func_8002D9C4",
+    "tu": "main_1BE80.c",
+    "words": 129,
+    "bytes": 548,
+    "target_bytes": 536
+  },
+  {
+    "function": "func_8002FB80",
+    "tu": "main_20220.c",
+    "words": 67,
+    "bytes": 536,
+    "target_bytes": 544
+  },
+  {
+    "function": "func_8002FDA0",
+    "tu": "main_20220.c",
+    "words": 107,
+    "bytes": 556,
+    "target_bytes": 572
+  },
+  {
+    "function": "func_80030440",
+    "tu": "main_20AE0.c",
+    "words": 144,
+    "bytes": 556,
+    "target_bytes": 632
+  },
+  {
+    "function": "func_8002E150",
+    "tu": "main_1E7F0.c",
+    "words": 179,
+    "bytes": 836,
+    "target_bytes": 844
+  },
+  {
+    "function": "func_800306B8",
+    "tu": "main_20AE0.c",
+    "words": 510,
+    "bytes": 2096,
+    "target_bytes": 2104
+  },
+  {
+    "function": "func_8002BBD0",
+    "tu": "main_1BE80.c",
+    "words": 1843,
+    "bytes": 7692,
+    "target_bytes": 7668
+  }
+]

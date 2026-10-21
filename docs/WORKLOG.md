@@ -511,3 +511,8 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - T-113 stopped on the Codex usage limit (resets 03:25). Backup cron at 03:28.
 - T-112 stopped on the Codex usage limit (resets 03:25). The 03:28 cron covers it.
 - 03:28: T-112 and T-113 were still stopped after the limit reset, so I resumed both by hand with 'continue'. T-111 waits for its 04:08 reset (cron 04:11).
+
+## 2026-10-21 — T-112 vetted (main rendering subsystem pass)
+- Worktree t3-b44de690. include/render.h (136 lines: camera, matrix, Gfx, stage-command and glyph types) is adopted in main_1BE80, main_1E7F0, main_20220 and main_20AE0, and all 17 existing matches are preserved. 0 new matches, 5 drafts improved.
+- Clean vet build: the ROM and all 3 images are byte-identical. Metrics unchanged.
+- Note: the subsystem-header passes (T-108, T-110, T-112) improve code quality and types but produced no direct matches; I am returning to diagnosis/clone/permuter tasks for matches.

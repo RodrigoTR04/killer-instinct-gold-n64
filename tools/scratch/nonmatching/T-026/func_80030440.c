@@ -1,29 +1,33 @@
-/* T-085 DRAFT: 158 -> 156 differing words in owning TU; 520/632 bytes. */
-
-extern u8 D_80069E48[], D_80069F70[];
+/* T-112: structural reconstruction; nonmatching, see REPORT.md. */
 void func_80030440(u8 *image, s32 index) {
-    u8 width = image[0];
-    u8 height = image[1];
-    s32 stride = (width + 7) & 0xFFF8;
-    s32 source = 8;
-    s32 y;
-    s32 x;
-    u8 *out = D_80069F70 + index * 0x120;
-    D_80069E48[index*4] = image[0];
-    D_80069E48[index*4+1] = image[1];
-    D_80069E48[index*4+2] = image[2];
-    D_80069E48[index*4+3] = image[3];
-    for (y = 0; y < height; y++) {
+    u8 width, height;
+    s32 stride, source, y, x;
+    D_80069E48[index].width = width = image[0];
+    D_80069E48[index].height = height = image[1];
+    D_80069E48[index].spacing = image[2];
+    D_80069E48[index].baseline = image[3];
+    stride = (width + 7) & 0xFFF8;
+    source = 8;
+    for (y = 0;
+    y < height;
+    y++) {
         s32 swap = (y & 1) ? 4 : 0;
         x = 0;
         while (x < width) {
-            u8 run = image[source++];
+            s32 run = image[source++];
             s32 n = (run & 15) + 1;
             s32 j;
-            for (j = 0; j < n; j++) out[y*stride + ((x+j)^swap)] = run & 0xF0;
+            for (j = 0;
+            j < n;
+            j++) D_80069F70[index*0x120 + ((x+j)^swap) + y*stride] = run & 0xF0;
             x += n;
         }
-        while (x < stride) { out[y*stride + (x^swap)] = 0; x++; }
+        while (x < stride) {
+            D_80069F70[index*0x120 + (x^swap) + y*stride] = 0;
+            x++;
+        }
     }
-    for (x = 0; x < stride; x++) out[y*stride+x] = 0;
+    for (x = 0;
+    x < stride;
+    x++) D_80069F70[index*0x120 + x + y*stride] = 0;
 }
