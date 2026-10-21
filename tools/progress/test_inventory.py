@@ -7,6 +7,9 @@ import sys
 import tempfile
 import unittest
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import progress
+
 INVENTORY = Path(__file__).with_name('inventory.py')
 
 
@@ -75,6 +78,43 @@ class SegmentInventoryTests(unittest.TestCase):
                         self.assertEqual(result.returncode, 0, result.stderr)
                         rows = list(csv.DictReader((root / 'docs/functions.csv').read_text().splitlines()))
                         self.assertEqual(rows[0]['tier'], 'T4' if case == 'match' else 'T1')
+
+
+class ReadmeProgressTests(unittest.TestCase):
+    def test_bar_and_readme_splice(self):
+        self.assertEqual(progress.bar(0, 10), '░' * 10)
+        self.assertEqual(progress.bar(100, 10), '█' * 10)
+        self.assertEqual(progress.bar(50, 10), '█████░░░░░')
+        self.assertEqual(progress.bar(None, 4), '░░░░')
+        empty = {'bytes': 0, 'functions': 0}
+        data = {
+            'M1': {'bytes': 50, 'percent': 50.0},
+            'M2': {'bytes': 25, 'percent': 25.0},
+            'eligible_bytes': 100,
+            'eligible_functions': 4,
+            'tiers': {'T1': empty, 'T2': {'bytes': 50, 'functions': 2},
+                      'T3': {'bytes': 25, 'functions': 1}, 'T4': {'bytes': 25, 'functions': 1},
+                      'excluded': empty},
+            'areas': {
+                'boot': {
+                    'M1': {'bytes': 50, 'percent': 50.0},
+                    'M2': {'bytes': 25, 'percent': 25.0},
+                    'eligible_bytes': 100,
+                    'eligible_functions': 4,
+                    'tiers': {'T1': empty, 'T2': empty, 'T3': {'bytes': 25, 'functions': 1},
+                              'T4': {'bytes': 25, 'functions': 1}, 'excluded': empty},
+                },
+            },
+        }
+        block = progress.readme_block(data, '2026-10-21')
+        self.assertIn('_Snapshot 2026-10-21._', block)
+        self.assertIn('50.0%', block)
+        self.assertIn('**boot**', block)
+        text = 'before\n<!-- progress-begin -->\nold\n<!-- progress-end -->\nafter\n'
+        spliced = progress.splice_readme(text, block)
+        self.assertTrue(spliced.startswith('before\n<!-- progress-begin -->\n'))
+        self.assertTrue(spliced.endswith('<!-- progress-end -->\nafter\n'))
+        self.assertIn('M1  Contract-valid (T3 + T4)', spliced)
 
 
 if __name__ == '__main__':

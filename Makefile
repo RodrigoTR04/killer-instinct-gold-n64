@@ -276,8 +276,8 @@ clean:
 progress:
 	@test -d asm || $(MAKE) extract
 	$(PYTHON) tools/progress/inventory.py
-	$(PYTHON) tools/progress/progress.py --markdown
-	$(PYTHON) tools/progress/treemap.py
+	$(PYTHON) tools/progress/progress.py --markdown --readme
+	$(PYTHON) tools/progress/treemap.py --svg docs/progress-map.svg
 
 # Each executable payload has its own linker namespace, including the overlays
 # whose VRAM ranges overlap. Their matching compressed outputs feed the ROM.

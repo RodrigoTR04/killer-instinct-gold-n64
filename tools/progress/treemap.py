@@ -6,11 +6,83 @@ import json
 from pathlib import Path
 from progress import ROOT, read_inventory, report
 
+COLORS = {'T1': '#748195', 'T2': '#e7ae50', 'T3': '#5794e2', 'T4': '#45b983', 'excluded': '#aa83d6'}
+SVG_W, SVG_H = 1600, 900
+
+
+def layout(items, x, y, w, h):
+    if not items or w <= 0 or h <= 0:
+        return []
+    total = sum(item['bytes'] for item in items)
+    if total <= 0:
+        return []
+    scale = w * h / total
+    todo = sorted(({**item, 'value': item['bytes'] * scale} for item in items),
+                  key=lambda item: item['value'], reverse=True)
+    out = []
+
+    def worst(row, side):
+        if not row:
+            return float('inf')
+        total_row = sum(item['value'] for item in row)
+        return max(side * side * row[0]['value'] / (total_row * total_row),
+                   total_row * total_row / (side * side * row[-1]['value']))
+
+    while todo:
+        row, side = [todo.pop(0)], min(w, h)
+        while todo and worst(row + [todo[0]], side) <= worst(row, side):
+            row.append(todo.pop(0))
+        total_row, offset = sum(item['value'] for item in row), 0
+        if w >= h:
+            width = total_row / h
+            for item in row:
+                height = item['value'] / width
+                out.append({**item, 'x': x, 'y': y + offset, 'w': width, 'h': height})
+                offset += height
+            x, w = x + width, max(0, w - width)
+        else:
+            height = total_row / w
+            for item in row:
+                width = item['value'] / height
+                out.append({**item, 'x': x + offset, 'y': y, 'w': width, 'h': height})
+                offset += width
+            y, h = y + height, max(0, h - height)
+    return out
+
+
+def write_svg(rows, path):
+    parts = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {SVG_W} {SVG_H + 30}" width="{SVG_W}" height="{SVG_H + 30}">',
+             f'<rect width="{SVG_W}" height="{SVG_H + 30}" fill="#111827"/>']
+    areas = [{'area': area, 'bytes': sum(r['bytes'] for r in rows if r['area'] == area)}
+             for area in sorted({r['area'] for r in rows})]
+    for area in layout(areas, 0, 0, SVG_W, SVG_H):
+        parts.append(f'<rect x="{area["x"]:.2f}" y="{area["y"]:.2f}" width="{area["w"]:.2f}" height="{area["h"]:.2f}" fill="#1f2937"/>')
+        if area['w'] > 70 and area['h'] > 22:
+            parts.append(f'<text x="{area["x"] + 5:.2f}" y="{area["y"] + 16:.2f}" fill="#f3f4f6" font-size="13" font-family="system-ui,sans-serif">{html.escape(area["area"])}</text>')
+        inner = layout([r for r in rows if r['area'] == area['area']],
+                       area['x'] + 2, area['y'] + 20, max(0, area['w'] - 4), max(0, area['h'] - 22))
+        for row in inner:
+            title = html.escape(f'{row["function"]} · {row["vram"]} · {row["bytes"]} bytes · {row["tier"]}')
+            parts.append(f'<rect x="{row["x"]:.2f}" y="{row["y"]:.2f}" width="{max(row["w"] - 0.6, 0.4):.2f}" height="{max(row["h"] - 0.6, 0.4):.2f}" fill="{COLORS[row["tier"]]}" stroke="#111827"><title>{title}</title></rect>')
+    matched = sum(r['bytes'] for r in rows if r['tier'] == 'T4')
+    total = sum(r['bytes'] for r in rows)
+    t4 = sum(r['tier'] == 'T4' for r in rows)
+    t3 = sum(r['tier'] == 'T3' for r in rows)
+    parts.append(f'<text x="12" y="{SVG_H + 20}" fill="#d1d5db" font-size="13" font-family="system-ui,sans-serif">'
+                 f'T4 byte-exact {t4} · T3 contract-valid {t3} · {matched:,}/{total:,} bytes exact '
+                 f'({100 * matched / total if total else 0:.1f}%) · green=T4 blue=T3 amber=T2 gray=T1 purple=excluded</text>')
+    parts.append('</svg>\n')
+    path.write_text('\n'.join(parts))
+    print(f'Generated {path.relative_to(ROOT) if path.is_relative_to(ROOT) else path}')
+
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--input', type=Path, default=ROOT / 'docs/functions.csv')
     p.add_argument('--output', type=Path, default=ROOT / 'docs/progress.html')
+    p.add_argument('--svg', nargs='?', const=ROOT / 'docs/progress-map.svg', type=Path)
+    p.add_argument('--html', action='store_true', default=True)
+    p.add_argument('--no-html', dest='html', action='store_false')
     args = p.parse_args()
     rows = read_inventory(args.input)
     data = report(rows)
@@ -65,8 +137,11 @@ function draw(){svg.replaceChildren();const w=svg.clientWidth,h=svg.clientHeight
 </script></html>'''
     counts = ' · '.join(f'{t}: {v["functions"]} functions / {v["bytes"]:,} bytes' for t,v in data['tiers'].items())
     page = page.replace('SUMMARY', html.escape(' · '.join(summary))).replace('COUNTS', html.escape(counts)).replace('PAYLOAD', payload)
-    args.output.write_text(page)
-    print(f'Generated {args.output.relative_to(ROOT) if args.output.is_relative_to(ROOT) else args.output}')
+    if args.html:
+        args.output.write_text(page)
+        print(f'Generated {args.output.relative_to(ROOT) if args.output.is_relative_to(ROOT) else args.output}')
+    if args.svg is not None:
+        write_svg(rows, args.svg)
 
 
 if __name__ == '__main__':

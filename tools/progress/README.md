@@ -6,8 +6,8 @@ Run from the repository root (Python standard library only):
 # Only needed when asm/ is absent:
 make extract
 python3 tools/progress/inventory.py
-python3 tools/progress/progress.py --markdown
-python3 tools/progress/treemap.py
+python3 tools/progress/progress.py --markdown --readme
+python3 tools/progress/treemap.py --svg docs/progress-map.svg
 ```
 
 `docs/functions.csv` and `docs/progress.html` are generated. Never edit their
@@ -95,5 +95,7 @@ progress:
 ```
 
 Use the same commands in CI after extraction/build and check the generated
-CSV, baseline, and HTML diff. Paste the generated Markdown into TRACKING.md;
-never update percentages by hand.
+CSV, baseline, HTML, SVG, and README diff. `progress.py --readme` rewrites
+the marked block in `README.md`; `--check` fails if that block is stale.
+Paste the generated Markdown into TRACKING.md; never update percentages by
+hand.
