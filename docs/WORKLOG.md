@@ -478,3 +478,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 ## 2026-10-20 — T-103 vetted (family B round 3)
 - Worktree t3-c4895570. No change: family B is still 19 words ×6 after a region analysis and a 30-minute permuter run. Report only.
+- T-107 launched (sol-A36): read-only docs/overview.md architecture map.
