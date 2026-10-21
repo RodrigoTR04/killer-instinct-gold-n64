@@ -479,3 +479,6 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-103 vetted (family B round 3)
 - Worktree t3-c4895570. No change: family B is still 19 words ×6 after a region analysis and a 30-minute permuter run. Report only.
 - T-107 launched (sol-A36): read-only docs/overview.md architecture map.
+
+## 2026-10-20 — T-107 vetted (docs/overview.md)
+- Worktree t3-51bd01e6. New 507-line architecture map: image lifetimes and load sequence; subsystems (scheduler, audio manager + sound player, input/pfs, rendering, frontend in ovl_7DF8, likely gameplay in ovl_7E00 at medium confidence); all 117 C TUs with roles and counts; open questions. Docs only.
