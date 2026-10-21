@@ -545,3 +545,6 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-e7e76605. func_801C8C24 matches (408 B); 5 improved, 9 unchanged.
 - Clean vet build: the ROM and all 3 images are byte-identical. 319 T4; M1 = M2 = 73,404 / 289,876 B (25.32%).
 - T-120 launched (sol-C44): family B together with func_801B3B84.
+
+## 2026-10-21 — T-118 vetted (declaration/layout search tool)
+- Worktree t3-f9058a6f. tools/permuter/declorder.py (plus a README section) enumerates local-declaration orders, grouping and line joins/splits in TU context. 28 drafts at 40 words or fewer searched: 0 matched, func_8002A4F0 31→27. So the remaining near-misses are not bound by layout or declaration order; the cheap dimensions are exhausted. Tool and drafts only.

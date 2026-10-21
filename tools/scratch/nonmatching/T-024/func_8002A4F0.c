@@ -1,4 +1,6 @@
-/* T-108 draft: shared audio types; see T-108/REPORT.md. */
+/* T-118 draft: 27 differing words / 920 B in full TU context.
+ * Keep settings before entry: declaration order affects IDO allocation.
+ * Shared audio types retained from T-108. */
 #include "audio_game.h"
 #include "boot.h"
 extern u8 D_80066C30[],D_80128350[],D_8F9FA0[],D_907580[],D_9AF4B0[],D_9B9AD0[],D_992AF0[];
@@ -13,8 +15,8 @@ void func_8002A4F0(void)
   ALSynConfig synth;
   ALSeqpConfig music;
   ALSeqpConfig secondary;
-  ALSeqData *entry;
   AudioSettings settings;
+  ALSeqData *entry;
   s32 size;
   s32 length;
   alHeapInit(D_80066C30, D_80128350, 0x4A380);

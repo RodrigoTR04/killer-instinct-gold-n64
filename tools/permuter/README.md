@@ -66,3 +66,54 @@ Errors are reported rather than treated as large scores. No draft or build
 input is modified. `pycparser` (already required by decomp-permuter) is needed
 for declaration fallback. The screener uses the existing ELF reader in
 `tools/scratch/flagprobe/compare.py`; only actual relocation fields are masked.
+
+## Declaration order and source lines
+
+`declorder.py` searches the IDO dimensions that AST normalization often loses:
+
+```sh
+.venv/bin/python tools/permuter/declorder.py func_801BD270 \
+    tools/scratch/nonmatching/T-023/func_801BD270.c /tmp/kig-declorder \
+    --seconds 600 -j 2 --seed 118
+```
+
+Run `make extract` first. The tool reuses `screen.measure`, including the exact
+IDO/asm-processor command and relocation masks. It selects a compiling context
+once (full TU, prefix, then declaration fallback), and keeps that context fixed.
+Use `--context full` to forbid fallback. A fallback zero must be reconciled in
+the complete TU before promotion; even a full-TU zero requires the linked build.
+The objective is differing words including missing/extra words, then absolute
+byte-size difference. Compile failures are diagnostics, never scores.
+
+Leading uninitialized simple local declarations are split into declarators,
+permuted exhaustively for up to six locals, or sampled in 400 orders for larger
+sets. Each order tries separate declarations and adjacent declarations combined
+by type. Pointer stars and array extents stay with their declarators. Initialized,
+qualified, static, compound and function-pointer declarations stay fixed.
+Independent initializers allow unrelated uninitialized locals to cross them;
+initializers mentioning local names form barriers to preserve scope and data
+dependencies. The conservative scanner stops at unsupported declaration syntax
+(such as multiword types or symbolic array extents). Declarations never move
+across an executable statement or scope.
+Combining declarations necessarily replaces repeated type/semicolon syntax with
+commas; types, names, extents and executable tokens stay unchanged.
+
+The initial sweep also tries statement/brace boundaries all split or all joined.
+Hill climbing is interleaved with that sweep and combines declaration swaps
+with individual/random boundary joins/splits. A bounded reservoir of equal-score
+parents lets the search walk across plateaus while retaining the best source.
+Parentheses protect `for` separators; comments and quoted literals remain intact. No statement reordering, AST printing, `#line`, `register`,
+new expression or compiler setting is introduced. A fixed seed makes generation
+reproducible; wall-clock cutoff and parallel completion can change how far it gets.
+The time budget stops new submissions; the current compile batch finishes first.
+Searches may finish early after 100 consecutive duplicate proposals; that does
+not prove exhaustive layout coverage. A budget can interrupt declaration
+enumeration too; `initial_exhausted` records whether the initial sweep finished.
+`-j` controls independent compiler workers, not compiler flags.
+
+The input draft and owning source are never overwritten. `best.c` preserves the
+best source, and compact `result.json` records baseline/best words and sizes,
+context, elapsed time, counts, winning label, improvement history and a bounded
+sample of errors. Use a disposable output directory outside git. Review improved
+C before copying it to a draft; integrate zeros readably, explain necessary layout,
+delete matched drafts, then run the full clean build and progress checks.

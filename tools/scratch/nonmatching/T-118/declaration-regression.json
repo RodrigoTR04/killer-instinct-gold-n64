@@ -1,0 +1,42 @@
+{
+  "function": "func_8002F6F4",
+  "draft": "/tmp/kig-t118-regression-mmci_ucp/draft.c",
+  "context": "full",
+  "before": {
+    "function": "func_8002F6F4",
+    "draft": "/tmp/kig-declorder-dkkx6kpb/tmpssb_n7av.c",
+    "tu": "src/main/main_1EB40.c",
+    "compiled": 516,
+    "original": 516,
+    "words": 2,
+    "context": "full",
+    "error": ""
+  },
+  "after": {
+    "function": "func_8002F6F4",
+    "draft": "/tmp/kig-declorder-dkkx6kpb/tmpe84c9j5o.c",
+    "tu": "src/main/main_1EB40.c",
+    "compiled": 516,
+    "original": 516,
+    "words": 0,
+    "context": "full",
+    "error": ""
+  },
+  "winner": "hill-235",
+  "seconds": 69.21532792103244,
+  "seed": 118,
+  "locals": 7,
+  "initial_exhausted": false,
+  "compiled": 236,
+  "errors": 0,
+  "duplicates": 94,
+  "history": [
+    {
+      "label": "hill-235",
+      "words": 0,
+      "compiled": 516
+    }
+  ],
+  "diagnostics": [],
+  "diagnostic": "Previously matched function, isolated TU snapshot; production source untouched."
+}

@@ -1,0 +1,152 @@
+{
+  "searched": [
+    "func_800269AC",
+    "func_801BF720",
+    "func_801BF914",
+    "func_801C4E38",
+    "func_801CC908",
+    "func_801B6528",
+    "func_8002F45C",
+    "func_801B695C",
+    "func_801C85C0",
+    "func_801B5534",
+    "func_801C224C",
+    "func_801BD270",
+    "func_80017378",
+    "func_8001BDE0",
+    "func_801C7A98",
+    "func_8002A900",
+    "func_801B2EF4",
+    "func_801B310C",
+    "func_801B3324",
+    "func_801B353C",
+    "func_801B3754",
+    "func_801B396C",
+    "func_801B1210",
+    "func_801B446C",
+    "func_8002A4F0",
+    "func_8001373C",
+    "func_801BBB60",
+    "func_801C3758"
+  ],
+  "skipped": [
+    {
+      "function": "func_8002F6F4",
+      "reason": "already matched; draft deleted",
+      "draft": "tools/scratch/nonmatching/T-024/func_8002F6F4.c"
+    },
+    {
+      "function": "func_801C7998",
+      "reason": "already matched; draft deleted",
+      "draft": "tools/scratch/nonmatching/T-030/func_801C7998.c"
+    },
+    {
+      "function": "func_801C47E0",
+      "reason": "reserved",
+      "draft": "tools/scratch/nonmatching/T-030/func_801C47E0.c"
+    },
+    {
+      "function": "func_801BD200",
+      "reason": "reserved",
+      "draft": "tools/scratch/nonmatching/T-023/func_801BD200.c"
+    },
+    {
+      "function": "func_801C7F90",
+      "reason": "reserved",
+      "draft": "tools/scratch/nonmatching/T-021/func_801C7F90.c"
+    },
+    {
+      "function": "func_801ADA04",
+      "reason": "reserved",
+      "draft": "tools/scratch/nonmatching/T-019/func_801ADA04.c"
+    },
+    {
+      "function": "func_801BB258",
+      "reason": "reserved",
+      "draft": "tools/scratch/nonmatching/T-023/func_801BB258.c"
+    },
+    {
+      "function": "func_801C0800",
+      "reason": "reserved",
+      "draft": "tools/scratch/nonmatching/T-023/func_801C0800.c"
+    },
+    {
+      "function": "func_801C8AE0",
+      "reason": "reserved",
+      "draft": "tools/scratch/nonmatching/T-034/func_801C8AE0.c"
+    },
+    {
+      "function": "func_801B0520",
+      "reason": "reserved",
+      "draft": "tools/scratch/nonmatching/T-025/func_801B0520.c"
+    },
+    {
+      "function": "func_800268C0",
+      "reason": "reserved",
+      "draft": "tools/scratch/nonmatching/T-032/func_800268C0.c"
+    },
+    {
+      "function": "func_801B43A8",
+      "reason": "reserved",
+      "draft": "tools/scratch/nonmatching/T-029/func_801B43A8.c"
+    },
+    {
+      "function": "func_80032738",
+      "reason": "private ABI decoder range",
+      "draft": "tools/scratch/nonmatching/T-026/func_80032738.c"
+    },
+    {
+      "function": "func_80032750",
+      "reason": "private ABI decoder range",
+      "draft": "tools/scratch/nonmatching/T-026/func_80032750.c"
+    },
+    {
+      "function": "func_801C8C24",
+      "reason": "reserved",
+      "draft": "tools/scratch/nonmatching/T-034/func_801C8C24.c"
+    },
+    {
+      "function": "func_8003278C",
+      "reason": "private ABI decoder range",
+      "draft": "tools/scratch/nonmatching/T-026/func_8003278C.c"
+    },
+    {
+      "function": "func_80031050",
+      "reason": "private ABI decoder range",
+      "draft": "tools/scratch/nonmatching/T-026/func_80031050.c"
+    },
+    {
+      "function": "func_80032600",
+      "reason": "private ABI decoder range",
+      "draft": "tools/scratch/nonmatching/T-026/func_80032600.c"
+    },
+    {
+      "function": "func_801BEEA4",
+      "reason": "reserved",
+      "draft": "tools/scratch/nonmatching/T-023/func_801BEEA4.c"
+    }
+  ],
+  "reserved": [
+    "func_8001AD04",
+    "func_8001B134",
+    "func_80024028",
+    "func_800268C0",
+    "func_801ADA04",
+    "func_801B0520",
+    "func_801B3B84",
+    "func_801B43A8",
+    "func_801BADEC",
+    "func_801BB258",
+    "func_801BD200",
+    "func_801BE660",
+    "func_801BEEA4",
+    "func_801C0800",
+    "func_801C47E0",
+    "func_801C48E4",
+    "func_801C7F90",
+    "func_801C8004",
+    "func_801C8AE0",
+    "func_801C8C24"
+  ],
+  "T116_selection_source": "/home/rodri/.t3/worktrees/killer-instinct-gold-n64/t3-e7e76605/tools/scratch/nonmatching/T-116/REPORT.md"
+}
