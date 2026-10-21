@@ -1,4 +1,4 @@
-/* DRAFT. Remaining diff: Carousel float lifetimes, matrix-call scheduling, frame and temporary registers differ. */
+/* T-111: 423 differing words, 1924 compiled bytes. DRAFT. Remaining diff: Carousel float lifetimes, matrix-call scheduling, frame and temporary registers differ. */
 extern void func_801B5534(u8);
 extern void func_801B446C(u8);
 extern s32 func_801B6528(u32 **, void *, void *, s32);
@@ -23,11 +23,11 @@ s32 func_801B5650(u32 **arg0, T029LeftCard *arg1, u8 *arg2, s32 arg3) {
     f32 position;
     f32 angle;
     f32 rotation;
-    f32 height;
     f32 z;
     f32 next;
     s16 *record;
     u32 *command;
+    f32 height;
     result = 3;
     if (D_802C8D06 == 7 && D_8004A407 != 0 && (D_802C8CE0 & 2) && D_802C8C28 == 0) {
         func_801B5534(0);

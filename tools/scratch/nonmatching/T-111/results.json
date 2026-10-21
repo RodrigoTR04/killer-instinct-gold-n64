@@ -1,0 +1,54 @@
+{
+  "func_801BADEC": {
+    "before_words": 118,
+    "words": 106,
+    "compiled": 568,
+    "original": 568,
+    "context": "full"
+  },
+  "func_801BB258": {
+    "before_words": 20,
+    "words": 20,
+    "compiled": 524,
+    "original": 524,
+    "context": "full"
+  },
+  "func_801B5650": {
+    "before_words": 425,
+    "words": 423,
+    "compiled": 1924,
+    "original": 1916,
+    "context": "full"
+  },
+  "func_801B5DCC": {
+    "before_words": 387,
+    "words": 386,
+    "compiled": 1884,
+    "original": 1884,
+    "context": "full"
+  },
+  "func_801B2EF4": {
+    "words": 19,
+    "context": "T-103 report; skipped in T-111"
+  },
+  "func_801B310C": {
+    "words": 19,
+    "context": "T-103 report; skipped in T-111"
+  },
+  "func_801B3324": {
+    "words": 19,
+    "context": "T-103 report; skipped in T-111"
+  },
+  "func_801B353C": {
+    "words": 19,
+    "context": "T-103 report; skipped in T-111"
+  },
+  "func_801B3754": {
+    "words": 19,
+    "context": "T-103 report; skipped in T-111"
+  },
+  "func_801B396C": {
+    "words": 19,
+    "context": "T-103 report; skipped in T-111"
+  }
+}

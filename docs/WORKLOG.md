@@ -526,3 +526,6 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-64192662. ovl_7DF8_1BD90 owns .rodata 0xE93F0–0xE9A10 (plus symbol hints), and func_801C7998 matches (256 B, a u64 input).
 - Clean vet build: the ROM and all 3 images are byte-identical. 315 T4; M1 = M2 = 70,884 / 289,876 B (24.45%).
 - T-116 launched (sol-B37): the least-attempted mid-distance drafts.
+
+## 2026-10-21 — T-111 vetted (clone-cluster finder)
+- Worktree t3-45905623. tools/analysis/clones.py writes docs/clones.md. Only 4 T2 clusters were found among 509 functions at threshold 0.85, so the remaining drafts are mostly unique. 0 new matches; func_801BADEC 118→106, func_801B5650/5DCC slight. Tool, docs and drafts only.
