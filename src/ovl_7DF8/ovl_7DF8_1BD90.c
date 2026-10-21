@@ -398,7 +398,19 @@ void func_801CA91C(s32 arg0) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801CAA00.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801CB998.s")
+extern void func_801BED0C(u32, u64);
+extern s32 D_80127CFC[];
+extern u64 D_802D3800, D_802D3808;
+
+void func_801CB998(u8 arg0)
+{
+    if (arg0 & 1) {
+        func_801BED0C(D_80127CFC[D_80127D30[0]], D_802D3800);
+    }
+    if (arg0 & 2) {
+        func_801BED0C(D_80127CFC[D_80127D31], D_802D3808);
+    }
+}
 
 extern void func_801C7A98(void);
 extern u8 D_80127C40[];

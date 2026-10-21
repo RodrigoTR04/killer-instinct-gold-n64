@@ -1,0 +1,103 @@
+[
+  {
+    "function": "func_801CC908",
+    "draft": "tools/scratch/nonmatching/T-021/func_801CC908.c",
+    "tu": "src/ovl_7DF8/ovl_7DF8_200C0.c",
+    "compiled": 424,
+    "original": 424,
+    "words": 2,
+    "context": "full",
+    "error": "",
+    "full_error": ""
+  },
+  {
+    "function": "func_800269AC",
+    "draft": "tools/scratch/nonmatching/T-032/func_800269AC.c",
+    "tu": "src/main/main_15380.c",
+    "compiled": 236,
+    "original": 236,
+    "words": 2,
+    "context": "full",
+    "error": "",
+    "full_error": ""
+  },
+  {
+    "function": "func_801C85C0",
+    "draft": "tools/scratch/nonmatching/T-021/func_801C85C0.c",
+    "tu": "src/ovl_7DF8/ovl_7DF8_1BD90.c",
+    "compiled": 168,
+    "original": 168,
+    "words": 4,
+    "context": "full",
+    "error": "",
+    "full_error": ""
+  },
+  {
+    "function": "func_801B5534",
+    "draft": "tools/scratch/nonmatching/T-029/func_801B5534.c",
+    "tu": "src/ovl_7DF8/ovl_7DF8_5ED0.c",
+    "compiled": 168,
+    "original": 168,
+    "words": 5,
+    "context": "full",
+    "error": "",
+    "full_error": ""
+  },
+  {
+    "function": "func_801BD270",
+    "draft": "tools/scratch/nonmatching/T-023/func_801BD270.c",
+    "tu": "src/ovl_7DF8/ovl_7DF8_116E0.c",
+    "compiled": 396,
+    "original": 396,
+    "words": 7,
+    "context": "full",
+    "error": "",
+    "full_error": ""
+  },
+  {
+    "function": "func_8001BDE0",
+    "draft": "tools/scratch/nonmatching/T-022/func_8001BDE0.c",
+    "tu": "src/main/main_2FF0.c",
+    "compiled": 316,
+    "original": 316,
+    "words": 8,
+    "context": "full",
+    "error": "",
+    "full_error": ""
+  },
+  {
+    "function": "func_801C47E0",
+    "draft": "tools/scratch/nonmatching/T-030/func_801C47E0.c",
+    "tu": "src/ovl_7DF8/ovl_7DF8_18CC0.c",
+    "compiled": 260,
+    "original": 260,
+    "words": 11,
+    "context": "full",
+    "error": "",
+    "full_error": ""
+  },
+  {
+    "function": "func_801CB998",
+    "words": 0,
+    "compiled": 148,
+    "original": 148,
+    "context": "linked image and ROM verified",
+    "result": "MATCHED"
+  },
+  {
+    "function": "func_801BF678",
+    "words": 0,
+    "compiled": 168,
+    "original": 168,
+    "context": "linked image and ROM verified",
+    "result": "MATCHED"
+  },
+  {
+    "function": "func_8001E0B4",
+    "words": 0,
+    "compiled": 648,
+    "original": 648,
+    "context": "linked image and ROM verified",
+    "result": "MATCHED"
+  }
+]

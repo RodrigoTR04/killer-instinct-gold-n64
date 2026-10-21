@@ -111,7 +111,21 @@ s32 func_801BF0E8(s32 *arg0, s32 count, s32 used) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_12C70/func_801BF190.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_12C70/func_801BF678.s")
+/* Keep loop setup together for IDO scheduling. */
+void func_801BF678(s8 *out, s32 value)
+{
+    s32 i;
+    s8 *p;
+
+    for (i = 5, p = out + 5; i >= 0; i--, p--) {
+        if (value || i == 5) {
+            *p = value % 10 + 48;
+        } else {
+            *p = 32;
+        }
+        value /= 10;
+    }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_12C70/func_801BF720.s")
 

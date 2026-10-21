@@ -67,7 +67,127 @@ void func_8001D768(s32 arg0, s32 *arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_D3F0/func_8001DE5C.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_D3F0/func_8001E0B4.s")
+extern u8 D_8004AC88;
+extern s8 D_8004AC89;
+extern s8 D_8004AC8A;
+extern u8 D_8004EA9E[];
+s32 func_8001EC74(u8 **, s32, s32, u32, u32, s32, s32, s32);
+extern u8 D_80046100;
+extern u8 D_8004A408;
+typedef struct { u8 pad[12]; f32 x,y,z; u8 tail[24]; } T032Pos24B;
+extern T032Pos24B D_8004A450[];
+extern s16 D_8004CEE8;
+extern s16 D_8004D26E;
+extern s32 D_8004EA78;
+extern u8 D_801D3430;
+extern u16 D_801D876C;
+extern u8 D_801D8770;
+extern u8 D_801D87E0;
+extern u8 D_801D87E1;
+void func_8001E0B4(u8 **arg0)
+{
+    u8 fullScaleY;
+
+    s32 size;
+    u8 fade;
+    int flipped;
+    s32 playerNumber;
+    s32 player;
+    s32 flip;
+    u32 scaleY;
+    u32 scaleX;
+    u8 palette;
+    u8 *state;
+    u8 *command;
+    command = *arg0;
+    *arg0 += 8;
+    /* Keep the command pair together for IDO store scheduling. */
+    *(s32 *)command = 0x06000000; *(u8 **)(command + 4) = &D_80046100;
+    for (player = 0; player != 2; player++)
+    {
+        if ((D_801D876C == 0) || (player != *(&D_801D8770 + 1)))
+        {
+            if (*(u16 *)((u8 *)D_8004A450 + player * 0x30 + 0x22) != 0xBE)
+            {
+                state = &D_801D3430 + (player << 8);
+                if (*(state - 0x17C) == 0)
+                {
+                    playerNumber = player + 1;
+                    if (playerNumber != D_8004A408)
+                    {
+                        flipped = (s32)*((u8 *)D_8004A450 + player * 0x30 + 0x21) >= 0x80;
+                        fullScaleY = D_8004AC88;
+                        D_8004D26E = 0;
+
+                        if (flipped)
+                        {
+                            flip = 1;
+                        }
+                        else
+                        {
+                            flip = 0;
+                        }
+                        scaleX = *(u16 *)(state + 0x58);
+                        D_8004EA78 = player;
+                        scaleY = *(u16 *)(state + 0x5A);
+                        if (scaleX == 0)
+                        {
+                            scaleX = 0x1000;
+                        }
+                        if (scaleY == 0)
+                        {
+                            scaleY = 0x1000;
+                        }
+                        if (fullScaleY == 0)
+                        {
+                            scaleY = (s32)scaleY / 2;
+                        }
+                        if (playerNumber == D_801D87E0)
+                        {
+                            if (D_801D87E1 != 0)
+                            {
+                                D_8004D26E = 0x80 - (D_801D87E1 * 2);
+                            }
+                        }
+                        else
+                        {
+                            D_8004D26E = 0x80;
+                        }
+                        fade = *(state - 0x170);
+                        if (fade != 0)
+                        {
+                            if (((s32) fade) < 0x40)
+                            {
+                                D_8004D26E = 0x80 - (fade * 2);
+                            }
+                            else
+                            {
+                                D_8004D26E = 0;
+                            }
+                        }
+                        if (*(s16 *)((u8 *)&D_8004CEE8 + D_8004EA78 * 0x1C) != 5)
+                        {
+                            if (D_8004EA9E[player] == 9)
+                            {
+                                palette = 1;
+                            }
+                            else
+                            {
+                                palette = (u8) D_8004AC89;
+                            }
+                            if (!(*(state + 0x95) & 0x10))
+                            {
+                                size = *(s32 *)(state + 0x70);
+                                func_8001EC74(arg0, *(s32 *)(state + 0x68) / 16, *(s32 *)((u8 *)D_8004A450 + player * 0x30 + 0x1C), (u32)(size * scaleX) >> 12, (u32)(size * scaleY) >> 12, (s32) palette, flip, (u8)D_8004AC8A);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_D3F0/func_8001E33C.s")
 
@@ -205,8 +325,6 @@ found:
 }
 
 typedef struct { u32 w0,w1; } T032Gfx24B;
-typedef struct { u8 pad[12]; f32 x,y,z; u8 tail[24]; } T032Pos24B;
-extern T032Pos24B D_8004A450[];
 extern u8 D_471440[],D_472FB0[],D_80046130[];
 extern u8 D_80044A24;
 extern f32 D_8004AC84,D_800695DC,D_800695E0;
