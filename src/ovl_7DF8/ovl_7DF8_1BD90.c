@@ -203,7 +203,38 @@ void func_801C8A38(u8 *arg0, s32 arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C8AE0.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C8C24.s")
+extern s32 func_801BF720(u32);
+extern u32 D_80127D00[8];
+
+void func_801C8C24(u8 *data)
+{
+    s32 i;
+    u16 packedName;
+    u16 byteIndex;
+    u32 name;
+    for (i = 0; i < 8; i++)
+    {
+        packedName = (data[0] << 8) + data[1];
+        data += 2;
+        name = func_801BF720((packedName >> 10) & 0x1F) << 24;
+        name |= func_801BF720((packedName >> 5) & 0x1F) << 16;
+        name |= func_801BF720(packedName & 0x1F) << 8;
+        if (name == 0x20202000)
+        {
+            name = 0;
+        }
+        D_80127D00[i] = name;
+        D_80127D20[i] = *data++;
+        D_80127D28[i] = *data++;
+    }
+
+    for (i = 0; i < 4; i++)
+    {
+        byteIndex = i;
+        D_80127D30[i * 2] = data[byteIndex] & 0xF;
+        D_80127D30[(byteIndex * 2) + 1] = data[byteIndex] >> 4;
+    }
+}
 
 
 void func_801C8DBC(u8 *arg0) {

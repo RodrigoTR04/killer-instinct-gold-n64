@@ -1,0 +1,2180 @@
+[
+  {
+    "label": "s16",
+    "words": 21,
+    "bytes": 324,
+    "offsets": [
+      "0x90",
+      "0x94",
+      "0x9c",
+      "0xa0",
+      "0xac",
+      "0xb0",
+      "0xc0",
+      "0xd0",
+      "0xdc",
+      "0xe0",
+      "0xe8",
+      "0xf0",
+      "0xf4",
+      "0xfc",
+      "0x100",
+      "0x104",
+      "0x108",
+      "0x110",
+      "0x114",
+      "0x118",
+      "0x11c"
+    ],
+    "instructions": [
+      {
+        "offset": "0x90",
+        "target": "or          $t7, $s1, $v0",
+        "draft": "or          $t5, $s1, $v0"
+      },
+      {
+        "offset": "0x94",
+        "target": "sra         $t6, $t7, 8",
+        "draft": "sra         $t6, $t5, 8"
+      },
+      {
+        "offset": "0x9c",
+        "target": "sb          $t7, 0x1($s0)",
+        "draft": "sb          $t5, 0x1($s0)"
+      },
+      {
+        "offset": "0xa0",
+        "target": "lbu         $t8, 0x0($s4)",
+        "draft": "lbu         $t7, 0x0($s4)"
+      },
+      {
+        "offset": "0xac",
+        "target": "sb          $t8, 0x2($s0)",
+        "draft": "sb          $t7, 0x2($s0)"
+      },
+      {
+        "offset": "0xb0",
+        "target": "lbu         $t9, -0x1($s3)",
+        "draft": "lbu         $t8, -0x1($s3)"
+      },
+      {
+        "offset": "0xc0",
+        "target": "sb          $t9, -0x1($s0)",
+        "draft": "sb          $t8, -0x1($s0)"
+      },
+      {
+        "offset": "0xd0",
+        "target": "lbu         $t2, 0x0($v0)",
+        "draft": "lbu         $t9, 0x0($v0)"
+      },
+      {
+        "offset": "0xdc",
+        "target": "or          $t3, $t1, $t2",
+        "draft": "or          $t2, $t9, $t1"
+      },
+      {
+        "offset": "0xe0",
+        "target": "sb          $t3, -0x3($s0)",
+        "draft": "sb          $t2, -0x3($s0)"
+      },
+      {
+        "offset": "0xe8",
+        "target": "lbu         $t6, 0x2($v0)",
+        "draft": "lbu         $t3, 0x2($v0)"
+      },
+      {
+        "offset": "0xf0",
+        "target": "or          $t7, $t5, $t6",
+        "draft": "or          $t6, $t3, $t5"
+      },
+      {
+        "offset": "0xf4",
+        "target": "sb          $t7, -0x2($s0)",
+        "draft": "sb          $t6, -0x2($s0)"
+      },
+      {
+        "offset": "0xfc",
+        "target": "lbu         $t0, 0x4($v0)",
+        "draft": "lbu         $t7, 0x4($v0)"
+      },
+      {
+        "offset": "0x100",
+        "target": "sll         $t9, $t8, 4",
+        "draft": "sll         $t0, $t8, 4"
+      },
+      {
+        "offset": "0x104",
+        "target": "or          $t1, $t9, $t0",
+        "draft": "or          $t9, $t7, $t0"
+      },
+      {
+        "offset": "0x108",
+        "target": "sb          $t1, -0x1($s0)",
+        "draft": "sb          $t9, -0x1($s0)"
+      },
+      {
+        "offset": "0x110",
+        "target": "lbu         $t4, 0x6($v0)",
+        "draft": "lbu         $t1, 0x6($v0)"
+      },
+      {
+        "offset": "0x114",
+        "target": "sll         $t3, $t2, 4",
+        "draft": "sll         $t4, $t2, 4"
+      },
+      {
+        "offset": "0x118",
+        "target": "or          $t5, $t3, $t4",
+        "draft": "or          $t3, $t1, $t4"
+      },
+      {
+        "offset": "0x11c",
+        "target": "sb          $t5, 0x0($s0)",
+        "draft": "sb          $t3, 0x0($s0)"
+      }
+    ]
+  },
+  {
+    "label": "s16(u16)",
+    "words": 22,
+    "bytes": 324,
+    "offsets": [
+      "0x90",
+      "0x94",
+      "0x98",
+      "0x9c",
+      "0xcc",
+      "0xd0",
+      "0xd8",
+      "0xdc",
+      "0xe4",
+      "0xe8",
+      "0xec",
+      "0xf0",
+      "0xf8",
+      "0xfc",
+      "0x100",
+      "0x104",
+      "0x108",
+      "0x10c",
+      "0x110",
+      "0x114",
+      "0x118",
+      "0x11c"
+    ],
+    "instructions": [
+      {
+        "offset": "0x90",
+        "target": "or          $t7, $s1, $v0",
+        "draft": "or          $t6, $s1, $v0"
+      },
+      {
+        "offset": "0x94",
+        "target": "sra         $t6, $t7, 8",
+        "draft": "sra         $t7, $t6, 8"
+      },
+      {
+        "offset": "0x98",
+        "target": "sb          $t6, 0x0($s0)",
+        "draft": "sb          $t7, 0x0($s0)"
+      },
+      {
+        "offset": "0x9c",
+        "target": "sb          $t7, 0x1($s0)",
+        "draft": "sb          $t6, 0x1($s0)"
+      },
+      {
+        "offset": "0xcc",
+        "target": "lbu         $t0, 0x1($v0)",
+        "draft": "lbu         $t1, 0x1($v0)"
+      },
+      {
+        "offset": "0xd0",
+        "target": "lbu         $t2, 0x0($v0)",
+        "draft": "lbu         $t0, 0x0($v0)"
+      },
+      {
+        "offset": "0xd8",
+        "target": "sll         $t1, $t0, 4",
+        "draft": "sll         $t2, $t1, 4"
+      },
+      {
+        "offset": "0xdc",
+        "target": "or          $t3, $t1, $t2",
+        "draft": "or          $t3, $t0, $t2"
+      },
+      {
+        "offset": "0xe4",
+        "target": "lbu         $t4, 0x3($v0)",
+        "draft": "lbu         $t5, 0x3($v0)"
+      },
+      {
+        "offset": "0xe8",
+        "target": "lbu         $t6, 0x2($v0)",
+        "draft": "lbu         $t4, 0x2($v0)"
+      },
+      {
+        "offset": "0xec",
+        "target": "sll         $t5, $t4, 4",
+        "draft": "sll         $t6, $t5, 4"
+      },
+      {
+        "offset": "0xf0",
+        "target": "or          $t7, $t5, $t6",
+        "draft": "or          $t7, $t4, $t6"
+      },
+      {
+        "offset": "0xf8",
+        "target": "lbu         $t8, 0x5($v0)",
+        "draft": "lbu         $t9, 0x5($v0)"
+      },
+      {
+        "offset": "0xfc",
+        "target": "lbu         $t0, 0x4($v0)",
+        "draft": "lbu         $t8, 0x4($v0)"
+      },
+      {
+        "offset": "0x100",
+        "target": "sll         $t9, $t8, 4",
+        "draft": "sll         $t1, $t9, 4"
+      },
+      {
+        "offset": "0x104",
+        "target": "or          $t1, $t9, $t0",
+        "draft": "or          $t0, $t8, $t1"
+      },
+      {
+        "offset": "0x108",
+        "target": "sb          $t1, -0x1($s0)",
+        "draft": "sb          $t0, -0x1($s0)"
+      },
+      {
+        "offset": "0x10c",
+        "target": "lbu         $t2, 0x7($v0)",
+        "draft": "lbu         $t3, 0x7($v0)"
+      },
+      {
+        "offset": "0x110",
+        "target": "lbu         $t4, 0x6($v0)",
+        "draft": "lbu         $t2, 0x6($v0)"
+      },
+      {
+        "offset": "0x114",
+        "target": "sll         $t3, $t2, 4",
+        "draft": "sll         $t5, $t3, 4"
+      },
+      {
+        "offset": "0x118",
+        "target": "or          $t5, $t3, $t4",
+        "draft": "or          $t4, $t2, $t5"
+      },
+      {
+        "offset": "0x11c",
+        "target": "sb          $t5, 0x0($s0)",
+        "draft": "sb          $t4, 0x0($s0)"
+      }
+    ]
+  },
+  {
+    "label": "s16(u32)",
+    "words": 21,
+    "bytes": 324,
+    "offsets": [
+      "0x90",
+      "0x94",
+      "0x9c",
+      "0xa0",
+      "0xac",
+      "0xb0",
+      "0xc0",
+      "0xd0",
+      "0xdc",
+      "0xe0",
+      "0xe8",
+      "0xf0",
+      "0xf4",
+      "0xfc",
+      "0x100",
+      "0x104",
+      "0x108",
+      "0x110",
+      "0x114",
+      "0x118",
+      "0x11c"
+    ],
+    "instructions": [
+      {
+        "offset": "0x90",
+        "target": "or          $t7, $s1, $v0",
+        "draft": "or          $t5, $s1, $v0"
+      },
+      {
+        "offset": "0x94",
+        "target": "sra         $t6, $t7, 8",
+        "draft": "sra         $t6, $t5, 8"
+      },
+      {
+        "offset": "0x9c",
+        "target": "sb          $t7, 0x1($s0)",
+        "draft": "sb          $t5, 0x1($s0)"
+      },
+      {
+        "offset": "0xa0",
+        "target": "lbu         $t8, 0x0($s4)",
+        "draft": "lbu         $t7, 0x0($s4)"
+      },
+      {
+        "offset": "0xac",
+        "target": "sb          $t8, 0x2($s0)",
+        "draft": "sb          $t7, 0x2($s0)"
+      },
+      {
+        "offset": "0xb0",
+        "target": "lbu         $t9, -0x1($s3)",
+        "draft": "lbu         $t8, -0x1($s3)"
+      },
+      {
+        "offset": "0xc0",
+        "target": "sb          $t9, -0x1($s0)",
+        "draft": "sb          $t8, -0x1($s0)"
+      },
+      {
+        "offset": "0xd0",
+        "target": "lbu         $t2, 0x0($v0)",
+        "draft": "lbu         $t9, 0x0($v0)"
+      },
+      {
+        "offset": "0xdc",
+        "target": "or          $t3, $t1, $t2",
+        "draft": "or          $t2, $t9, $t1"
+      },
+      {
+        "offset": "0xe0",
+        "target": "sb          $t3, -0x3($s0)",
+        "draft": "sb          $t2, -0x3($s0)"
+      },
+      {
+        "offset": "0xe8",
+        "target": "lbu         $t6, 0x2($v0)",
+        "draft": "lbu         $t3, 0x2($v0)"
+      },
+      {
+        "offset": "0xf0",
+        "target": "or          $t7, $t5, $t6",
+        "draft": "or          $t6, $t3, $t5"
+      },
+      {
+        "offset": "0xf4",
+        "target": "sb          $t7, -0x2($s0)",
+        "draft": "sb          $t6, -0x2($s0)"
+      },
+      {
+        "offset": "0xfc",
+        "target": "lbu         $t0, 0x4($v0)",
+        "draft": "lbu         $t7, 0x4($v0)"
+      },
+      {
+        "offset": "0x100",
+        "target": "sll         $t9, $t8, 4",
+        "draft": "sll         $t0, $t8, 4"
+      },
+      {
+        "offset": "0x104",
+        "target": "or          $t1, $t9, $t0",
+        "draft": "or          $t9, $t7, $t0"
+      },
+      {
+        "offset": "0x108",
+        "target": "sb          $t1, -0x1($s0)",
+        "draft": "sb          $t9, -0x1($s0)"
+      },
+      {
+        "offset": "0x110",
+        "target": "lbu         $t4, 0x6($v0)",
+        "draft": "lbu         $t1, 0x6($v0)"
+      },
+      {
+        "offset": "0x114",
+        "target": "sll         $t3, $t2, 4",
+        "draft": "sll         $t4, $t2, 4"
+      },
+      {
+        "offset": "0x118",
+        "target": "or          $t5, $t3, $t4",
+        "draft": "or          $t3, $t1, $t4"
+      },
+      {
+        "offset": "0x11c",
+        "target": "sb          $t5, 0x0($s0)",
+        "draft": "sb          $t3, 0x0($s0)"
+      }
+    ]
+  },
+  {
+    "label": "s16(s32)",
+    "words": 21,
+    "bytes": 324,
+    "offsets": [
+      "0x90",
+      "0x94",
+      "0x9c",
+      "0xa0",
+      "0xac",
+      "0xb0",
+      "0xc0",
+      "0xd0",
+      "0xdc",
+      "0xe0",
+      "0xe8",
+      "0xf0",
+      "0xf4",
+      "0xfc",
+      "0x100",
+      "0x104",
+      "0x108",
+      "0x110",
+      "0x114",
+      "0x118",
+      "0x11c"
+    ],
+    "instructions": [
+      {
+        "offset": "0x90",
+        "target": "or          $t7, $s1, $v0",
+        "draft": "or          $t5, $s1, $v0"
+      },
+      {
+        "offset": "0x94",
+        "target": "sra         $t6, $t7, 8",
+        "draft": "sra         $t6, $t5, 8"
+      },
+      {
+        "offset": "0x9c",
+        "target": "sb          $t7, 0x1($s0)",
+        "draft": "sb          $t5, 0x1($s0)"
+      },
+      {
+        "offset": "0xa0",
+        "target": "lbu         $t8, 0x0($s4)",
+        "draft": "lbu         $t7, 0x0($s4)"
+      },
+      {
+        "offset": "0xac",
+        "target": "sb          $t8, 0x2($s0)",
+        "draft": "sb          $t7, 0x2($s0)"
+      },
+      {
+        "offset": "0xb0",
+        "target": "lbu         $t9, -0x1($s3)",
+        "draft": "lbu         $t8, -0x1($s3)"
+      },
+      {
+        "offset": "0xc0",
+        "target": "sb          $t9, -0x1($s0)",
+        "draft": "sb          $t8, -0x1($s0)"
+      },
+      {
+        "offset": "0xd0",
+        "target": "lbu         $t2, 0x0($v0)",
+        "draft": "lbu         $t9, 0x0($v0)"
+      },
+      {
+        "offset": "0xdc",
+        "target": "or          $t3, $t1, $t2",
+        "draft": "or          $t2, $t9, $t1"
+      },
+      {
+        "offset": "0xe0",
+        "target": "sb          $t3, -0x3($s0)",
+        "draft": "sb          $t2, -0x3($s0)"
+      },
+      {
+        "offset": "0xe8",
+        "target": "lbu         $t6, 0x2($v0)",
+        "draft": "lbu         $t3, 0x2($v0)"
+      },
+      {
+        "offset": "0xf0",
+        "target": "or          $t7, $t5, $t6",
+        "draft": "or          $t6, $t3, $t5"
+      },
+      {
+        "offset": "0xf4",
+        "target": "sb          $t7, -0x2($s0)",
+        "draft": "sb          $t6, -0x2($s0)"
+      },
+      {
+        "offset": "0xfc",
+        "target": "lbu         $t0, 0x4($v0)",
+        "draft": "lbu         $t7, 0x4($v0)"
+      },
+      {
+        "offset": "0x100",
+        "target": "sll         $t9, $t8, 4",
+        "draft": "sll         $t0, $t8, 4"
+      },
+      {
+        "offset": "0x104",
+        "target": "or          $t1, $t9, $t0",
+        "draft": "or          $t9, $t7, $t0"
+      },
+      {
+        "offset": "0x108",
+        "target": "sb          $t1, -0x1($s0)",
+        "draft": "sb          $t9, -0x1($s0)"
+      },
+      {
+        "offset": "0x110",
+        "target": "lbu         $t4, 0x6($v0)",
+        "draft": "lbu         $t1, 0x6($v0)"
+      },
+      {
+        "offset": "0x114",
+        "target": "sll         $t3, $t2, 4",
+        "draft": "sll         $t4, $t2, 4"
+      },
+      {
+        "offset": "0x118",
+        "target": "or          $t5, $t3, $t4",
+        "draft": "or          $t3, $t1, $t4"
+      },
+      {
+        "offset": "0x11c",
+        "target": "sb          $t5, 0x0($s0)",
+        "draft": "sb          $t3, 0x0($s0)"
+      }
+    ]
+  },
+  {
+    "label": "u16",
+    "words": 21,
+    "bytes": 324,
+    "offsets": [
+      "0x90",
+      "0x94",
+      "0x9c",
+      "0xa0",
+      "0xac",
+      "0xb0",
+      "0xc0",
+      "0xd0",
+      "0xdc",
+      "0xe0",
+      "0xe8",
+      "0xf0",
+      "0xf4",
+      "0xfc",
+      "0x100",
+      "0x104",
+      "0x108",
+      "0x110",
+      "0x114",
+      "0x118",
+      "0x11c"
+    ],
+    "instructions": [
+      {
+        "offset": "0x90",
+        "target": "or          $t7, $s1, $v0",
+        "draft": "or          $t5, $s1, $v0"
+      },
+      {
+        "offset": "0x94",
+        "target": "sra         $t6, $t7, 8",
+        "draft": "sra         $t6, $t5, 8"
+      },
+      {
+        "offset": "0x9c",
+        "target": "sb          $t7, 0x1($s0)",
+        "draft": "sb          $t5, 0x1($s0)"
+      },
+      {
+        "offset": "0xa0",
+        "target": "lbu         $t8, 0x0($s4)",
+        "draft": "lbu         $t7, 0x0($s4)"
+      },
+      {
+        "offset": "0xac",
+        "target": "sb          $t8, 0x2($s0)",
+        "draft": "sb          $t7, 0x2($s0)"
+      },
+      {
+        "offset": "0xb0",
+        "target": "lbu         $t9, -0x1($s3)",
+        "draft": "lbu         $t8, -0x1($s3)"
+      },
+      {
+        "offset": "0xc0",
+        "target": "sb          $t9, -0x1($s0)",
+        "draft": "sb          $t8, -0x1($s0)"
+      },
+      {
+        "offset": "0xd0",
+        "target": "lbu         $t2, 0x0($v0)",
+        "draft": "lbu         $t9, 0x0($v0)"
+      },
+      {
+        "offset": "0xdc",
+        "target": "or          $t3, $t1, $t2",
+        "draft": "or          $t2, $t9, $t1"
+      },
+      {
+        "offset": "0xe0",
+        "target": "sb          $t3, -0x3($s0)",
+        "draft": "sb          $t2, -0x3($s0)"
+      },
+      {
+        "offset": "0xe8",
+        "target": "lbu         $t6, 0x2($v0)",
+        "draft": "lbu         $t3, 0x2($v0)"
+      },
+      {
+        "offset": "0xf0",
+        "target": "or          $t7, $t5, $t6",
+        "draft": "or          $t6, $t3, $t5"
+      },
+      {
+        "offset": "0xf4",
+        "target": "sb          $t7, -0x2($s0)",
+        "draft": "sb          $t6, -0x2($s0)"
+      },
+      {
+        "offset": "0xfc",
+        "target": "lbu         $t0, 0x4($v0)",
+        "draft": "lbu         $t7, 0x4($v0)"
+      },
+      {
+        "offset": "0x100",
+        "target": "sll         $t9, $t8, 4",
+        "draft": "sll         $t0, $t8, 4"
+      },
+      {
+        "offset": "0x104",
+        "target": "or          $t1, $t9, $t0",
+        "draft": "or          $t9, $t7, $t0"
+      },
+      {
+        "offset": "0x108",
+        "target": "sb          $t1, -0x1($s0)",
+        "draft": "sb          $t9, -0x1($s0)"
+      },
+      {
+        "offset": "0x110",
+        "target": "lbu         $t4, 0x6($v0)",
+        "draft": "lbu         $t1, 0x6($v0)"
+      },
+      {
+        "offset": "0x114",
+        "target": "sll         $t3, $t2, 4",
+        "draft": "sll         $t4, $t2, 4"
+      },
+      {
+        "offset": "0x118",
+        "target": "or          $t5, $t3, $t4",
+        "draft": "or          $t3, $t1, $t4"
+      },
+      {
+        "offset": "0x11c",
+        "target": "sb          $t5, 0x0($s0)",
+        "draft": "sb          $t3, 0x0($s0)"
+      }
+    ]
+  },
+  {
+    "label": "u16(u16)",
+    "words": 21,
+    "bytes": 324,
+    "offsets": [
+      "0x90",
+      "0x94",
+      "0x9c",
+      "0xa0",
+      "0xac",
+      "0xb0",
+      "0xc0",
+      "0xd0",
+      "0xdc",
+      "0xe0",
+      "0xe8",
+      "0xf0",
+      "0xf4",
+      "0xfc",
+      "0x100",
+      "0x104",
+      "0x108",
+      "0x110",
+      "0x114",
+      "0x118",
+      "0x11c"
+    ],
+    "instructions": [
+      {
+        "offset": "0x90",
+        "target": "or          $t7, $s1, $v0",
+        "draft": "or          $t5, $s1, $v0"
+      },
+      {
+        "offset": "0x94",
+        "target": "sra         $t6, $t7, 8",
+        "draft": "sra         $t6, $t5, 8"
+      },
+      {
+        "offset": "0x9c",
+        "target": "sb          $t7, 0x1($s0)",
+        "draft": "sb          $t5, 0x1($s0)"
+      },
+      {
+        "offset": "0xa0",
+        "target": "lbu         $t8, 0x0($s4)",
+        "draft": "lbu         $t7, 0x0($s4)"
+      },
+      {
+        "offset": "0xac",
+        "target": "sb          $t8, 0x2($s0)",
+        "draft": "sb          $t7, 0x2($s0)"
+      },
+      {
+        "offset": "0xb0",
+        "target": "lbu         $t9, -0x1($s3)",
+        "draft": "lbu         $t8, -0x1($s3)"
+      },
+      {
+        "offset": "0xc0",
+        "target": "sb          $t9, -0x1($s0)",
+        "draft": "sb          $t8, -0x1($s0)"
+      },
+      {
+        "offset": "0xd0",
+        "target": "lbu         $t2, 0x0($v0)",
+        "draft": "lbu         $t9, 0x0($v0)"
+      },
+      {
+        "offset": "0xdc",
+        "target": "or          $t3, $t1, $t2",
+        "draft": "or          $t2, $t9, $t1"
+      },
+      {
+        "offset": "0xe0",
+        "target": "sb          $t3, -0x3($s0)",
+        "draft": "sb          $t2, -0x3($s0)"
+      },
+      {
+        "offset": "0xe8",
+        "target": "lbu         $t6, 0x2($v0)",
+        "draft": "lbu         $t3, 0x2($v0)"
+      },
+      {
+        "offset": "0xf0",
+        "target": "or          $t7, $t5, $t6",
+        "draft": "or          $t6, $t3, $t5"
+      },
+      {
+        "offset": "0xf4",
+        "target": "sb          $t7, -0x2($s0)",
+        "draft": "sb          $t6, -0x2($s0)"
+      },
+      {
+        "offset": "0xfc",
+        "target": "lbu         $t0, 0x4($v0)",
+        "draft": "lbu         $t7, 0x4($v0)"
+      },
+      {
+        "offset": "0x100",
+        "target": "sll         $t9, $t8, 4",
+        "draft": "sll         $t0, $t8, 4"
+      },
+      {
+        "offset": "0x104",
+        "target": "or          $t1, $t9, $t0",
+        "draft": "or          $t9, $t7, $t0"
+      },
+      {
+        "offset": "0x108",
+        "target": "sb          $t1, -0x1($s0)",
+        "draft": "sb          $t9, -0x1($s0)"
+      },
+      {
+        "offset": "0x110",
+        "target": "lbu         $t4, 0x6($v0)",
+        "draft": "lbu         $t1, 0x6($v0)"
+      },
+      {
+        "offset": "0x114",
+        "target": "sll         $t3, $t2, 4",
+        "draft": "sll         $t4, $t2, 4"
+      },
+      {
+        "offset": "0x118",
+        "target": "or          $t5, $t3, $t4",
+        "draft": "or          $t3, $t1, $t4"
+      },
+      {
+        "offset": "0x11c",
+        "target": "sb          $t5, 0x0($s0)",
+        "draft": "sb          $t3, 0x0($s0)"
+      }
+    ]
+  },
+  {
+    "label": "u16(u32)",
+    "words": 21,
+    "bytes": 324,
+    "offsets": [
+      "0x90",
+      "0x94",
+      "0x9c",
+      "0xa0",
+      "0xac",
+      "0xb0",
+      "0xc0",
+      "0xd0",
+      "0xdc",
+      "0xe0",
+      "0xe8",
+      "0xf0",
+      "0xf4",
+      "0xfc",
+      "0x100",
+      "0x104",
+      "0x108",
+      "0x110",
+      "0x114",
+      "0x118",
+      "0x11c"
+    ],
+    "instructions": [
+      {
+        "offset": "0x90",
+        "target": "or          $t7, $s1, $v0",
+        "draft": "or          $t5, $s1, $v0"
+      },
+      {
+        "offset": "0x94",
+        "target": "sra         $t6, $t7, 8",
+        "draft": "sra         $t6, $t5, 8"
+      },
+      {
+        "offset": "0x9c",
+        "target": "sb          $t7, 0x1($s0)",
+        "draft": "sb          $t5, 0x1($s0)"
+      },
+      {
+        "offset": "0xa0",
+        "target": "lbu         $t8, 0x0($s4)",
+        "draft": "lbu         $t7, 0x0($s4)"
+      },
+      {
+        "offset": "0xac",
+        "target": "sb          $t8, 0x2($s0)",
+        "draft": "sb          $t7, 0x2($s0)"
+      },
+      {
+        "offset": "0xb0",
+        "target": "lbu         $t9, -0x1($s3)",
+        "draft": "lbu         $t8, -0x1($s3)"
+      },
+      {
+        "offset": "0xc0",
+        "target": "sb          $t9, -0x1($s0)",
+        "draft": "sb          $t8, -0x1($s0)"
+      },
+      {
+        "offset": "0xd0",
+        "target": "lbu         $t2, 0x0($v0)",
+        "draft": "lbu         $t9, 0x0($v0)"
+      },
+      {
+        "offset": "0xdc",
+        "target": "or          $t3, $t1, $t2",
+        "draft": "or          $t2, $t9, $t1"
+      },
+      {
+        "offset": "0xe0",
+        "target": "sb          $t3, -0x3($s0)",
+        "draft": "sb          $t2, -0x3($s0)"
+      },
+      {
+        "offset": "0xe8",
+        "target": "lbu         $t6, 0x2($v0)",
+        "draft": "lbu         $t3, 0x2($v0)"
+      },
+      {
+        "offset": "0xf0",
+        "target": "or          $t7, $t5, $t6",
+        "draft": "or          $t6, $t3, $t5"
+      },
+      {
+        "offset": "0xf4",
+        "target": "sb          $t7, -0x2($s0)",
+        "draft": "sb          $t6, -0x2($s0)"
+      },
+      {
+        "offset": "0xfc",
+        "target": "lbu         $t0, 0x4($v0)",
+        "draft": "lbu         $t7, 0x4($v0)"
+      },
+      {
+        "offset": "0x100",
+        "target": "sll         $t9, $t8, 4",
+        "draft": "sll         $t0, $t8, 4"
+      },
+      {
+        "offset": "0x104",
+        "target": "or          $t1, $t9, $t0",
+        "draft": "or          $t9, $t7, $t0"
+      },
+      {
+        "offset": "0x108",
+        "target": "sb          $t1, -0x1($s0)",
+        "draft": "sb          $t9, -0x1($s0)"
+      },
+      {
+        "offset": "0x110",
+        "target": "lbu         $t4, 0x6($v0)",
+        "draft": "lbu         $t1, 0x6($v0)"
+      },
+      {
+        "offset": "0x114",
+        "target": "sll         $t3, $t2, 4",
+        "draft": "sll         $t4, $t2, 4"
+      },
+      {
+        "offset": "0x118",
+        "target": "or          $t5, $t3, $t4",
+        "draft": "or          $t3, $t1, $t4"
+      },
+      {
+        "offset": "0x11c",
+        "target": "sb          $t5, 0x0($s0)",
+        "draft": "sb          $t3, 0x0($s0)"
+      }
+    ]
+  },
+  {
+    "label": "u16(s32)",
+    "words": 21,
+    "bytes": 324,
+    "offsets": [
+      "0x90",
+      "0x94",
+      "0x9c",
+      "0xa0",
+      "0xac",
+      "0xb0",
+      "0xc0",
+      "0xd0",
+      "0xdc",
+      "0xe0",
+      "0xe8",
+      "0xf0",
+      "0xf4",
+      "0xfc",
+      "0x100",
+      "0x104",
+      "0x108",
+      "0x110",
+      "0x114",
+      "0x118",
+      "0x11c"
+    ],
+    "instructions": [
+      {
+        "offset": "0x90",
+        "target": "or          $t7, $s1, $v0",
+        "draft": "or          $t5, $s1, $v0"
+      },
+      {
+        "offset": "0x94",
+        "target": "sra         $t6, $t7, 8",
+        "draft": "sra         $t6, $t5, 8"
+      },
+      {
+        "offset": "0x9c",
+        "target": "sb          $t7, 0x1($s0)",
+        "draft": "sb          $t5, 0x1($s0)"
+      },
+      {
+        "offset": "0xa0",
+        "target": "lbu         $t8, 0x0($s4)",
+        "draft": "lbu         $t7, 0x0($s4)"
+      },
+      {
+        "offset": "0xac",
+        "target": "sb          $t8, 0x2($s0)",
+        "draft": "sb          $t7, 0x2($s0)"
+      },
+      {
+        "offset": "0xb0",
+        "target": "lbu         $t9, -0x1($s3)",
+        "draft": "lbu         $t8, -0x1($s3)"
+      },
+      {
+        "offset": "0xc0",
+        "target": "sb          $t9, -0x1($s0)",
+        "draft": "sb          $t8, -0x1($s0)"
+      },
+      {
+        "offset": "0xd0",
+        "target": "lbu         $t2, 0x0($v0)",
+        "draft": "lbu         $t9, 0x0($v0)"
+      },
+      {
+        "offset": "0xdc",
+        "target": "or          $t3, $t1, $t2",
+        "draft": "or          $t2, $t9, $t1"
+      },
+      {
+        "offset": "0xe0",
+        "target": "sb          $t3, -0x3($s0)",
+        "draft": "sb          $t2, -0x3($s0)"
+      },
+      {
+        "offset": "0xe8",
+        "target": "lbu         $t6, 0x2($v0)",
+        "draft": "lbu         $t3, 0x2($v0)"
+      },
+      {
+        "offset": "0xf0",
+        "target": "or          $t7, $t5, $t6",
+        "draft": "or          $t6, $t3, $t5"
+      },
+      {
+        "offset": "0xf4",
+        "target": "sb          $t7, -0x2($s0)",
+        "draft": "sb          $t6, -0x2($s0)"
+      },
+      {
+        "offset": "0xfc",
+        "target": "lbu         $t0, 0x4($v0)",
+        "draft": "lbu         $t7, 0x4($v0)"
+      },
+      {
+        "offset": "0x100",
+        "target": "sll         $t9, $t8, 4",
+        "draft": "sll         $t0, $t8, 4"
+      },
+      {
+        "offset": "0x104",
+        "target": "or          $t1, $t9, $t0",
+        "draft": "or          $t9, $t7, $t0"
+      },
+      {
+        "offset": "0x108",
+        "target": "sb          $t1, -0x1($s0)",
+        "draft": "sb          $t9, -0x1($s0)"
+      },
+      {
+        "offset": "0x110",
+        "target": "lbu         $t4, 0x6($v0)",
+        "draft": "lbu         $t1, 0x6($v0)"
+      },
+      {
+        "offset": "0x114",
+        "target": "sll         $t3, $t2, 4",
+        "draft": "sll         $t4, $t2, 4"
+      },
+      {
+        "offset": "0x118",
+        "target": "or          $t5, $t3, $t4",
+        "draft": "or          $t3, $t1, $t4"
+      },
+      {
+        "offset": "0x11c",
+        "target": "sb          $t5, 0x0($s0)",
+        "draft": "sb          $t3, 0x0($s0)"
+      }
+    ]
+  },
+  {
+    "label": "s32",
+    "words": 21,
+    "bytes": 324,
+    "offsets": [
+      "0x90",
+      "0x94",
+      "0x9c",
+      "0xa0",
+      "0xac",
+      "0xb0",
+      "0xc0",
+      "0xd0",
+      "0xdc",
+      "0xe0",
+      "0xe8",
+      "0xf0",
+      "0xf4",
+      "0xfc",
+      "0x100",
+      "0x104",
+      "0x108",
+      "0x110",
+      "0x114",
+      "0x118",
+      "0x11c"
+    ],
+    "instructions": [
+      {
+        "offset": "0x90",
+        "target": "or          $t7, $s1, $v0",
+        "draft": "or          $t5, $s1, $v0"
+      },
+      {
+        "offset": "0x94",
+        "target": "sra         $t6, $t7, 8",
+        "draft": "sra         $t6, $t5, 8"
+      },
+      {
+        "offset": "0x9c",
+        "target": "sb          $t7, 0x1($s0)",
+        "draft": "sb          $t5, 0x1($s0)"
+      },
+      {
+        "offset": "0xa0",
+        "target": "lbu         $t8, 0x0($s4)",
+        "draft": "lbu         $t7, 0x0($s4)"
+      },
+      {
+        "offset": "0xac",
+        "target": "sb          $t8, 0x2($s0)",
+        "draft": "sb          $t7, 0x2($s0)"
+      },
+      {
+        "offset": "0xb0",
+        "target": "lbu         $t9, -0x1($s3)",
+        "draft": "lbu         $t8, -0x1($s3)"
+      },
+      {
+        "offset": "0xc0",
+        "target": "sb          $t9, -0x1($s0)",
+        "draft": "sb          $t8, -0x1($s0)"
+      },
+      {
+        "offset": "0xd0",
+        "target": "lbu         $t2, 0x0($v0)",
+        "draft": "lbu         $t9, 0x0($v0)"
+      },
+      {
+        "offset": "0xdc",
+        "target": "or          $t3, $t1, $t2",
+        "draft": "or          $t2, $t9, $t1"
+      },
+      {
+        "offset": "0xe0",
+        "target": "sb          $t3, -0x3($s0)",
+        "draft": "sb          $t2, -0x3($s0)"
+      },
+      {
+        "offset": "0xe8",
+        "target": "lbu         $t6, 0x2($v0)",
+        "draft": "lbu         $t3, 0x2($v0)"
+      },
+      {
+        "offset": "0xf0",
+        "target": "or          $t7, $t5, $t6",
+        "draft": "or          $t6, $t3, $t5"
+      },
+      {
+        "offset": "0xf4",
+        "target": "sb          $t7, -0x2($s0)",
+        "draft": "sb          $t6, -0x2($s0)"
+      },
+      {
+        "offset": "0xfc",
+        "target": "lbu         $t0, 0x4($v0)",
+        "draft": "lbu         $t7, 0x4($v0)"
+      },
+      {
+        "offset": "0x100",
+        "target": "sll         $t9, $t8, 4",
+        "draft": "sll         $t0, $t8, 4"
+      },
+      {
+        "offset": "0x104",
+        "target": "or          $t1, $t9, $t0",
+        "draft": "or          $t9, $t7, $t0"
+      },
+      {
+        "offset": "0x108",
+        "target": "sb          $t1, -0x1($s0)",
+        "draft": "sb          $t9, -0x1($s0)"
+      },
+      {
+        "offset": "0x110",
+        "target": "lbu         $t4, 0x6($v0)",
+        "draft": "lbu         $t1, 0x6($v0)"
+      },
+      {
+        "offset": "0x114",
+        "target": "sll         $t3, $t2, 4",
+        "draft": "sll         $t4, $t2, 4"
+      },
+      {
+        "offset": "0x118",
+        "target": "or          $t5, $t3, $t4",
+        "draft": "or          $t3, $t1, $t4"
+      },
+      {
+        "offset": "0x11c",
+        "target": "sb          $t5, 0x0($s0)",
+        "draft": "sb          $t3, 0x0($s0)"
+      }
+    ]
+  },
+  {
+    "label": "s32(u16)",
+    "words": 22,
+    "bytes": 324,
+    "offsets": [
+      "0x90",
+      "0x94",
+      "0x98",
+      "0x9c",
+      "0xcc",
+      "0xd0",
+      "0xd8",
+      "0xdc",
+      "0xe4",
+      "0xe8",
+      "0xec",
+      "0xf0",
+      "0xf8",
+      "0xfc",
+      "0x100",
+      "0x104",
+      "0x108",
+      "0x10c",
+      "0x110",
+      "0x114",
+      "0x118",
+      "0x11c"
+    ],
+    "instructions": [
+      {
+        "offset": "0x90",
+        "target": "or          $t7, $s1, $v0",
+        "draft": "or          $t6, $s1, $v0"
+      },
+      {
+        "offset": "0x94",
+        "target": "sra         $t6, $t7, 8",
+        "draft": "sra         $t7, $t6, 8"
+      },
+      {
+        "offset": "0x98",
+        "target": "sb          $t6, 0x0($s0)",
+        "draft": "sb          $t7, 0x0($s0)"
+      },
+      {
+        "offset": "0x9c",
+        "target": "sb          $t7, 0x1($s0)",
+        "draft": "sb          $t6, 0x1($s0)"
+      },
+      {
+        "offset": "0xcc",
+        "target": "lbu         $t0, 0x1($v0)",
+        "draft": "lbu         $t1, 0x1($v0)"
+      },
+      {
+        "offset": "0xd0",
+        "target": "lbu         $t2, 0x0($v0)",
+        "draft": "lbu         $t0, 0x0($v0)"
+      },
+      {
+        "offset": "0xd8",
+        "target": "sll         $t1, $t0, 4",
+        "draft": "sll         $t2, $t1, 4"
+      },
+      {
+        "offset": "0xdc",
+        "target": "or          $t3, $t1, $t2",
+        "draft": "or          $t3, $t0, $t2"
+      },
+      {
+        "offset": "0xe4",
+        "target": "lbu         $t4, 0x3($v0)",
+        "draft": "lbu         $t5, 0x3($v0)"
+      },
+      {
+        "offset": "0xe8",
+        "target": "lbu         $t6, 0x2($v0)",
+        "draft": "lbu         $t4, 0x2($v0)"
+      },
+      {
+        "offset": "0xec",
+        "target": "sll         $t5, $t4, 4",
+        "draft": "sll         $t6, $t5, 4"
+      },
+      {
+        "offset": "0xf0",
+        "target": "or          $t7, $t5, $t6",
+        "draft": "or          $t7, $t4, $t6"
+      },
+      {
+        "offset": "0xf8",
+        "target": "lbu         $t8, 0x5($v0)",
+        "draft": "lbu         $t9, 0x5($v0)"
+      },
+      {
+        "offset": "0xfc",
+        "target": "lbu         $t0, 0x4($v0)",
+        "draft": "lbu         $t8, 0x4($v0)"
+      },
+      {
+        "offset": "0x100",
+        "target": "sll         $t9, $t8, 4",
+        "draft": "sll         $t1, $t9, 4"
+      },
+      {
+        "offset": "0x104",
+        "target": "or          $t1, $t9, $t0",
+        "draft": "or          $t0, $t8, $t1"
+      },
+      {
+        "offset": "0x108",
+        "target": "sb          $t1, -0x1($s0)",
+        "draft": "sb          $t0, -0x1($s0)"
+      },
+      {
+        "offset": "0x10c",
+        "target": "lbu         $t2, 0x7($v0)",
+        "draft": "lbu         $t3, 0x7($v0)"
+      },
+      {
+        "offset": "0x110",
+        "target": "lbu         $t4, 0x6($v0)",
+        "draft": "lbu         $t2, 0x6($v0)"
+      },
+      {
+        "offset": "0x114",
+        "target": "sll         $t3, $t2, 4",
+        "draft": "sll         $t5, $t3, 4"
+      },
+      {
+        "offset": "0x118",
+        "target": "or          $t5, $t3, $t4",
+        "draft": "or          $t4, $t2, $t5"
+      },
+      {
+        "offset": "0x11c",
+        "target": "sb          $t5, 0x0($s0)",
+        "draft": "sb          $t4, 0x0($s0)"
+      }
+    ]
+  },
+  {
+    "label": "s32(u32)",
+    "words": 21,
+    "bytes": 324,
+    "offsets": [
+      "0x90",
+      "0x94",
+      "0x9c",
+      "0xa0",
+      "0xac",
+      "0xb0",
+      "0xc0",
+      "0xd0",
+      "0xdc",
+      "0xe0",
+      "0xe8",
+      "0xf0",
+      "0xf4",
+      "0xfc",
+      "0x100",
+      "0x104",
+      "0x108",
+      "0x110",
+      "0x114",
+      "0x118",
+      "0x11c"
+    ],
+    "instructions": [
+      {
+        "offset": "0x90",
+        "target": "or          $t7, $s1, $v0",
+        "draft": "or          $t5, $s1, $v0"
+      },
+      {
+        "offset": "0x94",
+        "target": "sra         $t6, $t7, 8",
+        "draft": "sra         $t6, $t5, 8"
+      },
+      {
+        "offset": "0x9c",
+        "target": "sb          $t7, 0x1($s0)",
+        "draft": "sb          $t5, 0x1($s0)"
+      },
+      {
+        "offset": "0xa0",
+        "target": "lbu         $t8, 0x0($s4)",
+        "draft": "lbu         $t7, 0x0($s4)"
+      },
+      {
+        "offset": "0xac",
+        "target": "sb          $t8, 0x2($s0)",
+        "draft": "sb          $t7, 0x2($s0)"
+      },
+      {
+        "offset": "0xb0",
+        "target": "lbu         $t9, -0x1($s3)",
+        "draft": "lbu         $t8, -0x1($s3)"
+      },
+      {
+        "offset": "0xc0",
+        "target": "sb          $t9, -0x1($s0)",
+        "draft": "sb          $t8, -0x1($s0)"
+      },
+      {
+        "offset": "0xd0",
+        "target": "lbu         $t2, 0x0($v0)",
+        "draft": "lbu         $t9, 0x0($v0)"
+      },
+      {
+        "offset": "0xdc",
+        "target": "or          $t3, $t1, $t2",
+        "draft": "or          $t2, $t9, $t1"
+      },
+      {
+        "offset": "0xe0",
+        "target": "sb          $t3, -0x3($s0)",
+        "draft": "sb          $t2, -0x3($s0)"
+      },
+      {
+        "offset": "0xe8",
+        "target": "lbu         $t6, 0x2($v0)",
+        "draft": "lbu         $t3, 0x2($v0)"
+      },
+      {
+        "offset": "0xf0",
+        "target": "or          $t7, $t5, $t6",
+        "draft": "or          $t6, $t3, $t5"
+      },
+      {
+        "offset": "0xf4",
+        "target": "sb          $t7, -0x2($s0)",
+        "draft": "sb          $t6, -0x2($s0)"
+      },
+      {
+        "offset": "0xfc",
+        "target": "lbu         $t0, 0x4($v0)",
+        "draft": "lbu         $t7, 0x4($v0)"
+      },
+      {
+        "offset": "0x100",
+        "target": "sll         $t9, $t8, 4",
+        "draft": "sll         $t0, $t8, 4"
+      },
+      {
+        "offset": "0x104",
+        "target": "or          $t1, $t9, $t0",
+        "draft": "or          $t9, $t7, $t0"
+      },
+      {
+        "offset": "0x108",
+        "target": "sb          $t1, -0x1($s0)",
+        "draft": "sb          $t9, -0x1($s0)"
+      },
+      {
+        "offset": "0x110",
+        "target": "lbu         $t4, 0x6($v0)",
+        "draft": "lbu         $t1, 0x6($v0)"
+      },
+      {
+        "offset": "0x114",
+        "target": "sll         $t3, $t2, 4",
+        "draft": "sll         $t4, $t2, 4"
+      },
+      {
+        "offset": "0x118",
+        "target": "or          $t5, $t3, $t4",
+        "draft": "or          $t3, $t1, $t4"
+      },
+      {
+        "offset": "0x11c",
+        "target": "sb          $t5, 0x0($s0)",
+        "draft": "sb          $t3, 0x0($s0)"
+      }
+    ]
+  },
+  {
+    "label": "s32(s32)",
+    "words": 21,
+    "bytes": 324,
+    "offsets": [
+      "0x90",
+      "0x94",
+      "0x9c",
+      "0xa0",
+      "0xac",
+      "0xb0",
+      "0xc0",
+      "0xd0",
+      "0xdc",
+      "0xe0",
+      "0xe8",
+      "0xf0",
+      "0xf4",
+      "0xfc",
+      "0x100",
+      "0x104",
+      "0x108",
+      "0x110",
+      "0x114",
+      "0x118",
+      "0x11c"
+    ],
+    "instructions": [
+      {
+        "offset": "0x90",
+        "target": "or          $t7, $s1, $v0",
+        "draft": "or          $t5, $s1, $v0"
+      },
+      {
+        "offset": "0x94",
+        "target": "sra         $t6, $t7, 8",
+        "draft": "sra         $t6, $t5, 8"
+      },
+      {
+        "offset": "0x9c",
+        "target": "sb          $t7, 0x1($s0)",
+        "draft": "sb          $t5, 0x1($s0)"
+      },
+      {
+        "offset": "0xa0",
+        "target": "lbu         $t8, 0x0($s4)",
+        "draft": "lbu         $t7, 0x0($s4)"
+      },
+      {
+        "offset": "0xac",
+        "target": "sb          $t8, 0x2($s0)",
+        "draft": "sb          $t7, 0x2($s0)"
+      },
+      {
+        "offset": "0xb0",
+        "target": "lbu         $t9, -0x1($s3)",
+        "draft": "lbu         $t8, -0x1($s3)"
+      },
+      {
+        "offset": "0xc0",
+        "target": "sb          $t9, -0x1($s0)",
+        "draft": "sb          $t8, -0x1($s0)"
+      },
+      {
+        "offset": "0xd0",
+        "target": "lbu         $t2, 0x0($v0)",
+        "draft": "lbu         $t9, 0x0($v0)"
+      },
+      {
+        "offset": "0xdc",
+        "target": "or          $t3, $t1, $t2",
+        "draft": "or          $t2, $t9, $t1"
+      },
+      {
+        "offset": "0xe0",
+        "target": "sb          $t3, -0x3($s0)",
+        "draft": "sb          $t2, -0x3($s0)"
+      },
+      {
+        "offset": "0xe8",
+        "target": "lbu         $t6, 0x2($v0)",
+        "draft": "lbu         $t3, 0x2($v0)"
+      },
+      {
+        "offset": "0xf0",
+        "target": "or          $t7, $t5, $t6",
+        "draft": "or          $t6, $t3, $t5"
+      },
+      {
+        "offset": "0xf4",
+        "target": "sb          $t7, -0x2($s0)",
+        "draft": "sb          $t6, -0x2($s0)"
+      },
+      {
+        "offset": "0xfc",
+        "target": "lbu         $t0, 0x4($v0)",
+        "draft": "lbu         $t7, 0x4($v0)"
+      },
+      {
+        "offset": "0x100",
+        "target": "sll         $t9, $t8, 4",
+        "draft": "sll         $t0, $t8, 4"
+      },
+      {
+        "offset": "0x104",
+        "target": "or          $t1, $t9, $t0",
+        "draft": "or          $t9, $t7, $t0"
+      },
+      {
+        "offset": "0x108",
+        "target": "sb          $t1, -0x1($s0)",
+        "draft": "sb          $t9, -0x1($s0)"
+      },
+      {
+        "offset": "0x110",
+        "target": "lbu         $t4, 0x6($v0)",
+        "draft": "lbu         $t1, 0x6($v0)"
+      },
+      {
+        "offset": "0x114",
+        "target": "sll         $t3, $t2, 4",
+        "draft": "sll         $t4, $t2, 4"
+      },
+      {
+        "offset": "0x118",
+        "target": "or          $t5, $t3, $t4",
+        "draft": "or          $t3, $t1, $t4"
+      },
+      {
+        "offset": "0x11c",
+        "target": "sb          $t5, 0x0($s0)",
+        "draft": "sb          $t3, 0x0($s0)"
+      }
+    ]
+  },
+  {
+    "label": "u32",
+    "words": 21,
+    "bytes": 324,
+    "offsets": [
+      "0x90",
+      "0x94",
+      "0x9c",
+      "0xa0",
+      "0xac",
+      "0xb0",
+      "0xc0",
+      "0xd0",
+      "0xdc",
+      "0xe0",
+      "0xe8",
+      "0xf0",
+      "0xf4",
+      "0xfc",
+      "0x100",
+      "0x104",
+      "0x108",
+      "0x110",
+      "0x114",
+      "0x118",
+      "0x11c"
+    ],
+    "instructions": [
+      {
+        "offset": "0x90",
+        "target": "or          $t7, $s1, $v0",
+        "draft": "or          $t5, $s1, $v0"
+      },
+      {
+        "offset": "0x94",
+        "target": "sra         $t6, $t7, 8",
+        "draft": "sra         $t6, $t5, 8"
+      },
+      {
+        "offset": "0x9c",
+        "target": "sb          $t7, 0x1($s0)",
+        "draft": "sb          $t5, 0x1($s0)"
+      },
+      {
+        "offset": "0xa0",
+        "target": "lbu         $t8, 0x0($s4)",
+        "draft": "lbu         $t7, 0x0($s4)"
+      },
+      {
+        "offset": "0xac",
+        "target": "sb          $t8, 0x2($s0)",
+        "draft": "sb          $t7, 0x2($s0)"
+      },
+      {
+        "offset": "0xb0",
+        "target": "lbu         $t9, -0x1($s3)",
+        "draft": "lbu         $t8, -0x1($s3)"
+      },
+      {
+        "offset": "0xc0",
+        "target": "sb          $t9, -0x1($s0)",
+        "draft": "sb          $t8, -0x1($s0)"
+      },
+      {
+        "offset": "0xd0",
+        "target": "lbu         $t2, 0x0($v0)",
+        "draft": "lbu         $t9, 0x0($v0)"
+      },
+      {
+        "offset": "0xdc",
+        "target": "or          $t3, $t1, $t2",
+        "draft": "or          $t2, $t9, $t1"
+      },
+      {
+        "offset": "0xe0",
+        "target": "sb          $t3, -0x3($s0)",
+        "draft": "sb          $t2, -0x3($s0)"
+      },
+      {
+        "offset": "0xe8",
+        "target": "lbu         $t6, 0x2($v0)",
+        "draft": "lbu         $t3, 0x2($v0)"
+      },
+      {
+        "offset": "0xf0",
+        "target": "or          $t7, $t5, $t6",
+        "draft": "or          $t6, $t3, $t5"
+      },
+      {
+        "offset": "0xf4",
+        "target": "sb          $t7, -0x2($s0)",
+        "draft": "sb          $t6, -0x2($s0)"
+      },
+      {
+        "offset": "0xfc",
+        "target": "lbu         $t0, 0x4($v0)",
+        "draft": "lbu         $t7, 0x4($v0)"
+      },
+      {
+        "offset": "0x100",
+        "target": "sll         $t9, $t8, 4",
+        "draft": "sll         $t0, $t8, 4"
+      },
+      {
+        "offset": "0x104",
+        "target": "or          $t1, $t9, $t0",
+        "draft": "or          $t9, $t7, $t0"
+      },
+      {
+        "offset": "0x108",
+        "target": "sb          $t1, -0x1($s0)",
+        "draft": "sb          $t9, -0x1($s0)"
+      },
+      {
+        "offset": "0x110",
+        "target": "lbu         $t4, 0x6($v0)",
+        "draft": "lbu         $t1, 0x6($v0)"
+      },
+      {
+        "offset": "0x114",
+        "target": "sll         $t3, $t2, 4",
+        "draft": "sll         $t4, $t2, 4"
+      },
+      {
+        "offset": "0x118",
+        "target": "or          $t5, $t3, $t4",
+        "draft": "or          $t3, $t1, $t4"
+      },
+      {
+        "offset": "0x11c",
+        "target": "sb          $t5, 0x0($s0)",
+        "draft": "sb          $t3, 0x0($s0)"
+      }
+    ]
+  },
+  {
+    "label": "u32(u16)",
+    "words": 22,
+    "bytes": 324,
+    "offsets": [
+      "0x90",
+      "0x94",
+      "0x98",
+      "0x9c",
+      "0xcc",
+      "0xd0",
+      "0xd8",
+      "0xdc",
+      "0xe4",
+      "0xe8",
+      "0xec",
+      "0xf0",
+      "0xf8",
+      "0xfc",
+      "0x100",
+      "0x104",
+      "0x108",
+      "0x10c",
+      "0x110",
+      "0x114",
+      "0x118",
+      "0x11c"
+    ],
+    "instructions": [
+      {
+        "offset": "0x90",
+        "target": "or          $t7, $s1, $v0",
+        "draft": "or          $t6, $s1, $v0"
+      },
+      {
+        "offset": "0x94",
+        "target": "sra         $t6, $t7, 8",
+        "draft": "sra         $t7, $t6, 8"
+      },
+      {
+        "offset": "0x98",
+        "target": "sb          $t6, 0x0($s0)",
+        "draft": "sb          $t7, 0x0($s0)"
+      },
+      {
+        "offset": "0x9c",
+        "target": "sb          $t7, 0x1($s0)",
+        "draft": "sb          $t6, 0x1($s0)"
+      },
+      {
+        "offset": "0xcc",
+        "target": "lbu         $t0, 0x1($v0)",
+        "draft": "lbu         $t1, 0x1($v0)"
+      },
+      {
+        "offset": "0xd0",
+        "target": "lbu         $t2, 0x0($v0)",
+        "draft": "lbu         $t0, 0x0($v0)"
+      },
+      {
+        "offset": "0xd8",
+        "target": "sll         $t1, $t0, 4",
+        "draft": "sll         $t2, $t1, 4"
+      },
+      {
+        "offset": "0xdc",
+        "target": "or          $t3, $t1, $t2",
+        "draft": "or          $t3, $t0, $t2"
+      },
+      {
+        "offset": "0xe4",
+        "target": "lbu         $t4, 0x3($v0)",
+        "draft": "lbu         $t5, 0x3($v0)"
+      },
+      {
+        "offset": "0xe8",
+        "target": "lbu         $t6, 0x2($v0)",
+        "draft": "lbu         $t4, 0x2($v0)"
+      },
+      {
+        "offset": "0xec",
+        "target": "sll         $t5, $t4, 4",
+        "draft": "sll         $t6, $t5, 4"
+      },
+      {
+        "offset": "0xf0",
+        "target": "or          $t7, $t5, $t6",
+        "draft": "or          $t7, $t4, $t6"
+      },
+      {
+        "offset": "0xf8",
+        "target": "lbu         $t8, 0x5($v0)",
+        "draft": "lbu         $t9, 0x5($v0)"
+      },
+      {
+        "offset": "0xfc",
+        "target": "lbu         $t0, 0x4($v0)",
+        "draft": "lbu         $t8, 0x4($v0)"
+      },
+      {
+        "offset": "0x100",
+        "target": "sll         $t9, $t8, 4",
+        "draft": "sll         $t1, $t9, 4"
+      },
+      {
+        "offset": "0x104",
+        "target": "or          $t1, $t9, $t0",
+        "draft": "or          $t0, $t8, $t1"
+      },
+      {
+        "offset": "0x108",
+        "target": "sb          $t1, -0x1($s0)",
+        "draft": "sb          $t0, -0x1($s0)"
+      },
+      {
+        "offset": "0x10c",
+        "target": "lbu         $t2, 0x7($v0)",
+        "draft": "lbu         $t3, 0x7($v0)"
+      },
+      {
+        "offset": "0x110",
+        "target": "lbu         $t4, 0x6($v0)",
+        "draft": "lbu         $t2, 0x6($v0)"
+      },
+      {
+        "offset": "0x114",
+        "target": "sll         $t3, $t2, 4",
+        "draft": "sll         $t5, $t3, 4"
+      },
+      {
+        "offset": "0x118",
+        "target": "or          $t5, $t3, $t4",
+        "draft": "or          $t4, $t2, $t5"
+      },
+      {
+        "offset": "0x11c",
+        "target": "sb          $t5, 0x0($s0)",
+        "draft": "sb          $t4, 0x0($s0)"
+      }
+    ]
+  },
+  {
+    "label": "u32(u32)",
+    "words": 21,
+    "bytes": 324,
+    "offsets": [
+      "0x90",
+      "0x94",
+      "0x9c",
+      "0xa0",
+      "0xac",
+      "0xb0",
+      "0xc0",
+      "0xd0",
+      "0xdc",
+      "0xe0",
+      "0xe8",
+      "0xf0",
+      "0xf4",
+      "0xfc",
+      "0x100",
+      "0x104",
+      "0x108",
+      "0x110",
+      "0x114",
+      "0x118",
+      "0x11c"
+    ],
+    "instructions": [
+      {
+        "offset": "0x90",
+        "target": "or          $t7, $s1, $v0",
+        "draft": "or          $t5, $s1, $v0"
+      },
+      {
+        "offset": "0x94",
+        "target": "sra         $t6, $t7, 8",
+        "draft": "sra         $t6, $t5, 8"
+      },
+      {
+        "offset": "0x9c",
+        "target": "sb          $t7, 0x1($s0)",
+        "draft": "sb          $t5, 0x1($s0)"
+      },
+      {
+        "offset": "0xa0",
+        "target": "lbu         $t8, 0x0($s4)",
+        "draft": "lbu         $t7, 0x0($s4)"
+      },
+      {
+        "offset": "0xac",
+        "target": "sb          $t8, 0x2($s0)",
+        "draft": "sb          $t7, 0x2($s0)"
+      },
+      {
+        "offset": "0xb0",
+        "target": "lbu         $t9, -0x1($s3)",
+        "draft": "lbu         $t8, -0x1($s3)"
+      },
+      {
+        "offset": "0xc0",
+        "target": "sb          $t9, -0x1($s0)",
+        "draft": "sb          $t8, -0x1($s0)"
+      },
+      {
+        "offset": "0xd0",
+        "target": "lbu         $t2, 0x0($v0)",
+        "draft": "lbu         $t9, 0x0($v0)"
+      },
+      {
+        "offset": "0xdc",
+        "target": "or          $t3, $t1, $t2",
+        "draft": "or          $t2, $t9, $t1"
+      },
+      {
+        "offset": "0xe0",
+        "target": "sb          $t3, -0x3($s0)",
+        "draft": "sb          $t2, -0x3($s0)"
+      },
+      {
+        "offset": "0xe8",
+        "target": "lbu         $t6, 0x2($v0)",
+        "draft": "lbu         $t3, 0x2($v0)"
+      },
+      {
+        "offset": "0xf0",
+        "target": "or          $t7, $t5, $t6",
+        "draft": "or          $t6, $t3, $t5"
+      },
+      {
+        "offset": "0xf4",
+        "target": "sb          $t7, -0x2($s0)",
+        "draft": "sb          $t6, -0x2($s0)"
+      },
+      {
+        "offset": "0xfc",
+        "target": "lbu         $t0, 0x4($v0)",
+        "draft": "lbu         $t7, 0x4($v0)"
+      },
+      {
+        "offset": "0x100",
+        "target": "sll         $t9, $t8, 4",
+        "draft": "sll         $t0, $t8, 4"
+      },
+      {
+        "offset": "0x104",
+        "target": "or          $t1, $t9, $t0",
+        "draft": "or          $t9, $t7, $t0"
+      },
+      {
+        "offset": "0x108",
+        "target": "sb          $t1, -0x1($s0)",
+        "draft": "sb          $t9, -0x1($s0)"
+      },
+      {
+        "offset": "0x110",
+        "target": "lbu         $t4, 0x6($v0)",
+        "draft": "lbu         $t1, 0x6($v0)"
+      },
+      {
+        "offset": "0x114",
+        "target": "sll         $t3, $t2, 4",
+        "draft": "sll         $t4, $t2, 4"
+      },
+      {
+        "offset": "0x118",
+        "target": "or          $t5, $t3, $t4",
+        "draft": "or          $t3, $t1, $t4"
+      },
+      {
+        "offset": "0x11c",
+        "target": "sb          $t5, 0x0($s0)",
+        "draft": "sb          $t3, 0x0($s0)"
+      }
+    ]
+  },
+  {
+    "label": "u32(s32)",
+    "words": 21,
+    "bytes": 324,
+    "offsets": [
+      "0x90",
+      "0x94",
+      "0x9c",
+      "0xa0",
+      "0xac",
+      "0xb0",
+      "0xc0",
+      "0xd0",
+      "0xdc",
+      "0xe0",
+      "0xe8",
+      "0xf0",
+      "0xf4",
+      "0xfc",
+      "0x100",
+      "0x104",
+      "0x108",
+      "0x110",
+      "0x114",
+      "0x118",
+      "0x11c"
+    ],
+    "instructions": [
+      {
+        "offset": "0x90",
+        "target": "or          $t7, $s1, $v0",
+        "draft": "or          $t5, $s1, $v0"
+      },
+      {
+        "offset": "0x94",
+        "target": "sra         $t6, $t7, 8",
+        "draft": "sra         $t6, $t5, 8"
+      },
+      {
+        "offset": "0x9c",
+        "target": "sb          $t7, 0x1($s0)",
+        "draft": "sb          $t5, 0x1($s0)"
+      },
+      {
+        "offset": "0xa0",
+        "target": "lbu         $t8, 0x0($s4)",
+        "draft": "lbu         $t7, 0x0($s4)"
+      },
+      {
+        "offset": "0xac",
+        "target": "sb          $t8, 0x2($s0)",
+        "draft": "sb          $t7, 0x2($s0)"
+      },
+      {
+        "offset": "0xb0",
+        "target": "lbu         $t9, -0x1($s3)",
+        "draft": "lbu         $t8, -0x1($s3)"
+      },
+      {
+        "offset": "0xc0",
+        "target": "sb          $t9, -0x1($s0)",
+        "draft": "sb          $t8, -0x1($s0)"
+      },
+      {
+        "offset": "0xd0",
+        "target": "lbu         $t2, 0x0($v0)",
+        "draft": "lbu         $t9, 0x0($v0)"
+      },
+      {
+        "offset": "0xdc",
+        "target": "or          $t3, $t1, $t2",
+        "draft": "or          $t2, $t9, $t1"
+      },
+      {
+        "offset": "0xe0",
+        "target": "sb          $t3, -0x3($s0)",
+        "draft": "sb          $t2, -0x3($s0)"
+      },
+      {
+        "offset": "0xe8",
+        "target": "lbu         $t6, 0x2($v0)",
+        "draft": "lbu         $t3, 0x2($v0)"
+      },
+      {
+        "offset": "0xf0",
+        "target": "or          $t7, $t5, $t6",
+        "draft": "or          $t6, $t3, $t5"
+      },
+      {
+        "offset": "0xf4",
+        "target": "sb          $t7, -0x2($s0)",
+        "draft": "sb          $t6, -0x2($s0)"
+      },
+      {
+        "offset": "0xfc",
+        "target": "lbu         $t0, 0x4($v0)",
+        "draft": "lbu         $t7, 0x4($v0)"
+      },
+      {
+        "offset": "0x100",
+        "target": "sll         $t9, $t8, 4",
+        "draft": "sll         $t0, $t8, 4"
+      },
+      {
+        "offset": "0x104",
+        "target": "or          $t1, $t9, $t0",
+        "draft": "or          $t9, $t7, $t0"
+      },
+      {
+        "offset": "0x108",
+        "target": "sb          $t1, -0x1($s0)",
+        "draft": "sb          $t9, -0x1($s0)"
+      },
+      {
+        "offset": "0x110",
+        "target": "lbu         $t4, 0x6($v0)",
+        "draft": "lbu         $t1, 0x6($v0)"
+      },
+      {
+        "offset": "0x114",
+        "target": "sll         $t3, $t2, 4",
+        "draft": "sll         $t4, $t2, 4"
+      },
+      {
+        "offset": "0x118",
+        "target": "or          $t5, $t3, $t4",
+        "draft": "or          $t3, $t1, $t4"
+      },
+      {
+        "offset": "0x11c",
+        "target": "sb          $t5, 0x0($s0)",
+        "draft": "sb          $t3, 0x0($s0)"
+      }
+    ]
+  }
+]

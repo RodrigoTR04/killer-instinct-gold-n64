@@ -1,0 +1,1418 @@
+[
+  {
+    "label": "((0, 1, 2, 3), False, False)",
+    "words": 52,
+    "bytes": 212,
+    "offsets": [
+      "0x0",
+      "0x4",
+      "0x8",
+      "0x10",
+      "0x14",
+      "0x18",
+      "0x1c",
+      "0x20",
+      "0x24",
+      "0x28",
+      "0x2c",
+      "0x30",
+      "0x34",
+      "0x38",
+      "0x3c",
+      "0x40",
+      "0x44",
+      "0x48",
+      "0x4c",
+      "0x50",
+      "0x54",
+      "0x58",
+      "0x5c",
+      "0x60",
+      "0x64",
+      "0x68",
+      "0x6c",
+      "0x70"
+    ],
+    "instructions": [
+      {
+        "offset": "0x0",
+        "target": "lui         $at, 0x8012",
+        "draft": "lui         $a2, 0x0"
+      },
+      {
+        "offset": "0x4",
+        "target": "sb          $zero, 0x7CC0($at)",
+        "draft": "lui         $a0, 0x0"
+      },
+      {
+        "offset": "0x8",
+        "target": "addiu       $sp, $sp, -0x18",
+        "draft": "addiu       $a2, $a2, 0x0"
+      },
+      {
+        "offset": "0x10",
+        "target": "lui         $v0, 0x8012",
+        "draft": "addiu       $a0, $a0, 0x0"
+      },
+      {
+        "offset": "0x14",
+        "target": "lui         $v1, 0x8012",
+        "draft": "sb          $zero, 0x0($at)"
+      },
+      {
+        "offset": "0x18",
+        "target": "sw          $ra, 0x14($sp)",
+        "draft": "subu        $a1, $a0, $a2"
+      },
+      {
+        "offset": "0x1c",
+        "target": "addiu       $v1, $v1, 0x7CE2",
+        "draft": "addiu       $sp, $sp, -0x18"
+      },
+      {
+        "offset": "0x20",
+        "target": "addiu       $v0, $v0, 0x7CC2",
+        "draft": "lui         $at, 0x0"
+      },
+      {
+        "offset": "0x24",
+        "target": "sb          $zero, 0x7CC1($at)",
+        "draft": "andi        $t6, $a1, 0xF"
+      },
+      {
+        "offset": "0x28",
+        "target": "addiu       $v0, $v0, 0x4",
+        "draft": "sw          $ra, 0x14($sp)"
+      },
+      {
+        "offset": "0x2c",
+        "target": "sb          $zero, -0x3($v0)",
+        "draft": "sb          $zero, 0x0($at)"
+      },
+      {
+        "offset": "0x30",
+        "target": "sb          $zero, -0x2($v0)",
+        "draft": "beqz        $t6, . + 4 + (0x9 << 2)"
+      },
+      {
+        "offset": "0x34",
+        "target": "sb          $zero, -0x1($v0)",
+        "draft": "move        $v0, $a2"
+      },
+      {
+        "offset": "0x38",
+        "target": "bne         $v0, $v1, . + 4 + (-0x5 << 2)",
+        "draft": "addu        $v1, $t6, $a2"
+      },
+      {
+        "offset": "0x3c",
+        "target": "sb          $zero, -0x4($v0)",
+        "draft": "addiu       $v0, $v0, 0x4"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $t6, $zero, 0x2",
+        "draft": "sb          $zero, -0x4($v0)"
+      },
+      {
+        "offset": "0x44",
+        "target": "lui         $at, 0x8012",
+        "draft": "sb          $zero, -0x3($v0)"
+      },
+      {
+        "offset": "0x48",
+        "target": "sb          $t6, 0x7CC1($at)",
+        "draft": "sb          $zero, -0x2($v0)"
+      },
+      {
+        "offset": "0x4c",
+        "target": "jal         func_801C7E4C",
+        "draft": "bne         $v1, $v0, . + 4 + (-0x5 << 2)"
+      },
+      {
+        "offset": "0x50",
+        "target": "move        $a0, $zero",
+        "draft": "sb          $zero, -0x1($v0)"
+      },
+      {
+        "offset": "0x54",
+        "target": "jal         func_801C7E4C",
+        "draft": "beq         $v0, $a0, . + 4 + (0x12 << 2)"
+      },
+      {
+        "offset": "0x58",
+        "target": "addiu       $a0, $zero, 0x1",
+        "draft": "addiu       $v0, $v0, 0x10"
+      },
+      {
+        "offset": "0x5c",
+        "target": "jal         func_801C7F10",
+        "draft": "sb          $zero, -0x10($v0)"
+      },
+      {
+        "offset": "0x60",
+        "target": "nop",
+        "draft": "sb          $zero, -0xF($v0)"
+      },
+      {
+        "offset": "0x64",
+        "target": "lw          $ra, 0x14($sp)",
+        "draft": "sb          $zero, -0xE($v0)"
+      },
+      {
+        "offset": "0x68",
+        "target": "addiu       $sp, $sp, 0x18",
+        "draft": "sb          $zero, -0xD($v0)"
+      },
+      {
+        "offset": "0x6c",
+        "target": "jr          $ra",
+        "draft": "sb          $zero, -0xC($v0)"
+      },
+      {
+        "offset": "0x70",
+        "target": "nop",
+        "draft": "sb          $zero, -0xB($v0)"
+      }
+    ]
+  },
+  {
+    "label": "((0, 1, 2, 3), False, True)",
+    "words": 52,
+    "bytes": 212,
+    "offsets": [
+      "0x0",
+      "0x4",
+      "0x8",
+      "0x10",
+      "0x14",
+      "0x18",
+      "0x1c",
+      "0x20",
+      "0x24",
+      "0x28",
+      "0x2c",
+      "0x30",
+      "0x34",
+      "0x38",
+      "0x3c",
+      "0x40",
+      "0x44",
+      "0x48",
+      "0x4c",
+      "0x50",
+      "0x54",
+      "0x58",
+      "0x5c",
+      "0x60",
+      "0x64",
+      "0x68",
+      "0x6c",
+      "0x70"
+    ],
+    "instructions": [
+      {
+        "offset": "0x0",
+        "target": "lui         $at, 0x8012",
+        "draft": "lui         $a2, 0x0"
+      },
+      {
+        "offset": "0x4",
+        "target": "sb          $zero, 0x7CC0($at)",
+        "draft": "lui         $a0, 0x0"
+      },
+      {
+        "offset": "0x8",
+        "target": "addiu       $sp, $sp, -0x18",
+        "draft": "addiu       $a2, $a2, 0x0"
+      },
+      {
+        "offset": "0x10",
+        "target": "lui         $v0, 0x8012",
+        "draft": "addiu       $a0, $a0, 0x0"
+      },
+      {
+        "offset": "0x14",
+        "target": "lui         $v1, 0x8012",
+        "draft": "sb          $zero, 0x0($at)"
+      },
+      {
+        "offset": "0x18",
+        "target": "sw          $ra, 0x14($sp)",
+        "draft": "subu        $a1, $a0, $a2"
+      },
+      {
+        "offset": "0x1c",
+        "target": "addiu       $v1, $v1, 0x7CE2",
+        "draft": "addiu       $sp, $sp, -0x18"
+      },
+      {
+        "offset": "0x20",
+        "target": "addiu       $v0, $v0, 0x7CC2",
+        "draft": "lui         $at, 0x0"
+      },
+      {
+        "offset": "0x24",
+        "target": "sb          $zero, 0x7CC1($at)",
+        "draft": "andi        $t6, $a1, 0xF"
+      },
+      {
+        "offset": "0x28",
+        "target": "addiu       $v0, $v0, 0x4",
+        "draft": "sw          $ra, 0x14($sp)"
+      },
+      {
+        "offset": "0x2c",
+        "target": "sb          $zero, -0x3($v0)",
+        "draft": "sb          $zero, 0x0($at)"
+      },
+      {
+        "offset": "0x30",
+        "target": "sb          $zero, -0x2($v0)",
+        "draft": "beqz        $t6, . + 4 + (0x9 << 2)"
+      },
+      {
+        "offset": "0x34",
+        "target": "sb          $zero, -0x1($v0)",
+        "draft": "move        $v0, $a2"
+      },
+      {
+        "offset": "0x38",
+        "target": "bne         $v0, $v1, . + 4 + (-0x5 << 2)",
+        "draft": "addu        $v1, $t6, $a2"
+      },
+      {
+        "offset": "0x3c",
+        "target": "sb          $zero, -0x4($v0)",
+        "draft": "addiu       $v0, $v0, 0x4"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $t6, $zero, 0x2",
+        "draft": "sb          $zero, -0x4($v0)"
+      },
+      {
+        "offset": "0x44",
+        "target": "lui         $at, 0x8012",
+        "draft": "sb          $zero, -0x3($v0)"
+      },
+      {
+        "offset": "0x48",
+        "target": "sb          $t6, 0x7CC1($at)",
+        "draft": "sb          $zero, -0x2($v0)"
+      },
+      {
+        "offset": "0x4c",
+        "target": "jal         func_801C7E4C",
+        "draft": "bne         $v1, $v0, . + 4 + (-0x5 << 2)"
+      },
+      {
+        "offset": "0x50",
+        "target": "move        $a0, $zero",
+        "draft": "sb          $zero, -0x1($v0)"
+      },
+      {
+        "offset": "0x54",
+        "target": "jal         func_801C7E4C",
+        "draft": "beq         $v0, $a0, . + 4 + (0x12 << 2)"
+      },
+      {
+        "offset": "0x58",
+        "target": "addiu       $a0, $zero, 0x1",
+        "draft": "addiu       $v0, $v0, 0x10"
+      },
+      {
+        "offset": "0x5c",
+        "target": "jal         func_801C7F10",
+        "draft": "sb          $zero, -0x10($v0)"
+      },
+      {
+        "offset": "0x60",
+        "target": "nop",
+        "draft": "sb          $zero, -0xF($v0)"
+      },
+      {
+        "offset": "0x64",
+        "target": "lw          $ra, 0x14($sp)",
+        "draft": "sb          $zero, -0xE($v0)"
+      },
+      {
+        "offset": "0x68",
+        "target": "addiu       $sp, $sp, 0x18",
+        "draft": "sb          $zero, -0xD($v0)"
+      },
+      {
+        "offset": "0x6c",
+        "target": "jr          $ra",
+        "draft": "sb          $zero, -0xC($v0)"
+      },
+      {
+        "offset": "0x70",
+        "target": "nop",
+        "draft": "sb          $zero, -0xB($v0)"
+      }
+    ]
+  },
+  {
+    "label": "((0, 1, 2, 3), True, False)",
+    "words": 52,
+    "bytes": 212,
+    "offsets": [
+      "0x0",
+      "0x4",
+      "0x8",
+      "0x10",
+      "0x14",
+      "0x18",
+      "0x1c",
+      "0x20",
+      "0x24",
+      "0x28",
+      "0x2c",
+      "0x30",
+      "0x34",
+      "0x38",
+      "0x3c",
+      "0x40",
+      "0x44",
+      "0x48",
+      "0x4c",
+      "0x50",
+      "0x54",
+      "0x58",
+      "0x5c",
+      "0x60",
+      "0x64",
+      "0x68",
+      "0x6c",
+      "0x70"
+    ],
+    "instructions": [
+      {
+        "offset": "0x0",
+        "target": "lui         $at, 0x8012",
+        "draft": "lui         $a2, 0x0"
+      },
+      {
+        "offset": "0x4",
+        "target": "sb          $zero, 0x7CC0($at)",
+        "draft": "lui         $a0, 0x0"
+      },
+      {
+        "offset": "0x8",
+        "target": "addiu       $sp, $sp, -0x18",
+        "draft": "addiu       $a2, $a2, 0x0"
+      },
+      {
+        "offset": "0x10",
+        "target": "lui         $v0, 0x8012",
+        "draft": "addiu       $a0, $a0, 0x0"
+      },
+      {
+        "offset": "0x14",
+        "target": "lui         $v1, 0x8012",
+        "draft": "sb          $zero, 0x0($at)"
+      },
+      {
+        "offset": "0x18",
+        "target": "sw          $ra, 0x14($sp)",
+        "draft": "subu        $a1, $a0, $a2"
+      },
+      {
+        "offset": "0x1c",
+        "target": "addiu       $v1, $v1, 0x7CE2",
+        "draft": "addiu       $sp, $sp, -0x18"
+      },
+      {
+        "offset": "0x20",
+        "target": "addiu       $v0, $v0, 0x7CC2",
+        "draft": "lui         $at, 0x0"
+      },
+      {
+        "offset": "0x24",
+        "target": "sb          $zero, 0x7CC1($at)",
+        "draft": "andi        $t6, $a1, 0xF"
+      },
+      {
+        "offset": "0x28",
+        "target": "addiu       $v0, $v0, 0x4",
+        "draft": "sw          $ra, 0x14($sp)"
+      },
+      {
+        "offset": "0x2c",
+        "target": "sb          $zero, -0x3($v0)",
+        "draft": "sb          $zero, 0x0($at)"
+      },
+      {
+        "offset": "0x30",
+        "target": "sb          $zero, -0x2($v0)",
+        "draft": "beqz        $t6, . + 4 + (0x9 << 2)"
+      },
+      {
+        "offset": "0x34",
+        "target": "sb          $zero, -0x1($v0)",
+        "draft": "move        $v0, $a2"
+      },
+      {
+        "offset": "0x38",
+        "target": "bne         $v0, $v1, . + 4 + (-0x5 << 2)",
+        "draft": "addu        $v1, $t6, $a2"
+      },
+      {
+        "offset": "0x3c",
+        "target": "sb          $zero, -0x4($v0)",
+        "draft": "addiu       $v0, $v0, 0x4"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $t6, $zero, 0x2",
+        "draft": "sb          $zero, -0x4($v0)"
+      },
+      {
+        "offset": "0x44",
+        "target": "lui         $at, 0x8012",
+        "draft": "sb          $zero, -0x3($v0)"
+      },
+      {
+        "offset": "0x48",
+        "target": "sb          $t6, 0x7CC1($at)",
+        "draft": "sb          $zero, -0x2($v0)"
+      },
+      {
+        "offset": "0x4c",
+        "target": "jal         func_801C7E4C",
+        "draft": "bne         $v1, $v0, . + 4 + (-0x5 << 2)"
+      },
+      {
+        "offset": "0x50",
+        "target": "move        $a0, $zero",
+        "draft": "sb          $zero, -0x1($v0)"
+      },
+      {
+        "offset": "0x54",
+        "target": "jal         func_801C7E4C",
+        "draft": "beq         $v0, $a0, . + 4 + (0x12 << 2)"
+      },
+      {
+        "offset": "0x58",
+        "target": "addiu       $a0, $zero, 0x1",
+        "draft": "addiu       $v0, $v0, 0x10"
+      },
+      {
+        "offset": "0x5c",
+        "target": "jal         func_801C7F10",
+        "draft": "sb          $zero, -0x10($v0)"
+      },
+      {
+        "offset": "0x60",
+        "target": "nop",
+        "draft": "sb          $zero, -0xF($v0)"
+      },
+      {
+        "offset": "0x64",
+        "target": "lw          $ra, 0x14($sp)",
+        "draft": "sb          $zero, -0xE($v0)"
+      },
+      {
+        "offset": "0x68",
+        "target": "addiu       $sp, $sp, 0x18",
+        "draft": "sb          $zero, -0xD($v0)"
+      },
+      {
+        "offset": "0x6c",
+        "target": "jr          $ra",
+        "draft": "sb          $zero, -0xC($v0)"
+      },
+      {
+        "offset": "0x70",
+        "target": "nop",
+        "draft": "sb          $zero, -0xB($v0)"
+      }
+    ]
+  },
+  {
+    "label": "((0, 1, 2, 3), True, True)",
+    "words": 52,
+    "bytes": 212,
+    "offsets": [
+      "0x0",
+      "0x4",
+      "0x8",
+      "0x10",
+      "0x14",
+      "0x18",
+      "0x1c",
+      "0x20",
+      "0x24",
+      "0x28",
+      "0x2c",
+      "0x30",
+      "0x34",
+      "0x38",
+      "0x3c",
+      "0x40",
+      "0x44",
+      "0x48",
+      "0x4c",
+      "0x50",
+      "0x54",
+      "0x58",
+      "0x5c",
+      "0x60",
+      "0x64",
+      "0x68",
+      "0x6c",
+      "0x70"
+    ],
+    "instructions": [
+      {
+        "offset": "0x0",
+        "target": "lui         $at, 0x8012",
+        "draft": "lui         $a2, 0x0"
+      },
+      {
+        "offset": "0x4",
+        "target": "sb          $zero, 0x7CC0($at)",
+        "draft": "lui         $a0, 0x0"
+      },
+      {
+        "offset": "0x8",
+        "target": "addiu       $sp, $sp, -0x18",
+        "draft": "addiu       $a2, $a2, 0x0"
+      },
+      {
+        "offset": "0x10",
+        "target": "lui         $v0, 0x8012",
+        "draft": "addiu       $a0, $a0, 0x0"
+      },
+      {
+        "offset": "0x14",
+        "target": "lui         $v1, 0x8012",
+        "draft": "sb          $zero, 0x0($at)"
+      },
+      {
+        "offset": "0x18",
+        "target": "sw          $ra, 0x14($sp)",
+        "draft": "subu        $a1, $a0, $a2"
+      },
+      {
+        "offset": "0x1c",
+        "target": "addiu       $v1, $v1, 0x7CE2",
+        "draft": "addiu       $sp, $sp, -0x18"
+      },
+      {
+        "offset": "0x20",
+        "target": "addiu       $v0, $v0, 0x7CC2",
+        "draft": "lui         $at, 0x0"
+      },
+      {
+        "offset": "0x24",
+        "target": "sb          $zero, 0x7CC1($at)",
+        "draft": "andi        $t6, $a1, 0xF"
+      },
+      {
+        "offset": "0x28",
+        "target": "addiu       $v0, $v0, 0x4",
+        "draft": "sw          $ra, 0x14($sp)"
+      },
+      {
+        "offset": "0x2c",
+        "target": "sb          $zero, -0x3($v0)",
+        "draft": "sb          $zero, 0x0($at)"
+      },
+      {
+        "offset": "0x30",
+        "target": "sb          $zero, -0x2($v0)",
+        "draft": "beqz        $t6, . + 4 + (0x9 << 2)"
+      },
+      {
+        "offset": "0x34",
+        "target": "sb          $zero, -0x1($v0)",
+        "draft": "move        $v0, $a2"
+      },
+      {
+        "offset": "0x38",
+        "target": "bne         $v0, $v1, . + 4 + (-0x5 << 2)",
+        "draft": "addu        $v1, $t6, $a2"
+      },
+      {
+        "offset": "0x3c",
+        "target": "sb          $zero, -0x4($v0)",
+        "draft": "addiu       $v0, $v0, 0x4"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $t6, $zero, 0x2",
+        "draft": "sb          $zero, -0x4($v0)"
+      },
+      {
+        "offset": "0x44",
+        "target": "lui         $at, 0x8012",
+        "draft": "sb          $zero, -0x3($v0)"
+      },
+      {
+        "offset": "0x48",
+        "target": "sb          $t6, 0x7CC1($at)",
+        "draft": "sb          $zero, -0x2($v0)"
+      },
+      {
+        "offset": "0x4c",
+        "target": "jal         func_801C7E4C",
+        "draft": "bne         $v1, $v0, . + 4 + (-0x5 << 2)"
+      },
+      {
+        "offset": "0x50",
+        "target": "move        $a0, $zero",
+        "draft": "sb          $zero, -0x1($v0)"
+      },
+      {
+        "offset": "0x54",
+        "target": "jal         func_801C7E4C",
+        "draft": "beq         $v0, $a0, . + 4 + (0x12 << 2)"
+      },
+      {
+        "offset": "0x58",
+        "target": "addiu       $a0, $zero, 0x1",
+        "draft": "addiu       $v0, $v0, 0x10"
+      },
+      {
+        "offset": "0x5c",
+        "target": "jal         func_801C7F10",
+        "draft": "sb          $zero, -0x10($v0)"
+      },
+      {
+        "offset": "0x60",
+        "target": "nop",
+        "draft": "sb          $zero, -0xF($v0)"
+      },
+      {
+        "offset": "0x64",
+        "target": "lw          $ra, 0x14($sp)",
+        "draft": "sb          $zero, -0xE($v0)"
+      },
+      {
+        "offset": "0x68",
+        "target": "addiu       $sp, $sp, 0x18",
+        "draft": "sb          $zero, -0xD($v0)"
+      },
+      {
+        "offset": "0x6c",
+        "target": "jr          $ra",
+        "draft": "sb          $zero, -0xC($v0)"
+      },
+      {
+        "offset": "0x70",
+        "target": "nop",
+        "draft": "sb          $zero, -0xB($v0)"
+      }
+    ]
+  },
+  {
+    "label": "((1, 2, 3, 0), False, False)",
+    "words": 52,
+    "bytes": 212,
+    "offsets": [
+      "0x0",
+      "0x4",
+      "0x8",
+      "0x10",
+      "0x14",
+      "0x18",
+      "0x1c",
+      "0x20",
+      "0x24",
+      "0x28",
+      "0x2c",
+      "0x30",
+      "0x34",
+      "0x38",
+      "0x3c",
+      "0x40",
+      "0x44",
+      "0x48",
+      "0x4c",
+      "0x50",
+      "0x54",
+      "0x58",
+      "0x5c",
+      "0x60",
+      "0x64",
+      "0x68",
+      "0x6c",
+      "0x70"
+    ],
+    "instructions": [
+      {
+        "offset": "0x0",
+        "target": "lui         $at, 0x8012",
+        "draft": "lui         $a2, 0x0"
+      },
+      {
+        "offset": "0x4",
+        "target": "sb          $zero, 0x7CC0($at)",
+        "draft": "lui         $a0, 0x0"
+      },
+      {
+        "offset": "0x8",
+        "target": "addiu       $sp, $sp, -0x18",
+        "draft": "addiu       $a2, $a2, 0x0"
+      },
+      {
+        "offset": "0x10",
+        "target": "lui         $v0, 0x8012",
+        "draft": "addiu       $a0, $a0, 0x0"
+      },
+      {
+        "offset": "0x14",
+        "target": "lui         $v1, 0x8012",
+        "draft": "sb          $zero, 0x0($at)"
+      },
+      {
+        "offset": "0x18",
+        "target": "sw          $ra, 0x14($sp)",
+        "draft": "subu        $a1, $a0, $a2"
+      },
+      {
+        "offset": "0x1c",
+        "target": "addiu       $v1, $v1, 0x7CE2",
+        "draft": "addiu       $sp, $sp, -0x18"
+      },
+      {
+        "offset": "0x20",
+        "target": "addiu       $v0, $v0, 0x7CC2",
+        "draft": "lui         $at, 0x0"
+      },
+      {
+        "offset": "0x24",
+        "target": "sb          $zero, 0x7CC1($at)",
+        "draft": "andi        $t6, $a1, 0xF"
+      },
+      {
+        "offset": "0x28",
+        "target": "addiu       $v0, $v0, 0x4",
+        "draft": "sw          $ra, 0x14($sp)"
+      },
+      {
+        "offset": "0x2c",
+        "target": "sb          $zero, -0x3($v0)",
+        "draft": "sb          $zero, 0x0($at)"
+      },
+      {
+        "offset": "0x30",
+        "target": "sb          $zero, -0x2($v0)",
+        "draft": "beqz        $t6, . + 4 + (0x9 << 2)"
+      },
+      {
+        "offset": "0x34",
+        "target": "sb          $zero, -0x1($v0)",
+        "draft": "move        $v0, $a2"
+      },
+      {
+        "offset": "0x38",
+        "target": "bne         $v0, $v1, . + 4 + (-0x5 << 2)",
+        "draft": "addu        $v1, $t6, $a2"
+      },
+      {
+        "offset": "0x3c",
+        "target": "sb          $zero, -0x4($v0)",
+        "draft": "addiu       $v0, $v0, 0x4"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $t6, $zero, 0x2",
+        "draft": "sb          $zero, -0x3($v0)"
+      },
+      {
+        "offset": "0x44",
+        "target": "lui         $at, 0x8012",
+        "draft": "sb          $zero, -0x2($v0)"
+      },
+      {
+        "offset": "0x48",
+        "target": "sb          $t6, 0x7CC1($at)",
+        "draft": "sb          $zero, -0x1($v0)"
+      },
+      {
+        "offset": "0x4c",
+        "target": "jal         func_801C7E4C",
+        "draft": "bne         $v1, $v0, . + 4 + (-0x5 << 2)"
+      },
+      {
+        "offset": "0x50",
+        "target": "move        $a0, $zero",
+        "draft": "sb          $zero, -0x4($v0)"
+      },
+      {
+        "offset": "0x54",
+        "target": "jal         func_801C7E4C",
+        "draft": "beq         $v0, $a0, . + 4 + (0x12 << 2)"
+      },
+      {
+        "offset": "0x58",
+        "target": "addiu       $a0, $zero, 0x1",
+        "draft": "addiu       $v0, $v0, 0x10"
+      },
+      {
+        "offset": "0x5c",
+        "target": "jal         func_801C7F10",
+        "draft": "sb          $zero, -0xF($v0)"
+      },
+      {
+        "offset": "0x60",
+        "target": "nop",
+        "draft": "sb          $zero, -0xE($v0)"
+      },
+      {
+        "offset": "0x64",
+        "target": "lw          $ra, 0x14($sp)",
+        "draft": "sb          $zero, -0xD($v0)"
+      },
+      {
+        "offset": "0x68",
+        "target": "addiu       $sp, $sp, 0x18",
+        "draft": "sb          $zero, -0x10($v0)"
+      },
+      {
+        "offset": "0x6c",
+        "target": "jr          $ra",
+        "draft": "sb          $zero, -0xB($v0)"
+      },
+      {
+        "offset": "0x70",
+        "target": "nop",
+        "draft": "sb          $zero, -0xA($v0)"
+      }
+    ]
+  },
+  {
+    "label": "((1, 2, 3, 0), False, True)",
+    "words": 52,
+    "bytes": 212,
+    "offsets": [
+      "0x0",
+      "0x4",
+      "0x8",
+      "0x10",
+      "0x14",
+      "0x18",
+      "0x1c",
+      "0x20",
+      "0x24",
+      "0x28",
+      "0x2c",
+      "0x30",
+      "0x34",
+      "0x38",
+      "0x3c",
+      "0x40",
+      "0x44",
+      "0x48",
+      "0x4c",
+      "0x50",
+      "0x54",
+      "0x58",
+      "0x5c",
+      "0x60",
+      "0x64",
+      "0x68",
+      "0x6c",
+      "0x70"
+    ],
+    "instructions": [
+      {
+        "offset": "0x0",
+        "target": "lui         $at, 0x8012",
+        "draft": "lui         $a2, 0x0"
+      },
+      {
+        "offset": "0x4",
+        "target": "sb          $zero, 0x7CC0($at)",
+        "draft": "lui         $a0, 0x0"
+      },
+      {
+        "offset": "0x8",
+        "target": "addiu       $sp, $sp, -0x18",
+        "draft": "addiu       $a2, $a2, 0x0"
+      },
+      {
+        "offset": "0x10",
+        "target": "lui         $v0, 0x8012",
+        "draft": "addiu       $a0, $a0, 0x0"
+      },
+      {
+        "offset": "0x14",
+        "target": "lui         $v1, 0x8012",
+        "draft": "sb          $zero, 0x0($at)"
+      },
+      {
+        "offset": "0x18",
+        "target": "sw          $ra, 0x14($sp)",
+        "draft": "subu        $a1, $a0, $a2"
+      },
+      {
+        "offset": "0x1c",
+        "target": "addiu       $v1, $v1, 0x7CE2",
+        "draft": "addiu       $sp, $sp, -0x18"
+      },
+      {
+        "offset": "0x20",
+        "target": "addiu       $v0, $v0, 0x7CC2",
+        "draft": "lui         $at, 0x0"
+      },
+      {
+        "offset": "0x24",
+        "target": "sb          $zero, 0x7CC1($at)",
+        "draft": "andi        $t6, $a1, 0xF"
+      },
+      {
+        "offset": "0x28",
+        "target": "addiu       $v0, $v0, 0x4",
+        "draft": "sw          $ra, 0x14($sp)"
+      },
+      {
+        "offset": "0x2c",
+        "target": "sb          $zero, -0x3($v0)",
+        "draft": "sb          $zero, 0x0($at)"
+      },
+      {
+        "offset": "0x30",
+        "target": "sb          $zero, -0x2($v0)",
+        "draft": "beqz        $t6, . + 4 + (0x9 << 2)"
+      },
+      {
+        "offset": "0x34",
+        "target": "sb          $zero, -0x1($v0)",
+        "draft": "move        $v0, $a2"
+      },
+      {
+        "offset": "0x38",
+        "target": "bne         $v0, $v1, . + 4 + (-0x5 << 2)",
+        "draft": "addu        $v1, $t6, $a2"
+      },
+      {
+        "offset": "0x3c",
+        "target": "sb          $zero, -0x4($v0)",
+        "draft": "addiu       $v0, $v0, 0x4"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $t6, $zero, 0x2",
+        "draft": "sb          $zero, -0x3($v0)"
+      },
+      {
+        "offset": "0x44",
+        "target": "lui         $at, 0x8012",
+        "draft": "sb          $zero, -0x2($v0)"
+      },
+      {
+        "offset": "0x48",
+        "target": "sb          $t6, 0x7CC1($at)",
+        "draft": "sb          $zero, -0x1($v0)"
+      },
+      {
+        "offset": "0x4c",
+        "target": "jal         func_801C7E4C",
+        "draft": "bne         $v1, $v0, . + 4 + (-0x5 << 2)"
+      },
+      {
+        "offset": "0x50",
+        "target": "move        $a0, $zero",
+        "draft": "sb          $zero, -0x4($v0)"
+      },
+      {
+        "offset": "0x54",
+        "target": "jal         func_801C7E4C",
+        "draft": "beq         $v0, $a0, . + 4 + (0x12 << 2)"
+      },
+      {
+        "offset": "0x58",
+        "target": "addiu       $a0, $zero, 0x1",
+        "draft": "addiu       $v0, $v0, 0x10"
+      },
+      {
+        "offset": "0x5c",
+        "target": "jal         func_801C7F10",
+        "draft": "sb          $zero, -0xF($v0)"
+      },
+      {
+        "offset": "0x60",
+        "target": "nop",
+        "draft": "sb          $zero, -0xE($v0)"
+      },
+      {
+        "offset": "0x64",
+        "target": "lw          $ra, 0x14($sp)",
+        "draft": "sb          $zero, -0xD($v0)"
+      },
+      {
+        "offset": "0x68",
+        "target": "addiu       $sp, $sp, 0x18",
+        "draft": "sb          $zero, -0x10($v0)"
+      },
+      {
+        "offset": "0x6c",
+        "target": "jr          $ra",
+        "draft": "sb          $zero, -0xB($v0)"
+      },
+      {
+        "offset": "0x70",
+        "target": "nop",
+        "draft": "sb          $zero, -0xA($v0)"
+      }
+    ]
+  },
+  {
+    "label": "((1, 2, 3, 0), True, False)",
+    "words": 52,
+    "bytes": 212,
+    "offsets": [
+      "0x0",
+      "0x4",
+      "0x8",
+      "0x10",
+      "0x14",
+      "0x18",
+      "0x1c",
+      "0x20",
+      "0x24",
+      "0x28",
+      "0x2c",
+      "0x30",
+      "0x34",
+      "0x38",
+      "0x3c",
+      "0x40",
+      "0x44",
+      "0x48",
+      "0x4c",
+      "0x50",
+      "0x54",
+      "0x58",
+      "0x5c",
+      "0x60",
+      "0x64",
+      "0x68",
+      "0x6c",
+      "0x70"
+    ],
+    "instructions": [
+      {
+        "offset": "0x0",
+        "target": "lui         $at, 0x8012",
+        "draft": "lui         $a2, 0x0"
+      },
+      {
+        "offset": "0x4",
+        "target": "sb          $zero, 0x7CC0($at)",
+        "draft": "lui         $a0, 0x0"
+      },
+      {
+        "offset": "0x8",
+        "target": "addiu       $sp, $sp, -0x18",
+        "draft": "addiu       $a2, $a2, 0x0"
+      },
+      {
+        "offset": "0x10",
+        "target": "lui         $v0, 0x8012",
+        "draft": "addiu       $a0, $a0, 0x0"
+      },
+      {
+        "offset": "0x14",
+        "target": "lui         $v1, 0x8012",
+        "draft": "sb          $zero, 0x0($at)"
+      },
+      {
+        "offset": "0x18",
+        "target": "sw          $ra, 0x14($sp)",
+        "draft": "subu        $a1, $a0, $a2"
+      },
+      {
+        "offset": "0x1c",
+        "target": "addiu       $v1, $v1, 0x7CE2",
+        "draft": "addiu       $sp, $sp, -0x18"
+      },
+      {
+        "offset": "0x20",
+        "target": "addiu       $v0, $v0, 0x7CC2",
+        "draft": "lui         $at, 0x0"
+      },
+      {
+        "offset": "0x24",
+        "target": "sb          $zero, 0x7CC1($at)",
+        "draft": "andi        $t6, $a1, 0xF"
+      },
+      {
+        "offset": "0x28",
+        "target": "addiu       $v0, $v0, 0x4",
+        "draft": "sw          $ra, 0x14($sp)"
+      },
+      {
+        "offset": "0x2c",
+        "target": "sb          $zero, -0x3($v0)",
+        "draft": "sb          $zero, 0x0($at)"
+      },
+      {
+        "offset": "0x30",
+        "target": "sb          $zero, -0x2($v0)",
+        "draft": "beqz        $t6, . + 4 + (0x9 << 2)"
+      },
+      {
+        "offset": "0x34",
+        "target": "sb          $zero, -0x1($v0)",
+        "draft": "move        $v0, $a2"
+      },
+      {
+        "offset": "0x38",
+        "target": "bne         $v0, $v1, . + 4 + (-0x5 << 2)",
+        "draft": "addu        $v1, $t6, $a2"
+      },
+      {
+        "offset": "0x3c",
+        "target": "sb          $zero, -0x4($v0)",
+        "draft": "addiu       $v0, $v0, 0x4"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $t6, $zero, 0x2",
+        "draft": "sb          $zero, -0x3($v0)"
+      },
+      {
+        "offset": "0x44",
+        "target": "lui         $at, 0x8012",
+        "draft": "sb          $zero, -0x2($v0)"
+      },
+      {
+        "offset": "0x48",
+        "target": "sb          $t6, 0x7CC1($at)",
+        "draft": "sb          $zero, -0x1($v0)"
+      },
+      {
+        "offset": "0x4c",
+        "target": "jal         func_801C7E4C",
+        "draft": "bne         $v1, $v0, . + 4 + (-0x5 << 2)"
+      },
+      {
+        "offset": "0x50",
+        "target": "move        $a0, $zero",
+        "draft": "sb          $zero, -0x4($v0)"
+      },
+      {
+        "offset": "0x54",
+        "target": "jal         func_801C7E4C",
+        "draft": "beq         $v0, $a0, . + 4 + (0x12 << 2)"
+      },
+      {
+        "offset": "0x58",
+        "target": "addiu       $a0, $zero, 0x1",
+        "draft": "addiu       $v0, $v0, 0x10"
+      },
+      {
+        "offset": "0x5c",
+        "target": "jal         func_801C7F10",
+        "draft": "sb          $zero, -0xF($v0)"
+      },
+      {
+        "offset": "0x60",
+        "target": "nop",
+        "draft": "sb          $zero, -0xE($v0)"
+      },
+      {
+        "offset": "0x64",
+        "target": "lw          $ra, 0x14($sp)",
+        "draft": "sb          $zero, -0xD($v0)"
+      },
+      {
+        "offset": "0x68",
+        "target": "addiu       $sp, $sp, 0x18",
+        "draft": "sb          $zero, -0x10($v0)"
+      },
+      {
+        "offset": "0x6c",
+        "target": "jr          $ra",
+        "draft": "sb          $zero, -0xB($v0)"
+      },
+      {
+        "offset": "0x70",
+        "target": "nop",
+        "draft": "sb          $zero, -0xA($v0)"
+      }
+    ]
+  },
+  {
+    "label": "((1, 2, 3, 0), True, True)",
+    "words": 52,
+    "bytes": 212,
+    "offsets": [
+      "0x0",
+      "0x4",
+      "0x8",
+      "0x10",
+      "0x14",
+      "0x18",
+      "0x1c",
+      "0x20",
+      "0x24",
+      "0x28",
+      "0x2c",
+      "0x30",
+      "0x34",
+      "0x38",
+      "0x3c",
+      "0x40",
+      "0x44",
+      "0x48",
+      "0x4c",
+      "0x50",
+      "0x54",
+      "0x58",
+      "0x5c",
+      "0x60",
+      "0x64",
+      "0x68",
+      "0x6c",
+      "0x70"
+    ],
+    "instructions": [
+      {
+        "offset": "0x0",
+        "target": "lui         $at, 0x8012",
+        "draft": "lui         $a2, 0x0"
+      },
+      {
+        "offset": "0x4",
+        "target": "sb          $zero, 0x7CC0($at)",
+        "draft": "lui         $a0, 0x0"
+      },
+      {
+        "offset": "0x8",
+        "target": "addiu       $sp, $sp, -0x18",
+        "draft": "addiu       $a2, $a2, 0x0"
+      },
+      {
+        "offset": "0x10",
+        "target": "lui         $v0, 0x8012",
+        "draft": "addiu       $a0, $a0, 0x0"
+      },
+      {
+        "offset": "0x14",
+        "target": "lui         $v1, 0x8012",
+        "draft": "sb          $zero, 0x0($at)"
+      },
+      {
+        "offset": "0x18",
+        "target": "sw          $ra, 0x14($sp)",
+        "draft": "subu        $a1, $a0, $a2"
+      },
+      {
+        "offset": "0x1c",
+        "target": "addiu       $v1, $v1, 0x7CE2",
+        "draft": "addiu       $sp, $sp, -0x18"
+      },
+      {
+        "offset": "0x20",
+        "target": "addiu       $v0, $v0, 0x7CC2",
+        "draft": "lui         $at, 0x0"
+      },
+      {
+        "offset": "0x24",
+        "target": "sb          $zero, 0x7CC1($at)",
+        "draft": "andi        $t6, $a1, 0xF"
+      },
+      {
+        "offset": "0x28",
+        "target": "addiu       $v0, $v0, 0x4",
+        "draft": "sw          $ra, 0x14($sp)"
+      },
+      {
+        "offset": "0x2c",
+        "target": "sb          $zero, -0x3($v0)",
+        "draft": "sb          $zero, 0x0($at)"
+      },
+      {
+        "offset": "0x30",
+        "target": "sb          $zero, -0x2($v0)",
+        "draft": "beqz        $t6, . + 4 + (0x9 << 2)"
+      },
+      {
+        "offset": "0x34",
+        "target": "sb          $zero, -0x1($v0)",
+        "draft": "move        $v0, $a2"
+      },
+      {
+        "offset": "0x38",
+        "target": "bne         $v0, $v1, . + 4 + (-0x5 << 2)",
+        "draft": "addu        $v1, $t6, $a2"
+      },
+      {
+        "offset": "0x3c",
+        "target": "sb          $zero, -0x4($v0)",
+        "draft": "addiu       $v0, $v0, 0x4"
+      },
+      {
+        "offset": "0x40",
+        "target": "addiu       $t6, $zero, 0x2",
+        "draft": "sb          $zero, -0x3($v0)"
+      },
+      {
+        "offset": "0x44",
+        "target": "lui         $at, 0x8012",
+        "draft": "sb          $zero, -0x2($v0)"
+      },
+      {
+        "offset": "0x48",
+        "target": "sb          $t6, 0x7CC1($at)",
+        "draft": "sb          $zero, -0x1($v0)"
+      },
+      {
+        "offset": "0x4c",
+        "target": "jal         func_801C7E4C",
+        "draft": "bne         $v1, $v0, . + 4 + (-0x5 << 2)"
+      },
+      {
+        "offset": "0x50",
+        "target": "move        $a0, $zero",
+        "draft": "sb          $zero, -0x4($v0)"
+      },
+      {
+        "offset": "0x54",
+        "target": "jal         func_801C7E4C",
+        "draft": "beq         $v0, $a0, . + 4 + (0x12 << 2)"
+      },
+      {
+        "offset": "0x58",
+        "target": "addiu       $a0, $zero, 0x1",
+        "draft": "addiu       $v0, $v0, 0x10"
+      },
+      {
+        "offset": "0x5c",
+        "target": "jal         func_801C7F10",
+        "draft": "sb          $zero, -0xF($v0)"
+      },
+      {
+        "offset": "0x60",
+        "target": "nop",
+        "draft": "sb          $zero, -0xE($v0)"
+      },
+      {
+        "offset": "0x64",
+        "target": "lw          $ra, 0x14($sp)",
+        "draft": "sb          $zero, -0xD($v0)"
+      },
+      {
+        "offset": "0x68",
+        "target": "addiu       $sp, $sp, 0x18",
+        "draft": "sb          $zero, -0x10($v0)"
+      },
+      {
+        "offset": "0x6c",
+        "target": "jr          $ra",
+        "draft": "sb          $zero, -0xB($v0)"
+      },
+      {
+        "offset": "0x70",
+        "target": "nop",
+        "draft": "sb          $zero, -0xA($v0)"
+      }
+    ]
+  }
+]

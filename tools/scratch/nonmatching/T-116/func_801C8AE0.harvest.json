@@ -1,0 +1,79 @@
+[
+  {
+    "label": "output-110-1",
+    "words": 15,
+    "bytes": 324,
+    "offsets": [
+      "0xcc",
+      "0xd0",
+      "0xd8",
+      "0xdc",
+      "0xe4",
+      "0xe8",
+      "0xec",
+      "0xf0",
+      "0xf8",
+      "0xfc",
+      "0x100",
+      "0x104",
+      "0x108",
+      "0x110",
+      "0x118"
+    ],
+    "candidate": "output-110-1"
+  },
+  {
+    "label": "output-135-1",
+    "words": 20,
+    "bytes": 324,
+    "offsets": [
+      "0x90",
+      "0x94",
+      "0x9c",
+      "0xa0",
+      "0xac",
+      "0xb0",
+      "0xc0",
+      "0xd0",
+      "0xdc",
+      "0xe0",
+      "0xe8",
+      "0xf0",
+      "0xf8",
+      "0xfc",
+      "0x100",
+      "0x104",
+      "0x10c",
+      "0x110",
+      "0x114",
+      "0x118"
+    ],
+    "candidate": "output-135-1"
+  },
+  {
+    "label": "output-140-1",
+    "words": 18,
+    "bytes": 324,
+    "offsets": [
+      "0xcc",
+      "0xd0",
+      "0xd8",
+      "0xdc",
+      "0xe4",
+      "0xe8",
+      "0xec",
+      "0xf0",
+      "0xf8",
+      "0xfc",
+      "0x100",
+      "0x104",
+      "0x108",
+      "0x10c",
+      "0x110",
+      "0x114",
+      "0x118",
+      "0x11c"
+    ],
+    "candidate": "output-140-1"
+  }
+]

@@ -540,3 +540,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-773134aa. func_801BB258 (from the matched func_801BA674 template) and func_8001AD04 match (1,596 B). func_8001B134 has an exact code draft pending constant-pool integration (follow-up). Improved: func_801B3B84 → 16 words, func_801BADEC → 102.
 - Clean vet build: the ROM and all 3 images are byte-identical. 318 T4; M1 = M2 = 72,996 / 289,876 B (25.18%). We pass 25% of game code.
 - T-119 launched (sol-B38): land func_8001B134 by resolving its constant-pool ownership.
+
+## 2026-10-21 — T-116 vetted (least-attempted mid drafts)
+- Worktree t3-e7e76605. func_801C8C24 matches (408 B); 5 improved, 9 unchanged.
+- Clean vet build: the ROM and all 3 images are byte-identical. 319 T4; M1 = M2 = 73,404 / 289,876 B (25.32%).

@@ -1,0 +1,662 @@
+[
+  {
+    "label": "8slot",
+    "words": 16,
+    "bytes": 344,
+    "offsets": [
+      "0x4",
+      "0x3c",
+      "0x64",
+      "0x8c",
+      "0xa8",
+      "0xcc",
+      "0xd0",
+      "0xe0",
+      "0xe4",
+      "0xe8",
+      "0x124",
+      "0x128",
+      "0x12c",
+      "0x130",
+      "0x134",
+      "0x154"
+    ],
+    "instructions": [
+      {
+        "offset": "0x4",
+        "target": "addiu       $sp, $sp, -0x48",
+        "draft": "addiu       $sp, $sp, -0x38"
+      },
+      {
+        "offset": "0x3c",
+        "target": "sw          $a2, 0x50($sp)",
+        "draft": "sw          $a2, 0x40($sp)"
+      },
+      {
+        "offset": "0x64",
+        "target": "addiu       $v0, $v0, 0x1",
+        "draft": "addiu       $a0, $v0, 0x1"
+      },
+      {
+        "offset": "0x8c",
+        "target": "addiu       $v0, $v0, 0x1",
+        "draft": "addiu       $a0, $v0, 0x1"
+      },
+      {
+        "offset": "0xa8",
+        "target": "addiu       $v0, $v0, 0x1",
+        "draft": "addiu       $a0, $v0, 0x1"
+      },
+      {
+        "offset": "0xcc",
+        "target": "addiu       $v0, $v0, 0x1",
+        "draft": "addiu       $a0, $v0, 0x1"
+      },
+      {
+        "offset": "0xd0",
+        "target": "bne         $v0, $t0, . + 4 + (0x3 << 2)",
+        "draft": "bne         $v0, $a3, . + 4 + (0x3 << 2)"
+      },
+      {
+        "offset": "0xe0",
+        "target": "addiu       $s3, $v0, 0x1",
+        "draft": "sll         $t3, $a0, 3"
+      },
+      {
+        "offset": "0xe4",
+        "target": "sll         $t3, $v0, 3",
+        "draft": "addiu       $s3, $a0, 0x1"
+      },
+      {
+        "offset": "0xe8",
+        "target": "addu        $t4, $s2, $t3",
+        "draft": "addu        $t4, $t3, $s2"
+      },
+      {
+        "offset": "0x124",
+        "target": "lw          $t9, 0x34($sp)",
+        "draft": "lw          $t8, 0x34($sp)"
+      },
+      {
+        "offset": "0x128",
+        "target": "lw          $t8, 0x50($sp)",
+        "draft": "move        $v0, $s3"
+      },
+      {
+        "offset": "0x12c",
+        "target": "move        $v0, $s3",
+        "draft": "sh          $s4, 0x4($t8)"
+      },
+      {
+        "offset": "0x130",
+        "target": "sh          $s4, 0x4($t9)",
+        "draft": "lw          $t9, 0x40($sp)"
+      },
+      {
+        "offset": "0x134",
+        "target": "sw          $t8, 0x0($t9)",
+        "draft": "sw          $t9, 0x0($t8)"
+      },
+      {
+        "offset": "0x154",
+        "target": "addiu       $sp, $sp, 0x48",
+        "draft": "addiu       $sp, $sp, 0x38"
+      }
+    ]
+  },
+  {
+    "label": "8entryBytes",
+    "words": 39,
+    "bytes": 356,
+    "offsets": [
+      "0x64",
+      "0x8c",
+      "0xa8",
+      "0xcc",
+      "0xd0",
+      "0xd8",
+      "0xe0",
+      "0xe4",
+      "0xe8",
+      "0xec",
+      "0xf0",
+      "0xf4",
+      "0xf8",
+      "0xfc",
+      "0x100",
+      "0x104",
+      "0x108",
+      "0x10c",
+      "0x110",
+      "0x114",
+      "0x118",
+      "0x11c",
+      "0x120",
+      "0x124",
+      "0x128",
+      "0x12c",
+      "0x130",
+      "0x134",
+      "0x138",
+      "0x13c",
+      "0x140",
+      "0x144",
+      "0x148",
+      "0x14c",
+      "0x150",
+      "0x154"
+    ],
+    "instructions": [
+      {
+        "offset": "0x64",
+        "target": "addiu       $v0, $v0, 0x1",
+        "draft": "addiu       $v1, $v0, 0x1"
+      },
+      {
+        "offset": "0x8c",
+        "target": "addiu       $v0, $v0, 0x1",
+        "draft": "addiu       $v1, $v0, 0x1"
+      },
+      {
+        "offset": "0xa8",
+        "target": "addiu       $v0, $v0, 0x1",
+        "draft": "addiu       $v1, $v0, 0x1"
+      },
+      {
+        "offset": "0xcc",
+        "target": "addiu       $v0, $v0, 0x1",
+        "draft": "addiu       $v1, $v0, 0x1"
+      },
+      {
+        "offset": "0xd0",
+        "target": "bne         $v0, $t0, . + 4 + (0x3 << 2)",
+        "draft": "bne         $v0, $a3, . + 4 + (0x3 << 2)"
+      },
+      {
+        "offset": "0xd8",
+        "target": "b           . + 4 + (0x17 << 2)",
+        "draft": "b           . + 4 + (0x1A << 2)"
+      },
+      {
+        "offset": "0xe0",
+        "target": "addiu       $s3, $v0, 0x1",
+        "draft": "sll         $t3, $v1, 3"
+      },
+      {
+        "offset": "0xe4",
+        "target": "sll         $t3, $v0, 3",
+        "draft": "addiu       $a3, $v1, 0x1"
+      },
+      {
+        "offset": "0xe8",
+        "target": "addu        $t4, $s2, $t3",
+        "draft": "addu        $t4, $t3, $s2"
+      },
+      {
+        "offset": "0xec",
+        "target": "slt         $at, $s3, $t0",
+        "draft": "slt         $at, $a3, $t0"
+      },
+      {
+        "offset": "0xf0",
+        "target": "beqz        $at, . + 4 + (0xC << 2)",
+        "draft": "sw          $t4, 0x44($sp)"
+      },
+      {
+        "offset": "0xf4",
+        "target": "sw          $t4, 0x34($sp)",
+        "draft": "beqz        $at, . + 4 + (0xE << 2)"
+      },
+      {
+        "offset": "0xf8",
+        "target": "addiu       $s1, $s0, -0x1",
+        "draft": "move        $s3, $a3"
+      },
+      {
+        "offset": "0xfc",
+        "target": "addiu       $t6, $s0, -0x2",
+        "draft": "sw          $a3, 0x30($sp)"
+      },
+      {
+        "offset": "0x100",
+        "target": "sll         $t7, $t6, 3",
+        "draft": "addiu       $s1, $s0, -0x1"
+      },
+      {
+        "offset": "0x104",
+        "target": "sll         $t5, $s1, 3",
+        "draft": "addiu       $t6, $s0, -0x2"
+      },
+      {
+        "offset": "0x108",
+        "target": "addu        $a0, $t5, $s2",
+        "draft": "sll         $t7, $t6, 3"
+      },
+      {
+        "offset": "0x10c",
+        "target": "addu        $a1, $t7, $s2",
+        "draft": "sll         $t5, $s1, 3"
+      },
+      {
+        "offset": "0x110",
+        "target": "jal         func_80003150",
+        "draft": "addu        $a0, $t5, $s2"
+      },
+      {
+        "offset": "0x114",
+        "target": "addiu       $a2, $zero, 0x8",
+        "draft": "addu        $a1, $t7, $s2"
+      },
+      {
+        "offset": "0x118",
+        "target": "slt         $at, $s3, $s1",
+        "draft": "jal         func_80000000"
+      },
+      {
+        "offset": "0x11c",
+        "target": "bnez        $at, . + 4 + (-0xA << 2)",
+        "draft": "addiu       $a2, $zero, 0x8"
+      },
+      {
+        "offset": "0x120",
+        "target": "move        $s0, $s1",
+        "draft": "slt         $at, $s3, $s1"
+      },
+      {
+        "offset": "0x124",
+        "target": "lw          $t9, 0x34($sp)",
+        "draft": "bnez        $at, . + 4 + (-0xA << 2)"
+      },
+      {
+        "offset": "0x128",
+        "target": "lw          $t8, 0x50($sp)",
+        "draft": "move        $s0, $s1"
+      },
+      {
+        "offset": "0x12c",
+        "target": "move        $v0, $s3",
+        "draft": "lw          $a3, 0x30($sp)"
+      },
+      {
+        "offset": "0x130",
+        "target": "sh          $s4, 0x4($t9)",
+        "draft": "lw          $t8, 0x44($sp)"
+      },
+      {
+        "offset": "0x134",
+        "target": "sw          $t8, 0x0($t9)",
+        "draft": "move        $v0, $a3"
+      },
+      {
+        "offset": "0x138",
+        "target": "lw          $ra, 0x2C($sp)",
+        "draft": "sh          $s4, 0x4($t8)"
+      },
+      {
+        "offset": "0x13c",
+        "target": "lw          $s0, 0x18($sp)",
+        "draft": "lw          $t9, 0x50($sp)"
+      },
+      {
+        "offset": "0x140",
+        "target": "lw          $s1, 0x1C($sp)",
+        "draft": "sw          $t9, 0x0($t8)"
+      },
+      {
+        "offset": "0x144",
+        "target": "lw          $s2, 0x20($sp)",
+        "draft": "lw          $ra, 0x2C($sp)"
+      },
+      {
+        "offset": "0x148",
+        "target": "lw          $s3, 0x24($sp)",
+        "draft": "lw          $s0, 0x18($sp)"
+      },
+      {
+        "offset": "0x14c",
+        "target": "lw          $s4, 0x28($sp)",
+        "draft": "lw          $s1, 0x1C($sp)"
+      },
+      {
+        "offset": "0x150",
+        "target": "jr          $ra",
+        "draft": "lw          $s2, 0x20($sp)"
+      },
+      {
+        "offset": "0x154",
+        "target": "addiu       $sp, $sp, 0x48",
+        "draft": "lw          $s3, 0x24($sp)"
+      }
+    ]
+  },
+  {
+    "label": "sizeof(T023EntryEA4)slot",
+    "words": 16,
+    "bytes": 344,
+    "offsets": [
+      "0x4",
+      "0x3c",
+      "0x64",
+      "0x8c",
+      "0xa8",
+      "0xcc",
+      "0xd0",
+      "0xe0",
+      "0xe4",
+      "0xe8",
+      "0x124",
+      "0x128",
+      "0x12c",
+      "0x130",
+      "0x134",
+      "0x154"
+    ],
+    "instructions": [
+      {
+        "offset": "0x4",
+        "target": "addiu       $sp, $sp, -0x48",
+        "draft": "addiu       $sp, $sp, -0x38"
+      },
+      {
+        "offset": "0x3c",
+        "target": "sw          $a2, 0x50($sp)",
+        "draft": "sw          $a2, 0x40($sp)"
+      },
+      {
+        "offset": "0x64",
+        "target": "addiu       $v0, $v0, 0x1",
+        "draft": "addiu       $a0, $v0, 0x1"
+      },
+      {
+        "offset": "0x8c",
+        "target": "addiu       $v0, $v0, 0x1",
+        "draft": "addiu       $a0, $v0, 0x1"
+      },
+      {
+        "offset": "0xa8",
+        "target": "addiu       $v0, $v0, 0x1",
+        "draft": "addiu       $a0, $v0, 0x1"
+      },
+      {
+        "offset": "0xcc",
+        "target": "addiu       $v0, $v0, 0x1",
+        "draft": "addiu       $a0, $v0, 0x1"
+      },
+      {
+        "offset": "0xd0",
+        "target": "bne         $v0, $t0, . + 4 + (0x3 << 2)",
+        "draft": "bne         $v0, $a3, . + 4 + (0x3 << 2)"
+      },
+      {
+        "offset": "0xe0",
+        "target": "addiu       $s3, $v0, 0x1",
+        "draft": "sll         $t3, $a0, 3"
+      },
+      {
+        "offset": "0xe4",
+        "target": "sll         $t3, $v0, 3",
+        "draft": "addiu       $s3, $a0, 0x1"
+      },
+      {
+        "offset": "0xe8",
+        "target": "addu        $t4, $s2, $t3",
+        "draft": "addu        $t4, $t3, $s2"
+      },
+      {
+        "offset": "0x124",
+        "target": "lw          $t9, 0x34($sp)",
+        "draft": "lw          $t8, 0x34($sp)"
+      },
+      {
+        "offset": "0x128",
+        "target": "lw          $t8, 0x50($sp)",
+        "draft": "move        $v0, $s3"
+      },
+      {
+        "offset": "0x12c",
+        "target": "move        $v0, $s3",
+        "draft": "sh          $s4, 0x4($t8)"
+      },
+      {
+        "offset": "0x130",
+        "target": "sh          $s4, 0x4($t9)",
+        "draft": "lw          $t9, 0x40($sp)"
+      },
+      {
+        "offset": "0x134",
+        "target": "sw          $t8, 0x0($t9)",
+        "draft": "sw          $t9, 0x0($t8)"
+      },
+      {
+        "offset": "0x154",
+        "target": "addiu       $sp, $sp, 0x48",
+        "draft": "addiu       $sp, $sp, 0x38"
+      }
+    ]
+  },
+  {
+    "label": "sizeof(T023EntryEA4)entryBytes",
+    "words": 39,
+    "bytes": 356,
+    "offsets": [
+      "0x64",
+      "0x8c",
+      "0xa8",
+      "0xcc",
+      "0xd0",
+      "0xd8",
+      "0xe0",
+      "0xe4",
+      "0xe8",
+      "0xec",
+      "0xf0",
+      "0xf4",
+      "0xf8",
+      "0xfc",
+      "0x100",
+      "0x104",
+      "0x108",
+      "0x10c",
+      "0x110",
+      "0x114",
+      "0x118",
+      "0x11c",
+      "0x120",
+      "0x124",
+      "0x128",
+      "0x12c",
+      "0x130",
+      "0x134",
+      "0x138",
+      "0x13c",
+      "0x140",
+      "0x144",
+      "0x148",
+      "0x14c",
+      "0x150",
+      "0x154"
+    ],
+    "instructions": [
+      {
+        "offset": "0x64",
+        "target": "addiu       $v0, $v0, 0x1",
+        "draft": "addiu       $v1, $v0, 0x1"
+      },
+      {
+        "offset": "0x8c",
+        "target": "addiu       $v0, $v0, 0x1",
+        "draft": "addiu       $v1, $v0, 0x1"
+      },
+      {
+        "offset": "0xa8",
+        "target": "addiu       $v0, $v0, 0x1",
+        "draft": "addiu       $v1, $v0, 0x1"
+      },
+      {
+        "offset": "0xcc",
+        "target": "addiu       $v0, $v0, 0x1",
+        "draft": "addiu       $v1, $v0, 0x1"
+      },
+      {
+        "offset": "0xd0",
+        "target": "bne         $v0, $t0, . + 4 + (0x3 << 2)",
+        "draft": "bne         $v0, $a3, . + 4 + (0x3 << 2)"
+      },
+      {
+        "offset": "0xd8",
+        "target": "b           . + 4 + (0x17 << 2)",
+        "draft": "b           . + 4 + (0x1A << 2)"
+      },
+      {
+        "offset": "0xe0",
+        "target": "addiu       $s3, $v0, 0x1",
+        "draft": "sll         $t3, $v1, 3"
+      },
+      {
+        "offset": "0xe4",
+        "target": "sll         $t3, $v0, 3",
+        "draft": "addiu       $a3, $v1, 0x1"
+      },
+      {
+        "offset": "0xe8",
+        "target": "addu        $t4, $s2, $t3",
+        "draft": "addu        $t4, $t3, $s2"
+      },
+      {
+        "offset": "0xec",
+        "target": "slt         $at, $s3, $t0",
+        "draft": "slt         $at, $a3, $t0"
+      },
+      {
+        "offset": "0xf0",
+        "target": "beqz        $at, . + 4 + (0xC << 2)",
+        "draft": "sw          $t4, 0x44($sp)"
+      },
+      {
+        "offset": "0xf4",
+        "target": "sw          $t4, 0x34($sp)",
+        "draft": "beqz        $at, . + 4 + (0xE << 2)"
+      },
+      {
+        "offset": "0xf8",
+        "target": "addiu       $s1, $s0, -0x1",
+        "draft": "move        $s3, $a3"
+      },
+      {
+        "offset": "0xfc",
+        "target": "addiu       $t6, $s0, -0x2",
+        "draft": "sw          $a3, 0x30($sp)"
+      },
+      {
+        "offset": "0x100",
+        "target": "sll         $t7, $t6, 3",
+        "draft": "addiu       $s1, $s0, -0x1"
+      },
+      {
+        "offset": "0x104",
+        "target": "sll         $t5, $s1, 3",
+        "draft": "addiu       $t6, $s0, -0x2"
+      },
+      {
+        "offset": "0x108",
+        "target": "addu        $a0, $t5, $s2",
+        "draft": "sll         $t7, $t6, 3"
+      },
+      {
+        "offset": "0x10c",
+        "target": "addu        $a1, $t7, $s2",
+        "draft": "sll         $t5, $s1, 3"
+      },
+      {
+        "offset": "0x110",
+        "target": "jal         func_80003150",
+        "draft": "addu        $a0, $t5, $s2"
+      },
+      {
+        "offset": "0x114",
+        "target": "addiu       $a2, $zero, 0x8",
+        "draft": "addu        $a1, $t7, $s2"
+      },
+      {
+        "offset": "0x118",
+        "target": "slt         $at, $s3, $s1",
+        "draft": "jal         func_80000000"
+      },
+      {
+        "offset": "0x11c",
+        "target": "bnez        $at, . + 4 + (-0xA << 2)",
+        "draft": "addiu       $a2, $zero, 0x8"
+      },
+      {
+        "offset": "0x120",
+        "target": "move        $s0, $s1",
+        "draft": "slt         $at, $s3, $s1"
+      },
+      {
+        "offset": "0x124",
+        "target": "lw          $t9, 0x34($sp)",
+        "draft": "bnez        $at, . + 4 + (-0xA << 2)"
+      },
+      {
+        "offset": "0x128",
+        "target": "lw          $t8, 0x50($sp)",
+        "draft": "move        $s0, $s1"
+      },
+      {
+        "offset": "0x12c",
+        "target": "move        $v0, $s3",
+        "draft": "lw          $a3, 0x30($sp)"
+      },
+      {
+        "offset": "0x130",
+        "target": "sh          $s4, 0x4($t9)",
+        "draft": "lw          $t8, 0x44($sp)"
+      },
+      {
+        "offset": "0x134",
+        "target": "sw          $t8, 0x0($t9)",
+        "draft": "move        $v0, $a3"
+      },
+      {
+        "offset": "0x138",
+        "target": "lw          $ra, 0x2C($sp)",
+        "draft": "sh          $s4, 0x4($t8)"
+      },
+      {
+        "offset": "0x13c",
+        "target": "lw          $s0, 0x18($sp)",
+        "draft": "lw          $t9, 0x50($sp)"
+      },
+      {
+        "offset": "0x140",
+        "target": "lw          $s1, 0x1C($sp)",
+        "draft": "sw          $t9, 0x0($t8)"
+      },
+      {
+        "offset": "0x144",
+        "target": "lw          $s2, 0x20($sp)",
+        "draft": "lw          $ra, 0x2C($sp)"
+      },
+      {
+        "offset": "0x148",
+        "target": "lw          $s3, 0x24($sp)",
+        "draft": "lw          $s0, 0x18($sp)"
+      },
+      {
+        "offset": "0x14c",
+        "target": "lw          $s4, 0x28($sp)",
+        "draft": "lw          $s1, 0x1C($sp)"
+      },
+      {
+        "offset": "0x150",
+        "target": "jr          $ra",
+        "draft": "lw          $s2, 0x20($sp)"
+      },
+      {
+        "offset": "0x154",
+        "target": "addiu       $sp, $sp, 0x48",
+        "draft": "lw          $s3, 0x24($sp)"
+      }
+    ]
+  }
+]
