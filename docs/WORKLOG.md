@@ -553,3 +553,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-21 — T-119 vetted (func_8001B134)
 - Worktree t3-fd2df655. func_8001B134 matches (984 B). func_8001B50C now uses double literals and B134's 4 function_owner hints are removed; the undefined_syms files were regenerated.
 - Clean vet build: the ROM and all 3 images are byte-identical. 320 T4; M1 = M2 = 74,388 / 289,876 B (25.66%).
+- T-122 launched (sol-B39): screen band 176-219, structure-first.
