@@ -516,3 +516,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-b44de690. include/render.h (136 lines: camera, matrix, Gfx, stage-command and glyph types) is adopted in main_1BE80, main_1E7F0, main_20220 and main_20AE0, and all 17 existing matches are preserved. 0 new matches, 5 drafts improved.
 - Clean vet build: the ROM and all 3 images are byte-identical. Metrics unchanged.
 - Note: the subsystem-header passes (T-108, T-110, T-112) improve code quality and types but produced no direct matches; I am returning to diagnosis/clone/permuter tasks for matches.
+- T-114 launched (sol-C42): hard residue round 3 with consolidated diagnoses.
