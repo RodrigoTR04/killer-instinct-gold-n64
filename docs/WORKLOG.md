@@ -578,3 +578,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - That is 668 B, short of the 0.70% target. The ≤6-word residue (80017378, 801B6528, 801C4E38, 801CC908, 8002F45C, 801C224C, …) is register-allocation or frame-size noise that resisted about 6.8k targeted variants plus the permuter. I'm deprioritising that band.
 - Clean vet build (on top of T-124): the ROM and all 3 images are byte-identical. 330 T4; M1 = M2 = 79,816 / 289,876 B (27.53%).
 - A clone screen at 0.70 finds no new families; only func_801B5650/5DCC (about 400 words each) and func_801BF720/F914 remain. T-127 launched (sol-C46): the untouched 18–89-word mid band, 25 drafts, about 9 KB.
+
+## 2026-10-21 — T-125 vetted (high-byte mid band)
+- Worktree t3-6ac793bb. 3 functions matched, 2,188 B (0.75%, on target): func_800131A4 (seven-byte array view, full-width loop counter, separate command-pointer scopes), func_800287D4 (direct 2-D array references instead of a cached pointer) and func_8002A4F0 (separate DMA/allocator lengths fix the store order). Improved: func_8002FB80 67→23 (exact size), func_801C2F5C 53→47, func_801C3758 32→30.
+- Clean vet build: the ROM and all 3 images are byte-identical. 333 T4; M1 = M2 = 82,004 / 289,876 B (28.29%).

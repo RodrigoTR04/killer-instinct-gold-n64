@@ -73,12 +73,64 @@ void func_80028708(void) {
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_18440/func_800287D4.s")
+typedef struct { float x,y,z; s16 active,timer; } T024Particle;
+extern T024Particle D_80061538[][20];
+extern u8 D_80061520[], D_8004A40C, D_8004AA28, D_801D87FE;
+
+void func_800287D4(void)
+{
+  s32 i;
+  s32 j;
+  for (i = 0; i < D_800614D0; i++)
+  {
+    for (j = 0; j < D_80061520[i]; j++)
+    {
+      if ((D_8004A40C == 0) && ((D_8004AA28 != 0) || (D_801D87FE == 0)))
+      {
+        (&D_80061538[i][j])->timer--;
+        if ((&D_80061538[i][j])->timer < 50)
+        {
+          if ((D_80061CD5 == 1) || (i != 0))
+          {
+            func_8002970C(i, j);
+          }
+          else
+          {
+            (&D_80061538[i][j])->timer = 10;
+          }
+        }
+        else
+        {
+          (&D_80061538[i][j])->x += D_80061CC8[0];
+          (&D_80061538[i][j])->y += D_80061CC8[1];
+          (&D_80061538[i][j])->z += D_80061CC8[2];
+          (&D_80061538[i][j])->y += ((float) (&D_80061538[i][j])->active) * D_80061528;
+          if (func_800326F0() >= 0x7FFF0001U)
+          {
+            (&D_80061538[i][j])->x += D_80061528;
+          }
+          else
+          {
+            (&D_80061538[i][j])->x -= D_80061528;
+          }
+          if (func_800326F0() >= 0x7FFF0001U)
+          {
+            (&D_80061538[i][j])->z += D_80061528;
+          }
+          else
+          {
+            (&D_80061538[i][j])->z -= D_80061528;
+          }
+        }
+      }
+    }
+
+  }
+
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_18440/func_80028A00.s")
 
-typedef struct { float x,y,z; s16 active,timer; } T024Particle;
-extern T024Particle D_80061538[][20];
 extern u32 func_800326F0(void);
 void func_8002970C(s32 group, s32 index) {
     D_80061538[group][index].active = 1;

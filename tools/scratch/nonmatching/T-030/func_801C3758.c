@@ -1,4 +1,4 @@
-/* T-105: nonmatching draft; see T-105/REPORT.md for measurement and remaining differences. */
+/* T-125: 30 differing words, exact 564 B in full TU; animation/UV and command allocation remain. */
 #include "frontend.h"
 
 extern s32 D_80290D88;
@@ -11,10 +11,7 @@ FrontendGfxWords **arg0; FrontendCloud *arg1; s8 arg2;
     s32 frame, next;
     s16 *uv;
     FrontendGfxWords *dl;
-    frame = (arg1->animation + 12) & 255;
-    next = frame;
-    if (frame >= 64) { frame = 0; next = 0; }
-    arg1->animation = frame;
+    frame = (arg1->animation + 12) & 255; next = frame < 64 ? frame : 0; arg1->animation = next;
     T105Vertices[D_80290D88].x = arg1->x - arg2;
     T105Vertices[D_80290D88+1].x = arg1->x + arg2;
     T105Vertices[D_80290D88+2].x = arg1->x;
