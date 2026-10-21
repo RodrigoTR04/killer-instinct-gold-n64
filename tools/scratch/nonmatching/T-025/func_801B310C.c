@@ -1,5 +1,5 @@
-/* T-101 DRAFT: 19 differing words; 536 bytes. Not matching.
- * The late branch retains the inherited uninitialized alpha read; scratch only. */
+/* T-120 DRAFT: 7 differing words; 536 bytes. Not matching.
+ * Original late-path uninitialized alpha read retained; scratch only. */
 extern f32 func_801B19F0(f32, f32, s32, s32);
 
 typedef struct {
@@ -22,10 +22,12 @@ s32 func_801B310C(T025Gfx310C **arg0, s32 arg1, void *arg2, s32 arg3)
     s32 color2;
     s32 packed;
     u32 value;
+    u32 primitive;
     if ((s32) D_801D3088 < 3)
     {
         return 0;
     }
+    primitive = 0xFA000000;
     arg1 = *counter;
     if (arg1++ < 10)
     {
@@ -33,19 +35,18 @@ s32 func_801B310C(T025Gfx310C **arg0, s32 arg1, void *arg2, s32 arg3)
         color = (u16)value;
         packed = ((color & 0xFF) << 0x18) | ((color & 0xFF) << 0x10) | ((color & 0xFF) << 8) | (color & 0xFF);
         /* Pack before allocating the command; keep alpha assignment separate. */
-        alpha = color;
+        alpha = value;
         p0 = (*arg0)++;
-        p0->w1 = (s32) packed;
-        p0->w0 = 0xFA000000;
+        /* Keep both stores joined for IDO delay-slot scheduling. */
+        p0->w0 = primitive; p0->w1 = (s32) packed;
     }
     else
     {
         *counter = arg1;
         p1 = (*arg0)++;
+        p1->w0 = primitive;
         color2 = D_802C87D0 & 0xFF;
-        p1->w1 = (s32) ((color2 << 0x18) | (color2 << 0x10) | (color2 << 8) | alpha);
-        /* This source store order keeps the stale alpha load in the late block. */
-        p1->w0 = 0xFA000000;
+        p1->w1 = (s32) ((color2 << 0x18) | (color2 << 0x10) | (color2 << 8) | (alpha & 0xFF));
         alpha = 0xFF;
         if ((s32) D_801D308C < 3)
         {

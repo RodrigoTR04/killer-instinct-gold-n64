@@ -1,0 +1,66 @@
+{
+  "func_801C1434": {
+    "words": 176,
+    "bytes": 736
+  },
+  "func_800131A4": {
+    "words": 178,
+    "bytes": 676
+  },
+  "func_8002E150": {
+    "words": 179,
+    "bytes": 836
+  },
+  "func_800297A4": {
+    "words": 180,
+    "bytes": 780
+  },
+  "func_8001808C": {
+    "words": 181,
+    "bytes": 796
+  },
+  "func_801BBE88": {
+    "words": 184,
+    "bytes": 804
+  },
+  "func_800253D0": {
+    "words": 186,
+    "bytes": 1044
+  },
+  "func_801B2B8C": {
+    "words": 189,
+    "bytes": 884
+  },
+  "func_801BD640": {
+    "words": 191,
+    "bytes": 1068
+  },
+  "func_800193DC": {
+    "words": 192,
+    "bytes": 788
+  },
+  "func_801B01EC": {
+    "words": 193,
+    "bytes": 828
+  },
+  "func_80017D6C": {
+    "words": 194,
+    "bytes": 824
+  },
+  "func_80018AE0": {
+    "words": 194,
+    "bytes": 900
+  },
+  "func_801B0CDC": {
+    "words": 204,
+    "bytes": 1336
+  },
+  "func_801C3AA0": {
+    "words": 206,
+    "bytes": 908
+  },
+  "func_801C90D4": {
+    "words": 219,
+    "bytes": 1192
+  }
+}

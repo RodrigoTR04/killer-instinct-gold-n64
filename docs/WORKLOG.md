@@ -559,3 +559,8 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-a7b7cc1a. func_801BEA74 matches (664 B). func_801B0A40 has exact text (668 B) but is blocked on constant-pool ownership (follow-up). 8 drafts improved.
 - Clean vet build: the ROM and all 3 images are byte-identical. 321 T4; M1 = M2 = 75,052 / 289,876 B (25.89%).
 - T-123 launched (sol-C45): constant placement for func_801B0A40.
+
+## 2026-10-21 — T-120 and T-122 vetted
+- T-120 (worktree t3-c15d80f7): func_801B3B84 matches (556 B). A shared mask/constant/alpha/store construct brings all six family-B copies from 19 to 7 words. The only zero for the residual was an artificial `if (counter) {}`, which was rejected.
+- T-122 (worktree t3-3c530a29): 0 matched, 9 drafts improved. func_800131A4 went 178→41, func_801C3AA0 206→119 (exact size), func_801C1434 176→132 and func_801BBE88 184→150 (exact size).
+- Clean vet build of both together: the ROM and all 3 images are byte-identical. 322 T4; M1 = M2 = 75,608 / 289,876 B (26.08%).

@@ -1,0 +1,230 @@
+{
+  "func_801B2EF4": {
+    "label": "baseline",
+    "words": 19,
+    "bytes": 536,
+    "offsets": [
+      "0x3c",
+      "0x40",
+      "0x7c",
+      "0x10c",
+      "0x110",
+      "0x124",
+      "0x128",
+      "0x12c",
+      "0x130",
+      "0x134",
+      "0x138",
+      "0x13c",
+      "0x140",
+      "0x148",
+      "0x14c",
+      "0x168",
+      "0x16c",
+      "0x170",
+      "0x184"
+    ],
+    "instructions": [
+      {
+        "offset": "0x3c",
+        "target": "lui         $at, 0x801D",
+        "draft": "lui         $a3, 0x0"
+      },
+      {
+        "offset": "0x40",
+        "target": "lui         $t9, 0xFA00",
+        "draft": "addiu       $a3, $a3, 0x0"
+      },
+      {
+        "offset": "0x7c",
+        "target": "lui         $t9, 0xFA00",
+        "draft": "lui         $t8, 0xFA00"
+      },
+      {
+        "offset": "0x10c",
+        "target": "addiu       $t8, $v1, 0x8",
+        "draft": "addiu       $t9, $v1, 0x8"
+      },
+      {
+        "offset": "0x110",
+        "target": "sw          $t8, 0x0($s0)",
+        "draft": "sw          $t9, 0x0($s0)"
+      },
+      {
+        "offset": "0x124",
+        "target": "sw          $t9, 0x0($v1)",
+        "draft": "sw          $t8, 0x0($v1)"
+      },
+      {
+        "offset": "0x128",
+        "target": "sw          $a2, 0x30C0($at)",
+        "draft": "lui         $at, 0x0"
+      },
+      {
+        "offset": "0x12c",
+        "target": "lw          $v1, 0x0($s0)",
+        "draft": "sw          $a2, 0x0($at)"
+      },
+      {
+        "offset": "0x130",
+        "target": "lbu         $t7, 0x27($sp)",
+        "draft": "lw          $v1, 0x0($s0)"
+      },
+      {
+        "offset": "0x134",
+        "target": "lui         $v0, 0x802D",
+        "draft": "lbu         $t0, 0x27($sp)"
+      },
+      {
+        "offset": "0x138",
+        "target": "addiu       $t8, $v1, 0x8",
+        "draft": "lui         $v0, 0x0"
+      },
+      {
+        "offset": "0x13c",
+        "target": "sw          $t8, 0x0($s0)",
+        "draft": "addiu       $t9, $v1, 0x8"
+      },
+      {
+        "offset": "0x140",
+        "target": "sw          $t9, 0x0($v1)",
+        "draft": "sw          $t9, 0x0($s0)"
+      },
+      {
+        "offset": "0x148",
+        "target": "lui         $a2, 0x801D",
+        "draft": "lui         $t8, 0xFA00"
+      },
+      {
+        "offset": "0x14c",
+        "target": "addiu       $a2, $a2, 0x308C",
+        "draft": "sw          $t8, 0x0($v1)"
+      },
+      {
+        "offset": "0x168",
+        "target": "or          $t8, $t6, $t7",
+        "draft": "or          $t7, $t6, $t0"
+      },
+      {
+        "offset": "0x16c",
+        "target": "sw          $t8, 0x4($v1)",
+        "draft": "sw          $t7, 0x4($v1)"
+      },
+      {
+        "offset": "0x170",
+        "target": "lbu         $a1, 0x0($a2)",
+        "draft": "lbu         $a1, 0x0($a3)"
+      },
+      {
+        "offset": "0x184",
+        "target": "sb          $t9, 0x0($a2)",
+        "draft": "sb          $t9, 0x0($a3)"
+      }
+    ]
+  },
+  "func_801B3B84": {
+    "label": "baseline",
+    "words": 16,
+    "bytes": 556,
+    "offsets": [
+      "0x40",
+      "0x78",
+      "0x108",
+      "0x10c",
+      "0x120",
+      "0x128",
+      "0x130",
+      "0x134",
+      "0x138",
+      "0x148",
+      "0x14c",
+      "0x150",
+      "0x154",
+      "0x158",
+      "0x15c",
+      "0x160"
+    ],
+    "instructions": [
+      {
+        "offset": "0x40",
+        "target": "lbu         $t7, 0x27($sp)",
+        "draft": "lbu         $t0, 0x27($sp)"
+      },
+      {
+        "offset": "0x78",
+        "target": "lui         $t9, 0xFA00",
+        "draft": "lui         $t8, 0xFA00"
+      },
+      {
+        "offset": "0x108",
+        "target": "addiu       $t8, $v1, 0x8",
+        "draft": "addiu       $t9, $v1, 0x8"
+      },
+      {
+        "offset": "0x10c",
+        "target": "sw          $t8, 0x0($s0)",
+        "draft": "sw          $t9, 0x0($s0)"
+      },
+      {
+        "offset": "0x120",
+        "target": "sw          $t9, 0x0($v1)",
+        "draft": "sw          $t8, 0x0($v1)"
+      },
+      {
+        "offset": "0x128",
+        "target": "lui         $t9, 0xFA00",
+        "draft": "lui         $t1, 0xFA00"
+      },
+      {
+        "offset": "0x130",
+        "target": "addiu       $t8, $v1, 0x8",
+        "draft": "addiu       $t9, $v1, 0x8"
+      },
+      {
+        "offset": "0x134",
+        "target": "sw          $t8, 0x0($s0)",
+        "draft": "sw          $t9, 0x0($s0)"
+      },
+      {
+        "offset": "0x138",
+        "target": "sw          $t9, 0x0($v1)",
+        "draft": "sw          $t1, 0x0($v1)"
+      },
+      {
+        "offset": "0x148",
+        "target": "andi        $t1, $v0, 0xFF",
+        "draft": "andi        $t2, $v0, 0xFF"
+      },
+      {
+        "offset": "0x14c",
+        "target": "sll         $t2, $t1, 24",
+        "draft": "sll         $t3, $t2, 24"
+      },
+      {
+        "offset": "0x150",
+        "target": "sll         $t3, $t1, 16",
+        "draft": "sll         $t4, $t2, 16"
+      },
+      {
+        "offset": "0x154",
+        "target": "or          $t4, $t2, $t3",
+        "draft": "or          $t5, $t3, $t4"
+      },
+      {
+        "offset": "0x158",
+        "target": "sll         $t5, $t1, 8",
+        "draft": "sll         $t6, $t2, 8"
+      },
+      {
+        "offset": "0x15c",
+        "target": "or          $t6, $t4, $t5",
+        "draft": "or          $t7, $t5, $t6"
+      },
+      {
+        "offset": "0x160",
+        "target": "or          $t8, $t6, $t7",
+        "draft": "or          $t8, $t7, $t0"
+      }
+    ]
+  }
+}

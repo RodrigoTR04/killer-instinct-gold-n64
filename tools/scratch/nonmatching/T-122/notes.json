@@ -1,0 +1,18 @@
+{
+  "func_801C1434": "Cache the player selector across callbacks, reload flags after the first draw, and use promoted full-width fourth argument for func_801C11F0. Remaining input homing, score-word temporaries and branch scheduling.",
+  "func_800131A4": "Signed 16-bit part/counter and callback return, unsigned count/order loads, explicit shift/subtract seven-byte stride, symbolic physical display-list address. Remaining store order and saved-register allocation.",
+  "func_8002E150": "Address-taken input experiment removes the union copy/save but still differs in frame size and FP polynomial scheduling. Literal/layout probes did not improve retained draft. Existing function_owner reservation remains untouched because this function is not converted.",
+  "func_800297A4": "Burst layout and unsigned RNG conversions retained. Equal size; free-slot traversal, loop induction and integer/FP allocation remain. Lower permuter scores must preserve all three geometry branches and unsigned conversions.",
+  "func_8001808C": "Stage setup has the expected stores/calls. Literal and layout experiments do not recover three missing words, callback/store scheduling and FP temporaries.",
+  "func_801BBE88": "One typed command cursor and cached height-global address recover reload/address materialization and exact size. Remaining command-store scheduling and temporary allocation.",
+  "func_800253D0": "Confirmed byte HUD inputs and actor stride. Word/byte union and pointer-global diagnostics do not solve six missing words. Retained token-preserving source layout improvement; call/store scheduling remains.",
+  "func_801B2B8C": "Reuse one command cursor removes four excess instructions. Still one word short; matrix/alpha and command scheduling remain. Original reads a local stack byte before its else-branch alpha reset; no speculative initialization retained.",
+  "func_801BD640": "Existing glyph/Gfx widths and float matrix prototypes retained. Equal size; matrix base, saved registers, packed color and glyph-loop lifetimes remain. Aligned matrix and layout/search diagnostics did not establish a match.",
+  "func_800193DC": "Stage and byte setup matches high-level structure; five missing words and FP/store scheduling remain. Literal and token-layout experiments did not improve the retained draft.",
+  "func_801B01EC": "Aligned matrix and shared-zero diagnostics do not fix two excess words. Token-preserving multiline layout improves scheduling; FP/global/call lifetimes remain.",
+  "func_80017D6C": "Confirmed full-width stage indices, cached transform pointers and indexed copy tail. Index widths, literals and pointer-representation/layout probes do not remove six extra words.",
+  "func_80018AE0": "Stage initialization and callback sequence retained. Literal/layout diagnostics do not fix three missing words and FP/store ordering.",
+  "func_801B0CDC": "Existing sprite ABI and unsigned integer tick/40 division retained. Matrix alignment/shared zero do not remove one excess word. Token-preserving layout improves two words; FP/matrix and command scheduling remain.",
+  "func_801C3AA0": "Flat 16-byte vertices, slot*3 calculated after RNG, count computed before remaining capacity, no cached active count across trig/RNG calls, double half-width calculation and final global reload recover exact size. Remaining register/slot differences.",
+  "func_801C90D4": "Promoted colors and float fade values retained; widening colors or FP locals changes conversion semantics/code shape. Token-preserving layout improves scheduling; two missing words and stack/color/fade-loop allocation remain."
+}

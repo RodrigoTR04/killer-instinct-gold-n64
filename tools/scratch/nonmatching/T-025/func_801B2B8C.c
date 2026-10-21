@@ -1,3 +1,4 @@
+/* T-122 nonmatching: 178 differing words; 868 compiled bytes. See T-122/REPORT.md. */
 /* T-050: retained improvement; 189 differing words including size penalty, 884 compiled bytes. Full function remains nonmatching. */
 f32 func_801B19F0(f32 arg0, f32 arg1, s32 arg2, s32 arg3);
 /* DRAFT. Remaining diff: Matrix stack layout, counter/unsigned alpha conversion, temporary registers and display-list scheduling differ. */
@@ -33,12 +34,6 @@ s32 func_801B2B8C(T025Gfx2B8C **arg0, s32 arg1, u8 *arg2, s32 arg3) {
     u32 temp_a0;
     u8 alpha;
     T025Gfx2B8C *temp_v1;
-    T025Gfx2B8C *temp_v1_2;
-    T025Gfx2B8C *temp_v1_3;
-    T025Gfx2B8C *temp_v1_4;
-    T025Gfx2B8C *temp_v1_5;
-    T025Gfx2B8C *temp_v1_6;
-    T025Gfx2B8C *temp_v1_7;
 
     if ((s32) D_801D3088 <= 0) {
         return 0;
@@ -51,28 +46,28 @@ s32 func_801B2B8C(T025Gfx2B8C **arg0, s32 arg1, u8 *arg2, s32 arg3) {
     temp_v1 = (*arg0)++;
     temp_v1->w0 = 0x03840010;
     temp_v1->w1 = (u32)&D_802C87D8;
-    temp_v1_2 = (*arg0)++;
+    temp_v1 = (*arg0)++;
     temp_a1 = D_801D30B8 < 0xA;
     temp_a2 = D_801D30B8 + 1;
-    temp_v1_2->w0 = 0x03820010;
-    temp_v1_2->w1 = (u32)&D_802C87E8;
+    temp_v1->w0 = 0x03820010;
+    temp_v1->w1 = (u32)&D_802C87E8;
     if (temp_a1 != 0) {
         D_801D30B8 = temp_a2;
         temp_a0 = (u32) func_801B19F0(0.0f, 255.0f, temp_a2, 0xA);
         temp_t8 = temp_a0 & 0xFF;
-        temp_v1_3 = *arg0;
+        temp_v1 = *arg0;
         temp_t4 = (temp_t8 << 0x18) | (temp_t8 << 0x10) | (temp_t8 << 8);
-        *arg0 = temp_v1_3 + 1;
+        *arg0 = temp_v1 + 1;
         alpha = temp_a0 & 0xFF;
-        temp_v1_3->w1 = (temp_t4 | temp_t8);
-        temp_v1_3->w0 = 0xFA000000;
+        temp_v1->w1 = (temp_t4 | temp_t8);
+        temp_v1->w0 = 0xFA000000;
     } else {
         D_801D30B8 = temp_a2;
-        temp_v1_4 = *arg0;
-        *arg0 = temp_v1_4 + 1;
-        temp_v1_4->w0 = 0xFA000000;
+        temp_v1 = *arg0;
+        *arg0 = temp_v1 + 1;
+        temp_v1->w0 = 0xFA000000;
         temp_t8_2 = D_802C87D0 & 0xFF;
-        temp_v1_4->w1 = ((temp_t8_2 << 0x18) | (temp_t8_2 << 0x10) | (temp_t8_2 << 8) | alpha);
+        temp_v1->w1 = ((temp_t8_2 << 0x18) | (temp_t8_2 << 0x10) | (temp_t8_2 << 8) | alpha);
         alpha = 0xFF;
         if ((s32) D_801D308C <= 0) {
             D_801D308C += 1;
@@ -84,14 +79,14 @@ s32 func_801B2B8C(T025Gfx2B8C **arg0, s32 arg1, u8 *arg2, s32 arg3) {
     } else {
         D_802C87D0 = 0xFF;
     }
-    temp_v1_5 = (*arg0)++;
-    temp_v1_5->w1 = 0x0F0A4000;
-    temp_v1_5->w0 = 0xB900031D;
-    temp_v1_6 = (*arg0)++;
-    temp_v1_6->w0 = 0xFB000000;
-    temp_v1_6->w1 = ((alpha + D_801D3094) & 0xFF);
-    temp_v1_7 = (*arg0)++;
-    temp_v1_7->w1 = (u32)&D_801D3030;
-    temp_v1_7->w0 = 0x06000000;
+    temp_v1 = (*arg0)++;
+    temp_v1->w1 = 0x0F0A4000;
+    temp_v1->w0 = 0xB900031D;
+    temp_v1 = (*arg0)++;
+    temp_v1->w0 = 0xFB000000;
+    temp_v1->w1 = ((alpha + D_801D3094) & 0xFF);
+    temp_v1 = (*arg0)++;
+    temp_v1->w1 = (u32)&D_801D3030;
+    temp_v1->w0 = 0x06000000;
     return 1;
 }

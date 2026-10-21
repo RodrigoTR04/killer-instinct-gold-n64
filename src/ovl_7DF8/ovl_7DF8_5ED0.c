@@ -343,7 +343,70 @@ s32 func_801B29E8(T025Gfx29E8 **arg0, s32 arg1, void *arg2, s32 arg3)
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B396C.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B3B84.s")
+extern f32 func_801B19F0(f32, f32, s32, s32);
+
+typedef struct {
+    u32 w0, w1;
+} T025Gfx3B84;
+extern void guTranslate(void *, f32, f32, f32);
+extern u8 D_801D3030[];
+extern u8 D_801D3088;
+extern u8 D_801D308C;
+extern s16 D_801D3094;
+extern s32 D_801D30D8;
+extern s16 D_802C87D0;
+extern u8 D_8029571A;
+
+s32 func_801B3B84(T025Gfx3B84 **arg0, s32 arg1, void *arg2, s32 arg3)
+{
+    /* Original completed-animation path reads alpha before assigning it. */
+    u8 alpha;
+    s32 *counter = &D_801D30D8;
+    T025Gfx3B84 *p0, *p1, *p2, *p3;
+    u8 color;
+    s32 color2;
+    s32 packed;
+    u32 value;
+    u32 primitive;
+    if ((s32) D_801D3088 < 8)
+    {
+        return 0;
+    }
+    primitive = 0xFA000000;
+    arg1 = *counter;
+    if (arg1++ < 10)
+    {
+        value = (u32) func_801B19F0(0.0f, 255.0f, *counter = arg1, 10);
+        color = (u16)value;
+        packed = ((color & 0xFF) << 0x18) | ((color & 0xFF) << 0x10) | ((color & 0xFF) << 8) | (color & 0xFF);
+        alpha = value;
+        p0 = (*arg0)++;
+        /* Keep both stores on one line for IDO delay-slot scheduling. */
+        p0->w0 = primitive; p0->w1 = (s32) packed;
+    }
+    else
+    {
+        p1 = (*arg0)++;
+        p1->w0 = primitive;
+        color2 = D_802C87D0 & 0xFF;
+        p1->w1 = (s32) ((color2 << 0x18) | (color2 << 0x10) | (color2 << 8) | (alpha & 0xFF));
+
+        alpha = 0xFF;
+        if ((s32) D_801D308C < 8)
+        {
+            D_801D308C += 1;
+        }
+        *counter = arg1;
+        if (arg1 < 0x32) { D_8029571A = 1; }
+    }
+    guTranslate(arg2, 178.0f, 0.0f, (f32) D_801D3094);
+    p2 = (*arg0)++;
+    p2->w0 = 0xFB000000;
+    p2->w1 = (s32) ((alpha + D_801D3094) & 0xFF);
+    p3 = (*arg0)++;
+    p3->w0 = 0x06000000; p3->w1 = (s32) &D_801D3030;
+    return 1;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B3DB0.s")
 
