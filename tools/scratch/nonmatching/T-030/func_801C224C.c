@@ -1,4 +1,4 @@
-/* DRAFT. Remaining diff: Mode-cache saved register, frame (0x18 vs 0x20), and copy-loop scheduling differ. */
+/* T-102 DRAFT: 6 differing words, 372/372 bytes; entry argument allocation remains. */
 #include "common.h"
 
 extern void func_80012950(s32);
@@ -22,24 +22,24 @@ extern u8 D_802D38C8;
 
 void func_801C224C(u8 arg0, s32 arg1) {
     s32 i, j;
-    s32 mode;
+
     D_802D38C8 = arg0;
     osViBlack(1);
     func_80012950(1);
-    mode = D_802D38C8;
-    D_8004AC88 = mode;
-    func_80012A8C(mode & 255);
+    arg0 = D_802D38C8;
+    D_8004AC88 = arg0;
+    func_80012A8C(arg0 & 255);
     D_800698C4 = 0;
     D_800451EC[D_802D38C8]();
     func_8001CD50();
-    mode = D_802D38C8;
+    arg0 = D_802D38C8;
     for (i = 0; i < 4; i++) {
         for (j = 0; j < 3; j++) {
-            D_802D3898[j][i] = D_80285240[mode][j][i];
+            D_802D3898[j][i] = D_80285240[arg0][j][i];
         }
-        D_802D3880[i] = D_80285420[mode][i];
+        D_802D3880[i] = D_80285420[arg0][i];
     }
-    D_80285574 = D_8028326C[mode];
+    D_80285574 = D_8028326C[arg0];
     D_802D3890 = arg1;
     D_802D3874 = 0;
     D_802D3878 = 50.0f;

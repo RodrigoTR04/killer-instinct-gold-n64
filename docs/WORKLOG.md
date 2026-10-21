@@ -465,3 +465,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-101 vetted (family B round 2)
 - Worktree t3-6778d103. Family B is now 19 words per copy (from 57), at the correct 536 B; drafts only, so I imported the drafts and REPORT.md (region diagnoses). T-102 was resumed after the 22:03 reset.
 - Launched T-103 (family B round 3) and T-104 (the closest drafts from the refreshed screen).
+
+## 2026-10-20 — T-102 vetted (screen tier 88-111)
+- Worktree t3-d2a0291f. func_801BE910 and func_80024B0C match (820 B). 5 improved, 13 unchanged.
+- Clean vet build: the ROM and all 3 images are byte-identical. 304 T4; M1 = M2 = 66,396 / 289,876 B (22.90%).

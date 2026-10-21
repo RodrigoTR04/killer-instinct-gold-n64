@@ -204,4 +204,26 @@ found:
     D_8004EA9A = *kind + 5;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_D3F0/func_80024B0C.s")
+typedef struct { u32 w0,w1; } T032Gfx24B;
+typedef struct { u8 pad[12]; f32 x,y,z; u8 tail[24]; } T032Pos24B;
+extern T032Pos24B D_8004A450[];
+extern u8 D_471440[],D_472FB0[],D_80046130[];
+extern u8 D_80044A24;
+extern f32 D_8004AC84,D_800695DC,D_800695E0;
+extern void guTranslate(void *,f32,f32,f32),guRotateRPY(void *,f32,f32,f32),guScale(void *,f32,f32,f32);
+typedef union { u64 align; u8 bytes[64]; } T102Matrix;
+void func_80024B0C(T032Gfx24B **dl,s32 player) {
+    T032Pos24B *pos = &D_8004A450[player ^ 1];
+    T102Matrix *base = (void *)(D_472FB0 - D_471440 + 0x8023D400);
+
+    f32 scale;
+    /* Matrices are 64 bytes; keep byte offsets explicit for IDO scheduling. */
+    guTranslate(((u8 *)base + ((D_80044A24 * 3) << 6)),pos->x,pos->y,pos->z);
+    guRotateRPY(((u8 *)base + ((D_80044A24 * 3 + 1) << 6)),0.0f,-D_800695DC,D_800695E0);
+    scale = 230.0f / D_8004AC84;
+    guScale(((u8 *)base + ((D_80044A24 * 3 + 2) << 6)),scale,scale,scale);
+    { T032Gfx24B *p = (*dl)++; p->w0 = 0x01040040; p->w1 = (u32)(((u8 *)base + ((D_80044A24 * 3) << 6))); }
+    { T032Gfx24B *p = (*dl)++; p->w0 = 0x01000040; p->w1 = (u32)(((u8 *)base + ((D_80044A24 * 3 + 1) << 6))); }
+    { T032Gfx24B *p = (*dl)++; p->w0 = 0x01000040; p->w1 = (u32)(((u8 *)base + ((D_80044A24 * 3 + 2) << 6))); }
+    { T032Gfx24B *p = (*dl)++; p->w0 = 0x06000000; p->w1 = (u32)D_80046130; }
+}

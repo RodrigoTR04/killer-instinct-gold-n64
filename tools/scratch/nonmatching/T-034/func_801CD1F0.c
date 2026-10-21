@@ -1,4 +1,4 @@
-/* T-087: owning TU PfsState/prototypes reconciled; still nonmatching. */
+/* T-102 DRAFT: 91 differing words, 456/460 bytes; saved-register and cursor scheduling remain. */
 extern u8 D_802D3D30;
 extern s32 D_802D3E00;
 extern u8 D_802D3E0E;
@@ -43,9 +43,9 @@ void func_801CD1F0(s32 arg0) {
         if (count > 16) {
             count = 16;
         }
-        for (i = 0; i < count; i++) {
+        for (ret = 0; ret < count; ret++) {
             *entries = (u8 *)names;
-            if (osPfsFileState(pfs, i, &state) != 0) {
+            if (osPfsFileState(pfs, ret, &state) != 0) {
                 *names = D_802956BC;
             } else {
                 *names = str;
@@ -65,6 +65,6 @@ void func_801CD1F0(s32 arg0) {
             entries++;
             names++;
         }
-        D_802D3E0E = i;
+        D_802D3E0E = ret;
     }
 }

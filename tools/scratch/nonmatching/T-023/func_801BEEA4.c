@@ -1,14 +1,14 @@
-/* DRAFT. Remaining diff: Score signedness, stack frame, insertion-loop registers and control flow differ. */
-typedef struct { s32 data; s16 score; u16 pad; } T023EntryEA4;
+/* T-102 DRAFT: 40 differing words, 356/344 bytes; insertion/search register lifetimes remain. */
+typedef struct { s32 data; u16 score; u16 pad; } T023EntryEA4;
 typedef struct { T023EntryEA4 *entries; u8 count, descending; u16 pad; } T023TableEA4;
 extern T023TableEA4 D_80127D80[];
 extern void *memcpy(void *, const void *, u32);
-s32 func_801BEEA4(s32 table, s16 score, s32 data) {
+s32 func_801BEEA4(s32 table, s32 score, s32 data) {
     T023EntryEA4 *entry;
     T023EntryEA4 *entries;
     T023TableEA4 *header;
     s32 last, index, slot, next;
-    u8 count, i;
+    s32 count, i;
     header = &D_80127D80[table];
     count = header->count;
     last = count - 1;
@@ -28,10 +28,10 @@ s32 func_801BEEA4(s32 table, s16 score, s32 data) {
     entry = &entries[slot];
     if (next < count) {
         do {
-            index = i - 1;
-            memcpy(&entries[index], &entries[i - 2], 8);
-            i = index;
-        } while (next < index);
+            last = i - 1;
+            memcpy(&entries[last], &entries[i - 2], 8);
+            i = last;
+        } while (next < last);
     }
     entry->score = score;
     entry->data = data;
