@@ -457,3 +457,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - T-102 stopped on the Codex usage limit (resets 22:03). T3 usually resumes these itself; backup cron c1612fb1 at 22:06 resumes only workers still stopped.
 - T-099 was interrupted near completion (limit). The 22:06 backup cron covers resuming it.
 - T-101 was interrupted near completion (limit). Family B is at 19 words in its worktree. The 22:06 backup cron covers resuming it.
+
+## 2026-10-20 — T-099 vetted (screen refresh + closest)
+- Worktree t3-8ac95672 (resumed after the limit). The screen is refreshed in T-099/screen.md. func_801C3524, func_801C3990 and func_801BF988 match (548 B); 4 improved, 3 unchanged.
+- Clean vet build: the ROM and all 3 images are byte-identical. 302 T4; M1 = M2 = 65,576 / 289,876 B (22.62%).

@@ -220,7 +220,23 @@ void func_801C2D34(T030Cmd2D34 **arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C317C.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C3524.s")
+typedef struct { u32 w0, w1; } T021Gfx;
+extern u8 D_802855C8;
+
+s32 func_801C3524(T021Gfx **arg0, s32 arg1)
+{
+    T021Gfx *command;
+    if (arg1 >= 0x11)
+    {
+        arg1 = 0x10;
+    }
+    command = (*arg0)++;
+    /* Keep each command pair on one line for IDO store scheduling. */
+    command->w0 = 0xFA000000; command->w1 = (s32) ((arg1 * 0xF) & 0xFF);
+    command = (*arg0)++;
+    command->w0 = 0x06000000; command->w1 = (s32) (&D_802855C8);
+    return arg1 == 0x10;
+}
 
 extern void func_801C35D8();
 extern u8 D_80290DF8;

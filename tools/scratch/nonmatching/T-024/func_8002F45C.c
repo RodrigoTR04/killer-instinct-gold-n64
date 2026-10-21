@@ -1,4 +1,4 @@
-/* T-088 DRAFT: 11 relocation-masked differing words; target-sized. */
+/* T-099 DRAFT: 4 relocation-masked differing words; target-sized. See T-099/REPORT.md. */
 typedef struct { s32 pad;
  s32 loop;
  } T024Envelope;
@@ -41,6 +41,7 @@ T024AllocatedVoice *func_8002F45C(void *unused, T024SoundDef *sound)
   T024KeyMap *key;
   s32 old;
   s32 pan;
+  u8 flags;
   voice = ((T024AllocationLists *)&D_80048270)->free;
   savedKey = sound->key;
   key = savedKey;
@@ -70,8 +71,9 @@ T024AllocatedVoice *func_8002F45C(void *unused, T024SoundDef *sound)
     voice->state = 2;
     voice->sound = sound;
     voice->pitch = 1.0f;
+    flags = key->flags & 0xF0;
+    voice->flags = flags;
     voice->owner = 0;
-    voice->flags = key->flags & 0xF0;
     if (voice->flags & 0x20)
     {
       voice->ratio = alCents2Ratio((key->key * 100) - 6000);

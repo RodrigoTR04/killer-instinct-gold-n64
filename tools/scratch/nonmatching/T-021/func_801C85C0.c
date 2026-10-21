@@ -1,4 +1,4 @@
-/* T-092 DRAFT: 5 relocation-masked differing words; 168 bytes. */
+/* T-099 DRAFT: 4 relocation-masked differing words; target-sized. See T-099/REPORT.md. */
 extern void func_801C7E98();
 extern s32 D_80127D00;
 extern s8 D_80127D20;
@@ -16,8 +16,8 @@ void func_801C85C0(void)
   do
   {
     *var_s1 = 0;
-    *var_s2 = 0;
     *var_s3 = 0;
+    *var_s2 = 0;
     *var_s4 = 0;
     func_801C7E98(0, (var_s0 + 2) & 0xFF);
     var_s0 += 1;

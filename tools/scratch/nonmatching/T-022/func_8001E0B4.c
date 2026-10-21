@@ -1,4 +1,4 @@
-/* T-095 DRAFT: remaining differences recorded in T-095/REPORT.md. */
+/* T-099 DRAFT: 9 relocation-masked differing words; target-sized. See T-099/REPORT.md. */
 extern u8 D_8004AC88;
 extern s8 D_8004AC89;
 extern s8 D_8004AC8A;
@@ -31,8 +31,8 @@ void func_8001E0B4(u8 **arg0)
     temp_v1 = *arg0;
     *arg0 = (*arg0) + 8;
     var_s0 = 0;
-    *((s32 *) (((u8 *) temp_v1) + 0)) = 0x06000000;
-    *((u8 **) (((u8 *) temp_v1) + 4)) = &D_80046100;
+    /* Keep the command pair together for IDO store scheduling. */
+    *((s32 *) (((u8 *) temp_v1) + 0)) = 0x06000000; *((u8 **) (((u8 *) temp_v1) + 4)) = &D_80046100;
     do
     {
         if ((D_801D876C == 0) || (var_s0 != (*((u8 *) (((u8 *) (&D_801D8770)) + 1)))))

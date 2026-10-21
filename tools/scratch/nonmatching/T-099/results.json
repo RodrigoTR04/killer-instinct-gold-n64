@@ -1,0 +1,450 @@
+{
+  "hand": {
+    "func_801C3524": {
+      "probes": 7,
+      "errors": 0,
+      "minimum_words": 0,
+      "minimum_labels": [
+        "layout4",
+        "layout5",
+        "store-join",
+        "store-join"
+      ]
+    },
+    "func_801CC908": {
+      "probes": 7,
+      "errors": 0,
+      "minimum_words": 2,
+      "minimum_labels": [
+        "layout1",
+        "layout2",
+        "layout3",
+        "remove-deadTrue"
+      ]
+    },
+    "func_801CCD74": {
+      "probes": 8,
+      "errors": 0,
+      "minimum_words": 4,
+      "minimum_labels": [
+        "layout1",
+        "layout2",
+        "layout3",
+        "layout4",
+        "layout5"
+      ]
+    },
+    "func_801BF988": {
+      "probes": 14,
+      "errors": 0,
+      "minimum_words": 5,
+      "minimum_labels": [
+        "layout1",
+        "layout2",
+        "layout3",
+        "final-u32False",
+        "final-s32False"
+      ]
+    },
+    "func_801C85C0": {
+      "probes": 9,
+      "errors": 0,
+      "minimum_words": 5,
+      "minimum_labels": [
+        "layout2",
+        "index-s32",
+        "index-u32"
+      ]
+    },
+    "func_801C3990": {
+      "probes": 9,
+      "errors": 0,
+      "minimum_words": 0,
+      "minimum_labels": [
+        "literal-zero",
+        "literal-0.0f"
+      ]
+    },
+    "func_8001E0B4": {
+      "probes": 5,
+      "errors": 0,
+      "minimum_words": 11,
+      "minimum_labels": [
+        "layout1",
+        "layout2",
+        "layout3"
+      ]
+    },
+    "func_8002F45C": {
+      "probes": 5,
+      "errors": 0,
+      "minimum_words": 11,
+      "minimum_labels": [
+        "layout1",
+        "layout2",
+        "layout3"
+      ]
+    },
+    "func_801BD270": {
+      "probes": 9,
+      "errors": 0,
+      "minimum_words": 11,
+      "minimum_labels": [
+        "layout1",
+        "layout2",
+        "layout3"
+      ]
+    },
+    "func_8001BDE0": {
+      "probes": 6,
+      "errors": 0,
+      "minimum_words": 13,
+      "minimum_labels": [
+        "layout2",
+        "layout4",
+        "layout5",
+        "threshold"
+      ]
+    }
+  },
+  "focused": {
+    "func_801CC908": {
+      "probes": 148,
+      "errors": 0,
+      "minimum_words": 2,
+      "minimum_labels": [
+        "declTrue120",
+        "declTrue126",
+        "status-u32144"
+      ]
+    },
+    "func_801CCD74": {
+      "probes": 5,
+      "errors": 0,
+      "minimum_words": 4,
+      "minimum_labels": [
+        "pointer-order0",
+        "pointer-order2"
+      ]
+    },
+    "func_801BF988": {
+      "probes": 9,
+      "errors": 0,
+      "minimum_words": 14,
+      "minimum_labels": [
+        "last-u16u321",
+        "last-u16s322",
+        "last-u32u324",
+        "last-u32s325",
+        "last-s32u327"
+      ]
+    },
+    "func_801C85C0": {
+      "probes": 48,
+      "errors": 0,
+      "minimum_words": 4,
+      "minimum_labels": [
+        "clear-order4",
+        "clear-order5",
+        "clear-order24",
+        "clear-order25"
+      ]
+    },
+    "func_8002F45C": {
+      "probes": 28,
+      "errors": 0,
+      "minimum_words": 7,
+      "minimum_labels": [
+        "voice-store-order5",
+        "voice-store-order11"
+      ]
+    }
+  },
+  "context": {
+    "func_801CC908": {
+      "probes": 14,
+      "errors": 5,
+      "minimum_words": 2,
+      "minimum_labels": [
+        "refresh-return-s32",
+        "error-proto-s32 func_801CC3BC(s32, s32);",
+        "status-s32",
+        "status-u32",
+        "status-array1"
+      ],
+      "example_error": "cfe: Warning 709: /tmp/t096-coz0_9z8/candidate.c, line 308: Incompatible pointer type assignment\n     D_802D3E04 = D_80295618;\n ---------------^\ncfe: Warning 709: /tmp/t096-coz0_9z8/candidate.c, line 315: Incompatible pointer type assignment\n             D_802D3E04 = D_80295628;\n -----------------------^\ncfe: Warning 709: /tmp/t096-coz0_9z8/candidate.c, line 372: Incompatible pointer type assignment\n         D_802D3E04 = D_80295648;\n -------------------^\ncfe: Warning 709: /tmp/t096-coz0_9z8/candidate.c, line 389: Incompatible pointer type assignment\n         D_802D3E04 = D_80295664;\n -------------------^\ncfe: Error: /tmp/t096-coz0_9z8/candidate.c, line 399: redeclaration of 'func_801CBF8C'; previous declaration at line 150 in file '/tmp/t096-coz0_9z8/candidate.c'\n extern void func_801CBF8C();\n ------------^\ncfe: Error: /tmp/t096-coz0_9z8/candidate.c, line 399: Incompatible function return type for this function.\n extern void func_801CBF8C();\n -------------------------^\ncfe: Warning 709: /tmp/t096-coz0_9z8/candidate.c, line 555: Incompatible pointer type assignment\n         D_802D3E04 = D_80295698;\n -------------------^\ncfe: Warning 709: /tmp/t096-coz0_9z8/candidate.c, line 569: Incompatible pointer type assignment\n                 D_802D3E04 = D_802956A8;\n ---------------------------^\n"
+    }
+  },
+  "pointers": {
+    "func_801CCD74": {
+      "probes": 8,
+      "errors": 0,
+      "minimum_words": 29,
+      "minimum_labels": [
+        "0both-ptrs(0, 0, 0)",
+        "1both-ptrs(0, 0, 1)",
+        "2both-ptrs(0, 1, 0)",
+        "3both-ptrs(0, 1, 1)",
+        "4both-ptrs(1, 0, 0)"
+      ]
+    },
+    "func_801C85C0": {
+      "probes": 18,
+      "errors": 0,
+      "minimum_words": 5,
+      "minimum_labels": [
+        "1indexs32index(var_s0 + 2) & 255",
+        "2indexs32(u8)indexvar_s0 + 2",
+        "4indexs32index & 255var_s0 + 2",
+        "7indexu32index(var_s0 + 2) & 255",
+        "8indexu32(u8)indexvar_s0 + 2"
+      ]
+    },
+    "func_801CC908": {
+      "probes": 6,
+      "errors": 0,
+      "minimum_words": 100,
+      "minimum_labels": [
+        "0record('sp24', 'sp28', 'sp2C')",
+        "1record('sp24', 'sp2C', 'sp28')",
+        "2record('sp28', 'sp24', 'sp2C')",
+        "3record('sp28', 'sp2C', 'sp24')",
+        "4record('sp2C', 'sp24', 'sp28')"
+      ]
+    }
+  },
+  "layouts": {
+    "func_801C85C0": {
+      "probes": 180,
+      "errors": 0,
+      "minimum_words": 4,
+      "minimum_labels": [
+        "layout18",
+        "layout24",
+        "layout38",
+        "layout44",
+        "layout54"
+      ]
+    },
+    "func_8001E0B4": {
+      "probes": 180,
+      "errors": 0,
+      "minimum_words": 9,
+      "minimum_labels": [
+        "layout4",
+        "layout6",
+        "layout8",
+        "layout12",
+        "layout14"
+      ]
+    },
+    "func_8002F45C": {
+      "probes": 180,
+      "errors": 0,
+      "minimum_words": 7,
+      "minimum_labels": [
+        "layout4",
+        "layout5",
+        "layout8",
+        "layout10",
+        "layout11"
+      ]
+    },
+    "func_8001BDE0": {
+      "probes": 180,
+      "errors": 0,
+      "minimum_words": 13,
+      "minimum_labels": [
+        "layout0",
+        "layout1",
+        "layout3",
+        "layout7",
+        "layout12"
+      ]
+    },
+    "func_801CCD74": {
+      "probes": 180,
+      "errors": 0,
+      "minimum_words": 4,
+      "minimum_labels": [
+        "layout0",
+        "layout1",
+        "layout2",
+        "layout3",
+        "layout4"
+      ]
+    },
+    "func_801CC908": {
+      "probes": 180,
+      "errors": 0,
+      "minimum_words": 2,
+      "minimum_labels": [
+        "layout3",
+        "layout4",
+        "layout5",
+        "layout10",
+        "layout11"
+      ]
+    }
+  },
+  "axes": {
+    "func_801BD270": {
+      "probes": 480,
+      "errors": 0,
+      "minimum_words": 7,
+      "minimum_labels": [
+        "s160"
+      ]
+    }
+  },
+  "carry": {
+    "func_801BD270": {
+      "probes": 264,
+      "errors": 0,
+      "minimum_words": 7,
+      "minimum_labels": [
+        "carryu64(y << 16) & 0xFFFF0000result += buttons;\n    return result;",
+        "carryu64((u32)y << 16) & 0xFFFF0000result += buttons;\n    return result;",
+        "carrys64(y << 16) & 0xFFFF0000result += buttons;\n    return result;",
+        "carrys64((u32)y << 16) & 0xFFFF0000result += buttons;\n    return result;",
+        "layout0"
+      ]
+    }
+  },
+  "packing2": {
+    "func_801BF988": {
+      "probes": 28,
+      "errors": 0,
+      "minimum_words": 0,
+      "minimum_labels": [
+        "score-lifetime0"
+      ]
+    }
+  },
+  "flags": {
+    "func_8002F45C": {
+      "probes": 5,
+      "errors": 0,
+      "minimum_words": 4,
+      "minimum_labels": [
+        "flags-u8",
+        "flags-u16"
+      ]
+    }
+  },
+  "flag-lifetime": {
+    "func_8002F45C": {
+      "probes": 17,
+      "errors": 0,
+      "minimum_words": 4,
+      "minimum_labels": [
+        "pans32",
+        "panu32",
+        "decl5"
+      ]
+    }
+  },
+  "searches": [
+    {
+      "function": "func_8001BDE0",
+      "seconds": 902.8,
+      "exit": 137,
+      "best_raw_weighted_penalty": 85
+    },
+    {
+      "function": "func_801BD270",
+      "seconds": 903.2,
+      "exit": 137,
+      "best_raw_weighted_penalty": 110
+    },
+    {
+      "function": "func_8002F45C",
+      "seconds": 900.4,
+      "exit": 137,
+      "best_raw_weighted_penalty": 20
+    },
+    {
+      "function": "func_8001E0B4",
+      "seconds": 905.5,
+      "exit": 137,
+      "best_raw_weighted_penalty": 260
+    },
+    {
+      "function": "func_801C85C0",
+      "seconds": 905.5,
+      "exit": 137,
+      "best_raw_weighted_penalty": 120
+    },
+    {
+      "function": "func_801BF988",
+      "seconds": 327.3,
+      "exit": 137,
+      "best_raw_weighted_penalty": 10
+    },
+    {
+      "function": "func_801CCD74",
+      "seconds": 905.5,
+      "exit": 137,
+      "best_raw_weighted_penalty": 45
+    },
+    {
+      "function": "func_801CC908",
+      "seconds": 905.5,
+      "exit": 137,
+      "best_raw_weighted_penalty": 10
+    }
+  ],
+  "notes": [
+    "Weighted and raw minima are not retention claims.",
+    "Packing search stopped early after a cleaned hand match; unresolved searches stopped after at least 900 seconds.",
+    "BDE0 raw penalty 85 overwrites scale with threshold before the second loop and is rejected.",
+    "C85C0 raw penalty 120 requires dummy control flow and is rejected.",
+    "C85C0 retained score 4 uses declaration fallback; reconciled full context scores 24."
+  ],
+  "final_retained": [
+    {
+      "function": "func_8001E0B4",
+      "draft": "tools/scratch/nonmatching/T-022/func_8001E0B4.c",
+      "tu": "src/main/main_D3F0.c",
+      "compiled": 648,
+      "original": 648,
+      "words": 9,
+      "context": "full",
+      "error": "",
+      "full_error": ""
+    },
+    {
+      "function": "func_8002F45C",
+      "draft": "tools/scratch/nonmatching/T-024/func_8002F45C.c",
+      "tu": "src/main/main_1EB40.c",
+      "compiled": 404,
+      "original": 404,
+      "words": 4,
+      "context": "full",
+      "error": "",
+      "full_error": ""
+    },
+    {
+      "function": "func_801C85C0",
+      "draft": "tools/scratch/nonmatching/T-021/func_801C85C0.c",
+      "tu": "src/ovl_7DF8/ovl_7DF8_1BD90.c",
+      "compiled": 168,
+      "original": 168,
+      "words": 4,
+      "context": "declarations",
+      "error": "",
+      "full_error": "cfe: Error: /tmp/kig-screen-lk1r0gof/candidate.c, line 128: redeclaration of 'func_801C7E98'; previous declaration at line 97 in file '/tmp/kig-screen-lk1r0gof/candidate.c'\n extern void func_801C7E98();\n ------------^\ncfe: Error: /tmp/kig-screen-lk1r0gof/candidate.c, line 128: prototype and non-prototype declaration found for func_801C7E98, the type of this parameter is not compatible with the type after applying default argument promotion\n extern void func_801C7E98();\n -------------------------^\ncfe: Error: /tmp/kig-screen-lk1r0gof/candidate.c, line 132: redeclaration of 'D_80127D30'; previous declaration at line 113 in file '/tmp/kig-screen-lk1r0gof/candidate.c'\n extern u8 D_80127D30;\n ----------^\ncfe: Warning 709: /tmp/kig-screen-lk1r0gof/candidate.c, line 141: Incompatible pointer type assignment\n  var_s1 = &D_80127D20; var_s2 = &D_80127D28; var_s3 = &D_80127D00; var_s4 = &D_80127D30; var_s0 = 0;\n --------------------------------------------------------------------------^\ncfe: Error: /tmp/kig-screen-lk1r0gof/candidate.c, line 326: redeclaration of 'D_80127D20'; previous declaration at line 130 in file '/tmp/kig-screen-lk1r0gof/candidate.c'\n extern u8 D_80127D20[];\n ----------^\ncfe: Error: /tmp/kig-screen-lk1r0gof/candidate.c, line 327: redeclaration of 'D_80127D28'; previous declaration at line 131 in file '/tmp/kig-screen-lk1r0gof/candidate.c'\n extern u8 D_80127D28[];\n ----------^\ncfe: Error: /tmp/kig-screen-lk1r0gof/candidate.c, line 339: Subscripting a non-array.\n     D_802D3A20.line1[4] = D_80127D20[arg0] / 10 + '0';\n ------------------------------------^\ncfe: Error: /tmp/kig-screen-lk1r0gof/candidate.c, line 340: Subscripting a non-array.\n     D_802D3A20.line1[5] = D_80127D20[arg0] % 10 + '0';\n ------------------------------------^\ncfe: Error: /tmp/kig-screen-lk1r0gof/candidate.c, line 341: Subscripting a non-array.\n     D_802D3A20.line2[5] = D_80127D28[arg0] / 10 + '0';\n ------------------------------------^\ncfe: Error: /tmp/kig-screen-lk1r0gof/candidate.c, line 342: Subscripting a non-array.\n     D_802D3A20.line2[6] = D_80127D28[arg0] % 10 + '0';\n ------------------------------------^\n"
+    },
+    {
+      "function": "func_801BD270",
+      "draft": "tools/scratch/nonmatching/T-023/func_801BD270.c",
+      "tu": "src/ovl_7DF8/ovl_7DF8_116E0.c",
+      "compiled": 396,
+      "original": 396,
+      "words": 7,
+      "context": "full",
+      "error": "",
+      "full_error": ""
+    }
+  ]
+}

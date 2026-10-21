@@ -1,4 +1,4 @@
-/* T-095 DRAFT: remaining differences recorded in T-095/REPORT.md. */
+/* T-099 DRAFT: 7 relocation-masked differing words; target-sized. See T-099/REPORT.md. */
 typedef struct { u16 buttons; s8 x, y; } T023Pad270;
 extern void func_8002B6EC(s32);
 extern T023Pad270 **func_8002B710(void);
@@ -6,10 +6,11 @@ extern u8 D_80068520, D_802D3698, D_802D3699;
 extern s32 D_80282A60;
 extern T023Pad270 **D_802D3670;
 u64 func_801BD270(s32 player) {
-    T023Pad270 *pad;
     u16 buttons;
-    s8 x; s8 y;
+    s8 x;
+    s16 y;
     u64 result;
+    T023Pad270 *pad;
     if (player == 0 && D_802D3698) {
         D_802D3699 = 1;
         D_802D3670 = func_8002B710();
