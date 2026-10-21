@@ -508,3 +508,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Clean vet build: the ROM and all 3 images are byte-identical. Metrics unchanged (314 T4, 24.36%).
 - T-113 launched (sol-B36): screen refresh #3 plus a diagnosis round on the closest 15.
 - T-111 stopped on the Codex usage limit (resets 04:08). T3 auto-resume, or backup cron at 04:11.
+- T-113 stopped on the Codex usage limit (resets 03:25). Backup cron at 03:28.
