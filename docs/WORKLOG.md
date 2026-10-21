@@ -529,3 +529,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 ## 2026-10-21 — T-111 vetted (clone-cluster finder)
 - Worktree t3-45905623. tools/analysis/clones.py writes docs/clones.md. Only 4 T2 clusters were found among 509 functions at threshold 0.85, so the remaining drafts are mostly unique. 0 new matches; func_801BADEC 118→106, func_801B5650/5DCC slight. Tool, docs and drafts only.
+- T-117 launched (sol-C43): template-driven clones from docs/clones.md.
