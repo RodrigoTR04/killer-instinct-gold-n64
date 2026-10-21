@@ -1353,16 +1353,47 @@ void func_8001AD04(s32 arg0, s32 arg1) {
     D_8004A920[second] = 0.0f;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_8001B134.s")
+void func_8001B134(s32 arg0, s32 arg1) {
+    s32 first;
+    s32 second;
+    first = ((T117Part *)D_8004A4C0)[arg0].transform;
+    second = ((T117Part *)D_8004A4C0)[arg1].transform;
+    if (D_8004A800[first] > 6000.0f) {
+        func_8001B620(arg0, arg1);
+        return;
+    }
+    if ((&D_8004A7A0)[first] < 1000.0f) {
+        func_8002FA5C(D_8004A264, 8, (s32)((((&D_8004A7A0)[first] + 2000.0f) * 32767.0f) / 3000.0f));
+        D_8004AA2A = (u32)((((&D_8004A7A0)[first] + 2000.0f) * 32767.0f) / 3000.0f);
+        (&D_8004A7A0)[first] += 30.0f;
+        (&D_8004A7A0)[second] += 30.0f;
+    } else {
+        if (D_8004A8C0[first] < 90.0f) {
+            func_8001BA18(0.3f);
+        } else {
+            func_8001BA18(0.0f);
+        }
+        if (D_8004A800[first] > 2000.0f) {
+            func_8002FA5C(D_8004A264, 8, (s32)(((6000.0f - (&D_8004A7A0)[first]) * 32767.0f) / 4000.0f));
+            D_8004AA2A = (u32)(((6000.0f - (&D_8004A7A0)[first]) * 32767.0f) / 4000.0f);
+        }
+        D_8004A8C0[first] += D_8004ACE4;
+        D_8004A8C0[second] += D_8004ACE4;
+        if (D_8004ACE0 < 50.0f) {
+            D_8004ACE0 += 1.0f;
+        }
+        func_8001B50C(first);
+        func_8001B50C(second);
+    }
+}
 
 extern f32 cosf(f32), sinf(f32);
-extern f64 D_80048998, D_800489A0, D_800489A8, D_800489B0;
 extern f32 D_8004ACE4;
 void func_8001B50C(s32 arg0) {
     D_8004A860[arg0] = D_8004ACE0 / 3.0f;
     D_8004A920[arg0] = -D_8004ACE4 * 50.0f;
-    D_8004A800[arg0] += D_8004ACE0 * cosf((f32)(((f64)D_8004A8C0[arg0] * D_80048998) / D_800489A0));
-    D_8004A740[arg0] += D_8004ACE0 * sinf((f32)(((f64)D_8004A8C0[arg0] * D_800489A8) / D_800489B0));
+    D_8004A800[arg0] += D_8004ACE0 * cosf((f32)(((f64)D_8004A8C0[arg0] * 3.14159) / 180.0));
+    D_8004A740[arg0] += D_8004ACE0 * sinf((f32)(((f64)D_8004A8C0[arg0] * 3.14159) / 180.0));
 }
 
 extern f32 D_800695CC, D_8004ACE8;

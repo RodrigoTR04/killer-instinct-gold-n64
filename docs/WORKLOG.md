@@ -549,3 +549,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-21 — T-118 vetted (declaration/layout search tool)
 - Worktree t3-f9058a6f. tools/permuter/declorder.py (plus a README section) enumerates local-declaration orders, grouping and line joins/splits in TU context. 28 drafts at 40 words or fewer searched: 0 matched, func_8002A4F0 31→27. So the remaining near-misses are not bound by layout or declaration order; the cheap dimensions are exhausted. Tool and drafts only.
 - T-121 launched (sol-A41): screen band 128-176, structure-first.
+
+## 2026-10-21 — T-119 vetted (func_8001B134)
+- Worktree t3-fd2df655. func_8001B134 matches (984 B). func_8001B50C now uses double literals and B134's 4 function_owner hints are removed; the undefined_syms files were regenerated.
+- Clean vet build: the ROM and all 3 images are byte-identical. 320 T4; M1 = M2 = 74,388 / 289,876 B (25.66%).
