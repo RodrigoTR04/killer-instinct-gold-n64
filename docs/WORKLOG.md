@@ -496,3 +496,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-106 vetted (clone family C)
 - Worktree t3-f0ea162d. The shared structural cause of the uniform 32-36 B excess: the original caches scale values in locals; without them IDO recomputes coordinates across draw calls. 6 functions match (3,152 B): func_801BA088, func_801BA280, func_801BA470, func_801BA674, func_801BB024 and func_801BB594. Improved: func_801BB258 → 20 words, func_801BADEC → 118.
 - Clean vet build: the ROM and all 3 images are byte-identical. 311 T4; M1 = M2 = 69,664 / 289,876 B (24.03%). ovl_7DF8 is at 22.30%.
+- T-111 launched (sol-A38): clone-cluster finder over all drafts, then solve the largest clusters.
