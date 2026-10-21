@@ -31,11 +31,11 @@ Source of truth for per-function tiers is `docs/functions.csv` (created once spl
 | Metric | Value |
 |---|---|
 | Scope measured | all CPU text of boot/main/ovl_7DF8/ovl_7E00 (999 fns). Text not in fns: boot 432 B pad, main 708 B, 7DF8 92 B, 7E00 4,040 B (31 inline data pools, listed in symbol_addrs.ovl_7E00.us.txt) |
-| M1 | 70,628 / 289,876 B (24.36%) — game code only; SDK excluded (2026-10-20 user decision) |
-| M2 | 70,628 / 289,876 B (24.36%) |
+| M1 | 70,884 / 289,876 B (24.45%) — game code only; SDK excluded (2026-10-20 user decision) |
+| M2 | 70,884 / 289,876 B (24.45%) |
 | SDK decompiled | ~262 excluded SDK functions now built from C (T-037/T-055 pfs, T-073 gu, T-075/T-078 libaudio at -O3, T-080 libultra); not counted in M1/M2 |
-| Functions | 0 T1 · 195 T2 · 0 T3 · 314 T4 · 490 excluded (167,316 B: libultra/libaudio/gu/pfs SDK + boot entry asm + 169 ovl_7E00 handwritten asm) |
-| Per image (eligible B / T1 fns / excluded) | boot 8,468/0/99 (21 T4, 0 T2 — 100%) · main 143,980/0/222 (147 T4, 90 T2) · ovl_7DF8 137,428/0/0 (146 T4, 105 T2) · ovl_7E00 0/0/169 (all handwritten asm) |
+| Functions | 0 T1 · 194 T2 · 0 T3 · 315 T4 · 490 excluded (167,316 B: libultra/libaudio/gu/pfs SDK + boot entry asm + 169 ovl_7E00 handwritten asm) |
+| Per image (eligible B / T1 fns / excluded) | boot 8,468/0/99 (21 T4, 0 T2 — 100%) · main 143,980/0/222 (147 T4, 90 T2) · ovl_7DF8 137,428/0/0 (147 T4, 104 T2) · ovl_7E00 0/0/169 (all handwritten asm) |
 
 Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html). Tier overrides: tools/progress/status.csv (lead-maintained). Never hand-edit numbers; paste the `--markdown` output here.
 
@@ -177,4 +177,4 @@ Status values: Todo · In progress (owner) · Review · Done (verified by lead) 
 | T-112 | Subsystem pass: main rendering TUs (main_1BE80 camera/projection, main_1E7F0 scene helper, main_20220 stage commands/vertices, main_20AE0 bitmap text) — shared include/render.h (camera, matrix, Gfx, stage-command, glyph structs), adopt where byte-identical, match remaining drafts | sol-C41 | Done (verified; header adopted, 0 new matches) | include/render.h, src/main/main_1BE80.c, main_1E7F0.c, main_20220.c, main_20AE0.c, tools/scratch/nonmatching/T-0xx/ (their drafts), tools/scratch/nonmatching/T-112/ | worktree isolation |
 | T-113 | Screen refresh #3 (tools/permuter/screen.py → T-113/screen.md, now with full-TU frontend.h/audio_game.h context) + diagnosis-first round on the 15 closest drafts not owned by T-111/T-112 | sol-B36 | Done (verified; func_801C7998 body exact, rodata-blocked → T-115) | src (chosen fns only), tools/scratch/nonmatching/T-0xx/ (their drafts), tools/scratch/nonmatching/T-113/ | worktree isolation |
 | T-114 | Hard residue round 3 (all previously diagnosed, 2–8 words): func_8002F6F4, func_801BF720, func_801BF914, func_801C4E38, func_801CC908 (2), func_801B6528 (3), func_801B695C, func_801C85C0 (4), func_801C7998 (6), func_801BD270 (7), func_80017378 (8) — consolidate every prior diagnosis per function, then targeted hypotheses + permuter --stack-diffs | sol-C42 | In progress | src (listed fns only), tools/scratch/nonmatching/T-0xx/ (listed drafts), tools/scratch/nonmatching/T-114/ | worktree isolation |
-| T-115 | Land func_801C7998 (T-113: body exact, u64 argument) by giving ovl_7DF8_1BD90 its whole-TU .rodata (T-043/T-090 recipe) in kig.ovl_7DF8.us.yaml; then re-test other 1BD90 drafts unblocked by it | sol-A39 | In progress | kig.ovl_7DF8.us.yaml (rodata lines), src/ovl_7DF8/ovl_7DF8_1BD90.c (func_801C7998 + rodata decls), tools/scratch/nonmatching/T-115/ | worktree isolation |
+| T-115 | Land func_801C7998 (T-113: body exact, u64 argument) by giving ovl_7DF8_1BD90 its whole-TU .rodata (T-043/T-090 recipe) in kig.ovl_7DF8.us.yaml; then re-test other 1BD90 drafts unblocked by it | sol-A39 | Done (verified) | kig.ovl_7DF8.us.yaml (rodata lines), src/ovl_7DF8/ovl_7DF8_1BD90.c (func_801C7998 + rodata decls), tools/scratch/nonmatching/T-115/ | worktree isolation |

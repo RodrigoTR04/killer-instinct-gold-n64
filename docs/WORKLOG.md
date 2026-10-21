@@ -521,3 +521,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-21 — T-113 vetted (screen refresh #3)
 - Worktree t3-d83b2eba. 195 drafts screened (T-113/screen.md); 15 permuter searches. 0 matched. func_801C7998 has an exact body (its real input is one u64) but is blocked on rodata ownership of ovl_7DF8_1BD90, so I launched T-115. func_80017378 improved 8→6. I imported the drafts and screen.
 - 04:11: T-111 was still stopped after the limit reset, so I resumed it by hand. T-112/T-113 were already done and vetted.
+
+## 2026-10-21 — T-115 vetted (ovl_7DF8_1BD90 rodata, func_801C7998)
+- Worktree t3-64192662. ovl_7DF8_1BD90 owns .rodata 0xE93F0–0xE9A10 (plus symbol hints), and func_801C7998 matches (256 B, a u64 input).
+- Clean vet build: the ROM and all 3 images are byte-identical. 315 T4; M1 = M2 = 70,884 / 289,876 B (24.45%).

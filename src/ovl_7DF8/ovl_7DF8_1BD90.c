@@ -16,7 +16,24 @@ u8 arg1;
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C7998.s")
+/* Return the menu-key ordinal for a single button in the packed input. */
+u8 func_801C7998(u64 buttons)
+{
+    u8 index = 0;
+
+    switch (buttons & 0xFFFF) {
+    case 0: break;
+    case 0x8000: index++; /* fall through */
+    case 0x4000: index++; /* fall through */
+    case 0x20: index++; /* fall through */
+    case 0x10: index++; /* fall through */
+    case 8: index++; /* fall through */
+    case 4: index++; /* fall through */
+    case 2: index++; /* fall through */
+    case 1: index++;
+    }
+    return index;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C7A98.s")
 
