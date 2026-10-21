@@ -492,3 +492,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-e9e242cf. include/audio_game.h (199 lines) holds the shared game-audio structs and prototypes. It is adopted in main_1AB90, main_1B230 and main_1EB40, replacing about 190 lines of duplicated per-function declarations, and all 29 existing matches are preserved. 0 new matches, 3 drafts improved.
 - Clean vet build: the ROM and all 3 images are byte-identical. Metrics unchanged.
 - T-110 launched (sol-B35): frontend subsystem pass (ovl_7DF8_13FF0 + 1BD90) with include/frontend.h.
+
+## 2026-10-20 — T-106 vetted (clone family C)
+- Worktree t3-f0ea162d. The shared structural cause of the uniform 32-36 B excess: the original caches scale values in locals; without them IDO recomputes coordinates across draw calls. 6 functions match (3,152 B): func_801BA088, func_801BA280, func_801BA470, func_801BA674, func_801BB024 and func_801BB594. Improved: func_801BB258 → 20 words, func_801BADEC → 118.
+- Clean vet build: the ROM and all 3 images are byte-identical. 311 T4; M1 = M2 = 69,664 / 289,876 B (24.03%). ovl_7DF8 is at 22.30%.

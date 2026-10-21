@@ -668,17 +668,17 @@ ovl_7DF8,func_801B6E4C,0x801B6E4C,0xB32C,5712,T2,draft tools/scratch/nonmatching
 ovl_7DF8,func_801B849C,0x801B849C,0xC97C,5296,T2,draft tools/scratch/nonmatching/T-029/ (non-matching)
 ovl_7DF8,func_801B994C,0x801B994C,0xDE2C,184,T4,
 ovl_7DF8,func_801B9A04,0x801B9A04,0xDEE4,1668,T2,draft tools/scratch/nonmatching/T-029/ (non-matching)
-ovl_7DF8,func_801BA088,0x801BA088,0xE568,504,T2,draft tools/scratch/nonmatching/T-023/ (non-matching)
-ovl_7DF8,func_801BA280,0x801BA280,0xE760,496,T2,draft tools/scratch/nonmatching/T-023/ (non-matching)
-ovl_7DF8,func_801BA470,0x801BA470,0xE950,516,T2,draft tools/scratch/nonmatching/T-023/ (non-matching)
-ovl_7DF8,func_801BA674,0x801BA674,0xEB54,528,T2,draft tools/scratch/nonmatching/T-023/ (non-matching)
+ovl_7DF8,func_801BA088,0x801BA088,0xE568,504,T4,
+ovl_7DF8,func_801BA280,0x801BA280,0xE760,496,T4,
+ovl_7DF8,func_801BA470,0x801BA470,0xE950,516,T4,
+ovl_7DF8,func_801BA674,0x801BA674,0xEB54,528,T4,
 ovl_7DF8,func_801BA884,0x801BA884,0xED64,500,T2,draft tools/scratch/nonmatching/T-023/ (non-matching)
 ovl_7DF8,func_801BAA78,0x801BAA78,0xEF58,884,T2,draft tools/scratch/nonmatching/T-023/ (non-matching)
 ovl_7DF8,func_801BADEC,0x801BADEC,0xF2CC,568,T2,draft tools/scratch/nonmatching/T-023/ (non-matching)
-ovl_7DF8,func_801BB024,0x801BB024,0xF504,564,T2,draft tools/scratch/nonmatching/T-023/ (non-matching)
+ovl_7DF8,func_801BB024,0x801BB024,0xF504,564,T4,
 ovl_7DF8,func_801BB258,0x801BB258,0xF738,524,T2,draft tools/scratch/nonmatching/T-023/ (non-matching)
 ovl_7DF8,func_801BB464,0x801BB464,0xF944,304,T2,draft tools/scratch/nonmatching/T-023/ (non-matching)
-ovl_7DF8,func_801BB594,0x801BB594,0xFA74,544,T2,draft tools/scratch/nonmatching/T-023/ (non-matching)
+ovl_7DF8,func_801BB594,0x801BB594,0xFA74,544,T4,
 ovl_7DF8,func_801BB7B4,0x801BB7B4,0xFC94,940,T2,draft tools/scratch/nonmatching/T-023/ (non-matching)
 ovl_7DF8,func_801BBB60,0x801BBB60,0x10040,292,T2,draft tools/scratch/nonmatching/T-023/ (non-matching)
 ovl_7DF8,func_801BBC84,0x801BBC84,0x10164,516,T2,draft tools/scratch/nonmatching/T-023/ (non-matching)

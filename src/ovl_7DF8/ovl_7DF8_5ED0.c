@@ -491,13 +491,128 @@ s32 func_801B994C(T039Gfx801B994C **arg0, s32 arg1, void *arg2, s32 arg3) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B9A04.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BA088.s")
+/* Read scale from the state so IDO preserves completed coordinates across draws. */
+typedef struct { u8 pad[0x7E]; u16 scale; s16 yOffset; } T023State801BA088;
+extern void func_801BC1B0(s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, f32, f32, s32, s32);
+extern s32 D_801F3678;
+extern u8 D_801F367C[];
+extern u8 D_801F3680[];
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BA280.s")
+void func_801BA088(s32 arg0, s32 arg1, s32 arg2, s32 arg3, T023State801BA088 *arg4, s32 arg5) {
+    s32 *counter;
+    s32 y0;
+    s32 x1;
+    s32 y1;
+    s32 nextFrame;
+    s32 x0;
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BA470.s")
+    counter = &D_801F3678;
+    x0 = (arg1 * 4) + ((s32) (arg4->scale * 0x13C) >> 0xA);
+    y0 = (arg2 * 4) + ((s32) (arg4->scale * 0x8A) >> 0xA) + (arg4->yOffset * 4);
+    x1 = (arg1 * 4) + ((s32) (arg4->scale * 0xE0) >> 0xA);
+    y1 = (arg2 * 4) + ((s32) (arg4->scale * 0x128) >> 0xA) + (arg4->yOffset * 4);
+    if (arg5 != 0) {
+        x0 = 0x9B0 - x0;
+        x1 = 0x9B0 - x1;
+    }
+    func_801BC1B0(arg0, *(s32 *)(D_801F367C + (*counter * 8)), 2, 0x2C, 0x2B, 0x2C, 0x2B, 0, 0, 0x2B, 0x2A, (f32) x0, (f32) y0, (s32) arg4->scale, arg5);
+    func_801BC1B0(arg0, *(s32 *)(D_801F3680 + (*counter * 8)), 2, 0x2C, 0x2B, 0x2C, 0x2B, 0, 0, 0x2B, 0x2A, (f32) x1, (f32) y1, (s32) arg4->scale, arg5);
+    nextFrame = *counter + 1;
+    *counter = nextFrame;
+    if (nextFrame >= 0x35) {
+        *counter = 2;
+    }
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BA674.s")
+/* Read scale from the state so IDO preserves completed coordinates across draws. */
+typedef struct { u8 pad[0x7E]; u16 scale; s16 yOffset; } T023State801BA280;
+extern void func_801BC1B0(s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, f32, f32, s32, s32);
+extern u8 D_801F3824[];
+extern u8 D_801F388C[];
+
+void func_801BA280(s32 arg0, s32 arg1, s32 arg2, s32 arg3, T023State801BA280 *arg4, s32 arg5) {
+    s32 y0;
+    s32 x0;
+    s32 x1;
+    s32 y1;
+
+    x0 = (arg1 * 4) + ((s32) (arg4->scale * 0x120) >> 0xA);
+    y0 = (arg2 * 4) + ((s32) (arg4->scale * 0xF9) >> 0xA) + (arg4->yOffset * 4);
+    x1 = (arg1 * 4) + ((s32) (arg4->scale * 0xB5) >> 0xA);
+    y1 = (arg2 * 4) + ((s32) (arg4->scale * 0x11C) >> 0xA) + (arg4->yOffset * 4);
+    if (arg5 != 0) {
+        x0 = 0x9B0 - x0;
+        x1 = 0x9B0 - x1;
+    }
+    func_801BC1B0(arg0, *(s32 *)(D_801F3824 + (((s32) (arg3 >> 3) % 25) * 4)), 2, 0x28, 0x1E, 0x28, 0x1E, 0, 0, 0x27, 0x1D, (f32) x0, (f32) y0, (s32) arg4->scale, arg5);
+    func_801BC1B0(arg0, *(s32 *)(D_801F388C + (((s32) (arg3 >> 2) % 13) * 4)), 2, 0x1C, 0x26, 0x1C, 0x26, 0, 0, 0x1B, 0x25, (f32) x1, (f32) y1, (s32) arg4->scale, arg5);
+}
+
+/* Read scale from the state so IDO preserves completed coordinates across draws. */
+typedef struct { u8 pad[0x7E]; u16 scale; s16 yOffset; } T023State801BA470;
+extern void func_801BC1B0(s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, f32, f32, s32, s32);
+extern s32 D_801F38C4;
+extern u8 D_801F38C8[];
+extern u8 D_801F38CC[];
+
+void func_801BA470(s32 arg0, s32 arg1, s32 arg2, s32 arg3, T023State801BA470 *arg4, s32 arg5) {
+    s32 *counter;
+    s32 y0;
+    s32 x1;
+    s32 y1;
+    s32 nextFrame;
+    s32 x0;
+
+    counter = &D_801F38C4;
+    x0 = (arg1 * 4) + ((s32) (arg4->scale * 0x1A0) >> 0xA);
+    y0 = (arg2 * 4) + ((s32) (arg4->scale * 0xED) >> 0xA) + (arg4->yOffset * 4);
+    x1 = (arg1 * 4) + ((s32) (arg4->scale * 0x10A) >> 0xA);
+    y1 = (arg2 * 4) + ((s32) (arg4->scale * 0xE5) >> 0xA) + (arg4->yOffset * 4);
+    if (arg5 != 0) {
+        x0 = 0x9B0 - x0;
+        x1 = 0x9B0 - x1;
+    }
+    func_801BC1B0(arg0, *(s32 *)(D_801F38C8 + (*counter * 8)), 2, 0x2C, 0x2A, 0x2C, 0x2A, 0, 0, 0x2B, 0x29, (f32) x0, (f32) y0, (s32) arg4->scale, arg5);
+    func_801BC1B0(arg0, *(s32 *)(D_801F38CC + (*counter * 8)), 2, 0x24, 0x33, 0x24, 0x33, 0, 0, 0x23, 0x32, (f32) x1, (f32) y1, (s32) arg4->scale, arg5);
+    nextFrame = *counter + 1;
+    *counter = nextFrame;
+    if (nextFrame >= 0x20) {
+        *counter = 0;
+    }
+}
+
+/* Read scale from the state so IDO preserves completed coordinates across draws. */
+typedef struct { u8 pad[0x7E]; u16 scale; s16 yOffset; } T023State801BA674;
+extern void func_801BC1B0(s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, f32, f32, s32, s32);
+extern s32 D_801F39C8;
+extern u8 D_801F39CC[];
+extern u8 D_801F39D0[];
+
+void func_801BA674(s32 arg0, s32 arg1, s32 arg2, s32 arg3, T023State801BA674 *arg4, s32 arg5) {
+    s32 *counter;
+    s32 y0;
+    s32 x1;
+    s32 y1;
+    s32 nextFrame;
+    s32 x0;
+
+    counter = &D_801F39C8;
+    x0 = (arg1 * 4) + ((s32) (arg4->scale * 0x184) >> 0xA);
+    y0 = (arg2 * 4) + ((s32) (arg4->scale * 0x8C) >> 0xA) + (arg4->yOffset * 4);
+    x1 = (arg1 * 4) + ((s32) (arg4->scale * 0xE4) >> 0xA);
+    y1 = (arg2 * 4) + ((s32) (arg4->scale * 0x83) >> 0xA) + (arg4->yOffset * 4);
+    if (arg5 != 0) {
+        x0 = 0x9B0 - x0;
+        x1 = 0x9B0 - x1;
+    }
+    func_801BC1B0(arg0, *(s32 *)(D_801F39CC + ((*counter / 3) * 8)), 2, 0x18, 0x54, 0x18, 0x54, 0, 0, 0x17, 0x53, (f32) x0, (f32) y0, (s32) arg4->scale, arg5);
+    func_801BC1B0(arg0, *(s32 *)(D_801F39D0 + ((*counter / 3) * 8)), 2, 0x2C, 0x2C, 0x2C, 0x2B, 0, 0, 0x2B, 0x2A, (f32) x1, (f32) y1, (s32) arg4->scale, arg5);
+    nextFrame = *counter + 1;
+    *counter = nextFrame;
+    if (nextFrame >= 0xC) {
+        *counter = 0;
+    }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BA884.s")
 
@@ -505,13 +620,75 @@ s32 func_801B994C(T039Gfx801B994C **arg0, s32 arg1, void *arg2, s32 arg3) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BADEC.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BB024.s")
+/* Read scale from the state so IDO preserves completed coordinates across draws. */
+typedef struct { u8 pad[0x7E]; u16 scale; s16 yOffset; } T023State801BB024;
+extern void func_801BC1B0(s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, f32, f32, s32, s32);
+extern s32 D_801F3ACC;
+extern u8 D_801F3AD0[];
+extern u8 D_801F3AD4[];
+
+void func_801BB024(s32 arg0, s32 arg1, s32 arg2, s32 arg3, T023State801BB024 *arg4, s32 arg5) {
+    s32 *counter;
+    s32 y0;
+    s32 x1;
+    s32 y1;
+    s32 nextFrame;
+    s32 x0;
+
+    counter = &D_801F3ACC;
+    x0 = (arg1 * 4) + ((s32) (((arg5 * 0x16) + 0x124) * arg4->scale) >> 0xA);
+    y0 = (arg2 * 4) + ((s32) (arg4->scale * 0xCB) >> 0xA) + (arg4->yOffset * 4);
+    x1 = (arg1 * 4) + ((s32) (((arg5 * 0x16) + 0x72) * arg4->scale) >> 0xA);
+    y1 = (arg2 * 4) + ((s32) (arg4->scale * 0xD6) >> 0xA) + (arg4->yOffset * 4);
+    if (arg5 != 0) {
+        x0 = 0x9B0 - x0;
+        x1 = 0x9B0 - x1;
+    }
+    func_801BC1B0(arg0, *(s32 *)(D_801F3AD0 + (*counter * 8)), 2, 0x34, 0x25, 0x34, 0x25, 0, 0, 0x33, 0x24, (f32) x0, (f32) y0, (s32) (arg4->scale * 4) / 3, arg5);
+    func_801BC1B0(arg0, *(s32 *)(D_801F3AD4 + (*counter * 8)), 2, 0x20, 0x40, 0x20, 0x40, 0, 0, 0x1F, 0x3F, (f32) x1, (f32) y1, (s32) (arg4->scale * 4) / 3, arg5);
+    nextFrame = *counter + 1;
+    *counter = nextFrame;
+    if (nextFrame >= 0x28) {
+        *counter = 0;
+    }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BB258.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BB464.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BB594.s")
+/* Read scale from the state so IDO preserves completed coordinates across draws. */
+typedef struct { u8 pad[0x7E]; u16 scale; s16 yOffset; } T023State801BB594;
+extern void func_801BC1B0(s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, f32, f32, s32, s32);
+extern s32 D_801F3CD8;
+extern u8 D_801F3CDC[];
+extern u8 D_801F3D2C[];
+
+void func_801BB594(s32 arg0, s32 arg1, s32 arg2, s32 arg3, T023State801BB594 *arg4, s32 arg5) {
+    s32 *counter;
+    s32 x1;
+    s32 y0;
+    s32 y1;
+    s32 nextFrame;
+    s32 x0;
+
+    counter = &D_801F3CD8;
+    x0 = (arg1 * 4) + ((s32) (arg4->scale * 0x150) >> 0xA);
+    x1 = (arg1 * 4) + ((s32) (arg4->scale * 0x1A3) >> 0xA);
+    y0 = (arg2 * 4) + ((s32) (arg4->scale * 0x160) >> 0xA) + (arg4->yOffset * 4);
+    y1 = (arg2 * 4) + ((s32) (arg4->scale * 0x108) >> 0xA) + (arg4->yOffset * 4);
+    if (arg5 != 0) {
+        x0 = 0x9B0 - x0;
+        x1 = 0x9B0 - x1;
+    }
+    func_801BC1B0(arg0, *(s32 *)(D_801F3CDC + (((s32) *counter / 2) * 4)), 2, 0x2C, 0x16, 0x2C, 0x16, 0, 0, 0x2B, 0x15, (f32) x0, (f32) y0, (s32) arg4->scale, arg5);
+    func_801BC1B0(arg0, *(s32 *)(D_801F3D2C + (((s32) *counter / 4) * 4)), 2, 0x18, 0x16, 0x18, 0x16, 0, 0, 0x17, 0x15, (f32) x1, (f32) y1, (s32) arg4->scale, arg5);
+    nextFrame = *counter + 1;
+    *counter = nextFrame;
+    if (nextFrame >= 0x28) {
+        *counter = 0;
+    }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BB7B4.s")
 
