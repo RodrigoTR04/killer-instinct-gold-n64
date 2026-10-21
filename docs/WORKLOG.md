@@ -491,3 +491,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-108 vetted (audio subsystem pass)
 - Worktree t3-e9e242cf. include/audio_game.h (199 lines) holds the shared game-audio structs and prototypes. It is adopted in main_1AB90, main_1B230 and main_1EB40, replacing about 190 lines of duplicated per-function declarations, and all 29 existing matches are preserved. 0 new matches, 3 drafts improved.
 - Clean vet build: the ROM and all 3 images are byte-identical. Metrics unchanged.
+- T-110 launched (sol-B35): frontend subsystem pass (ovl_7DF8_13FF0 + 1BD90) with include/frontend.h.
