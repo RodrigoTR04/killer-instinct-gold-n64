@@ -486,3 +486,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 ## 2026-10-20 — T-105 vetted (next screen band)
 - Worktree t3-3ee1d324. 0 matched; 8 drafts improved (func_801CB998 36→2), 8 unchanged. Scratch-only changes; I imported the drafts and REPORT.md.
+- T-109 launched (sol-A37): near-miss round on drafts at 11 words or fewer, from the T-104/T-105 diagnoses.
