@@ -577,3 +577,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-1cf14628. func_801B0A40 matches (668 B). Its 4 constants stay asm-owned through force_migration function_owner:func_801B0CDC hints; when func_801B0CDC is converted, those hints must move or the constants must become literals. func_801B5534 went 5→2 (u8 input, s32 callee).
 - That is 668 B, short of the 0.70% target. The ≤6-word residue (80017378, 801B6528, 801C4E38, 801CC908, 8002F45C, 801C224C, …) is register-allocation or frame-size noise that resisted about 6.8k targeted variants plus the permuter. I'm deprioritising that band.
 - Clean vet build (on top of T-124): the ROM and all 3 images are byte-identical. 330 T4; M1 = M2 = 79,816 / 289,876 B (27.53%).
+- A clone screen at 0.70 finds no new families; only func_801B5650/5DCC (about 400 words each) and func_801BF720/F914 remain. T-127 launched (sol-C46): the untouched 18–89-word mid band, 25 drafts, about 9 KB.
