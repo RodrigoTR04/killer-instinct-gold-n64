@@ -501,3 +501,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-21 — T-109 vetted (near-miss round)
 - Worktree t3-272da6fb. func_801CB998, func_801BF678 and func_8001E0B4 match (964 B). func_8001BDE0 improved 9→8, 6 unchanged.
 - Clean vet build: the ROM and all 3 images are byte-identical. 314 T4; M1 = M2 = 70,628 / 289,876 B (24.36%).
+- T-112 launched (sol-C41): main rendering subsystem pass with include/render.h.
