@@ -1,17 +1,23 @@
-/* T-065 DRAFT: 6 differing words, 256 bytes. Byte result and explicit zero case recover the table range; high-word initialization remains. */
+/* T-113 DRAFT: 0 differing instruction words, 256/256 B in the full TU.
+ * Integration needs rodata ownership: current YAML leaves the original
+ * jump table in asm-owned data, duplicating a compiler-generated table.
+ * The packed-input caller passes one u64 in a0/a1. */
 #include "common.h"
 
-u8 func_801C7998(u8 arg0, u16 buttons) {
+/* Return the menu-key ordinal for a single button in the packed input. */
+u8 func_801C7998(u64 buttons)
+{
     u8 index = 0;
-    switch ((u64)(buttons & 0xFFFF)) {
+
+    switch (buttons & 0xFFFF) {
     case 0: break;
-    case 0x8000: index++;
-    case 0x4000: index++;
-    case 0x20: index++;
-    case 0x10: index++;
-    case 8: index++;
-    case 4: index++;
-    case 2: index++;
+    case 0x8000: index++; /* fall through */
+    case 0x4000: index++; /* fall through */
+    case 0x20: index++; /* fall through */
+    case 0x10: index++; /* fall through */
+    case 8: index++; /* fall through */
+    case 4: index++; /* fall through */
+    case 2: index++; /* fall through */
     case 1: index++;
     }
     return index;

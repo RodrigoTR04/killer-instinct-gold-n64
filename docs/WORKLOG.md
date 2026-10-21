@@ -517,3 +517,6 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Clean vet build: the ROM and all 3 images are byte-identical. Metrics unchanged.
 - Note: the subsystem-header passes (T-108, T-110, T-112) improve code quality and types but produced no direct matches; I am returning to diagnosis/clone/permuter tasks for matches.
 - T-114 launched (sol-C42): hard residue round 3 with consolidated diagnoses.
+
+## 2026-10-21 — T-113 vetted (screen refresh #3)
+- Worktree t3-d83b2eba. 195 drafts screened (T-113/screen.md); 15 permuter searches. 0 matched. func_801C7998 has an exact body (its real input is one u64) but is blocked on rodata ownership of ovl_7DF8_1BD90, so I launched T-115. func_80017378 improved 8→6. I imported the drafts and screen.

@@ -1,8 +1,8 @@
 extern u8 D_8004AA14;
-/* DRAFT (T-064): 8 relocation-masked differing words, 1752/1752 bytes in
+/* DRAFT (T-113): 6 relocation-masked differing words, 1752/1752 bytes in
  * main_2FF0 context. Requires the retained u8 D_8004A738[8] definition.
- * Exact through +0x58C. Remaining: endpoint/base setup at +0x590/+0x598
- * and scheduling of pointer increments versus model stores at +0x59C..+0x5B0.
+ * Exact through +0x598. Remaining: scheduling of pointer increments
+ * versus model stores at +0x59C..+0x5B0.
  * The symbol endpoint is three 20-byte rotation entries after A9D8.
  */
 extern u8 D_80045890, D_800458C0, D_800458D8, D_80045908, D_80045920, D_80045950;
@@ -193,9 +193,8 @@ void func_80017378(void) {
     D_8004AC8A = 1;
     D_8004AC8C = 10;
     func_80028600(0, D_8004AC84, D_8004AC84, 0);
-    model = (void **)&D_8004A998;
-    rot = (T0331383CStageRotation *)&D_8004A9D8;
-    while (1) {
+    /* Keep setup together for IDO instruction scheduling. */
+    model = (void **)&D_8004A998; rot = (T0331383CStageRotation *)&D_8004A9D8; while (1) {
         model += 4;
         model[-4] = &D_801A2080;
         model[-3] = 0;
