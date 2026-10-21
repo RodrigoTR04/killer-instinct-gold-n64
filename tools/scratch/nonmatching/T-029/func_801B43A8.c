@@ -1,4 +1,4 @@
-/* DRAFT. Remaining diff: Shuffle pointer lifetime, saved/temporary registers, and one extra instruction differ. */
+/* T-105: nonmatching draft; see T-105/REPORT.md for measurement and remaining differences. */
 extern void memcpy(void *, void *, s32);
 extern u32 guRandom(void);
 extern u8 D_80128340;
@@ -26,6 +26,6 @@ void func_801B43A8(void) {
             random >>= 4;
             *other = value;
         } while (i != 3);
-        group += 3;
+        group = entry;
     } while (group != &D_80128349);
 }

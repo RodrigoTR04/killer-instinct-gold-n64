@@ -1,4 +1,4 @@
-/* T-050: retained improvement; 114 differing words including size penalty, 552 compiled bytes. Full function remains nonmatching. */
+/* T-105: nonmatching draft; see T-105/REPORT.md for measurement and remaining differences. */
 f32 func_801B19F0(f32 arg0, f32 arg1, s32 arg2, s32 arg3);
 /* DRAFT. Remaining diff: Frame/local alpha slot, counter update, unsigned float conversion and display-list scheduling differ. */
 typedef struct { u32 w0, w1; } T025Gfx3B84;
@@ -26,8 +26,8 @@ s32 func_801B3B84(T025Gfx3B84 **arg0, s32 arg1, void *arg2, s32 arg3) {
     if ((s32) D_801D3088 < 8) {
         return 0;
     }
-    frame = D_801D30D8 + 1;
-    if (D_801D30D8 < 0xA) {
+    frame = D_801D30D8;
+    if (frame++ < 0xA) {
         D_801D30D8 = frame;
         value = (u32) func_801B19F0(0.0f, 255.0f, frame, 0xA);
         color = value & 0xFF;
