@@ -564,3 +564,5 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - T-120 (worktree t3-c15d80f7): func_801B3B84 matches (556 B). A shared mask/constant/alpha/store construct brings all six family-B copies from 19 to 7 words. The only zero for the residual was an artificial `if (counter) {}`, which was rejected.
 - T-122 (worktree t3-3c530a29): 0 matched, 9 drafts improved. func_800131A4 went 178→41, func_801C3AA0 206→119 (exact size), func_801C1434 176→132 and func_801BBE88 184→150 (exact size).
 - Clean vet build of both together: the ROM and all 3 images are byte-identical. 322 T4; M1 = M2 = 75,608 / 289,876 B (26.08%).
+- New per-worker goal (user, 2026-10-21): at least 0.70% M2 per task (≥2,030 B). Fresh full screen: tools/scratch/nonmatching/screen-2026-10-21.md. Batches are now sized at 5–9 KB of candidates each.
+- T-123 widened to the near-miss sweep (≤6 words, 5,948 B). T-124 (7–15-word band including family B, about 5.3 KB) and T-125 (high-byte mid band, about 9 KB) launched.
