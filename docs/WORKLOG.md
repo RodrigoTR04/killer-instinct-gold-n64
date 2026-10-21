@@ -534,3 +534,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-21 — T-114 vetted (hard residue round 3)
 - Worktree t3-25c065ff. func_8002F6F4 matches (516 B): swapping the `key` and `step` declarations fixed the sp+64/sp+74 slot. 9 unchanged after 30-minute searches; the consolidated per-function histories are in T-114/REPORT.md.
 - Clean vet build: the ROM and all 3 images are byte-identical. 316 T4; M1 = M2 = 71,400 / 289,876 B (24.63%).
+- T-118 launched (sol-A40): automated declaration-order and line-layout search over all drafts at 40 words or fewer.
