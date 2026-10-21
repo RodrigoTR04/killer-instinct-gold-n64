@@ -318,7 +318,7 @@ main,func_8002F45C,0x8002F45C,0x1FAFC,404,T2,draft tools/scratch/nonmatching/T-0
 main,func_8002F5F0,0x8002F5F0,0x1FC90,212,T4,
 main,func_8002F6C4,0x8002F6C4,0x1FD64,24,T4,
 main,func_8002F6DC,0x8002F6DC,0x1FD7C,24,T4,
-main,func_8002F6F4,0x8002F6F4,0x1FD94,516,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002F6F4,0x8002F6F4,0x1FD94,516,T4,
 main,func_8002F8F8,0x8002F8F8,0x1FF98,76,T4,
 main,func_8002F944,0x8002F944,0x1FFE4,184,T4,
 main,func_8002F9FC,0x8002F9FC,0x2009C,32,T4,

@@ -530,3 +530,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-21 — T-111 vetted (clone-cluster finder)
 - Worktree t3-45905623. tools/analysis/clones.py writes docs/clones.md. Only 4 T2 clusters were found among 509 functions at threshold 0.85, so the remaining drafts are mostly unique. 0 new matches; func_801BADEC 118→106, func_801B5650/5DCC slight. Tool, docs and drafts only.
 - T-117 launched (sol-C43): template-driven clones from docs/clones.md.
+
+## 2026-10-21 — T-114 vetted (hard residue round 3)
+- Worktree t3-25c065ff. func_8002F6F4 matches (516 B): swapping the `key` and `step` declarations fixed the sp+64/sp+74 slot. 9 unchanged after 30-minute searches; the consolidated per-function histories are in T-114/REPORT.md.
+- Clean vet build: the ROM and all 3 images are byte-identical. 316 T4; M1 = M2 = 71,400 / 289,876 B (24.63%).
