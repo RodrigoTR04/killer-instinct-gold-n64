@@ -1,65 +1,65 @@
-/* T-105: nonmatching draft; see T-105/REPORT.md for measurement and remaining differences. */
-f32 func_801B19F0(f32 arg0, f32 arg1, s32 arg2, s32 arg3);
-/* DRAFT. Remaining diff: Frame/local alpha slot, counter update, unsigned float conversion and display-list scheduling differ. */
-typedef struct { u32 w0, w1; } T025Gfx3B84;
+/* T-117 draft: 16 differing words; 556/556 bytes.
+ * The late branch retains the inherited uninitialized alpha read; scratch only.
+ * Template: family B, with delayed counter store and the frame<50 flag. */
+extern f32 func_801B19F0(f32, f32, s32, s32);
+
+typedef struct {
+    u32 w0, w1;
+} T025Gfx3B84;
 extern void guTranslate(void *, f32, f32, f32);
 extern u8 D_801D3030[];
 extern u8 D_801D3088;
 extern u8 D_801D308C;
 extern s16 D_801D3094;
 extern s32 D_801D30D8;
-extern u8 D_8029571A;
 extern s16 D_802C87D0;
+extern u8 D_8029571A;
 
-s32 func_801B3B84(T025Gfx3B84 **arg0, s32 arg1, void *arg2, s32 arg3) {
-    s32 frame;
-    s32 color;
+s32 func_801B3B84(T025Gfx3B84 **arg0, s32 arg1, void *arg2, s32 arg3)
+{
+    u8 alpha;
+    s32 *counter = &D_801D30D8;
+    T025Gfx3B84 *p0, *p1, *p2, *p3;
+    u8 color;
     s32 color2;
     s32 packed;
     u32 value;
-    u8 alpha;
-    T025Gfx3B84 *temp_v1;
-    T025Gfx3B84 *temp_v1_2;
-    T025Gfx3B84 *temp_v1_3;
-    T025Gfx3B84 *temp_v1_4;
-
-    if ((s32) D_801D3088 < 8) {
+    if ((s32) D_801D3088 < 8)
+    {
         return 0;
     }
-    frame = D_801D30D8;
-    if (frame++ < 0xA) {
-        D_801D30D8 = frame;
-        value = (u32) func_801B19F0(0.0f, 255.0f, frame, 0xA);
-        color = value & 0xFF;
-        temp_v1 = *arg0;
-        packed = (color << 0x18) | (color << 0x10) | (color << 8);
-        *arg0 = temp_v1 + 1;
-        alpha = value & 0xFF;
-        temp_v1->w1 = (s32) (packed | color);
-        temp_v1->w0 = 0xFA000000;
-    } else {
-        temp_v1_2 = *arg0;
-        *arg0 = temp_v1_2 + 1;
-        temp_v1_2->w0 = 0xFA000000;
+    arg1 = *counter;
+    if (arg1++ < 10)
+    {
+        value = (u32) func_801B19F0(0.0f, 255.0f, *counter = arg1, 10);
+        color = (u16)value;
+        packed = ((color & 0xFF) << 0x18) | ((color & 0xFF) << 0x10) | ((color & 0xFF) << 8) | (color & 0xFF);
+        /* Pack before allocating the command; keep alpha assignment separate. */
+        alpha = color;
+        p0 = (*arg0)++;
+        p0->w1 = (s32) packed;
+        p0->w0 = 0xFA000000;
+    }
+    else
+    {
+        p1 = (*arg0)++;
+        p1->w0 = 0xFA000000;
         color2 = D_802C87D0 & 0xFF;
-        temp_v1_2->w1 = (s32) ((color2 << 0x18) | (color2 << 0x10) | (color2 << 8) | alpha);
+        p1->w1 = (s32) ((color2 << 0x18) | (color2 << 0x10) | (color2 << 8) | alpha);
+
         alpha = 0xFF;
-        if ((s32) D_801D308C < 8) {
+        if ((s32) D_801D308C < 8)
+        {
             D_801D308C += 1;
         }
-        D_801D30D8 = frame;
-        if (frame < 0x32) {
-            D_8029571A = 1;
-        }
+        *counter = arg1;
+        if (arg1 < 0x32) { D_8029571A = 1; }
     }
     guTranslate(arg2, 178.0f, 0.0f, (f32) D_801D3094);
-    temp_v1_3 = *arg0;
-    *arg0 = temp_v1_3 + 1;
-    temp_v1_3->w0 = 0xFB000000;
-    temp_v1_3->w1 = (s32) ((alpha + D_801D3094) & 0xFF);
-    temp_v1_4 = *arg0;
-    *arg0 = temp_v1_4 + 1;
-    temp_v1_4->w1 = (s32) &D_801D3030;
-    temp_v1_4->w0 = 0x06000000;
+    p2 = (*arg0)++;
+    p2->w0 = 0xFB000000;
+    p2->w1 = (s32) ((alpha + D_801D3094) & 0xFF);
+    p3 = (*arg0)++;
+    p3->w0 = 0x06000000; p3->w1 = (s32) &D_801D3030;
     return 1;
 }

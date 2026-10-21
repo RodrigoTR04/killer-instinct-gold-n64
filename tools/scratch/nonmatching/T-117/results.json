@@ -1,0 +1,32 @@
+[
+  {
+    "function": "func_8001B134",
+    "draft": "tools/scratch/nonmatching/T-022/func_8001B134.c",
+    "tu": "src/main/main_2FF0.c",
+    "compiled": 984,
+    "original": 984,
+    "words": 0,
+    "context": "full",
+    "error": ""
+  },
+  {
+    "function": "func_801B3B84",
+    "draft": "tools/scratch/nonmatching/T-025/func_801B3B84.c",
+    "tu": "src/ovl_7DF8/ovl_7DF8_5ED0.c",
+    "compiled": 556,
+    "original": 556,
+    "words": 16,
+    "context": "full",
+    "error": ""
+  },
+  {
+    "function": "func_801BADEC",
+    "draft": "tools/scratch/nonmatching/T-023/func_801BADEC.c",
+    "tu": "src/ovl_7DF8/ovl_7DF8_5ED0.c",
+    "compiled": 552,
+    "original": 568,
+    "words": 102,
+    "context": "full",
+    "error": ""
+  }
+]
