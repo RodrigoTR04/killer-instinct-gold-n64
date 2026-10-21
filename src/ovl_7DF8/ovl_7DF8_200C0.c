@@ -493,7 +493,23 @@ s32 func_801CCBCC(u8 arg0) {
 }
 
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_200C0/func_801CCD74.s")
+extern u8 *D_802D3E08;
+extern u8 D_802D3E0C;
+
+s32 func_801CCD74(s32 *message) {
+    if (D_802D3E04 != D_802D3E08) {
+        D_802D3E08 = D_802D3E04;
+        D_802D3E0C = 0xFF;
+    }
+    if (D_802D3E0C >= 4 && D_802D3E04 != 0) {
+        D_802D3E0C -= 4;
+    } else {
+        D_802D3E08 = D_802D3E04 = 0;
+        D_802D3E0C = 0;
+    }
+    *message = (s32)D_802D3E04;
+    return D_802D3E0C;
+}
 
 extern void osContGetReadData(u16 *);
 extern s32 osContStartReadData(void *);

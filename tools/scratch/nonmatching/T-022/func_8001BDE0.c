@@ -1,4 +1,4 @@
-/* T-093 DRAFT: 15 -> 13 relocation-masked words; 316/316 bytes. See T-093/REPORT.md. */
+/* T-104 DRAFT: 9 differing words, 316/316 B. Direct cursor increment recovers v1; FP allocation remains. */
 extern u8 D_8004AA28;
 extern u8 D_8004AC88;
 extern u8 D_8004AA28, D_8004AC88;
@@ -11,7 +11,7 @@ extern u8 D_801D8550;
 void func_8001BDE0(u8 **arg0, s32 arg1, f32 arg2) { u8 *var_s1; f32 temp_f0; f32 temp_f0_2; f32 temp_f22;
     f32 temp_f24; s32 var_s0; u8 *temp_v1;
     if (D_8004AA28 != 1) { temp_v1 = *arg0;
-        *arg0 = temp_v1 + 8; (*(s32 *)((u8 *)(temp_v1) + 0)) = 0x06000000; (*(s32 *)((u8 *)(temp_v1) + 4)) = (s32) *(s32 *)((u8 *)&D_8004A4C8 + arg1 * 0xC); temp_f24 = D_800489F0;
+        *arg0 += 8; (*(s32 *)((u8 *)(temp_v1) + 0)) = 0x06000000; (*(s32 *)((u8 *)(temp_v1) + 4)) = (s32) *(s32 *)((u8 *)&D_8004A4C8 + arg1 * 0xC); temp_f24 = D_800489F0;
         temp_f22 = D_800489F4;
         var_s1 = &D_801D7E00;
         var_s0 = 0;

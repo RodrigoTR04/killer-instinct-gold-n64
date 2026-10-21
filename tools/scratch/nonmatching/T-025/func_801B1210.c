@@ -1,4 +1,4 @@
-/* T-095 DRAFT: remaining differences recorded in T-095/REPORT.md. */
+/* T-104 DRAFT: 28 differing words, 284/284 B. Joined command pair improves scheduling; alpha allocation remains. */
 typedef struct { u32 w0, w1; } T025Gfx1210;
 extern s32 func_801BE540(s32, s32, s32, f32, f32, f32, s32, s32, s32, s32, f32);
 extern u8 D_802927F0[];
@@ -32,8 +32,8 @@ s32 func_801B1210(T025Gfx1210 **arg0, s32 arg1, s32 arg2, s32 arg3)
     g->w0 = 0xBA000402;
     g->w1 = 0x30;
     modeCommand = (*arg0)++;
-    modeCommand->w1 = 0;
-    modeCommand->w0 = 0xB9000002;
+    /* Keep this command pair together for IDO scheduling. */
+    modeCommand->w1 = 0; modeCommand->w0 = 0xB9000002;
     D_802C87C0 = alpha;
     return func_801BE540((s32) arg0, arg2, (s32) D_802927F0, 0.0f, -470.0f, D_80292918, 0x14, 0x28, 0xC8, alpha, 1.0f) & 0xFF;
 }
