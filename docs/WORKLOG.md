@@ -506,3 +506,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-21 — T-110 vetted (frontend subsystem pass)
 - Worktree t3-ee5cdddd. include/frontend.h (219 lines) is adopted in ovl_7DF8_13FF0.c and _1BD90.c, and all 30 existing matches are preserved. It merged cleanly over T-109. 0 new matches; all 24 drafts now compile in full TUs, and func_801C8004 improved 110→47.
 - Clean vet build: the ROM and all 3 images are byte-identical. Metrics unchanged (314 T4, 24.36%).
+- T-113 launched (sol-B36): screen refresh #3 plus a diagnosis round on the closest 15.
