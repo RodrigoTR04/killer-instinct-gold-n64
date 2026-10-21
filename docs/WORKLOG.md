@@ -464,3 +464,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 ## 2026-10-20 — T-101 vetted (family B round 2)
 - Worktree t3-6778d103. Family B is now 19 words per copy (from 57), at the correct 536 B; drafts only, so I imported the drafts and REPORT.md (region diagnoses). T-102 was resumed after the 22:03 reset.
+- Launched T-103 (family B round 3) and T-104 (the closest drafts from the refreshed screen).
