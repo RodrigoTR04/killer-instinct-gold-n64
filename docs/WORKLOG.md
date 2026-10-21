@@ -475,3 +475,6 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-56794d05. func_801CCD74 matches (116 B); 5 improved, 15 unchanged (all 21 are diagnosed in T-104/REPORT.md).
 - Clean vet build: the ROM and all 3 images are byte-identical. 305 T4; M1 = M2 = 66,512 / 289,876 B (22.94%).
 - T-106 launched (sol-B34): clone family C (drafts consistently 32-36 B too long).
+
+## 2026-10-20 — T-103 vetted (family B round 3)
+- Worktree t3-c4895570. No change: family B is still 19 words ×6 after a region analysis and a 30-minute permuter run. Report only.
