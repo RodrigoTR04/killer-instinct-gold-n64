@@ -461,3 +461,6 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-099 vetted (screen refresh + closest)
 - Worktree t3-8ac95672 (resumed after the limit). The screen is refreshed in T-099/screen.md. func_801C3524, func_801C3990 and func_801BF988 match (548 B); 4 improved, 3 unchanged.
 - Clean vet build: the ROM and all 3 images are byte-identical. 302 T4; M1 = M2 = 65,576 / 289,876 B (22.62%).
+
+## 2026-10-20 — T-101 vetted (family B round 2)
+- Worktree t3-6778d103. Family B is now 19 words per copy (from 57), at the correct 536 B; drafts only, so I imported the drafts and REPORT.md (region diagnoses). T-102 was resumed after the 22:03 reset.

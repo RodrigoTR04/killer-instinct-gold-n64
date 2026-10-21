@@ -1,0 +1,188 @@
+[
+  {
+    "experiment": "t101-results",
+    "tests": 12,
+    "compile_errors": 0,
+    "minimum_words": 78
+  },
+  {
+    "experiment": "t101aa-results",
+    "tests": 32,
+    "compile_errors": 0,
+    "minimum_words": 19
+  },
+  {
+    "experiment": "t101ab-results",
+    "tests": 16,
+    "compile_errors": 0,
+    "minimum_words": 81
+  },
+  {
+    "experiment": "t101ac-results",
+    "tests": 24,
+    "compile_errors": 0,
+    "minimum_words": 19
+  },
+  {
+    "experiment": "t101ad-results",
+    "tests": 32,
+    "compile_errors": 0,
+    "minimum_words": 42
+  },
+  {
+    "experiment": "t101ae-results",
+    "tests": 32,
+    "compile_errors": 0,
+    "minimum_words": 25
+  },
+  {
+    "experiment": "t101b-results",
+    "tests": 15,
+    "compile_errors": 0,
+    "minimum_words": 22
+  },
+  {
+    "experiment": "t101c-results",
+    "tests": 20,
+    "compile_errors": 0,
+    "minimum_words": 22
+  },
+  {
+    "experiment": "t101d-results",
+    "tests": 13,
+    "compile_errors": 0,
+    "minimum_words": 24
+  },
+  {
+    "experiment": "t101e-results",
+    "tests": 23,
+    "compile_errors": 0,
+    "minimum_words": 22
+  },
+  {
+    "experiment": "t101f-results",
+    "tests": 16,
+    "compile_errors": 0,
+    "minimum_words": 22
+  },
+  {
+    "experiment": "t101g-results",
+    "tests": 20,
+    "compile_errors": 0,
+    "minimum_words": 22
+  },
+  {
+    "experiment": "t101h-results",
+    "tests": 12,
+    "compile_errors": 0,
+    "minimum_words": 58
+  },
+  {
+    "experiment": "t101i-results",
+    "tests": 12,
+    "compile_errors": 0,
+    "minimum_words": 51
+  },
+  {
+    "experiment": "t101j-results",
+    "tests": 128,
+    "compile_errors": 0,
+    "minimum_words": 22
+  },
+  {
+    "experiment": "t101k-results",
+    "tests": 16,
+    "compile_errors": 0,
+    "minimum_words": 58
+  },
+  {
+    "experiment": "t101l-results",
+    "tests": 42,
+    "compile_errors": 0,
+    "minimum_words": 22
+  },
+  {
+    "experiment": "t101m-results",
+    "tests": 8,
+    "compile_errors": 0,
+    "minimum_words": 22
+  },
+  {
+    "experiment": "t101n-results",
+    "tests": 48,
+    "compile_errors": 0,
+    "minimum_words": 22
+  },
+  {
+    "experiment": "t101o-results",
+    "tests": 10,
+    "compile_errors": 0,
+    "minimum_words": 22
+  },
+  {
+    "experiment": "t101p-results",
+    "tests": 48,
+    "compile_errors": 0,
+    "minimum_words": 21
+  },
+  {
+    "experiment": "t101q-results",
+    "tests": 40,
+    "compile_errors": 0,
+    "minimum_words": 19
+  },
+  {
+    "experiment": "t101r-results",
+    "tests": 32,
+    "compile_errors": 0,
+    "minimum_words": 105
+  },
+  {
+    "experiment": "t101s-results",
+    "tests": 40,
+    "compile_errors": 0,
+    "minimum_words": 19
+  },
+  {
+    "experiment": "t101t-results",
+    "tests": 32,
+    "compile_errors": 0,
+    "minimum_words": 19
+  },
+  {
+    "experiment": "t101u-results",
+    "tests": 32,
+    "compile_errors": 0,
+    "minimum_words": 19
+  },
+  {
+    "experiment": "t101v-results",
+    "tests": 12,
+    "compile_errors": 0,
+    "minimum_words": 19
+  },
+  {
+    "experiment": "t101w-results",
+    "tests": 36,
+    "compile_errors": 0,
+    "minimum_words": 19
+  },
+  {
+    "experiment": "t101x-results",
+    "tests": 32,
+    "compile_errors": 0,
+    "minimum_words": 19
+  },
+  {
+    "experiment": "t101y-results",
+    "tests": 16,
+    "compile_errors": 0,
+    "minimum_words": 25
+  },
+  {
+    "experiment": "t101z-results",
+    "tests": 40,
+    "compile_errors": 0,
+    "minimum_words": 50
+  }
+]

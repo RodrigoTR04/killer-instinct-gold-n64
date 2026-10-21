@@ -1,4 +1,4 @@
-/* T-098 DRAFT: 57 differing words; 536 bytes. Not matching.
+/* T-101 DRAFT: 19 differing words; 536 bytes. Not matching.
  * The late branch retains the inherited uninitialized alpha read; scratch only. */
 extern f32 func_801B19F0(f32, f32, s32, s32);
 
@@ -31,21 +31,21 @@ s32 func_801B3324(T025Gfx3324 **arg0, s32 arg1, void *arg2, s32 arg3)
     {
         value = (u32) func_801B19F0(0.0f, 255.0f, *counter = arg1, 10);
         color = (u16)value;
-        p0 = *arg0;
-        packed = ((color & 0xFF) << 0x18) | ((color & 0xFF) << 0x10) | ((color & 0xFF) << 8);
-        *arg0 = p0 + 1;
-        /* Keep alpha assignment separate from the command store for IDO scheduling. */
+        packed = ((color & 0xFF) << 0x18) | ((color & 0xFF) << 0x10) | ((color & 0xFF) << 8) | (color & 0xFF);
+        /* Pack before allocating the command; keep alpha assignment separate. */
         alpha = color;
-        p0->w1 = (s32) (packed | (color & 0xFF));
+        p0 = (*arg0)++;
+        p0->w1 = (s32) packed;
         p0->w0 = 0xFA000000;
     }
     else
     {
         *counter = arg1;
         p1 = (*arg0)++;
-        p1->w0 = 0xFA000000;
         color2 = D_802C87D0 & 0xFF;
         p1->w1 = (s32) ((color2 << 0x18) | (color2 << 0x10) | (color2 << 8) | alpha);
+        /* This source store order keeps the stale alpha load in the late block. */
+        p1->w0 = 0xFA000000;
         alpha = 0xFF;
         if ((s32) D_801D308C < 4)
         {
