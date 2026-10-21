@@ -1,77 +1,49 @@
-/* T-089 DRAFT: 18 -> 2 differing words in TU context. */
-typedef struct {
- u8 next,delay,group,flags;
- }
- T024ChainKey;
- typedef struct {
- void *envelope;
- T024ChainKey *key;
- }
- T024ChainSound;
- typedef struct {
- u8 pad[0xC];
- T024ChainSound **sounds;
- }
- T024SoundBank;
- typedef struct {
- u8 pad[0x30];
- void **owner;
- u8 pad34[0xA];
- u8 flags;
- }
- T024ChainVoice;
- typedef struct {
- s16 type;
- T024ChainVoice *voice;
- s32 id;
- T024SoundBank *bank;
- }
- T024ChainEvent;
- extern T024ChainVoice *func_8002F45C(void *,void *);
- extern void alEvtqPostEvent(void *,void *,s32);
+/* T-108 draft: shared audio types; see T-108/REPORT.md. */
+#include "audio_game.h"
+extern s32 osSetIntMask(s32);
 
-void *func_8002F6F4(T024SoundBank *bank, s16 id, void **owner)
+GameAudioVoice *func_8002F6F4(ALBank *bank, s16 id, GameAudioVoice **owner)
 {
-  T024ChainVoice *voice;
-  T024ChainSound *sound;
+  GameAudioVoice *voice;
+  ALSound *sound;
   s32 step;
-  T024ChainVoice *last = 0;
+  GameAudioVoice *last = 0;
   s16 repeat = 0;
   s32 repeatTime;
-  T024ChainKey *key;
+  ALKeyMap *key;
   s32 delay = 0;
-  T024ChainEvent start;
-  T024ChainEvent event;
+  GameAudioEvent start;
+  GameAudioEvent event;
   if (id == 0)
   {
     return 0;
   }
   do
   {
-    sound = bank->sounds[id + 3];
+    sound = bank->instArray[0]->soundArray[id - 1];
     voice = func_8002F45C(bank, sound);
     if (voice)
     {
-      *((void **) (((u8 *) D_8004827C) + 0x40)) = voice;
+      D_8004827C->current = voice;
       start.type = 1;
       start.voice = voice;
-      step = sound->key->delay * 0x8235;
+      step = sound->keyMap->velocityMax * 0x8235;
       if (voice->flags & 0x10)
       {
         voice->flags &= 0xFFEF;
-        alEvtqPostEvent(((T024VoicePlayer *)D_8004827C)->queue, &start, delay + 1);
+        alEvtqPostEvent(&D_8004827C->queue, (ALEvent *)&start, delay + 1);
         repeatTime = step + 1;
         repeat = id;
       }
       else
       {
-        alEvtqPostEvent(((T024VoicePlayer *)D_8004827C)->queue, &start, step + 1);
+        alEvtqPostEvent(&D_8004827C->queue, (ALEvent *)&start, step + 1);
       }
       last = voice;
     }
     delay += step;
-    key = sound->key;
-    id = key->next + ((key->group & 0xC0) * 4);
+    key = sound->keyMap;
+    id = key->velocityMin + ((key->keyMin & 0xC0) * 4);
   }
   while (id && voice);
   if (last)
@@ -84,8 +56,8 @@ void *func_8002F6F4(T024SoundBank *bank, s16 id, void **owner)
       event.type = 0x200;
       event.voice = last;
       event.bank = bank;
-      event.id = repeat;
-      alEvtqPostEvent(((T024VoicePlayer *)D_8004827C)->queue, &event, repeatTime);
+      event.payload.value = repeat;
+      alEvtqPostEvent(&D_8004827C->queue, (ALEvent *)&event, repeatTime);
     }
   }
   if (owner)

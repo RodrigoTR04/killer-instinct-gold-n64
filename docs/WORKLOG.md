@@ -487,3 +487,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-105 vetted (next screen band)
 - Worktree t3-3ee1d324. 0 matched; 8 drafts improved (func_801CB998 36→2), 8 unchanged. Scratch-only changes; I imported the drafts and REPORT.md.
 - T-109 launched (sol-A37): near-miss round on drafts at 11 words or fewer, from the T-104/T-105 diagnoses.
+
+## 2026-10-20 — T-108 vetted (audio subsystem pass)
+- Worktree t3-e9e242cf. include/audio_game.h (199 lines) holds the shared game-audio structs and prototypes. It is adopted in main_1AB90, main_1B230 and main_1EB40, replacing about 190 lines of duplicated per-function declarations, and all 29 existing matches are preserved. 0 new matches, 3 drafts improved.
+- Clean vet build: the ROM and all 3 images are byte-identical. Metrics unchanged.
