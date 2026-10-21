@@ -1,5 +1,5 @@
 /* T-100 improved draft; measurements and remaining causes in T-100/REPORT.md. */
-#include "common.h"
+#include "frontend.h"
 
 extern void func_8002F6F4();
 extern void func_801ADC64(s32);

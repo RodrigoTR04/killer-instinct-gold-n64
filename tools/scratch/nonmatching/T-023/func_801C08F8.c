@@ -1,11 +1,11 @@
+#include "frontend.h"
 /* DRAFT. Remaining diff: 64-bit score decoding, text buffers, float arguments and rendering sequencing differ. */
-typedef struct { u32 w0, w1; } T079Gfx;
-extern s32 func_801BD640(T079Gfx **, void *, void *, f32, f32, f32, u8, u8, u8, u8);
-extern s32 func_801BDA6C(T079Gfx **, void *, void *, f32, f32, f32, u8, u8, u8, u8, f32);
-extern s32 func_801BDF94(T079Gfx **, void *, void *, f32, f32, f32, s32, f32, f32);
-extern s32 func_801BE660(T079Gfx **, void *, void *, f32, f32, f32, f32);
-extern s32 func_801BE540(T079Gfx **, void *, void *, f32, f32, f32, u8, u8, u8, u8, f32);
-extern void func_801C0800(T079Gfx **, f32, f32, f32, u8, u8, u8, u32);
+
+
+
+
+
+extern void func_801C0800(FrontendGfxWords **, f32, f32, f32, u8, u8, u8, u32);
 extern f32 sinf(f32);
 extern s8 *D_80282DD0[];
 extern s8 ***D_8028326C[];
@@ -13,7 +13,7 @@ extern s8 D_80292CAC[], D_80292CBC[], D_80292CC0[];
 extern f32 D_80292CD0;
 extern f64 D_80292CD8, D_80292CE0, D_80292CE8;
 extern s32 D_80282EF0, D_802956F4, D_802CA068;
-void func_801C08F8(T079Gfx **list, s32 unused, u8 character, s32 side, u64 packed, s32 player) {
+void func_801C08F8(FrontendGfxWords **list, s32 unused, u8 character, s32 side, u64 packed, s32 player) {
     s8 digit[2], name[5];
     s32 shade, y, i, radix, minimumA, minimumB, pair, quotient, remainder, phase, x;
     u64 work;
@@ -21,12 +21,12 @@ void func_801C08F8(T079Gfx **list, s32 unused, u8 character, s32 side, u64 packe
     union { f32 f; s32 i; } pos;
     shade = D_802D3824 & 255;
     minimumA = minimumB = 20; y = 262;
-    D_802956F4 += func_801BE660(list, (D_802956F4 << 6) + D_802CA068, **D_8028326C[character], (f32)(side * 180), 220.0f, -400.0f, D_80292CD0);
+    D_802956F4 += func_801BE660(list, (void *)((D_802956F4 << 6) + D_802CA068), **D_8028326C[character], (f32)(side * 180), 220.0f, -400.0f, D_80292CD0);
     digit[0] = (D_802D3824 >> 8) + '0'; digit[1] = 0;
     if (D_802D3824 < 0) digit[0] = ' ';
     if (shade >= 128) shade = 255 - shade;
     shade = (shade * 2) & 255;
-    D_802956F4 += func_801BDA6C(list, (D_802956F4 << 6) + D_802CA068, digit, (f32)(side * 300 - 30), -220.0f, -1000.0f, shade, shade, shade, 255, 1.0f);
+    D_802956F4 += func_801BDA6C(list, (void *)((D_802956F4 << 6) + D_802CA068), digit, (f32)(side * 300 - 30), -220.0f, -1000.0f, shade, shade, shade, 255, 1.0f);
     radix = 1;
     for (i = 0; i != 10; i++) {
         pair = (packed / (radix * 1331)) % 36;
@@ -40,7 +40,7 @@ void func_801C08F8(T079Gfx **list, s32 unused, u8 character, s32 side, u64 packe
             shade = 255;
             if ((i == 4 && minimumA == 1) || (i == 5 && minimumB == 1) || (i < 4 && packed % base == 1)) shade = sinf(((i * 72) + D_80282EF0) * D_80292CD8) * 127.0f + 128.0f;
             pos.f = side * 300;
-            D_802956F4 += func_801BE540(list, (D_802956F4 << 6) + D_802CA068, D_80282DD0[i], pos.f, (f32)y, -1000.0f, 255, shade, 0, 255, 0.75f);
+            D_802956F4 += func_801BE540(list, (void *)((D_802956F4 << 6) + D_802CA068), D_80282DD0[i], pos.f, (f32)y, -1000.0f, 255, shade, 0, 255, 0.75f);
             y -= 37;
         }
         packed /= base;
@@ -52,15 +52,15 @@ void func_801C08F8(T079Gfx **list, s32 unused, u8 character, s32 side, u64 packe
     for (i = 0; i != 30; i += 6) {
         D_80292CAC[1] = i + 'A'; D_80292CAC[3] = i + 'B'; D_80292CAC[5] = i + 'C';
         D_80292CAC[7] = i + 'D'; D_80292CAC[9] = i + 'E'; D_80292CAC[11] = i + 'F';
-        D_802956F4 += func_801BD640(list, (D_802956F4 << 6) + D_802CA068, D_80292CAC, (f32)(x - 227), (f32)y, -800.0f, 255, 255, 0, 255);
+        D_802956F4 += func_801BD640(list, (void *)((D_802956F4 << 6) + D_802CA068), D_80292CAC, (f32)(x - 227), (f32)y, -800.0f, 255, 255, 0, 255);
         y -= 50;
     }
     x = side * 650;
-    D_802956F4 += func_801BD640(list, (D_802956F4 << 6) + D_802CA068, D_80292CBC, (f32)(x - 10), (f32)(y - 80), -2000.0f, 255, 255, 0, 255);
-    D_802956F4 += func_801BD640(list, (D_802956F4 << 6) + D_802CA068, D_80292CC0, (f32)(x + 320), (f32)(y - 80), -2000.0f, 255, 255, 0, 255);
+    D_802956F4 += func_801BD640(list, (void *)((D_802956F4 << 6) + D_802CA068), D_80292CBC, (f32)(x - 10), (f32)(y - 80), -2000.0f, 255, 255, 0, 255);
+    D_802956F4 += func_801BD640(list, (void *)((D_802956F4 << 6) + D_802CA068), D_80292CC0, (f32)(x + 320), (f32)(y - 80), -2000.0f, 255, 255, 0, 255);
     name[0] = 'j';
     { u32 value = ((s32 *)&D_802D37F0)[player];
       name[1] = value >> 24; name[2] = value >> 16;
       name[3] = value >> 8; name[4] = value; }
-    D_802956F4 += func_801BDF94(list, (D_802956F4 << 6) + D_802CA068, name, (f32)(side * 180 - 106), -220.0f, -400.0f, 0, 1.0f, 0.0f);
+    D_802956F4 += func_801BDF94(list, (void *)((D_802956F4 << 6) + D_802CA068), name, (f32)(side * 180 - 106), -220.0f, -400.0f, 0, 1.0f, 0.0f);
 }

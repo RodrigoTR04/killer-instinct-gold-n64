@@ -1,8 +1,5 @@
-#include "common.h"
+#include "frontend.h"
 
-extern void func_801CC784(void);
-extern void func_801CC878(void);
-extern void func_801BEFFC(void);
 
 void func_801BFB10(void) {
     func_801CC784();
@@ -10,12 +7,6 @@ void func_801BFB10(void) {
     func_801BEFFC();
 }
 
-typedef struct { s32 x, y; } T023PairB40;
-extern void func_801ADAD4(s32);
-extern T023PairB40 D_80128300, D_802D37D8, D_802D37E0, D_802D37F0;
-extern s32 D_80295700, D_802956FC, D_802956F8;
-extern s32 D_802D37D0, D_802D37F8, D_802D3820, D_802D3824;
-extern u8 D_802D37EA[];
 void func_801BFB40(u8 arg0) {
     D_802D37D0 = -1;
     D_802D37F0.x = D_80128300.x;
@@ -30,11 +21,6 @@ void func_801BFB40(u8 arg0) {
     D_802956F8 = D_802956FC = D_80295700 = 0;
 }
 
-extern void func_801ADC64(s32);
-extern void func_801AF5D4(s32);
-extern void func_801AF5EC(s32);
-extern s32 D_802D37D0;
-extern s32 D_802D37F8;
 
 void func_801BFC08(s32 arg0) {
     if (arg0 == 0) D_802D37F8 += 0x280;
@@ -48,7 +34,6 @@ void func_801BFC08(s32 arg0) {
     }
 }
 
-extern s32 D_802D37D0, D_802D37F8;
 
 void func_801BFC8C(void) {
     if (D_802D37D0-- <= 0) D_802D37D0 = 13;
@@ -57,54 +42,43 @@ void func_801BFC8C(void) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801BFCBC.s")
 
-typedef struct { u8 pad[0xF8]; u8 *matrices; } T030Render2D34;
-extern T030Render2D34 D_802C9F70;
-typedef struct { u32 w0, w1; } T023Gfx0610;
-extern void guTranslate(void *, f32, f32, f32);
-extern s32 D_802956F4, D_802CA068;
-extern u8 D_8029C4B0[], D_8029C8B0[];
 void func_801C0610(arg0)
 s32 arg0; {
-    T023Gfx0610 **list = (T023Gfx0610 **)arg0;
+    FrontendGfxWords **list = (FrontendGfxWords **)arg0;
 
     {
-        T023Gfx0610 *p;
+        FrontendGfxWords *p;
         p = (*list)++; p->w0 = 0xFB000000; p->w1 = 0x0F000410;
     }
     {
-        T023Gfx0610 *p;
+        FrontendGfxWords *p;
         p = (*list)++; p->w0 = 0xFA000000; p->w1 = 0x3C010110;
     }
     guTranslate((void *)((D_802956F4 << 6) + D_802CA068), 60.0f, 5.0f, 270.0f);
     {
-        T023Gfx0610 *p;
+        FrontendGfxWords *p;
         p = (*list)++; p->w0 = 0x01020040;
         p->w1 = (D_802956F4 << 6) + (s32)D_802C9F70.matrices;
     }
     {
-        T023Gfx0610 *p;
+        FrontendGfxWords *p;
         p = (*list)++; p->w0 = 0x06000000; p->w1 = (u32)D_8029C4B0;
     }
     guTranslate((void *)(((D_802956F4 + 1) << 6) + (s32)D_802C9F70.matrices), -40.0f, -15.0f, 270.0f);
     {
-        T023Gfx0610 *p;
+        FrontendGfxWords *p;
         p = (*list)++; p->w0 = 0x01020040;
         p->w1 = ((D_802956F4 + 1) << 6) + D_802CA068;
     }
     {
-        T023Gfx0610 *p;
+        FrontendGfxWords *p;
         p = (*list)++; p->w0 = 0x06000000; p->w1 = (u32)D_8029C8B0;
     }
     D_802956F4 += 2;
 }
 
 
-extern void func_801BF190(s32, s32, s32);
-extern void func_801BFC08(s32);
 
-extern s8 D_801CD454;
-extern s32 D_802CA068, D_802D37D0;
-extern s32 D_802D37F8;
 
 void func_801C0784(s32 arg0, u32 arg1) {
     if ((u32)D_802D37F8 < arg1) func_801BFC08(arg1);
@@ -122,9 +96,6 @@ void func_801C0784(s32 arg0, u32 arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C1434.s")
 
-extern s32 D_80127C30[];
-extern u8 D_80128308[], D_8012830A[];
-extern u8 D_80128310[][11], D_80128328[][11];
 void func_801C1704(u8 player) {
     s32 i;
 
@@ -166,23 +137,18 @@ void func_801C2110(f32 t, f32 *coef, f32 *position, f32 *velocity) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C2ADC.s")
 
-typedef union { struct { u32 w0, w1; } words; u64 full; } T030Cmd2D34;
-
-extern void guRotate(void *, f32, f32, f32, f32);
-extern void guTranslate(void *, f32, f32, f32);
-extern u8 D_80285168[];
-extern s32 D_802956F4;
 
 
-void func_801C2D34(T030Cmd2D34 **arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)
+
+void func_801C2D34(FrontendGfx **arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)
 {
-    T030Cmd2D34 *temp_v0;
-    T030Cmd2D34 *temp_v0_2;
-    T030Cmd2D34 *temp_v0_3;
-    T030Cmd2D34 *temp_v0_4;
-    T030Cmd2D34 *temp_v0_5;
-    T030Cmd2D34 *temp_v0_6;
-    T030Cmd2D34 *temp_v0_7;
+    FrontendGfx *temp_v0;
+    FrontendGfx *temp_v0_2;
+    FrontendGfx *temp_v0_3;
+    FrontendGfx *temp_v0_4;
+    FrontendGfx *temp_v0_5;
+    FrontendGfx *temp_v0_6;
+    FrontendGfx *temp_v0_7;
     temp_v0 = (*arg0)++;
     temp_v0->words.w0 = 0xBA001301; temp_v0->words.w1 = 0x80000;
     temp_v0_2 = (*arg0)++;
@@ -220,12 +186,10 @@ void func_801C2D34(T030Cmd2D34 **arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C317C.s")
 
-typedef struct { u32 w0, w1; } T021Gfx;
-extern u8 D_802855C8;
 
-s32 func_801C3524(T021Gfx **arg0, s32 arg1)
+s32 func_801C3524(FrontendGfxWords **arg0, s32 arg1)
 {
-    T021Gfx *command;
+    FrontendGfxWords *command;
     if (arg1 >= 0x11)
     {
         arg1 = 0x10;
@@ -238,39 +202,24 @@ s32 func_801C3524(T021Gfx **arg0, s32 arg1)
     return arg1 == 0x10;
 }
 
-extern void func_801C35D8();
-extern u8 D_80290DF8;
 void func_801C3580(s32 arg0, s32 arg1)
 {
   func_801C35D8(arg0, &D_80290DF8, 0x17, arg1);
 }
 
-extern void func_801C35D8();
-extern u8 D_80290F0C;
 void func_801C35AC(s32 arg0, s32 arg1)
 {
   func_801C35D8(arg0, &D_80290F0C, 0xB, arg1);
 }
 
-typedef struct { u32 w0,w1; } CloudCmd;
 
-typedef struct {
-    s16 x, y, z, angle, width;
-    u8 padA;
-    s8 alpha;
-} T030Cloud;
-extern void func_801C3758(CloudCmd **, T030Cloud *, s32);
-extern u8 D_800F4070[];
-extern s32 D_80290D88;
-extern u32 D_80290F90[];
-extern u8 *D_802D38E0;
 
-void func_801C35D8(CloudCmd **arg0, T030Cloud *arg1, s32 arg2, s32 arg3)
+void func_801C35D8(FrontendGfxWords **arg0, FrontendCloud *arg1, s32 arg2, s32 arg3)
 {
-    CloudCmd *dl;
+    FrontendGfxWords *dl;
     s32 i, offset;
     s32 visible;
-    T030Cloud *cloud;
+    FrontendCloud *cloud;
     s16 start;
     s32 end;
     dl = (*arg0)++;
@@ -297,7 +246,7 @@ void func_801C35D8(CloudCmd **arg0, T030Cloud *arg1, s32 arg2, s32 arg3)
                     cloud->alpha -= 2;
                     if (cloud->alpha <= 0) cloud->alpha = 0;
                 }
-                func_801C3758(arg0, (T030Cloud *)((u32)offset + (u8 *)arg1), cloud->alpha);
+                func_801C3758(arg0, (FrontendCloud *)((u32)offset + (u8 *)arg1), cloud->alpha);
             }
             else cloud->alpha = 0;
             i++;

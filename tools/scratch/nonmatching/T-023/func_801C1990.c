@@ -1,8 +1,9 @@
+#include "frontend.h"
 /* DRAFT. Remaining diff: Stat-array comparisons, branch layout and 64-bit zero stores differ. */
 extern s32 func_801C17D0(u32 *, u8);
 extern u8 D_8004A407, D_8004EA9B[], D_802D37FC, D_802D37FD;
 extern s32 D_80127C30[];
-extern u8 D_80128308[], D_8012830A[], D_80128310[], D_80128328[];
+extern u8 D_80128308[], D_8012830A[];
 extern u64 D_802D3800[];
 u8 func_801C1990(u32 *stats) {
     s32 mask, pending, player, result;
@@ -28,8 +29,8 @@ u8 func_801C1990(u32 *stats) {
         D_802D37FD = player;
         value = stats[6];
         if (value < (u32)D_80127C30[player]) D_80127C30[player] = value;
-        b = D_80128328 + player * 11 + character;
-        a = D_80128310 + player * 11 + character;
+        b = &D_80128328[player][character];
+        a = &D_80128310[player][character];
         value = stats[player == 0 ? 3 : 4]; if (*b < value) *b = value;
         value = stats[player == 0 ? 1 : 2]; if (*a < value) *a = value;
         D_8012830A[player]++;

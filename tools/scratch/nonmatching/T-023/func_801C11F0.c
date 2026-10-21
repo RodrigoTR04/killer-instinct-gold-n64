@@ -1,5 +1,6 @@
+#include "frontend.h"
 /* T-105: nonmatching draft; see T-105/REPORT.md for measurement and remaining differences. */
-extern s32 func_801BE540(s32, s32, u8 *, f32, f32, f32, u8, u8, u8, u8, f32);
+
 extern u8 D_8004A407;
 extern s8 D_80292CC4;
 extern f32 D_80292CF0;
@@ -16,7 +17,7 @@ void func_801C11F0(s32 list, s32 unused, s32 side, s32 player) {
     shade *= 4;
     x = side * 218;
     digit[0] = phase / 100 + '0'; digit[1] = 0;
-    D_802956F4 += func_801BE540(list, (D_802956F4 << 6) + D_802CA068, (u8 *)&D_80292CC4, x, 75.0f, -500.0f, 255, 255, 255, 255, 0.75f);
+    D_802956F4 += func_801BE540((FrontendGfxWords **)list, (void *)((D_802956F4 << 6) + D_802CA068), (u8 *)&D_80292CC4, x, 75.0f, -500.0f, 255, 255, 255, 255, 0.75f);
     shade &= 255;
-    D_802956F4 += func_801BE540(list, (D_802956F4 << 6) + D_802CA068, (u8 *)digit, x, 0.0f, -500.0f, shade, shade, shade, 255, D_80292CF0);
+    D_802956F4 += func_801BE540((FrontendGfxWords **)list, (void *)((D_802956F4 << 6) + D_802CA068), (u8 *)digit, x, 0.0f, -500.0f, (u8)shade, (u8)shade, (u8)shade, 255, D_80292CF0);
 }

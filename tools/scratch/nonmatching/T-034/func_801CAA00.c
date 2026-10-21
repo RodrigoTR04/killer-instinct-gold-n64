@@ -1,3 +1,4 @@
+#include "frontend.h"
 /* T-056: now compiles in ovl_7DF8_1BD90.c context (uses the real u8 D_80127D30[8]; func_801CA784 takes 1 arg). */
 /* DRAFT. Compiles (980 vs 998 instructions); large diff (~1000 lines): control-flow layout, prev-pad pointer (sp28) handling and the unrolled queue-reset loop differ. Logic reconstructed from m2c/asm: menu input handler (port, unused, hi, buttons) with per-port previous-button state D_802D3678. Needs T021Six and D_80127D30 macro. */
 typedef struct {
@@ -17,8 +18,8 @@ extern s32 func_801AF67C(s32);
 extern void func_801B3DB0(u8, s32);
 extern s32 func_801C7998(s32, s32);
 extern void func_801C7A98(void);
-extern void func_801C7CD0(s32, s32, s32);
-extern void func_801C7E98(s32, s32);
+
+
 extern void func_801C7F90(void);
 extern void func_801CA7E4(s32);
 extern s32 D_8004A25C;
@@ -31,20 +32,20 @@ extern u8 D_802923A0;
 extern s8 D_802923A4;
 extern s8 D_802923A8;
 extern u8 D_802923F0[];
-extern u8 ***D_802926AC;
+
 extern u8 *D_802926F8[];
 extern u8 *D_80292710[];
 extern u8 D_80295428[];
-extern T034PadPrev D_802D3678[];
+
 extern f32 D_802D39F8;
-extern u8 D_802D39FC;
+
 extern u8 D_802D39FE[2];
 extern u8 D_802D3A00;
-extern u8 D_802D3A01;
-extern u8 D_802D3A02;
+
+
 extern s8 D_802D3A04[];
 extern u8 D_802D3A06;
-extern u8 D_802D3A07;
+
 extern u8 D_802D3A08;
 extern f32 D_802D3A10[2];
 extern u8 D_802D3A18[3];
@@ -69,10 +70,10 @@ void func_801CAA00(s32 port, s32 unused, s32 hi, s32 buttons) {
     hi = 0;
     sel = D_802D39FC;
     if (D_802D3A07) {
-        if ((buttons & 0x100) && !(D_802D3678[port].buttons & 0x100)) {
+        if ((buttons & 0x100) && !(((T034PadPrev *)D_802D3678)[port].buttons & 0x100)) {
             D_802D3A08 = 0;
         }
-        prev = &D_802D3678[port];
+        prev = &((T034PadPrev *)D_802D3678)[port];
         if ((buttons & 0x200) && !(prev->buttons & 0x200)) {
             D_802D3A08 = 1;
         }
@@ -90,7 +91,7 @@ void func_801CAA00(s32 port, s32 unused, s32 hi, s32 buttons) {
             if (port + 1 == D_802D3E15) {
                 if (hi != 0 || buttons != 0) {
                     if (hi == 0 && buttons == 0x4000 && D_802D3A18[0] == 1) {
-                        *D_802926AC[sel] = D_80295428;
+                        *((u8 ***)D_802926AC)[sel] = D_80295428;
                         osSendMesg(D_802D3FC8, (sel << 16) + ((D_802D3E15 - 1) << 8) + 5, 1);
                         osSendMesg(D_802D3FC8, ((D_802D3E15 - 1) << 8) + 6, 1);
                     }
@@ -103,7 +104,7 @@ void func_801CAA00(s32 port, s32 unused, s32 hi, s32 buttons) {
                 goto nav;
             }
         } else {
-            if ((buttons & 0xC30F) && !(D_802D3678[port].buttons & 0xC30F)) {
+            if ((buttons & 0xC30F) && !(((T034PadPrev *)D_802D3678)[port].buttons & 0xC30F)) {
                 if (D_802923A0 >= D_802923A4) {
                     if (kind != 0) {
                         func_8002F6F4(D_80066C40, 0x1B0, &D_8004A25C);
@@ -140,7 +141,7 @@ void func_801CAA00(s32 port, s32 unused, s32 hi, s32 buttons) {
                             switch (D_802D39FC) {
                                 case 0:
                                     if (D_802D3E14) {
-                                        func_801C7CD0(5, 2, 3);
+                                        func_801C7CD0(5);
                                     } else {
                                         osSendMesg(D_802D3FC8, 2, 1);
                                     }
@@ -168,7 +169,7 @@ void func_801CAA00(s32 port, s32 unused, s32 hi, s32 buttons) {
                 }
             }
         nav:
-            prev = &D_802D3678[port];
+            prev = &((T034PadPrev *)D_802D3678)[port];
             if ((buttons & 0x400) && !(prev->buttons & 0x400) && D_802923A0 >= D_802923A8 - 1) {
                 D_802D39FC++;
                 if (D_802D39FC >= D_802923F0[D_802D3A00]) {
@@ -187,12 +188,12 @@ void func_801CAA00(s32 port, s32 unused, s32 hi, s32 buttons) {
             }
         }
     } else if (D_802D3A00 == 3) {
-        if ((buttons & 0x400) && !((prev = &D_802D3678[port])->buttons & 0x400)) {
+        if ((buttons & 0x400) && !((prev = &((T034PadPrev *)D_802D3678)[port])->buttons & 0x400)) {
             if (++D_802D39FE[port] >= 7) {
                 D_802D39FE[port] = 0;
             }
         } else {
-            prev = &D_802D3678[port];
+            prev = &((T034PadPrev *)D_802D3678)[port];
             if ((buttons & 0x800) && !(prev->buttons & 0x800)) {
                 if ((s8)D_802D39FE[port]-- <= 0) {
                     D_802D39FE[port] = 6;
@@ -233,13 +234,13 @@ void func_801CAA00(s32 port, s32 unused, s32 hi, s32 buttons) {
         }
     } else {
         ch = &D_80127D00[D_802D39FC][D_802D3A01];
-        if ((buttons & 0x400) && !((prev = &D_802D3678[port])->buttons & 0x400)) {
+        if ((buttons & 0x400) && !((prev = &((T034PadPrev *)D_802D3678)[port])->buttons & 0x400)) {
             if (D_802D39FC < 7 && *(s32 *)D_80127D00[D_802D39FC] != 0) {
                 D_802D39FC++;
             }
             D_802D3A01 = 0;
         } else {
-            prev = &D_802D3678[port];
+            prev = &((T034PadPrev *)D_802D3678)[port];
             if ((buttons & 0x800) && !(prev->buttons & 0x800)) {
                 D_802D39FC--;
                 if ((s8)D_802D39FC <= 0) {

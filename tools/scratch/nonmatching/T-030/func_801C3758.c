@@ -1,21 +1,20 @@
 /* T-105: nonmatching draft; see T-105/REPORT.md for measurement and remaining differences. */
-#include "common.h"
+#include "frontend.h"
 
-typedef struct { s16 x,y,z; u16 flag; s16 s,t; u8 rgba[4]; } T030Vertex3758;
 extern s32 D_80290D88;
 extern s16 D_80290D8C[][6];
-#define T105Vertices ((T030Vertex3758 *)D_802D38E0)
+#define T105Vertices ((FrontendVertex *)D_802D38E0)
 
 void func_801C3758(arg0,arg1,arg2)
-CloudCmd **arg0; T030Cloud *arg1; s8 arg2;
+FrontendGfxWords **arg0; FrontendCloud *arg1; s8 arg2;
 {
     s32 frame, next;
     s16 *uv;
-    CloudCmd *dl;
-    frame = (arg1->padA + 12) & 255;
+    FrontendGfxWords *dl;
+    frame = (arg1->animation + 12) & 255;
     next = frame;
     if (frame >= 64) { frame = 0; next = 0; }
-    arg1->padA = frame;
+    arg1->animation = frame;
     T105Vertices[D_80290D88].x = arg1->x - arg2;
     T105Vertices[D_80290D88+1].x = arg1->x + arg2;
     T105Vertices[D_80290D88+2].x = arg1->x;

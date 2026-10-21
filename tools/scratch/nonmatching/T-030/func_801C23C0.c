@@ -1,20 +1,18 @@
 /* DRAFT. Remaining diff: Camera-vector stack layout (0xA0 vs 0x70), float temporaries and call scheduling differ. */
-#include "common.h"
+#include "frontend.h"
 
-typedef struct { u32 w0,w1; } T030Cmd23C0;
-typedef struct { u32 id,ticks; } T030Frame23C0;
-typedef struct { u8 pad[0xD4]; f32 x,z,y,pitch,yaw; u8 padE8[0x10]; u8 *matrices; } T030Camera23C0;
+
 typedef struct { s16 sound; u8 pad[0x8A]; } T030Sound23C0;
 extern f32 cosf(f32), sinf(f32);
-extern void func_80012B7C(T030Cmd23C0 **,f32,f32,f32,f32,f32,f32);
-extern void func_800131A4(T030Cmd23C0 **,f32,f32,f32,f32,f32,f32);
+extern void func_80012B7C(FrontendGfxWords **,f32,f32,f32,f32,f32,f32);
+extern void func_800131A4(FrontendGfxWords **,f32,f32,f32,f32,f32,f32);
 extern void func_8001AA90(f32);
 extern void func_8001C5A0(void),func_80028708(void),func_800287D4(void),func_8002B9B4(void);
 extern void func_8002F6F4(s32, s16, void *);
-extern void func_801C2D34(T030Cmd23C0 **,s32,s32,s32,s32);
-extern void func_801C2F5C(T030Cmd23C0 **,s32,s32);
-extern s32 func_801C317C(T030Cmd23C0 **,s32,s32,s32);
-extern u8 func_801C3524(T030Cmd23C0 **,u8);
+extern void func_801C2D34(FrontendGfx **,s32,s32,s32,s32);
+extern void func_801C2F5C(FrontendGfxWords **,s32,s32);
+extern s32 func_801C317C(FrontendGfxWords **,s32,s32,s32);
+extern s32 func_801C3524(FrontendGfxWords **,s32);
 extern u8 D_8004A26C[];
 extern void (*D_8004AA38)(void);
 extern u8 D_8004AC88;
@@ -26,9 +24,9 @@ extern f64 D_80293778,D_80293780,D_80293788,D_80293790,D_80293798;
 extern f32 D_802937A0,D_802D3878;
 extern f32 D_802D3880[4],D_802D3898[12];
 extern s32 D_802D3890,D_802D3894;
-extern T030Camera23C0 D_802C9F70;
 
-u8 func_801C23C0(T030Cmd23C0 **arg0, T030Frame23C0 *arg1) {
+
+u8 func_801C23C0(FrontendGfxWords **arg0, FrontendRenderContext *arg1) {
     f32 position[3];
     f32 velocity[3];
     f32 sp54;
@@ -46,10 +44,10 @@ u8 func_801C23C0(T030Cmd23C0 **arg0, T030Frame23C0 *arg1) {
     s32 var_v1;
     u8 temp_v0_3;
     u8 temp_v0_4;
-    T030Cmd23C0 *temp_v0;
-    T030Cmd23C0 *temp_v0_2;
+    FrontendGfxWords *temp_v0;
+    FrontendGfxWords *temp_v0_2;
 
-    var_f0 = (f32)(arg1->ticks - D_802D3890);
+    var_f0 = (f32)(arg1->frame - D_802D3890);
     sp4B = 0;
     if (D_80295718 == 2) {
         if (var_f0 > 120.0f) {
@@ -151,7 +149,7 @@ u8 func_801C23C0(T030Cmd23C0 **arg0, T030Frame23C0 *arg1) {
                 sp4B = temp_v0_3;
                 D_802D3874 += 1;
             }
-            func_801C2D34(arg0, temp_f16, -0xFA, D_802D3894 - 0x4B0, temp_f16);
+            func_801C2D34((FrontendGfx **)arg0, temp_f16, -0xFA, D_802D3894 - 0x4B0, temp_f16);
             if (func_801C317C(arg0, sp3C, D_802D3894, (s32) temp_f10) != 0) {
                 D_80285570 = 1;
             }

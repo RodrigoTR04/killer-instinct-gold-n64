@@ -1,12 +1,9 @@
+#include "frontend.h"
 /* T-050: retained improvement; 135 differing words including size penalty, 1148 compiled bytes. Full function remains nonmatching. */
 /* DRAFT. Remaining diff (~65 lines, same instruction count): frame is 0xC8 here vs 0xB0; float constant hoisting differs (target keeps -400.0f in f28, 0.0f in f30 and the D_802954E0 x in f26, re-materialises 70.0f), and s1..s5 colour/name/index registers are rotated. D_802954E0/E4 are rodata floats referenced as externs to avoid emitting new rodata. */
-typedef struct {
-    u8 pad0[0xF8];
-    u8 *unkF8;
-} T034TextCtx;
 
-extern s32 func_801BDA6C(s32, u8 *, u8 *, f32, f32, f32, s32, s32, s32, s32, f32);
-extern u8 *func_801C9584(u8, u8);
+
+
 extern u8 D_80127D00[][4];
 extern u8 D_8029532C[];
 extern u8 D_80295340[];
@@ -16,10 +13,10 @@ extern u8 D_80295380[];
 extern f32 D_802954E0;
 extern f32 D_802954E4;
 extern s32 D_802956F4;
-extern u8 D_802D39FC;
-extern u8 D_802D3A01;
 
-void func_801C9698(s32 arg0, T034TextCtx *arg1) {
+
+
+void func_801C9698(s32 arg0, FrontendRenderContext *arg1) {
     f32 x;
     s32 alpha;
     s32 b;
@@ -52,15 +49,15 @@ void func_801C9698(s32 arg0, T034TextCtx *arg1) {
                 r = g = b = 0x3C;
             }
         }
-        D_802956F4 += func_801BDA6C(arg0, arg1->unkF8 + (D_802956F4 << 6), label, x, y, -1200.0f, r, g, b, 0xFF, scale);
-        D_802956F4 += func_801BDA6C(arg0, arg1->unkF8 + (D_802956F4 << 6), name, -400.0f, y, -1200.0f, 0xFF, 0xFF, 0xFF, 0xFF, alpha);
-        D_802956F4 += func_801BDA6C(arg0, arg1->unkF8 + (D_802956F4 << 6), func_801C9584(i, 2), 0.0f, y, -1200.0f, r, g, b, 0xFF, scale);
+        D_802956F4 += func_801BDA6C((FrontendGfxWords **)arg0, arg1->matrices + (D_802956F4 << 6), label, x, y, -1200.0f, r, g, b, 0xFF, scale);
+        D_802956F4 += func_801BDA6C((FrontendGfxWords **)arg0, arg1->matrices + (D_802956F4 << 6), name, -400.0f, y, -1200.0f, 0xFF, 0xFF, 0xFF, 0xFF, alpha);
+        D_802956F4 += func_801BDA6C((FrontendGfxWords **)arg0, arg1->matrices + (D_802956F4 << 6), func_801C9584(i, 2), 0.0f, y, -1200.0f, r, g, b, 0xFF, scale);
         label[0]++;
         y -= 70.0f;
     }
-    D_802956F4 += func_801BDA6C(arg0, arg1->unkF8 + (D_802956F4 << 6), D_8029532C, -450.0f, -320.0f, -1200.0f, 0xFF, 0xFF, 0xFF, 0xFF, 0.5f);
-    D_802956F4 += func_801BDA6C(arg0, arg1->unkF8 + (D_802956F4 << 6), D_80295340, -450.0f, -380.0f, -1200.0f, 0xFF, 0xFF, 0xFF, 0xFF, 0.5f);
-    D_802956F4 += func_801BDA6C(arg0, arg1->unkF8 + (D_802956F4 << 6), D_80295358, -450.0f, -440.0f, -1200.0f, 0xFF, 0xFF, 0xFF, 0xFF, 0.5f);
-    D_802956F4 += func_801BDA6C(arg0, arg1->unkF8 + (D_802956F4 << 6), D_80295370, 150.0f, -360.0f, -1200.0f, 0xFF, 0xFF, 0xFF, 0xFF, 0.5f);
-    D_802956F4 += func_801BDA6C(arg0, arg1->unkF8 + (D_802956F4 << 6), D_80295380, 150.0f, -420.0f, -1200.0f, 0xFF, 0xFF, 0xFF, 0xFF, 0.5f);
+    D_802956F4 += func_801BDA6C((FrontendGfxWords **)arg0, arg1->matrices + (D_802956F4 << 6), D_8029532C, -450.0f, -320.0f, -1200.0f, 0xFF, 0xFF, 0xFF, 0xFF, 0.5f);
+    D_802956F4 += func_801BDA6C((FrontendGfxWords **)arg0, arg1->matrices + (D_802956F4 << 6), D_80295340, -450.0f, -380.0f, -1200.0f, 0xFF, 0xFF, 0xFF, 0xFF, 0.5f);
+    D_802956F4 += func_801BDA6C((FrontendGfxWords **)arg0, arg1->matrices + (D_802956F4 << 6), D_80295358, -450.0f, -440.0f, -1200.0f, 0xFF, 0xFF, 0xFF, 0xFF, 0.5f);
+    D_802956F4 += func_801BDA6C((FrontendGfxWords **)arg0, arg1->matrices + (D_802956F4 << 6), D_80295370, 150.0f, -360.0f, -1200.0f, 0xFF, 0xFF, 0xFF, 0xFF, 0.5f);
+    D_802956F4 += func_801BDA6C((FrontendGfxWords **)arg0, arg1->matrices + (D_802956F4 << 6), D_80295380, 150.0f, -420.0f, -1200.0f, 0xFF, 0xFF, 0xFF, 0xFF, 0.5f);
 }

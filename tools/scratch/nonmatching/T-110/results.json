@@ -1,0 +1,194 @@
+[
+  {
+    "function": "func_801BFCBC",
+    "draft": "tools/scratch/nonmatching/T-023/func_801BFCBC.c",
+    "context": "full",
+    "compiled": 2084,
+    "original": 2388,
+    "words": 596
+  },
+  {
+    "function": "func_801C0800",
+    "draft": "tools/scratch/nonmatching/T-023/func_801C0800.c",
+    "context": "full",
+    "compiled": 248,
+    "original": 248,
+    "words": 21
+  },
+  {
+    "function": "func_801C08F8",
+    "draft": "tools/scratch/nonmatching/T-023/func_801C08F8.c",
+    "context": "full",
+    "compiled": 2216,
+    "original": 2296,
+    "words": 561
+  },
+  {
+    "function": "func_801C11F0",
+    "draft": "tools/scratch/nonmatching/T-023/func_801C11F0.c",
+    "context": "full",
+    "compiled": 584,
+    "original": 580,
+    "words": 113
+  },
+  {
+    "function": "func_801C1434",
+    "draft": "tools/scratch/nonmatching/T-023/func_801C1434.c",
+    "context": "full",
+    "compiled": 736,
+    "original": 720,
+    "words": 176
+  },
+  {
+    "function": "func_801C17D0",
+    "draft": "tools/scratch/nonmatching/T-023/func_801C17D0.c",
+    "context": "full",
+    "compiled": 436,
+    "original": 448,
+    "words": 103
+  },
+  {
+    "function": "func_801C1990",
+    "draft": "tools/scratch/nonmatching/T-023/func_801C1990.c",
+    "context": "full",
+    "compiled": 604,
+    "original": 676,
+    "words": 159
+  },
+  {
+    "function": "func_801C1C34",
+    "draft": "tools/scratch/nonmatching/T-023/func_801C1C34.c",
+    "context": "full",
+    "compiled": 1224,
+    "original": 1244,
+    "words": 242
+  },
+  {
+    "function": "func_801C224C",
+    "draft": "tools/scratch/nonmatching/T-030/func_801C224C.c",
+    "context": "full",
+    "compiled": 372,
+    "original": 372,
+    "words": 6
+  },
+  {
+    "function": "func_801C23C0",
+    "draft": "tools/scratch/nonmatching/T-030/func_801C23C0.c",
+    "context": "full",
+    "compiled": 1812,
+    "original": 1820,
+    "words": 222
+  },
+  {
+    "function": "func_801C2ADC",
+    "draft": "tools/scratch/nonmatching/T-030/func_801C2ADC.c",
+    "context": "full",
+    "compiled": 600,
+    "original": 600,
+    "words": 71
+  },
+  {
+    "function": "func_801C2F5C",
+    "draft": "tools/scratch/nonmatching/T-030/func_801C2F5C.c",
+    "context": "full",
+    "compiled": 556,
+    "original": 544,
+    "words": 128
+  },
+  {
+    "function": "func_801C317C",
+    "draft": "tools/scratch/nonmatching/T-030/func_801C317C.c",
+    "context": "full",
+    "compiled": 940,
+    "original": 936,
+    "words": 225
+  },
+  {
+    "function": "func_801C3758",
+    "draft": "tools/scratch/nonmatching/T-030/func_801C3758.c",
+    "context": "full",
+    "compiled": 572,
+    "original": 564,
+    "words": 32
+  },
+  {
+    "function": "func_801C7A98",
+    "draft": "tools/scratch/nonmatching/T-030/func_801C7A98.c",
+    "context": "full",
+    "compiled": 568,
+    "original": 568,
+    "words": 14
+  },
+  {
+    "function": "func_801C7F90",
+    "draft": "tools/scratch/nonmatching/T-021/func_801C7F90.c",
+    "context": "full",
+    "compiled": 116,
+    "original": 116,
+    "words": 16
+  },
+  {
+    "function": "func_801C8004",
+    "draft": "tools/scratch/nonmatching/T-021/func_801C8004.c",
+    "context": "full",
+    "compiled": 228,
+    "original": 236,
+    "words": 47
+  },
+  {
+    "function": "func_801C80F0",
+    "draft": "tools/scratch/nonmatching/T-034/func_801C80F0.c",
+    "context": "full",
+    "compiled": 1228,
+    "original": 1232,
+    "words": 284
+  },
+  {
+    "function": "func_801C8AE0",
+    "draft": "tools/scratch/nonmatching/T-034/func_801C8AE0.c",
+    "context": "full",
+    "compiled": 324,
+    "original": 324,
+    "words": 21
+  },
+  {
+    "function": "func_801C8C24",
+    "draft": "tools/scratch/nonmatching/T-034/func_801C8C24.c",
+    "context": "full",
+    "compiled": 396,
+    "original": 408,
+    "words": 22
+  },
+  {
+    "function": "func_801C90D4",
+    "draft": "tools/scratch/nonmatching/T-034/func_801C90D4.c",
+    "context": "full",
+    "compiled": 1192,
+    "original": 1200,
+    "words": 219
+  },
+  {
+    "function": "func_801C9698",
+    "draft": "tools/scratch/nonmatching/T-034/func_801C9698.c",
+    "context": "full",
+    "compiled": 1148,
+    "original": 1148,
+    "words": 135
+  },
+  {
+    "function": "func_801C9B14",
+    "draft": "tools/scratch/nonmatching/T-034/func_801C9B14.c",
+    "context": "full",
+    "compiled": 3140,
+    "original": 3184,
+    "words": 629
+  },
+  {
+    "function": "func_801CAA00",
+    "draft": "tools/scratch/nonmatching/T-034/func_801CAA00.c",
+    "context": "full",
+    "compiled": 3884,
+    "original": 3992,
+    "words": 992
+  }
+]

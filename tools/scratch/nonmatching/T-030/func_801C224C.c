@@ -1,5 +1,5 @@
 /* T-102 DRAFT: 6 differing words, 372/372 bytes; entry argument allocation remains. */
-#include "common.h"
+#include "frontend.h"
 
 extern void func_80012950(s32);
 extern void func_80012A8C(s32);

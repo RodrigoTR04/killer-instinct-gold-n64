@@ -1,3 +1,4 @@
+#include "frontend.h"
 /* DRAFT. Remaining diff: 64-bit score loads/call ABI, branches and saved-register allocation differ. */
 extern void func_801C0610(s32);
 extern void func_801C08F8(s32, s32, u8, s32, u64, s32);

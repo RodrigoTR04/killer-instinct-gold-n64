@@ -1,3 +1,4 @@
+#include "frontend.h"
 /* DRAFT. Remaining diff: 64-bit input ABI, state-machine branches, stack and global scheduling differ. */
 extern s32 func_8002F6F4(), osSendMesg();
 extern void func_8002FA5C();
@@ -5,8 +6,8 @@ extern void func_801ADC64(s32), func_801AF5D4(s32), func_801AF5EC(s32), func_801
 extern void func_801BED0C(u32, u64);
 extern u8  D_8004A407, D_802D3FC8;
 extern u8 D_8004A258;
-extern s32 D_8004A25C, D_8004A278, D_80066C40, D_802D37D0, D_802D37D8[], D_802D37E0[], D_802D37F0[], D_802D3818[], D_802D3820, D_802D3824;
-extern u32 D_80128300[];
+extern s32 D_8004A25C, D_8004A278, D_80066C40, D_802D37D0, D_802D3818[], D_802D3820, D_802D3824;
+
 extern u8 D_802D37E8[], D_802D37EA[], D_802D3810, D_802D3828;
 extern u16 D_802D382C;
 extern u64 D_802D3678[], D_802D3800[];
@@ -23,39 +24,39 @@ u8 func_801BFCBC(s32 player, u64 input, u8 flags) {
     }
     bit = 1 << player; result = flags;
     if (flags & bit) {
-        y = D_802D37E0[player]; x = D_802D37D8[player]; cursor = D_802D37EA[player];
+        y = ((s32 *)&D_802D37E0)[player]; x = ((s32 *)&D_802D37D8)[player]; cursor = D_802D37EA[player];
         cell = (y / 8) * 6 + x / 8; shift = (3 - cursor) * 8;
         if (buttons & 0x800) {
-            D_802D37E0[player] = y - 1;
-            if (y - 1 < 0) D_802D37E0[player] = 0;
+            ((s32 *)&D_802D37E0)[player] = y - 1;
+            if (y - 1 < 0) ((s32 *)&D_802D37E0)[player] = 0;
             D_802D37E8[player] &= 14;
         }
         if (buttons & 0x400) {
-            value = D_802D37E0[player] + 1; D_802D37E0[player] = value;
-            if (value >= 33) D_802D37E0[player] = 32;
+            value = ((s32 *)&D_802D37E0)[player] + 1; ((s32 *)&D_802D37E0)[player] = value;
+            if (value >= 33) ((s32 *)&D_802D37E0)[player] = 32;
             D_802D37E8[player] |= 1;
-        } else if (!(buttons & 0x800) && (D_802D37E0[player] & 7)) {
-            if (D_802D37E8[player] & 1) D_802D37E0[player]++;
-            else D_802D37E0[player]--;
+        } else if (!(buttons & 0x800) && (((s32 *)&D_802D37E0)[player] & 7)) {
+            if (D_802D37E8[player] & 1) ((s32 *)&D_802D37E0)[player]++;
+            else ((s32 *)&D_802D37E0)[player]--;
         }
         if (buttons & 0x200) {
-            D_802D37D8[player] = x - 1;
-            if (x - 1 < 0) D_802D37D8[player] = 0;
+            ((s32 *)&D_802D37D8)[player] = x - 1;
+            if (x - 1 < 0) ((s32 *)&D_802D37D8)[player] = 0;
             D_802D37E8[player] &= 13;
         }
         if (buttons & 0x100) {
-            value = D_802D37D8[player] + 1; D_802D37D8[player] = value;
-            if (value >= 41) D_802D37D8[player] = 40;
+            value = ((s32 *)&D_802D37D8)[player] + 1; ((s32 *)&D_802D37D8)[player] = value;
+            if (value >= 41) ((s32 *)&D_802D37D8)[player] = 40;
             D_802D37E8[player] |= 2;
-        } else if (!(buttons & 0x200) && (D_802D37D8[player] & 7)) {
-            if (D_802D37E8[player] & 2) D_802D37D8[player]++;
-            else D_802D37D8[player]--;
+        } else if (!(buttons & 0x200) && (((s32 *)&D_802D37D8)[player] & 7)) {
+            if (D_802D37E8[player] & 2) ((s32 *)&D_802D37D8)[player]++;
+            else ((s32 *)&D_802D37D8)[player]--;
         }
         if (cell == 26) cell = -33;
         else if (cell == 28) cell = -19;
         if (cell != 29) {
             value = cell == 27 ? '.' : cell + 'A';
-            D_802D37F0[player] = (D_802D37F0[player] & ~(255 << shift)) | (value << shift);
+            ((s32 *)&D_802D37F0)[player] = (((s32 *)&D_802D37F0)[player] & ~(255 << shift)) | (value << shift);
         }
         if ((buttons & 0xC00F) && !(previous & 0xC00F)) {
             if (cell == 27) { D_802D37EA[player] = cursor - 1; if (cursor <= 0) D_802D37EA[player] = 0; }
@@ -63,9 +64,9 @@ u8 func_801BFCBC(s32 player, u64 input, u8 flags) {
             else buttons |= 0x1000;
         }
         if (((buttons & 0x1000) && !(previous & 0x1000)) || D_802D3824 < 2) {
-            func_801BED0C(D_802D37F0[player], D_802D3800[player]);
+            func_801BED0C(((s32 *)&D_802D37F0)[player], D_802D3800[player]);
             result = flags ^ bit; D_802D3810 |= bit;
-            D_80128300[player] = D_802D37F0[player];
+            ((u32 *)&D_80128300)[player] = ((s32 *)&D_802D37F0)[player];
             if (result == 0) result = 4;
             if (!(result & 3)) osSendMesg(&D_802D3FC8, 9, 1);
         } else D_802D3824--;

@@ -1,9 +1,10 @@
+#include "frontend.h"
 /* T-074 DRAFT: 103 differing words; 436 bytes. Not matching. */
 extern u64 func_801BEA74(u8, u8, s32, u8 *, u8 *, s32, s32);
 extern void func_801C1704(u8);
 extern u8 D_8004EA9C[];
 extern s32 D_80127C30[];
-extern T023PairB40 D_80128300;
+
 extern u64 D_802D3800[];
 s32 func_801C17D0(u32 *stats, u8 player) {    u8 character = D_8004EA9C[player];
     u8 *a, *b;
