@@ -510,3 +510,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - T-111 stopped on the Codex usage limit (resets 04:08). T3 auto-resume, or backup cron at 04:11.
 - T-113 stopped on the Codex usage limit (resets 03:25). Backup cron at 03:28.
 - T-112 stopped on the Codex usage limit (resets 03:25). The 03:28 cron covers it.
+- 03:28: T-112 and T-113 were still stopped after the limit reset, so I resumed both by hand with 'continue'. T-111 waits for its 04:08 reset (cron 04:11).
