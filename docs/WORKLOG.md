@@ -571,3 +571,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-e9d69968. 7 functions matched, 3,540 B (1.22%, over the 0.70% target). All six family-B copies match: the completed-animation block is written as `do { …; if (D_801D308C >= 2) break; D_801D308C += 1; } while (0)`, a real conditional that I accepted. The permuter's empty `if (0) {}` and dummy goto variants were rejected. func_801C8AE0 also matches (nibble-pair OR order).
 - func_801C7A98 has exact text but is blocked on the TU string pool. T-115 assigned all 90 strings to its GLOBAL_ASM, so this needs a pool-migration follow-up.
 - Clean vet build: the ROM and all 3 images are byte-identical. 329 T4; M1 = M2 = 79,148 / 289,876 B (27.30%).
+- T-126 launched (sol-A43): func_801C7A98 string-pool migration plus an exact-size band, about 9.4 KB of candidates.
