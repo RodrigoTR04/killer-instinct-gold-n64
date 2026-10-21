@@ -482,3 +482,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 ## 2026-10-20 — T-107 vetted (docs/overview.md)
 - Worktree t3-51bd01e6. New 507-line architecture map: image lifetimes and load sequence; subsystems (scheduler, audio manager + sound player, input/pfs, rendering, frontend in ovl_7DF8, likely gameplay in ovl_7E00 at medium confidence); all 117 C TUs with roles and counts; open questions. Docs only.
+- T-108 launched (sol-C40): subsystem pass on the game audio manager + sound player in main.
