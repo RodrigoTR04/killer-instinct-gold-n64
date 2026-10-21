@@ -566,3 +566,8 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Clean vet build of both together: the ROM and all 3 images are byte-identical. 322 T4; M1 = M2 = 75,608 / 289,876 B (26.08%).
 - New per-worker goal (user, 2026-10-21): at least 0.70% M2 per task (≥2,030 B). Fresh full screen: tools/scratch/nonmatching/screen-2026-10-21.md. Batches are now sized at 5–9 KB of candidates each.
 - T-123 widened to the near-miss sweep (≤6 words, 5,948 B). T-124 (7–15-word band including family B, about 5.3 KB) and T-125 (high-byte mid band, about 9 KB) launched.
+
+## 2026-10-21 — T-124 vetted (7–15-word band)
+- Worktree t3-e9d69968. 7 functions matched, 3,540 B (1.22%, over the 0.70% target). All six family-B copies match: the completed-animation block is written as `do { …; if (D_801D308C >= 2) break; D_801D308C += 1; } while (0)`, a real conditional that I accepted. The permuter's empty `if (0) {}` and dummy goto variants were rejected. func_801C8AE0 also matches (nibble-pair OR order).
+- func_801C7A98 has exact text but is blocked on the TU string pool. T-115 assigned all 90 strings to its GLOBAL_ASM, so this needs a pool-migration follow-up.
+- Clean vet build: the ROM and all 3 images are byte-identical. 329 T4; M1 = M2 = 79,148 / 289,876 B (27.30%).

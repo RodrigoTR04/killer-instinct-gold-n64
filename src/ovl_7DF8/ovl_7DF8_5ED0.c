@@ -331,17 +331,401 @@ s32 func_801B29E8(T025Gfx29E8 **arg0, s32 arg1, void *arg2, s32 arg3)
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B2B8C.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B2EF4.s")
+/* Original completed-animation path reads alpha before assigning it. */
+extern f32 func_801B19F0(f32, f32, s32, s32);
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B310C.s")
+typedef struct {
+    u32 w0, w1;
+} T025Gfx2EF4;
+extern void guTranslate(void *, f32, f32, f32);
+extern u8 D_801D3030[];
+extern u8 D_801D3088;
+extern u8 D_801D308C;
+extern s16 D_801D3094;
+extern s32 D_801D30C0;
+extern s16 D_802C87D0;
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B3324.s")
+s32 func_801B2EF4(T025Gfx2EF4 **arg0, s32 arg1, void *arg2, s32 arg3)
+{
+    u8 alpha;
+    s32 *counter = &D_801D30C0;
+    T025Gfx2EF4 *p0, *p1, *p2, *p3;
+    u8 color;
+    s32 color2;
+    s32 packed;
+    u32 value;
+    u32 primitive;
+    if ((s32) D_801D3088 < 2)
+    {
+        return 0;
+    }
+    primitive = 0xFA000000;
+    arg1 = *counter;
+    if (arg1++ < 10)
+    {
+        value = (u32) func_801B19F0(0.0f, 255.0f, *counter = arg1, 10);
+        color = (u16)value;
+        packed = ((color & 0xFF) << 0x18) | ((color & 0xFF) << 0x10) | ((color & 0xFF) << 8) | (color & 0xFF);
+        /* Pack before allocating the command; keep alpha assignment separate. */
+        alpha = value;
+        p0 = (*arg0)++;
+        /* Keep both stores joined for IDO delay-slot scheduling. */
+        p0->w0 = primitive; p0->w1 = (s32) packed;
+    }
+    else
+    {
+        *counter = arg1;
+        /* Exit the completed-animation block before advancing a finished stage. */
+        do {
+            p1 = (*arg0)++;
+            p1->w0 = primitive;
+            color2 = D_802C87D0 & 0xFF;
+            p1->w1 = (s32) ((color2 << 0x18) | (color2 << 0x10) | (color2 << 8) | (alpha & 0xFF));
+            alpha = 0xFF;
+            if ((s32) D_801D308C >= 2) {
+                break;
+            }
+            D_801D308C += 1;
+        } while (0);
+    }
+    guTranslate(arg2, -125.0f, 0.0f, (f32) D_801D3094);
+    p2 = (*arg0)++;
+    p2->w0 = 0xFB000000;
+    p2->w1 = (s32) ((alpha + D_801D3094) & 0xFF);
+    p3 = (*arg0)++;
+    p3->w0 = 0x06000000; p3->w1 = (s32) &D_801D3030;
+    return 1;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B353C.s")
+/* Original completed-animation path reads alpha before assigning it. */
+extern f32 func_801B19F0(f32, f32, s32, s32);
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B3754.s")
+typedef struct {
+    u32 w0, w1;
+} T025Gfx310C;
+extern void guTranslate(void *, f32, f32, f32);
+extern u8 D_801D3030[];
+extern u8 D_801D3088;
+extern u8 D_801D308C;
+extern s16 D_801D3094;
+extern s32 D_801D30C4;
+extern s16 D_802C87D0;
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B396C.s")
+s32 func_801B310C(T025Gfx310C **arg0, s32 arg1, void *arg2, s32 arg3)
+{
+    u8 alpha;
+    s32 *counter = &D_801D30C4;
+    T025Gfx310C *p0, *p1, *p2, *p3;
+    u8 color;
+    s32 color2;
+    s32 packed;
+    u32 value;
+    u32 primitive;
+    if ((s32) D_801D3088 < 3)
+    {
+        return 0;
+    }
+    primitive = 0xFA000000;
+    arg1 = *counter;
+    if (arg1++ < 10)
+    {
+        value = (u32) func_801B19F0(0.0f, 255.0f, *counter = arg1, 10);
+        color = (u16)value;
+        packed = ((color & 0xFF) << 0x18) | ((color & 0xFF) << 0x10) | ((color & 0xFF) << 8) | (color & 0xFF);
+        /* Pack before allocating the command; keep alpha assignment separate. */
+        alpha = value;
+        p0 = (*arg0)++;
+        /* Keep both stores joined for IDO delay-slot scheduling. */
+        p0->w0 = primitive; p0->w1 = (s32) packed;
+    }
+    else
+    {
+        *counter = arg1;
+        /* Exit the completed-animation block before advancing a finished stage. */
+        do {
+            p1 = (*arg0)++;
+            p1->w0 = primitive;
+            color2 = D_802C87D0 & 0xFF;
+            p1->w1 = (s32) ((color2 << 0x18) | (color2 << 0x10) | (color2 << 8) | (alpha & 0xFF));
+            alpha = 0xFF;
+            if ((s32) D_801D308C >= 3) {
+                break;
+            }
+            D_801D308C += 1;
+        } while (0);
+    }
+    guTranslate(arg2, -75.0f, 0.0f, (f32) D_801D3094);
+    p2 = (*arg0)++;
+    p2->w0 = 0xFB000000;
+    p2->w1 = (s32) ((alpha + D_801D3094) & 0xFF);
+    p3 = (*arg0)++;
+    p3->w0 = 0x06000000; p3->w1 = (s32) &D_801D3030;
+    return 1;
+}
+
+/* Original completed-animation path reads alpha before assigning it. */
+extern f32 func_801B19F0(f32, f32, s32, s32);
+
+typedef struct {
+    u32 w0, w1;
+} T025Gfx3324;
+extern void guTranslate(void *, f32, f32, f32);
+extern u8 D_801D3030[];
+extern u8 D_801D3088;
+extern u8 D_801D308C;
+extern s16 D_801D3094;
+extern s32 D_801D30C8;
+extern s16 D_802C87D0;
+
+s32 func_801B3324(T025Gfx3324 **arg0, s32 arg1, void *arg2, s32 arg3)
+{
+    u8 alpha;
+    s32 *counter = &D_801D30C8;
+    T025Gfx3324 *p0, *p1, *p2, *p3;
+    u8 color;
+    s32 color2;
+    s32 packed;
+    u32 value;
+    u32 primitive;
+    if ((s32) D_801D3088 < 4)
+    {
+        return 0;
+    }
+    primitive = 0xFA000000;
+    arg1 = *counter;
+    if (arg1++ < 10)
+    {
+        value = (u32) func_801B19F0(0.0f, 255.0f, *counter = arg1, 10);
+        color = (u16)value;
+        packed = ((color & 0xFF) << 0x18) | ((color & 0xFF) << 0x10) | ((color & 0xFF) << 8) | (color & 0xFF);
+        /* Pack before allocating the command; keep alpha assignment separate. */
+        alpha = value;
+        p0 = (*arg0)++;
+        /* Keep both stores joined for IDO delay-slot scheduling. */
+        p0->w0 = primitive; p0->w1 = (s32) packed;
+    }
+    else
+    {
+        *counter = arg1;
+        /* Exit the completed-animation block before advancing a finished stage. */
+        do {
+            p1 = (*arg0)++;
+            p1->w0 = primitive;
+            color2 = D_802C87D0 & 0xFF;
+            p1->w1 = (s32) ((color2 << 0x18) | (color2 << 0x10) | (color2 << 8) | (alpha & 0xFF));
+            alpha = 0xFF;
+            if ((s32) D_801D308C >= 4) {
+                break;
+            }
+            D_801D308C += 1;
+        } while (0);
+    }
+    guTranslate(arg2, -30.0f, 0.0f, (f32) D_801D3094);
+    p2 = (*arg0)++;
+    p2->w0 = 0xFB000000;
+    p2->w1 = (s32) ((alpha + D_801D3094) & 0xFF);
+    p3 = (*arg0)++;
+    p3->w0 = 0x06000000; p3->w1 = (s32) &D_801D3030;
+    return 1;
+}
+
+/* Original completed-animation path reads alpha before assigning it. */
+extern f32 func_801B19F0(f32, f32, s32, s32);
+
+typedef struct {
+    u32 w0, w1;
+} T025Gfx353C;
+extern void guTranslate(void *, f32, f32, f32);
+extern u8 D_801D3030[];
+extern u8 D_801D3088;
+extern u8 D_801D308C;
+extern s16 D_801D3094;
+extern s32 D_801D30CC;
+extern s16 D_802C87D0;
+
+s32 func_801B353C(T025Gfx353C **arg0, s32 arg1, void *arg2, s32 arg3)
+{
+    u8 alpha;
+    s32 *counter = &D_801D30CC;
+    T025Gfx353C *p0, *p1, *p2, *p3;
+    u8 color;
+    s32 color2;
+    s32 packed;
+    u32 value;
+    u32 primitive;
+    if ((s32) D_801D3088 < 5)
+    {
+        return 0;
+    }
+    primitive = 0xFA000000;
+    arg1 = *counter;
+    if (arg1++ < 10)
+    {
+        value = (u32) func_801B19F0(0.0f, 255.0f, *counter = arg1, 10);
+        color = (u16)value;
+        packed = ((color & 0xFF) << 0x18) | ((color & 0xFF) << 0x10) | ((color & 0xFF) << 8) | (color & 0xFF);
+        /* Pack before allocating the command; keep alpha assignment separate. */
+        alpha = value;
+        p0 = (*arg0)++;
+        /* Keep both stores joined for IDO delay-slot scheduling. */
+        p0->w0 = primitive; p0->w1 = (s32) packed;
+    }
+    else
+    {
+        *counter = arg1;
+        /* Exit the completed-animation block before advancing a finished stage. */
+        do {
+            p1 = (*arg0)++;
+            p1->w0 = primitive;
+            color2 = D_802C87D0 & 0xFF;
+            p1->w1 = (s32) ((color2 << 0x18) | (color2 << 0x10) | (color2 << 8) | (alpha & 0xFF));
+            alpha = 0xFF;
+            if ((s32) D_801D308C >= 5) {
+                break;
+            }
+            D_801D308C += 1;
+        } while (0);
+    }
+    guTranslate(arg2, 14.0f, 0.0f, (f32) D_801D3094);
+    p2 = (*arg0)++;
+    p2->w0 = 0xFB000000;
+    p2->w1 = (s32) ((alpha + D_801D3094) & 0xFF);
+    p3 = (*arg0)++;
+    p3->w0 = 0x06000000; p3->w1 = (s32) &D_801D3030;
+    return 1;
+}
+
+/* Original completed-animation path reads alpha before assigning it. */
+extern f32 func_801B19F0(f32, f32, s32, s32);
+
+typedef struct {
+    u32 w0, w1;
+} T025Gfx3754;
+extern void guTranslate(void *, f32, f32, f32);
+extern u8 D_801D3030[];
+extern u8 D_801D3088;
+extern u8 D_801D308C;
+extern s16 D_801D3094;
+extern s32 D_801D30D0;
+extern s16 D_802C87D0;
+
+s32 func_801B3754(T025Gfx3754 **arg0, s32 arg1, void *arg2, s32 arg3)
+{
+    u8 alpha;
+    s32 *counter = &D_801D30D0;
+    T025Gfx3754 *p0, *p1, *p2, *p3;
+    u8 color;
+    s32 color2;
+    s32 packed;
+    u32 value;
+    u32 primitive;
+    if ((s32) D_801D3088 < 6)
+    {
+        return 0;
+    }
+    primitive = 0xFA000000;
+    arg1 = *counter;
+    if (arg1++ < 10)
+    {
+        value = (u32) func_801B19F0(0.0f, 255.0f, *counter = arg1, 10);
+        color = (u16)value;
+        packed = ((color & 0xFF) << 0x18) | ((color & 0xFF) << 0x10) | ((color & 0xFF) << 8) | (color & 0xFF);
+        /* Pack before allocating the command; keep alpha assignment separate. */
+        alpha = value;
+        p0 = (*arg0)++;
+        /* Keep both stores joined for IDO delay-slot scheduling. */
+        p0->w0 = primitive; p0->w1 = (s32) packed;
+    }
+    else
+    {
+        *counter = arg1;
+        /* Exit the completed-animation block before advancing a finished stage. */
+        do {
+            p1 = (*arg0)++;
+            p1->w0 = primitive;
+            color2 = D_802C87D0 & 0xFF;
+            p1->w1 = (s32) ((color2 << 0x18) | (color2 << 0x10) | (color2 << 8) | (alpha & 0xFF));
+            alpha = 0xFF;
+            if ((s32) D_801D308C >= 6) {
+                break;
+            }
+            D_801D308C += 1;
+        } while (0);
+    }
+    guTranslate(arg2, 70.0f, 0.0f, (f32) D_801D3094);
+    p2 = (*arg0)++;
+    p2->w0 = 0xFB000000;
+    p2->w1 = (s32) ((alpha + D_801D3094) & 0xFF);
+    p3 = (*arg0)++;
+    p3->w0 = 0x06000000; p3->w1 = (s32) &D_801D3030;
+    return 1;
+}
+
+/* Original completed-animation path reads alpha before assigning it. */
+extern f32 func_801B19F0(f32, f32, s32, s32);
+
+typedef struct {
+    u32 w0, w1;
+} T025Gfx396C;
+extern void guTranslate(void *, f32, f32, f32);
+extern u8 D_801D3030[];
+extern u8 D_801D3088;
+extern u8 D_801D308C;
+extern s16 D_801D3094;
+extern s32 D_801D30D4;
+extern s16 D_802C87D0;
+
+s32 func_801B396C(T025Gfx396C **arg0, s32 arg1, void *arg2, s32 arg3)
+{
+    u8 alpha;
+    s32 *counter = &D_801D30D4;
+    T025Gfx396C *p0, *p1, *p2, *p3;
+    u8 color;
+    s32 color2;
+    s32 packed;
+    u32 value;
+    u32 primitive;
+    if ((s32) D_801D3088 < 7)
+    {
+        return 0;
+    }
+    primitive = 0xFA000000;
+    arg1 = *counter;
+    if (arg1++ < 10)
+    {
+        value = (u32) func_801B19F0(0.0f, 255.0f, *counter = arg1, 10);
+        color = (u16)value;
+        packed = ((color & 0xFF) << 0x18) | ((color & 0xFF) << 0x10) | ((color & 0xFF) << 8) | (color & 0xFF);
+        /* Pack before allocating the command; keep alpha assignment separate. */
+        alpha = value;
+        p0 = (*arg0)++;
+        /* Keep both stores joined for IDO delay-slot scheduling. */
+        p0->w0 = primitive; p0->w1 = (s32) packed;
+    }
+    else
+    {
+        *counter = arg1;
+        /* Exit the completed-animation block before advancing a finished stage. */
+        do {
+            p1 = (*arg0)++;
+            p1->w0 = primitive;
+            color2 = D_802C87D0 & 0xFF;
+            p1->w1 = (s32) ((color2 << 0x18) | (color2 << 0x10) | (color2 << 8) | (alpha & 0xFF));
+            alpha = 0xFF;
+            if ((s32) D_801D308C >= 7) {
+                break;
+            }
+            D_801D308C += 1;
+        } while (0);
+    }
+    guTranslate(arg2, 128.0f, 0.0f, (f32) D_801D3094);
+    p2 = (*arg0)++;
+    p2->w0 = 0xFB000000;
+    p2->w1 = (s32) ((alpha + D_801D3094) & 0xFF);
+    p3 = (*arg0)++;
+    p3->w0 = 0x06000000; p3->w1 = (s32) &D_801D3030;
+    return 1;
+}
 
 extern f32 func_801B19F0(f32, f32, s32, s32);
 

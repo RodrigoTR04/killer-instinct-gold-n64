@@ -1,4 +1,5 @@
-/* DRAFT. Remaining diff: Four-way unrolled threshold loop is close; final maximum/mode globals and registers differ. */
+/* T-124 DRAFT: exact text (568 B); integration requires migrating the
+ * complete 1BD90 string pool reserved to this GLOBAL_ASM by T-115. */
 #include "frontend.h"
 
 
@@ -29,8 +30,7 @@ void func_801C7A98(void) {
     else if (D_8012834C == 1) level = 1;
     else level = 0;
     if (maximum < level) maximum = level;
-    level = maximum & 255;
-    D_802923A0.maximum = maximum;
+    level = D_802923A0.maximum = maximum;
     D_80292674.second = 5;
     if (level >= 4) D_80292674.second = 6;
     if (level == 5) {
