@@ -469,3 +469,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-20 — T-102 vetted (screen tier 88-111)
 - Worktree t3-d2a0291f. func_801BE910 and func_80024B0C match (820 B). 5 improved, 13 unchanged.
 - Clean vet build: the ROM and all 3 images are byte-identical. 304 T4; M1 = M2 = 66,396 / 289,876 B (22.90%).
+- T-105 launched (sol-C39): the next untouched band of the screen.
