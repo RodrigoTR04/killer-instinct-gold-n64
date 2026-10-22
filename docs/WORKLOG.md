@@ -609,3 +609,6 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 ## 2026-10-22 — T-130 vetted (rewrite band 129–242)
 - Worktree t3-ae6f4d1c. 0 matched; the drafts and report were kept. 801BAA78 went 222→208 (the second draw uses y = scale*0x350; 8 B long), and 801BD3FC 145→134. The lead re-screened both. Grok-4.6 medium is at 0 matches over three batches (T-128/T-129/T-130); the Grok slot is held until T-131 reports.
+
+## 2026-10-22 — Grok workers retired
+- The user stopped using Grok subagents (0 matches over T-128/T-129/T-130). T-131 was cancelled mid-run, with one unverified draft edit and nothing committed. Its 12 functions are back in the pool. From now on, workers are gpt-6.1-sol (low) only, at most two at a time.
