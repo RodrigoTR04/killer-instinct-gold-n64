@@ -1,6 +1,6 @@
-/* T-117 draft: 102 differing words; 552/568 bytes.
- * Cache initial scale for the first draw; preserve both conditional windows.
- * Remaining differences: coordinate allocation and preservation across draws. */
+/* T-128: 101 differing words; 560/568 bytes.
+ * Direct arg4->scale (no cached scale local) as in matched family-C siblings.
+ * Remaining: coordinate/register allocation across the two conditional draws. */
 typedef struct { u8 pad[0x7E]; u16 scale; s16 yOffset; } T023State801BADEC;
 extern void func_801BC1B0(s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, f32, f32, s32, s32);
 extern s32 D_801F3AA0;
@@ -13,20 +13,17 @@ void func_801BADEC(s32 arg0, s32 arg1, s32 arg2, s32 arg3, T023State801BADEC *ar
     s32 y1;
     s32 *counter0;
     s32 *counter1;
-
     s32 temp_v0;
     s32 temp_v0_2;
     s32 temp_v0_3;
-    s32 temp_t0;
 
-    temp_t0 = arg4->scale;
     counter0 = &D_801F3AA0;
     counter1 = &D_801F3AA4;
     temp_v0 = arg2 * 4;
 
     x = (arg1 * 4) + ((s32) ((0x1CD - (arg5 * 4)) * arg4->scale) >> 0xA);
-    y1 = temp_v0 + ((s32) (temp_t0 * 0x1E3) >> 0xA) + (arg4->yOffset * 4);
-    y0 = temp_v0 + ((s32) (temp_t0 * 0x198) >> 0xA) + (arg4->yOffset * 4);
+    y1 = temp_v0 + ((s32) (arg4->scale * 0x1E3) >> 0xA) + (arg4->yOffset * 4);
+    y0 = temp_v0 + ((s32) (arg4->scale * 0x198) >> 0xA) + (arg4->yOffset * 4);
     if (arg5 != 0) {
         x = 0x9B0 - x;
     }
@@ -37,8 +34,7 @@ void func_801BADEC(s32 arg0, s32 arg1, s32 arg2, s32 arg3, T023State801BADEC *ar
             *counter0 = 0;
         } else {
             *counter0 = temp_v0_2;
-
-            func_801BC1B0(arg0, *(s32 *)(D_801F3AA8 + (((s32) (temp_v0_2 - 0x15) >> 1) * 4)), 2, 0x2C, 0x12, 0x2C, 0x12, 0, 0, 0x2B, 0x11, (f32) x, (f32) y0, (s32) temp_t0, arg5);
+            func_801BC1B0(arg0, *(s32 *)(D_801F3AA8 + (((s32) (temp_v0_2 - 0x15) >> 1) * 4)), 2, 0x2C, 0x12, 0x2C, 0x12, 0, 0, 0x2B, 0x11, (f32) x, (f32) y0, (s32) arg4->scale, arg5);
         }
     }
     temp_v0_3 = *counter1 + 1;
