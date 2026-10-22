@@ -616,3 +616,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-22 — T-133 vetted (near misses)
 - Worktree t3-816664cc. 0 matched; the drafts and report were kept. 8001373C went 34→28 (s16 Y-impulse temporary, bounded), 801C8004 27→24 and 80020E98 512→497. 801BE540 (8 words) and 8002FB80 (20 words) did not move after permuter plus declorder; permuter candidates with a dummy goto or an empty if were rejected.
 - T-134 launched (sol-A45): the 222–301-word band released by T-131.
+
+## 2026-10-22 — T-132 vetted; 0.70% becomes a hard requirement
+- T-132 (worktree t3-f6ea9c28): 0 matched. Nine ovl_7DF8_3F60 title/menu strings (D_802927F0–D_80292870) are now C-owned (`force_not_migration`); the clean build is byte-identical. 80014D5C went 373→136 (exact 1,780 B; lead re-screened), 80015594 339→305, plus 4 minor improvements.
+- User, 2026-10-22: ≥2,030 B (0.70%) per worker is now a HARD requirement, so no more "close but short" reports. To keep workers independent, the pool is now split by image: T-134 owns all ovl_7DF8 T2 functions and T-135 owns all main T2 functions (except the handwritten T-026 cluster). Each picks its own targets.
