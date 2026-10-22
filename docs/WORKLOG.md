@@ -606,3 +606,6 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-22 — T-127 vetted (18–89-word band)
 - Worktree t3-ff380d45. 0 matched; the drafts and report were kept. 801BE540 went 69→8 (exact 288 B), 80015450 66→51, 801C8004 38→27, 80023EF0 71→67, 80030220 77→73, 8001373C 36→34, 801BE790 78→77. The lead re-screened 801BE540, 80015450 and 801C8004.
 - T-133 launched (sol-C48): fresh near misses (801BE540, 8002FB80, …) plus the 423–571-word band.
+
+## 2026-10-22 — T-130 vetted (rewrite band 129–242)
+- Worktree t3-ae6f4d1c. 0 matched; the drafts and report were kept. 801BAA78 went 222→208 (the second draw uses y = scale*0x350; 8 B long), and 801BD3FC 145→134. The lead re-screened both. Grok-4.6 medium is at 0 matches over three batches (T-128/T-129/T-130); the Grok slot is held until T-131 reports.
