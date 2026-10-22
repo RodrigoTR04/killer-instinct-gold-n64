@@ -1,0 +1,208 @@
+? func_80025D58(s32, u16, ?, ?);                    /* extern */
+? func_80032360(s32, s32, u16, s32);                /* extern */
+? func_80032504(s32, s32, s32);                     /* extern */
+extern u16 D_80047DA0;
+extern ? D_80047DA4;
+extern ? D_8004CED0;
+extern u8 D_8004D26C;
+extern s32 D_8004EA78;
+extern s32 D_80061488;
+extern s32 D_8006148C;
+extern ? D_80061490;
+
+void func_800257FC(s32 arg0, s32 arg1, s32 arg2, s32 arg3)
+{
+    u16 sp7C;
+    ? sp76;
+    ? sp74;
+    u16 sp6E;
+    s16 *sp68;
+    s32 sp60;
+    u8 *sp5C;
+    ? *sp54;
+    s32 sp4C;
+    ? *var_t1;
+    s16 *temp_t6_2;
+    s16 temp_t6;
+    s16 temp_v1_3;
+    s32 temp_a0;
+    s32 temp_t2;
+    s32 temp_t7;
+    s32 temp_t7_2;
+    s32 temp_t8;
+    s32 temp_t9;
+    s32 temp_v1;
+    s32 temp_v1_2;
+    s32 var_a1;
+    s32 var_fp;
+    s32 var_s0;
+    s32 var_s0_2;
+    s32 var_s0_3;
+    s32 var_s0_4;
+    s32 var_s0_5;
+    s32 var_s1;
+    s32 var_s4;
+    s32 var_s6;
+    s32 var_t3;
+    s32 var_v0_2;
+    s32 var_v0_3;
+    s32 var_v1;
+    u16 var_t8;
+    u8 var_s7;
+    u8 var_v0;
+    void *temp_v0;
+    void *temp_v0_2;
+    void *temp_v0_3;
+
+    sp7C = D_80047DA0;
+    temp_t7 = arg2 & 0xFF;
+    temp_t6 = arg1 & 0xFFFF;
+    temp_t6_2 = (temp_t7 * 2) + &D_80061490;
+    sp74.unk4 = (s32) D_80047DA4.unk4;
+    sp74.unk0 = (s32) D_80047DA4.unk0;
+    sp68 = temp_t6_2;
+    *temp_t6_2 = temp_t6;
+    if (!(arg3 & 0xFF)) {
+        sp6E = 0x7C0;
+    } else {
+        if ((temp_t6 >> 8) >= 0x18) {
+            var_t8 = 0xF800;
+        } else {
+            var_t8 = ((((s32) (D_8004D26C & 0xF) >> 1) * 0x1E00) + 0x2600) & 0xF100;
+        }
+        sp6E = var_t8;
+    }
+    sp5C = temp_t7 + &sp7C;
+    var_s6 = 2;
+    var_t3 = temp_t7;
+    var_t1 = &sp76;
+    do {
+        temp_t2 = var_s6 & 1;
+        if (temp_t2 == 1) {
+            var_fp = 2;
+        } else {
+            var_fp = 0;
+        }
+        if (var_t3 == 0) {
+            var_v0 = *sp5C;
+            var_s7 = ((var_v0 - var_t1->unk-2) + 0x78) & 0xFF;
+            var_a1 = (var_v0 + 0x78) & 0xFF;
+        } else {
+            var_v0 = *sp5C;
+            var_a1 = (var_t1->unk-2 + var_v0) & 0xFF;
+            var_s7 = var_v0;
+        }
+        if (var_t3 == 0) {
+            temp_v1 = var_v0 + 0x78;
+            temp_a0 = (var_v0 - ((s32) (u16) *sp68 >> 8)) + 0x78;
+            var_s4 = temp_a0 & 0xFF;
+            if (temp_a0 < (s32) var_s7) {
+                var_s4 = var_s7 & 0xFF;
+            }
+            if (var_a1 < temp_v1) {
+                var_s0 = var_a1 & 0xFF;
+            } else {
+                var_s0 = temp_v1 & 0xFF;
+            }
+        } else {
+            if ((s32) var_v0 < (s32) var_s7) {
+                var_s4 = var_s7 & 0xFF;
+            } else {
+                var_s4 = var_v0 & 0xFF;
+            }
+            temp_v1_2 = ((s32) (u16) *sp68 >> 8) + var_v0;
+            var_s0 = temp_v1_2 & 0xFF;
+            if (var_a1 < temp_v1_2) {
+                var_s0 = var_a1 & 0xFF;
+            }
+        }
+        var_s1 = var_s0;
+        if (var_s0 < var_s4) {
+            var_s0 = var_s4 & 0xFF;
+            var_s1 = var_s0;
+        }
+        temp_v0 = (D_8004EA78 * 0x1C) + &D_8004CED0;
+        temp_v1_3 = temp_v0->unk10;
+        sp4C = var_a1;
+        sp54 = var_t1;
+        D_80061488 = (temp_v1_3 * var_s6 * 2) + temp_v0->unk0;
+        sp60 = var_t3;
+        D_8006148C = (((temp_v1_3 + 7) & 0xFFF8) * var_s6) + temp_v0->unk4;
+        func_80032360(var_s4, var_s1 - var_s4, sp6E, temp_t2);
+        if (var_t3 == 0) {
+            sp54 = var_t1;
+            sp60 = var_t3;
+            func_80032504((s32) var_s7, var_s4 - var_s7, temp_t2);
+            temp_v0_2 = (D_8004EA78 * 0x1C) + &D_8004CED0;
+            *(temp_v0_2->unk0 + ((((var_s6 * temp_v0_2->unk10) + var_s4) ^ var_fp) * 2)) = 0xFFFF;
+        } else {
+            sp54 = var_t1;
+            sp60 = var_t3;
+            func_80032504(var_s0, var_a1 - var_s1, temp_t2);
+            if (var_s7 == var_s1) {
+                var_s1 = (var_s0 + 1) & 0xFF;
+            }
+            temp_v0_3 = (D_8004EA78 * 0x1C) + &D_8004CED0;
+            *(temp_v0_3->unk0 + (((((var_s6 * temp_v0_3->unk10) + var_s1) - 1) ^ var_fp) * 2)) = 0xFFFF;
+        }
+        var_s6 += 1;
+        var_t1 += 1;
+    } while (var_s6 != 0xA);
+    if (var_t3 == 0) {
+        var_s0_2 = 6;
+        var_v0_2 = 0x7E - ((s32) (u16) *sp68 >> 8);
+        if (var_v0_2 >= 7) {
+loop_34:
+            if (var_s0_2 < 0x13) {
+                func_80025D58(var_s0_2, 0U, 0, 0);
+                var_s0_2 += 1;
+                var_v0_2 = 0x7E - ((s32) (u16) *sp68 >> 8);
+                if (var_s0_2 < var_v0_2) {
+                    goto loop_34;
+                }
+            }
+        }
+        var_s0_3 = var_v0_2;
+        if (var_v0_2 < 0x13) {
+            do {
+                if (var_s0_3 == (0x7E - ((s32) (u16) *sp68 >> 8))) {
+                    func_80025D58(var_s0_3, 0xFFFFU, 0xC0, 0);
+                } else {
+                    func_80025D58(var_s0_3, sp6E, 0xC0, 0);
+                }
+                var_s0_3 += 1;
+            } while (var_s0_3 < 0x13);
+        }
+    } else {
+        var_s0_4 = 0x7B;
+        temp_t9 = (s32) (u16) *sp68 >> 8;
+        var_v1 = temp_t9 + 3;
+        var_v0_3 = temp_t9;
+        if (var_v1 < 0x7C) {
+loop_43:
+            if (var_s0_4 >= 0x6F) {
+                func_80025D58(var_s0_4, 0U, 0, 1);
+                var_s0_4 -= 1;
+                temp_t7_2 = (s32) (u16) *sp68 >> 8;
+                var_v1 = temp_t7_2 + 3;
+                var_v0_3 = temp_t7_2;
+                if (var_s0_4 >= var_v1) {
+                    goto loop_43;
+                }
+            }
+        }
+        var_s0_5 = 0x6F;
+        if (var_v1 >= 0x70) {
+            do {
+                if (var_s0_5 == (var_v0_3 + 2)) {
+                    func_80025D58(var_s0_5, 0xFFFFU, 0xC0, 1);
+                } else {
+                    func_80025D58(var_s0_5, sp6E, 0xC0, 1);
+                }
+                var_s0_5 += 1;
+                temp_t8 = (s32) (u16) *sp68 >> 8;
+                var_v0_3 = temp_t8;
+            } while (var_s0_5 < (temp_t8 + 3));
+        }
+    }
+}

@@ -1,0 +1,264 @@
+extern ? D_8004CED0;
+extern s32 D_8004EA78;
+
+void func_800238C4(void *arg0, s32 arg1)
+{
+    s32 sp40;
+    s32 sp38;
+    s32 sp34;
+    s16 temp_a3;
+    s16 temp_t7;
+    s16 temp_t8;
+    s16 temp_t9_2;
+    s16 var_a2;
+    s32 temp_a2;
+    s32 temp_s0;
+    s32 temp_s3;
+    s32 temp_s3_2;
+    s32 temp_t0;
+    s32 temp_t1;
+    s32 temp_t6;
+    s32 temp_t9;
+    s32 temp_v0_2;
+    s32 temp_v0_3;
+    s32 temp_v0_8;
+    s32 temp_v1;
+    s32 var_a0;
+    s32 var_a0_2;
+    s32 var_a0_3;
+    s32 var_a0_4;
+    s32 var_a1;
+    s32 var_a1_2;
+    s32 var_a2_2;
+    s32 var_a3;
+    s32 var_a3_2;
+    s32 var_ra;
+    s32 var_s2;
+    s32 var_t1;
+    s32 var_t3;
+    s32 var_t4;
+    s32 var_t5;
+    s32 var_v0;
+    s32 var_v0_2;
+    s32 var_v1;
+    s32 var_v1_2;
+    s32 var_v1_3;
+    u8 *var_t2;
+    u8 temp_fp;
+    u8 temp_s4;
+    u8 temp_s7;
+    u8 temp_v1_2;
+    u8 temp_v1_3;
+    void *temp_v0;
+    void *temp_v0_4;
+    void *temp_v0_5;
+    void *temp_v0_6;
+    void *temp_v0_7;
+
+    temp_v0 = (D_8004EA78 * 0x1C) + &D_8004CED0;
+    temp_v0->unk8 = (s16) ((arg0->unk1 << 8) + arg0->unk0);
+    temp_v0->unk18 = 0;
+    temp_v0->unkA = (s16) ((arg0->unk3 << 8) + arg0->unk2);
+    temp_t0 = temp_v0->unk4;
+    temp_a2 = (arg0->unk5 << 8) + arg0->unk4;
+    temp_t8 = (temp_a2 + 5) & 0xFFFC;
+    temp_a3 = (arg0->unk7 << 8) + arg0->unk6;
+    temp_t9 = (temp_a2 + 9) & 0xFFF8;
+    temp_s0 = temp_v0->unk0;
+    temp_v0->unkC = temp_t8;
+    temp_v0->unk10 = temp_t8;
+    temp_v0->unkE = temp_a3;
+    temp_v0->unk12 = temp_a3;
+    var_s2 = 8;
+    var_t5 = 0;
+    if (temp_a3 > 0) {
+        var_t2 = arg0 + 8;
+        var_ra = 0;
+        sp34 = (s32) temp_t8;
+        sp38 = (s32) temp_a3;
+        do {
+            temp_v0_2 = var_t5 & 1;
+            var_t1 = 1;
+            if (temp_v0_2 != 0) {
+                var_t3 = 4;
+            } else {
+                var_t3 = 0;
+            }
+            var_t4 = 0;
+            if (temp_v0_2 != 0) {
+                var_t4 = 2;
+            }
+            temp_v0_3 = *var_t2 + var_s2;
+            var_s2 += 1;
+            var_t2 += 1;
+            *(temp_s0 + ((var_ra ^ var_t4) * 2)) = 0;
+            if (temp_t0 != 0) {
+                *(temp_t0 + ((var_t5 * temp_t9) ^ var_t3)) = 0;
+            }
+            if (var_s2 < temp_v0_3) {
+                sp40 = temp_v0_3;
+                do {
+                    temp_s4 = var_t2->unk1;
+                    temp_fp = var_t2->unk0;
+                    temp_s7 = var_t2->unk2;
+                    var_s2 += 3;
+                    var_t2 += 3;
+                    var_a1 = 0;
+                    if ((s32) temp_s4 > 0) {
+                        temp_v1 = temp_s4 & 3;
+                        temp_s3 = var_t1 + var_ra;
+                        if (temp_v1 != 0) {
+                            var_a0 = temp_s3;
+                            do {
+                                *(temp_s0 + ((var_a0 ^ var_t4) * 2)) = 0;
+                                if (temp_t0 != 0) {
+                                    *(temp_t0 + ((var_t1 + (var_t5 * temp_t9) + var_a1) ^ var_t3)) = 0;
+                                }
+                                var_a1 += 1;
+                                var_a0 += 1;
+                            } while (temp_v1 != var_a1);
+                            if (var_a1 != temp_s4) {
+                                goto block_18;
+                            }
+                        } else {
+block_18:
+                            var_a0_2 = temp_s3 + var_a1;
+                            var_a3 = var_a0_2 + 1;
+                            var_v0 = var_a0_2 + 2;
+                            var_v1 = var_a0_2 + 3;
+                            do {
+                                *(temp_s0 + ((var_a0_2 ^ var_t4) * 2)) = 0;
+                                if (temp_t0 != 0) {
+                                    *(temp_t0 + ((var_t1 + (var_t5 * temp_t9) + var_a1) ^ var_t3)) = 0;
+                                }
+                                *(temp_s0 + ((var_a3 ^ var_t4) * 2)) = 0;
+                                if (temp_t0 != 0) {
+                                    *(temp_t0 + ((var_t1 + (var_t5 * temp_t9) + var_a1 + 1) ^ var_t3)) = 0;
+                                }
+                                *(temp_s0 + ((var_v0 ^ var_t4) * 2)) = 0;
+                                if (temp_t0 != 0) {
+                                    *(temp_t0 + ((var_t1 + (var_t5 * temp_t9) + var_a1 + 2) ^ var_t3)) = 0;
+                                }
+                                *(temp_s0 + ((var_v1 ^ var_t4) * 2)) = 0;
+                                if (temp_t0 != 0) {
+                                    *(temp_t0 + ((var_t1 + (var_t5 * temp_t9) + var_a1 + 3) ^ var_t3)) = 0;
+                                }
+                                var_a1 += 4;
+                                var_a0_2 += 4;
+                                var_a3 += 4;
+                                var_v0 += 4;
+                                var_v1 += 4;
+                            } while (var_a1 != temp_s4);
+                        }
+                        var_a1 = 0;
+                    }
+                    temp_t1 = var_t1 + temp_s4;
+                    temp_s3_2 = temp_t1 + var_ra;
+                    temp_v0_4 = *var_t2 + arg1;
+                    var_a2 = (temp_v0_4->unk1 << 8) + temp_v0_4->unk0;
+                    *(temp_s0 + (((temp_s3_2 - 1) ^ var_t4) * 2)) = var_a2;
+                    if (temp_t0 != 0) {
+                        *(temp_t0 + (((temp_t1 + (var_t5 * temp_t9)) - 1) ^ var_t3)) = temp_fp << 5;
+                    }
+                    if ((s32) temp_s7 > 0) {
+                        if (temp_s7 & 1) {
+                            temp_v1_2 = *var_t2;
+                            var_s2 += 1;
+                            var_t2 += 1;
+                            temp_v0_5 = temp_v1_2 + arg1;
+                            var_a1 = 1;
+                            temp_t9_2 = ((temp_v0_5->unk1 << 8) + temp_v0_5->unk0) | 1;
+                            var_a2 = temp_t9_2;
+                            *(temp_s0 + ((temp_s3_2 ^ var_t4) * 2)) = temp_t9_2;
+                            if (temp_t0 != 0) {
+                                *(temp_t0 + ((temp_t1 + (var_t5 * temp_t9)) ^ var_t3)) = 0xFF;
+                            }
+                            if (temp_s7 != 1) {
+                                goto block_36;
+                            }
+                        } else {
+block_36:
+                            var_a0_3 = temp_s3_2 + var_a1;
+                            var_a3_2 = var_a0_3 + 1;
+                            do {
+                                temp_v0_6 = var_t2->unk0 + arg1;
+                                *(temp_s0 + ((var_a0_3 ^ var_t4) * 2)) = ((temp_v0_6->unk1 << 8) + temp_v0_6->unk0) | 1;
+                                if (temp_t0 != 0) {
+                                    *(temp_t0 + ((temp_t1 + (var_t5 * temp_t9) + var_a1) ^ var_t3)) = 0xFF;
+                                }
+                                temp_v1_3 = var_t2->unk1;
+                                var_s2 = var_s2 + 1 + 1;
+                                var_t2 = var_t2 + 1 + 1;
+                                temp_v0_7 = temp_v1_3 + arg1;
+                                var_a0_3 += 2;
+                                temp_t7 = ((temp_v0_7->unk1 << 8) + temp_v0_7->unk0) | 1;
+                                var_a2 = temp_t7;
+                                *(temp_s0 + ((var_a3_2 ^ var_t4) * 2)) = temp_t7;
+                                if (temp_t0 != 0) {
+                                    *(temp_t0 + ((temp_t1 + (var_t5 * temp_t9) + var_a1 + 1) ^ var_t3)) = 0xFF;
+                                }
+                                var_a1 += 2;
+                                var_a3_2 += 2;
+                            } while (var_a1 != temp_s7);
+                        }
+                    }
+                    var_t1 = temp_t1 + var_a1;
+                    *(temp_s0 + (((var_t1 + var_ra) ^ var_t4) * 2)) = var_a2;
+                    if (temp_t0 != 0) {
+                        *(temp_t0 + ((var_t1 + (var_t5 * temp_t9)) ^ var_t3)) = (temp_fp & 0x38) * 4;
+                    }
+                } while (var_s2 < sp40);
+            }
+            temp_v0_8 = var_t1 + 1;
+            var_a1_2 = temp_v0_8;
+            if (temp_v0_8 < sp34) {
+                temp_t6 = (sp34 - temp_v0_8) & 3;
+                if (temp_t6 != 0) {
+                    var_v1_2 = var_ra + temp_v0_8;
+                    do {
+                        *(temp_s0 + ((var_v1_2 ^ var_t4) * 2)) = 0;
+                        if (temp_t0 != 0) {
+                            *(temp_t0 + (((var_t5 * temp_t9) + var_a1_2) ^ var_t3)) = 0;
+                        }
+                        var_a1_2 += 1;
+                        var_v1_2 += 1;
+                    } while ((temp_t6 + temp_v0_8) != var_a1_2);
+                    if (var_a1_2 != sp34) {
+                        goto block_52;
+                    }
+                } else {
+block_52:
+                    var_v1_3 = var_ra + var_a1_2;
+                    var_v0_2 = var_v1_3 + 1;
+                    var_a0_4 = var_v1_3 + 2;
+                    var_a2_2 = var_v1_3 + 3;
+                    do {
+                        *(temp_s0 + ((var_v1_3 ^ var_t4) * 2)) = 0;
+                        if (temp_t0 != 0) {
+                            *(temp_t0 + (((var_t5 * temp_t9) + var_a1_2) ^ var_t3)) = 0;
+                        }
+                        *(temp_s0 + ((var_v0_2 ^ var_t4) * 2)) = 0;
+                        if (temp_t0 != 0) {
+                            *(temp_t0 + (((var_t5 * temp_t9) + var_a1_2 + 1) ^ var_t3)) = 0;
+                        }
+                        *(temp_s0 + ((var_a0_4 ^ var_t4) * 2)) = 0;
+                        if (temp_t0 != 0) {
+                            *(temp_t0 + (((var_t5 * temp_t9) + var_a1_2 + 2) ^ var_t3)) = 0;
+                        }
+                        *(temp_s0 + ((var_a2_2 ^ var_t4) * 2)) = 0;
+                        if (temp_t0 != 0) {
+                            *(temp_t0 + (((var_t5 * temp_t9) + var_a1_2 + 3) ^ var_t3)) = 0;
+                        }
+                        var_a1_2 += 4;
+                        var_v1_3 += 4;
+                        var_v0_2 += 4;
+                        var_a0_4 += 4;
+                        var_a2_2 += 4;
+                    } while (var_a1_2 != sp34);
+                }
+            }
+            var_t5 += 1;
+            var_ra += sp34;
+        } while (var_t5 != sp38);
+    }
+}

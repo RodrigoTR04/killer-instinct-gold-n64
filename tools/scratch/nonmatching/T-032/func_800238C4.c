@@ -1,4 +1,4 @@
-/* T-069 DRAFT: 384 relocation-masked positional words differ in TU context; 1600 bytes. See T-069/REPORT.md. */
+/* T-132 DRAFT: 383 differing words; see T-132/REPORT.md. */
 extern s32 D_8004EA78;
 void func_800238C4(u8 *src,u8 *palette) {
     T022Sprite *sprite=&D_8004CED0[D_8004EA78];
@@ -16,7 +16,7 @@ void func_800238C4(u8 *src,u8 *palette) {
     sprite->width=width; sprite->width2=width; sprite->height=height; sprite->height2=height;
     p=src+8;
     for (row=0;row<height;row++,rowBase+=width) {
-        pixelXor=(row&1)?2:0; alphaXor=(row&1)?4:0;
+        alphaXor=(row&1)?4:0; pixelXor=(row&1)?2:0;
         end=*p+pos; p++; pos++; x=1;
         pixels[(rowBase)^pixelXor]=0;
         if (alpha) alpha[(row*pitch)^alphaXor]=0;
