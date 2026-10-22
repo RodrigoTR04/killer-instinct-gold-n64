@@ -1,3 +1,4 @@
+/* T-126 DRAFT: 74 → 70 differing words, 380/380 B. Give the DMA extent a separate local. Not matching. */
 /* T-108 draft: shared audio types; see T-108/REPORT.md. */
 #include "audio_game.h"
 extern s32 osSetIntMask(s32);
@@ -11,9 +12,10 @@ s32 func_8002B22C(s32 address,s32 length,void *unused)
     u8 *buffer;
     while(p)
     {
+        s32 end=p->address+0x800;
         if ((u32)address < p->address) break;
         previous=p;
-        if((s32)(p->address+0x800)>=(s32)(address+length))
+        if(end>=(s32)(address+length))
         {
             p->frame=D_80048150;
             return osVirtualToPhysical(p->buffer+address-p->address);

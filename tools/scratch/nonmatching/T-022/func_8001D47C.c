@@ -1,3 +1,4 @@
+/* T-126 DRAFT: 141 → 134 differing words, 744/748 B. Narrow palette input and advance the source cursor. Not matching. */
 /* T-059 DRAFT: 141 relocation-masked positional words differ; 748 emitted bytes. See T-059/REPORT.md. */
 extern u8 D_8004AC88;
 extern u8 D_8004EA9E[];
@@ -8,7 +9,7 @@ extern u8 D_8004EAB8;
 extern u16 D_800614A0;
 extern u8 D_801D3433;
 
-void func_8001D47C(s32 arg0) {
+void func_8001D47C(u8 arg0) {
     s32 temp_lo;
     s32 temp_lo_2;
     s32 temp_lo_3;
@@ -26,7 +27,7 @@ void func_8001D47C(s32 arg0) {
     u8 *var_t0_2;
     u8 *var_t0_3;
 
-    temp_t6 = arg0 & 0xFF;
+    temp_t6 = arg0;
     if (D_8004EA9A == 0xB) {
         var_v0 = &D_800614A0;
     } else {
@@ -42,7 +43,7 @@ void func_8001D47C(s32 arg0) {
     if (D_8004EAB8 == 1) {
         s32 i;
         for (i = 0; i != 32; i += 2) {
-            s32 pixel = *(u16 *)((u8 *)var_v0 + i);
+            s32 pixel = *var_v0++;
             s32 level = (((pixel & 0x3E) >> 1) + ((pixel & 0xF800) >> 11) + ((pixel & 0x7C0) >> 6)) / 3;
             *(u16 *)i = (level << 11) | (level << 6) | (level << 1);
         }
@@ -51,6 +52,6 @@ void func_8001D47C(s32 arg0) {
         for (i = 0; i != 32; i += 2) *(u16 *)i = 0;
     } else {
         s32 i;
-        for (i = 0; i != 32; i += 2) *(u16 *)i = *(u16 *)((u8 *)var_v0 + i);
+        for (i = 0; i != 32; i += 2) *(u16 *)i = *var_v0++;
     }
 }

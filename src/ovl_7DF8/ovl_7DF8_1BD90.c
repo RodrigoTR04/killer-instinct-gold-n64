@@ -1,5 +1,98 @@
 #include "frontend.h"
 
+/* Menu strings, including distinct copies used by the original pointer tables. */
+const u8 D_80294F10[] = "SAVE TO CONTROLLER PAKS";
+const u8 D_80294F28[] = "RELOAD";
+const u8 D_80294F30[] = "RESET EVERYTHING TO FACTORY DEFAULTS";
+const u8 D_80294F58[] = "CREATE SPACE ON PAK";
+const u8 D_80294F6C[] = "MAIN OPTIONS";
+const u8 D_80294F7C[] = "DIFFICULTY";
+const u8 D_80294F88[] = "VERY EASY";
+const u8 D_80294F94[] = "EXTRA HARD";
+const u8 D_80294FA0[] = "MASTER";
+const u8 D_80294FA8[] = "TRAINING DIFFICULTY";
+const u8 D_80294FBC[] = "GAME SPEED";
+const u8 D_80294FC8[] = "FAST";
+const u8 D_80294FD0[] = "ULTRA";
+const u8 D_80294FD8[] = "SLOW";
+const u8 D_80294FE0[] = "CONTROLLER SETUP";
+const u8 D_80294FF4[] = "BUTTON SETUP";
+const u8 D_80295004[] = "DEFAULT SETUP";
+const u8 D_80295014[] = "GAME PAK OPTIONS";
+const u8 D_80295028[] = "GAME LOAD AND SAVE OPTIONS";
+const u8 D_80295044[] = "STANDARD OPTIONS";
+const u8 D_80295058[] = "MUSIC";
+const u8 D_80295060[] = "RANDOM AFTER";
+const u8 D_80295070[] = "1 WINS";
+const u8 D_80295078[] = "TIME LIMIT";
+const u8 D_80295084[] = "THROWING";
+const u8 D_80295090[] = "BLOOD";
+const u8 D_80295098[] = "LEVEL 1 OPTIONS";
+const u8 D_802950A8[] = "THROW DAMAGE";
+const u8 D_802950B8[] = "NORM";
+const u8 D_802950C0[] = "NONE";
+const u8 D_802950C8[] = "EASY BREAKERS";
+const u8 D_802950D8[] = "INVISIBLE TAG";
+const u8 D_802950E8[] = "AERIAL CAMERA";
+const u8 D_802950F8[] = "LEVEL 2 OPTIONS";
+const u8 D_80295108[] = "FULL SUPER BAR";
+const u8 D_80295118[] = "FULL BREAKERS";
+const u8 D_80295128[] = "POWERED FINISHERS";
+const u8 D_8029513C[] = "LEVEL 3 OPTIONS";
+const u8 D_8029514C[] = "MISSILES";
+const u8 D_80295158[] = "FAST FIREBALLS";
+const u8 D_80295168[] = "AUTODOUBLES";
+const u8 D_80295174[] = "LEVEL 4 OPTIONS";
+const u8 D_80295184[] = "EARLY ULTIMATES";
+const u8 D_80295194[] = "KNOCKDOWNS";
+const u8 D_802951A0[] = "QUICK OPENERS";
+const u8 D_802951B0[] = "CHEAP JUGGLES";
+const u8 D_802951C0[] = "LEVEL 5 OPTIONS";
+const u8 D_802951D0[] = "BLOCKING";
+const u8 D_802951DC[] = "QUICK PUNCH";
+const u8 D_802951E8[] = "MEDIUM PUNCH";
+const u8 D_802951F8[] = "FIERCE PUNCH";
+const u8 D_80295208[] = "QUICK KICK";
+const u8 D_80295214[] = "MEDIUM KICK";
+const u8 D_80295220[] = "FIERCE KICK";
+const u8 D_8029522C[] = "MAIN OPTIONS";
+const u8 D_8029523C[] = "RIGHT C";
+const u8 D_80295244[] = "LEFT C";
+const u8 D_8029524C[] = "BOTTOM C";
+const u8 D_80295258[] = "TOP C";
+const u8 D_80295260[] = "R BUTTON";
+const u8 D_8029526C[] = "L BUTTON";
+const u8 D_80295278[] = "B";
+const u8 D_8029527C[] = "A";
+const u8 D_80295280[] = "OPTIONS";
+const u8 D_80295288[] = "SAVE OPTIONS";
+const u8 D_80295298[] = "BUTTON CONFIG";
+const u8 D_802952A8[] = "TOURNAMENT";
+const u8 D_802952B4[] = "DELETE FILES";
+const u8 D_802952C4[] = "LUDICROUS";
+const u8 D_802952D0[] = "SLOW";
+const u8 D_802952D8[] = "SLOW";
+const u8 D_802952E0[] = "BACK TO CHARACTER SELECT";
+const u8 D_802952FC[] = "MAIN OPTIONS";
+const u8 D_8029530C[] = "P1";
+const u8 D_80295310[] = "P2";
+const u8 D_80295314[] = "YES";
+const u8 D_80295318[] = "NO";
+const char D_8029531C[] = "WON 00, LOST 00";
+const u8 D_8029532C[] = "PAD TO ENTER NAMES";
+const u8 D_80295340[] = "LEFT C TO DELETE PLAYER";
+const u8 D_80295358[] = "RIGHT C TO RESET STATS";
+const u8 D_80295370[] = "START TO PLAY";
+const u8 D_80295380[] = "Z TO EXIT";
+const u8 D_8029538C[] = "PRESS START TO EXIT";
+const u8 D_802953A0[] = "     FREE PAGES, KI GOLD REQUIRES 3";
+const u8 D_802953C4[] = "PRESS A THEN B TO DELETE FILE";
+const u8 D_802953E4[] = "PRESS START TO EXIT";
+const u8 D_802953F8[] = "jGAME NOTE             PAGES";
+const u8 D_80295418[] = "- NOT AVAILABLE";
+const u8 D_80295428[] = "jEMPTY";
+
+
 
 
 
@@ -35,7 +128,45 @@ u8 func_801C7998(u64 buttons)
     return index;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C7A98.s")
+extern u8 D_80127D58[], D_80127D78[];
+extern u8 D_8012834C;
+typedef struct { u8 maximum; } T030Result7A98;
+extern T030Result7A98 D_802923A0;
+
+extern FrontendMenuText D_80292450;
+
+
+void func_801C7A98(void) {
+    u8 maximum = 0;
+    s32 i;
+    s32 level;
+    u8 value;
+    for (i = 0; i < 32; i++) {
+        value = D_80127D58[i];
+        level = value;
+        if (level < 5) level = 0;
+        else if (level < 55) level = 1;
+        else if (level < 120) level = 2;
+        else level = 3;
+        if (maximum < level) maximum = level;
+    }
+    if (D_8012834C >= 2) level = (D_8012834C-1)&255;
+    else if (D_8012834C == 1) level = 1;
+    else level = 0;
+    if (maximum < level) maximum = level;
+    level = D_802923A0.maximum = maximum;
+    D_80292674.second = 5;
+    if (level >= 4) D_80292674.second = 6;
+    if (level == 5) {
+        D_80292674.first = 5;
+        D_80292450.text0 = D_802952C4;
+        D_80292450.text1 = D_802952D0;
+        return;
+    }
+    D_80292450.text0 = D_802952D8;
+    D_80292674.first = 4;
+}
+
 
 
 void func_801C7CD0(u8 arg0)

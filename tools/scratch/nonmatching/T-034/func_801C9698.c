@@ -1,15 +1,16 @@
+/* T-126: reconcile array views and C-owned string declarations; still 135 words, full TU. */
 #include "frontend.h"
 /* T-050: retained improvement; 135 differing words including size penalty, 1148 compiled bytes. Full function remains nonmatching. */
 /* DRAFT. Remaining diff (~65 lines, same instruction count): frame is 0xC8 here vs 0xB0; float constant hoisting differs (target keeps -400.0f in f28, 0.0f in f30 and the D_802954E0 x in f26, re-materialises 70.0f), and s1..s5 colour/name/index registers are rotated. D_802954E0/E4 are rodata floats referenced as externs to avoid emitting new rodata. */
 
 
 
-extern u8 D_80127D00[][4];
-extern u8 D_8029532C[];
-extern u8 D_80295340[];
-extern u8 D_80295358[];
-extern u8 D_80295370[];
-extern u8 D_80295380[];
+
+
+
+
+
+
 extern f32 D_802954E0;
 extern f32 D_802954E4;
 extern s32 D_802956F4;
@@ -40,10 +41,10 @@ void func_801C9698(s32 arg0, FrontendRenderContext *arg1) {
             r = 0xFF;
             g = 0xE6;
             b = 0x82;
-            name = D_80127D00[i];
+            name = (u8 *)&D_80127D00[i];
             alpha = -1 - D_802D3A01;
         } else {
-            name = D_80127D00[i];
+            name = (u8 *)&D_80127D00[i];
             r = g = b = 0x87;
             if (*(s32 *)name == 0) {
                 r = g = b = 0x3C;
