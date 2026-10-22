@@ -588,3 +588,8 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - The host has no gcc/g++/make. Builds now run in a rootless toolbox, `kig-build` (Fedora; dnf gcc gcc-c++ make xz bison flex texinfo). Use `toolbox run -c kig-build bash -c 'make …'`. tools/setup.sh: a fresh `--no-checkout` clone no longer trips the local-changes guard.
 - Baseline clean build: the ROM and all 3 images are byte-identical. M1 = M2 = 82,004 / 289,876 B (28.29%), as before.
 - The worktrees for T-126, T-127 and T-128 were lost and nothing from them was recovered. All three were relaunched with the same scope: T-126 (sol-A44) and T-127 (sol-C47) on gpt-6.1-sol low, T-128 (grok-1) on grok-4.6 medium. T-129 (grok-2) is new: the small T-026 cluster plus untouched drafts at 129–160 words, about 6.9 KB.
+
+## 2026-10-22 — T-129 vetted (small cluster + 129–160 band)
+- Worktree t3-318e21ae. 0 matched; only the report was kept. func_80032738/326F0/32750/3278C and the decoder siblings (80031050, 80032600, 80032670, 80032504) are handwritten 64-bit or private-register asm, not IDO C, so stop scheduling them. func_801B1210 is string-pool-blocked (T-115 recipe). func_8001AA90's C is 488 B, but its inventory entry includes an 8 B `jr ra; nop` stub at 0x8001AC78. The 129–160 drafts were not rewritten.
+- decomp-permuter is now installed in the lead's tools/ext (pynacl, toml and Levenshtein in .venv).
+- T-130 launched (grok-3): rewrite band 129–242 words, 13 drafts, about 10.9 KB.
