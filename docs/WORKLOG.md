@@ -602,3 +602,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-f7364349. func_801C7A98 matches (568 B, 0.20%, under the 0.70% target; accepted as partial). All 90 ovl_7DF8_1BD90 menu strings are now `const u8[]` definitions in C, the hints moved to `force_not_migration:True`, and three frontend.h externs are const. Improved drafts: 801B6BD8 153→141, 801BBE88 150→147, 8001D47C 141→134, 8002B22C 74→70.
 - Clean vet build (in the toolbox): the ROM and all 3 images are byte-identical. 334 T4; M1 = M2 = 82,572 / 289,876 B (28.49%).
 - T-132 launched (sol-B42): func_801B1210 pool migration plus the untouched 337–423-word band (11 drafts).
+
+## 2026-10-22 — T-127 vetted (18–89-word band)
+- Worktree t3-ff380d45. 0 matched; the drafts and report were kept. 801BE540 went 69→8 (exact 288 B), 80015450 66→51, 801C8004 38→27, 80023EF0 71→67, 80030220 77→73, 8001373C 36→34, 801BE790 78→77. The lead re-screened 801BE540, 80015450 and 801C8004.
+- T-133 launched (sol-C48): fresh near misses (801BE540, 8002FB80, …) plus the 423–571-word band.
