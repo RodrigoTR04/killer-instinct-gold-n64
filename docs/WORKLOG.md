@@ -597,3 +597,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-22 — T-128 vetted (91–119-word band)
 - Worktree t3-91d8ca60. 0 matched; the drafts and report were kept. func_8002FB80 went 23→20 (exact 544 B; residue in the 0xC0/0x40 tails), and func_801BADEC 102→101. Both were re-screened by the lead.
 - T-131 launched (grok-4): large untouched band 222–301 words, 12 drafts, about 15 KB.
+
+## 2026-10-22 — T-126 vetted (pool + exact-size band)
+- Worktree t3-f7364349. func_801C7A98 matches (568 B, 0.20%, under the 0.70% target; accepted as partial). All 90 ovl_7DF8_1BD90 menu strings are now `const u8[]` definitions in C, the hints moved to `force_not_migration:True`, and three frontend.h externs are const. Improved drafts: 801B6BD8 153→141, 801BBE88 150→147, 8001D47C 141→134, 8002B22C 74→70.
+- Clean vet build (in the toolbox): the ROM and all 3 images are byte-identical. 334 T4; M1 = M2 = 82,572 / 289,876 B (28.49%).
