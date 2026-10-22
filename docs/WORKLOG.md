@@ -612,3 +612,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 
 ## 2026-10-22 — Grok workers retired
 - The user stopped using Grok subagents (0 matches over T-128/T-129/T-130). T-131 was cancelled mid-run, with one unverified draft edit and nothing committed. Its 12 functions are back in the pool. From now on, workers are gpt-6.1-sol (low) only, at most two at a time.
+
+## 2026-10-22 — T-133 vetted (near misses)
+- Worktree t3-816664cc. 0 matched; the drafts and report were kept. 8001373C went 34→28 (s16 Y-impulse temporary, bounded), 801C8004 27→24 and 80020E98 512→497. 801BE540 (8 words) and 8002FB80 (20 words) did not move after permuter plus declorder; permuter candidates with a dummy goto or an empty if were rejected.
+- T-134 launched (sol-A45): the 222–301-word band released by T-131.
