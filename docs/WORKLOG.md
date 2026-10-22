@@ -583,3 +583,8 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-6ac793bb. 3 functions matched, 2,188 B (0.75%, on target): func_800131A4 (seven-byte array view, full-width loop counter, separate command-pointer scopes), func_800287D4 (direct 2-D array references instead of a cached pointer) and func_8002A4F0 (separate DMA/allocator lengths fix the store order). Improved: func_8002FB80 67→23 (exact size), func_801C2F5C 53→47, func_801C3758 32→30.
 - Clean vet build: the ROM and all 3 images are byte-identical. 333 T4; M1 = M2 = 82,004 / 289,876 B (28.29%).
 - T-128 launched (sol-B41): func_8002FB80 (exact size, 23 words) plus the 91–119-word band, 16 drafts, about 8.3 KB.
+
+## 2026-10-22 — Build host moved; T-126..T-128 relaunched, T-129 launched
+- The host has no gcc/g++/make. Builds now run in a rootless toolbox, `kig-build` (Fedora; dnf gcc gcc-c++ make xz bison flex texinfo). Use `toolbox run -c kig-build bash -c 'make …'`. tools/setup.sh: a fresh `--no-checkout` clone no longer trips the local-changes guard.
+- Baseline clean build: the ROM and all 3 images are byte-identical. M1 = M2 = 82,004 / 289,876 B (28.29%), as before.
+- The worktrees for T-126, T-127 and T-128 were lost and nothing from them was recovered. All three were relaunched with the same scope: T-126 (sol-A44) and T-127 (sol-C47) on gpt-6.1-sol low, T-128 (grok-1) on grok-4.6 medium. T-129 (grok-2) is new: the small T-026 cluster plus untouched drafts at 129–160 words, about 6.9 KB.

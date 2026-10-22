@@ -31,10 +31,13 @@ fi
 
 checkout() {
     local name=$1 url=$2 revision=$3
+    local fresh=
     if [[ ! -d $EXT/$name ]]; then
         git clone --no-checkout "$url" "$EXT/$name"
+        fresh=1
     fi
-    if [[ -n $(git -C "$EXT/$name" status --porcelain) ]]; then
+    # A --no-checkout clone reports every file as deleted; only guard existing checkouts.
+    if [[ -z $fresh && -n $(git -C "$EXT/$name" status --porcelain) ]]; then
         echo "Refusing to overwrite local changes in $EXT/$name" >&2; exit 1
     fi
     if ! git -C "$EXT/$name" cat-file -e "$revision^{commit}" 2>/dev/null; then
