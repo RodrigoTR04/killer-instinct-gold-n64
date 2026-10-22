@@ -593,3 +593,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-318e21ae. 0 matched; only the report was kept. func_80032738/326F0/32750/3278C and the decoder siblings (80031050, 80032600, 80032670, 80032504) are handwritten 64-bit or private-register asm, not IDO C, so stop scheduling them. func_801B1210 is string-pool-blocked (T-115 recipe). func_8001AA90's C is 488 B, but its inventory entry includes an 8 B `jr ra; nop` stub at 0x8001AC78. The 129–160 drafts were not rewritten.
 - decomp-permuter is now installed in the lead's tools/ext (pynacl, toml and Levenshtein in .venv).
 - T-130 launched (grok-3): rewrite band 129–242 words, 13 drafts, about 10.9 KB.
+
+## 2026-10-22 — T-128 vetted (91–119-word band)
+- Worktree t3-91d8ca60. 0 matched; the drafts and report were kept. func_8002FB80 went 23→20 (exact 544 B; residue in the 0xC0/0x40 tails), and func_801BADEC 102→101. Both were re-screened by the lead.
+- T-131 launched (grok-4): large untouched band 222–301 words, 12 drafts, about 15 KB.
