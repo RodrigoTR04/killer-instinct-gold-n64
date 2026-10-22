@@ -10,11 +10,9 @@ void func_801C8004(void)
 {
   int step;
   s32 var_a0;
-  s32 var_a1;
+  u8 var_a1;
   s32 var_a2;
   s32 var_t1;
-  s32 var_v1;
-  s32 bit;
   u8 *var_a3;
   u8 *var_t2;
   u8 *var_v0;
@@ -48,15 +46,15 @@ void func_801C8004(void)
     nextButton:
     temp_v0 = *var_a3;
 
-    bit = step << temp_v0;
+
     var_a2 += step;
     var_a3 += step;
-    if ((((s32) temp_v0) >= 8) || ((var_v1 = bit, (var_v1 & var_a1) != 0)))
+    if ((((s32) temp_v0) >= 8) || ((1 << temp_v0) & var_a1))
     {
-      var_v1 = step << temp_v0;
+
       var_t1 = 2;
     }
-    var_a1 = (var_a1 | var_v1) & 0xFF;
+    var_a1 = (var_a1 | (1 << temp_v0)) & 0xFF;
     if (var_a2 != 6)
     {
       goto nextButton;
