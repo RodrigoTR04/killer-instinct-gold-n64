@@ -624,3 +624,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-29 — Moved to gpt-6.1-terra (high), up to 4 workers
 - User: the workers are now gpt-6.1-terra at high effort, up to 4 at a time, each with a hard 0.70% (≥2,030 B) goal. T-134/T-135 are superseded and were never taken in.
 - Pool split by image and address (T2 bytes, excluding the T-026 asm cluster): T-136 main ≤0x80021B6C (58.9 KB), T-137 main >0x80021B6C (48.3 KB), T-138 ovl_7DF8 ≤0x801BBE88 (50.4 KB), T-139 ovl_7DF8 >0x801BBE88 (48.9 KB). Baseline M2 82,572 / 289,876 B (28.49%).
+
+## 2026-10-29 — T-136 vetted (main ≤0x80021B6C)
+- Worktree t3-7a045993. 0 matched, so the 0.70% requirement was not met. Its final report is accepted for the drafts only: 80015450 51→43, 800121C8 47→46, 80014D5C 136→135 (re-screened by the lead). Clean build: M2 82,572 / 289,876 B (28.49%), unchanged.
+- Per the user, no replacement workers are spawned; T-137, T-138 and T-139 are still outstanding.

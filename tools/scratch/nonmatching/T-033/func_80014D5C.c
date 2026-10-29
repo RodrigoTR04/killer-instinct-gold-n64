@@ -1,4 +1,4 @@
-/* T-132 DRAFT: 136 differing words; see T-132/REPORT.md. */
+/* T-136 DRAFT: 135 differing words in prefix context; see T-136/REPORT.md. */
 typedef struct { void *display; s16 flags, pad; s32 transform; } T03314D5CStagePart;
 typedef struct { f32 pitch, yaw, roll, speed, scale; } T03314D5CStageRotation;
 extern u8 D_80044ED8;
@@ -31,17 +31,12 @@ extern void func_8002FA5C();
 extern u32 func_800326F0();
 
 void func_80014D5C(void) {
-    s32 var_a2;
-    s32 var_v1;
-    f32 temp_f6;
-    f32 temp_f0;
+    s32 var_a2, var_v1;
+    f32 var_f2_2, temp_f0;
     s32 var_v0;
-    f32 var_f2_6;
-    f32 var_f2; s32 sp1C;
-    f32 var_f2_5;
-    f32 var_f2_2;
-    f32 var_f2_3;
-    f32 *var_a1;
+    f32 var_f2_6, var_f2;
+    s32 sp1C;
+    f32 var_f2_5, temp_f6, var_f2_3, *var_a1;
     u8 *var_a0;
     f32 var_f2_4;
     u8 *var_v1_2;
@@ -73,8 +68,7 @@ void func_80014D5C(void) {
     }
     if (var_v1 == 0)
     {
-        var_v1_2 = D_8004ACB0;
-        var_a0 = D_8004AC98;
+        var_v1_2 = D_8004ACB0; var_a0 = D_8004AC98;
         var_a1 = D_8004A740;
         if (D_8004A740[2] < D_800695CC) { ((T03314D5CStagePart *)D_8004A4C0)[10].transform = 0;
             ((T03314D5CStagePart *)D_8004A4C0)[11].transform = 1;
@@ -147,7 +141,8 @@ void func_80014D5C(void) {
             if ((((6000.0f) - var_f2_4) * 8.0f) >= 0.0f) {
                 if (D_8004A740[0] >= 0.0f) {
                     var_f2_5 = D_8004A740[0];
-                } else {
+                }
+    else {
                     var_f2_5 = -D_8004A740[0];
                 }
                 var_a2 = (s32) (((6000.0f) - var_f2_5) * 8.0f); } else {
@@ -156,8 +151,7 @@ void func_80014D5C(void) {
                 } else { var_f2_6 = -D_8004A740[0];
                 }
                 var_a2 = (s32) -(((6000.0f) - var_f2_6) * 8.0f);
-            } if (var_a2 >= 0x8000) {
-                var_a2 = 0x7FFF;
+            } if (var_a2 >= 0x8000) { var_a2 = 0x7FFF;
             }
             sp1C = var_a2;
             func_8002FA5C(D_8004A264, 8, var_a2);

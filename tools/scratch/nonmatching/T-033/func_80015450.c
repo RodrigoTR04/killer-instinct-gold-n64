@@ -1,4 +1,4 @@
-/* T-100 improved draft; measurements and remaining causes in T-100/REPORT.md. */
+/* T-136 draft: 43 differing words, 324 bytes in prefix context. */
 typedef struct {
     u8 kind;
     u8 pad1[11];
@@ -16,11 +16,10 @@ extern T033RotatingObject D_801D3430[], D_801D5C30[];
 void func_80015450(s32 arg0)
 {
   T033RotatingObject *new_var;
-  T033RotatingObject *obj;
-  obj = D_801D3430;
-  do
+  u8 *cursor; T033RotatingObject *obj; u8 kind; cursor = (u8 *)D_801D3430; do
   {
-    if (obj->kind == 0x3B)
+    obj = (T033RotatingObject *)cursor; kind = obj->kind;
+    if (kind == 0x3B)
     {
       new_var = obj;
       ((T033Rotation *) (&D_8004A9D8))[new_var->index].yaw = ((T033Rotation *) (&D_8004A9D8))[new_var->index].yaw + (new_var->speed / 50.0);
@@ -46,7 +45,7 @@ void func_80015450(s32 arg0)
         }
       }
     }
-    obj++;
+    cursor += 0x100;
   }
-  while (obj != D_801D5C30);
+  while (cursor != (u8 *)D_801D5C30);
 }
