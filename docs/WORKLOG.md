@@ -620,3 +620,7 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-22 — T-132 vetted; 0.70% becomes a hard requirement
 - T-132 (worktree t3-f6ea9c28): 0 matched. Nine ovl_7DF8_3F60 title/menu strings (D_802927F0–D_80292870) are now C-owned (`force_not_migration`); the clean build is byte-identical. 80014D5C went 373→136 (exact 1,780 B; lead re-screened), 80015594 339→305, plus 4 minor improvements.
 - User, 2026-10-22: ≥2,030 B (0.70%) per worker is now a HARD requirement, so no more "close but short" reports. To keep workers independent, the pool is now split by image: T-134 owns all ovl_7DF8 T2 functions and T-135 owns all main T2 functions (except the handwritten T-026 cluster). Each picks its own targets.
+
+## 2026-10-29 — Moved to gpt-6.1-terra (high), up to 4 workers
+- User: the workers are now gpt-6.1-terra at high effort, up to 4 at a time, each with a hard 0.70% (≥2,030 B) goal. T-134/T-135 are superseded and were never taken in.
+- Pool split by image and address (T2 bytes, excluding the T-026 asm cluster): T-136 main ≤0x80021B6C (58.9 KB), T-137 main >0x80021B6C (48.3 KB), T-138 ovl_7DF8 ≤0x801BBE88 (50.4 KB), T-139 ovl_7DF8 >0x801BBE88 (48.9 KB). Baseline M2 82,572 / 289,876 B (28.49%).
