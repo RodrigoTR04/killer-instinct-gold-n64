@@ -628,3 +628,4 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 ## 2026-10-29 — T-136 vetted (main ≤0x80021B6C)
 - Worktree t3-7a045993. 0 matched, so the 0.70% requirement was not met. Its final report is accepted for the drafts only: 80015450 51→43, 800121C8 47→46, 80014D5C 136→135 (re-screened by the lead). Clean build: M2 82,572 / 289,876 B (28.49%), unchanged.
 - Per the user, no replacement workers are spawned; T-137, T-138 and T-139 are still outstanding.
+- T-136 resumed by user request (same thread, hard 0.70% still applies); its earlier 0-B report is superseded.
