@@ -653,3 +653,5 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Review: no empty branches, dummy gotos, volatile or padding. Two things looked at: `func_801C2ADC` has a `case 4: break;` in a five-code switch (needed for the jump table; plausible disabled cheat code) and `func_801C7F90` stores `*second = zero` then `*second = 2` around the clear loop (the loop may alias it; mirrors the original order). Both accepted.
 - I took in the matches because it is a completed final report. The shortfall against the hard requirement is the user's to rule on (accept or resume T-139). Its improved drafts are in the tree: func_801C9698 at 2 words (1,148 B, frame only), func_801C8004 at 6, func_801C224C declarations reconciled (still 6). docs/OPPORTUNITIES.md was refreshed (bundle B grows to 4,248 B).
 - Only T-138 is still running.
+
+- T-139 resumed by user ruling (same thread): must add ≥722 B of newly matched T4 beyond the accepted 1,308 B, counted from its commit fccbbfb. Brief points at func_801C9698 (frame only) and the untouched near-misses.
