@@ -1,4 +1,4 @@
-/* T-105: nonmatching draft; see T-105/REPORT.md for measurement and remaining differences. */
+/* T-138 DRAFT: 14 differing words, 208/208 B. Not matching. */
 extern void osViBlack(s32);
 
 extern s32 D_80000300, D_801CD4B8, D_801CD4BC;
@@ -9,10 +9,12 @@ extern void osViSetMode(), osViSetSpecialFeatures(u32);
 void func_801ADA04(RenderState *arg0)
 {
   s32 mode = arg0->mode;
+  s32 needs_adjustment;
   s32 next;
   s32 pending;
   s32 *pendingp = &D_801CD4BC;
-  if (mode < 14)
+  needs_adjustment = mode < 14;
+  if (needs_adjustment != 0)
   {
     next = mode + 14;
     if (D_80000300 != 1)

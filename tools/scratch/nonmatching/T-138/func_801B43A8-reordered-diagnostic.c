@@ -1,7 +1,7 @@
-/* T-105: nonmatching draft; see T-105/REPORT.md for measurement and remaining differences. */
+/* T-138 DRAFT: 15 differing words, 192/196 B. Nonmatching. */
 extern void memcpy(void *, void *, s32);
 extern u32 guRandom(void);
-extern u8 D_80128340;
+extern u8 D_80128340[];
 extern u8 D_80128349;
 extern u8 D_801F3530;
 void func_801B43A8(void) {
@@ -11,9 +11,8 @@ void func_801B43A8(void) {
     u8 *group;
     u8 *entry;
     u8 value;
-    memcpy(&D_80128340, &D_801F3530, 11);
-    group = &D_80128340;
-    do {
+    memcpy(D_80128340, &D_801F3530, 11);
+    for (group = (u8 *)((u32)&D_80128349 - 9); group != &D_80128349; group = entry) {
         random = guRandom();
         i = 0;
         entry = group;
@@ -23,9 +22,8 @@ void func_801B43A8(void) {
             i++;
             *entry = *other;
             entry++;
-            random >>= 4;
             *other = value;
+            random >>= 4;
         } while (i != 3);
-        group = entry;
-    } while (group != &D_80128349);
+    }
 }

@@ -814,7 +814,39 @@ s32 func_801B4324(u8 arg0) {
     return 0;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B43A8.s")
+extern void memcpy(void *, void *, s32);
+extern u32 guRandom(void);
+extern u8 D_80128340[];
+extern u8 D_80128349;
+extern u8 D_801F3530;
+
+void func_801B43A8(void) {
+    s32 i;
+    u32 random;
+    u8 *other;
+    u8 *group;
+    u8 *entry;
+    u8 value;
+    u8 *end;
+    u8 *end2;
+
+    end2 = &D_80128349;
+    memcpy(D_80128340, &D_801F3530, 11);
+    for (group = (u8 *)((long)(u32)end2 - 9), end = end2; group != end; group += 3) {
+        random = guRandom();
+        i = 0;
+        entry = group;
+        do {
+            other = (u8 *)((u32)group + (u8)(random % 3U));
+            value = *entry;
+            i++;
+            *entry = *other;
+            entry++;
+            *other = value;
+            random >>= 4;
+        } while (i != 3);
+    }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B446C.s")
 
@@ -857,9 +889,76 @@ s32 func_801B55DC(u8 arg0) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B5DCC.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B6528.s")
+typedef struct T029Gfx801B6528 { u32 w0, w1; } T029Gfx801B6528;
+extern void guTranslate(void *, f32, f32, f32);
+extern u8 D_802C8CE0, D_802C8D06, D_802C8CE8;
+extern s16 D_802C8CE2;
+extern s32 D_802C8CDC, D_802C8CD4;
+extern u8 D_80128340[];
+extern u8 D_801F2E80[];
+extern u8 D_801F2EB4[];
+extern u8 D_80290BE0[];
+typedef struct T029Card { u8 pad[12]; s32 index; } T029Card;
+s32 func_801B6528(T029Gfx801B6528 **arg0, void *arg1, void *arg2, s32 arg3) {
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B677C.s")
+    f32 y;
+    s32 index;
+    if (D_8004A407 == 0 || D_802C8CE0 == 0 || D_802C8D06 == 6) {
+        return 0;
+    }
+    if (D_802C8CE0 != 3) {
+        index = ((T029Card *)arg1)->index;
+        y = (index - (u8)D_8012834B) * 70 - D_802C8CE2;
+        if (D_802C8CE2 > 0 && index == 0) {
+            D_802C8CE2 = D_802C8CE2 - D_802C8CE8 * 9 - 8;
+        }
+        D_802C8CDC = D_802C8CD4 + 1;
+    } else {
+        D_802C8CE2 += 3;
+        index = ((T029Card *)arg1)->index;
+        if ((u8)D_8012834B >= index) {
+            y = (index - (u8)D_8012834B) * 70 - D_802C8CE2;
+        } else {
+            y = (index - (u8)D_8012834B) * 70 + D_802C8CE2;
+        }
+    }
+    guTranslate(arg2, 0.0f, y, 0.0f);
+    { T029Gfx801B6528 *q = (*arg0)++; q->w0 = 0x06000000; q->w1 = (u32)D_801F2E80; }
+    if (((T029Card *)arg1)->index < (u8)D_8012834B) {
+        T029Gfx801B6528 *q = (*arg0)++;
+        q->w0 = 0xFA000000; q->w1 = 0x373737FF;
+    }
+    {
+        T029Gfx801B6528 *q = (*arg0)++;
+        q->w0 = 0xFD100000;
+        q->w1 = *(u32 *)(D_801F2EB4 + D_80128340[((T029Card *)arg1)->index] * 140);
+    }
+    { T029Gfx801B6528 *q = (*arg0)++; q->w0 = 0x03800010; q->w1 = (u32)D_80290BE0; }
+    return 1;
+}
+
+void func_801B677C(u8 arg0, f32 *arg1, f32 *arg2, f32 *arg3, u16 arg4)
+{
+  s32 remainder;
+  s32 row;
+  remainder = ((s32) arg4) % 3;
+  arg0--;
+  if (remainder >= (arg4 - arg0))
+  {
+    *arg1 = (f32) ((220 / (remainder + 1)) * (arg4 - arg0));
+  }
+  else
+  {
+    *arg1 = (f32) ((((-((arg0 % 3) * 2)) * 9) * 4) + 180);
+  }
+  row = arg0 / 3;
+  *arg2 = (f32) (100 - ((220 / ((arg4 + 2) / 3)) * row));
+  *arg3 = -100.0f;
+  if (arg4 >= 10)
+  {
+    *arg2 = (f32) (100 - (row * 73));
+  }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B695C.s")
 
@@ -1132,7 +1231,30 @@ void func_801BB258(s32 arg0, s32 arg1, s32 arg2, s32 arg3, T023State801BB258 *ar
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BB464.s")
+typedef struct { u8 pad[0x7E]; u16 scale; s16 yOffset; } T023State801BB464;
+extern void func_801BC1B0(s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, f32, f32, s32, s32);
+extern s32 D_801F3C34;
+extern u8 D_801F3C38[];
+
+void func_801BB464(s32 arg0, s32 arg1, s32 arg2, s32 arg3, T023State801BB464 *arg4, s32 arg5) {
+    s32 var_v0;
+    s32 *counter;
+    s32 temp_v0;
+    s32 y;
+
+    counter = &D_801F3C34;
+    var_v0 = (arg1 * 4) + ((s32) (arg4->scale * 0x214) >> 0xA);
+    y = (arg2 * 4) + ((s32) (arg4->scale * 0x226) >> 0xA) + (arg4->yOffset * 4);
+    if (arg5 != 0) {
+        var_v0 = 0x9B0 - var_v0;
+    }
+    func_801BC1B0(arg0, *(s32 *)(D_801F3C38 + (((s32) D_801F3C34 / 3) * 4)), 2, 0x2C, 0x2B, 0x2C, 0x2B, 0, 0, 0x2B, 0x2A, (f32) var_v0, (f32)y, (s32) arg4->scale, arg5);
+    temp_v0 = *counter + 1;
+    *counter = temp_v0;
+    if (temp_v0 >= 0x78) {
+        *counter = 0;
+    }
+}
 
 /* Read scale from the state so IDO preserves completed coordinates across draws. */
 typedef struct { u8 pad[0x7E]; u16 scale; s16 yOffset; } T023State801BB594;

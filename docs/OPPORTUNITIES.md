@@ -41,7 +41,7 @@ These are the combinations I would hand out next. None is guaranteed: every func
 | Bundle | Functions (bytes, words off) | Total | Why this grouping |
 |---|---|---:|---|
 | **A: main near-misses** | `func_80017378` (1,752, 6), `func_800193DC` (808, 7), `func_8001BDE0` (316, 8), `func_8002A900` (220, 15), `func_8002FB80` (544, 20) | 3,640 | `800193DC` is a sibling of the three functions T-136 matched and uses their exact recipe. `17378` alone is 0.60%; with `193DC` it clears the quota. |
-| **B: ovl_7DF8 ≤7-word sweep** | `func_801C8004` (236, 6), `func_801B5534` (168, 2), `func_801BF720` (104, 2), `func_801BF914` (116, 2), `func_801C4E38` (556, 2), `func_801B6528` (596, 3), `func_801B695C` (268, 4), `func_801C224C` (372, 6), `func_801BD270` (396, 7), `func_801BE540` (288, 8) | 3,100 | Ten functions, all within 8 words and exact size. `801BF720`/`801BF914` first need the declaration conflict in `ovl_7DF8_12C70.c` reconciled (true score unknown). `224C`, `BD270`, `BE540` were not touched by any worker this round. |
+| **B: ovl_7DF8 ≤7-word sweep** | `func_801C8004` (236, 6), `func_801B5534` (168, 2), `func_801BF720` (104, 2), `func_801BF914` (116, 2), `func_801C4E38` (556, 2), `func_801B695C` (268, 4), `func_801C224C` (372, 6), `func_801BD270` (396, 7), `func_801BE540` (288, 8) | 2,504 | Eight functions, all within 8 words and exact size. `801BF720`/`801BF914` first need the declaration conflict in `ovl_7DF8_12C70.c` reconciled (true score unknown). `224C`, `BD270`, `BE540` were not touched by any worker this round. |
 | **C: carousel pair** | `func_801B5DCC` (1,884), `func_801B5650` (1,916) | 3,800 | One recipe, two functions (similarity 0.885). T-138 got them from 386/423 to 155/271 words (reports, unvetted); whoever finishes `5DCC` gets `5650` almost for free. 1.31% on its own. |
 | **D: 9–50-word band** | 28 functions, 7,084 B (§3) | 7,084 | The best bytes-per-effort pool once A–C are drained. |
 
@@ -55,7 +55,6 @@ If T-138's claimed matches are accepted (§8), several rows above disappear. Ref
 | `func_801BF720` | 104 | 2 (prefix) | 16 | ovl >BBE88 | Scores 2 only in *prefix* context: the full TU hits `redeclaration … incompatible parameter type`. Reconcile the declaration in `ovl_7DF8_12C70.c` first; the true count is unknown. Nobody touched it this round. |
 | `func_801BF914` | 116 | 2 (prefix) | 16 | ovl >BBE88 | Same as `func_801BF720` (same TU, same declaration conflict). Fix both together = 220 B. |
 | `func_801C4E38` | 556 | 2 | 16 | ovl >BBE88 | Scored with TU declarations. Left: stack spill at +0x18 instead of +0x1C. T-139: selector/handler locals, branch-local state (moves spill right but frame grows 0x20→0x28), reusing an arg after last use. Chained-clear order was reversed to match relocation targets (no score change). |
-| `func_801B6528` | 596 | 3 | 15 | ovl ≤BBE88 | 3-word register difference. T-138: preserving the matrix while reusing arg2 for the card, other comparison/texture views, per-command cursor scopes, real conditional-break blocks. No gain. |
 | `func_801B695C` | 268 | 4 (prefix) | 16 | ovl ≤BBE88 | 4 stack-frame differences (prefix context). T-138: offset assignments inside copy arguments, distinct offset locals. No gain. |
 | `func_80017378` | 1752 | 6 | 18 | main ≤21B6C | **Biggest single prize left.** Only the scheduling of the model-pointer / rotation-pointer increments against four stores differs. T-136 spent: pointer-update placement, line grouping, struct views, pointer types, store interleaving, while/do/for loops, an *exhaustive* 2,048-layout loop-boundary search, a 600 s permuter limited to the loop (4,831 iterations). All stayed at 6. Needs a new structural idea, not another sweep. `func_8001B620` is called with 4 args but defined with 2 (`draft_arity.py` flag; check the asm before trusting). |
 | `func_801C224C` | 372 | 6 | 8 | ovl >BBE88 | **Not touched by T-136..T-139 so far.** 8 prior reports. |
@@ -86,7 +85,6 @@ If T-138's claimed matches are accepted (§8), several rows above disappear. Ref
 | `func_801B446C` | 292 | 28 | 14 | ovl ≤BBE88 |  |
 | `func_801C3758` | 564 | 30 | 12 | ovl >BBE88 |  |
 | `func_80031050` | 112 | 30 (declarations) [emits 120] | 3 | main >21B6C | Handwritten-ABI cluster (§5). |
-| `func_801B43A8` | 196 | 34 | 6 | ovl ≤BBE88 | T-138 reports 23 words by deriving the group base from the end symbol, and 27 with an integer-address view that is sound; the target steps the group by 3. Needs a legitimate array-backed representation before promotion. |
 | `func_80032600` | 112 | 37 [emits 148] | 3 | main >21B6C |  |
 | `func_801BEEA4` | 344 | 39 [emits 356] | 6 | ovl >BBE88 | [emits 356] |
 | `func_801BBB60` | 292 | 40 | 12 | ovl ≤BBE88 | T-138 reports 29 (for-loop palette clears, split flag/buffer init). Unvetted. |
@@ -249,12 +247,11 @@ at `0xE7BF0` by T-139) is documented in `tools/scratch/nonmatching/T-043/REPORT.
 
 **T-139 is final and vetted (2026-10-30):** `func_801C7F90` 116, `func_801C2ADC` 600, `func_801C85C0` 168, `func_801CC908` 424 and, after being resumed, `func_801C9698` 1,148 are T4 (2,456 B total; M2 now 89,556 B, 30.89%); those rows were removed from §2–§4. `func_801C9698` was fixed by sharing one variable between the row alpha and the text pointer (the stack slot was the whole difference). Its last notes: `func_801C224C` declaration reconciled (full TU, still 6 words); `func_801C4E38` still 2. Only T-138's claims below are outstanding.
 
-T-138 is still running. Its own notes claim the following **matches**; none is merged:
+T-138 is final and vetted (2026-10-30). Four of its five claimed matches are in (`func_801BB464` 304, `func_801B677C` 480, `func_801B6528` 596, `func_801B43A8` 196 = 1,576 B). The fifth is **rejected**:
 
 | Worker | Function | Bytes | Claim |
 |---|---|---:|---|
-| T-138 | `func_801BB464` | 304 | read scale / y offset directly, x before y |
-| T-138 | `func_801BA884` | 500 | "real do-once block" — scrutinise |
+| T-138 | `func_801BA884` | 500 | REJECTED: ends in `do { …; if (frame < 0xC) break; D_801F39EC = clear; } while (0);`, a layout-only wrapper (same as a plain `if`). I tested a plain `if`, an early `return`, a `frame = 0` select and a literal-0 variant: none match. Needs a different honest structure; the worker's text is kept at `tools/scratch/nonmatching/T-138/func_801BA884-do-once.c`. |
 
 T-138's branch (`t3/t-138-ovl-7df8-matches`) also holds improved
 non-matching drafts (e.g. `func_801B1DE4` at 15 words, `func_801BAA78` at 15, carousel pair at 155/271).

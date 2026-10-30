@@ -1,4 +1,4 @@
-/* T-128: 101 differing words; 560/568 bytes.
+/* T-138: 100 differing words; 560/568 bytes.
  * Direct arg4->scale (no cached scale local) as in matched family-C siblings.
  * Remaining: coordinate/register allocation across the two conditional draws. */
 typedef struct { u8 pad[0x7E]; u16 scale; s16 yOffset; } T023State801BADEC;
@@ -21,7 +21,7 @@ void func_801BADEC(s32 arg0, s32 arg1, s32 arg2, s32 arg3, T023State801BADEC *ar
     counter1 = &D_801F3AA4;
     temp_v0 = arg2 * 4;
 
-    x = (arg1 * 4) + ((s32) ((0x1CD - (arg5 * 4)) * arg4->scale) >> 0xA);
+    x = ((s32) ((0x1CD - (arg5 * 4)) * arg4->scale) >> 0xA) + (arg1 * 4);
     y1 = temp_v0 + ((s32) (arg4->scale * 0x1E3) >> 0xA) + (arg4->yOffset * 4);
     y0 = temp_v0 + ((s32) (arg4->scale * 0x198) >> 0xA) + (arg4->yOffset * 4);
     if (arg5 != 0) {
