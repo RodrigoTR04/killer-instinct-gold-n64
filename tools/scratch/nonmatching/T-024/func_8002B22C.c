@@ -1,4 +1,4 @@
-/* T-126 DRAFT: 74 → 70 differing words, 380/380 B. Give the DMA extent a separate local. Not matching. */
+/* T-137 DRAFT: 66 differing words, 380/380 B. Pass the buffer field directly to DMA. Not matching. */
 /* T-108 draft: shared audio types; see T-108/REPORT.md. */
 #include "audio_game.h"
 extern s32 osSetIntMask(s32);
@@ -8,7 +8,7 @@ extern s32 osPiStartDma(void *,s32,s32,u32,void *,u32,void *);
 s32 func_8002B22C(s32 address,s32 length,void *unused)
 {
     AudioDmaBuffer *p=D_80068158.used,*previous=0;
-    u32 odd;
+    u8 odd;
     u8 *buffer;
     while(p)
     {
@@ -22,6 +22,7 @@ s32 func_8002B22C(s32 address,s32 length,void *unused)
         }
         p=p->next;
     }
+    odd=address&1;
     p=D_80068158.free;
     D_80068158.free=p->next;
     alUnlink((ALLink *)p);
@@ -40,10 +41,9 @@ s32 func_8002B22C(s32 address,s32 length,void *unused)
         p->next=0;
         p->prev=0;
     }
-    odd=address&1;
     buffer=p->buffer;
     p->address=address-odd;
     p->frame=D_80048150;
-    osPiStartDma(&D_80068178[D_80048154++],0,0,address-odd,buffer,0x800,&D_800683F8);
+    osPiStartDma(&D_80068178[D_80048154++],0,0,address-odd,p->buffer,0x800,&D_800683F8);
     return osVirtualToPhysical(buffer)+odd;
 }

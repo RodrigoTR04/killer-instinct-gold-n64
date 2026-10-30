@@ -160,7 +160,7 @@ extern AudioManagerBuffers D_80066C50;
 extern u32 D_80048150, D_80048154;
 extern s32 D_80048158;
 extern u32 D_80068164;
-extern s32 D_80068168;
+extern u32 D_80068168;
 
 void func_8002A4F0(void);
 void func_8002A888(void);

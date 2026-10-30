@@ -117,7 +117,65 @@ s32 func_8002F3DC(s16 *allocated, s16 *freeCount) {
     return k;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_1EB40/func_8002F45C.s")
+GameAudioVoice *func_8002F45C(void *unused, ALSound *sound)
+{
+  GameAudioVoice *voice;
+  ALKeyMap *savedKey;
+  ALKeyMap *key;
+  s32 old;
+  s32 pan;
+  s32 value;
+  voice = D_80048270.free;
+  savedKey = sound->keyMap;
+  key = savedKey;
+  if (voice)
+  {
+    old = osSetIntMask(1);
+    D_80048270.free = voice->next;
+    alUnlink((ALLink *)voice);
+    if (D_80048270.head)
+    {
+      voice->next = D_80048270.head;
+      voice->prev = 0;
+      D_80048270.head->prev = voice;
+      D_80048270.head = voice;
+    }
+    else
+    {
+      voice->prev = 0;
+      voice->next = 0;
+      D_80048270.head = voice;
+      D_80048270.tail = voice;
+    }
+    osSetIntMask(old);
+    value = sound->envelope->decayTime == -1;
+    pan = value + 0x40;
+    value = 6000; /* Center pitch around 6000 cents. */
+    voice->priority = pan;
+    voice->state = 5;
+    voice->retries = 2;
+    voice->sound = sound;
+    voice->pitch = 1.0f;
+    voice->flags = key->keyMax & 0xF0;
+    voice->owner = 0;
+    if (voice->flags & 0x20)
+    {
+      voice->ratio = alCents2Ratio((key->keyBase * 100) - value);
+    }
+    else
+    {
+      voice->ratio = alCents2Ratio(((key->keyBase * 100) + key->detune) - value);
+    }
+    if (pan != 0x40)
+    {
+      voice->flags |= 2;
+    }
+    voice->fx = 0;
+    voice->pan = 0x40;
+    voice->volume = 0x7FFF;
+  }
+  return voice;
+}
 
 void func_8002F5F0(GameAudioVoice *voice) {
     if(voice==D_80048270.head) D_80048270.head=voice->next;

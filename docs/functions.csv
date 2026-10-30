@@ -243,11 +243,11 @@ main,func_80024CE0,0x80024CE0,0x15380,1652,T2,draft tools/scratch/nonmatching/T-
 main,func_80025354,0x80025354,0x159F4,124,T4,
 main,func_800253D0,0x800253D0,0x15A70,1068,T2,draft tools/scratch/nonmatching/T-032/ (non-matching)
 main,func_800257FC,0x800257FC,0x15E9C,1372,T2,draft tools/scratch/nonmatching/T-032/ (non-matching)
-main,func_80025D58,0x80025D58,0x163F8,620,T2,draft tools/scratch/nonmatching/T-032/ (non-matching)
+main,func_80025D58,0x80025D58,0x163F8,620,T4,draft tools/scratch/nonmatching/T-032/ (non-matching)
 main,func_80025FC4,0x80025FC4,0x16664,1908,T2,draft tools/scratch/nonmatching/T-032/ (non-matching)
 main,func_80026738,0x80026738,0x16DD8,392,T2,draft tools/scratch/nonmatching/T-032/ (non-matching)
 main,func_800268C0,0x800268C0,0x16F60,236,T2,draft tools/scratch/nonmatching/T-032/ (non-matching)
-main,func_800269AC,0x800269AC,0x1704C,236,T2,draft tools/scratch/nonmatching/T-032/ (non-matching)
+main,func_800269AC,0x800269AC,0x1704C,236,T4,draft tools/scratch/nonmatching/T-032/ (non-matching)
 main,func_80026AA0,0x80026AA0,0x17140,152,T4,
 main,func_80026B38,0x80026B38,0x171D8,4708,T2,draft tools/scratch/nonmatching/T-032/ (non-matching)
 main,func_80027DA0,0x80027DA0,0x18440,124,T4,
@@ -280,7 +280,7 @@ main,func_8002AA98,0x8002AA98,0x1B138,84,T4,
 main,func_8002AAEC,0x8002AAEC,0x1B18C,84,T4,
 main,func_8002AB40,0x8002AB40,0x1B1E0,36,T4,
 main,func_8002AB64,0x8002AB64,0x1B204,36,T4,
-main,func_8002AB90,0x8002AB90,0x1B230,852,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002AB90,0x8002AB90,0x1B230,852,T4,draft tools/scratch/nonmatching/T-024/ (non-matching)
 main,func_8002AEE4,0x8002AEE4,0x1B584,336,T4,
 main,func_8002B034,0x8002B034,0x1B6D4,440,T4,
 main,func_8002B1EC,0x8002B1EC,0x1B88C,64,T4,
@@ -314,7 +314,7 @@ main,func_8002F234,0x8002F234,0x1F8D4,124,T4,
 main,func_8002F2B0,0x8002F2B0,0x1F950,108,T4,
 main,func_8002F31C,0x8002F31C,0x1F9BC,192,T4,
 main,func_8002F3DC,0x8002F3DC,0x1FA7C,128,T4,
-main,func_8002F45C,0x8002F45C,0x1FAFC,404,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002F45C,0x8002F45C,0x1FAFC,404,T4,draft tools/scratch/nonmatching/T-024/ (non-matching)
 main,func_8002F5F0,0x8002F5F0,0x1FC90,212,T4,
 main,func_8002F6C4,0x8002F6C4,0x1FD64,24,T4,
 main,func_8002F6DC,0x8002F6DC,0x1FD7C,24,T4,

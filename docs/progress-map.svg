@@ -57,7 +57,7 @@
 <rect x="308.07" y="325.51" width="54.79" height="49.71" fill="#e7ae50" stroke="#111827"><title>func_80018AE0 · 0x80018AE0 · 912 bytes · T2</title></rect>
 <rect x="363.47" y="325.51" width="52.85" height="49.71" fill="#aa83d6" stroke="#111827"><title>func_80035320 · 0x80035320 · 880 bytes · excluded</title></rect>
 <rect x="416.92" y="325.51" width="52.37" height="49.71" fill="#45b983" stroke="#111827"><title>func_8001383C · 0x8001383C · 872 bytes · T4</title></rect>
-<rect x="469.89" y="325.51" width="51.15" height="49.71" fill="#e7ae50" stroke="#111827"><title>func_8002AB90 · 0x8002AB90 · 852 bytes · T2</title></rect>
+<rect x="469.89" y="325.51" width="51.15" height="49.71" fill="#45b983" stroke="#111827"><title>func_8002AB90 · 0x8002AB90 · 852 bytes · T4</title></rect>
 <rect x="521.64" y="325.51" width="50.66" height="49.71" fill="#e7ae50" stroke="#111827"><title>func_8002E150 · 0x8002E150 · 844 bytes · T2</title></rect>
 <rect x="572.90" y="325.51" width="50.66" height="49.71" fill="#aa83d6" stroke="#111827"><title>func_8003B558 · 0x8003B558 · 844 bytes · excluded</title></rect>
 <rect x="624.17" y="325.51" width="49.94" height="49.71" fill="#aa83d6" stroke="#111827"><title>alFxPull · 0x800423C8 · 832 bytes · excluded</title></rect>
@@ -87,7 +87,7 @@
 <rect x="245.87" y="466.59" width="41.45" height="45.91" fill="#aa83d6" stroke="#111827"><title>func_800361C0 · 0x800361C0 · 640 bytes · excluded</title></rect>
 <rect x="245.87" y="513.10" width="41.45" height="45.62" fill="#e7ae50" stroke="#111827"><title>func_8001BB64 · 0x8001BB64 · 636 bytes · T2</title></rect>
 <rect x="245.87" y="559.32" width="41.45" height="45.33" fill="#e7ae50" stroke="#111827"><title>func_80030440 · 0x80030440 · 632 bytes · T2</title></rect>
-<rect x="245.87" y="605.25" width="41.45" height="44.46" fill="#e7ae50" stroke="#111827"><title>func_80025D58 · 0x80025D58 · 620 bytes · T2</title></rect>
+<rect x="245.87" y="605.25" width="41.45" height="44.46" fill="#45b983" stroke="#111827"><title>func_80025D58 · 0x80025D58 · 620 bytes · T4</title></rect>
 <rect x="245.87" y="650.31" width="41.45" height="43.01" fill="#e7ae50" stroke="#111827"><title>func_8001DE5C · 0x8001DE5C · 600 bytes · T2</title></rect>
 <rect x="245.87" y="693.92" width="41.45" height="40.97" fill="#e7ae50" stroke="#111827"><title>func_8002FDA0 · 0x8002FDA0 · 572 bytes · T2</title></rect>
 <rect x="245.87" y="735.49" width="41.45" height="40.39" fill="#45b983" stroke="#111827"><title>func_80018418 · 0x80018418 · 564 bytes · T4</title></rect>
@@ -127,7 +127,7 @@
 <rect x="287.91" y="794.15" width="36.12" height="34.35" fill="#e7ae50" stroke="#111827"><title>func_80032360 · 0x80032360 · 420 bytes · T2</title></rect>
 <rect x="287.91" y="829.10" width="36.12" height="34.02" fill="#aa83d6" stroke="#111827"><title>func_800350A0 · 0x800350A0 · 416 bytes · excluded</title></rect>
 <rect x="287.91" y="863.72" width="36.12" height="33.68" fill="#aa83d6" stroke="#111827"><title>func_80034180 · 0x80034180 · 412 bytes · excluded</title></rect>
-<rect x="324.63" y="497.91" width="34.22" height="34.86" fill="#e7ae50" stroke="#111827"><title>func_8002F45C · 0x8002F45C · 404 bytes · T2</title></rect>
+<rect x="324.63" y="497.91" width="34.22" height="34.86" fill="#45b983" stroke="#111827"><title>func_8002F45C · 0x8002F45C · 404 bytes · T4</title></rect>
 <rect x="359.45" y="497.91" width="34.22" height="34.86" fill="#aa83d6" stroke="#111827"><title>guRotateF · 0x80033980 · 404 bytes · excluded</title></rect>
 <rect x="394.27" y="497.91" width="34.22" height="34.86" fill="#aa83d6" stroke="#111827"><title>func_80034630 · 0x80034630 · 404 bytes · excluded</title></rect>
 <rect x="429.08" y="497.91" width="33.53" height="34.86" fill="#aa83d6" stroke="#111827"><title>_loadBuffer · 0x80041DE8 · 396 bytes · excluded</title></rect>
@@ -208,7 +208,7 @@
 <rect x="445.52" y="594.20" width="27.92" height="25.12" fill="#45b983" stroke="#111827"><title>func_8000F960 · 0x8000F960 · 240 bytes · T4</title></rect>
 <rect x="474.04" y="594.20" width="27.92" height="25.12" fill="#e7ae50" stroke="#111827"><title>func_80032504 · 0x80032504 · 240 bytes · T2</title></rect>
 <rect x="502.56" y="594.20" width="27.44" height="25.12" fill="#e7ae50" stroke="#111827"><title>func_800268C0 · 0x800268C0 · 236 bytes · T2</title></rect>
-<rect x="530.60" y="594.20" width="27.44" height="25.12" fill="#e7ae50" stroke="#111827"><title>func_800269AC · 0x800269AC · 236 bytes · T2</title></rect>
+<rect x="530.60" y="594.20" width="27.44" height="25.12" fill="#45b983" stroke="#111827"><title>func_800269AC · 0x800269AC · 236 bytes · T4</title></rect>
 <rect x="558.64" y="594.20" width="27.44" height="25.12" fill="#aa83d6" stroke="#111827"><title>__osPackReadData · 0x8003A6BC · 236 bytes · excluded</title></rect>
 <rect x="586.68" y="594.20" width="27.44" height="25.12" fill="#aa83d6" stroke="#111827"><title>alResampleParam · 0x800400F0 · 236 bytes · excluded</title></rect>
 <rect x="614.72" y="594.20" width="27.44" height="25.12" fill="#aa83d6" stroke="#111827"><title>_frexpf · 0x80040418 · 236 bytes · excluded</title></rect>
@@ -1007,5 +1007,5 @@
 <rect x="1592.39" y="886.57" width="5.01" height="5.64" fill="#aa83d6" stroke="#111827"><title>__osSetCompare · 0x80006420 · 12 bytes · excluded</title></rect>
 <rect x="1586.78" y="892.80" width="6.13" height="4.60" fill="#aa83d6" stroke="#111827"><title>__osGetCause · 0x800064F0 · 12 bytes · excluded</title></rect>
 <rect x="1593.51" y="892.80" width="3.89" height="4.60" fill="#aa83d6" stroke="#111827"><title>__osCleanupThread · 0x80004608 · 8 bytes · excluded</title></rect>
-<text x="12" y="920" fill="#d1d5db" font-size="13" font-family="system-ui,sans-serif">T4 byte-exact 334 · T3 contract-valid 0 · 82,572/457,192 bytes exact (18.1%) · green=T4 blue=T3 amber=T2 gray=T1 purple=excluded</text>
+<text x="12" y="920" fill="#d1d5db" font-size="13" font-family="system-ui,sans-serif">T4 byte-exact 338 · T3 contract-valid 0 · 84,684/457,192 bytes exact (18.5%) · green=T4 blue=T3 amber=T2 gray=T1 purple=excluded</text>
 </svg>
