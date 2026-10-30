@@ -395,7 +395,55 @@ void func_801CC878(void) {
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_200C0/func_801CC908.s")
+extern u8 *D_802927A4[];
+const u8 D_80295684[] = "SAVING";
+const u8 D_8029568C[] = "SAVED OK";
+
+s32 func_801CC908(s32 arg0) {
+    s32 handle;
+    s32 result;
+
+    result = 1 << arg0;
+    if (!(D_802D3E0D & result)) {
+        func_801CBF8C();
+        if (!(D_802D3E0D & result)) {
+            return 1;
+        }
+    }
+    result = func_801CC350(&handle, arg0);
+    if (result != 5 && result != 0) {
+        func_801CC3BC(result, arg0);
+        result = func_801CC350(&handle, arg0);
+    }
+    if (result == 5) {
+        result = func_801CC58C(&handle, arg0);
+        if (result != 0) {
+            func_801CC3BC(result, arg0);
+            result = func_801CC58C(&handle, arg0);
+        }
+    }
+    if (result == 0 || result == 5) {
+        D_802D3E04 = D_80295684;
+        result = func_801CC600(handle, arg0);
+        if (result != 0) {
+            if (result == 7) {
+                D_802D3E04 = D_802927A4[arg0];
+            } else {
+                func_801CC3BC(result, arg0);
+            }
+            result = func_801CC600(handle, arg0);
+        }
+        if (result == 0) {
+            D_802D3E04 = D_8029568C;
+            func_8002F6F4(D_80066C40, 0x10A, D_8004A25C);
+        }
+    }
+    if (result == 7) {
+        D_802D3E04 = D_802927A4[arg0];
+        D_802D3E14 = 1;
+    }
+    return result;
+}
 
 extern void func_801BFA40(void *, void *);
 extern void func_801C86A8(void *);

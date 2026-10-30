@@ -646,3 +646,10 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Saved T-136's updated drafts for `func_800193DC` (7 words, full TU) and `func_80015450` (40 words, prefix); the other T-136 drafts were already in the tree. Added `tools/analysis/draft_arity.py` (23 call-arity flags in 14 drafts, a lead generator not proof).
 - Not vetted and not counted: T-138's claimed `func_801BB464`/`func_801BA884` and T-139's claimed `func_801C7F90`/`801CC908`/`801C85C0`/`801C2ADC`. The `func_801BA884` "real do-once block" needs a careful artificial-construct review when T-138 reports.
 - Open question for the user (§5 of the ledger): whether the handwritten-ABI cluster in main (824 B small + 2,512 B large) should be treated as asm like ovl_7E00 or stay T2.
+
+## 2026-10-29 — T-139 vetted (ovl_7DF8 >0x801BBE88): SHORT of the hard target
+- Worktree t3-72b3bdcf, final report. 4 functions matched, 1,308 B (0.45%, below the 2,030 B / 0.70% requirement): func_801C7F90 (116), func_801C2ADC (600, six ending strings now C-owned and rodata 0xE7BF0 range moved to ovl_7DF8_13FF0), func_801C85C0 (168) and func_801CC908 (424, SAVING / SAVED OK C-owned). The worker reported it found no further match.
+- Clean vet build in the toolbox: the ROM and all images are byte-identical (the splat "Unable to determine a segment" messages are the usual noise). 345 T4; M1 = M2 = 88,408 / 289,876 B (30.50%).
+- Review: no empty branches, dummy gotos, volatile or padding. Two things looked at: `func_801C2ADC` has a `case 4: break;` in a five-code switch (needed for the jump table; plausible disabled cheat code) and `func_801C7F90` stores `*second = zero` then `*second = 2` around the clear loop (the loop may alias it; mirrors the original order). Both accepted.
+- I took in the matches because it is a completed final report. The shortfall against the hard requirement is the user's to rule on (accept or resume T-139). Its improved drafts are in the tree: func_801C9698 at 2 words (1,148 B, frame only), func_801C8004 at 6, func_801C224C declarations reconciled (still 6). docs/OPPORTUNITIES.md was refreshed (bundle B grows to 4,248 B).
+- Only T-138 is still running.

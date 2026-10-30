@@ -1,4 +1,4 @@
-/* DRAFT. Remaining diff: Camera-vector stack layout (0xA0 vs 0x70), float temporaries and call scheduling differ. */
+/* T-139 draft: 189 differing words, 1812/1820 bytes in the full TU; literal ownership remains to be reconciled. */
 #include "frontend.h"
 
 
@@ -8,7 +8,7 @@ extern void func_80012B7C(FrontendGfxWords **,f32,f32,f32,f32,f32,f32);
 extern void func_800131A4(FrontendGfxWords **,f32,f32,f32,f32,f32,f32);
 extern void func_8001AA90(f32);
 extern void func_8001C5A0(void),func_80028708(void),func_800287D4(void),func_8002B9B4(void);
-extern void func_8002F6F4(s32, s16, void *);
+extern void func_8002F6F4(s32, s32, void *);
 extern void func_801C2D34(FrontendGfx **,s32,s32,s32,s32);
 extern void func_801C2F5C(FrontendGfxWords **,s32,s32);
 extern s32 func_801C317C(FrontendGfxWords **,s32,s32,s32);
@@ -27,32 +27,30 @@ extern s32 D_802D3890,D_802D3894;
 
 
 u8 func_801C23C0(FrontendGfxWords **arg0, FrontendRenderContext *arg1) {
-    f32 position[3];
+    f32 var_f14;
+    f32 temp_f14;
     f32 velocity[3];
-    f32 sp54;
+    u8 temp_v0_4;
+    s32 var_v1;
+    FrontendGfxWords *temp_v0;
+    f32 temp_f12_2;
+    FrontendGfxWords *temp_v0_2;
+    f32 position[3];
+    s32 temp_f16;
     f32 sp50;
     f32 sp4C;
+    f32 sp54;
+    f32 var_f0;
+    f32 temp_f10;
     u8 sp4B;
     s32 sp3C;
-    f32 temp_f10;
-    f32 temp_f12;
-    f32 temp_f12_2;
-    f32 temp_f14;
-    f32 var_f0;
-    f32 var_f14;
-    s32 temp_f16;
-    s32 var_v1;
     u8 temp_v0_3;
-    u8 temp_v0_4;
-    FrontendGfxWords *temp_v0;
-    FrontendGfxWords *temp_v0_2;
-
-    var_f0 = (f32)(arg1->frame - D_802D3890);
-    sp4B = 0;
+    f32 temp_f12;
+    var_f0 = (f32)(arg1->frame - D_802D3890); sp4B = 0;
     if (D_80295718 == 2) {
         if (var_f0 > 120.0f) {
-            sp4C = var_f0;
             func_801C2110(1.0f, D_802D3898, position, velocity);
+            sp4C = var_f0;
             var_f14 = sp4C / 120.0f;
         } else {
             sp4C = var_f0;
@@ -60,7 +58,7 @@ u8 func_801C23C0(FrontendGfxWords **arg0, FrontendRenderContext *arg1) {
                 if (var_f0 <= 120.0f) {
                     sp4C = (cosf((f32) ((f64) (var_f0 - 120.0f) * D_80293778 * 3.0)) * 30.0f) + 90.0f;
                 } else {
-                    sp4C = (cosf((f32) (((f64) (var_f0 - 120.0f) * D_80293780) / 3.0)) * 10.0f) + 110.0f;
+                    sp4C = (cosf((f32) (((f64) (var_f0 - 120.0f) * (0.0174532925199432955)) / 3.0)) * 10.0f) + 110.0f;
                 }
             }
             temp_f14 = sp4C / 120.0f;
@@ -74,7 +72,7 @@ u8 func_801C23C0(FrontendGfxWords **arg0, FrontendRenderContext *arg1) {
             sp50 = D_802D3880[3];
             sp54 = D_802D3880[1] - ((sp4C - 120.0f) / 35.0f);
             if (D_802D3874 != 0) {
-                temp_f12_2 = (f32) ((f64) sp54 * D_80293790);
+                temp_f12_2 = (f32) ((f64) sp54 * (0.0174532925199432955));
                 position[0] += D_802D3878 * sinf(temp_f12_2);
                 position[2] += D_802D3878 * cosf(temp_f12_2);
                 D_802D3878 = (f32) ((f64) D_802D3878 * D_80293798);
@@ -114,8 +112,7 @@ u8 func_801C23C0(FrontendGfxWords **arg0, FrontendRenderContext *arg1) {
         if (D_8004AC88 == 0) {
             D_8004AA38();
         }
-        if (D_8004AD00 < 0xFD) {
-            D_8004AD00 += 3;
+        if (D_8004AD00 < 0xFD) { D_8004AD00 += 3;
         } else {
             D_8004AD00 = 0;
         }
