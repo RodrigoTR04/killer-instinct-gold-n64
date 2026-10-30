@@ -634,3 +634,8 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-ad624ae1. 4 functions matched, 2,112 B (0.73%, over the 0.70% target): func_800269AC (236), func_80025D58 (620, locals copied from the two height tables, per-iteration xor), func_8002F45C (404) and func_8002AB90 (852, `D_80068168` retyped `u32` in audio_game.h). I reviewed the C: there are no empty branches, dummy gotos, volatile or padding. Improved: func_8002B22C 70→66.
 - Clean vet build in the toolbox (applied as one diff onto the lead): the ROM and all 3 images are byte-identical. 338 T4; M1 = M2 = 84,684 / 289,876 B (29.21%).
 - T-136, T-138 and T-139 are still running.
+
+## 2026-10-29 — T-136 vetted after resume (main ≤0x80021B6C): target met
+- Worktree t3-7a045993. 3 stage-init functions matched, 2,416 B (0.83%, over the 0.70% target): func_80018F20 (696), func_8001808C (808) and func_80018AE0 (912). They are straight-line stores through the m2c raw-offset style (D_8004A4C0, D_8004A5E0, D_80061CB8 …); that style is flagged for the FU-13 cleanup. No artificial constructs. Seven-byte table views are typed `u8 (*)[7]`.
+- Clean vet build in the toolbox (applied as one diff on top of T-137): the ROM and all 3 images are byte-identical. 341 T4; M1 = M2 = 87,100 / 289,876 B (30.05%). Uncommitted drafts left in its worktree (800193DC at 7 words, 80017378 at 6) were not taken in.
+- T-138 and T-139 are still running.
