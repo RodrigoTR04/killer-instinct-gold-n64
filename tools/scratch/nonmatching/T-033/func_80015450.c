@@ -1,4 +1,4 @@
-/* T-136 draft: 43 differing words, 324 bytes in prefix context. */
+/* T-136 draft: 40 differing words, 332/324 bytes in prefix context. */
 typedef struct {
     u8 kind;
     u8 pad1[11];
@@ -16,9 +16,9 @@ extern T033RotatingObject D_801D3430[], D_801D5C30[];
 void func_80015450(s32 arg0)
 {
   T033RotatingObject *new_var;
-  u8 *cursor; T033RotatingObject *obj; u8 kind; cursor = (u8 *)D_801D3430; do
+  u8 *cursor; T033RotatingObject *obj; u8 kind; kind = D_801D3430[0].kind; cursor = (u8 *)D_801D3430; while (1)
   {
-    obj = (T033RotatingObject *)cursor; kind = obj->kind;
+    obj = (T033RotatingObject *)cursor;
     if (kind == 0x3B)
     {
       new_var = obj;
@@ -46,6 +46,7 @@ void func_80015450(s32 arg0)
       }
     }
     cursor += 0x100;
+    if (cursor == (u8 *)D_801D5C30) break;
+    kind = ((T033RotatingObject *)cursor)->kind;
   }
-  while (cursor != (u8 *)D_801D5C30);
 }

@@ -58,6 +58,8 @@ Regenerate with `make progress` (writes docs/functions.csv + docs/progress.html)
 - FU-15 (T-035): main has unrecognised libultra code. 19 Controller Pak (pfs) functions in main_24820/24B50/2BA80/2CA60/2CDF0.c match as C built with -O2 -mips1 (per-object Makefile override). They still have func_ names and are counted as eligible T4. Todo: give them libultra names (osPfs*/__osPfs*/__osContRam*), decide whether to reclassify them as SDK, and check main_26480/265B0/26860/24E70 (probably also -mips1 pfs). Several audio functions (func_800405E4, func_800407B4, func_8003D71C, …) look like an inter-procedural -O3 build or hand-written asm.
 - FU-16 (T-040): drafts blocked on float literals in asm-owned main rodata (func_8001CBCC, func_8002A004, func_80018E88 match standalone with `0.017453292f`/`359.0f`/`0.2`) → main needs the same rodata-ownership recipe as T-043 (ovl_7DF8). The recipe is in tools/scratch/nonmatching/T-043/REPORT.md: a `[off, .rodata, <c_tu>]` subsegment per whole TU, 16-B aligned. Part 2 (boot_dma prototype) DONE in T-045.
 
+- FU-17 (lead, 2026-10-29): **docs/OPPORTUNITIES.md** is the opportunity ledger. It has ready-made ≥2,030 B bundles, every near-miss with what was already tried, what the T-136..T-139 workers passed over, and the cross-cutting draft defects (wrong callee arity, stale cached globals, float literals). Workers start there instead of re-screening. `tools/analysis/draft_arity.py` is the arity audit. Refresh the tables after each vetting.
+
 ## Task board
 Status values: Todo · In progress (owner) · Review · Done (verified by lead) · Rejected
 
