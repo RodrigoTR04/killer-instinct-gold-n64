@@ -655,3 +655,8 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Only T-138 is still running.
 
 - T-139 resumed by user ruling (same thread): must add ≥722 B of newly matched T4 beyond the accepted 1,308 B, counted from its commit fccbbfb. Brief points at func_801C9698 (frame only) and the untouched near-misses.
+
+## 2026-10-30 — T-139 resumed report vetted: target met
+- Worktree t3-72b3bdcf, commit 048d39b (diff from fccbbfb). func_801C9698 (1,148 B) matched, so T-139 totals 2,456 B (0.85%, over the 0.70% target) with the four earlier matches.
+- Review: the worker used `union { s32 alpha; char *text; } temporary` to put the row alpha and the text pointer in one stack slot. A union only to steer allocation is too close to an artificial construct, so I replaced it with one plain `s32` reused with a cast to `char *` (the way the original most likely reused one temp). It still builds byte-identical, so that simpler form is what landed.
+- Clean vet build in the toolbox: the ROM and all images are byte-identical. 346 T4; M1 = M2 = 89,556 / 289,876 B (30.89%). Only T-138 is still running.

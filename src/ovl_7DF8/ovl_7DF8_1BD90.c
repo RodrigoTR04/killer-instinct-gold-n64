@@ -521,7 +521,47 @@ char *func_801C9584(u8 arg0, u8 arg1) {
 }
 
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C9698.s")
+void func_801C9698(s32 arg0, FrontendRenderContext *arg1) {
+    s32 r;
+    u8 i;
+    u8 label[3];
+    s32 temporary;
+    f32 y;
+    s32 b;
+    s32 g;
+    y = 225.0f;
+    label[0] = '1';
+    label[1] = ':';
+    label[2] = 0;
+    for (i = 0; i < 8; i++) {
+        temporary = 1;
+        if (i == D_802D39FC) {
+            r = 0xFF;
+            g = 0xE6;
+            b = 0x82;
+            temporary = -1 - D_802D3A01;
+        } else {
+            if (D_80127D00[i] == 0) {
+                g = 0x3C;
+                b = 0x3C;
+                r = 0x3C;
+            } else {
+                r = g = b = 0x87;
+            }
+        }
+        D_802956F4 += func_801BDA6C((FrontendGfxWords **)arg0, arg1->matrices + (D_802956F4 << 6), label, -550.0f, y, -1200.0f, r, g, b, 0xFF, 0.8f);
+        D_802956F4 += func_801BDA6C((FrontendGfxWords **)arg0, arg1->matrices + (D_802956F4 << 6), (u8 *)&D_80127D00[i], -400.0f, y, -1200.0f, 0xFF, 0xFF, 0xFF, 0xFF, temporary);
+        temporary = (s32)func_801C9584(i, 2);
+        D_802956F4 += func_801BDA6C((FrontendGfxWords **)arg0, arg1->matrices + (D_802956F4 << 6), (char *)temporary, 0.0f, y, -1200.0f, r, g, b, 0xFF, 0.8f);
+        label[0]++;
+        y -= 70.0f;
+    }
+    D_802956F4 += func_801BDA6C((FrontendGfxWords **)arg0, arg1->matrices + (D_802956F4 << 6), D_8029532C, -450.0f, -320.0f, -1200.0f, 0xFF, 0xFF, 0xFF, 0xFF, 0.5f);
+    D_802956F4 += func_801BDA6C((FrontendGfxWords **)arg0, arg1->matrices + (D_802956F4 << 6), D_80295340, -450.0f, -380.0f, -1200.0f, 0xFF, 0xFF, 0xFF, 0xFF, 0.5f);
+    D_802956F4 += func_801BDA6C((FrontendGfxWords **)arg0, arg1->matrices + (D_802956F4 << 6), D_80295358, -450.0f, -440.0f, -1200.0f, 0xFF, 0xFF, 0xFF, 0xFF, 0.5f);
+    D_802956F4 += func_801BDA6C((FrontendGfxWords **)arg0, arg1->matrices + (D_802956F4 << 6), D_80295370, 150.0f, -360.0f, -1200.0f, 0xFF, 0xFF, 0xFF, 0xFF, 0.5f);
+    D_802956F4 += func_801BDA6C((FrontendGfxWords **)arg0, arg1->matrices + (D_802956F4 << 6), D_80295380, 150.0f, -420.0f, -1200.0f, 0xFF, 0xFF, 0xFF, 0xFF, 0.5f);
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C9B14.s")
 

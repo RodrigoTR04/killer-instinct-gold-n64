@@ -41,7 +41,7 @@ These are the combinations I would hand out next. None is guaranteed: every func
 | Bundle | Functions (bytes, words off) | Total | Why this grouping |
 |---|---|---:|---|
 | **A: main near-misses** | `func_80017378` (1,752, 6), `func_800193DC` (808, 7), `func_8001BDE0` (316, 8), `func_8002A900` (220, 15), `func_8002FB80` (544, 20) | 3,640 | `800193DC` is a sibling of the three functions T-136 matched and uses their exact recipe. `17378` alone is 0.60%; with `193DC` it clears the quota. |
-| **B: ovl_7DF8 ≤7-word sweep** | `func_801C9698` (1,148, 2: only the 0xB8 vs 0xB0 stack frame is left), `func_801C8004` (236, 6), `func_801B5534` (168, 2), `func_801BF720` (104, 2), `func_801BF914` (116, 2), `func_801C4E38` (556, 2), `func_801B6528` (596, 3), `func_801B695C` (268, 4), `func_801C224C` (372, 6), `func_801BD270` (396, 7), `func_801BE540` (288, 8) | 4,248 | Eleven functions, all within 8 words and exact size. `801BF720`/`801BF914` first need the declaration conflict in `ovl_7DF8_12C70.c` reconciled (true score unknown). `224C`, `BD270`, `BE540` were not touched by any worker this round. |
+| **B: ovl_7DF8 ≤7-word sweep** | `func_801C8004` (236, 6), `func_801B5534` (168, 2), `func_801BF720` (104, 2), `func_801BF914` (116, 2), `func_801C4E38` (556, 2), `func_801B6528` (596, 3), `func_801B695C` (268, 4), `func_801C224C` (372, 6), `func_801BD270` (396, 7), `func_801BE540` (288, 8) | 3,100 | Ten functions, all within 8 words and exact size. `801BF720`/`801BF914` first need the declaration conflict in `ovl_7DF8_12C70.c` reconciled (true score unknown). `224C`, `BD270`, `BE540` were not touched by any worker this round. |
 | **C: carousel pair** | `func_801B5DCC` (1,884), `func_801B5650` (1,916) | 3,800 | One recipe, two functions (similarity 0.885). T-138 got them from 386/423 to 155/271 words (reports, unvetted); whoever finishes `5DCC` gets `5650` almost for free. 1.31% on its own. |
 | **D: 9–50-word band** | 28 functions, 7,084 B (§3) | 7,084 | The best bytes-per-effort pool once A–C are drained. |
 
@@ -105,7 +105,6 @@ If T-138's claimed matches are accepted (§8), several rows above disappear. Ref
 |---|---:|---:|---:|---|---|
 | `func_80014D5C` | 1780 | 135 (prefix) | 6 | main ≤21B6C | T-136: declaration-order search 136→135 (prefix, 1,140 compiles); full-TU alternative reconciles the three legacy declarations (139 words, stack frame 0x20 = target). Early-branch/setup region is where it diverges. |
 | `func_801C4240` | 1344 | 126 | 9 | ovl >BBE88 |  |
-| `func_801C9698` | 1148 | 2 | 6 | ovl >BBE88 | T-139: 135→2 (literals for two late constants, explicit colour branch). Frame is 0xB8 vs 0xB0 (the only difference left). Linked build still required (float pair at .rodata 0x5D0 vs 0xE99C0). |
 | `func_801C3AA0` | 928 | 119 | 6 | ovl >BBE88 | T-139: fresh m2c + 600 s full-TU declaration/layout search: no gain at 119. |
 | `func_801BBE88` | 808 | 147 | 5 | ovl ≤BBE88 | T-138 reports 147→140 (reordered two independent display-list commands). Unvetted. |
 | `func_80017A68` | 772 | 149 [emits 764] | 6 | main ≤21B6C |  |
@@ -226,7 +225,7 @@ Unreconciled declaration conflicts block honest scoring of: `func_801BF720`, `fu
 scores; it is the first step of Bundle B.
 
 Rodata ownership still open: `func_801C23C0` has duplicate late float constants whose owner must be
-decided; `func_801C9698` needs a linked build to confirm the float pair lands at `0xE99C0`. The
+decided; `func_801C9698` is done. The
 string-pool recipe (`force_migration` / `force_not_migration`, T-115/T-123/T-126/T-132; whole-range move
 at `0xE7BF0` by T-139) is documented in `tools/scratch/nonmatching/T-043/REPORT.md`.
 
@@ -248,7 +247,7 @@ at `0xE7BF0` by T-139) is documented in `tools/scratch/nonmatching/T-043/REPORT.
 
 ## 8. Worker claims awaiting vetting (do not count these)
 
-**T-139 final report is vetted (2026-10-29):** `func_801C7F90` 116, `func_801C2ADC` 600, `func_801C85C0` 168 and `func_801CC908` 424 are T4 (1,308 B; M2 now 88,408 B, 30.50%). It fell short of the 2,030 B requirement and said no further match was found; the rows for these four were removed from §2–§4. Its last notes: `func_801C224C` declaration reconciled (full TU, still 6 words); `func_801C9698` is 2 words off on stack-frame size only (1,148 B, the best remaining ovl >BBE88 function); `func_801C4E38` still 2. Only T-138's claims below are outstanding.
+**T-139 is final and vetted (2026-10-30):** `func_801C7F90` 116, `func_801C2ADC` 600, `func_801C85C0` 168, `func_801CC908` 424 and, after being resumed, `func_801C9698` 1,148 are T4 (2,456 B total; M2 now 89,556 B, 30.89%); those rows were removed from §2–§4. `func_801C9698` was fixed by sharing one variable between the row alpha and the text pointer (the stack slot was the whole difference). Its last notes: `func_801C224C` declaration reconciled (full TU, still 6 words); `func_801C4E38` still 2. Only T-138's claims below are outstanding.
 
 T-138 is still running. Its own notes claim the following **matches**; none is merged:
 
@@ -268,7 +267,7 @@ When its final report is vetted, update §1–§4. T-139's improved drafts (`fun
 | T-136 | `func_80018F20` 696, `func_8001808C` 808, `func_80018AE0` 912 | `func_80017378` (1,752 B, 6 words) and `func_8001BDE0` (316, 8) were its first targets and consumed most of its first run without moving; abandoned for the stage-init functions. `func_800193DC` (808 B, 7 words) was left on the table unfinished. `func_80014D5C` (1,780), `func_80015450`, `func_800121C8`, `func_8001373C` only improved by 1–5 words. |
 | T-137 | `func_80025D58` 620, `func_800269AC` 236, `func_8002F45C` 404, `func_8002AB90` 852 | `func_8002B22C` (380 B, 66 words, size exact), `func_8002FB80` (544, 20), `func_8002A900` (220, 15), `func_800268C0` (236, 28). Scanned the whole `>0x80021B6C` range for clone families: none. |
 | T-138 | (claims, §8) | `func_801B5534`, `func_801B6528`, `func_801B695C` (all ≤4 words, 168–596 B) abandoned after probes; `func_801BADEC` (568 B, 100 words), `func_801B0520`, `func_801B1210` not improved. |
-| T-139 | `func_801C7F90` 116, `func_801C2ADC` 600, `func_801C85C0` 168, `func_801CC908` 424 (1,308 B, short of the 2,030 B quota) | `func_801C4E38` (556 B, 2 words) abandoned; `func_801C3AA0` (928 B, no gain from fresh m2c + 600 s search), `func_801C2F5C` (544, 44 words) and `func_801C8004` (236, 6 words) not finished. Never touched `func_801C224C`, `func_801BD270`, `func_801BE540`, `func_801C47E0`, `func_801BD200` (together 1,428 B at ≤14 words). |
+| T-139 | `func_801C7F90` 116, `func_801C2ADC` 600, `func_801C85C0` 168, `func_801CC908` 424 (2,456 B total with `func_801C9698` 1,148) | `func_801C4E38` (556 B, 2 words) abandoned; `func_801C3AA0` (928 B, no gain from fresh m2c + 600 s search), `func_801C2F5C` (544, 44 words) and `func_801C8004` (236, 6 words) not finished. Never touched `func_801C224C`, `func_801BD270`, `func_801BE540`, `func_801C47E0`, `func_801BD200` (together 1,428 B at ≤14 words). |
 
 The consistent pattern: workers abandon a ≤8-word near-miss after a few hundred compiles, because a
 mid-sized function that needs a *structural* fix (wrong arity, stale reload, narrow type) turns into a

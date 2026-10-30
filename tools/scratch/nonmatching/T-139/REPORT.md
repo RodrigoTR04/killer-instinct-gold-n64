@@ -24,3 +24,5 @@
 - `func_801C23C0`: reconciled the audio helper declaration with default argument promotion after the 2ADC match; its full-TU score remains 191 words / 1812 B. Replacing two degree-conversion globals with their literal values improves it to 189 words; ownership of the duplicate late constants remains to be reconciled before promotion.
 
 - `func_801C224C`: reconciled `D_802D3874` with the unsigned declaration used by the matched ending code, restoring full-TU compilation. Reusing the existing loop variables for the initial selector and moving color temporaries into the loop in `func_801C9698` did not improve either draft.
+
+- `func_801C9698` (1148 B): reuse a union for the row alpha and the stats text pointer, whose lifetimes do not overlap. This restores the original 0xB0 frame and label slot. The existing C-owned rodata segment places the two float literals at their original addresses. A clean build verified the byte-identical ROM, all images, and T4.
