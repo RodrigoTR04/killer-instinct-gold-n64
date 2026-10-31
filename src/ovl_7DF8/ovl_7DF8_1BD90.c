@@ -262,7 +262,100 @@ void func_801C7F90(void) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C8004.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C80F0.s")
+extern f32 sinf(f32);
+extern u32 D_80127D00[];
+extern u8 *D_802925CC[];
+extern u8 ***D_80292698[];
+extern f32 D_802926B0[];
+extern s32 D_802956F4;
+extern u8 D_802D39FE[2];
+extern u8 D_802D3A00;
+extern u8 D_802D3A06;
+
+void func_801C80F0(FrontendGfxWords **gfxp, FrontendRenderContext *arg1) {
+    f32 y;
+    f32 x;
+    s32 pulse;
+    s32 r;
+    u8 *name2;
+    u8 ***names;
+    s32 gb;
+    f32 scale;
+    s32 i;
+    u8 *name1;
+    u8 p2;
+    u8 p1;
+    y = D_802926B0[D_802D3A00];
+    p2 = 0;
+    p1 = 1;
+    x = -450.0f;
+    pulse = sinf(arg1->frame * 0.0174532925199432955 * 5.0) * 63.0f + 192.0f;
+    names = D_80292698[D_802D3A00];
+    if (D_802D3A06) {
+        p2 = D_80127D30[0] + 1;
+        p1 = D_80127D30[1] + 1;
+        name1 = (u8 *)&D_80127D00[D_80127D30[0] - 1];
+        name2 = (u8 *)&D_80127D00[D_80127D30[1] - 1];
+    } else {
+        name1 = D_8029530C;
+        name2 = D_80295310;
+    }
+    scale = 0.62f;
+    D_802956F4 += func_801BDA6C(gfxp, arg1->matrices + (D_802956F4 << 6), name1, 75.0f, 230.0f,
+                                -800.0f, 0xFF, 0xFF, 0xFF, 0xFF, scale);
+    D_802956F4 += func_801BDA6C(gfxp, arg1->matrices + (D_802956F4 << 6), name2, 315.0f, 230.0f,
+                                -800.0f, 0xFF, 0xFF, 0xFF, 0xFF, scale);
+    for (i = 0; i < 7; i++) {
+        if (i == 6 - (D_802D3A00 == 0)) {
+            y = -300.0f;
+            if (D_802D3A06) {
+                x = -320.0f;
+            } else {
+                x = -200.0f;
+            }
+        }
+        if (i == 6) {
+            if (i == D_802D39FE[0] || i == D_802D39FE[1]) {
+                r = pulse;
+                gb = 0;
+            } else {
+                gb = 100;
+                r = 100;
+            }
+        } else {
+            r = 0xFF;
+            gb = 0xFF;
+        }
+        if (i == 3) {
+            y -= 50.0f;
+        }
+        D_802956F4 += func_801BDA6C(gfxp, arg1->matrices + (D_802956F4 << 6), *names[i], x, y,
+                                    -800.0f, r, (u8)gb, (u8)gb, 0xFF, 0.65f);
+        if (i != 6) {
+            if (i == D_802D39FE[0]) {
+                r = pulse;
+                gb = 0;
+            } else {
+                r = 100;
+                gb = 100;
+            }
+            D_802956F4 +=
+                func_801BDA6C(gfxp, arg1->matrices + (D_802956F4 << 6),
+                              D_802925CC[D_80127C68[p2].b[i]], 40.0f, y, -800.0f, (u8)gb, r, (u8)gb, 0xFF, 0.5f);
+            if (i == D_802D39FE[1]) {
+                r = pulse ^ 0x3F;
+                gb = 0;
+            } else {
+                r = 100;
+                gb = 100;
+            }
+            D_802956F4 +=
+                func_801BDA6C(gfxp, arg1->matrices + (D_802956F4 << 6),
+                              D_802925CC[D_80127C68[p1].b[i]], 260.0f, y, -800.0f, r, (u8)gb, (u8)gb, 0xFF, 0.5f);
+        }
+        y -= 50.0f;
+    }
+}
 
 extern u32 D_80127D00[8];
 extern u8 D_80127D20[8];
@@ -497,7 +590,33 @@ void func_801C8F28(u8 *arg0)
 
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C90D4.s")
+extern u8 ***D_80292698[];
+extern FrontendGfxWords D_80292748[];
+extern s32 D_802956F4;
+
+extern u8 D_802D3A00;
+extern u8 D_802D3A08;
+extern f32 D_802D3A10[2];
+
+void func_801C90D4(FrontendGfxWords **gfxp, FrontendRenderContext *arg1)
+    {
+    s32 i;
+    FrontendGfxWords *g;
+    f32 target;
+    g = (*gfxp)++; g->w0 = 0x06000000; g->w1 = (u32)D_80292748;
+    D_802956F4 += func_801BE540(gfxp, arg1->matrices + (D_802956F4 << 6), *D_80292698[D_802D3A00][D_802D39FC], 0.0f, 80.0f, -2700.0f, 0xC0, 0xC0, 0xC0, 0xFF, 1.0f);
+    for (i = 0;
+    i < 2;
+    i++) { target = (i == D_802D3A08) * 0.5 + 0.5;
+    if (D_802D3A10[i] < target - 0.03) {
+            D_802D3A10[i] += 0.1;
+    } else if (D_802D3A10[i] > target + 0.03) {
+            D_802D3A10[i] -= 0.1;
+    }
+    }
+    D_802956F4 += func_801BE540(gfxp, arg1->matrices + (D_802956F4 << 6), D_80295314, -60.0f, -30.0f, -600.0f, (u32)(D_802D3A10[1] * 255.0f), (u8)(255.0f - D_802D3A10[1] * 255.0f), (u8)(255.0f - D_802D3A10[1] * 255.0f), 0xFF, D_802D3A10[1]);
+    D_802956F4 += func_801BE540(gfxp, arg1->matrices + (D_802956F4 << 6), D_80295318, 60.0f, -25.0f, -600.0f, (u32)(D_802D3A10[0] * 255.0f), (u8)(255.0f - D_802D3A10[0] * 255.0f), (u8)(255.0f - D_802D3A10[0] * 255.0f), 0xFF, D_802D3A10[0]);
+    }
 
 
 char *func_801C9584(u8 arg0, u8 arg1) {

@@ -685,3 +685,6 @@ T-142 (main near-miss bundle) met the target in one run (about 8 minutes): `func
 
 ## 2026-10-31 — T-144 vetted (lead)
 T-144 (main high half) met the target in one run (~3 h, 1.3 M tokens): `func_800253D0` 1,068 B, `func_80030440` 632 B, `func_80030220` 348 B = 2,048 B. Clean toolbox build with T-142's merge already in the tree (3-way apply, clean): sha1 ba52e91b…, M2 97,900 B = 33.77% (+2,048). Review: no artificial construct. `func_800253D0` keeps m2c-style temporaries (`temp_v0_N = (*arg0)++`) and irregular brace formatting (FU-13 cleanup); `func_80030440` uses ordinary `for` loops.
+
+## 2026-10-31 — T-147 vetted (lead)
+T-147 (ovl_7DF8 high half) met the target in one run (~3 h): `func_801C80F0` 1,232 B and `func_801C90D4` 1,200 B = 2,432 B. Clean toolbox build with T-142 and T-144 already merged: sha1 ba52e91b…, M2 100,332 B = 34.61% (+2,432). Review: no artificial construct. Both are menu renderers in ovl_7DF8_1BD90.c; the `(u8)` argument casts match the callee's byte parameters; float constants are inline C literals (no yaml/symbol changes were needed). Formatting of `func_801C90D4` is irregular (FU-13).
