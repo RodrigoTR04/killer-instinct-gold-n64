@@ -42,7 +42,7 @@ These are the combinations I would hand out next. None is guaranteed: every func
 |---|---|---:|---|
 | **A: main near-misses** | `func_80017378` (1,752, 6), `func_800193DC` (808, 7), `func_8001BDE0` (316, 8), `func_8002A900` (220, 15), `func_8002FB80` (544, 20) | 3,640 | `800193DC` is a sibling of the three functions T-136 matched and uses their exact recipe. `17378` alone is 0.60%; with `193DC` it clears the quota. |
 | **B: ovl_7DF8 ≤7-word sweep** | `func_801C8004` (236, 6), `func_801B5534` (168, 2), `func_801BF720` (104, 2), `func_801BF914` (116, 2), `func_801C4E38` (556, 2), `func_801B695C` (268, 4), `func_801C224C` (372, 6), `func_801BD270` (396, 7), `func_801BE540` (288, 8) | 2,504 | Eight functions, all within 8 words and exact size. `801BF720`/`801BF914` first need the declaration conflict in `ovl_7DF8_12C70.c` reconciled (true score unknown). `224C`, `BD270`, `BE540` were not touched by any worker this round. |
-| **C: carousel pair** | `func_801B5DCC` (1,884), `func_801B5650` (1,916) | 3,800 | One recipe, two functions (similarity 0.885). **T-141 (lead-measured via its NOTES): `5DCC` 15 words exact size, `5650` 31 words and 4 B oversize.** Remaining diffs: selected record pointer in `v1` vs `v0`; `-10.0f` and height-conversion FP temporaries swapped; card-pointer load scheduled after the height store; in `5650` an extra late unconditional branch from the `if (state != 5) {…} return result; return 0;` shape. Tried and failed: recompute record at final store (285 words), defer `-10.0f` into the state paths (1,928 B), early return of state 5 (99 words), narrowed index, field-offset pointer, local-region permuter with `--stack-diffs`. 1.31% on its own; needs a new idea for the record-pointer lifetime. |
+| **C: carousel pair** | `func_801B5DCC` (1,884), `func_801B5650` (1,916) | 3,800 | One recipe, two functions (similarity 0.885). **Latest (T-145): `5DCC` 11 words exact size, `5650` 30 words and 4 B oversize (T-141 had 15/31).** Remaining diffs: selected record pointer in `v1` vs `v0`; `-10.0f` and height-conversion FP temporaries swapped; card-pointer load scheduled after the height store; in `5650` an extra late unconditional branch from the `if (state != 5) {…} return result; return 0;` shape. Tried and failed: recompute record at final store (285 words), defer `-10.0f` into the state paths (1,928 B), early return of state 5 (99 words), narrowed index, field-offset pointer, local-region permuter with `--stack-diffs`. 1.31% on its own; needs a new idea for the record-pointer lifetime. |
 | **D: 9–50-word band** | 28 functions, 7,084 B (§3) | 7,084 | The best bytes-per-effort pool once A–C are drained. |
 
 If T-138's claimed matches are accepted (§8), several rows above disappear. Refresh the tables after vetting.
@@ -52,17 +52,13 @@ If T-138's claimed matches are accepted (§8), several rows above disappear. Ref
 | Function | Bytes | Words off | Prior reports | Range | Notes |
 |---|---:|---:|---:|---|---|
 | `func_801B5534` | 168 | 2 | 10 | ovl ≤BBE88 | 2-word spill-slot difference. T-138: type, index, offset, explicit remainder, pointer-view probes. No gain. |
-| `func_801BF720` | 104 | 2 (prefix) | 16 | ovl >BBE88 | Scores 2 only in *prefix* context: the full TU hits `redeclaration … incompatible parameter type`. Reconcile the declaration in `ovl_7DF8_12C70.c` first; the true count is unknown. Nobody touched it this round. |
-| `func_801BF914` | 116 | 2 (prefix) | 16 | ovl >BBE88 | Same as `func_801BF720` (same TU, same declaration conflict). Fix both together = 220 B. |
 | `func_801C4E38` | 556 | 2 | 16 | ovl >BBE88 | Scored with TU declarations. Left: stack spill at +0x18 instead of +0x1C. T-139: selector/handler locals, branch-local state (moves spill right but frame grows 0x20→0x28), reusing an arg after last use. Chained-clear order was reversed to match relocation targets (no score change). |
-| `func_801B695C` | 268 | 4 (prefix) | 16 | ovl ≤BBE88 | 4 stack-frame differences (prefix context). T-138: offset assignments inside copy arguments, distinct offset locals. No gain. |
 | `func_801C224C` | 372 | 6 | 8 | ovl >BBE88 | **Not touched by T-136..T-139 so far.** 8 prior reports. |
 | `func_800193DC` | 808 | 7 | 7 | main ≤21B6C | T-136 took it to 7 words (full TU, exact size) and then left it, moving to its three stage-init siblings. Same family and recipe as the matched `func_8001808C`/`80018AE0`/`80018F20` (raw-offset stores via `D_8004A4C0`, `D_8004A5E0` viewed as `u8 (*)[7]`, float *literals* instead of `D_80048904`-style globals). Draft updated in lead tree. **Cheapest 800 B left.** |
 | `func_801BD270` | 396 | 7 | 11 | ovl >BBE88 | **Not touched by T-136..T-139 so far.** 11 prior reports. |
 | `func_8001BDE0` | 316 | 8 | 13 | main ≤21B6C | Differs only in which FP registers hold threshold and scale. T-136: argument/local layouts, comparison forms, loop forms, const-qualified constants, alternate 3rd-arg ABI (worse), for/do loops, separate fwd/rev cursors, 300 s permuter. None below 8. |
 | `func_801BE540` | 288 | 8 | 8 | ovl >BBE88 | **Not touched by T-136..T-139 so far.** 8 prior reports. |
 | `func_80032738` | 20 | 10 [emits 40] | 3 | main >21B6C | Handwritten-ABI cluster (see §5). |
-| `func_801C47E0` | 260 | 11 | 8 | ovl >BBE88 | **Not touched by T-136..T-139 so far.** |
 | `func_801BD200` | 112 | 14 | 8 | ovl >BBE88 | **Not touched by T-136..T-139 so far.** |
 | `func_8002A900` | 220 | 15 | 13 | main >21B6C | T-137: argument, loop, local-variable, type variants; sequence-loop rewrite search. No gain. |
 | `func_80032750` | 60 | 15 [emits 44] | 3 | main >21B6C | Handwritten-ABI cluster (see §5). |
@@ -83,7 +79,6 @@ If T-138's claimed matches are accepted (§8), several rows above disappear. Ref
 | `func_801C3758` | 564 | 30 | 12 | ovl >BBE88 |  |
 | `func_80031050` | 112 | 30 (declarations) [emits 120] | 3 | main >21B6C | Handwritten-ABI cluster (§5). |
 | `func_80032600` | 112 | 37 [emits 148] | 3 | main >21B6C |  |
-| `func_801BEEA4` | 344 | 39 [emits 356] | 6 | ovl >BBE88 | [emits 356] |
 | `func_801BBB60` | 292 | 40 | 12 | ovl ≤BBE88 | T-138 reports 29 (for-loop palette clears, split flag/buffer init). Unvetted. |
 | `func_801BE660` | 300 | 41 | 7 | ovl >BBE88 |  |
 | `func_80032670` | 116 | 45 [emits 180] | 3 | main >21B6C |  |
@@ -104,7 +99,6 @@ If T-138's claimed matches are accepted (§8), several rows above disappear. Ref
 | `func_801C1434` | 720 | 132 | 5 | ovl >BBE88 |  |
 | `func_8001BB64` | 636 | 142 (declarations) [emits 632] | 9 | main ≤21B6C |  |
 | `func_801C2ADC` | 600 | 71 | 6 | ovl >BBE88 |  |
-| `func_801C11F0` | 580 | 113 [emits 584] | 6 | ovl >BBE88 |  |
 | `func_801BD3FC` | 580 | 134 [emits 484] | 5 | ovl >BBE88 |  |
 | `func_801AFFAC` | 576 | 99 | 5 | ovl ≤BBE88 |  |
 | `func_8002FDA0` | 572 | 107 [emits 556] | 7 | main >21B6C |  |
@@ -238,8 +232,7 @@ T-138 is final and vetted (2026-10-30). Four of its five claimed matches are in 
 
 | Worker | Function | Bytes | Claim |
 |---|---|---:|---|
-| T-138 | `func_801BA884` | 500 | REJECTED: ends in `do { …; if (frame < 0xC) break; D_801F39EC = clear; } while (0);`, a layout-only wrapper (same as a plain `if`). I tested a plain `if`, an early `return`, a `frame = 0` select and a literal-0 variant: none match. Needs a different honest structure; the worker's text is kept at `tools/scratch/nonmatching/T-138/func_801BA884-do-once.c`. |
-
+| T-138 
 T-138's branch (`t3/t-138-ovl-7df8-matches`) also holds improved
 non-matching drafts (e.g. `func_801B1DE4` at 15 words, `func_801BAA78` at 15, carousel pair at 155/271).
 When its final report is vetted, update §1–§4. T-139's improved drafts (`func_801C9698` 2, `func_801C8004` 6, `func_801C23C0` 189) are already in the tree.
@@ -324,3 +317,8 @@ Matched: `func_801AD114` 628 B (real no-argument callees, byte-width player inde
 ## 16. T-143 round (main low half, 2,296 B landed, vetted 2026-10-31)
 
 Matched: `func_80015450` 324 B (indexed 40-object loop, full-width kind snapshot, typed views), `func_80016078` 480 B (display-list setup; a `FILL_RECTANGLE_COMMAND(pkt, …)` macro evaluates `g++` once), `func_800170C4` 692 B (indexed vertex-copy and object-update loops, compound speed update), `func_80017D6C` 800 B (direct indexed transform-array access, stage-part view for indices 0 and 23, float literals). Improved but not matching (full-TU words / bytes; drafts copied into the tree from the worker's uncommitted work): `func_80014D5C` **14**/1,780 (best new main near-miss: ~1.8 KB), `func_800121C8` 22/304, `func_80012390` 67/476, `func_8001272C` 86/540, `func_8001BB64` 98/636, `func_8001CD50` 46/460, `func_8001D080` 74/764, `func_8001D47C` 134/748, `func_8001346C` 166/704, `func_8001DE5C` 155/600, `func_8001E33C` 522/2,360 (needs player-index cleanup). Passed over: `func_8000FA80` 7,436, `func_8001178C` 2,104, `func_80012B7C` 1,576, `func_800142E0` 2,400, `func_80015594` 1,488, `func_800191F0` 492, `func_80019880` 4,456, `func_8001D7E4` 1,656, `func_8001EC74` 8,740, `func_80020E98` 2,108, `func_800216D4` 1,032, `func_80021B6C` 6,896.
+
+
+## 17. T-145 round (ovl_7DF8 near-miss bundle, 2,172 B landed, vetted 2026-10-31)
+
+Matched: `func_801B695C` 268 (a two-dimensional texture-buffer view instead of one overloaded offset), `func_801BA884` 500 (shared counter pointer `counter = &D_801F39EC`, separate `x0/x1/y0/y1` positions as in the sibling draw routines `func_801BA674` etc., result assigned once; the lead tested a single Y local and inlined expressions: both break the match, so the two identical Y computations are real family structure, not a trick), `func_801BEEA4` 344 (typed score entries `{data, u16 score}`, descending copy cursor with `memcpy`), `func_801BF720` 104 and `func_801BF914` 116 (single result variable assigned in the letter branch and the switch, one return), `func_801C11F0` 580 (byte casts, shared phase reads, declaration order), `func_801C47E0` 260 (SDK TLB prototypes, two-stage page-offset calculation). Still open in this bundle: carousel `func_801B5DCC` (1,884 B, 11 words), `func_801B5650` (1,916 B, 30 words, 4 B oversize), `func_801B1DE4` (556 B, 13 words), `func_801BAA78` (884 B, 14 words). Worker notes in `tools/scratch/nonmatching/T-145/` (if present) and the T-141 notes.

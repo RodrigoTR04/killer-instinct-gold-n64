@@ -1,4 +1,4 @@
-/* T-138 DRAFT: 15 differing words, 884/884 B; scale and command cursor follow matched siblings. */
+/* T-145 DRAFT: 14 differing words, 884/884 B in the full TU. */
 typedef struct { u8 pad[0x7E]; u16 scale; s16 yOffset; } T023State801BAA78;
 typedef struct { u32 w0, w1; } T023GfxBAA78;
 extern void func_801BC1B0(s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, f32, f32, s32, s32);
@@ -19,7 +19,7 @@ void func_801BAA78(s32 arg0, s32 arg1, s32 arg2, s32 arg3, T023State801BAA78 *ar
     arg3 = arg2 * 4;
     yOffsetScaled = arg4->yOffset * 4; y0 = arg3 + ((s32)(arg4->scale * 0xB4) >> 0xA) + yOffsetScaled;
     x1 = (arg1 * 4) + ((s32)(((arg5 * 0x13) + 0x71) * arg4->scale) >> 0xA);
-    y1 = arg3 + ((s32)(arg4->scale * 0x350) >> 0xA) + (arg4->yOffset * 4);
+    y1 = (arg2 * 4) + ((s32)(arg4->scale * 0x350) >> 0xA) + (arg4->yOffset * 4);
     if (arg5 != 0) {
         x0 = 0x9B0 - x0;
         x1 = 0x9B0 - x1;

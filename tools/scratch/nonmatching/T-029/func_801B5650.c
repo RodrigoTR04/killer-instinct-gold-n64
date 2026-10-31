@@ -1,4 +1,4 @@
-/* T-111: 31 differing words, 1920 compiled bytes. DRAFT. Remaining diff: Carousel float lifetimes, matrix-call scheduling, frame and temporary registers differ. */
+/* T-111: 30 differing words, 1920 compiled bytes. DRAFT. Remaining diff: Carousel float lifetimes, matrix-call scheduling, frame and temporary registers differ. */
 extern void func_801B5534(u8);
 extern void func_801B446C(u8);
 struct T029Gfx801B6528;
@@ -23,7 +23,7 @@ s32 func_801B5650(u32 **arg0, T029LeftCard *arg1, u8 *arg2, s32 arg3) {
     s32 index;
     s32 circumference;
     s32 state;
-    CardHeights *record;
+    CardHeights *record = D_802C8C30;
     u32 *command;
     state = D_802C8D06;
     result = 3;
@@ -43,7 +43,7 @@ s32 func_801B5650(u32 **arg0, T029LeftCard *arg1, u8 *arg2, s32 arg3) {
     if (circumference - 90 < angle) angle -= circumference;
     else if (angle < -D_802C8C2A * 24 + 90) angle += circumference;
     if (angle > 90.0f || angle < -90.0f) return 0;
-    record = &D_802C8C30[index];
+    record += index;
     height = record->left;
     z = -10.0f;
     rotation = *(f32 *)((u8 *)D_802C8C60 + index * 8);

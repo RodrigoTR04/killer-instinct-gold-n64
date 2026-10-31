@@ -99,7 +99,25 @@ void func_801C0784(s32 arg0, u32 arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C08F8.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C11F0.s")
+extern u8 D_8004A407;
+extern s8 D_80292CC4;
+extern f32 D_80292CF0;
+extern s32 D_802956F4, D_802CA068, D_802D3818[];
+void func_801C11F0(s32 list, s32 unused, s32 side, s32 player) {
+    f32 x;
+    s8 digit[2];
+    s32 shade;
+    if (D_8004A407) player = 0;
+    shade = (D_802D3818[player] % 100) * 255 / 100;
+    if (shade >= 65 && shade < 192) shade = 63;
+    if (shade >= 193) shade = 255 - shade;
+    shade *= 4;
+    x = side * 218;
+    digit[1] = 0;
+    digit[0] = D_802D3818[player] / 100 + '0';
+    D_802956F4 += func_801BE540((FrontendGfxWords **)list, (void *)((D_802956F4 << 6) + D_802CA068), (u8 *)&D_80292CC4, x, 75.0f, -500.0f, 255, 255, 255, 255, 0.75f);
+    D_802956F4 += func_801BE540((FrontendGfxWords **)list, (void *)((D_802956F4 << 6) + D_802CA068), (u8 *)digit, x, 0.0f, -500.0f, (u8)shade, (u8)shade, (u8)shade, 255, D_80292CF0);
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C1434.s")
 

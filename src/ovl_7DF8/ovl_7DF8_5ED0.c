@@ -960,7 +960,25 @@ void func_801B677C(u8 arg0, f32 *arg1, f32 *arg2, f32 *arg3, u16 arg4)
   }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B695C.s")
+extern u8 D_802C8CC8[];
+extern u8 D_802C8D08[];
+extern u8 D_802C8808[][512];
+typedef struct T029Asset { u8 pad[8]; u8 *frames; } T029Asset;
+
+void func_801B695C(T029Asset *arg0, s32 arg1) {
+    u8 *frame;
+
+    if (arg0 != 0 && arg0->frames != 0) {
+        frame = (D_802C8CC8[arg1] * 3 << 5) + arg0->frames;
+        D_802C8D08[arg1] ^= 0x40;
+        if (D_802C8CC8[arg1] < 8) {
+            memcpy(D_802C8808[arg1] + D_802C8D08[arg1] * 2, arg0->frames, 0x60);
+        } else {
+            memcpy(D_802C8808[arg1] + D_802C8D08[arg1] * 2, frame, 0x60);
+        }
+        memcpy(D_802C8808[arg1] + D_802C8D08[arg1] * 2 + 0x100, frame, 0x60);
+    }
+}
 
 typedef struct T029Gfx801B6A68 { u32 w0, w1; } T029Gfx801B6A68;
 extern u8 D_802C8D08[];
@@ -1180,7 +1198,36 @@ void func_801BA674(s32 arg0, s32 arg1, s32 arg2, s32 arg3, T023State801BA674 *ar
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BA884.s")
+typedef struct { u8 pad[0x7E]; u16 scale; s16 yOffset; } T023State801BA884;
+extern void func_801BC1B0(s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, f32, f32, s32, s32);
+extern s32 D_801F39EC;
+extern u8 D_801F39F0[];
+extern u8 D_801F39F4[];
+
+void func_801BA884(s32 arg0, s32 arg1, s32 arg2, s32 arg3, T023State801BA884 *arg4, s32 arg5)
+{
+    s32 firstY;
+    s32 *counter;
+    s32 x1;
+    s32 secondY;
+    s32 frame;
+    s32 x0;
+    counter = &D_801F39EC;
+    x0 = (arg1 * 4) + (((s32) (((arg5 * 0x15) + 0x1CC) * arg4->scale)) >> 0xA);
+    firstY = ((arg2 * 4) + (((s32) (arg4->scale * 0x70)) >> 0xA)) + (arg4->yOffset * 4);
+    secondY = ((arg2 * 4) + (((s32) (arg4->scale * 0x70)) >> 0xA)) + (arg4->yOffset * 4);
+    x1 = (arg1 * 4) + (((s32) (arg4->scale * 0x12C)) >> 0xA);
+    if (arg5 != 0)
+    {
+        x0 = 0x9B0 - x0;
+        x1 = 0x9B0 - x1;
+    }
+    func_801BC1B0(arg0, *((s32 *) (D_801F39F0 + (*counter * 8))), 2, 0x20, 0x40, 0x20, 0x40, 0, 0, 0x1F, 0x3F, (f32) x0, (f32) firstY, ((s32) (arg4->scale * 4)) / 3, arg5);
+    func_801BC1B0(arg0, *((s32 *) (D_801F39F4 + (*counter * 8))), 2, 0x34, 0x1C, 0x34, 0x1C, 0, 0, 0x33, 0x1B, (f32) x1, (f32) secondY, (s32) arg4->scale, arg5);
+    frame = *counter + 1;
+    *counter = frame;
+    if (frame >= 0xC) *counter = 0;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BAA78.s")
 
