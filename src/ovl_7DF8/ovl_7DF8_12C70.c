@@ -157,7 +157,7 @@ void func_801BF678(s8 *out, s32 value)
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_12C70/func_801BF720.s")
 
-extern s32 func_801BF720(s32);
+extern s32 func_801BF720(u32);
 u8 *func_801BF788(u8 *arg0, u8 *arg1, s32 count) {
     s32 i;
     s32 first;
@@ -198,7 +198,7 @@ void func_801BF850(u8 *arg0)
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_12C70/func_801BF914.s")
 
-extern s32 func_801BF914(s32);
+extern s32 func_801BF914(u32);
 
 u8 *func_801BF988(u8 *arg0, u8 *arg1, s32 count) {
     u32 packed;

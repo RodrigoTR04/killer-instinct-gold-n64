@@ -42,7 +42,7 @@ These are the combinations I would hand out next. None is guaranteed: every func
 |---|---|---:|---|
 | **A: main near-misses** | `func_80017378` (1,752, 6), `func_800193DC` (808, 7), `func_8001BDE0` (316, 8), `func_8002A900` (220, 15), `func_8002FB80` (544, 20) | 3,640 | `800193DC` is a sibling of the three functions T-136 matched and uses their exact recipe. `17378` alone is 0.60%; with `193DC` it clears the quota. |
 | **B: ovl_7DF8 ≤7-word sweep** | `func_801C8004` (236, 6), `func_801B5534` (168, 2), `func_801BF720` (104, 2), `func_801BF914` (116, 2), `func_801C4E38` (556, 2), `func_801B695C` (268, 4), `func_801C224C` (372, 6), `func_801BD270` (396, 7), `func_801BE540` (288, 8) | 2,504 | Eight functions, all within 8 words and exact size. `801BF720`/`801BF914` first need the declaration conflict in `ovl_7DF8_12C70.c` reconciled (true score unknown). `224C`, `BD270`, `BE540` were not touched by any worker this round. |
-| **C: carousel pair** | `func_801B5DCC` (1,884), `func_801B5650` (1,916) | 3,800 | One recipe, two functions (similarity 0.885). T-138 got them from 386/423 to 155/271 words (reports, unvetted); whoever finishes `5DCC` gets `5650` almost for free. 1.31% on its own. |
+| **C: carousel pair** | `func_801B5DCC` (1,884), `func_801B5650` (1,916) | 3,800 | One recipe, two functions (similarity 0.885). **T-141 (lead-measured via its NOTES): `5DCC` 15 words exact size, `5650` 31 words and 4 B oversize.** Remaining diffs: selected record pointer in `v1` vs `v0`; `-10.0f` and height-conversion FP temporaries swapped; card-pointer load scheduled after the height store; in `5650` an extra late unconditional branch from the `if (state != 5) {…} return result; return 0;` shape. Tried and failed: recompute record at final store (285 words), defer `-10.0f` into the state paths (1,928 B), early return of state 5 (99 words), narrowed index, field-offset pointer, local-region permuter with `--stack-diffs`. 1.31% on its own; needs a new idea for the record-pointer lifetime. |
 | **D: 9–50-word band** | 28 functions, 7,084 B (§3) | 7,084 | The best bytes-per-effort pool once A–C are drained. |
 
 If T-138's claimed matches are accepted (§8), several rows above disappear. Refresh the tables after vetting.
@@ -77,7 +77,6 @@ If T-138's claimed matches are accepted (§8), several rows above disappear. Ref
 | `func_801C0800` | 248 | 21 | 7 | ovl >BBE88 |  |
 | `func_801B0520` | 328 | 22 | 9 | ovl ≤BBE88 | T-138: alternate frame/local views, no gain. |
 | `func_801C8004` | 236 | 6 | 6 | ovl >BBE88 | T-139 reports 6 words (compound OR on the byte mask; one cursor for both scans). |
-| `func_801C48E4` | 196 | 25 | 6 | ovl >BBE88 |  |
 | `func_8003278C` | 92 | 26 [emits 104] | 3 | main >21B6C |  |
 | `func_8001373C` | 256 | 28 (prefix) | 10 | main ≤21B6C | T-136: distance/local-ownership and impulse-type variants never beat 28. |
 | `func_800268C0` | 236 | 28 (declarations) | 7 | main >21B6C | T-137: typed and aggregate dimension-copy variants, offset groupings: no gain. |
@@ -270,3 +269,22 @@ The consistent pattern: workers abandon a ≤8-word near-miss after a few hundre
 mid-sized function that needs a *structural* fix (wrong arity, stale reload, narrow type) turns into a
 full match faster. That is the right call under a hard quota, but it leaves the near-misses to a task
 that is dedicated to them.
+
+## 10. T-141 round (stopped by the user 2026-10-31, 196 B landed)
+
+Matched: `func_801C48E4` (196 B; `u16` dimension args, `u32` callee args). Full table of 25 functions with start/best words is in `tools/scratch/nonmatching/T-141/NOTES.md`. Highlights for the next brief:
+
+| Function | Bytes | Before → best words | Note |
+|---|---:|---|---|
+| `func_801BEEA4` | 344 | 39 → 16 | shared insertion index and position scalar; best new mid-size lead |
+| `func_801C11F0` | 580 | 113 → 90 | separate intensity scalar restored the 580 B size; frame and registers still differ |
+| `func_801C47E0` | 260 | 11 → 10 | bank value reused for the transfer length |
+| `func_801BADEC` | 568 | 100 → 99 | shared vertical offset |
+| `func_801BF720`, `func_801BF914` | 104+116 | → 2 each (full TU now) | declaration conflict reconciled (`u32` params); 2 words left, many forms tried |
+| `func_801B695C` | 268 | → 4 (full TU) | frame 0x28 vs spill slots trade-off |
+| `func_801BD270` | 396 | 7 | callee `func_8002B6EC` is zero-arg; remaining words are the order/registers of the 64-bit controller result pack |
+| `func_801C5298` | 3,036 | 741 → 738 | declaration diagnostic: `func_801C48E4` takes 3 args, `func_800131A4` 6; needs full-TU reconciliation |
+| `func_801AD114` | 628 | 88 | correcting two no-arg callees gave 123 words / 608 B: target keeps argument setup through call branches |
+| `func_801C49A8` | 548 | 83 | correct reload variant scored 108: old draft caches a global across a call |
+
+Pattern: the one match came from argument and callee *types* (narrow inputs, unsigned callee params), not from scheduling. Near-misses at ≤15 words resisted all structural variants; the T-141 worker burned five resumes on them for 0 B.

@@ -814,8 +814,8 @@ s32 func_801B4324(u8 arg0) {
     return 0;
 }
 
-extern void memcpy(void *, void *, s32);
-extern u32 guRandom(void);
+extern void *memcpy(void *, const void *, u32);
+extern s32 guRandom(void);
 extern u8 D_80128340[];
 extern u8 D_80128349;
 extern u8 D_801F3530;
