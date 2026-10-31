@@ -2,7 +2,6 @@
 /* T-059 DRAFT: 141 relocation-masked positional words differ; 748 emitted bytes. See T-059/REPORT.md. */
 extern u8 D_8004AC88;
 extern u8 D_8004EA9E[];
-extern u8 D_8004CE90[];
 extern s32 D_8004EA78;
 extern u8 D_8004EA9A;
 extern u8 D_8004EAB8;
@@ -31,7 +30,7 @@ void func_8001D47C(u8 arg0) {
     if (D_8004EA9A == 0xB) {
         var_v0 = &D_800614A0;
     } else {
-        var_v0 = (temp_t6 << 5) + D_8004CE90;
+        var_v0 = (u16 *)((temp_t6 << 5) + (u8 *)D_8004CE90);
     }
     if (D_8004AC88 == 0xC) {
         if (D_8004EA78 == 1) {

@@ -85,7 +85,6 @@ If T-138's claimed matches are accepted (§8), several rows above disappear. Ref
 | `func_80032600` | 112 | 37 [emits 148] | 3 | main >21B6C |  |
 | `func_801BEEA4` | 344 | 39 [emits 356] | 6 | ovl >BBE88 | [emits 356] |
 | `func_801BBB60` | 292 | 40 | 12 | ovl ≤BBE88 | T-138 reports 29 (for-loop palette clears, split flag/buffer init). Unvetted. |
-| `func_80015450` | 324 | 40 (prefix) [emits 332] | 8 | main ≤21B6C | T-136: byte-cursor + 'current object' view 48→40 (prefix). Loop/index scheduling remains. Full TU has declaration conflicts. |
 | `func_801BE660` | 300 | 41 | 7 | ovl >BBE88 |  |
 | `func_80032670` | 116 | 45 [emits 180] | 3 | main >21B6C |  |
 | `func_800121C8` | 304 | 46 | 9 | main ≤21B6C | T-136: packed-input snapshot 47→46. |
@@ -103,7 +102,6 @@ If T-138's claimed matches are accepted (§8), several rows above disappear. Ref
 | `func_801C3AA0` | 928 | 119 | 6 | ovl >BBE88 | T-139: fresh m2c + 600 s full-TU declaration/layout search: no gain at 119. |
 | `func_8001D47C` | 748 | 134 (declarations) [emits 744] | 8 | main ≤21B6C |  |
 | `func_801C1434` | 720 | 132 | 5 | ovl >BBE88 |  |
-| `func_800170C4` | 692 | 134 (declarations) [emits 696] | 7 | main ≤21B6C |  |
 | `func_8001BB64` | 636 | 142 (declarations) [emits 632] | 9 | main ≤21B6C |  |
 | `func_801C2ADC` | 600 | 71 | 6 | ovl >BBE88 |  |
 | `func_801C11F0` | 580 | 113 [emits 584] | 6 | ovl >BBE88 |  |
@@ -321,3 +319,8 @@ Matched: `func_801C80F0` 1,232 B (packed-name addresses corrected, name-table se
 ## 15. T-146 round (ovl_7DF8 low half, 2,620 B landed, vetted 2026-10-31)
 
 Matched: `func_801AD114` 628 B (real no-argument callees, byte-width player index, value lifetime of the selection global), `func_801AD7D8` 556 B (graphics-task submit: `rspboot_end` and `D_800427E0` are two symbols at the same address, the end of the boot microcode and the start of the graphics microcode, as in the SDK's `rspbootTextEnd`/`ucodeTextStart`; `symbol_addrs` has `allow_duplicated:True` for both), `func_801B6BD8` 628 B (direct count accumulation, `(u8)(255 - x)` byte colour expressions, local declaration order), `func_801BBE88` 808 B (display-list drawing; the lead folded the worker's two cursors and `p1 = *arg0; *arg0 = p1 + 1` into plain `(*arg0)++`, still matching). Improved but not matching: `func_801B2B8C` 872 B at **8 words** (best new ovl near-miss; the draft keeps the original completed-animation path's uninitialized alpha read), `func_801B0668` 984 B at 114, `func_801BBB60` 292 B at 26. Passed over: `func_801B5534` 168, `func_801ADA04` 208, `func_801B0520` 328, `func_801B1210` 284, `func_801B446C` 292, `func_801BBC84` 516, `func_801AFFAC` 576, `func_801BADEC` 568, `func_801ACB1C` 744, `func_801B1A7C` 872, `func_801B3DB0` 1,360.
+
+
+## 16. T-143 round (main low half, 2,296 B landed, vetted 2026-10-31)
+
+Matched: `func_80015450` 324 B (indexed 40-object loop, full-width kind snapshot, typed views), `func_80016078` 480 B (display-list setup; a `FILL_RECTANGLE_COMMAND(pkt, …)` macro evaluates `g++` once), `func_800170C4` 692 B (indexed vertex-copy and object-update loops, compound speed update), `func_80017D6C` 800 B (direct indexed transform-array access, stage-part view for indices 0 and 23, float literals). Improved but not matching (full-TU words / bytes; drafts copied into the tree from the worker's uncommitted work): `func_80014D5C` **14**/1,780 (best new main near-miss: ~1.8 KB), `func_800121C8` 22/304, `func_80012390` 67/476, `func_8001272C` 86/540, `func_8001BB64` 98/636, `func_8001CD50` 46/460, `func_8001D080` 74/764, `func_8001D47C` 134/748, `func_8001346C` 166/704, `func_8001DE5C` 155/600, `func_8001E33C` 522/2,360 (needs player-index cleanup). Passed over: `func_8000FA80` 7,436, `func_8001178C` 2,104, `func_80012B7C` 1,576, `func_800142E0` 2,400, `func_80015594` 1,488, `func_800191F0` 492, `func_80019880` 4,456, `func_8001D7E4` 1,656, `func_8001EC74` 8,740, `func_80020E98` 2,108, `func_800216D4` 1,032, `func_80021B6C` 6,896.

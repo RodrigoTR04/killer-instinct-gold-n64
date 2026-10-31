@@ -151,12 +151,12 @@ main,func_80014250,0x80014250,0x48F0,144,T4,
 main,func_800142E0,0x800142E0,0x4980,2400,T2,draft tools/scratch/nonmatching/T-033/ (non-matching)
 main,func_80014C40,0x80014C40,0x52E0,284,T4,
 main,func_80014D5C,0x80014D5C,0x53FC,1780,T2,draft tools/scratch/nonmatching/T-033/ (non-matching)
-main,func_80015450,0x80015450,0x5AF0,324,T2,draft tools/scratch/nonmatching/T-033/ (non-matching)
+main,func_80015450,0x80015450,0x5AF0,324,T4,draft tools/scratch/nonmatching/T-033/ (non-matching)
 main,func_80015594,0x80015594,0x5C34,1488,T2,draft tools/scratch/nonmatching/T-033/ (non-matching)
 main,func_80015B64,0x80015B64,0x6204,364,T4,
 main,func_80015CD0,0x80015CD0,0x6370,668,T4,
 main,func_80015F6C,0x80015F6C,0x660C,268,T4,
-main,func_80016078,0x80016078,0x6718,480,T2,draft tools/scratch/nonmatching/T-033/ (non-matching)
+main,func_80016078,0x80016078,0x6718,480,T4,draft tools/scratch/nonmatching/T-033/ (non-matching)
 main,func_80016258,0x80016258,0x68F8,1288,T4,
 main,func_80016760,0x80016760,0x6E00,196,T4,
 main,func_80016824,0x80016824,0x6EC4,228,T4,
@@ -164,11 +164,11 @@ main,func_80016908,0x80016908,0x6FA8,8,T4,
 main,func_80016910,0x80016910,0x6FB0,720,T4,
 main,func_80016BE0,0x80016BE0,0x7280,1156,T4,
 main,func_80017064,0x80017064,0x7704,96,T4,
-main,func_800170C4,0x800170C4,0x7764,692,T2,draft tools/scratch/nonmatching/T-033/ (non-matching)
+main,func_800170C4,0x800170C4,0x7764,692,T4,draft tools/scratch/nonmatching/T-033/ (non-matching)
 main,func_80017378,0x80017378,0x7A18,1752,T4,draft tools/scratch/nonmatching/T-033/ (non-matching)
 main,func_80017A50,0x80017A50,0x80F0,24,T4,
 main,func_80017A68,0x80017A68,0x8108,772,T4,draft tools/scratch/nonmatching/T-033/ (non-matching)
-main,func_80017D6C,0x80017D6C,0x840C,800,T2,draft tools/scratch/nonmatching/T-033/ (non-matching)
+main,func_80017D6C,0x80017D6C,0x840C,800,T4,draft tools/scratch/nonmatching/T-033/ (non-matching)
 main,func_8001808C,0x8001808C,0x872C,808,T4,draft tools/scratch/nonmatching/T-022/ (non-matching)
 main,func_800183B4,0x800183B4,0x8A54,24,T4,
 main,func_800183CC,0x800183CC,0x8A6C,76,T4,

@@ -1,4 +1,4 @@
-/* T-093 DRAFT: 177 -> 175 relocation-masked words; 756/764 bytes. See T-093/REPORT.md. */
+/* T-143 DRAFT: 90 relocation-masked words; 764/764 bytes. */
 extern u8 D_8004AC88;
 extern T022Sprite D_8004CED0[];
 extern u8 D_80044A24;
@@ -17,28 +17,30 @@ extern u8 D_80126D30;
 extern u8 D_80350000; extern u8 D_8035E100;
 void func_8001D080(void) {
     T022Sprite *temp_a1; s32 temp_t6;
-    u8 *temp_t8;
     s32 temp_v1_2; u8 temp_t9; u8 temp_t9_2;
     u8 *temp_a3;
     u8 *temp_t0;
     u8 *temp_t1;
     u8 *temp_v1;
     temp_a1 = &D_8004CED0[D_8004EAA4];
-    temp_t8 = temp_a1->unk0; D_8004EAB0 = temp_t8;
+    D_8004EAB0 = temp_a1->unk0;
     D_8004EAB4 = temp_a1->data;
     temp_a1->unk0 = D_8004EAA8; temp_a1->data = D_8004EAAC;
-    D_8004EAA8 = temp_t8; D_8004EAAC = D_8004EAB4;
+    D_8004EAA8 = D_8004EAB0; D_8004EAAC = D_8004EAB4;
     temp_a3 = (D_80044A24 * 0xC300) + &D_800F4070;
     (*(u8 **)((u8 *)(D_8004CED0) + 0x58)) = (u8 *) (temp_a3 + 0x6180);
-    temp_v1 = (D_80044A24 * 0x9000) + &D_8010C670; (*(u8 **)((u8 *)(D_8004CED0) + 0x234)) = (u8 *) (temp_v1 + 0x3000);
+    temp_v1 = (D_80044A24 * 0x9000) + &D_8010C670;
     (*(u8 **)((u8 *)(D_8004CED0) + 0x218)) = (u8 *) (temp_v1 + 0x1800);
+    (*(u8 **)((u8 *)(D_8004CED0) + 0x234)) = (u8 *) (temp_v1 + 0x3000);
     (*(u8 **)((u8 *)(D_8004CED0) + 0x250)) = (u8 *) (temp_v1 + 0x4800);
-    (*(u8 **)((u8 *)(D_8004CED0) + 0x288)) = (u8 *) (temp_v1 + 0x7800); (*(u8 **)((u8 *)(D_8004CED0) + 0x26C)) = (u8 *) (temp_v1 + 0x6000); temp_t0 = (D_80044A24 * 0xD020) + &D_800CA610;
+    (*(u8 **)((u8 *)(D_8004CED0) + 0x26C)) = (u8 *) (temp_v1 + 0x6000);
+    (*(u8 **)((u8 *)(D_8004CED0) + 0x288)) = (u8 *) (temp_v1 + 0x7800);
+    temp_t0 = (D_80044A24 * 0xD020) + &D_800CA610;
     (*(u8 **)((u8 *)(D_8004CED0) + 0x2BC)) = (u8 *) (temp_t0 + 0x6810);
     temp_t1 = (D_80044A24 * 0x6810) + &D_800E4650; (*(u8 **)((u8 *)(D_8004CED0) + 0x2C0)) = (u8 *) (temp_t1 + 0x3408); (*(u8 **)((u8 *)(D_8004CED0) + 0x138)) = (u8 *) ((D_80044A24 * 0x3C80) + &D_8011ECB0);
-    temp_t9 = D_8004EAC0 ^ 1;
-    (*(u8 **)((u8 *)(D_8004CED0) + 0x1C4)) = (u8 *) ((D_80044A24 * 0x780) + &D_80126D30); temp_t6 = (temp_t9 & 0xFF) * 0x17BB0;
-    D_8004EAC0 = temp_t9;
+    (*(u8 **)((u8 *)(D_8004CED0) + 0x1C4)) = (u8 *) ((D_80044A24 * 0x780) + &D_80126D30);
+    temp_t9 = (D_8004EAC0 ^= 1);
+    temp_t6 = (temp_t9 & 0xFF) * 0x17BB0;
     (*(s32 *)((u8 *)(D_8004CED0) + 0x2D8)) = (s32) (temp_t6 + 0x80254860);
     (*(s32 *)((u8 *)(D_8004CED0) + 0x2DC)) = (s32) (temp_t6 + 0x80264580);
     (*(s32 *)((u8 *)(D_8004CED0) + 0x2F4)) = (s32) (temp_t6 + 0x80320E20);

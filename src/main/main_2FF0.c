@@ -573,7 +573,61 @@ void func_80014C40(T033ForceTarget *arg0) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80014D5C.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80015450.s")
+typedef struct T05518664Obj {
+    /* 0x00 */ u8 type;
+    /* 0x01 */ u8 pad1[0x53];
+    /* 0x54 */ s16 vx;
+    /* 0x56 */ s16 vy;
+    /* 0x58 */ u8 pad58[0xA8];
+} T05518664Obj;
+extern T05518664Obj D_801D3430[40];
+
+typedef struct {
+    u8 kind;
+    u8 pad1[11];
+    s32 x;
+    u8 pad10[0x44];
+    u8 active, pad55, index;
+    u8 pad57[0x2D];
+    s16 speed;
+    u8 pad86[0x7A];
+} T033RotatingObject;
+typedef struct { f32 pitch, yaw; u8 pad[12]; } T033Rotation;
+extern u8 D_8004A9D8;
+
+void func_80015450(s32 arg0)
+{
+  s32 i; T033RotatingObject *obj; s32 kind; for (i = 0; i < 40; i++)
+  {
+    obj = (T033RotatingObject *)&D_801D3430[i]; kind = obj->kind;
+    if (kind == 0x3B)
+    {
+      ((T033Rotation *) (&D_8004A9D8))[obj->index].yaw = ((T033Rotation *) (&D_8004A9D8))[obj->index].yaw + (obj->speed / 50.0);
+      while (((T033Rotation *) (&D_8004A9D8))[obj->index].yaw >= 360.0f)
+      {
+        ((T033Rotation *) (&D_8004A9D8))[obj->index].yaw -= 360.0f;
+      }
+
+      if ((obj->active != 0) && (((T033Rotation *) (&D_8004A9D8))[obj->index].pitch < 90.0f))
+      {
+        ((T033Rotation *) (&D_8004A9D8))[obj->index].pitch += 2.0f;
+      }
+      if (obj->active != 0)
+      {
+        if (arg0 < obj->x)
+        {
+          obj->x -= 128;
+        }
+        else
+          if (obj->x < arg0)
+        {
+          obj->x = arg0;
+        }
+      }
+    }
+  }
+}
+
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80015594.s")
 
@@ -738,7 +792,46 @@ void func_80015F6C(void)
   D_8004A986 = 70;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80016078.s")
+extern u32 D_8004A428[];
+extern T033RenderCommand D_80068930[][200];
+/* Encode the two words of a fill rectangle, evaluating pkt once. */
+#define FILL_RECTANGLE_COMMAND(pkt, x0, y0, x1, y1) { \
+    T033RenderCommand *rect = (pkt); \
+    rect->command = (((x1) & 0x3FF) << 14) | 0xF6000000 | (((y1) & 0x3FF) << 2); \
+    rect->value = (((x0) & 0x3FF) << 14) | (((y0) & 0x3FF) << 2); \
+}
+void func_80016078(T033RenderCommand **arg0, s32 *arg1, s32 arg2, s32 arg3) {
+    T033RenderCommand *g, *p0, *p1;
+    s32 color;
+    T033RenderCommand *p3, *p4, *p5, *p7, *p2;
+    g = D_80068930[D_80044A24];
+    *arg0 = g;
+    p0 = g++; p0->command = 0xE7000000; p0->value = 0;
+    p1 = g++;
+    p1->command = 0xED000000;
+    p1->value = (((s32)((f32)(320 << D_8004AA28) * 4.0f) & 0xFFF) << 12) |
+    ((s32)((f32)(240 << D_8004AA28) * 4.0f) & 0xFFF);
+    p2 = g++;
+    p2->command = 0xFCFFFFFF; p2->value = 0xFFFE793C;
+    p3 = g++;
+    p3->command = (((320 << D_8004AA28) - 1) & 0xFFF) | 0xFF100000;
+    p3->value = D_8004A428[D_80044A24];
+    p4 = g++;
+    p4->command = 0x2F300000;
+    p4->value = 0;
+    p5 = g++;
+    p5->command = 0xF7000000;
+    color = ((D_8004ACC5 << 8) & 0xF800) | ((D_8004ACC6 << 3) & 0x7C0) | ((D_8004ACC7 >> 2) & 0x3E) | 1;
+    p5->value = (color << 16) | color;
+    FILL_RECTANGLE_COMMAND(g++, 0, 0, (320 << D_8004AA28) - 1, (240 << D_8004AA28) - 1);
+    p7 = g++;
+    p7->command = 0xE9000000;
+    p7->value = 0;
+    *arg1 = (g - *arg0) * 8;
+}
+
+#undef FILL_RECTANGLE_COMMAND
+
 
 extern u8 D_8004509C[], D_800450A4[], D_8004511C[], D_80045124[];
 extern u8 D_80044E70, D_80044EB8;
@@ -916,14 +1009,7 @@ extern void func_8002DBDC(f32, f32 *), func_8002DC48(f32 *);
 extern f32 D_8004ACE0;
 extern f32 D_8004A98C, D_8004A990, D_8004A994;
 extern f32 D_80061CD0;
-typedef struct T05518664Obj {
-    /* 0x00 */ u8 type;
-    /* 0x01 */ u8 pad1[0x53];
-    /* 0x54 */ s16 vx;
-    /* 0x56 */ s16 vy;
-    /* 0x58 */ u8 pad58[0xA8];
-} T05518664Obj;
-extern T05518664Obj D_801D3430[40];
+
 
 void func_80016910(void) {
     if (D_8004A986 > 0) D_8004A986--;
@@ -1086,7 +1172,52 @@ s32 func_80017064(s32 arg0, int arg1, s32 arg2, int arg3) {
     return 2;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_800170C4.s")
+
+typedef struct { u8 kind, pad1[0x53]; s16 speed; u8 pad56[0xAA]; } T033170C4Object;
+typedef struct { void *display; s16 flags, pad; s32 transform; } T033170C4StagePart;
+extern void *D_8004A4C0[];
+extern u8 D_8004AC8D;
+extern u8 D_801939F0;
+extern s32 D_801C4234;
+extern s32 D_801C4334;
+extern u8 D_801D7DF7;
+extern void func_8001C370(u8 **, s32, s32, u8 *);
+
+extern f32 D_8004A920[];
+void func_800170C4(void) {
+    T033170C4Object *object;
+    s32 i;
+    s32 kind;
+
+    if (D_801D7DF7 == 1) {
+        D_8004AC8D = 1;
+    }
+    if (D_8004AC8D == 1) {
+        D_8004AC8D = 2;
+        ((T033170C4StagePart *)D_8004A4C0)[6].display = 0;
+        ((T033170C4StagePart *)D_8004A4C0)[0].display = &D_801939F0;
+        D_801C4234 = 0x1F0A5;
+        D_801C4334 = 0x210D7;
+        for (i = 0; i < 10; i++) {
+            *D_80045060[i] = D_8004ADE8[i];
+        }
+    }
+    for (i = 0; i < 40; i++) {
+        object = (T033170C4Object *)&D_801D3430[i];
+        kind = object->kind;
+        if (kind == 0x3C) {
+            D_8004A920[0] -= (f32) object->speed / 200.0f;
+            if (D_8004A920[0] > 20.0f) {
+                D_8004A920[0] = 20.0f;
+            } else if (D_8004A920[0] < -20.0f) {
+                D_8004A920[0] = -20.0f;
+            }
+            object->speed += (D_8004A920[0] * 256.0f) / 200.0f;
+        }
+    }
+    func_8001C370((u8 **)D_80045030, 0xC, 0x3F, (u8 *)D_8004AD28);
+}
+
 
 extern u8 D_80045890, D_800458C0, D_800458D8, D_80045908, D_80045920, D_80045950;
 extern f32 D_8004A980;
@@ -1398,7 +1529,48 @@ void func_80017A68(void) {
 }
 
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80017D6C.s")
+extern void *D_8004A4C0[];
+extern f32 D_8004A740[], D_8004A800[], D_8004A860[], D_8004A8C0[], D_8004A920[], D_8004A7A0;
+extern f32 D_8004A980, D_8004ACE0, D_8004ACE4;
+extern s32 D_8004ACF8;
+extern void func_8001B50C(s32);
+extern void func_8001BA94(f32);
+
+void func_80017D6C(void) {
+    s32 index, other;
+
+    index = ((T0331383CStagePart *)D_8004A4C0)[0].transform;
+    other = ((T0331383CStagePart *)D_8004A4C0)[23].transform;
+    D_8004ACF8++;
+    if (D_8004A800[index] > 2000.0f || D_8004ACF8 < 2) {
+        D_8004ACF8 = 1;
+        (&D_8004A7A0)[index] = 0.0f;
+        D_8004A740[index] = 4000.0f;
+        D_8004A800[index] = (-15000.0f);
+        D_8004A860[index] = 10.0f;
+        D_8004A920[index] = -20.0f;
+        D_8004A8C0[index] = -90.0f;
+        D_8004ACE0 = 0.0f;
+        func_8001BA94(0.0f);
+    }
+    D_8004A980 += 20.0f;
+    if (359.0f < D_8004A980) D_8004A980 -= 360.0f;
+    if ((&D_8004A7A0)[index] < 2000.0f) (&D_8004A7A0)[index] += 50.0f;
+    else {
+        if (D_8004A8C0[index] < 0.0f) func_8001BA94(0.8f);
+        else func_8001BA94(0.0f);
+        if (D_8004ACE0 < 110.0f) D_8004ACE0 += 1.0f;
+        D_8004A8C0[index] += D_8004ACE4;
+    }
+    func_8001B50C(index);
+    (&D_8004A7A0)[other] = (&D_8004A7A0)[index];
+    D_8004A740[other] = D_8004A740[index];
+    D_8004A800[other] = D_8004A800[index];
+    if (D_8004A920[index] < -30.0f) D_8004A920[index] = -30.0f;
+    D_8004A860[other] = D_8004A860[index];
+    D_8004A920[other] = D_8004A920[index];
+    D_8004A8C0[other] = D_8004A8C0[index];
+}
 
 
 
