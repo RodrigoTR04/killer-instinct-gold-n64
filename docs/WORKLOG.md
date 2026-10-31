@@ -703,3 +703,6 @@ User asked for one more gpt-6.1-terra (high) worker with the same `/goal` usage 
 
 ## 2026-11-01 — T-148 stopped by provider usage limit (lead)
 T-148's run failed with "You've hit your usage limit … try again at 8:19 PM". No report exists; per the standing rule no partial work is taken in. Its functions are released. Respawn after the limit resets with the same brief.
+
+## 2026-11-01 — T-148 resumed (lead)
+After the limit reset T-148 reported short (808 B: `func_800193DC` via chained initialization of equal bytes; improved drafts `func_801BBB60` 11 words, `func_80023EF0` 10, `func_800268C0` 26). Not merged (short report). Sent back to work for the remaining 1,222 B; its `/goal` is tracked by the host (the report says the goal was "usage-limited"), so the goal feature does register on the child thread.
