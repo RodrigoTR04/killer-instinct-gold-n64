@@ -60,7 +60,7 @@ extern void func_8001272C();
 extern void func_8002AA98();
 extern void func_80020E98();
 extern void func_8001D768();
-void func_8001178C(u8 *arg0) {
+void func_8001178C(void) {
     T033Input **sp68;
     u8 *sp40;
     void *sp3C;
@@ -75,17 +75,14 @@ void func_8001178C(u8 *arg0) {
     u16 var_v1_3;
     u8 *temp_v0_3;
     u8 *temp_v0_6;
-    u8 *var_a0;
     u8 temp_v0;
     u8 var_s1_2;
     T033Input **temp_a0;
     T033Input *temp_v0_4;
     T033Input *temp_v0_5;
 
-    var_a0 = arg0;
     if ((D_8004A401 == 3) || (D_8004A401 == 4)) {
         temp_v0 = *(&D_80044DE4 + D_8004AC88);
-        var_a0 = &D_8004ACDC;
         if (temp_v0 != 0) {
             if ((s32) D_8004ACDC < (s32) temp_v0) {
                 D_8004ACDC += 1;
@@ -94,7 +91,7 @@ void func_8001178C(u8 *arg0) {
             }
         }
     }
-    sp68 = func_8002B710(var_a0);
+    sp68 = func_8002B710();
     func_8002B6EC();
     var_s0 = func_80011FC4(sp68[0], 0);
     temp_v0_2 = func_80011FC4(sp68[1], 1);
@@ -228,10 +225,10 @@ void func_8001178C(u8 *arg0) {
             }
             if ((*temp_a0)->buttons & 0x1000) {
                 if (D_8004A407 == 3) {
-                    func_800126D0(temp_a0, 2U);
+                    func_800126D0();
                     D_8004A401 = 0;
                 } else if ((var_s1_2 + 1) == D_8004A407) {
-                    func_800126D0(temp_a0, 2U);
+                    func_800126D0();
                     func_8002FA5C(((s32 *)&D_8004A258)[3], 8, D_8004AA2A);
                     D_8004A401 = 0;
                     D_8004A404 = 1;
@@ -243,7 +240,7 @@ void func_8001178C(u8 *arg0) {
                         case 0:
                             D_8004A40C = 1;
                             D_8004A40F = 0;
-                            func_8002AA98(0x4650, 2U);
+                            func_8002AA98(0x4650);
                             func_8002FA5C(((s32 *)&D_8004A258)[3], 8, 0U);
                             D_8004A40E = var_s1_2;
                             break;
@@ -251,7 +248,7 @@ void func_8001178C(u8 *arg0) {
                             if (var_s1_2 == D_8004A40E) {
                                 D_8004A40C = 0;
                                 D_8004A40F = 0;
-                                func_8002AA98(0x7FFF, 2U);
+                                func_8002AA98(0x7FFF);
                                 func_8002FA5C(((s32 *)&D_8004A258)[3], 8, D_8004AA2A);
                             }
                             break;
@@ -273,7 +270,7 @@ void func_8001178C(u8 *arg0) {
                                 D_8004A401 = 0;
                                 D_8004A40F = 0;
                                 D_8004A404 = 2;
-                                func_800126D0(temp_a0, 2U);
+                                func_800126D0();
                                 func_8002FA5C(((s32 *)&D_8004A258)[3], 8, D_8004AA2A);
                             }
                             break;

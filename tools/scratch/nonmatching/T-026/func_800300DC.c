@@ -2,8 +2,8 @@
  * Full owning-TU measurement; not linked/runtime validated. */
 void func_800300DC(void *src, void *outputAddress, s32 length) {
     u16 *output = (u16 *)outputAddress;
-    u8 *input; s32 i = 0;
-    if (length > 0) { input=src;
+    u8 *input = src; s32 i = 0;
+    if (length > 0) {
         do {
             s32 first = *input;
             if (!(first & 1)) {

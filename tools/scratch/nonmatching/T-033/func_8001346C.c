@@ -8,7 +8,7 @@ extern u8 D_8004AC88;
 extern s32 D_800698C4;
 extern f32 D_8004A740[], D_8004A800[], D_8004A860[], D_8004A8C0[], D_8004A920[], D_8004A7A0;
 extern void func_8001BB64(T033DrawCommand **);
-extern void func_8001BDE0(T033DrawCommand **, s32, s32, u32);
+extern void func_8001BDE0(T033DrawCommand **, s32, f32);
 extern void func_80028A00(T033DrawCommand **, s32);
 extern void func_8001C5AC(T033DrawCommand **, s32, void *, s32, s32, f32, f32, f32, f32, f32, f32, s32);
 
@@ -17,7 +17,7 @@ extern f32 D_8004A800[];
 extern f32 D_8004A860[];
 extern f32 D_8004A8C0[];
 extern f32 D_8004A920[];
-void func_8001346C(T033DrawCommand **arg0, s32 arg1, s32 arg2) {
+void func_8001346C(T033DrawCommand **arg0, s32 arg1, f32 arg2) {
     T033DrawPart *part;
     T033DrawCommand *g;
     s32 palette, mode, i;
@@ -55,7 +55,7 @@ void func_8001346C(T033DrawCommand **arg0, s32 arg1, s32 arg2) {
 
         break;
     case 3: func_80028A00(arg0, part->transform); break;
-    case 5: func_8001BDE0(arg0, arg1, arg2, mode); break;
+    case 5: func_8001BDE0(arg0, arg1, arg2); break;
     }
     if ((part->flags & 0xF0) >= 16) {
         a = D_8004AC92;

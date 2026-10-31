@@ -1,4 +1,4 @@
-/* DRAFT. Remaining diff: 96 positional words differ; 388/392 bytes */
+/* T-140 DRAFT: 81 differing words, 392/392 bytes in declarations context. */
 typedef struct { u32 w0,w1; } T032Gfx267;
 typedef struct { s16 id,scale,x,y; } T032Effect267;
 typedef struct { s32 id; void *data; s16 halfW,halfH,w,h,w2,h2; u8 pad[4]; s16 flags; u8 tail[2]; } T032Sprite267;
@@ -17,8 +17,9 @@ void func_80026738(T032Gfx267 **dl) {
     u16 scale,width;
     u8 kind;
     s32 x,y;
+    s32 *currentSlot = &D_8004EA78;
     if (D_801D73C8[0].id != 0) {
-        D_8004EA78=15;
+        *currentSlot=15;
         if (D_801D73C8[0].id != 0) {
             effect=D_801D73C8;
             do {
@@ -26,7 +27,7 @@ void func_80026738(T032Gfx267 **dl) {
                 x=effect->x>>7; y=(effect->y>>8)+4; effect++;
                 if (kind>=19) scale=0x1000;
                 size=&D_80061368[kind]; width=size->w;
-                sprite=&D_8004CED0[D_8004EA78];
+                sprite=&D_8004CED0[*currentSlot];
                 sprite->halfW=size->halfW; sprite->halfH=size->halfH;
                 sprite->w=width; sprite->w2=width; sprite->h=size->h;
                 sprite->id=D_800612D8[kind];

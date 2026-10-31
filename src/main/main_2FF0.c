@@ -10,7 +10,9 @@ extern void boot_inflate(void *, void *, void *);
 
 extern void func_80012B24(u16 *, f32, f32, f32, f32, f32);
 extern u8 D_8004AA28;
-extern s8 D_8004A984, D_8004AA29, D_8004AC8D, D_8004ACD4;
+extern s8 D_8004A984, D_8004ACD4;
+extern u8 D_8004AA29;
+extern u8 D_8004AC8D;
 extern u8 D_8004ACD3, D_8004AD08;
 extern u8 D_8004AD09;
 extern u8 D_8004AE88, D_8004AE89;
@@ -138,7 +140,29 @@ void func_8001372C(T020Position *arg0) {
     arg0->z = 0;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_8001373C.s")
+typedef struct {
+    u8 pad0[0xC];
+    f32 x, y, z;
+    u8 pad18[0x10];
+    s16 vx, vy, vz;
+} T020ForceTarget;
+extern f32 D_800487F4, D_800487F8;
+void func_8001373C(void *object, f32 x, f32 y, f32 z, u8 strengthX, u8 strengthY, u8 strengthZ)
+{
+    T020ForceTarget *target = object;
+    f32 distance;
+    s16 impulseX, impulseY, impulseZ;
+    distance = (target->x - x) * (target->x - x)
+             + (target->y - y) * (target->y - y)
+             + (target->z - z) * (target->z - z);
+    if (distance < D_800487F4) distance = D_800487F8;
+    impulseX = (s32)((f32)(strengthX * 30000) / distance);
+    impulseY = (s32)((f32)(strengthY * 30000) / distance);
+    target->vx += impulseX;
+    target->vy += impulseY;
+    impulseZ = (s32)((f32)(strengthZ * 30000) / distance);
+    target->vz += impulseZ;
+}
 
 typedef struct { void *display; s16 flags, pad; s32 transform; } T0331383CStagePart;
 typedef struct { f32 pitch, yaw, roll, speed, scale; } T0331383CStageRotation;
@@ -530,7 +554,7 @@ typedef struct {
     u8 pad[0x28];
     s16 vx, vy, vz;
 } T033ForceTarget;
-extern void func_8001373C(void *, f32, f32, f32, s32, s32, s32);
+extern void func_8001373C(void *, f32, f32, f32, u8, u8, u8);
 
 void func_80014C40(T033ForceTarget *arg0) {
     arg0->vx = -50;
@@ -1070,7 +1094,92 @@ s32 func_80017A50(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     return 0;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80017A68.s")
+extern f32 D_800488A0; extern f64 D_800488A8;
+extern u8 D_8004A401;
+extern void *D_8004A4C0[]; extern f32 D_8004A7B8;
+extern f32 D_8004A740[]; extern f32 D_8004A980;
+extern u8 D_8004A9D8;
+extern f32 D_8004ACEC;
+extern s32 D_8004ACF4;
+extern f32 D_800695D0;
+extern s32 D_800698C4;
+extern u8 D_8019DDF0;
+extern u8 D_801A24E0; extern u8 D_801A5290; extern u8 D_801A6200;
+extern u8 D_801A63D0;
+extern u8 D_801A6AD0; extern u8 D_801AAEB0;
+extern s32 D_801C4220;
+extern u8 D_801D7DF7;
+extern void func_80015450(s32);
+extern void func_8001AC80();
+extern f32 D_8004A8C0[];
+void func_80017A68(void) {
+    if (D_800695D0 > 1000.0f) {
+        ((T0331383CStagePart *)D_8004A4C0)[1].display = &D_801A24E0;
+        ((T0331383CStagePart *)D_8004A4C0)[1].transform = 7;
+        ((T0331383CStagePart *)D_8004A4C0)[0].display = &D_801A63D0;
+        ((T0331383CStagePart *)D_8004A4C0)[0].transform = 0;
+    }
+    else {
+        ((T0331383CStagePart *)D_8004A4C0)[1].display = &D_801A63D0;
+        ((T0331383CStagePart *)D_8004A4C0)[1].transform = 0;
+        ((T0331383CStagePart *)D_8004A4C0)[0].display = &D_801A24E0;
+        ((T0331383CStagePart *)D_8004A4C0)[0].transform = 7; }
+    if (D_8004AC8D == 1) {
+        D_8004AC8D = 2;
+    } if (D_801D7DF7 == 1) {
+        if (D_8004AC8D == 0) { D_8004AC8D = 1;
+        }
+        ((T0331383CStagePart *)D_8004A4C0)[4].display = 0;
+        ((T0331383CStagePart *)D_8004A4C0)[16].display = 0;
+        ((T0331383CStagePart *)D_8004A4C0)[17].display = 0;
+        ((T0331383CStagePart *)D_8004A4C0)[18].display = 0;
+        ((T0331383CStagePart *)D_8004A4C0)[19].display = 0; ((T0331383CStagePart *)D_8004A4C0)[7].display = &D_801AAEB0;
+        ((T0331383CStagePart *)D_8004A4C0)[5].display = &D_8019DDF0;
+        D_801C4220 = 0xFFFF31BC;
+    }
+    D_8004A8C0[0] += D_8004ACEC; if (359.0f < D_8004A8C0[0]) {
+        D_8004A8C0[0] -= 360.0f; }
+    D_8004A980 += 10.0f;
+    if (359.0f < D_8004A980) {
+        D_8004A980 -= 360.0f; } if (D_8004ACF4 == 1) {
+        D_8004ACF4 = 0;
+        D_8004ACEC = 2.0f;
+    }
+    if (D_8004ACEC > 0.0f) { D_8004ACEC = (f32) ((f64) D_8004ACEC - 0.01);
+    }
+    else {
+        D_8004ACEC = 0.0f;
+    }
+    func_8001AC80(15, 23);
+    if ((D_8004A7B8 + 600.0f) < D_800695D0) {
+        ((s8 *)D_8004A5E0)[35] = 0xF;
+        ((s8 *)D_8004A5E0)[42] = 0x17;
+    } else {
+        ((s8 *)D_8004A5E0)[35] = 0x17;
+        ((s8 *)D_8004A5E0)[42] = 0xF;
+    }
+    if ((D_8004A401 == 1) && (D_800698C4 == 0)) {
+        ((T0331383CStagePart *)D_8004A4C0)[10].display = 0;
+        ((T0331383CStagePart *)D_8004A4C0)[11].display = 0;
+        ((T0331383CStagePart *)D_8004A4C0)[12].display = 0;
+        ((T0331383CStagePart *)D_8004A4C0)[13].display = 0;
+        ((T0331383CStagePart *)D_8004A4C0)[3].display = &D_801A6200;
+        ((T0331383CStagePart *)D_8004A4C0)[2].display = &D_801A5290;
+        ((T0331383CStagePart *)D_8004A4C0)[20].display = &D_801A5290;
+        ((T0331383CStagePart *)D_8004A4C0)[21].display = &D_801A5290;
+        ((T0331383CStagePart *)D_8004A4C0)[22].display = &D_801A5290; }
+    else {
+        ((T0331383CStagePart *)D_8004A4C0)[10].display = &D_801A6AD0;
+        ((T0331383CStagePart *)D_8004A4C0)[11].display = &D_801A6AD0; ((T0331383CStagePart *)D_8004A4C0)[12].display = &D_801A6AD0; ((T0331383CStagePart *)D_8004A4C0)[13].display = &D_801A6AD0;
+    }
+    func_80015450(0x1800);
+    if (D_8004AA29 == 1) {
+        ((T0331383CStageRotation *)&D_8004A9D8)[0].pitch = 90.0f;
+        ((T0331383CStageRotation *)&D_8004A9D8)[1].pitch = 90.0f;
+        ((T0331383CStageRotation *)&D_8004A9D8)[2].pitch = 90.0f;
+    }
+}
+
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80017D6C.s")
 
@@ -1635,7 +1744,59 @@ void func_8001AA20(void) {
     } else D_8004AD00 = 0;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_8001AA90.s")
+extern u8 D_8004AC88;
+extern f32 cosf(f32);
+extern f32 sinf(f32);
+
+extern f64 D_80048930;
+extern f64 D_80048938;
+extern u8 D_8004AD09;
+extern f32 D_8004AD0C;
+extern f32 D_8004AD10;
+
+void func_8001AA90(f32 arg0) {
+    f32 sine;
+    f32 cosine;
+    s32 period;
+    f32 angle;
+
+    if (D_8004AC88 == 0) {
+        arg0 -= 90.0f;
+    }
+    angle = (f32)(((f64)arg0 * D_80048930) / D_80048938);
+    sine = sinf(angle);
+    cosine = cosf(angle);
+    if (D_8004AC88 == 0xB) {
+        sine *= 4.0f;
+        cosine = cosine * 4.0f;
+    }
+    if ((D_8004AC88 == 0) || (D_8004AC88 == 4)) {
+        period = 4;
+    } else {
+        period = 1;
+    }
+    D_8004AD09++;
+    if (period < D_8004AD09) {
+        D_8004AD09 = 0;
+        D_8004AD0C += sine;
+        D_8004AD10 -= cosine;
+    }
+    while (D_8004AD0C > 255.0f) {
+        D_8004AD0C -= 256.0f;
+    }
+    while (D_8004AD0C < 0.0f) {
+        D_8004AD0C += 256.0f;
+    }
+    while (D_8004AD10 > 255.0f) {
+        D_8004AD10 -= 256.0f;
+    }
+    while (D_8004AD10 < 0.0f) {
+        D_8004AD10 += 256.0f;
+    }
+}
+
+void D_8001AC78(void) {}
+
 
 void func_8001AD04();                            /* extern */
 void func_8001B134();                            /* extern */

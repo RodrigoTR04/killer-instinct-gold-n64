@@ -78,7 +78,6 @@ If T-138's claimed matches are accepted (§8), several rows above disappear. Ref
 | `func_801B0520` | 328 | 22 | 9 | ovl ≤BBE88 | T-138: alternate frame/local views, no gain. |
 | `func_801C8004` | 236 | 6 | 6 | ovl >BBE88 | T-139 reports 6 words (compound OR on the byte mask; one cursor for both scans). |
 | `func_8003278C` | 92 | 26 [emits 104] | 3 | main >21B6C |  |
-| `func_8001373C` | 256 | 28 (prefix) | 10 | main ≤21B6C | T-136: distance/local-ownership and impulse-type variants never beat 28. |
 | `func_800268C0` | 236 | 28 (declarations) | 7 | main >21B6C | T-137: typed and aggregate dimension-copy variants, offset groupings: no gain. |
 | `func_801B1210` | 284 | 28 | 15 | ovl ≤BBE88 | T-138: argument reuse, alpha types, command order, renderer return type: no gain. Clone-family sibling of the T-132 string recipe. |
 | `func_801B446C` | 292 | 28 | 14 | ovl ≤BBE88 |  |
@@ -104,7 +103,6 @@ If T-138's claimed matches are accepted (§8), several rows above disappear. Ref
 | `func_801C4240` | 1344 | 126 | 9 | ovl >BBE88 |  |
 | `func_801C3AA0` | 928 | 119 | 6 | ovl >BBE88 | T-139: fresh m2c + 600 s full-TU declaration/layout search: no gain at 119. |
 | `func_801BBE88` | 808 | 147 | 5 | ovl ≤BBE88 | T-138 reports 147→140 (reordered two independent display-list commands). Unvetted. |
-| `func_80017A68` | 772 | 149 [emits 764] | 6 | main ≤21B6C |  |
 | `func_8001D47C` | 748 | 134 (declarations) [emits 744] | 8 | main ≤21B6C |  |
 | `func_801C1434` | 720 | 132 | 5 | ovl >BBE88 |  |
 | `func_80024714` | 712 | 69 (declarations) | 9 | main >21B6C |  |
@@ -123,7 +121,6 @@ If T-138's claimed matches are accepted (§8), several rows above disappear. Ref
 | `func_801AD7D8` | 556 | 89 [emits 548] | 5 | ovl ≤BBE88 |  |
 | `func_801C49A8` | 548 | 83 | 10 | ovl >BBE88 |  |
 | `func_8001272C` | 540 | 103 [emits 544] | 6 | main ≤21B6C |  |
-| `func_8002D9C4` | 536 | 129 [emits 548] | 6 | main >21B6C |  |
 
 ### 4b. >150 words (top 30 by bytes)
 
@@ -288,3 +285,26 @@ Matched: `func_801C48E4` (196 B; `u16` dimension args, `u32` callee args). Full 
 | `func_801C49A8` | 548 | 83 | correct reload variant scored 108: old draft caches a global across a call |
 
 Pattern: the one match came from argument and callee *types* (narrow inputs, unsigned callee params), not from scheduling. Near-misses at ≤15 words resisted all structural variants; the T-141 worker burned five resumes on them for 0 B.
+
+
+## 11. T-140 round (main, 2,060 B landed, vetted 2026-10-31)
+
+Matched: `func_8001373C` 256, `func_80017A68` 772, `func_8001AA90` 496 (includes the 8-byte empty callback at `0x8001AC78`, named `D_8001AC78` in the C), `func_8002D9C4` 536. Causes: two globals were really `u8` and `func_8001AC80(15, 23)` was called with its original arguments (80017A68); squared-distance expression and narrow `s16` impulses (8001373C); integer inputs cast at each use and operand order of the interpolation (8002D9C4); declaration order of the locals (8001AA90). The worker's first text used a `savedAngle = angle` copy purely to move the spill slot; the lead replaced it with the declaration order `sine, cosine, period, angle` (24 orders searched; two match) and plain `while` loops.
+
+Improved but not matching (full-TU words from the worker's report; remeasure before use):
+
+| Function | Bytes | Words | Note |
+|---|---:|---:|---|
+| `func_80024714` | 712 | 6 | **best new near-miss in main** |
+| `func_8001CD50` | 460 | 32 | |
+| `func_80024028` | 284 | 45 | |
+| `func_800268C0` | 236 | 28 | reconciled to full TU |
+| `func_800300DC` | 316 | 69 | |
+| `func_8002DDD4` | 452 | 79 | |
+| `func_80026738` | 392 | 81 | |
+| `func_800191F0` | 492 | 109 | declarations context |
+| `func_800170C4` | 692 | 136 | now full TU |
+| `func_80014D5C` | 1,780 | 322 | full TU, 4 B size deficit |
+| `func_8001E33C` | 2,360 | 569 | declarations context |
+
+Passed over (bytes, words): `func_80017378` 1,752/6, `func_800193DC` 808/7, `func_8001BDE0` 316/8, `func_8002A900` 220/15, `func_8002FB80` 544/20, `func_8002B22C` 380/66, `func_8001BB64` 636/142, `func_8001D47C` 748/134, `func_80030440` 632/144, `func_8001272C` 540/103, `func_8002FDA0` 572/106, `func_800297A4` 780/180, `func_800121C8` 304/46, `func_80015450` 324/40 (prefix), `func_8001D080` 764/175. Same lesson as T-141: the near-misses at ≤8 words did not move again; the matches came from correcting types and arguments in mid-size drafts. Next brief for main: start with `func_80024714` (6 words).

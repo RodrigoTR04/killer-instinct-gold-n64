@@ -4,6 +4,12 @@ extern void boot_dma(s32, s32, s32);
 extern void boot_inflate(void *, void *, void *);
 extern void func_8001C05C(u8 *);
 
+typedef struct {
+    u8 *unk0; void *data; s16 halfWidth, halfHeight, width, height, width2, height2;
+    u8 pad[4]; s16 flags; u8 pad2[2];
+} T022Sprite;
+extern T022Sprite D_8004CED0[];
+
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_D3F0/func_8001CD50.s")
 
 extern u8 D_8004EA9C[];
@@ -49,11 +55,6 @@ void func_8001D42C(u8 arg0, u8 arg1, void *arg2) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_D3F0/func_8001D47C.s")
 
-typedef struct {
-    s32 unk0; void *data; s16 halfWidth, halfHeight, width, height, width2, height2;
-    u8 pad[4]; s16 flags; u8 pad2[2];
-} T022Sprite;
-extern T022Sprite D_8004CED0[];
 void func_8001D768(s32 arg0, s32 *arg1) {
     T022Sprite *p = &D_8004CED0[arg0];
     p->data = arg1 + 2;
