@@ -106,7 +106,6 @@ If T-138's claimed matches are accepted (§8), several rows above disappear. Ref
 | `func_801C1434` | 720 | 132 | 5 | ovl >BBE88 |  |
 | `func_800170C4` | 692 | 134 (declarations) [emits 696] | 7 | main ≤21B6C |  |
 | `func_8001BB64` | 636 | 142 (declarations) [emits 632] | 9 | main ≤21B6C |  |
-| `func_80030440` | 632 | 144 [emits 556] | 7 | main >21B6C |  |
 | `func_801AD114` | 628 | 88 [emits 612] | 5 | ovl ≤BBE88 |  |
 | `func_801B6BD8` | 628 | 141 [emits 620] | 5 | ovl ≤BBE88 |  |
 | `func_801C2ADC` | 600 | 71 | 6 | ovl >BBE88 |  |
@@ -311,3 +310,8 @@ Passed over (bytes, words): `func_80017378` 1,752/6, `func_800193DC` 808/7, `fun
 ## 12. T-142 round (main near-miss bundle, 2,464 B landed, vetted 2026-10-31)
 
 Matched: `func_80024714` 712 B (resource address as base plus little-endian offset bytes `p[4] + (p[5]<<8) + (p[6]<<16) + (p[7]<<24)`, padded resource view, integer casts) and `func_80017378` 1,752 B (a single shared index across the model and rotation arrays gave the original pointer updates; the callee `func_8001B620` is called with 2 args). The scheduling sweeps of three earlier workers had missed both: **the 6-word near-misses were fixed by changing what the code computes, not how statements are ordered.** Passed over: `func_800193DC` 808, `func_8001BDE0` 316, `func_8002A900` 220, `func_8002FB80` 544, `func_8002B22C` 380 (no new scores reported).
+
+
+## 13. T-144 round (main high half, 2,048 B landed, vetted 2026-10-31)
+
+Matched: `func_800253D0` 1,068 B (HUD display-list routine; use the current sprite slot for lookups and calls; the Gfx typedef moved earlier in main_15380.c), `func_80030440` 632 B (glyph RLE decoder: run loop advances `x` by `n - 1` inside a `for` whose increment advances the last pixel; padding `for` loops), `func_80030220` 348 B (index advances by three vertices, `guRandom() & 15` jitter, operand order). Improved but not matching: `func_80023EF0` 67 → **12 words** (best new main near-miss), `func_8002DDD4` 79 → 78, `func_8002FDA0` 106 → 81. Investigated and passed over: `func_80024028` 284, `func_80026738` 392, `func_800268C0` 236, `func_800297A4` 780, `func_800300DC` 316, `func_8002E150` 844, `func_800310C0` 2,424, `func_80031A38` 920, `func_80032360` 420.

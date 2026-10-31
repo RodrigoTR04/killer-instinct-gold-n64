@@ -46,7 +46,17 @@ void func_80030020(void **sources, void **targets, u16 *lengths, u16 count) {
 void func_80030218(void) {
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_20220/func_80030220.s")
+extern s32 guRandom(void);
+extern u8 D_80069930;
+void func_80030220(s16 *input, s16 *output, s32 count)
+{
+    s32 i;
+    for (i = 0; i < count; i += 3) {
+        output[i] = ((input[i * 8] / D_80069930) >> 3) + (guRandom() & 15) - 8;
+        output[i + 1] = ((input[i * 8 + 1] / D_80069930) >> 4) + (guRandom() & 15) - 8;
+        output[i + 2] = ((input[i * 8 + 2] / D_80069930) >> 3) + (guRandom() & 15) - 8;
+    }
+}
 
 void func_8003037C(s16 *input, s16 *deltas, s32 count) {
     s16 *vertices;

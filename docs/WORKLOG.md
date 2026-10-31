@@ -682,3 +682,6 @@ User asked for six more gpt-6.1-terra (high) workers sharing one `/goal` (≥2,0
 
 ## 2026-10-31 — T-142 vetted (lead)
 T-142 (main near-miss bundle) met the target in one run (about 8 minutes): `func_80024714` 712 B and `func_80017378` 1,752 B, total 2,464 B. Clean toolbox build: sha1 ba52e91b…, M2 95,852 B = 33.07% (+2,464). Review: no artificial construct (explicit little-endian offset decode, shared index across two arrays, a real 3-iteration loop, padded resource view struct; m2c-style `switch` and variable names remain, FU-13 cleanup). Merged conflict-free into the lead tree. `func_80017378` had resisted 18+ prior reports.
+
+## 2026-10-31 — T-144 vetted (lead)
+T-144 (main high half) met the target in one run (~3 h, 1.3 M tokens): `func_800253D0` 1,068 B, `func_80030440` 632 B, `func_80030220` 348 B = 2,048 B. Clean toolbox build with T-142's merge already in the tree (3-way apply, clean): sha1 ba52e91b…, M2 97,900 B = 33.77% (+2,048). Review: no artificial construct. `func_800253D0` keeps m2c-style temporaries (`temp_v0_N = (*arg0)++`) and irregular brace formatting (FU-13 cleanup); `func_80030440` uses ordinary `for` loops.
