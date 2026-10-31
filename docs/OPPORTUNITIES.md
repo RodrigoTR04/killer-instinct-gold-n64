@@ -56,7 +56,6 @@ If T-138's claimed matches are accepted (§8), several rows above disappear. Ref
 | `func_801BF914` | 116 | 2 (prefix) | 16 | ovl >BBE88 | Same as `func_801BF720` (same TU, same declaration conflict). Fix both together = 220 B. |
 | `func_801C4E38` | 556 | 2 | 16 | ovl >BBE88 | Scored with TU declarations. Left: stack spill at +0x18 instead of +0x1C. T-139: selector/handler locals, branch-local state (moves spill right but frame grows 0x20→0x28), reusing an arg after last use. Chained-clear order was reversed to match relocation targets (no score change). |
 | `func_801B695C` | 268 | 4 (prefix) | 16 | ovl ≤BBE88 | 4 stack-frame differences (prefix context). T-138: offset assignments inside copy arguments, distinct offset locals. No gain. |
-| `func_80017378` | 1752 | 6 | 18 | main ≤21B6C | **Biggest single prize left.** Only the scheduling of the model-pointer / rotation-pointer increments against four stores differs. T-136 spent: pointer-update placement, line grouping, struct views, pointer types, store interleaving, while/do/for loops, an *exhaustive* 2,048-layout loop-boundary search, a 600 s permuter limited to the loop (4,831 iterations). All stayed at 6. Needs a new structural idea, not another sweep. `func_8001B620` is called with 4 args but defined with 2 (`draft_arity.py` flag; check the asm before trusting). |
 | `func_801C224C` | 372 | 6 | 8 | ovl >BBE88 | **Not touched by T-136..T-139 so far.** 8 prior reports. |
 | `func_800193DC` | 808 | 7 | 7 | main ≤21B6C | T-136 took it to 7 words (full TU, exact size) and then left it, moving to its three stage-init siblings. Same family and recipe as the matched `func_8001808C`/`80018AE0`/`80018F20` (raw-offset stores via `D_8004A4C0`, `D_8004A5E0` viewed as `u8 (*)[7]`, float *literals* instead of `D_80048904`-style globals). Draft updated in lead tree. **Cheapest 800 B left.** |
 | `func_801BD270` | 396 | 7 | 11 | ovl >BBE88 | **Not touched by T-136..T-139 so far.** 11 prior reports. |
@@ -105,7 +104,6 @@ If T-138's claimed matches are accepted (§8), several rows above disappear. Ref
 | `func_801BBE88` | 808 | 147 | 5 | ovl ≤BBE88 | T-138 reports 147→140 (reordered two independent display-list commands). Unvetted. |
 | `func_8001D47C` | 748 | 134 (declarations) [emits 744] | 8 | main ≤21B6C |  |
 | `func_801C1434` | 720 | 132 | 5 | ovl >BBE88 |  |
-| `func_80024714` | 712 | 69 (declarations) | 9 | main >21B6C |  |
 | `func_800170C4` | 692 | 134 (declarations) [emits 696] | 7 | main ≤21B6C |  |
 | `func_8001BB64` | 636 | 142 (declarations) [emits 632] | 9 | main ≤21B6C |  |
 | `func_80030440` | 632 | 144 [emits 556] | 7 | main >21B6C |  |
@@ -308,3 +306,8 @@ Improved but not matching (full-TU words from the worker's report; remeasure bef
 | `func_8001E33C` | 2,360 | 569 | declarations context |
 
 Passed over (bytes, words): `func_80017378` 1,752/6, `func_800193DC` 808/7, `func_8001BDE0` 316/8, `func_8002A900` 220/15, `func_8002FB80` 544/20, `func_8002B22C` 380/66, `func_8001BB64` 636/142, `func_8001D47C` 748/134, `func_80030440` 632/144, `func_8001272C` 540/103, `func_8002FDA0` 572/106, `func_800297A4` 780/180, `func_800121C8` 304/46, `func_80015450` 324/40 (prefix), `func_8001D080` 764/175. Same lesson as T-141: the near-misses at ≤8 words did not move again; the matches came from correcting types and arguments in mid-size drafts. Next brief for main: start with `func_80024714` (6 words).
+
+
+## 12. T-142 round (main near-miss bundle, 2,464 B landed, vetted 2026-10-31)
+
+Matched: `func_80024714` 712 B (resource address as base plus little-endian offset bytes `p[4] + (p[5]<<8) + (p[6]<<16) + (p[7]<<24)`, padded resource view, integer casts) and `func_80017378` 1,752 B (a single shared index across the model and rotation arrays gave the original pointer updates; the callee `func_8001B620` is called with 2 args). The scheduling sweeps of three earlier workers had missed both: **the 6-word near-misses were fixed by changing what the code computes, not how statements are ordered.** Passed over: `func_800193DC` 808, `func_8001BDE0` 316, `func_8002A900` 220, `func_8002FB80` 544, `func_8002B22C` 380 (no new scores reported).
