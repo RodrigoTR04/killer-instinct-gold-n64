@@ -700,3 +700,6 @@ T-145 (ovl_7DF8 near-miss bundle) met the target in one run (~10 h): `func_801B6
 
 ## 2026-11-01 — T-148 spawned (lead)
 User asked for one more gpt-6.1-terra (high) worker with the same `/goal` usage (the goal text leads the task; the child thread shows it as message text). T-148 owns the near-miss bundle 2 across both images (func_80014D5C 14w, func_801B2B8C 8w, the carousel pair, and the other ≤50-word leads), with the same ≥2,030 B requirement and rules; the brief adds the lesson of the last two rounds (change what the code computes, not the scheduling).
+
+## 2026-11-01 — T-148 stopped by provider usage limit (lead)
+T-148's run failed with "You've hit your usage limit … try again at 8:19 PM". No report exists; per the standing rule no partial work is taken in. Its functions are released. Respawn after the limit resets with the same brief.
