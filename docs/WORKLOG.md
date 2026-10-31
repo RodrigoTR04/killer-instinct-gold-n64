@@ -667,3 +667,6 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Accepted the other four. func_801B43A8 starts its loop from `&D_80128349 - 9` rather than `D_80128340`; a plain D_80128340 start does not match, and the expression stands for the original address computation off the end symbol, so I kept it. The rest are ordinary C (command-cursor blocks in func_801B6528 are real stores).
 - Clean vet build in the toolbox without func_801BA884: the ROM and all images are byte-identical. 350 T4; M1 = M2 = 91,132 / 289,876 B (31.44%). T-138 total 1,576 B = 0.54%, 454 B below the 2,030 B requirement. Whether to resume T-138 is the user's call.
 - All four workers' reports are now in; no worker is running.
+
+## 2026-10-30 — T-140 / T-141 spawned (lead)
+User asked for two more gpt-6.1-terra (high) workers. T-140 owns main (bundle A: func_800193DC, func_80017378, func_8001BDE0, func_8002FB80, func_8002A900, func_8002B22C, then the 9–50 word band). T-141 owns ovl_7DF8 (T-138's improved drafts func_801B1DE4/func_801BAA78, func_801BA884 with an honest structure, the carousel pair, the untouched near-miss sweep). Both carry the HARD ≥2,030 B requirement and the no-artificial-construct rules; briefs point at docs/OPPORTUNITIES.md. Lead vets only the final reports.
