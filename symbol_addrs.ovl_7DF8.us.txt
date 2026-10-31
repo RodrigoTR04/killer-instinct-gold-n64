@@ -1,5 +1,9 @@
 // Symbols owned by ovl_7DF8; overlays are separate address spaces.
 
+// The boot microcode end and graphics microcode start share this boundary.
+rspboot_end = 0x800427E0; // allow_duplicated:True
+D_800427E0 = 0x800427E0; // allow_duplicated:True
+
 D_802927E0 = 0x802927E0; // type:f32 force_migration:True function_owner:func_801ADEA0
 
 D_80292814 = 0x80292814; // force_not_migration:True

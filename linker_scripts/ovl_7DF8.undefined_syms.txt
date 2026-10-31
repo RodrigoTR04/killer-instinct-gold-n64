@@ -41,6 +41,7 @@ boot_graphics_sp_active = 0x8000D197;
 boot_swap_ready = 0x8000D198;
 boot_graphics_resume_count = 0x8000D199;
 D_80042710 = 0x80042710;
+rspboot_end = 0x800427E0;
 D_800427E0 = 0x800427E0;
 D_80044A24 = 0x80044A24;
 D_800451EC = 0x800451EC;

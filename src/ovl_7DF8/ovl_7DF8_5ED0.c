@@ -1009,7 +1009,27 @@ s32 func_801B6A68(T029Gfx801B6A68 **arg0, T029Texture *arg1, s32 arg2) {
     return 0;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B6BD8.s")
+#include "frontend.h"
+extern u8 D_802C8D0A[];
+extern u8 D_802C8D0B;
+extern s16 D_801F35AC;
+extern u8 D_80292A44[], D_80292A4C[];
+extern void *D_801F3570[], *D_801F3540[];
+s32 func_801B6BD8(FrontendGfxWords **arg0, u8 *arg1) {
+    s32 offset, count;
+    count = 0;
+    offset = 0;
+    if (D_802C8D0A[0] == 3 && D_802C8D0A[1] == 3) offset = 9;
+    if (D_802C8D0A[0] != 0) {
+        count += func_801BE540(arg0, arg1, D_80292A44, 0.0f, 170.0f, -1600.0f, 0, (u8)(255 - D_801F35AC), (u8)(255 - D_801F35AC), 255, 1.0f);
+        count += func_801BE540(arg0, arg1 + (count << 6), D_801F3570[D_802C8D0A[0] + offset], 0.0f, 130.0f, -1600.0f, (u8)(255 - D_801F35AC), (u8)(255 - D_801F35AC), (u8)(255 - D_801F35AC), 255, 1.0f);
+    }
+    if (D_802C8D0A[1] != 0) {
+        count += func_801BE540(arg0, arg1 + (count << 6), D_80292A4C, 0.0f, 80.0f, -1600.0f, 0, (u8)(255 - D_801F35AC), (u8)(255 - D_801F35AC), 255, 1.0f);
+        count += func_801BE540(arg0, arg1 + (count << 6), D_801F3540[D_802C8D0B + offset], 0.0f, 40.0f, -1600.0f, (u8)(255 - D_801F35AC), (u8)(255 - D_801F35AC), (u8)(255 - D_801F35AC), 255, 1.0f);
+    }
+    return count;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B6E4C.s")
 
@@ -1295,7 +1315,46 @@ void func_801BB594(s32 arg0, s32 arg1, s32 arg2, s32 arg3, T023State801BB594 *ar
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BBC84.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BBE88.s")
+extern s32 D_801F3D6C, D_801F3D70;
+extern u8 D_802C9020[];
+extern s16 D_802C9D20[];
+extern s32 D_802C9F64;
+typedef struct { u8 pad[0xE8]; s32 x, y; } T138View;
+void func_801BBE88(FrontendGfxWords **arg0, T138View *arg1) {
+    s32 temp_a2;
+    FrontendGfxWords *g, *p0;
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xE7000000; q->w1 = 0; }
+    g = (*arg0)++; g->w0 = 0xFD100000; g->w1 = (u32)&D_802C9D20;
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xE8000000; q->w1 = 0; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xF5000100; q->w1 = (u32)0x07000000; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xE6000000; q->w1 = 0; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xF0000000; q->w1 = (u32)0x073FC000; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xE7000000; q->w1 = 0; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xBA000E02; q->w1 = (u32)0x8000; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xFD500000; q->w1 = (u32)&D_802C9020; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xF5500000; q->w1 = (u32)0x07018060; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xE6000000; q->w1 = 0; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xF3000000; q->w1 = (u32)0x075FF100; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xE7000000; q->w1 = 0; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xF5481000; q->w1 = (u32)0x18060; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xF2000000; q->w1 = (u32)0xFC0BC; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0x2F00BCC0; q->w1 = 0; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xFCFFFFFF; q->w1 = (u32)0xFFFCF279; } if (D_802C9F64 != 0) {
+        p0 = (*arg0)++;
+        p0->w0 = (s32) ((((D_801F3D70 * 4) & 0xFFF) << 0xC) | 0xE4000000 | ((arg1->y * 4) & 0xFFF));
+        p0->w1 = (u32) ((((D_801F3D6C * 4) & 0xFFF) << 0xC) | ((D_802C9F64 * 4) & 0xFFF));
+        p0 = (*arg0)++;
+        p0->w0 = 0;
+        temp_a2 = arg1->y;
+        p0->w1 = (u32) ((((s32) (temp_a2 * 0x41) / (s32) (temp_a2 - D_802C9F64)) & 0xFFFF) | 0xC80000);
+        return;
+    }
+    p0 = (*arg0)++;
+    p0->w0 = (s32) ((((arg1->x * 4) & 0xFFF) << 0xC) | 0xE4000000 | ((arg1->y * 4) & 0xFFF));
+    p0->w1 = 0;
+    p0 = (*arg0)++;
+    p0->w0 = 0; p0->w1 = (u32)0xC80041;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BC1B0.s")
 

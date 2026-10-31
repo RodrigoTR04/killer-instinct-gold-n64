@@ -101,13 +101,10 @@ If T-138's claimed matches are accepted (§8), several rows above disappear. Ref
 | `func_80014D5C` | 1780 | 135 (prefix) | 6 | main ≤21B6C | T-136: declaration-order search 136→135 (prefix, 1,140 compiles); full-TU alternative reconciles the three legacy declarations (139 words, stack frame 0x20 = target). Early-branch/setup region is where it diverges. |
 | `func_801C4240` | 1344 | 126 | 9 | ovl >BBE88 |  |
 | `func_801C3AA0` | 928 | 119 | 6 | ovl >BBE88 | T-139: fresh m2c + 600 s full-TU declaration/layout search: no gain at 119. |
-| `func_801BBE88` | 808 | 147 | 5 | ovl ≤BBE88 | T-138 reports 147→140 (reordered two independent display-list commands). Unvetted. |
 | `func_8001D47C` | 748 | 134 (declarations) [emits 744] | 8 | main ≤21B6C |  |
 | `func_801C1434` | 720 | 132 | 5 | ovl >BBE88 |  |
 | `func_800170C4` | 692 | 134 (declarations) [emits 696] | 7 | main ≤21B6C |  |
 | `func_8001BB64` | 636 | 142 (declarations) [emits 632] | 9 | main ≤21B6C |  |
-| `func_801AD114` | 628 | 88 [emits 612] | 5 | ovl ≤BBE88 |  |
-| `func_801B6BD8` | 628 | 141 [emits 620] | 5 | ovl ≤BBE88 |  |
 | `func_801C2ADC` | 600 | 71 | 6 | ovl >BBE88 |  |
 | `func_801C11F0` | 580 | 113 [emits 584] | 6 | ovl >BBE88 |  |
 | `func_801BD3FC` | 580 | 134 [emits 484] | 5 | ovl >BBE88 |  |
@@ -115,7 +112,6 @@ If T-138's claimed matches are accepted (§8), several rows above disappear. Ref
 | `func_8002FDA0` | 572 | 107 [emits 556] | 7 | main >21B6C |  |
 | `func_801BADEC` | 568 | 101 [emits 560] | 7 | ovl ≤BBE88 |  |
 | `func_801B1DE4` | 556 | 111 | 6 | ovl ≤BBE88 | T-138 reports 111→15 (unvetted): reload `D_801D3098` after `func_801B19F0`/`func_801AF5EC`, flag store ordering, incremented-frame local. |
-| `func_801AD7D8` | 556 | 89 [emits 548] | 5 | ovl ≤BBE88 |  |
 | `func_801C49A8` | 548 | 83 | 10 | ovl >BBE88 |  |
 | `func_8001272C` | 540 | 103 [emits 544] | 6 | main ≤21B6C |  |
 
@@ -320,3 +316,8 @@ Matched: `func_800253D0` 1,068 B (HUD display-list routine; use the current spri
 ## 14. T-147 round (ovl_7DF8 high half, 2,432 B landed, vetted 2026-10-31)
 
 Matched: `func_801C80F0` 1,232 B (packed-name addresses corrected, name-table selector reloaded after `sinf`, shared selection branch) and `func_801C90D4` 1,200 B (direct fade-array expressions, full-width unsigned red conversion). Improved but not matching (differing words / bytes): `func_801C17D0` 102/448, `func_801C1990` 104/676, `func_801C23C0` 181/1,820, `func_801C317C` 215/936, `func_801C3758` 28/564, `func_801C4240` 90/1,344, `func_801C49A8` 44/548 (preserves the reloads the original has), `func_801C5298` 610/3,036. Passed over: `func_801BD200` 112, `func_801BD270` 396, `func_801BE540` 288, `func_801BE660` 300, `func_801BE790` 384, `func_801C0800` 248, `func_801C224C` 372, `func_801C2F5C` 544, `func_801C3AA0` 928, `func_801C3E40` 504, `func_801C7310` 1,276, `func_801C8004` 236, `func_801CC3BC` 360. Worker notes with the per-function analysis are in `tools/scratch/nonmatching/T-147/NOTES.md`.
+
+
+## 15. T-146 round (ovl_7DF8 low half, 2,620 B landed, vetted 2026-10-31)
+
+Matched: `func_801AD114` 628 B (real no-argument callees, byte-width player index, value lifetime of the selection global), `func_801AD7D8` 556 B (graphics-task submit: `rspboot_end` and `D_800427E0` are two symbols at the same address, the end of the boot microcode and the start of the graphics microcode, as in the SDK's `rspbootTextEnd`/`ucodeTextStart`; `symbol_addrs` has `allow_duplicated:True` for both), `func_801B6BD8` 628 B (direct count accumulation, `(u8)(255 - x)` byte colour expressions, local declaration order), `func_801BBE88` 808 B (display-list drawing; the lead folded the worker's two cursors and `p1 = *arg0; *arg0 = p1 + 1` into plain `(*arg0)++`, still matching). Improved but not matching: `func_801B2B8C` 872 B at **8 words** (best new ovl near-miss; the draft keeps the original completed-animation path's uninitialized alpha read), `func_801B0668` 984 B at 114, `func_801BBB60` 292 B at 26. Passed over: `func_801B5534` 168, `func_801ADA04` 208, `func_801B0520` 328, `func_801B1210` 284, `func_801B446C` 292, `func_801BBC84` 516, `func_801AFFAC` 576, `func_801BADEC` 568, `func_801ACB1C` 744, `func_801B1A7C` 872, `func_801B3DB0` 1,360.
