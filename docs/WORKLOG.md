@@ -706,3 +706,7 @@ T-148's run failed with "You've hit your usage limit … try again at 8:19 PM". 
 
 ## 2026-11-01 — T-148 resumed (lead)
 After the limit reset T-148 reported short (808 B: `func_800193DC` via chained initialization of equal bytes; improved drafts `func_801BBB60` 11 words, `func_80023EF0` 10, `func_800268C0` 26). Not merged (short report). Sent back to work for the remaining 1,222 B; its `/goal` is tracked by the host (the report says the goal was "usage-limited"), so the goal feature does register on the child thread.
+
+## 2026-11-01 — T-148 vetted (lead)
+T-148's final report was SHORT: 808 of 2,030 B (`func_800193DC` only); run 3 was interrupted before the report and the worker stated it had exhausted its structural probes on the other near-misses. The user's rule (no midway work) is satisfied because a final report exists; merged the one match plus the improved drafts and notes. Clean toolbox build: ROM sha1 `ba52e91b44450c548467044b26951353dc491e04`, `func_800193DC` T4, M2 107,420 -> 108,228 B (37.34%), 378 T4, 131 T2. Style note: the body uses raw-offset casts and redundant parentheses (like siblings `8001808C`/`80018AE0`/`80018F20`); no matching-only constructs (no volatile/dummy variables), queued under FU-13.
+

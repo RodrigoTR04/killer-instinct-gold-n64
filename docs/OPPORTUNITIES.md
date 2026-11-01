@@ -23,7 +23,7 @@ Fresh screen, 168 T2 drafts (2 do not compile standalone: `func_8001D080`, `func
 | >150 | 73 | 153,224 |
 
 The 0.70% quota is 2,030 B. **Every band-0–8 and band-9–50 function is under 600 B except
-`func_80017378` (1,752) and `func_800193DC` (808).** Reaching the quota from near-misses alone needs
+`func_80017378` (1,752) (`func_800193DC` matched in T-148).** Reaching the quota from near-misses alone needs
 several of them; reaching it from one function needs a >2 KB rewrite.
 
 Ranges are the T-136..T-139 split (main at `0x80021B6C`, ovl_7DF8 at `0x801BBE88`) so bundles can be
@@ -40,7 +40,7 @@ These are the combinations I would hand out next. None is guaranteed: every func
 
 | Bundle | Functions (bytes, words off) | Total | Why this grouping |
 |---|---|---:|---|
-| **A: main near-misses** | `func_80017378` (1,752, 6), `func_800193DC` (808, 7), `func_8001BDE0` (316, 8), `func_8002A900` (220, 15), `func_8002FB80` (544, 20) | 3,640 | `800193DC` is a sibling of the three functions T-136 matched and uses their exact recipe. `17378` alone is 0.60%; with `193DC` it clears the quota. |
+| **A: main near-misses** | `func_80017378` (1,752, 6), `func_8001BDE0` (316, 8), `func_8002A900` (220, 15), `func_8002FB80` (544, 20) | 3,640 | `193DC` matched in T-148. `17378` alone is 0.60%. |
 | **B: ovl_7DF8 ≤7-word sweep** | `func_801C8004` (236, 6), `func_801B5534` (168, 2), `func_801BF720` (104, 2), `func_801BF914` (116, 2), `func_801C4E38` (556, 2), `func_801B695C` (268, 4), `func_801C224C` (372, 6), `func_801BD270` (396, 7), `func_801BE540` (288, 8) | 2,504 | Eight functions, all within 8 words and exact size. `801BF720`/`801BF914` first need the declaration conflict in `ovl_7DF8_12C70.c` reconciled (true score unknown). `224C`, `BD270`, `BE540` were not touched by any worker this round. |
 | **C: carousel pair** | `func_801B5DCC` (1,884), `func_801B5650` (1,916) | 3,800 | One recipe, two functions (similarity 0.885). **Latest (T-145): `5DCC` 11 words exact size, `5650` 30 words and 4 B oversize (T-141 had 15/31).** Remaining diffs: selected record pointer in `v1` vs `v0`; `-10.0f` and height-conversion FP temporaries swapped; card-pointer load scheduled after the height store; in `5650` an extra late unconditional branch from the `if (state != 5) {…} return result; return 0;` shape. Tried and failed: recompute record at final store (285 words), defer `-10.0f` into the state paths (1,928 B), early return of state 5 (99 words), narrowed index, field-offset pointer, local-region permuter with `--stack-diffs`. 1.31% on its own; needs a new idea for the record-pointer lifetime. |
 | **D: 9–50-word band** | 28 functions, 7,084 B (§3) | 7,084 | The best bytes-per-effort pool once A–C are drained. |
@@ -54,7 +54,6 @@ If T-138's claimed matches are accepted (§8), several rows above disappear. Ref
 | `func_801B5534` | 168 | 2 | 10 | ovl ≤BBE88 | 2-word spill-slot difference. T-138: type, index, offset, explicit remainder, pointer-view probes. No gain. |
 | `func_801C4E38` | 556 | 2 | 16 | ovl >BBE88 | Scored with TU declarations. Left: stack spill at +0x18 instead of +0x1C. T-139: selector/handler locals, branch-local state (moves spill right but frame grows 0x20→0x28), reusing an arg after last use. Chained-clear order was reversed to match relocation targets (no score change). |
 | `func_801C224C` | 372 | 6 | 8 | ovl >BBE88 | **Not touched by T-136..T-139 so far.** 8 prior reports. |
-| `func_800193DC` | 808 | 7 | 7 | main ≤21B6C | T-136 took it to 7 words (full TU, exact size) and then left it, moving to its three stage-init siblings. Same family and recipe as the matched `func_8001808C`/`80018AE0`/`80018F20` (raw-offset stores via `D_8004A4C0`, `D_8004A5E0` viewed as `u8 (*)[7]`, float *literals* instead of `D_80048904`-style globals). Draft updated in lead tree. **Cheapest 800 B left.** |
 | `func_801BD270` | 396 | 7 | 11 | ovl >BBE88 | **Not touched by T-136..T-139 so far.** 11 prior reports. |
 | `func_8001BDE0` | 316 | 8 | 13 | main ≤21B6C | Differs only in which FP registers hold threshold and scale. T-136: argument/local layouts, comparison forms, loop forms, const-qualified constants, alternate 3rd-arg ABI (worse), for/do loops, separate fwd/rev cursors, 300 s permuter. None below 8. |
 | `func_801BE540` | 288 | 8 | 8 | ovl >BBE88 | **Not touched by T-136..T-139 so far.** 8 prior reports. |
@@ -322,3 +321,7 @@ Matched: `func_80015450` 324 B (indexed 40-object loop, full-width kind snapshot
 ## 17. T-145 round (ovl_7DF8 near-miss bundle, 2,172 B landed, vetted 2026-10-31)
 
 Matched: `func_801B695C` 268 (a two-dimensional texture-buffer view instead of one overloaded offset), `func_801BA884` 500 (shared counter pointer `counter = &D_801F39EC`, separate `x0/x1/y0/y1` positions as in the sibling draw routines `func_801BA674` etc., result assigned once; the lead tested a single Y local and inlined expressions: both break the match, so the two identical Y computations are real family structure, not a trick), `func_801BEEA4` 344 (typed score entries `{data, u16 score}`, descending copy cursor with `memcpy`), `func_801BF720` 104 and `func_801BF914` 116 (single result variable assigned in the letter branch and the switch, one return), `func_801C11F0` 580 (byte casts, shared phase reads, declaration order), `func_801C47E0` 260 (SDK TLB prototypes, two-stage page-offset calculation). Still open in this bundle: carousel `func_801B5DCC` (1,884 B, 11 words), `func_801B5650` (1,916 B, 30 words, 4 B oversize), `func_801B1DE4` (556 B, 13 words), `func_801BAA78` (884 B, 14 words). Worker notes in `tools/scratch/nonmatching/T-145/` (if present) and the T-141 notes.
+
+## 18. T-148 round (near-miss bundle 2, SHORT: 808 B landed, vetted 2026-11-01)
+Matched: `func_800193DC` 808 B (chained assignment of the four equal bytes in `D_80061520`, sequential `D_80061CB8` bytes, float literals; raw-offset store style like its T-136 siblings, so FU-13 cleanup applies).
+Not matched, with the worker's evidence (all in `tools/scratch/nonmatching/T-148/NOTES.md`): `func_80014D5C` 14 words in the full TU (three address-register choices, two zero stores around the division checks; indexed views, chained init and a colour struct all failed; the full-TU draft needs `D_8004A264` as `s32` cast to pointer), carousel `801B5DCC` 11 words / `801B5650` 30 words (simpler draft without `next`), `801B2B8C` 8 words (global-address registers, 940+180 s permuter unchanged), `801BBB60` 292 B 26 -> 11 words, `80023EF0` 12 -> 10 words (real y snapshot), `800268C0` 28 -> 26, `801B1DE4` 13 words (target passes old frame before incrementing; post-increment forms emit 552 B), `801BAA78` 14 words, `8001BDE0` 8 words, `801C8004` honest 16-word/236 B form.
