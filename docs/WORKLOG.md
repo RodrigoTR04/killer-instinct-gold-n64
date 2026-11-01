@@ -719,3 +719,6 @@ T-149 failed at once with "You've hit your usage limit … try again at 6:52 AM"
 
 ## 2026-11-01 — T-149 vetted (lead)
 T-149 reported SHORT: 0 B newly T4 (usage limit reached; it says it did not exhaust its functions). Merged its type/prototype corrections (u16 `D_80061490`, u8 `D_8012834B`, `func_80015594` prototype, `T032Bank` declaration move) and committed drafts/notes. Clean toolbox build: sha1 `ba52e91b44450c548467044b26951353dc491e04`, functions.csv unchanged, M2 stays 108,228 B (37.34%), 378 T4, 131 T2.
+
+## 2026-11-01 — T-149 hit the usage limit again (lead)
+A further T-149 run failed with "usage limit … try again at 9:42 PM". No new report; nothing taken in. T-149 stays closed as vetted-short (0 B); a respawn needs a new user request.
