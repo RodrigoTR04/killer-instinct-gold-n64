@@ -710,3 +710,6 @@ After the limit reset T-148 reported short (808 B: `func_800193DC` via chained i
 ## 2026-11-01 — T-148 vetted (lead)
 T-148's final report was SHORT: 808 of 2,030 B (`func_800193DC` only); run 3 was interrupted before the report and the worker stated it had exhausted its structural probes on the other near-misses. The user's rule (no midway work) is satisfied because a final report exists; merged the one match plus the improved drafts and notes. Clean toolbox build: ROM sha1 `ba52e91b44450c548467044b26951353dc491e04`, `func_800193DC` T4, M2 107,420 -> 108,228 B (37.34%), 378 T4, 131 T2. Style note: the body uses raw-offset casts and redundant parentheses (like siblings `8001808C`/`80018AE0`/`80018F20`); no matching-only constructs (no volatile/dummy variables), queued under FU-13.
 
+
+## 2026-11-01 — T-149 spawned (lead)
+User asked for one new gpt-6.1-terra (high) worker. T-149 got the T-148 brief with the same `/goal` text and ≥2,030 B requirement, plus: do not repeat T-148's failed probes, write readable C (no raw-offset casts), and start from the near-misses T-148 did not touch (ovl bundle B, mid-size main and ovl drafts). Note: the `reasoningEffort` option (not `effort`) selects high for codex_proxy.
