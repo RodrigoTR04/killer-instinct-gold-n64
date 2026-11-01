@@ -713,3 +713,6 @@ T-148's final report was SHORT: 808 of 2,030 B (`func_800193DC` only); run 3 was
 
 ## 2026-11-01 — T-149 spawned (lead)
 User asked for one new gpt-6.1-terra (high) worker. T-149 got the T-148 brief with the same `/goal` text and ≥2,030 B requirement, plus: do not repeat T-148's failed probes, write readable C (no raw-offset casts), and start from the near-misses T-148 did not touch (ovl bundle B, mid-size main and ovl drafts). Note: the `reasoningEffort` option (not `effort`) selects high for codex_proxy.
+
+## 2026-11-01 — T-149 stopped by provider usage limit (lead)
+T-149 failed at once with "You've hit your usage limit … try again at 6:52 AM". No report exists; per the standing rule no partial work is taken in. Its functions are released. Respawn after the reset with the same brief (or resume the thread).
