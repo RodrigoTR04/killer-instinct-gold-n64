@@ -794,7 +794,7 @@ s32 func_801B3B84(T025Gfx3B84 **arg0, s32 arg1, void *arg2, s32 arg3)
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B3DB0.s")
 
-extern s8 D_8012834B;
+extern u8 D_8012834B;
 extern void func_801B43A8(void);
 void func_801B4300(void) {
     D_8012834B = 0;

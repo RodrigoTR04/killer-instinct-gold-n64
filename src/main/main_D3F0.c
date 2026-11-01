@@ -64,6 +64,9 @@ void func_8001D768(s32 arg0, s32 *arg1) {
     p->width2 = arg1[0]; p->height2 = arg1[1];
 }
 
+typedef struct { s32 zero; void *data; } T032Bank;
+extern struct { u8 pad[0x12A8]; T032Bank banks[2]; } D_8004D278;
+
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_D3F0/func_8001D7E4.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_D3F0/func_8001DE5C.s")
@@ -261,8 +264,6 @@ void func_80024144(s32 player,s32 kind) {
 extern void boot_dma(s32, s32, s32);
 extern void func_800245B4(s32, void *, s32);
 extern u8 D_8B70[], D_119F0[], D_48FD0[], D_2ECB0[];
-typedef struct { s32 zero; void *data; } T032Bank;
-extern struct { u8 pad[0x12A8]; T032Bank banks[2]; } D_8004D278;
 void func_800244F0(s32 player)
 {
   /* Naming the ROM address retains the original IDO stack layout. */

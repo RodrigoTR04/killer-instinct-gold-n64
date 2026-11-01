@@ -716,3 +716,6 @@ User asked for one new gpt-6.1-terra (high) worker. T-149 got the T-148 brief wi
 
 ## 2026-11-01 — T-149 stopped by provider usage limit (lead)
 T-149 failed at once with "You've hit your usage limit … try again at 6:52 AM". No report exists; per the standing rule no partial work is taken in. Its functions are released. Respawn after the reset with the same brief (or resume the thread).
+
+## 2026-11-01 — T-149 vetted (lead)
+T-149 reported SHORT: 0 B newly T4 (usage limit reached; it says it did not exhaust its functions). Merged its type/prototype corrections (u16 `D_80061490`, u8 `D_8012834B`, `func_80015594` prototype, `T032Bank` declaration move) and committed drafts/notes. Clean toolbox build: sha1 `ba52e91b44450c548467044b26951353dc491e04`, functions.csv unchanged, M2 stays 108,228 B (37.34%), 378 T4, 131 T2.

@@ -218,7 +218,7 @@ extern void func_8001372C(T020Position *);
 extern s32 func_80013BA4(s32, s32, s32, s32);
 extern void func_80013BE0();
 extern void func_80013C84();
-extern void func_80015594();
+extern void func_80015594(T033RenderCommand **, s32 *, f32, s32, f32, f32, f32);
 extern void func_80016078();
 extern void func_8001C0E4(s32 *, s16 *, s32 *, s16 *, s32, s32 *, s32 *, s32);
 extern void func_8001C43C(s32, u8 *, u8 *, u8 *, u8 *);

@@ -4,7 +4,7 @@
 
 extern void func_8001D768(s32, s32 *);
 extern s32 D_800470C0[], D_80046EF0[], D_8011E670[], D_8011E990[];
-extern s16 D_80061490[2];
+extern u16 D_80061490[2];
 extern u8 D_80061494[2], D_8004D26C;
 void func_80025354(void) {
     func_8001D768(6, D_800470C0);
@@ -89,10 +89,11 @@ void func_800253D0(T032Gfx269AC **arg0)
     }
     }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_15380/func_800257FC.s")
-
 typedef struct { u16 *pixels; u8 *alpha; s16 halfW,halfH,w,h,w2,h2; u8 pad[4]; s16 flags; u8 tail[2]; } T032Sprite25D;
 extern T032Sprite25D D_8004CED0[];
+
+#pragma GLOBAL_ASM("asm/nonmatchings/main/main_15380/func_800257FC.s")
+
 extern s32 D_8004EA78;
 typedef struct { u8 value[13]; } T032Height13;
 typedef struct { u8 value[14]; } T032Height14;
