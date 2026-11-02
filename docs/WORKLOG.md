@@ -725,3 +725,6 @@ A further T-149 run failed with "usage limit … try again at 9:42 PM". No new r
 
 ## 2026-11-01 — T-149 second report vetted (lead)
 T-149 reported again at the usage limit: 372 of 2,030 B (`func_801C224C`: `selected` is a real snapshot of `D_802D38C8` taken after the init calls and again after `func_8001CD50`; no dummy locals). Merged the match, declaration moves and drafts. Clean toolbox build: sha1 `ba52e91b44450c548467044b26951353dc491e04`, M2 108,228 -> 108,600 B (37.46%), 379 T4, 130 T2. Still SHORT of the goal (1,658 B).
+
+## 2026-11-02 — T-150 spawned (lead)
+User asked for one new worker with the same requirement. T-150 (gpt-6.1-terra, reasoningEffort high, `/goal` leading the brief) got the T-149 brief updated for the drained near-miss pool: commit improved drafts as they land (usage limit risk), expect the quota to come from medium/large T2 drafts via structural corrections, and continue T-149's furthest drafts.
