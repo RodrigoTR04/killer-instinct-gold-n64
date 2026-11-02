@@ -758,3 +758,6 @@ T-151 (Claude Sonnet 5.5 high) met the goal: 2,096 B (func_801CC3BC 360, func_80
 
 ## 2026-11-02 — T-154 spawned (lead)
 User asked for one more Sonnet subagent. T-154 (Claude Sonnet 5.5, effort high, claude_proxy, worktree) got the T-151 brief plus the winning T-151/T-153 recipes (C-owned strings and float rodata, u16 mask at a 64-bit add, pointer assigned inside the if, reload after call), the T-153 helper scripts, and a mixed candidate list (ovl large/mid drafts and main drafts, T-150's blocked pool included). Rules unchanged; added: no second symbol at one address to defeat IDO address sharing unless the original has two, and do not commit throwaway variant dirs.
+
+## 2026-11-02 — T-154 vetted (lead)
+T-154 (Claude Sonnet 5.5 high) met the goal: 2,444 B (func_801BDF94, 801BD3FC, 801BE660, 801BD200). Source applied with --3way (one file), scratch merged (24 files). Simplification tests (ROM-level builds): hoisting the `glyph` assignment out of the condition in 801BDF94 still matches (merged that way); removing the discarded `input >> 32; input >> 16;` in 801BD3FC breaks the ROM, so they stay and are disclosed. Clean toolbox build: sha1 `ba52e91b44450c548467044b26951353dc491e04`, M2 111,380 -> 113,824 B (39.27%), 388 T4, 121 T2.
