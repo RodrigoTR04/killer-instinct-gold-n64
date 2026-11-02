@@ -734,3 +734,6 @@ User asked for one more Sonnet (high) worker alongside T-150. T-151 = Claude Son
 
 ## 2026-11-02 — T-150 stopped by provider usage limit (lead)
 T-150 failed with "usage limit … try again at 4:52 AM". No report exists; nothing taken in. A later report from the same thread (as happened with T-149) will be vetted when it arrives; otherwise respawn after the reset on request. T-151 (Sonnet, claude_proxy) is unaffected and still running.
+
+## 2026-11-02 — T-150 and T-151 resumed (lead)
+User: have the subagents continue. T-151 had three runs fail on "Claude API rate limit reached"; T-150 had hit the Codex usage limit. Both threads were sent a continue message (same /goal, commit first, T-150 told again to leave T-151's functions alone). Only final reports will be vetted.
