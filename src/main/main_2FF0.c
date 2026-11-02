@@ -72,9 +72,10 @@ void func_80012B24(u16 *arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5) 
     guPerspective(D_8004AC40, arg0, arg1, arg2, arg3, arg4, arg5);
 }
 
+typedef struct { u32 command, value; } T033RenderCommand;
+
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_80012B7C.s")
 
-typedef struct { u32 command, value; } T033RenderCommand;
 extern u8 D_80044A24, D_8004ABC0;
 extern u16 D_8004ACFC;
 extern s32 (*D_8004AEAC)(s32, s32, s32, s32);

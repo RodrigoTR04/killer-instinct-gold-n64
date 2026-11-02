@@ -67,10 +67,7 @@ void func_800257FC(u8 unused,u16 health,u8 player,u8 flash) {
             else func_80025D58(x, color, 192, 0);
         }
     } else {
-        for (x=123;x>=(*healthPtr>>8)+3;x--) {
-            if (x < 111) break;
-            func_80025D58(x,0,0,1);
-        }
+        for (x=123;x>=(*healthPtr>>8)+3 && x>=111;x--) func_80025D58(x,0,0,1);
         for (x=111;x<(*healthPtr>>8)+3;x++) {
             if (x == (*healthPtr >> 8) + 2) func_80025D58(x, 0xFFFF, 192, 1);
             else func_80025D58(x, color, 192, 1);

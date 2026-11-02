@@ -1,5 +1,8 @@
 #include "common.h"
 
+typedef struct { u16 *pixels; u8 *alpha; s16 halfW,halfH,w,h,w2,h2; u8 pad[4]; s16 flags; u8 tail[2]; } T032Sprite25D;
+extern T032Sprite25D D_8004CED0[];
+
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_15380/func_80024CE0.s")
 
 extern void func_8001D768(s32, s32 *);
@@ -89,8 +92,6 @@ void func_800253D0(T032Gfx269AC **arg0)
     }
     }
 
-typedef struct { u16 *pixels; u8 *alpha; s16 halfW,halfH,w,h,w2,h2; u8 pad[4]; s16 flags; u8 tail[2]; } T032Sprite25D;
-extern T032Sprite25D D_8004CED0[];
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_15380/func_800257FC.s")
 

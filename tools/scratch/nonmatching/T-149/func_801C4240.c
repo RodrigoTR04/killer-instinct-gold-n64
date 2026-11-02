@@ -8,10 +8,10 @@ extern void func_8002DCC8(f32,f32,f32,u32 *);
 extern void func_8002DDD4(f32,f32,f32,s32 *,s32 *);
 extern void func_8002F6F4();
 extern void func_8002FA3C(void);
-extern void func_8002FA5C(s32,s32,s32);
+extern void func_8002FA5C(s32,s16,s32);
 extern void func_801ADC64(s32);
 extern s32 func_801BDF94(T030Cmd4240 **, void *, void *, f32,f32,f32,s32,f32,f32);
-extern void func_801C49A8(T030Cmd4240 **,s32,s32,s32,u32,s32,s32);
+extern void func_801C49A8(T030Cmd4240 **,s32,s32,s32,u32,u8,u8);
 extern void guTranslate(void *,f32,f32,f32);
 extern u8 D_8004A25C[], D_8004A260[];
 extern s32 D_80066C40;
@@ -75,7 +75,7 @@ void func_801C4240(T030Cmd4240 **arg0, T030Render4240 *arg1) {
     temp_v0->w0 = 0x06000000;
   }
     D_802956F4 += 1;
-  func_8002DDD4(-13.0f, -350.0f, sp48, &sp78, &sp74); temp_t4 = (sp80 = ((u32) ((0x38 - (((u8) D_802C8724) * 8)) * sp80)) >> 5); func_801C49A8(arg0, 0, 0x12C000, sp74 >> 3, temp_t4, 4, (s32) D_802D3960);
+  func_8002DDD4(-13.0f, -350.0f, sp48, &sp78, &sp74); temp_t4 = (sp80 = ((u32) ((0x38 - (((u8) D_802C8724) * 8)) * sp80)) >> 5); func_801C49A8(arg0, 0, 0x12C000, sp74 >> 3, temp_t4, 4, D_802D3960);
   {
     cmd = (*arg0)++;
     cmd->w1 = 0;

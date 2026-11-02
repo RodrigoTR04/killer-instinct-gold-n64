@@ -722,3 +722,6 @@ T-149 reported SHORT: 0 B newly T4 (usage limit reached; it says it did not exha
 
 ## 2026-11-01 — T-149 hit the usage limit again (lead)
 A further T-149 run failed with "usage limit … try again at 9:42 PM". No new report; nothing taken in. T-149 stays closed as vetted-short (0 B); a respawn needs a new user request.
+
+## 2026-11-01 — T-149 second report vetted (lead)
+T-149 reported again at the usage limit: 372 of 2,030 B (`func_801C224C`: `selected` is a real snapshot of `D_802D38C8` taken after the init calls and again after `func_8001CD50`; no dummy locals). Merged the match, declaration moves and drafts. Clean toolbox build: sha1 `ba52e91b44450c548467044b26951353dc491e04`, M2 108,228 -> 108,600 B (37.46%), 379 T4, 130 T2. Still SHORT of the goal (1,658 B).
