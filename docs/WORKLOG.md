@@ -737,3 +737,6 @@ T-150 failed with "usage limit … try again at 4:52 AM". No report exists; noth
 
 ## 2026-11-02 — T-150 and T-151 resumed (lead)
 User: have the subagents continue. T-151 had three runs fail on "Claude API rate limit reached"; T-150 had hit the Codex usage limit. Both threads were sent a continue message (same /goal, commit first, T-150 told again to leave T-151's functions alone). Only final reports will be vetted.
+
+## 2026-11-02 — T-150 usage limit until Nov 4 (lead)
+T-150's resumed run failed at once: usage limit, retry at Nov 4th 2026 5:12 PM. No report; nothing taken in. T-151 (Claude) is the only worker still running.
