@@ -764,3 +764,6 @@ T-154 (Claude Sonnet 5.5 high) met the goal: 2,444 B (func_801BDF94, 801BD3FC, 8
 
 ## 2026-11-02 — T-155 and T-156 spawned (lead)
 User asked for two more Sonnet subagents. Both Claude Sonnet 5.5 (effort high, claude_proxy, worktree), same /goal and ≥2,030 B requirement, split by image so merges stay disjoint: T-155 = ovl_7DF8 (starts with func_801BD640 and func_801BDA6C, T-154's near drafts), T-156 = main (exact-size near drafts, then clean-room rewrites for the frame-mismatch drafts). Briefs add the T-154 lessons (clean-room rewrite of m2c drafts, use params/table entries directly, no second symbol at one address) and point to the T-152..T-154 helper scripts.
+
+## 2026-11-02 — T-157 spawned (lead)
+User asked for one more Sonnet subagent. T-157 (Claude Sonnet 5.5 high, claude_proxy, worktree) owns the twelve large ovl_7DF8 drafts (801BCB70 first) with the clean-room-rewrite recipe from T-154/T-151 and chunked matching advice; T-155 was messaged to drop those twelve and keep the smaller ovl functions, T-156 keeps main. Same /goal, ≥2,030 B, rules.
