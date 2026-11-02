@@ -740,3 +740,6 @@ User: have the subagents continue. T-151 had three runs fail on "Claude API rate
 
 ## 2026-11-02 — T-150 usage limit until Nov 4 (lead)
 T-150's resumed run failed at once: usage limit, retry at Nov 4th 2026 5:12 PM. No report; nothing taken in. T-151 (Claude) is the only worker still running.
+
+## 2026-11-02 — T-152 and T-153 spawned (lead)
+User asked for two DeepSeek V4.1 Flash 1017 workers from Cursor ACP (provider `cursor`, model `deepseek-v41-flash-1017`, no effort option passed so the default `max` applies) with the same requirements. T-150's pool is blocked on the Codex limit until Nov 4, so I split it: T-152 owns main, T-153 owns the mid-size/near-miss ovl_7DF8 functions; T-151 (Sonnet) keeps its 12 large ovl functions. Same `/goal`, ≥2,030 B, no-artificial-construct rules, commit-as-you-go.
