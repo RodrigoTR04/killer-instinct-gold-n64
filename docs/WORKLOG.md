@@ -746,3 +746,6 @@ User asked for two DeepSeek V4.1 Flash 1017 workers from Cursor ACP (provider `c
 
 ## 2026-11-02 — T-152 vetted (lead)
 T-152 (DeepSeek) reported SHORT: 0 B, no source change. Merged its drafts and notes only (9 scratch files). Its claim that `func_80014D5C` links byte-identically contradicts its own statement that the linked main.bin differs; the differences it lists are the register-choice and store-order ones, so nothing was claimed. Tree unchanged: M2 108,600 B (37.46%).
+
+## 2026-11-02 — T-153 vetted (lead)
+T-153 (DeepSeek) reported SHORT: 684 of 2,030 B (`func_801BE540`, `func_801BD270`). Applied with --3way; dropped the 250 variant directories (31k lines of throwaway) and kept tools, notes and named drafts. Simplification test: `glyph = &D_80282A70[index];` hoisted out of the `if` condition still matches, so the merged text uses it. Clean toolbox build: sha1 `ba52e91b44450c548467044b26951353dc491e04`, M2 108,600 -> 109,284 B (37.70%), 381 T4, 128 T2.
