@@ -728,3 +728,6 @@ T-149 reported again at the usage limit: 372 of 2,030 B (`func_801C224C`: `selec
 
 ## 2026-11-02 — T-150 spawned (lead)
 User asked for one new worker with the same requirement. T-150 (gpt-6.1-terra, reasoningEffort high, `/goal` leading the brief) got the T-149 brief updated for the drained near-miss pool: commit improved drafts as they land (usage limit risk), expect the quota to come from medium/large T2 drafts via structural corrections, and continue T-149's furthest drafts.
+
+## 2026-11-02 — T-151 spawned (lead)
+User asked for one more Sonnet (high) worker alongside T-150. T-151 = Claude Sonnet 5.5, `effort: high`, provider claude_proxy, worktree isolation, same `/goal` and ≥2,030 B requirement. It owns twelve large ovl_7DF8 drafts (listed on the board); T-150 was told by message to leave them alone so the two merges stay disjoint.
