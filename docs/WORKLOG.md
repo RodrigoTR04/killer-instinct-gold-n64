@@ -761,3 +761,6 @@ User asked for one more Sonnet subagent. T-154 (Claude Sonnet 5.5, effort high, 
 
 ## 2026-11-02 — T-154 vetted (lead)
 T-154 (Claude Sonnet 5.5 high) met the goal: 2,444 B (func_801BDF94, 801BD3FC, 801BE660, 801BD200). Source applied with --3way (one file), scratch merged (24 files). Simplification tests (ROM-level builds): hoisting the `glyph` assignment out of the condition in 801BDF94 still matches (merged that way); removing the discarded `input >> 32; input >> 16;` in 801BD3FC breaks the ROM, so they stay and are disclosed. Clean toolbox build: sha1 `ba52e91b44450c548467044b26951353dc491e04`, M2 111,380 -> 113,824 B (39.27%), 388 T4, 121 T2.
+
+## 2026-11-02 — T-155 and T-156 spawned (lead)
+User asked for two more Sonnet subagents. Both Claude Sonnet 5.5 (effort high, claude_proxy, worktree), same /goal and ≥2,030 B requirement, split by image so merges stay disjoint: T-155 = ovl_7DF8 (starts with func_801BD640 and func_801BDA6C, T-154's near drafts), T-156 = main (exact-size near drafts, then clean-room rewrites for the frame-mismatch drafts). Briefs add the T-154 lessons (clean-room rewrite of m2c drafts, use params/table entries directly, no second symbol at one address) and point to the T-152..T-154 helper scripts.
