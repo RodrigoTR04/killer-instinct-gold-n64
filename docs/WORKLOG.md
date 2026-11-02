@@ -743,3 +743,6 @@ T-150's resumed run failed at once: usage limit, retry at Nov 4th 2026 5:12 PM. 
 
 ## 2026-11-02 — T-152 and T-153 spawned (lead)
 User asked for two DeepSeek V4.1 Flash 1017 workers from Cursor ACP (provider `cursor`, model `deepseek-v41-flash-1017`, no effort option passed so the default `max` applies) with the same requirements. T-150's pool is blocked on the Codex limit until Nov 4, so I split it: T-152 owns main, T-153 owns the mid-size/near-miss ovl_7DF8 functions; T-151 (Sonnet) keeps its 12 large ovl functions. Same `/goal`, ≥2,030 B, no-artificial-construct rules, commit-as-you-go.
+
+## 2026-11-02 — T-152 vetted (lead)
+T-152 (DeepSeek) reported SHORT: 0 B, no source change. Merged its drafts and notes only (9 scratch files). Its claim that `func_80014D5C` links byte-identically contradicts its own statement that the linked main.bin differs; the differences it lists are the register-choice and store-order ones, so nothing was claimed. Tree unchanged: M2 108,600 B (37.46%).
