@@ -752,3 +752,6 @@ T-153 (DeepSeek) reported SHORT: 684 of 2,030 B (`func_801BE540`, `func_801BD270
 
 ## 2026-11-02 — T-150 usage limit notice (lead)
 Another T-150 run failed on the Codex usage limit (retry at Nov 4th 2026 9:31 AM). No report, nothing taken in; T-150 stays blocked. T-151 (Claude) is the only running worker.
+
+## 2026-11-02 — T-151 vetted (lead)
+T-151 (Claude Sonnet 5.5 high) met the goal: 2,096 B (func_801CC3BC 360, func_801CD1F0 460, func_801C7310 1,276), after three runs failed on Claude API rate limits and it was resumed. Applied with --3way; clean toolbox build: sha1 `ba52e91b44450c548467044b26951353dc491e04`, all three T4, M2 109,284 -> 111,380 B (38.42%), 384 T4, 125 T2. Simplification tests on func_801C7310 (each a ROM-level build): dropping the redundant `text` reassignment, dropping its `u32` cast, and assigning `volume` once before the branch all break the ROM, so the disclosed constructs stay (FU-13). func_801CC3BC's `(current == 0) & (1 << arg1)` is a bug-for-bug expression from the target.
