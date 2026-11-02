@@ -731,3 +731,6 @@ User asked for one new worker with the same requirement. T-150 (gpt-6.1-terra, r
 
 ## 2026-11-02 — T-151 spawned (lead)
 User asked for one more Sonnet (high) worker alongside T-150. T-151 = Claude Sonnet 5.5, `effort: high`, provider claude_proxy, worktree isolation, same `/goal` and ≥2,030 B requirement. It owns twelve large ovl_7DF8 drafts (listed on the board); T-150 was told by message to leave them alone so the two merges stay disjoint.
+
+## 2026-11-02 — T-150 stopped by provider usage limit (lead)
+T-150 failed with "usage limit … try again at 4:52 AM". No report exists; nothing taken in. A later report from the same thread (as happened with T-149) will be vetted when it arrives; otherwise respawn after the reset on request. T-151 (Sonnet, claude_proxy) is unaffected and still running.
