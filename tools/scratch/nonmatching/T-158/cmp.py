@@ -95,7 +95,32 @@ def draft_raw(o, function):
         if m:
             out.append([int(m.group(1), 16), m.group(2).strip(), []])
             continue
-    return out
+    return fix_addends(out)
+
+
+def fix_addends(pairs):
+    """REL relocs keep the addend in the immediate: fold it into the reloc so `sym+N` canonicalizes like splat's absolute names."""
+    pairs = [[a, i, [list(r) for r in rels]] for a, i, rels in pairs]
+    for k, (_, ins, rels) in enumerate(pairs):
+        for rel in rels:
+            if rel[0] != 'R_MIPS_LO16':
+                continue
+            m = re.search(r',\s*(-?\d+)(?:\(\w+\))?$', ins)
+            n = int(m.group(1)) if m else 0
+            if not n:
+                continue
+            total = n
+            for j in range(k - 1, -1, -1):
+                hr = [r for r in pairs[j][2] if r[0] == 'R_MIPS_HI16' and r[1] == rel[1]]
+                if hr:
+                    hm = re.search(r'lui\s+\w+,\s*(0x[0-9a-f]+|\d+)', pairs[j][1])
+                    h = int(hm.group(1), 0) if hm else 0
+                    total = (h << 16) + n
+                    hr[0][2] = str(total)
+                    break
+            rel[2] = str(total)
+            pairs[k][1] = re.sub(r'(-?\d+)(\(\w+\))?$', lambda mm: '0' + (mm.group(2) or ''), ins)
+    return pairs
 
 
 def apply_relocs(ins, rels):
@@ -104,6 +129,8 @@ def apply_relocs(ins, rels):
     kinds = {k for k, _, _ in rels}
     sym = rels[0][1]
     add = rels[0][2]
+    if add and re.fullmatch(r'-?\d+', add) and int(add) != 0:
+        sym = f'{sym}+{add}'
     if 'R_MIPS_26' in kinds:
         return re.sub(r'\b(jal|j)\s+.*$', lambda m: f'{m.group(1)} {sym}', ins)
     if 'R_MIPS_HI16' in kinds:
