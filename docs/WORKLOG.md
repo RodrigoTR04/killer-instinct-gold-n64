@@ -767,3 +767,6 @@ User asked for two more Sonnet subagents. Both Claude Sonnet 5.5 (effort high, c
 
 ## 2026-11-02 — T-157 spawned (lead)
 User asked for one more Sonnet subagent. T-157 (Claude Sonnet 5.5 high, claude_proxy, worktree) owns the twelve large ovl_7DF8 drafts (801BCB70 first) with the clean-room-rewrite recipe from T-154/T-151 and chunked matching advice; T-155 was messaged to drop those twelve and keep the smaller ovl functions, T-156 keeps main. Same /goal, ≥2,030 B, rules.
+
+## 2026-11-02 — T-155/T-156/T-157 rate-limited and resumed (lead)
+All three Sonnet workers failed with "Claude API rate limit reached" (no reports). Following the earlier instruction to keep the subagents going after such failures, each thread was sent a continue message (same /goal, commit pending work first, scope reminder). Only final reports will be vetted.
