@@ -779,3 +779,6 @@ T-155 (Claude Sonnet 5.5 high) met the goal by 10 B: 2,040 B in ovl_7DF8 (func_8
 
 ## 2026-11-03 — T-157 status message, resumed (lead)
 T-157 ended a run with a status update on func_801BCB70 (nothing in src yet), not a goal-met report; a separate run also hit the Claude rate limit. Not taken in. Sent it a "Not final" message: commit, rotate if 801BCB70 stalls, report only at the goal.
+
+## 2026-11-03 — T-157 cancelled (lead)
+The T-157 task ended with status cancelled (not by a lead cancel). Its last messages were status updates: func_801BCB70 13 reg-masked / 64 exact lines, func_801BC1B0 (2,496 B) about 178 reg-masked lines, 0 B T4. No final report, nothing merged, functions released. Its scratch drafts stay in its worktree; vet them only if the user asks.
