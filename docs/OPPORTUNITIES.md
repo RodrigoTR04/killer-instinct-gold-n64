@@ -45,7 +45,7 @@ These are the combinations I would hand out next. None is guaranteed: every func
 |---|---|---:|---|
 | **A: main near-misses** | `func_80017378` (1,752, 6), `func_8001BDE0` (316, 8), `func_8002A900` (220, 15), `func_8002FB80` (544, 20) | 3,640 | `193DC` matched in T-148. `17378` alone is 0.60%. |
 | **B: ovl_7DF8 ≤7-word sweep** | `func_801C8004` (236, 6), `func_801B5534` (168, 2), `func_801BF720` (104, 2), `func_801BF914` (116, 2), `func_801C4E38` (556, 2), `func_801B695C` (268, 4), `func_801C224C` (372, 6),  | 2,504 | Eight functions, all within 8 words and exact size. `801BF720`/`801BF914` first need the declaration conflict in `ovl_7DF8_12C70.c` reconciled (true score unknown). `224C`, `BD270`, `BE540` were not touched by any worker this round. |
-| **C: carousel pair** | `func_801B5DCC` (1,884), `func_801B5650` (1,916) | 3,800 | One recipe, two functions (similarity 0.885). **Latest (T-145): `5DCC` 11 words exact size, `5650` 30 words and 4 B oversize (T-141 had 15/31).** Remaining diffs: selected record pointer in `v1` vs `v0`; `-10.0f` and height-conversion FP temporaries swapped; card-pointer load scheduled after the height store; in `5650` an extra late unconditional branch from the `if (state != 5) {…} return result; return 0;` shape. Tried and failed: recompute record at final store (285 words), defer `-10.0f` into the state paths (1,928 B), early return of state 5 (99 words), narrowed index, field-offset pointer, local-region permuter with `--stack-diffs`. 1.31% on its own; needs a new idea for the record-pointer lifetime. |
+| **C: carousel pair** | `func_801B5DCC` (1,884), `func_801B5650` (1,916) | 3,800 | **MATCHED (T-158).** The drafts' `index` local plus per-path `record = &D_802C8C30[arg1->index]` was the whole problem: read `arg1->index` / `D_802C8C30[arg1->index].right` at every use, `z = -10.0f` before the height load, rotation store as `*(f32 *)((u8 *)D_802C8C60 + arg1->index * 8)`, early `if (state == 5) return 0;`, `D_802C8C28` as `u8[]`. Notes in `tools/scratch/nonmatching/T-158/NOTES.md`. |
 | **D: 9–50-word band** | 28 functions, 7,084 B (§3) | 7,084 | The best bytes-per-effort pool once A–C are drained. |
 
 If T-138's claimed matches are accepted (§8), several rows above disappear. Refresh the tables after vetting.
@@ -72,7 +72,7 @@ If T-138's claimed matches are accepted (§8), several rows above disappear. Ref
 | `func_801C3758` | 564 | 30 | 12 | ovl >BBE88 |  |
 | `func_80031050` | 112 | 30 (declarations) [emits 120] | 3 | main >21B6C | Handwritten-ABI cluster (§5). |
 | `func_80032600` | 112 | 37 [emits 148] | 3 | main >21B6C |  |
-| `func_801BBB60` | 292 | 40 | 12 | ovl ≤BBE88 | T-138 reports 29 (for-loop palette clears, split flag/buffer init). Unvetted. |
+| `func_801BBB60` | 292 | 40 | 12 | ovl ≤BBE88 | **11 exact / 4 register-masked words** (T-148/T-158). Only the red/green gradient loops differ (temps t8,t0,t1 / t3,t4,t6,t7 vs a0,t7,t8 / a0,t9,t0,t1; target schedules `ori` after `slti`). Failed (T-158): pointer loops bounded by the symbol (CSE with palette pointer), 1,728-candidate cross product of 12 loop forms, local types, palette index `j`, 300 s decl/join/swap hill climb. Beware cmp false diffs on `D_802C8D20+4096` vs `D_802C9D20` (fixed in T-158/cmp.py). |
 | `func_80032670` | 116 | 45 [emits 180] | 3 | main >21B6C |  |
 | `func_800121C8` | 304 | 46 | 9 | main ≤21B6C | T-136: packed-input snapshot 47→46. |
 | `func_801C2F5C` | 544 | 44 | 7 | ovl >BBE88 | T-139 reports 44 (readable statement split). |
