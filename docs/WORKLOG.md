@@ -776,3 +776,6 @@ T-156 (Claude Sonnet 5.5 high) met the goal: 2,048 B in main (func_800241BC, 800
 
 ## 2026-11-02 — T-155 vetted (lead)
 T-155 (Claude Sonnet 5.5 high) met the goal by 10 B: 2,040 B in ovl_7DF8 (func_801BD640, 801C4E38, 801C0800, 801B5534). Applied with --3way (4 source files); scratch limited to tools, notes and three named drafts (the 300 variant files dropped). Simplification test: hoisting `glyph` out of the condition in 801BD640 still matches (merged). Clean toolbox build: sha1 `ba52e91b44450c548467044b26951353dc491e04`, M2 115,872 -> 117,912 B (40.68%), 397 T4, 112 T2. Note: the worker's broad pgrep cleanup may have killed T-157's permuter run; T-157 lost a search but no source.
+
+## 2026-11-03 — T-157 status message, resumed (lead)
+T-157 ended a run with a status update on func_801BCB70 (nothing in src yet), not a goal-met report; a separate run also hit the Claude rate limit. Not taken in. Sent it a "Not final" message: commit, rotate if 801BCB70 stalls, report only at the goal.
