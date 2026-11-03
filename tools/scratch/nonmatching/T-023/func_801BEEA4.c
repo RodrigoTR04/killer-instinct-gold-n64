@@ -1,4 +1,4 @@
-/* T-116 DRAFT: see T-116/REPORT.md for remaining instructions. */
+/* T-141 draft: 16 differing words; 344/344 bytes in the full TU. */
 typedef struct { s32 data; u16 score; u16 pad; } T023EntryEA4;
 typedef struct { T023EntryEA4 *entries; u8 count, descending; u16 pad; } T023TableEA4;
 
@@ -11,7 +11,6 @@ s32 func_801BEEA4(s32 table, s32 score, s32 data)
   s32 last;
   s32 index;
   s32 slot;
-  s32 next;
   s32 count;
   s32 i;
   s32 entryBytes;
@@ -55,8 +54,8 @@ s32 func_801BEEA4(s32 table, s32 score, s32 data)
     return 0;
   }
   entry = &entries[slot];
-  next = ++slot;
-  if (next < count)
+  slot++;
+  if (slot < count)
   {
     do
     {
@@ -65,9 +64,9 @@ s32 func_801BEEA4(s32 table, s32 score, s32 data)
       memcpy(&entries[last], &entries[i - 2], entryBytes);
       i = last;
     }
-    while (next < last);
+    while (slot < last);
   }
   entry->score = score;
   entry->data = data;
-  return next;
+  return slot;
 }

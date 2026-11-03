@@ -90,7 +90,28 @@ void func_8002A8C4(void) {
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_1AB90/func_8002A900.s")
+void func_8002A900(s32 index) {
+    u32 count;
+    u32 limit;
+    u16 *current = &D_80048148;
+
+    count = 0;
+    if (index != *current) {
+        boot_dma((s32)D_80066C28->seqArray[index].offset, (s32)D_80066A30, D_800669D0[index]);
+        *current = index;
+    }
+    limit = 0x3D0900;
+    alCSPStop(D_800669C0);
+    if (alCSPGetState(D_800669C0)) {
+        for (;;) {
+            count++;
+            if (alCSPGetState(D_800669C0) == 0) break;
+            if (count >= limit) break;
+        }
+    }
+    alCSeqNew(&D_80066A38, D_80066A30);
+    alCSPSetSeq(D_800669C0, &D_80066A38);
+}
 
 void func_8002A9DC(s32 index) {
     if (index != D_8004814C) {

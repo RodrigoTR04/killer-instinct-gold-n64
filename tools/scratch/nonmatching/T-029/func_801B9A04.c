@@ -1,4 +1,4 @@
-/* DRAFT. Remaining diff: Vertex loop unrolling, stack layout, float temporaries and call scheduling differ. */
+/* T-132 DRAFT: 406 differing words; see T-132/REPORT.md. */
 extern s32 guRandom(void);
 extern void guTranslate(void *, f32, f32, f32);
 extern void func_8002F6F4(s32, s32, void *);
@@ -20,17 +20,19 @@ s32 func_801B9A04(u32 **arg0, s32 arg1, void *arg2, s32 arg3) {
     f32 factor;
     s16 size;
     s32 i;
+    s32 count;
     s32 timer;
     s32 mode;
     s32 random;
     T029Vertex *dst;
     T029Vertex *src;
     u32 *command;
-    radius = func_801B1A14(D_801F3640, 5.0f, 200.0f);
     dst = D_802A96E0;
     src = D_802A9E40;
+    count = 117;
+    radius = func_801B1A14(D_801F3640, 5.0f, 200.0f);
     D_802C8D12 += 16;
-    for (i = 0; i != 118; i++, src++, dst++) {
+    for (i = 0; i < count + 1; i++, src++, dst++) {
         if (src->z >= 6) {
             scale = radius / 3.0f;
             factor = scale / 10.0f;

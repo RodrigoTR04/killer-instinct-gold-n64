@@ -1,0 +1,28 @@
+# T-139
+
+- `func_801C7F90` (116 B): the existing T-116 draft matches when the second-byte clear, loop, and final mode assignment use the source layout found by decomp-permuter. Full-TU screen reported zero differing words; clean build verified the ROM and all images, and progress reports T4.
+- `func_801C4E38`: reconciled the selector tables and destination globals as pointers and the audio declaration with the full TU; the full-TU score is still 2 words (stack spill at +0x18 instead of +0x1C). Meaningful selector and handler locals did not improve it. A branch-local state value moves the spill to the target slot, but increases the frame from 0x20 to 0x28; reusing an argument after its last use leaves the original two-word mismatch.
+- `func_801CC908` (424 B): reusing one local for the controller mask and the later status recovers the original 0x30 frame and spill slots. The original SAVING and SAVED OK strings are now C-owned in the save translation unit. A clean build verified the ROM and all images, and progress reports T4.
+- `func_801C23C0`: 222 to 191 differing words, 1812/1820 B, full TU. Local declaration order and moving the local elapsed-frame assignment after the camera helper call improve scheduling; the helper cannot modify that local. Frame remains 0x90 versus target 0x70. Merging non-overlapping float and command locals shrinks the frame to 0x80, but worsens the word score; retained the 191-word draft.
+- `func_801C3AA0`: fresh m2c and a 600-second full-TU declaration/layout search did not improve the 119-word draft.
+- `func_801C85C0`: full-TU clear-order and line-layout variants remained at least 4 words off.
+- `func_801C8004`: 24 to 9 differing words and 232 to 236 B, full TU. Compound OR assignment on the existing byte mask recovers the target's explicit narrowing sequence; the first scan still allocates its pointer and byte registers differently.
+- `func_801C2F5C`: 47 to 44 differing words, 544/544 B, full TU. Splitting the original one-line draft into readable statements changes IDO scheduling; selector-address caching was worse.
+- `func_801C5E74`: the primary draft is behavior-correct for the observed flag reloads and measures 527 differing words, 2392/2392 B in the full TU. Correcting the three-argument boot DMA and inflate calls, the one-argument audio call, selector and flag reloads, and palette loop shape was necessary. It has a 0xB0 frame versus the target 0xE0; adding used display-command locals reached 0xD8 but did not recover both size and frame. An earlier stale-flag draft reached 504 words and the target frame and size; it is preserved in git history for layout comparison.
+- `func_801C5E74-reloads.txt` is an alternate using the same required flag reloads, with 524 words and 2384/2392 B. Its unsigned shifts express fade scaling without shifting negative signed values.
+- `func_801C2ADC` (600 B): matched and verified by a clean byte-identical build. Direct table indexing and shorter input/state lifetimes recover the target frame; the unsigned byte declaration and clear-loop layout fix the remaining instructions. The complete rodata range at 0xE7BF0 moves to the owning TU: six original ending strings are C-owned and neighboring assembly constants migrate normally, placing the generated jump table at its original address.
+
+- `func_801C8004`: reusing the cursor for both sequential scans and declaration/line layout improve the full-TU score from 9 to 6 words (236/236 B); all remaining differences are in the first scan register allocation and scheduling. Scope, scalar-width, and loop-form sweeps did not improve the earlier nine-word version.
+
+
+- `func_801C85C0` (168 B): indexed clearing in the original array order produces a full-TU match. Keep the for-loop clauses on separate lines for IDO scheduling. A clean build verified the ROM and all images, and progress reports T4.
+
+- `func_801C4E38`: reversed the chained clear assignment to match the original relocation targets and store order. Relocation masking had hidden the previous swapped targets; the positional score remains two words.
+
+- `func_801C9698`: 135 to 2 differing words (1148/1148 B) in the full TU. Expressing the two late constants as literals recovers the target floating-point registers; an explicit color branch and assignment order recover the integer registers. Simplifying name and literal lifetimes reduces the frame from 0xC8 to 0xB8; only stack allocation/free differ from the target 0xB0. The full-TU object places the generated float pair at .rodata offset 0x5D0, the original 0xE99C0, with the existing complete 1BD90 rodata segment; a linked clean build is still required for promotion.
+
+- `func_801C23C0`: reconciled the audio helper declaration with default argument promotion after the 2ADC match; its full-TU score remains 191 words / 1812 B. Replacing two degree-conversion globals with their literal values improves it to 189 words; ownership of the duplicate late constants remains to be reconciled before promotion.
+
+- `func_801C224C`: reconciled `D_802D3874` with the unsigned declaration used by the matched ending code, restoring full-TU compilation. Reusing the existing loop variables for the initial selector and moving color temporaries into the loop in `func_801C9698` did not improve either draft.
+
+- `func_801C9698` (1148 B): reuse a union for the row alpha and the stats text pointer, whose lifetimes do not overlap. This restores the original 0xB0 frame and label slot. The existing C-owned rodata segment places the two float literals at their original addresses. A clean build verified the byte-identical ROM, all images, and T4.

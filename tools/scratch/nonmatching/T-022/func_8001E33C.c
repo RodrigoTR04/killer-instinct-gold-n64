@@ -9,7 +9,7 @@ T081Gfx;
 s32 func_8001346C(T081Gfx **, s32, s32);
 void func_80016760(s32);
 s32 func_8001EC74(T081Gfx **, s32, s32, u32, u32, u8, u8, u8);
-s32 func_80024B0C(T081Gfx **, s32, u8, s32);
+s32 func_80024B0C(T081Gfx **, s32);
 s32 func_8002F6F4(s32, s16, u8 *);
 extern u8 D_80044DD4;
 extern u8 D_8004A264;
@@ -209,7 +209,7 @@ void func_8001E33C(T081Gfx **arg0, u8 arg1)
         *arg0 = command + 1;
         command->w1 = 0xFF;
         command->w0 = 0xFA000100;
-        func_80024B0C(arg0, temp_a3 ^ 1, var_a2, (s32) temp_a3);
+        func_80024B0C(arg0, temp_a3 ^ 1);
         return;
     }
     var_t1 = (*(u16 *)((u8 *)(var_t3) + 0x58));

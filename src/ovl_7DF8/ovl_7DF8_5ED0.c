@@ -794,7 +794,7 @@ s32 func_801B3B84(T025Gfx3B84 **arg0, s32 arg1, void *arg2, s32 arg3)
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B3DB0.s")
 
-extern s8 D_8012834B;
+extern u8 D_8012834B;
 extern void func_801B43A8(void);
 void func_801B4300(void) {
     D_8012834B = 0;
@@ -814,7 +814,39 @@ s32 func_801B4324(u8 arg0) {
     return 0;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B43A8.s")
+extern void *memcpy(void *, const void *, u32);
+extern s32 guRandom(void);
+extern u8 D_80128340[];
+extern u8 D_80128349;
+extern u8 D_801F3530;
+
+void func_801B43A8(void) {
+    s32 i;
+    u32 random;
+    u8 *other;
+    u8 *group;
+    u8 *entry;
+    u8 value;
+    u8 *end;
+    u8 *end2;
+
+    end2 = &D_80128349;
+    memcpy(D_80128340, &D_801F3530, 11);
+    for (group = (u8 *)((long)(u32)end2 - 9), end = end2; group != end; group += 3) {
+        random = guRandom();
+        i = 0;
+        entry = group;
+        do {
+            other = (u8 *)((u32)group + (u8)(random % 3U));
+            value = *entry;
+            i++;
+            *entry = *other;
+            entry++;
+            *other = value;
+            random >>= 4;
+        } while (i != 3);
+    }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B446C.s")
 
@@ -841,7 +873,21 @@ void func_801B4590(u8 arg0) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B47A4.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B5534.s")
+extern u8 D_802C8C2A;
+extern s32 D_802C8C18[];
+extern s8 D_8004EA9C[];
+extern s32 D_802C8C08[];
+extern s8 D_802C8C28[];
+extern void func_801B465C(s32, s32);
+
+/* Rolls a random value in 0..D_802C8C2A-1 for one slot and resets the slot's state. */
+void func_801B5534(u8 arg0) {
+    D_802C8C18[arg0] = guRandom() % (s32)D_802C8C2A;
+    D_8004EA9C[arg0] = D_802C8C18[arg0];
+    func_801B465C(arg0, 0);
+    D_802C8C08[arg0] = 4;
+    D_802C8C28[arg0] = 1;
+}
 
 s32 func_801B55DC(u8 arg0) {
     s32 temp_t6;
@@ -857,11 +903,96 @@ s32 func_801B55DC(u8 arg0) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B5DCC.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B6528.s")
+typedef struct T029Gfx801B6528 { u32 w0, w1; } T029Gfx801B6528;
+extern void guTranslate(void *, f32, f32, f32);
+extern u8 D_802C8CE0, D_802C8D06, D_802C8CE8;
+extern s16 D_802C8CE2;
+extern s32 D_802C8CDC, D_802C8CD4;
+extern u8 D_80128340[];
+extern u8 D_801F2E80[];
+extern u8 D_801F2EB4[];
+extern u8 D_80290BE0[];
+typedef struct T029Card { u8 pad[12]; s32 index; } T029Card;
+s32 func_801B6528(T029Gfx801B6528 **arg0, void *arg1, void *arg2, s32 arg3) {
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B677C.s")
+    f32 y;
+    s32 index;
+    if (D_8004A407 == 0 || D_802C8CE0 == 0 || D_802C8D06 == 6) {
+        return 0;
+    }
+    if (D_802C8CE0 != 3) {
+        index = ((T029Card *)arg1)->index;
+        y = (index - (u8)D_8012834B) * 70 - D_802C8CE2;
+        if (D_802C8CE2 > 0 && index == 0) {
+            D_802C8CE2 = D_802C8CE2 - D_802C8CE8 * 9 - 8;
+        }
+        D_802C8CDC = D_802C8CD4 + 1;
+    } else {
+        D_802C8CE2 += 3;
+        index = ((T029Card *)arg1)->index;
+        if ((u8)D_8012834B >= index) {
+            y = (index - (u8)D_8012834B) * 70 - D_802C8CE2;
+        } else {
+            y = (index - (u8)D_8012834B) * 70 + D_802C8CE2;
+        }
+    }
+    guTranslate(arg2, 0.0f, y, 0.0f);
+    { T029Gfx801B6528 *q = (*arg0)++; q->w0 = 0x06000000; q->w1 = (u32)D_801F2E80; }
+    if (((T029Card *)arg1)->index < (u8)D_8012834B) {
+        T029Gfx801B6528 *q = (*arg0)++;
+        q->w0 = 0xFA000000; q->w1 = 0x373737FF;
+    }
+    {
+        T029Gfx801B6528 *q = (*arg0)++;
+        q->w0 = 0xFD100000;
+        q->w1 = *(u32 *)(D_801F2EB4 + D_80128340[((T029Card *)arg1)->index] * 140);
+    }
+    { T029Gfx801B6528 *q = (*arg0)++; q->w0 = 0x03800010; q->w1 = (u32)D_80290BE0; }
+    return 1;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B695C.s")
+void func_801B677C(u8 arg0, f32 *arg1, f32 *arg2, f32 *arg3, u16 arg4)
+{
+  s32 remainder;
+  s32 row;
+  remainder = ((s32) arg4) % 3;
+  arg0--;
+  if (remainder >= (arg4 - arg0))
+  {
+    *arg1 = (f32) ((220 / (remainder + 1)) * (arg4 - arg0));
+  }
+  else
+  {
+    *arg1 = (f32) ((((-((arg0 % 3) * 2)) * 9) * 4) + 180);
+  }
+  row = arg0 / 3;
+  *arg2 = (f32) (100 - ((220 / ((arg4 + 2) / 3)) * row));
+  *arg3 = -100.0f;
+  if (arg4 >= 10)
+  {
+    *arg2 = (f32) (100 - (row * 73));
+  }
+}
+
+extern u8 D_802C8CC8[];
+extern u8 D_802C8D08[];
+extern u8 D_802C8808[][512];
+typedef struct T029Asset { u8 pad[8]; u8 *frames; } T029Asset;
+
+void func_801B695C(T029Asset *arg0, s32 arg1) {
+    u8 *frame;
+
+    if (arg0 != 0 && arg0->frames != 0) {
+        frame = (D_802C8CC8[arg1] * 3 << 5) + arg0->frames;
+        D_802C8D08[arg1] ^= 0x40;
+        if (D_802C8CC8[arg1] < 8) {
+            memcpy(D_802C8808[arg1] + D_802C8D08[arg1] * 2, arg0->frames, 0x60);
+        } else {
+            memcpy(D_802C8808[arg1] + D_802C8D08[arg1] * 2, frame, 0x60);
+        }
+        memcpy(D_802C8808[arg1] + D_802C8D08[arg1] * 2 + 0x100, frame, 0x60);
+    }
+}
 
 typedef struct T029Gfx801B6A68 { u32 w0, w1; } T029Gfx801B6A68;
 extern u8 D_802C8D08[];
@@ -910,7 +1041,27 @@ s32 func_801B6A68(T029Gfx801B6A68 **arg0, T029Texture *arg1, s32 arg2) {
     return 0;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B6BD8.s")
+#include "frontend.h"
+extern u8 D_802C8D0A[];
+extern u8 D_802C8D0B;
+extern s16 D_801F35AC;
+extern u8 D_80292A44[], D_80292A4C[];
+extern void *D_801F3570[], *D_801F3540[];
+s32 func_801B6BD8(FrontendGfxWords **arg0, u8 *arg1) {
+    s32 offset, count;
+    count = 0;
+    offset = 0;
+    if (D_802C8D0A[0] == 3 && D_802C8D0A[1] == 3) offset = 9;
+    if (D_802C8D0A[0] != 0) {
+        count += func_801BE540(arg0, arg1, D_80292A44, 0.0f, 170.0f, -1600.0f, 0, (u8)(255 - D_801F35AC), (u8)(255 - D_801F35AC), 255, 1.0f);
+        count += func_801BE540(arg0, arg1 + (count << 6), D_801F3570[D_802C8D0A[0] + offset], 0.0f, 130.0f, -1600.0f, (u8)(255 - D_801F35AC), (u8)(255 - D_801F35AC), (u8)(255 - D_801F35AC), 255, 1.0f);
+    }
+    if (D_802C8D0A[1] != 0) {
+        count += func_801BE540(arg0, arg1 + (count << 6), D_80292A4C, 0.0f, 80.0f, -1600.0f, 0, (u8)(255 - D_801F35AC), (u8)(255 - D_801F35AC), 255, 1.0f);
+        count += func_801BE540(arg0, arg1 + (count << 6), D_801F3540[D_802C8D0B + offset], 0.0f, 40.0f, -1600.0f, (u8)(255 - D_801F35AC), (u8)(255 - D_801F35AC), (u8)(255 - D_801F35AC), 255, 1.0f);
+    }
+    return count;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B6E4C.s")
 
@@ -1061,7 +1212,36 @@ void func_801BA674(s32 arg0, s32 arg1, s32 arg2, s32 arg3, T023State801BA674 *ar
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BA884.s")
+typedef struct { u8 pad[0x7E]; u16 scale; s16 yOffset; } T023State801BA884;
+extern void func_801BC1B0(s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, f32, f32, s32, s32);
+extern s32 D_801F39EC;
+extern u8 D_801F39F0[];
+extern u8 D_801F39F4[];
+
+void func_801BA884(s32 arg0, s32 arg1, s32 arg2, s32 arg3, T023State801BA884 *arg4, s32 arg5)
+{
+    s32 firstY;
+    s32 *counter;
+    s32 x1;
+    s32 secondY;
+    s32 frame;
+    s32 x0;
+    counter = &D_801F39EC;
+    x0 = (arg1 * 4) + (((s32) (((arg5 * 0x15) + 0x1CC) * arg4->scale)) >> 0xA);
+    firstY = ((arg2 * 4) + (((s32) (arg4->scale * 0x70)) >> 0xA)) + (arg4->yOffset * 4);
+    secondY = ((arg2 * 4) + (((s32) (arg4->scale * 0x70)) >> 0xA)) + (arg4->yOffset * 4);
+    x1 = (arg1 * 4) + (((s32) (arg4->scale * 0x12C)) >> 0xA);
+    if (arg5 != 0)
+    {
+        x0 = 0x9B0 - x0;
+        x1 = 0x9B0 - x1;
+    }
+    func_801BC1B0(arg0, *((s32 *) (D_801F39F0 + (*counter * 8))), 2, 0x20, 0x40, 0x20, 0x40, 0, 0, 0x1F, 0x3F, (f32) x0, (f32) firstY, ((s32) (arg4->scale * 4)) / 3, arg5);
+    func_801BC1B0(arg0, *((s32 *) (D_801F39F4 + (*counter * 8))), 2, 0x34, 0x1C, 0x34, 0x1C, 0, 0, 0x33, 0x1B, (f32) x1, (f32) secondY, (s32) arg4->scale, arg5);
+    frame = *counter + 1;
+    *counter = frame;
+    if (frame >= 0xC) *counter = 0;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BAA78.s")
 
@@ -1132,7 +1312,30 @@ void func_801BB258(s32 arg0, s32 arg1, s32 arg2, s32 arg3, T023State801BB258 *ar
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BB464.s")
+typedef struct { u8 pad[0x7E]; u16 scale; s16 yOffset; } T023State801BB464;
+extern void func_801BC1B0(s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, f32, f32, s32, s32);
+extern s32 D_801F3C34;
+extern u8 D_801F3C38[];
+
+void func_801BB464(s32 arg0, s32 arg1, s32 arg2, s32 arg3, T023State801BB464 *arg4, s32 arg5) {
+    s32 var_v0;
+    s32 *counter;
+    s32 temp_v0;
+    s32 y;
+
+    counter = &D_801F3C34;
+    var_v0 = (arg1 * 4) + ((s32) (arg4->scale * 0x214) >> 0xA);
+    y = (arg2 * 4) + ((s32) (arg4->scale * 0x226) >> 0xA) + (arg4->yOffset * 4);
+    if (arg5 != 0) {
+        var_v0 = 0x9B0 - var_v0;
+    }
+    func_801BC1B0(arg0, *(s32 *)(D_801F3C38 + (((s32) D_801F3C34 / 3) * 4)), 2, 0x2C, 0x2B, 0x2C, 0x2B, 0, 0, 0x2B, 0x2A, (f32) var_v0, (f32)y, (s32) arg4->scale, arg5);
+    temp_v0 = *counter + 1;
+    *counter = temp_v0;
+    if (temp_v0 >= 0x78) {
+        *counter = 0;
+    }
+}
 
 /* Read scale from the state so IDO preserves completed coordinates across draws. */
 typedef struct { u8 pad[0x7E]; u16 scale; s16 yOffset; } T023State801BB594;
@@ -1173,7 +1376,46 @@ void func_801BB594(s32 arg0, s32 arg1, s32 arg2, s32 arg3, T023State801BB594 *ar
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BBC84.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BBE88.s")
+extern s32 D_801F3D6C, D_801F3D70;
+extern u8 D_802C9020[];
+extern s16 D_802C9D20[];
+extern s32 D_802C9F64;
+typedef struct { u8 pad[0xE8]; s32 x, y; } T138View;
+void func_801BBE88(FrontendGfxWords **arg0, T138View *arg1) {
+    s32 temp_a2;
+    FrontendGfxWords *g, *p0;
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xE7000000; q->w1 = 0; }
+    g = (*arg0)++; g->w0 = 0xFD100000; g->w1 = (u32)&D_802C9D20;
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xE8000000; q->w1 = 0; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xF5000100; q->w1 = (u32)0x07000000; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xE6000000; q->w1 = 0; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xF0000000; q->w1 = (u32)0x073FC000; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xE7000000; q->w1 = 0; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xBA000E02; q->w1 = (u32)0x8000; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xFD500000; q->w1 = (u32)&D_802C9020; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xF5500000; q->w1 = (u32)0x07018060; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xE6000000; q->w1 = 0; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xF3000000; q->w1 = (u32)0x075FF100; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xE7000000; q->w1 = 0; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xF5481000; q->w1 = (u32)0x18060; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xF2000000; q->w1 = (u32)0xFC0BC; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0x2F00BCC0; q->w1 = 0; }
+    { FrontendGfxWords *q = (*arg0)++; q->w0 = 0xFCFFFFFF; q->w1 = (u32)0xFFFCF279; } if (D_802C9F64 != 0) {
+        p0 = (*arg0)++;
+        p0->w0 = (s32) ((((D_801F3D70 * 4) & 0xFFF) << 0xC) | 0xE4000000 | ((arg1->y * 4) & 0xFFF));
+        p0->w1 = (u32) ((((D_801F3D6C * 4) & 0xFFF) << 0xC) | ((D_802C9F64 * 4) & 0xFFF));
+        p0 = (*arg0)++;
+        p0->w0 = 0;
+        temp_a2 = arg1->y;
+        p0->w1 = (u32) ((((s32) (temp_a2 * 0x41) / (s32) (temp_a2 - D_802C9F64)) & 0xFFFF) | 0xC80000);
+        return;
+    }
+    p0 = (*arg0)++;
+    p0->w0 = (s32) ((((arg1->x * 4) & 0xFFF) << 0xC) | 0xE4000000 | ((arg1->y * 4) & 0xFFF));
+    p0->w1 = 0;
+    p0 = (*arg0)++;
+    p0->w0 = 0; p0->w1 = (u32)0xC80041;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BC1B0.s")
 

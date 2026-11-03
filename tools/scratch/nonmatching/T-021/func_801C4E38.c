@@ -1,9 +1,9 @@
-/* DRAFT (T-056). Compiles in ovl_7DF8_190B0.c context; 2 words off: arg0 spill at sp+0x18 vs target sp+0x1C (same 0x20 frame). */
+/* DRAFT (T-056). Full-TU pointer declarations reconciled (T-139); 2 words off: arg0 spill at sp+0x18 vs target sp+0x1C (same 0x20 frame). */
 extern void osViBlack(u8);
 extern void func_8002F9FC(void);
 extern void func_801ADAD4(s32);
 extern void func_80012A8C(u8);
-extern void func_8002F6F4(s32, s32, void *);
+extern s32 func_8002F6F4();
 extern void func_8002A9DC(s32);
 extern void func_8002A8C4(void);
 extern void func_801C4D28(void);
@@ -16,9 +16,9 @@ extern u8 D_8004AC88;
 extern s32 D_80066C40;
 extern s32 D_800698C4;
 extern u8 D_80127CC1;
-extern s32 D_80291B5C[];
-extern s32 D_80291B74[];
-extern s32 D_80291BA0[];
+extern s32 *D_80291B5C[];
+extern s32 *D_80291B74[];
+extern s32 *D_80291BA0[];
 extern f32 D_80291BCC[][12];
 extern f32 D_80291DDC[][4];
 extern u8 D_80291FDC[];
@@ -27,15 +27,12 @@ extern s32 D_802956F8;
 extern s32 D_802956FC;
 extern s32 D_80295700;
 extern s32 D_802C9F74;
-extern s32 D_802D39A0;
-extern s32 D_802D39A4;
-extern s32 D_802D39A8;
 extern s32 D_802D39B0;
 extern u8 D_802D39BA;
 
 void func_801C4E38(u8 arg0, u8 arg1) {
         D_802D3985 = arg0;
-    D_80295700 = D_802956FC = D_802956F8 = 0;
+    D_802956F8 = D_802956FC = D_80295700 = 0;
     osViBlack(1);
     func_8002F9FC();
     func_801ADAD4(0x28);

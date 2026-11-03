@@ -1,8 +1,15 @@
 #include "common.h"
 
 extern void boot_dma(s32, s32, s32);
+extern void boot_dma_chunked(s32, s32, s32);
 extern void boot_inflate(void *, void *, void *);
 extern void func_8001C05C(u8 *);
+
+typedef struct {
+    u8 *unk0; void *data; s16 halfWidth, halfHeight, width, height, width2, height2;
+    u8 pad[4]; s16 flags; u8 pad2[2];
+} T022Sprite;
+extern T022Sprite D_8004CED0[];
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_D3F0/func_8001CD50.s")
 
@@ -49,11 +56,6 @@ void func_8001D42C(u8 arg0, u8 arg1, void *arg2) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_D3F0/func_8001D47C.s")
 
-typedef struct {
-    s32 unk0; void *data; s16 halfWidth, halfHeight, width, height, width2, height2;
-    u8 pad[4]; s16 flags; u8 pad2[2];
-} T022Sprite;
-extern T022Sprite D_8004CED0[];
 void func_8001D768(s32 arg0, s32 *arg1) {
     T022Sprite *p = &D_8004CED0[arg0];
     p->data = arg1 + 2;
@@ -62,6 +64,9 @@ void func_8001D768(s32 arg0, s32 *arg1) {
     p->halfWidth = p->width / 2; p->halfHeight = p->height / 2;
     p->width2 = arg1[0]; p->height2 = arg1[1];
 }
+
+typedef struct { s32 zero; void *data; } T032Bank;
+extern struct { u8 pad[0x12A8]; T032Bank banks[2]; } D_8004D278;
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_D3F0/func_8001D7E4.s")
 
@@ -255,13 +260,92 @@ void func_80024144(s32 player,s32 kind) {
 }
 
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_D3F0/func_800241BC.s")
+/* Per-player resource slots inside D_8004D278, addressed by byte offset. */
+typedef struct {
+    u8 pad0[3672];
+    u8 *slotE58;
+    u8 *slotE5C;
+    u8 padE60[424];
+    u8 *slot1008;
+    u8 *slot100C;
+    u8 pad1010[64];
+    u8 *slot1050;
+    u8 *slot1054;
+    u8 pad1058[16];
+    u8 *slot1068;
+    u8 *slot106C;
+    u8 pad1070[16];
+    u8 *slot1080;
+    u8 *slot1084;
+} T032Resource1BC;
+extern u8 D_119F0[], D_13200[], D_1D640[], D_24D60[], D_2ECB0[], D_471440[], D_472FB0[], D_48FD0[], D_543D10[], D_54D720[], D_8B70[];
+extern u8 D_8004EA9C[], D_8023E408[], D_8004F395;
+extern void func_800245B4(s32, void *, s32);
+extern void func_80030220(void *, void *, s32);
+void func_800241BC(s32 arg0) {
+    u8 *base;
+    T032Resource1BC *res;
+    if (arg0 == 0) {
+        base = (u8 *)0x8020B480;
+    } else {
+        base = (u8 *)0x802D7A40;
+    }
+    switch (D_8004EA9C[arg0]) {
+    case 2:
+        boot_dma((s32)D_13200, (s32)base, (s32)D_1D640 - (s32)D_13200);
+        res = (T032Resource1BC *)((u8 *)&D_8004D278 + arg0 * 8);
+        res->slotE58 = base;
+        res->slotE5C = 0;
+        base = base + base[4] + (base[5] << 8) + (base[6] << 16) + (base[7] << 24);
+        res->slot1008 = base;
+        res->slot100C = 0;
+        base = base + base[4] + (base[5] << 8) + (base[6] << 16) + (base[7] << 24);
+        res->slot1050 = 0;
+        res->slot1054 = base;
+        break;
+    case 3:
+        boot_dma((s32)D_1D640, (s32)base, (s32)D_24D60 - (s32)D_1D640);
+        res = (T032Resource1BC *)((u8 *)&D_8004D278 + arg0 * 8);
+        res->slot1050 = base;
+        res->slot1054 = 0;
+        break;
+    case 4:
+        boot_dma_chunked((s32)D_24D60, (s32)base, (s32)D_2ECB0 - (s32)D_24D60);
+        res = (T032Resource1BC *)((u8 *)&D_8004D278 + arg0 * 8);
+        res->slot1008 = base;
+        res->slot100C = 0;
+        boot_dma_chunked((s32)D_471440, 0x8023D400, (s32)D_472FB0 - (s32)D_471440);
+        func_80030220(D_8023E408, (void *)((s32)D_472FB0 - (s32)D_471440 + 0x8023D580), 0x93);
+        func_800245B4(0, (void *)0x8023D400, (s32)D_472FB0 - (s32)D_471440);
+        break;
+    case 5:
+        boot_dma((s32)D_543D10, (s32)base, (s32)D_54D720 - (s32)D_543D10);
+        res = (T032Resource1BC *)((u8 *)&D_8004D278 + arg0 * 8);
+        res->slot1050 = base;
+        res->slot1054 = 0;
+        base = base + base[4] + (base[5] << 8) + (base[6] << 16) + (base[7] << 24);
+        base = (u8 *)(((u32)base + 15) & ~15);
+        boot_dma((s32)D_119F0, (s32)base, (s32)D_13200 - (s32)D_119F0);
+        res->slot1080 = 0;
+        res->slot1084 = base;
+        base = base + base[4] + (base[5] << 8) + (base[6] << 16) + (base[7] << 24);
+        res->slot1068 = 0;
+        res->slot106C = base;
+        break;
+    default:
+        base = (u8 *)(((u32)base + (u32)D_48FD0 - (u32)D_2ECB0 + 15) & ~15);
+        boot_dma((s32)D_8B70, (s32)base, (s32)D_119F0 - (s32)D_8B70);
+        res = (T032Resource1BC *)((u8 *)&D_8004D278 + arg0 * 8);
+        res->slot1080 = 0;
+        res->slot1084 = base;
+        break;
+    }
+    D_8004F395 = 1;
+}
 
 extern void boot_dma(s32, s32, s32);
 extern void func_800245B4(s32, void *, s32);
 extern u8 D_8B70[], D_119F0[], D_48FD0[], D_2ECB0[];
-typedef struct { s32 zero; void *data; } T032Bank;
-extern struct { u8 pad[0x12A8]; T032Bank banks[2]; } D_8004D278;
 void func_800244F0(s32 player)
 {
   /* Naming the ROM address retains the original IDO stack layout. */
@@ -288,7 +372,73 @@ void func_800244F0(s32 player)
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_D3F0/func_800245B4.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_D3F0/func_80024714.s")
+extern u8 D_8004AC88;
+typedef struct { u8 pad0[3144]; u8 *slotC48; u8 *slotC4C; u8 padC50[16]; u8 *slotC60; u8 *slotC64; u8 padC68[16]; u8 *slotC78; u8 *slotC7C; u8 padC80[16]; u8 *slotC90; u8 *slotC94; u8 padC98[928]; u8 *slot1038; u8 *slot103C; u8 pad1040[352]; u8 *slot11A0; u8 *slot11A4; } T032Resource714;
+extern u8 D_1EB6D0[],D_1F3200[],D_2C2280[],D_2CF0A0[],D_469660[],D_470390[],D_53CC40[],D_543D10[],D_8004EA9C[],D_8004F396[];
+extern u8 D_8004F395;
+extern void boot_dma(s32,s32,s32),func_800245B4(s32,void *,s32),func_80030220(void *,void *,s32);
+void func_80024714(s32 arg0) {
+    s32 temp_v0;
+    T032Resource714 *temp_v0_2;
+    T032Resource714 *temp_v0_3;
+    u8 *var_s0;
+    T032Resource714 *var_v0;
+
+    if (arg0 == 0) {
+        var_s0 = (void *)0x802A9F90;
+    } else {
+        var_s0 = (void *)0x80376550;
+    }
+    if (D_8004AC88 == 0xC) {
+        var_s0 = (void *)0x80320000;
+    }
+    temp_v0 = D_8004EA9C[arg0];
+    switch (temp_v0) {                              /* irregular */
+    case 1:
+        boot_dma((s32)(D_1EB6D0), (s32)( var_s0),  (s32)D_1F3200 - (s32)D_1EB6D0);
+        temp_v0_2 = (T032Resource714 *)((u8 *)&D_8004D278 + arg0 * 8);
+        temp_v0_2->slotC60 = var_s0;
+        temp_v0_2->slotC64 = 0;
+        var_s0 = (u8 *)((u32)var_s0 + var_s0[4] + ((u32)var_s0[5] << 8) + ((u32)var_s0[6] << 16) + ((u32)var_s0[7] << 24));
+        temp_v0_2->slotC78 = var_s0;
+        temp_v0_2->slotC7C = 0;
+        break;
+    case 2:
+        boot_dma((s32)(D_2C2280), (s32)( var_s0),  (s32)D_2CF0A0 - (s32)D_2C2280);
+        temp_v0_3 = (T032Resource714 *)((u8 *)&D_8004D278 + arg0 * 8);
+        temp_v0_3->slotC60 = var_s0;
+        temp_v0_3->slotC64 = 0;
+        var_s0 = (u8 *)((u32)var_s0 + var_s0[4] + ((u32)var_s0[5] << 8) + ((u32)var_s0[6] << 16) + ((u32)var_s0[7] << 24));
+        temp_v0_3->slotC90 = var_s0;
+        temp_v0_3->slotC94 = 0;
+        var_s0 = (u8 *)((u32)var_s0 + var_s0[4] + ((u32)var_s0[5] << 8) + ((u32)var_s0[6] << 16) + ((u32)var_s0[7] << 24));
+        temp_v0_3->slot1038 = var_s0;
+        temp_v0_3->slot103C = 0;
+        var_s0 = (u8 *)((u32)var_s0 + var_s0[4] + ((u32)var_s0[5] << 8) + ((u32)var_s0[6] << 16) + ((u32)var_s0[7] << 24));
+        temp_v0_3->slot11A0 = var_s0;
+        temp_v0_3->slot11A4 = 0;
+        break;
+    case 4:
+        boot_dma((s32)(D_469660), (s32)( var_s0),  (s32)D_470390 - (s32)D_469660);
+        var_v0 = (T032Resource714 *)((u8 *)&D_8004D278 + arg0 * 8);
+        var_v0->slotC78 = var_s0;
+        var_v0->slotC7C = 0;
+        var_s0 = (u8 *)((u32)var_s0 + var_s0[4] + ((u32)var_s0[5] << 8) + ((u32)var_s0[6] << 16) + ((u32)var_s0[7] << 24));
+        var_v0->slotC90 = var_s0;
+        var_v0->slotC94 = 0;
+        break;
+    case 5:
+        boot_dma((s32)(D_53CC40), (s32)( var_s0),  (s32)D_543D10 - (s32)D_53CC40);
+        var_v0 = (T032Resource714 *)((u8 *)&D_8004D278 + arg0 * 8);
+        var_v0->slotC48 = var_s0;
+        var_v0->slotC4C = 0;
+        var_s0 = (u8 *)((u32)var_s0 + var_s0[4] + ((u32)var_s0[5] << 8) + ((u32)var_s0[6] << 16) + ((u32)var_s0[7] << 24));
+        var_v0->slotC90 = var_s0;
+        var_v0->slotC94 = 0;
+        break;
+    }
+    D_8004F396[arg0] = 1;
+}
 
 typedef struct T055MoveKind {
     u8 id;

@@ -1,5 +1,17 @@
 #include "common.h"
 
+/* Ordered title/menu strings; explicit non-migration hints keep them C-owned. */
+const u8 D_802927F0[] = "# 1994, 1995, 1996 NINTENDO / RARE";
+const u8 D_80292814[] = "ARCADE";
+const u8 D_8029281C[] = "TEAM";
+const u8 D_80292824[] = "TEAM ELIMINATION";
+const u8 D_80292838[] = "TOURNAMENT";
+const u8 D_80292844[] = "PRACTICE";
+const u8 D_80292850[] = "TRAINING";
+const u8 D_8029285C[] = "FOCUSED TRAINING";
+const u8 D_80292870[] = "OPTIONS";
+
+
 f32 func_801AFA80(f32 arg0, f32 arg1, s32 arg2, s32 arg3) {
     return ((arg1 - arg0) * ((f32) arg2 / (f32) arg3)) + arg0;
 }

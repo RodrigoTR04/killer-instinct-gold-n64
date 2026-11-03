@@ -1,0 +1,72 @@
+[
+  {
+    "function": "func_80030220",
+    "draft": "tools/scratch/nonmatching/T-026/func_80030220.c",
+    "tu": "src/main/main_20220.c",
+    "compiled": 344,
+    "original": 348,
+    "words": 73,
+    "context": "full",
+    "error": ""
+  },
+  {
+    "function": "func_8001373C",
+    "draft": "tools/scratch/nonmatching/T-020/func_8001373C.c",
+    "tu": "src/main/main_2FF0.c",
+    "compiled": 256,
+    "original": 256,
+    "words": 34,
+    "context": "prefix",
+    "error": ""
+  },
+  {
+    "function": "func_80015450",
+    "draft": "tools/scratch/nonmatching/T-033/func_80015450.c",
+    "tu": "src/main/main_2FF0.c",
+    "compiled": 324,
+    "original": 324,
+    "words": 51,
+    "context": "prefix",
+    "error": ""
+  },
+  {
+    "function": "func_80023EF0",
+    "draft": "tools/scratch/nonmatching/T-032/func_80023EF0.c",
+    "tu": "src/main/main_D3F0.c",
+    "compiled": 296,
+    "original": 312,
+    "words": 67,
+    "context": "declarations",
+    "error": ""
+  },
+  {
+    "function": "func_801BE540",
+    "draft": "tools/scratch/nonmatching/T-023/func_801BE540.c",
+    "tu": "src/ovl_7DF8/ovl_7DF8_116E0.c",
+    "compiled": 288,
+    "original": 288,
+    "words": 8,
+    "context": "full",
+    "error": ""
+  },
+  {
+    "function": "func_801BE790",
+    "draft": "tools/scratch/nonmatching/T-023/func_801BE790.c",
+    "tu": "src/ovl_7DF8/ovl_7DF8_12C70.c",
+    "compiled": 372,
+    "original": 384,
+    "words": 77,
+    "context": "prefix",
+    "error": ""
+  },
+  {
+    "function": "func_801C8004",
+    "draft": "tools/scratch/nonmatching/T-021/func_801C8004.c",
+    "tu": "src/ovl_7DF8/ovl_7DF8_1BD90.c",
+    "compiled": 232,
+    "original": 236,
+    "words": 27,
+    "context": "full",
+    "error": ""
+  }
+]

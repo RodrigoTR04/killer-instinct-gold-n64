@@ -1,26 +1,28 @@
-/* T-074 DRAFT: 40 differing words; 292 bytes. Not matching. */
+/* T-138 DRAFT: 26 differing words; 292 bytes. Not matching. */
 extern u8 D_802C8D20[], D_802C9F20[], D_802C9F60[];
 extern s16 D_802C9D20[];
 extern s32 D_802C9F64;
 extern u8 D_802C9F68, D_802C9F69;
 void func_801BBB60(void)
 {
-    u8 *p;
-    s16 *palette;
+    u8 *p, *end;
+    s16 *palette = (s16 *)(D_802C8D20 + 0x1000);
     s32 i;
     D_802C9F68 = 0;
-    D_802C9F69 = 1; p = D_802C8D20; do
+    D_802C9F69 = 1;
+    end = (u8 *)D_802C9D20;
+    p = D_802C8D20; do
     {
         *p++ = 128;
     }
-    while ((u32)p < (u32)D_802C9D20);
+    while ((u32)p < (u32)end);
+    end = D_802C9F60;
     p = D_802C9F20;
     do
     {
         *p++ = 124;
     }
-    while ((u32)p < (u32)D_802C9F60);
-    palette = D_802C9D20;
+    while ((u32)p < (u32)end);
     i = 0;
     do
     {
@@ -28,13 +30,9 @@ void func_801BBB60(void)
     }
     while (i < 128);
     i = 0;
-    do
-    {
-        i++;
-        *palette = 0;
-        palette++;
+    for (; i != 8; i++) {
+        *palette++ = 0;
     }
-    while (i != 8);
     if (i < 40) do
     {
         *palette++ = ((i - 8) << 11) | 1; i++;

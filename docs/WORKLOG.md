@@ -583,3 +583,205 @@ Format: `YYYY-MM-DD | task ID | who | what changed | verification`
 - Worktree t3-6ac793bb. 3 functions matched, 2,188 B (0.75%, on target): func_800131A4 (seven-byte array view, full-width loop counter, separate command-pointer scopes), func_800287D4 (direct 2-D array references instead of a cached pointer) and func_8002A4F0 (separate DMA/allocator lengths fix the store order). Improved: func_8002FB80 67→23 (exact size), func_801C2F5C 53→47, func_801C3758 32→30.
 - Clean vet build: the ROM and all 3 images are byte-identical. 333 T4; M1 = M2 = 82,004 / 289,876 B (28.29%).
 - T-128 launched (sol-B41): func_8002FB80 (exact size, 23 words) plus the 91–119-word band, 16 drafts, about 8.3 KB.
+
+## 2026-10-22 — Build host moved; T-126..T-128 relaunched, T-129 launched
+- The host has no gcc/g++/make. Builds now run in a rootless toolbox, `kig-build` (Fedora; dnf gcc gcc-c++ make xz bison flex texinfo). Use `toolbox run -c kig-build bash -c 'make …'`. tools/setup.sh: a fresh `--no-checkout` clone no longer trips the local-changes guard.
+- Baseline clean build: the ROM and all 3 images are byte-identical. M1 = M2 = 82,004 / 289,876 B (28.29%), as before.
+- The worktrees for T-126, T-127 and T-128 were lost and nothing from them was recovered. All three were relaunched with the same scope: T-126 (sol-A44) and T-127 (sol-C47) on gpt-6.1-sol low, T-128 (grok-1) on grok-4.6 medium. T-129 (grok-2) is new: the small T-026 cluster plus untouched drafts at 129–160 words, about 6.9 KB.
+
+## 2026-10-22 — T-129 vetted (small cluster + 129–160 band)
+- Worktree t3-318e21ae. 0 matched; only the report was kept. func_80032738/326F0/32750/3278C and the decoder siblings (80031050, 80032600, 80032670, 80032504) are handwritten 64-bit or private-register asm, not IDO C, so stop scheduling them. func_801B1210 is string-pool-blocked (T-115 recipe). func_8001AA90's C is 488 B, but its inventory entry includes an 8 B `jr ra; nop` stub at 0x8001AC78. The 129–160 drafts were not rewritten.
+- decomp-permuter is now installed in the lead's tools/ext (pynacl, toml and Levenshtein in .venv).
+- T-130 launched (grok-3): rewrite band 129–242 words, 13 drafts, about 10.9 KB.
+
+## 2026-10-22 — T-128 vetted (91–119-word band)
+- Worktree t3-91d8ca60. 0 matched; the drafts and report were kept. func_8002FB80 went 23→20 (exact 544 B; residue in the 0xC0/0x40 tails), and func_801BADEC 102→101. Both were re-screened by the lead.
+- T-131 launched (grok-4): large untouched band 222–301 words, 12 drafts, about 15 KB.
+
+## 2026-10-22 — T-126 vetted (pool + exact-size band)
+- Worktree t3-f7364349. func_801C7A98 matches (568 B, 0.20%, under the 0.70% target; accepted as partial). All 90 ovl_7DF8_1BD90 menu strings are now `const u8[]` definitions in C, the hints moved to `force_not_migration:True`, and three frontend.h externs are const. Improved drafts: 801B6BD8 153→141, 801BBE88 150→147, 8001D47C 141→134, 8002B22C 74→70.
+- Clean vet build (in the toolbox): the ROM and all 3 images are byte-identical. 334 T4; M1 = M2 = 82,572 / 289,876 B (28.49%).
+- T-132 launched (sol-B42): func_801B1210 pool migration plus the untouched 337–423-word band (11 drafts).
+
+## 2026-10-22 — T-127 vetted (18–89-word band)
+- Worktree t3-ff380d45. 0 matched; the drafts and report were kept. 801BE540 went 69→8 (exact 288 B), 80015450 66→51, 801C8004 38→27, 80023EF0 71→67, 80030220 77→73, 8001373C 36→34, 801BE790 78→77. The lead re-screened 801BE540, 80015450 and 801C8004.
+- T-133 launched (sol-C48): fresh near misses (801BE540, 8002FB80, …) plus the 423–571-word band.
+
+## 2026-10-22 — T-130 vetted (rewrite band 129–242)
+- Worktree t3-ae6f4d1c. 0 matched; the drafts and report were kept. 801BAA78 went 222→208 (the second draw uses y = scale*0x350; 8 B long), and 801BD3FC 145→134. The lead re-screened both. Grok-4.6 medium is at 0 matches over three batches (T-128/T-129/T-130); the Grok slot is held until T-131 reports.
+
+## 2026-10-22 — Grok workers retired
+- The user stopped using Grok subagents (0 matches over T-128/T-129/T-130). T-131 was cancelled mid-run, with one unverified draft edit and nothing committed. Its 12 functions are back in the pool. From now on, workers are gpt-6.1-sol (low) only, at most two at a time.
+
+## 2026-10-22 — T-133 vetted (near misses)
+- Worktree t3-816664cc. 0 matched; the drafts and report were kept. 8001373C went 34→28 (s16 Y-impulse temporary, bounded), 801C8004 27→24 and 80020E98 512→497. 801BE540 (8 words) and 8002FB80 (20 words) did not move after permuter plus declorder; permuter candidates with a dummy goto or an empty if were rejected.
+- T-134 launched (sol-A45): the 222–301-word band released by T-131.
+
+## 2026-10-22 — T-132 vetted; 0.70% becomes a hard requirement
+- T-132 (worktree t3-f6ea9c28): 0 matched. Nine ovl_7DF8_3F60 title/menu strings (D_802927F0–D_80292870) are now C-owned (`force_not_migration`); the clean build is byte-identical. 80014D5C went 373→136 (exact 1,780 B; lead re-screened), 80015594 339→305, plus 4 minor improvements.
+- User, 2026-10-22: ≥2,030 B (0.70%) per worker is now a HARD requirement, so no more "close but short" reports. To keep workers independent, the pool is now split by image: T-134 owns all ovl_7DF8 T2 functions and T-135 owns all main T2 functions (except the handwritten T-026 cluster). Each picks its own targets.
+
+## 2026-10-29 — Moved to gpt-6.1-terra (high), up to 4 workers
+- User: the workers are now gpt-6.1-terra at high effort, up to 4 at a time, each with a hard 0.70% (≥2,030 B) goal. T-134/T-135 are superseded and were never taken in.
+- Pool split by image and address (T2 bytes, excluding the T-026 asm cluster): T-136 main ≤0x80021B6C (58.9 KB), T-137 main >0x80021B6C (48.3 KB), T-138 ovl_7DF8 ≤0x801BBE88 (50.4 KB), T-139 ovl_7DF8 >0x801BBE88 (48.9 KB). Baseline M2 82,572 / 289,876 B (28.49%).
+
+## 2026-10-29 — T-136 vetted (main ≤0x80021B6C)
+- Worktree t3-7a045993. 0 matched, so the 0.70% requirement was not met. Its final report is accepted for the drafts only: 80015450 51→43, 800121C8 47→46, 80014D5C 136→135 (re-screened by the lead). Clean build: M2 82,572 / 289,876 B (28.49%), unchanged.
+- Per the user, no replacement workers are spawned; T-137, T-138 and T-139 are still outstanding.
+- T-136 resumed by user request (same thread, hard 0.70% still applies); its earlier 0-B report is superseded.
+
+## 2026-10-29 — T-137 vetted (main >0x80021B6C): target met
+- Worktree t3-ad624ae1. 4 functions matched, 2,112 B (0.73%, over the 0.70% target): func_800269AC (236), func_80025D58 (620, locals copied from the two height tables, per-iteration xor), func_8002F45C (404) and func_8002AB90 (852, `D_80068168` retyped `u32` in audio_game.h). I reviewed the C: there are no empty branches, dummy gotos, volatile or padding. Improved: func_8002B22C 70→66.
+- Clean vet build in the toolbox (applied as one diff onto the lead): the ROM and all 3 images are byte-identical. 338 T4; M1 = M2 = 84,684 / 289,876 B (29.21%).
+- T-136, T-138 and T-139 are still running.
+
+## 2026-10-29 — T-136 vetted after resume (main ≤0x80021B6C): target met
+- Worktree t3-7a045993. 3 stage-init functions matched, 2,416 B (0.83%, over the 0.70% target): func_80018F20 (696), func_8001808C (808) and func_80018AE0 (912). They are straight-line stores through the m2c raw-offset style (D_8004A4C0, D_8004A5E0, D_80061CB8 …); that style is flagged for the FU-13 cleanup. No artificial constructs. Seven-byte table views are typed `u8 (*)[7]`.
+- Clean vet build in the toolbox (applied as one diff on top of T-137): the ROM and all 3 images are byte-identical. 341 T4; M1 = M2 = 87,100 / 289,876 B (30.05%). Uncommitted drafts left in its worktree (800193DC at 7 words, 80017378 at 6) were not taken in.
+- T-138 and T-139 are still running.
+
+## 2026-10-29 — Opportunity ledger written (docs/OPPORTUNITIES.md)
+- On the user's request, collected everything T-136..T-139 did or passed over so later workers need not search again. Sources: the vetted T-136/T-137 reports, the running (unvetted) T-138/T-139 notes, T-136's uncommitted drafts, and a fresh `screen.py` run over all 168 T2 drafts on `d66b273`.
+- Findings: 15 functions are ≤8 words off (6,448 B), and 28 more are 9–50 words off (7,084 B). `func_80017378` (1,752 B, 6 words) and `func_800193DC` (808 B, 7 words) are the biggest passed-over near-misses. Five ovl_7DF8 functions at ≤14 words (1,428 B) were not touched by any worker. The carousel pair `func_801B5DCC`/`func_801B5650` (3,800 B) shares one recipe. Four bundles of ≥2,030 B are listed.
+- Saved T-136's updated drafts for `func_800193DC` (7 words, full TU) and `func_80015450` (40 words, prefix); the other T-136 drafts were already in the tree. Added `tools/analysis/draft_arity.py` (23 call-arity flags in 14 drafts, a lead generator not proof).
+- Not vetted and not counted: T-138's claimed `func_801BB464`/`func_801BA884` and T-139's claimed `func_801C7F90`/`801CC908`/`801C85C0`/`801C2ADC`. The `func_801BA884` "real do-once block" needs a careful artificial-construct review when T-138 reports.
+- Open question for the user (§5 of the ledger): whether the handwritten-ABI cluster in main (824 B small + 2,512 B large) should be treated as asm like ovl_7E00 or stay T2.
+
+## 2026-10-29 — T-139 vetted (ovl_7DF8 >0x801BBE88): SHORT of the hard target
+- Worktree t3-72b3bdcf, final report. 4 functions matched, 1,308 B (0.45%, below the 2,030 B / 0.70% requirement): func_801C7F90 (116), func_801C2ADC (600, six ending strings now C-owned and rodata 0xE7BF0 range moved to ovl_7DF8_13FF0), func_801C85C0 (168) and func_801CC908 (424, SAVING / SAVED OK C-owned). The worker reported it found no further match.
+- Clean vet build in the toolbox: the ROM and all images are byte-identical (the splat "Unable to determine a segment" messages are the usual noise). 345 T4; M1 = M2 = 88,408 / 289,876 B (30.50%).
+- Review: no empty branches, dummy gotos, volatile or padding. Two things looked at: `func_801C2ADC` has a `case 4: break;` in a five-code switch (needed for the jump table; plausible disabled cheat code) and `func_801C7F90` stores `*second = zero` then `*second = 2` around the clear loop (the loop may alias it; mirrors the original order). Both accepted.
+- I took in the matches because it is a completed final report. The shortfall against the hard requirement is the user's to rule on (accept or resume T-139). Its improved drafts are in the tree: func_801C9698 at 2 words (1,148 B, frame only), func_801C8004 at 6, func_801C224C declarations reconciled (still 6). docs/OPPORTUNITIES.md was refreshed (bundle B grows to 4,248 B).
+- Only T-138 is still running.
+
+- T-139 resumed by user ruling (same thread): must add ≥722 B of newly matched T4 beyond the accepted 1,308 B, counted from its commit fccbbfb. Brief points at func_801C9698 (frame only) and the untouched near-misses.
+
+## 2026-10-30 — T-139 resumed report vetted: target met
+- Worktree t3-72b3bdcf, commit 048d39b (diff from fccbbfb). func_801C9698 (1,148 B) matched, so T-139 totals 2,456 B (0.85%, over the 0.70% target) with the four earlier matches.
+- Review: the worker used `union { s32 alpha; char *text; } temporary` to put the row alpha and the text pointer in one stack slot. A union only to steer allocation is too close to an artificial construct, so I replaced it with one plain `s32` reused with a cast to `char *` (the way the original most likely reused one temp). It still builds byte-identical, so that simpler form is what landed.
+- Clean vet build in the toolbox: the ROM and all images are byte-identical. 346 T4; M1 = M2 = 89,556 / 289,876 B (30.89%). Only T-138 is still running.
+
+## 2026-10-30 — T-138 vetted (ovl_7DF8 ≤0x801BBE88): 4 of 5 accepted, SHORT of target
+- Worktree t3-a2505ae8, head 12559a8. The worker claimed 5 matches, 2,076 B (0.716%): func_801BB464 (304), func_801BA884 (500), func_801B677C (480), func_801B6528 (596), func_801B43A8 (196).
+- Rejected func_801BA884: it ends in `do { …; if (frame < 0xC) break; D_801F39EC = clear; } while (0);`. That is a layout-only wrapper (it equals a plain `if`) and the same category as the banned dummy goto / if(0). I tried a plain if, an early return, a `frame = 0` select and a literal-0 form; none matches, so the shape is load-bearing only for scheduling. Left as GLOBAL_ASM, the worker's text is saved as a non-matching draft (T-138/func_801BA884-do-once.c).
+- Accepted the other four. func_801B43A8 starts its loop from `&D_80128349 - 9` rather than `D_80128340`; a plain D_80128340 start does not match, and the expression stands for the original address computation off the end symbol, so I kept it. The rest are ordinary C (command-cursor blocks in func_801B6528 are real stores).
+- Clean vet build in the toolbox without func_801BA884: the ROM and all images are byte-identical. 350 T4; M1 = M2 = 91,132 / 289,876 B (31.44%). T-138 total 1,576 B = 0.54%, 454 B below the 2,030 B requirement. Whether to resume T-138 is the user's call.
+- All four workers' reports are now in; no worker is running.
+
+## 2026-10-30 — T-140 / T-141 spawned (lead)
+User asked for two more gpt-6.1-terra (high) workers. T-140 owns main (bundle A: func_800193DC, func_80017378, func_8001BDE0, func_8002FB80, func_8002A900, func_8002B22C, then the 9–50 word band). T-141 owns ovl_7DF8 (T-138's improved drafts func_801B1DE4/func_801BAA78, func_801BA884 with an honest structure, the carousel pair, the untouched near-miss sweep). Both carry the HARD ≥2,030 B requirement and the no-artificial-construct rules; briefs point at docs/OPPORTUNITIES.md. Lead vets only the final reports.
+
+## 2026-10-31 — T-141 stopped and vetted (lead)
+T-141 (ovl_7DF8) reported short five times; after the first three runs produced 0 B, redirecting it from the exhausted near-misses to untouched mid-size drafts gave one match, then nothing more. The user stopped it. Vetted with a clean toolbox build (sha1 ba52e91b…, M2 91,328 B = 31.51%, +196 B): `func_801C48E4` (196 B) is T4. Cause: the two dimension args are `u16` and the callee takes `u32`; the record pointers are plain `(arg0*0x1C)+D_8004CED0` offsets. No artificial construct; raw-offset style (FU-13). The lead also took the declaration reconciliations (`memcpy`/`guRandom` externs in ovl_7DF8_5ED0.c; `func_801BF720/914(u32)` in ovl_7DF8_12C70.c) and its scratch drafts and `tools/scratch/nonmatching/T-141/NOTES.md` (per-function table of 25 functions with start/best words). Improvements: `func_801B5DCC` 155→15 words, `func_801B5650` 271→31 (1,920 B vs 1,916), `func_801BEEA4` 39→16, `func_801C11F0` 113→90, `func_801BADEC` 100→99, `func_801C47E0` 11→10; `func_801BF720/801BF914` now screen at 2 words in the full TU, `func_801B695C` at 4. A `volatile` temporary that improved `func_801B1DE4` was rejected.
+
+## 2026-10-31 — T-140 vetted (lead)
+T-140 (main) reported 0 B twice (re-testing the four exhausted near-misses), then after being redirected to mid-size structural fixes met the target with 2,060 B: `func_8001373C` 256, `func_80017A68` 772, `func_8001AA90` 496, `func_8002D9C4` 536. Clean toolbox build: sha1 ba52e91b…, M2 93,388 B = 32.22% (+2,060). Review: `func_8001AA90` used a `savedAngle = angle` copy that only moved the sinf spill slot (0x1C → 0x18); rejected as a dummy local. A search of the 24 declaration orders of the four locals found `sine, cosine, period, angle` matching with plain `angle` (and ordinary `while` loops replace its `if { do {} while }` form); this is what landed. Other items noted as acceptable: unprototyped `func_8001AC80()` (callee ignores args), `void D_8001AC78(void) {}` is the real 8-byte empty callback (rename to a func_ symbol is a later cleanup), rodata owner moved to `func_8001346C` in symbol_addrs. Formatting of `func_80017A68` (several `} if` on one line) is ugly and should be cleaned in FU-13. T-140 near-miss notes are in OPPORTUNITIES §11.
+
+## 2026-10-31 — T-142..T-147 spawned (lead)
+User asked for six more gpt-6.1-terra (high) workers sharing one `/goal` (≥2,030 B newly T4, honest C only, no report until met). Split: main = T-142 near-miss bundle (80024714, 800193DC, 80017378, 8001BDE0, 8002A900, 8002FB80, 8002B22C; 4,732 B), T-143 low half (52 KB pool), T-144 high half (41 KB); ovl_7DF8 = T-145 near-miss bundle (carousel pair, 1B1DE4, BAA78, BA884, BF720/914, 695C, BEEA4, 47E0, 11F0; 7,412 B), T-146 low half (43 KB), T-147 high half (45 KB). The handwritten-ABI cluster stays excluded. `/goal` was passed as the first line of each task text; the child threads show it as plain message text (no separate goal object is visible to the orchestrator), so the same goal statement also leads each brief. Briefs carry the T-140/T-141 lessons (types/arity/reloads over scheduling sweeps) and the rejected-construct list.
+
+## 2026-10-31 — T-142 vetted (lead)
+T-142 (main near-miss bundle) met the target in one run (about 8 minutes): `func_80024714` 712 B and `func_80017378` 1,752 B, total 2,464 B. Clean toolbox build: sha1 ba52e91b…, M2 95,852 B = 33.07% (+2,464). Review: no artificial construct (explicit little-endian offset decode, shared index across two arrays, a real 3-iteration loop, padded resource view struct; m2c-style `switch` and variable names remain, FU-13 cleanup). Merged conflict-free into the lead tree. `func_80017378` had resisted 18+ prior reports.
+
+## 2026-10-31 — T-144 vetted (lead)
+T-144 (main high half) met the target in one run (~3 h, 1.3 M tokens): `func_800253D0` 1,068 B, `func_80030440` 632 B, `func_80030220` 348 B = 2,048 B. Clean toolbox build with T-142's merge already in the tree (3-way apply, clean): sha1 ba52e91b…, M2 97,900 B = 33.77% (+2,048). Review: no artificial construct. `func_800253D0` keeps m2c-style temporaries (`temp_v0_N = (*arg0)++`) and irregular brace formatting (FU-13 cleanup); `func_80030440` uses ordinary `for` loops.
+
+## 2026-10-31 — T-147 vetted (lead)
+T-147 (ovl_7DF8 high half) met the target in one run (~3 h): `func_801C80F0` 1,232 B and `func_801C90D4` 1,200 B = 2,432 B. Clean toolbox build with T-142 and T-144 already merged: sha1 ba52e91b…, M2 100,332 B = 34.61% (+2,432). Review: no artificial construct. Both are menu renderers in ovl_7DF8_1BD90.c; the `(u8)` argument casts match the callee's byte parameters; float constants are inline C literals (no yaml/symbol changes were needed). Formatting of `func_801C90D4` is irregular (FU-13).
+
+## 2026-10-31 — T-146 vetted (lead)
+T-146 (ovl_7DF8 low half) met the target in one run (~3 h 50 min): `func_801AD114` 628, `func_801AD7D8` 556, `func_801B6BD8` 628, `func_801BBE88` 808 = 2,620 B. Clean toolbox build with T-142/T-144/T-147 already merged: sha1 ba52e91b…, M2 102,952 B = 35.52% (+2,620). Review: `func_801AD7D8`'s duplicate-address symbol pair is a real boundary (boot microcode end / graphics microcode start), not a trick; `linker_scripts/ovl_7DF8.undefined_syms.txt` is regenerated by `make extract` and is committed. In `func_801BBE88` the worker's two cursors and the manual `p1 = *arg0; *arg0 = p1 + 1` increment looked matching-driven; I tested a single cursor with plain `(*arg0)++` and it still matches, so that simpler text is what landed. The per-command `{ FrontendGfxWords *q = (*arg0)++; … }` scopes are m2c-style and cosmetic (FU-13 cleanup).
+
+## 2026-10-31 — T-143 vetted (lead)
+T-143 (main low half) met the target in one run (~4.5 h): `func_80015450` 324, `func_80016078` 480, `func_800170C4` 692, `func_80017D6C` 800 = 2,296 B. Clean toolbox build with T-142 and T-144 already merged (3-way apply, clean): sha1 ba52e91b…, M2 105,248 B = 36.31% (+2,296). Review: no artificial construct. The `FILL_RECTANGLE_COMMAND` macro is a genuine macro (two stores through one evaluated pointer, as in the SDK's gDP macros); per-command pointer locals are m2c-style (FU-13 cleanup). The worker's improved but unmatched drafts (uncommitted in its worktree) were copied into tools/scratch/nonmatching.
+
+## 2026-10-31 — T-145 vetted (lead); round T-142..T-147 complete
+T-145 (ovl_7DF8 near-miss bundle) met the target in one run (~10 h): `func_801B695C` 268, `func_801BA884` 500, `func_801BEEA4` 344, `func_801BF720` 104, `func_801BF914` 116, `func_801C11F0` 580, `func_801C47E0` 260 = 2,172 B. Clean toolbox build with all five earlier workers merged: sha1 ba52e91b…, M2 107,420 B = 37.06% (+2,172). Review: no artificial construct. `func_801BA884` computes two identical Y positions in two locals; I tested one local and inlined expressions, both fail the image check, and the sibling draw routines (`func_801BA674` …) use the same x0/y0/x1/y1 shape, so it is kept. The previously rejected `do{…break;…}while(0)` is gone: the tail is `frame = *counter + 1; *counter = frame; if (frame >= 0xC) *counter = 0;`. Round totals (M2): 93,388 → 107,420 B (+14,032 B, +4.84%): T-142 2,464 + T-143 2,296 + T-144 2,048 + T-145 2,172 + T-146 2,620 + T-147 2,432 = 14,032. Every worker met the ≥2,030 B target.
+
+## 2026-11-01 — T-148 spawned (lead)
+User asked for one more gpt-6.1-terra (high) worker with the same `/goal` usage (the goal text leads the task; the child thread shows it as message text). T-148 owns the near-miss bundle 2 across both images (func_80014D5C 14w, func_801B2B8C 8w, the carousel pair, and the other ≤50-word leads), with the same ≥2,030 B requirement and rules; the brief adds the lesson of the last two rounds (change what the code computes, not the scheduling).
+
+## 2026-11-01 — T-148 stopped by provider usage limit (lead)
+T-148's run failed with "You've hit your usage limit … try again at 8:19 PM". No report exists; per the standing rule no partial work is taken in. Its functions are released. Respawn after the limit resets with the same brief.
+
+## 2026-11-01 — T-148 resumed (lead)
+After the limit reset T-148 reported short (808 B: `func_800193DC` via chained initialization of equal bytes; improved drafts `func_801BBB60` 11 words, `func_80023EF0` 10, `func_800268C0` 26). Not merged (short report). Sent back to work for the remaining 1,222 B; its `/goal` is tracked by the host (the report says the goal was "usage-limited"), so the goal feature does register on the child thread.
+
+## 2026-11-01 — T-148 vetted (lead)
+T-148's final report was SHORT: 808 of 2,030 B (`func_800193DC` only); run 3 was interrupted before the report and the worker stated it had exhausted its structural probes on the other near-misses. The user's rule (no midway work) is satisfied because a final report exists; merged the one match plus the improved drafts and notes. Clean toolbox build: ROM sha1 `ba52e91b44450c548467044b26951353dc491e04`, `func_800193DC` T4, M2 107,420 -> 108,228 B (37.34%), 378 T4, 131 T2. Style note: the body uses raw-offset casts and redundant parentheses (like siblings `8001808C`/`80018AE0`/`80018F20`); no matching-only constructs (no volatile/dummy variables), queued under FU-13.
+
+
+## 2026-11-01 — T-149 spawned (lead)
+User asked for one new gpt-6.1-terra (high) worker. T-149 got the T-148 brief with the same `/goal` text and ≥2,030 B requirement, plus: do not repeat T-148's failed probes, write readable C (no raw-offset casts), and start from the near-misses T-148 did not touch (ovl bundle B, mid-size main and ovl drafts). Note: the `reasoningEffort` option (not `effort`) selects high for codex_proxy.
+
+## 2026-11-01 — T-149 stopped by provider usage limit (lead)
+T-149 failed at once with "You've hit your usage limit … try again at 6:52 AM". No report exists; per the standing rule no partial work is taken in. Its functions are released. Respawn after the reset with the same brief (or resume the thread).
+
+## 2026-11-01 — T-149 vetted (lead)
+T-149 reported SHORT: 0 B newly T4 (usage limit reached; it says it did not exhaust its functions). Merged its type/prototype corrections (u16 `D_80061490`, u8 `D_8012834B`, `func_80015594` prototype, `T032Bank` declaration move) and committed drafts/notes. Clean toolbox build: sha1 `ba52e91b44450c548467044b26951353dc491e04`, functions.csv unchanged, M2 stays 108,228 B (37.34%), 378 T4, 131 T2.
+
+## 2026-11-01 — T-149 hit the usage limit again (lead)
+A further T-149 run failed with "usage limit … try again at 9:42 PM". No new report; nothing taken in. T-149 stays closed as vetted-short (0 B); a respawn needs a new user request.
+
+## 2026-11-01 — T-149 second report vetted (lead)
+T-149 reported again at the usage limit: 372 of 2,030 B (`func_801C224C`: `selected` is a real snapshot of `D_802D38C8` taken after the init calls and again after `func_8001CD50`; no dummy locals). Merged the match, declaration moves and drafts. Clean toolbox build: sha1 `ba52e91b44450c548467044b26951353dc491e04`, M2 108,228 -> 108,600 B (37.46%), 379 T4, 130 T2. Still SHORT of the goal (1,658 B).
+
+## 2026-11-02 — T-150 spawned (lead)
+User asked for one new worker with the same requirement. T-150 (gpt-6.1-terra, reasoningEffort high, `/goal` leading the brief) got the T-149 brief updated for the drained near-miss pool: commit improved drafts as they land (usage limit risk), expect the quota to come from medium/large T2 drafts via structural corrections, and continue T-149's furthest drafts.
+
+## 2026-11-02 — T-151 spawned (lead)
+User asked for one more Sonnet (high) worker alongside T-150. T-151 = Claude Sonnet 5.5, `effort: high`, provider claude_proxy, worktree isolation, same `/goal` and ≥2,030 B requirement. It owns twelve large ovl_7DF8 drafts (listed on the board); T-150 was told by message to leave them alone so the two merges stay disjoint.
+
+## 2026-11-02 — T-150 stopped by provider usage limit (lead)
+T-150 failed with "usage limit … try again at 4:52 AM". No report exists; nothing taken in. A later report from the same thread (as happened with T-149) will be vetted when it arrives; otherwise respawn after the reset on request. T-151 (Sonnet, claude_proxy) is unaffected and still running.
+
+## 2026-11-02 — T-150 and T-151 resumed (lead)
+User: have the subagents continue. T-151 had three runs fail on "Claude API rate limit reached"; T-150 had hit the Codex usage limit. Both threads were sent a continue message (same /goal, commit first, T-150 told again to leave T-151's functions alone). Only final reports will be vetted.
+
+## 2026-11-02 — T-150 usage limit until Nov 4 (lead)
+T-150's resumed run failed at once: usage limit, retry at Nov 4th 2026 5:12 PM. No report; nothing taken in. T-151 (Claude) is the only worker still running.
+
+## 2026-11-02 — T-152 and T-153 spawned (lead)
+User asked for two DeepSeek V4.1 Flash 1017 workers from Cursor ACP (provider `cursor`, model `deepseek-v41-flash-1017`, no effort option passed so the default `max` applies) with the same requirements. T-150's pool is blocked on the Codex limit until Nov 4, so I split it: T-152 owns main, T-153 owns the mid-size/near-miss ovl_7DF8 functions; T-151 (Sonnet) keeps its 12 large ovl functions. Same `/goal`, ≥2,030 B, no-artificial-construct rules, commit-as-you-go.
+
+## 2026-11-02 — T-152 vetted (lead)
+T-152 (DeepSeek) reported SHORT: 0 B, no source change. Merged its drafts and notes only (9 scratch files). Its claim that `func_80014D5C` links byte-identically contradicts its own statement that the linked main.bin differs; the differences it lists are the register-choice and store-order ones, so nothing was claimed. Tree unchanged: M2 108,600 B (37.46%).
+
+## 2026-11-02 — T-153 vetted (lead)
+T-153 (DeepSeek) reported SHORT: 684 of 2,030 B (`func_801BE540`, `func_801BD270`). Applied with --3way; dropped the 250 variant directories (31k lines of throwaway) and kept tools, notes and named drafts. Simplification test: `glyph = &D_80282A70[index];` hoisted out of the `if` condition still matches, so the merged text uses it. Clean toolbox build: sha1 `ba52e91b44450c548467044b26951353dc491e04`, M2 108,600 -> 109,284 B (37.70%), 381 T4, 128 T2.
+
+## 2026-11-02 — T-150 usage limit notice (lead)
+Another T-150 run failed on the Codex usage limit (retry at Nov 4th 2026 9:31 AM). No report, nothing taken in; T-150 stays blocked. T-151 (Claude) is the only running worker.
+
+## 2026-11-02 — T-151 vetted (lead)
+T-151 (Claude Sonnet 5.5 high) met the goal: 2,096 B (func_801CC3BC 360, func_801CD1F0 460, func_801C7310 1,276), after three runs failed on Claude API rate limits and it was resumed. Applied with --3way; clean toolbox build: sha1 `ba52e91b44450c548467044b26951353dc491e04`, all three T4, M2 109,284 -> 111,380 B (38.42%), 384 T4, 125 T2. Simplification tests on func_801C7310 (each a ROM-level build): dropping the redundant `text` reassignment, dropping its `u32` cast, and assigning `volume` once before the branch all break the ROM, so the disclosed constructs stay (FU-13). func_801CC3BC's `(current == 0) & (1 << arg1)` is a bug-for-bug expression from the target.
+
+## 2026-11-02 — T-154 spawned (lead)
+User asked for one more Sonnet subagent. T-154 (Claude Sonnet 5.5, effort high, claude_proxy, worktree) got the T-151 brief plus the winning T-151/T-153 recipes (C-owned strings and float rodata, u16 mask at a 64-bit add, pointer assigned inside the if, reload after call), the T-153 helper scripts, and a mixed candidate list (ovl large/mid drafts and main drafts, T-150's blocked pool included). Rules unchanged; added: no second symbol at one address to defeat IDO address sharing unless the original has two, and do not commit throwaway variant dirs.
+
+## 2026-11-02 — T-154 vetted (lead)
+T-154 (Claude Sonnet 5.5 high) met the goal: 2,444 B (func_801BDF94, 801BD3FC, 801BE660, 801BD200). Source applied with --3way (one file), scratch merged (24 files). Simplification tests (ROM-level builds): hoisting the `glyph` assignment out of the condition in 801BDF94 still matches (merged that way); removing the discarded `input >> 32; input >> 16;` in 801BD3FC breaks the ROM, so they stay and are disclosed. Clean toolbox build: sha1 `ba52e91b44450c548467044b26951353dc491e04`, M2 111,380 -> 113,824 B (39.27%), 388 T4, 121 T2.
+
+## 2026-11-02 — T-155 and T-156 spawned (lead)
+User asked for two more Sonnet subagents. Both Claude Sonnet 5.5 (effort high, claude_proxy, worktree), same /goal and ≥2,030 B requirement, split by image so merges stay disjoint: T-155 = ovl_7DF8 (starts with func_801BD640 and func_801BDA6C, T-154's near drafts), T-156 = main (exact-size near drafts, then clean-room rewrites for the frame-mismatch drafts). Briefs add the T-154 lessons (clean-room rewrite of m2c drafts, use params/table entries directly, no second symbol at one address) and point to the T-152..T-154 helper scripts.
+
+## 2026-11-02 — T-157 spawned (lead)
+User asked for one more Sonnet subagent. T-157 (Claude Sonnet 5.5 high, claude_proxy, worktree) owns the twelve large ovl_7DF8 drafts (801BCB70 first) with the clean-room-rewrite recipe from T-154/T-151 and chunked matching advice; T-155 was messaged to drop those twelve and keep the smaller ovl functions, T-156 keeps main. Same /goal, ≥2,030 B, rules.
+
+## 2026-11-02 — T-155/T-156/T-157 rate-limited and resumed (lead)
+All three Sonnet workers failed with "Claude API rate limit reached" (no reports). Following the earlier instruction to keep the subagents going after such failures, each thread was sent a continue message (same /goal, commit pending work first, scope reminder). Only final reports will be vetted.
+
+## 2026-11-02 — T-156 vetted (lead)
+T-156 (Claude Sonnet 5.5 high) met the goal: 2,048 B in main (func_800241BC, 8002B22C, 80026738, 800268C0, 8002A900). Applied with --3way (4 source files + scratch). ROM-level simplification tests: dropping the `current` pointer in 8002A900 and making `width` u16 in 80026738 both break the ROM, so the disclosed spellings stay. Clean toolbox build: sha1 `ba52e91b44450c548467044b26951353dc491e04`, M2 113,824 -> 115,872 B (39.97%), 393 T4, 116 T2.
+
+## 2026-11-02 — T-155 vetted (lead)
+T-155 (Claude Sonnet 5.5 high) met the goal by 10 B: 2,040 B in ovl_7DF8 (func_801BD640, 801C4E38, 801C0800, 801B5534). Applied with --3way (4 source files); scratch limited to tools, notes and three named drafts (the 300 variant files dropped). Simplification test: hoisting `glyph` out of the condition in 801BD640 still matches (merged). Clean toolbox build: sha1 `ba52e91b44450c548467044b26951353dc491e04`, M2 115,872 -> 117,912 B (40.68%), 397 T4, 112 T2. Note: the worker's broad pgrep cleanup may have killed T-157's permuter run; T-157 lost a search but no source.
+
+## 2026-11-03 — T-157 status message, resumed (lead)
+T-157 ended a run with a status update on func_801BCB70 (nothing in src yet), not a goal-met report; a separate run also hit the Claude rate limit. Not taken in. Sent it a "Not final" message: commit, rotate if 801BCB70 stalls, report only at the goal.
+
+## 2026-11-03 — T-157 cancelled (lead)
+The T-157 task ended with status cancelled (not by a lead cancel). Its last messages were status updates: func_801BCB70 13 reg-masked / 64 exact lines, func_801BC1B0 (2,496 B) about 178 reg-masked lines, 0 B T4. No final report, nothing merged, functions released. Its scratch drafts stay in its worktree; vet them only if the user asks.
+
+## 2026-11-03 — T-157 written report vetted (lead)
+T-157's late report (branch t3/e98bbe33, d32f598): 0 B, src untouched, goal not met. Merged only notes, helper tools and the two best named drafts (4 MB of variants dropped). No build needed (no source change). Reusable facts for func_801BC1B0/801BCB70 are in OPPORTUNITIES §26. Tree unchanged: M2 117,912 B (40.68%).

@@ -1,5 +1,12 @@
 #include "frontend.h"
 
+const u8 D_80293710[] = "CAST OUT BY HER ";
+const u8 D_80293724[] = "TRIBE AS GARGOS";
+const u8 D_80293734[] = "RETURNS, MAYA MUST";
+const u8 D_80293748[] = "VANQUISH HIM TO";
+const u8 D_80293758[] = "REGAIN HER THRONE.";
+const u8 D_8029376C[] = "GARGOS";
+
 
 void func_801BFB10(void) {
     func_801CC784();
@@ -88,11 +95,49 @@ void func_801C0784(s32 arg0, u32 arg1) {
     D_801CD454 = 0;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C0800.s")
+#define COLOR_BYTE(v, shift) (((u32)(v) & 0xFF) << (shift))
+
+extern u8 D_80282E88[];
+
+/* Places one textured quad at the given position with a packed fill colour. */
+void func_801C0800(FrontendGfxWords **list, f32 x, f32 y, f32 z, u8 r, u8 g, u8 b, u8 a) {
+    FrontendGfxWords *p;
+
+    guTranslate((void *)((D_802956F4 << 6) + D_802CA068), x, y, z);
+    p = (*list)++;
+    p->w0 = 0x01020040;
+    p->w1 = D_802CA068 + (D_802956F4 << 6);
+    p = (*list)++;
+    p->w0 = 0xFA000000;
+    p->w1 = COLOR_BYTE(r, 24) | COLOR_BYTE(g, 16) | COLOR_BYTE(b, 8) | COLOR_BYTE(a, 0);
+    {
+        FrontendGfxWords *command = (*list)++;
+        command->w0 = 0x06000000; command->w1 = (u32)D_80282E88; /* both words on one line: match-only (scheduling) */
+    }
+    D_802956F4++;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C08F8.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C11F0.s")
+extern u8 D_8004A407;
+extern s8 D_80292CC4;
+extern f32 D_80292CF0;
+extern s32 D_802956F4, D_802CA068, D_802D3818[];
+void func_801C11F0(s32 list, s32 unused, s32 side, s32 player) {
+    f32 x;
+    s8 digit[2];
+    s32 shade;
+    if (D_8004A407) player = 0;
+    shade = (D_802D3818[player] % 100) * 255 / 100;
+    if (shade >= 65 && shade < 192) shade = 63;
+    if (shade >= 193) shade = 255 - shade;
+    shade *= 4;
+    x = side * 218;
+    digit[1] = 0;
+    digit[0] = D_802D3818[player] / 100 + '0';
+    D_802956F4 += func_801BE540((FrontendGfxWords **)list, (void *)((D_802956F4 << 6) + D_802CA068), (u8 *)&D_80292CC4, x, 75.0f, -500.0f, 255, 255, 255, 255, 0.75f);
+    D_802956F4 += func_801BE540((FrontendGfxWords **)list, (void *)((D_802956F4 << 6) + D_802CA068), (u8 *)digit, x, 0.0f, -500.0f, (u8)shade, (u8)shade, (u8)shade, 255, D_80292CF0);
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C1434.s")
 
@@ -131,11 +176,115 @@ void func_801C2110(f32 t, f32 *coef, f32 *position, f32 *velocity) {
     velocity[2] = three * coef[8] * t2 + two * coef[9] * t + coef[10];
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C224C.s")
+extern void func_80012950(s32);
+extern void func_80012A8C(u8);
+extern void func_8001CD50(void);
+extern void osViBlack(s32);
+extern void (*D_800451EC[])(void);
+extern u8 D_8004AC88;
+extern s32 D_800698C4;
+extern s32 D_8028326C[];
+extern f32 D_80285240[][3][4];
+extern f32 D_80285420[][4];
+extern u8 D_80285570;
+extern s32 D_80285574, D_80285578;
+extern u8 D_80295718;
+extern u8 D_802D3874;
+extern f32 D_802D3878;
+extern f32 D_802D3880[4];
+extern s32 D_802D3890, D_802D3894;
+extern f32 D_802D3898[3][4];
+extern u8 D_802D38C8;
+
+void func_801C224C(u8 arg0, s32 arg1) {
+    s32 i, j;
+    u8 selected;
+
+    D_802D38C8 = arg0;
+    osViBlack(1);
+    func_80012950(1);
+    selected = D_802D38C8;
+    D_8004AC88 = selected;
+    func_80012A8C(selected);
+    D_800698C4 = 0;
+    D_800451EC[D_802D38C8]();
+    func_8001CD50();
+    selected = D_802D38C8;
+    for (i = 0; i < 4; i++) {
+        for (j = 0; j < 3; j++) {
+            D_802D3898[j][i] = D_80285240[selected][j][i];
+        }
+        D_802D3880[i] = D_80285420[selected][i];
+    }
+    D_80285574 = D_8028326C[selected];
+    D_802D3890 = arg1;
+    D_802D3874 = 0;
+    D_802D3878 = 50.0f;
+    D_80295718 = 2;
+    D_80285578 = 0;
+    D_80285570 = 0;
+    D_802D3894 = 0;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C23C0.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C2ADC.s")
+
+extern void func_8002F6F4();
+extern void func_801ADC64(s32);
+extern u8 D_8004A26C[], D_8004A270[];
+extern s32 D_80066C40;
+extern u8 D_80127D38;
+extern s8 D_8012834C, D_8029571A;
+extern u8 D_80127D58[32];
+extern u16 D_8028557C[5][7];
+extern u64 D_802D3678[];
+extern u8 D_802D3874, D_802D38CC[5];
+
+void func_801C2ADC(s32 player, u64 buttons) {
+    s32 i;
+    s32 j;
+
+    if ((buttons & 0x1000) && !(D_802D3678[player] & 0x1000) && D_802D3874 == 0) {
+        D_802D3874 = 1;
+        D_8029571A = 0;
+    }
+    if ((buttons & 0xFFFF) && !(D_802D3678[player] & 0xFFFF)) {
+        for (i = 0; i < 5; i++) {
+            if ((buttons & 0xFFFF) == D_8028557C[i][D_802D38CC[i]]) {
+                D_802D38CC[i]++;
+            } else {
+                D_802D38CC[i] = 0;
+            }
+            if (D_8028557C[i][D_802D38CC[i]] == 0) {
+                switch (i) {
+                    case 0:
+                        func_8002F6F4(D_80066C40, 0x8B, D_8004A26C);
+                        D_80127D38 = 1;
+                        break;
+                    case 1:
+                        func_801ADC64(4);
+                        break;
+                    case 2:
+                        D_8012834C = 6;
+                        func_8002F6F4(D_80066C40, 0x17D, D_8004A26C);
+                        func_8002F6F4(D_80066C40, 0x17D, D_8004A270);
+                        break;
+                    case 3:
+                        for (j = 0;
+                             j < 32;
+                             j++) D_80127D58[j] = 120;
+                        func_8002F6F4(D_80066C40, 0x17A, D_8004A26C);
+                        func_8002F6F4(D_80066C40, 0x17A, D_8004A26C);
+                        break;
+                    case 4:
+                        break;
+                }
+                D_802D38CC[i] = 0;
+            }
+        }
+    }
+    D_802D3678[player] = buttons;
+}
 
 
 

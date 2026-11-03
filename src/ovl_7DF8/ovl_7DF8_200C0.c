@@ -263,7 +263,47 @@ s32 func_801CC350(s32 *arg0, s32 arg1) {
     return osPfsFindFile((arg1 * 0x68) + &D_802D3D30, 0x3031, 0x4E4B4945, &D_80292794, &D_80292790, arg0);
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_200C0/func_801CC3BC.s")
+const u8 D_80295560[] = "CONTROLLER PAK NOT CONNECTED";
+const u8 D_80295580[] = "CONTROLLER PAK DEVICE DAMAGED OR INVALID";
+const u8 D_802955AC[] = "UNABLE TO READ OR WRITE CONTROLLER PAK";
+const u8 D_802955D4[] = "NOT ENOUGH SPACE ON CONTROLLER PAK";
+const u8 D_802955F8[] = "NO FREE SAVE POSITIONS ON PAK";
+
+s32 osPfsChecker(void *);
+extern s32 func_801CBF8C(void);
+extern u8 *D_802D3E04;
+
+/* Pak error reporter: select the on-screen message for an error code. */
+s32 func_801CC3BC(s32 arg0, s32 arg1) {
+    if (!(D_802D3E0D & (1 << arg1))) {
+        u8 current;
+
+        func_801CBF8C();
+        current = D_802D3E0D;
+        if ((current == 0) & (1 << arg1)) {
+            return 1;
+        }
+    }
+    if (arg0 == 3) {
+        arg0 = osPfsChecker((arg1 * 0x68) + &D_802D3D30);
+    }
+    if (arg0 == 2) {
+        D_802D3E0D &= (1 << arg1) ^ 0xFF;
+        arg0 = func_801CBF8C();
+    }
+    if (arg0 == 1) {
+        D_802D3E04 = D_80295560;
+    } else if (arg0 == 10 || arg0 == 11) {
+        D_802D3E04 = D_80295580;
+    } else if (arg0 == 4) {
+        D_802D3E04 = D_802955AC;
+    } else if (arg0 == 7) {
+        D_802D3E04 = D_802955D4;
+    } else if (arg0 == 8) {
+        D_802D3E04 = D_802955F8;
+    }
+    return arg0;
+}
 
 extern s32 osPfsReadWriteFile();
 extern u8 D_802D3A30;
@@ -395,7 +435,55 @@ void func_801CC878(void) {
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_200C0/func_801CC908.s")
+extern u8 *D_802927A4[];
+const u8 D_80295684[] = "SAVING";
+const u8 D_8029568C[] = "SAVED OK";
+
+s32 func_801CC908(s32 arg0) {
+    s32 handle;
+    s32 result;
+
+    result = 1 << arg0;
+    if (!(D_802D3E0D & result)) {
+        func_801CBF8C();
+        if (!(D_802D3E0D & result)) {
+            return 1;
+        }
+    }
+    result = func_801CC350(&handle, arg0);
+    if (result != 5 && result != 0) {
+        func_801CC3BC(result, arg0);
+        result = func_801CC350(&handle, arg0);
+    }
+    if (result == 5) {
+        result = func_801CC58C(&handle, arg0);
+        if (result != 0) {
+            func_801CC3BC(result, arg0);
+            result = func_801CC58C(&handle, arg0);
+        }
+    }
+    if (result == 0 || result == 5) {
+        D_802D3E04 = D_80295684;
+        result = func_801CC600(handle, arg0);
+        if (result != 0) {
+            if (result == 7) {
+                D_802D3E04 = D_802927A4[arg0];
+            } else {
+                func_801CC3BC(result, arg0);
+            }
+            result = func_801CC600(handle, arg0);
+        }
+        if (result == 0) {
+            D_802D3E04 = D_8029568C;
+            func_8002F6F4(D_80066C40, 0x10A, D_8004A25C);
+        }
+    }
+    if (result == 7) {
+        D_802D3E04 = D_802927A4[arg0];
+        D_802D3E14 = 1;
+    }
+    return result;
+}
 
 extern void func_801BFA40(void *, void *);
 extern void func_801C86A8(void *);
@@ -623,7 +711,61 @@ void func_801CD174(s32 arg0) {
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_200C0/func_801CD1F0.s")
+extern s32 osPfsNumFiles(void *, s32 *, s32 *);
+const u8 D_802956BC[] = "jEMPTY";
+
+/* Build the file-select list: 16 entry pointers, 16 name pointers, then the text. */
+void func_801CD1F0(s32 arg0) {
+    s32 ret;
+    s32 maxFiles;
+    s32 count;
+    u8 **list;
+    T056PfsState state;
+    s32 i;
+    u8 **names;
+    u8 *str;
+
+    D_802D3E0E = 0;
+    list = (u8 **)D_802D3E00;
+    names = (u8 **)D_802D3E00 + 16;
+    str = (u8 *)((u8 **)D_802D3E00 + 32);
+    ((u8 **)D_802D3E00)[0] = 0;
+    if (func_801CBF8C() != 0) {
+        return;
+    }
+    func_801CD174(arg0);
+    ret = osPfsNumFiles((arg0 * 0x68) + &D_802D3D30, &count, &maxFiles);
+    if (ret != 0) {
+        func_801CC3BC(ret, arg0);
+        ret = osPfsNumFiles((arg0 * 0x68) + &D_802D3D30, &count, &maxFiles);
+    }
+    if (ret == 0) {
+        if (count > 16) {
+            count = 16;
+        }
+        for (i = 0; i < count; i++) {
+            ret = osPfsFileState((arg0 * 0x68) + &D_802D3D30, i, &state);
+            list[i] = (u8 *)names;
+            if (ret != 0) {
+                *names = D_802956BC;
+            } else {
+                *names = str;
+                *str++ = 'j';
+                func_801CCEAC(str, (u8 *)state.game_name, 16);
+                str[16] = str[17] = str[18] = ' ';
+                str += 19;
+                func_801CCEAC(str, (u8 *)state.ext_name, 4);
+                str[4] = 'j';
+                str += 5;
+                func_801CD100((s8 *)str, (state.file_size + 0xFF) >> 8);
+                str[4] = 0;
+                str += 5;
+            }
+            names++;
+        }
+        D_802D3E0E = i;
+    }
+}
 
 s32 func_801BE540(s32, s32, s32, s32, f32, f32, s32, s32, s32, s32, f32);s32 func_801CCD74(s32 *);
 s32 func_801CD3BC(s32 arg0, s32 arg1, s32 arg2, f32 arg3) {

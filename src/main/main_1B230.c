@@ -1,6 +1,61 @@
 #include "audio_game.h"
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_1B230/func_8002AB90.s")
+extern u8 D_80066C68[];
+extern s32 D_8004815C[];
+extern s32 osAiSetFrequency(s32);
+extern void osCreateMesgQueue(void *, void *, s32);
+
+extern void osStartThread(void *);
+
+void func_8002AB90(ALSynConfig *config, s32 priority, AudioSettings *settings)
+{
+    typedef struct { s32 words[66]; } AudioFxParameters;
+    f32 exact;
+    u32 i;
+
+    config->dmaproc = func_8002B3A8;
+    config->outputRate = osAiSetFrequency(settings->rate);
+    exact = (f32)settings->frames * (f32)config->outputRate / 60.0f;
+    D_80068168 = (s32)exact;
+    if (D_80068168 < exact) {
+        D_80068168++;
+    }
+    if (D_80068168 & 15) {
+        D_80068168 = (D_80068168 & ~15) + 16;
+    }
+    D_80068164 = D_80068168 - 16;
+    D_8006816C = D_80068168 + 96;
+    if (config->fxType == 6) {
+        AudioFxParameters parameters;
+        parameters = *(AudioFxParameters *)D_8004815C;
+        config->params = parameters.words;
+        alInit(&D_80066E88, config);
+    } else {
+        alInit(&D_80066E88, config);
+    }
+    D_80067ED8[0].prev = 0;
+    D_80067ED8[0].next = 0;
+    for (i = 0; i < 31; i++) {
+        alLink((ALLink *)&D_80067ED8[i + 1], (ALLink *)&D_80067ED8[i]);
+        D_80067ED8[i].buffer = alHeapDBAlloc(0, 0, config->heap, 1, 0x800);
+    }
+    D_80067ED8[i].buffer = alHeapDBAlloc(0, 0, config->heap, 1, 0x800);
+    for (i = 0; i < 2; i++) {
+        D_80066C50.slots[i] = alHeapDBAlloc(0, 0, config->heap, 1, settings->commands * 8);
+    }
+    D_80068170 = settings->commands;
+    for (i = 0; i < 3; i++) {
+        D_80066C50.slots[i + 2] = alHeapDBAlloc(0, 0, config->heap, 1, 0x88);
+        ((AudioFrame *)D_80066C50.slots[i + 2])->body.type = 2;
+        ((AudioFrame *)D_80066C50.slots[i + 2])->body.frame = D_80066C50.slots[i + 2];
+        ((AudioFrame *)D_80066C50.slots[i + 2])->buffer = alHeapDBAlloc(0, 0, config->heap, 1, D_8006816C * 4);
+    }
+    osCreateMesgQueue(&D_80066E50, D_80066E68, 8);
+    osCreateMesgQueue(&D_80066E18, D_80066E30, 8);
+    osCreateMesgQueue(&D_800683F8, D_80068410, 32);
+    osCreateThread(D_80066C68, 4, func_8002AEE4, 0, D_80067ED8, priority);
+    osStartThread(D_80066C68);
+}
 
 extern s32 osRecvMesg(void *,void *,s32);
 
@@ -115,7 +170,54 @@ void func_8002B1EC(AudioFrame *unused)
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_1B230/func_8002B22C.s")
+extern s32 osPiStartDma(void *, s32, s32, u32, void *, u32, void *);
+
+/* The SDK audio-example DMA callback: reuse a buffer that covers the request or start a new transfer. */
+s32 func_8002B22C(s32 address, s32 length, void *unused)
+{
+    void *foundBuffer;
+    s32 delta, addrEnd, buffEnd;
+    AudioDmaBuffer *dmaPtr, *lastDmaPtr;
+
+    lastDmaPtr = 0;
+    dmaPtr = D_80068158.used;
+    addrEnd = address + length;
+    while (dmaPtr) {
+        buffEnd = dmaPtr->address + 0x800;
+        if (dmaPtr->address > (u32)address) {
+            break;
+        } else if (addrEnd <= buffEnd) {
+            dmaPtr->frame = D_80048150;
+            foundBuffer = dmaPtr->buffer + address - dmaPtr->address;
+            return osVirtualToPhysical(foundBuffer);
+        }
+        lastDmaPtr = dmaPtr;
+        dmaPtr = dmaPtr->next;
+    }
+    dmaPtr = D_80068158.free;
+    D_80068158.free = dmaPtr->next;
+    alUnlink((ALLink *)dmaPtr);
+    if (lastDmaPtr) {
+        alLink((ALLink *)dmaPtr, (ALLink *)lastDmaPtr);
+    } else if (D_80068158.used) {
+        lastDmaPtr = D_80068158.used;
+        D_80068158.used = dmaPtr;
+        dmaPtr->next = lastDmaPtr;
+        dmaPtr->prev = 0;
+        lastDmaPtr->prev = dmaPtr;
+    } else {
+        D_80068158.used = dmaPtr;
+        dmaPtr->next = 0;
+        dmaPtr->prev = 0;
+    }
+    foundBuffer = dmaPtr->buffer;
+    delta = address & 1;
+    address -= delta;
+    dmaPtr->address = address;
+    dmaPtr->frame = D_80048150;
+    osPiStartDma(&D_80068178[D_80048154++], 0, 0, address, foundBuffer, 0x800, &D_800683F8);
+    return osVirtualToPhysical(foundBuffer) + delta;
+}
 
 ALDMAproc func_8002B3A8(AudioDmaPool **state) {
     if (!D_80068158.initialized) {

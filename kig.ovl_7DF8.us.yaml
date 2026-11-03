@@ -48,6 +48,7 @@ segments:
       - {start: 0xE7070, type: data, name: t091_after_ovl_7DF8_116E0, linker_section_order: .rodata}
       - [0xE70D0, .rodata, ovl_7DF8_12C70]
       - {start: 0xE7160, type: data, name: ovl_7DF8_remaining_1, linker_section_order: .rodata}
+      - [0xE7BF0, .rodata, ovl_7DF8_13FF0]
       - [0xE7CA0, .rodata, ovl_7DF8_17E70]
       - [0xE7CC0, .rodata, ovl_7DF8_18520]
       - [0xE7D10, .rodata, ovl_7DF8_190B0]

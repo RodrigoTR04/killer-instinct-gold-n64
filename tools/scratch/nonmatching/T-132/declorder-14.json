@@ -1,0 +1,66 @@
+{
+  "function": "func_80014D5C",
+  "draft": "tools/scratch/nonmatching/T-033/func_80014D5C.c",
+  "context": "prefix",
+  "before": {
+    "function": "func_80014D5C",
+    "draft": "/tmp/kig-declorder-85rsiveo/tmpexrju84n.c",
+    "tu": "src/main/main_2FF0.c",
+    "compiled": 1780,
+    "original": 1780,
+    "words": 142,
+    "context": "prefix",
+    "error": ""
+  },
+  "after": {
+    "function": "func_80014D5C",
+    "draft": "/tmp/kig-declorder-85rsiveo/tmp4z2dh3wy.c",
+    "tu": "src/main/main_2FF0.c",
+    "compiled": 1780,
+    "original": 1780,
+    "words": 136,
+    "context": "prefix",
+    "error": ""
+  },
+  "winner": "hill-559",
+  "seconds": 90.16276110499894,
+  "seed": 118,
+  "locals": 15,
+  "initial_exhausted": false,
+  "compiled": 776,
+  "errors": 0,
+  "duplicates": 0,
+  "history": [
+    {
+      "label": "hill-67",
+      "words": 141,
+      "compiled": 1780
+    },
+    {
+      "label": "hill-79",
+      "words": 139,
+      "compiled": 1780
+    },
+    {
+      "label": "hill-191",
+      "words": 138,
+      "compiled": 1780
+    },
+    {
+      "label": "hill-275",
+      "words": 137,
+      "compiled": 1780
+    },
+    {
+      "label": "hill-559",
+      "words": 136,
+      "compiled": 1780
+    }
+  ],
+  "diagnostics": [
+    {
+      "context": "full",
+      "error": "cfe: Error: /tmp/kig-screen-f6n0tb9d/candidate.c: 73: Cannot open file GLOBAL_ASM:asm/nonmatchings/main/main_2FF0/func_80012B7C.s for #include\ncfe: Error: /tmp/kig-screen-f6n0tb9d/candidate.c: 128: Cannot open file GLOBAL_ASM:asm/nonmatchings/main/main_2FF0/func_8001346C.s for #include\ncfe: Error: /tmp/kig-screen-f6n0tb9d/candidate.c: 141: Cannot open file GLOBAL_ASM:asm/nonmatchings/main/main_2FF0/func_8001373C.s for #include\ncfe: Error: /tmp/kig-screen-f6n0tb9d/candidate.c: 527: Cannot open file GLOBAL_ASM:asm/nonmatchings/main/main_2FF0/func_800142E0.s for #include\ncfe: Error: /tmp/kig-screen-f6n0tb9d/candidate.c: 738: Cannot open file GLOBAL_ASM:asm/nonmatchings/main/main_2FF0/func_80015450.s for #include\ncfe: Error: /tmp/kig-screen-f6n0tb9d/candidate.c: 740: Cannot open file GLOBAL_ASM:asm/nonmatchings/main/main_2FF0/func_80015594.s for #include\ncfe: Error: /tmp/kig-screen-f6n0tb9d/candidate.c: 903: Cannot open file GLOBAL_ASM:asm/nonmatchings/main/main_2FF0/func_80016078.s for #include\ncfe: Error: /tmp/kig-screen-f6n0tb9d/candidate.c: 1251: Cannot open file GLOBAL_ASM:asm/nonmatchings/main/main_2FF0/func_800170C4.s for #include\ncfe: Error: /tmp/kig-screen-f6n0tb9d/candidate.c: 1253: Cannot open file GLOBAL_ASM:asm/nonmatchings/main/main_2FF0/func_80017378.s for #include\ncfe: Error: /tmp/kig-screen-f6n0tb9d/candidate.c: 1259: Cannot open file GLOBAL_ASM:asm/nonmatchings/main/main_2FF0/func_80017A68.s for #include\ncfe: Error: /tmp/kig-screen-f6n0tb9d/candidate.c: 1261: Cannot open file GLOBAL_ASM:asm/nonmatchings/main/main_2FF0/func_80017D6C.s for #include\ncfe: Error: /tmp/kig-screen-f6n0tb9d/candidate.c: 1263: Cannot open file GLOBAL_ASM:asm/nonmatchings/main/main_2FF0/func_8001808C.s for #include\ncfe: Error: /tmp/kig-screen-f6n0tb9d/candidate.c: 1422: Cannot open file GLOBAL_ASM:asm/nonmatchings/main/main_2FF0/func_80018AE0.s for #include\ncfe: Error: /tmp/kig-screen-f6n0tb9d/candidate.c: 1438: Cannot open file GLOBAL_ASM:asm/nonmatchings/main/main_2FF0/func_80018F20.s for #include\ncfe: Error: /tmp/kig-screen-f6n0tb9d/candidate.c: 1444: Cannot open file GLOBAL_ASM:asm/nonmatchings/main/main_2FF0/func_800191F0.s for #include\ncfe: Error: /tmp/kig-screen-f6n0tb9d/candidate.c: 1446: Cannot open file GLOBAL_ASM:asm/nonmatchings/main/main_2FF0/func_800193DC.s for #include\ncfe: Error: /tmp/kig-screen-f6n0tb9d/candidate.c: 1491: Cannot open file GLOBAL_ASM:asm/nonmatchings/main/main_2FF0/func_80019880.s for #include\ncfe: Error: /tmp/kig-screen-f6n0tb9d/candidate.c: 1514: Cannot open file GLOBAL_ASM:asm/nonmatchings/main/main_2FF0/func_8001AA90.s for #include\ncfe: Error: /tmp/kig-screen-f6n0tb9d/candidate.c: 1746: Cannot open file GLOBAL_ASM:asm/nonmatchings/main/main_2FF0/func_8001BB64.s for #include\ncfe: Error: /tmp/kig-screen-f6n0tb9d/candidate.c: 1748: Cannot open file GLOBAL_ASM:asm/nonmatchings/main/main_2FF0/func_8001BDE0.s for #include\n"
+    }
+  ]
+}

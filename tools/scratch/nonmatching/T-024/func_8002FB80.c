@@ -1,4 +1,7 @@
-/* T-125: 23 differing words, exact 544 B in full TU. Branch-local cursor updates and signed address intermediate recover structure. */
+/* T-128: 20 differing words, exact 544 B in full TU.
+ * Case 0xC0: data++ after storing address>>24.
+ * Case 0x40: store data[1] before the texture word, data[3] after address bytes.
+ * Remaining: 0xC0 still hoists >>16/>>8 before the >>24 store; 0x40 loads data[1] before data[0]. */
 void func_8002FB80(u8 *data, s32 count, u32 vertexBase, u32 *textures, u8 *out) {
     s32 i = 0;
     u32 address;
@@ -43,22 +46,22 @@ void func_8002FB80(u8 *data, s32 count, u32 vertexBase, u32 *textures, u8 *out) 
                     out += 2;
                 }
                 out[0]=address>>24;
+                data++;
                 out[1]=address>>16;
                 out[2]=address>>8;
                 out[3]=address;
-                data++;
                 out += 4;
                 break;
                 case 0x40:
                 out[0] = 0xFD;
+                out[1] = data[1];
                 address = textures[data[0]&63];
-                out[1]=data[1];
                 out[2]=data[2];
-                out[3]=data[3];
                 out[4]=address>>24;
                 out[5]=address>>16;
                 out[6]=address>>8;
                 out[7]=address;
+                out[3]=data[3];
                 data += 4;
                 out += 8;
                 break;

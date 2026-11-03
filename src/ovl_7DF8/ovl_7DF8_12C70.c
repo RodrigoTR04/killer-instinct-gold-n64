@@ -78,7 +78,40 @@ void func_801BED0C(u32 text, u64 packed) {
 }
 
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_12C70/func_801BEEA4.s")
+typedef struct { s32 data; u16 score; u16 pad; } T023EntryEA4;
+
+s32 func_801BEEA4(s32 table, s32 score, s32 data)
+{
+    s32 index;
+    s32 count;
+    s32 i;
+    T023EntryEA4 *entries;
+
+    count = D_80127D80[table].count;
+    entries = (T023EntryEA4 *)D_80127D80[table].entries;
+    index = count - 1;
+    if (D_80127D80[table].descending) {
+        while (index >= 0 && entries[index].score < score) {
+            index--;
+        }
+    } else {
+        while (index >= 0 && score < entries[index].score) {
+            index--;
+        }
+    }
+    ++index;
+    i = count;
+    if (index == count) {
+        return 0;
+    }
+    while (index + 1 < i) {
+        memcpy(&entries[i - 1], &entries[i - 2], sizeof(*entries));
+        --i;
+    }
+    entries[index].data = data;
+    entries[index].score = score;
+    return index + 1;
+}
 
 
 extern s32 func_801BEEA4(s32, s32, s32);
@@ -155,9 +188,26 @@ void func_801BF678(s8 *out, s32 value)
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_12C70/func_801BF720.s")
+s32 func_801BF720(u32 code)
+{
+    s32 result;
 
-extern s32 func_801BF720(s32);
+    if (code < 26) {
+        result = code + 'A';
+    } else {
+        switch (code) {
+        case 27: result = ' '; break;
+        case 28: result = '.'; break;
+        case 29: result = '/'; break;
+        case 30: result = ':'; break;
+        case 31: result = ','; break;
+        default: result = ' '; break;
+        }
+    }
+    return result;
+}
+
+extern s32 func_801BF720(u32);
 u8 *func_801BF788(u8 *arg0, u8 *arg1, s32 count) {
     s32 i;
     s32 first;
@@ -196,9 +246,26 @@ void func_801BF850(u8 *arg0)
   first = &D_80127F90; do { next = func_801BF788(cursor, first, 5); first += 0x28; cursor = next; } while (((u32) first) < ((u32) (&D_80128148))); second = &D_80128148; do { next_2 = func_801BF788(cursor, second, 5); second += 0x28;  cursor = next_2; } while (second != (&D_80128300));
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_12C70/func_801BF914.s")
+s32 func_801BF914(u32 code)
+{
+    s32 result;
 
-extern s32 func_801BF914(s32);
+    if (code >= 'A' && code <= 'Z') {
+        result = code - 'A';
+    } else {
+        switch (code) {
+        case ' ': result = 27; break;
+        case '.': result = 28; break;
+        case '/': result = 29; break;
+        case ':': result = 30; break;
+        case ',': result = 31; break;
+        default: result = 27; break;
+        }
+    }
+    return result;
+}
+
+extern s32 func_801BF914(u32);
 
 u8 *func_801BF988(u8 *arg0, u8 *arg1, s32 count) {
     u32 packed;

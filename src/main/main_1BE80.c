@@ -61,7 +61,36 @@ void func_8002BB74(s32 x,s32 y,s32 z,float *outX,float *outZ,float *outY) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_1BE80/func_8002BBD0.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_1BE80/func_8002D9C4.s")
+void func_8002D9C4(RenderCameraPose *pose, s32 frame, s32 duration, s32 reverse) {
+    float to[5], from[5];
+    s32 i;
+    if (reverse == 0) {
+        for (i = 0; i < 5; i++) to[i] = ((float *)pose)[i];
+        from[0] = D_800695CC;
+        from[1] = D_800695D0;
+        from[2] = D_800695D4;
+        from[3] = D_800695D8;
+        from[4] = D_800695DC;
+    }
+    else {
+        for (i = 0; i < 5; i++) from[i] = ((float *)pose)[i];
+        to[0] = D_800695CC;
+        to[1] = D_800695D0;
+        to[2] = D_800695D4;
+        to[3] = D_800695D8;
+        to[4] = D_800695DC;
+    }
+    D_800695CC = from[0]+(to[0]-from[0])*(float)frame/(float)duration;
+    D_800695D0 = from[1]+(to[1]-from[1])*(float)frame/(float)duration;
+    D_800695D4 = from[2]+(to[2]-from[2])*(float)frame/(float)duration;
+    func_8002DBDC(to[3], &from[3]);
+    D_800695D8 = from[3]+(to[3]-from[3])*(float)frame/(float)duration;
+    func_8002DC48(&D_800695D8);
+    func_8002DBDC(to[4], &from[4]);
+    D_800695DC = from[4]+(to[4]-from[4])*(float)frame/(float)duration;
+    func_8002DC48(&D_800695DC);
+}
+
 
 void func_8002DBDC(float target,float *angle) {
     float current=*angle;

@@ -1,4 +1,4 @@
-/* DRAFT. Remaining diff: Matrix/vector buffer types, float arguments, stack and rendering scheduling differ. */
+/* T-132 DRAFT: 352 differing words; see T-132/REPORT.md. */
 typedef struct { u32 w0, w1; } T023801BDF94Gfx;
 typedef union { u64 align; u8 bytes[64]; } T079Matrix;
 typedef struct { u32 image; f32 width; } T023801BDF94Glyph;
@@ -11,12 +11,12 @@ f32 sinf(f32);
 extern T023801BDF94Glyph D_80282C48[];
 extern u8 D_80282D28[];
 extern s32 D_80282DC0;
-extern f32 D_80292B58;
-extern f64 D_80292B60;
-extern f64 D_80292B68;
-extern f64 D_80292B70;
-extern f64 D_80292B78;
-extern f64 D_80292B80;
+
+
+
+
+
+
 extern u8 D_802D36B0[];
 extern u8 D_802D36C0[];
 
@@ -42,7 +42,7 @@ s32 func_801BDF94(T023801BDF94Gfx **dl, T079Matrix *matrices, u8 *text,
     if (scale != 1.0f && scale != -1.0f) {
         if (scale < 0.0f) {
             guScale(matrices, 1.0f, -scale, 1.0f);
-            scale = D_80292B58;
+            scale = 0.999f;
         } else {
             guScale(matrices, scale, scale, 1.0f);
         }
@@ -56,9 +56,9 @@ s32 func_801BDF94(T023801BDF94Gfx **dl, T079Matrix *matrices, u8 *text,
         cmd->w1 = (u32)matrix;
         cmd->w0 = 0x01020040;
     }
-    sine = sinf(D_80282DC0 * D_80292B60);
+    sine = sinf(D_80282DC0 * 0.017453292519943295);
     guLookAtReflect(&reflection, D_802D36B0, sine * 60.0f,
-                    cosf(D_80282DC0 * D_80292B60) * 60.0f,
+                    cosf(D_80282DC0 * 0.017453292519943295) * 60.0f,
                     220.0f, 6.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
     cmd = (*dl)++;
     cmd->w1 = (u32)D_802D36B0;
@@ -83,7 +83,7 @@ s32 func_801BDF94(T023801BDF94Gfx **dl, T079Matrix *matrices, u8 *text,
             (glyph = &D_80282C48[character], matrix = &matrices[count], glyph->image)) {
             rotation = 0.0f;
             advance = scale;
-            if (fixed) width = D_80292B68;
+            if (fixed) width = 32.22;
             else width = glyph->width * 9.0f;
             center = x + advance * width;
             if (mode == 1) {
@@ -115,7 +115,7 @@ s32 func_801BDF94(T023801BDF94Gfx **dl, T079Matrix *matrices, u8 *text,
             cmd = (*dl)++;
             cmd->w0 = 0x06000000;
             cmd->w1 = glyph->image;
-            if (fixed) width = D_80292B70;
+            if (fixed) width = 35.8;
             else width = glyph->width * 10.0f;
             x = center + advance * width;
             if (mode == 2) {
@@ -126,8 +126,8 @@ s32 func_801BDF94(T023801BDF94Gfx **dl, T079Matrix *matrices, u8 *text,
         } else if (character == 41) {
             fixed = 1;
         } else {
-            if (fixed) width = D_80292B78;
-            else width = D_80292B80;
+            if (fixed) width = 68.02;
+            else width = 28.5;
             x += scale * width;
         }
         index++;

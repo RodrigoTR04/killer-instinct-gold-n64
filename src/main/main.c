@@ -46,9 +46,10 @@ void func_8000FA50(void) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8000FA80.s")
 
+typedef struct { u16 buttons; s8 x, y; } T020Controller;
+
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8001178C.s")
 
-typedef struct { u16 buttons; s8 x, y; } T020Controller;
 extern u16 D_80127CA8[][6];
 
 s32 func_80011FC4(T020Controller *arg0, u8 arg1) {
