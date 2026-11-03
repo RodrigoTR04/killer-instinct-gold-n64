@@ -120,9 +120,69 @@ void func_80025D58(s32 x, s32 color, s32 alpha, s32 kind) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_15380/func_80025FC4.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_15380/func_80026738.s")
+typedef struct { u16 halfW, halfH, w, h; } T032Size268;
+extern T032Size268 D_80061368[];
+extern s32 D_800612D8[];
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_15380/func_800268C0.s")
+/* Effect list: four halfwords per entry (icon id, scale, x, y), terminated by a zero id. */
+extern s16 D_801D73C8[];
+extern u8 D_80047BF0[];
+void func_80026738(T032Gfx269AC **dl)
+{
+    T032Size268 *size;
+    T032Gfx269AC *p;
+    s32 scale;
+    u32 width;
+    u8 kind;
+    s32 x;
+    s32 y;
+    s32 i = 0;
+    if (D_801D73C8[0] != 0)
+    {
+        D_8004EA78 = 15;
+        while (D_801D73C8[i] != 0)
+        {
+            kind = D_80047BF0[D_801D73C8[i] - 1];
+            scale = (u16)D_801D73C8[i + 1];
+            x = (u16)D_801D73C8[i + 2] >> 7;
+            y = ((u16)D_801D73C8[i + 3] >> 8) + 4;
+            i += 4;
+            if (kind >= 19)
+            {
+                scale = 0x1000;
+            }
+            size = &D_80061368[kind];
+            D_8004CED0[D_8004EA78].halfW = size->halfW;
+            D_8004CED0[D_8004EA78].halfH = size->halfH;
+            width = size->w;
+            D_8004CED0[D_8004EA78].w = width;
+            D_8004CED0[D_8004EA78].w2 = width;
+            D_8004CED0[D_8004EA78].h = size->h;
+            D_8004CED0[D_8004EA78].pixels = (u16 *)D_800612D8[kind];
+            p = (*dl)++;
+            p->w1 = 0;
+            p->w0 = 0xE7000000;
+            func_8001EC74(dl, x << 12, y << 12, scale, scale, 8, 0, 0);
+        }
+    }
+}
+
+/* Resource header: little-endian 32-bit entry offsets start at +8. */
+typedef struct { u8 byte[4]; } T032Offset;
+extern u8 D_80047C38[];
+extern void func_800238C4(u8 *, void *);
+void func_800268C0(u8 *base, s32 index, s32 id, s32 slot)
+{
+    T032Offset *offsets;
+    D_8004CED0[D_8004EA78].pixels = (u16 *)id;
+    offsets = (T032Offset *)(base + 8) + index;
+    func_800238C4(base + offsets->byte[0] + (offsets->byte[1] << 8) + (offsets->byte[2] << 16) + (offsets->byte[3] << 24), D_80047C38);
+    D_80061368[slot].halfW = D_8004CED0[D_8004EA78].halfW;
+    D_80061368[slot].halfH = D_8004CED0[D_8004EA78].halfH;
+    D_80061368[slot].w = D_8004CED0[D_8004EA78].w2;
+    D_80061368[slot].h = D_8004CED0[D_8004EA78].h;
+    D_800612D8[slot] = id;
+}
 
 extern void func_8001EC74(T032Gfx269AC **, s32, s32, s32, s32, s32, s32, s32);
 extern s32 D_8004EA78, D_801D8760, D_801D8764, D_801D8768;

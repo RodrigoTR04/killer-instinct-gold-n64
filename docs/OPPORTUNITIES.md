@@ -55,7 +55,6 @@ If T-138's claimed matches are accepted (§8), several rows above disappear. Ref
 | `func_801C4E38` | 556 | 2 | 16 | ovl >BBE88 | Scored with TU declarations. Left: stack spill at +0x18 instead of +0x1C. T-139: selector/handler locals, branch-local state (moves spill right but frame grows 0x20→0x28), reusing an arg after last use. Chained-clear order was reversed to match relocation targets (no score change). |
 | `func_8001BDE0` | 316 | 8 | 13 | main ≤21B6C | Differs only in which FP registers hold threshold and scale. T-136: argument/local layouts, comparison forms, loop forms, const-qualified constants, alternate 3rd-arg ABI (worse), for/do loops, separate fwd/rev cursors, 300 s permuter. None below 8. |
 | `func_80032738` | 20 | 10 [emits 40] | 3 | main >21B6C | Handwritten-ABI cluster (see §5). |
-| `func_8002A900` | 220 | 15 | 13 | main >21B6C | T-137: argument, loop, local-variable, type variants; sequence-loop rewrite search. No gain. |
 | `func_80032750` | 60 | 15 [emits 44] | 3 | main >21B6C | Handwritten-ABI cluster (see §5). |
 
 ## 3. 16–50 words
@@ -68,7 +67,6 @@ If T-138's claimed matches are accepted (§8), several rows above disappear. Ref
 | `func_801B0520` | 328 | 22 | 9 | ovl ≤BBE88 | T-138: alternate frame/local views, no gain. |
 | `func_801C8004` | 236 | 6 | 6 | ovl >BBE88 | T-139 reports 6 words (compound OR on the byte mask; one cursor for both scans). |
 | `func_8003278C` | 92 | 26 [emits 104] | 3 | main >21B6C |  |
-| `func_800268C0` | 236 | 28 (declarations) | 7 | main >21B6C | T-137: typed and aggregate dimension-copy variants, offset groupings: no gain. |
 | `func_801B1210` | 284 | 28 | 15 | ovl ≤BBE88 | T-138: argument reuse, alpha types, command order, renderer return type: no gain. Clone-family sibling of the T-132 string recipe. |
 | `func_801B446C` | 292 | 28 | 14 | ovl ≤BBE88 |  |
 | `func_801C3758` | 564 | 30 | 12 | ovl >BBE88 |  |
@@ -274,10 +272,8 @@ Improved but not matching (full-TU words from the worker's report; remeasure bef
 | `func_80024714` | 712 | 6 | **best new near-miss in main** |
 | `func_8001CD50` | 460 | 32 | |
 | `func_80024028` | 284 | 45 | |
-| `func_800268C0` | 236 | 28 | reconciled to full TU |
 | `func_800300DC` | 316 | 69 | |
 | `func_8002DDD4` | 452 | 79 | |
-| `func_80026738` | 392 | 81 | |
 | `func_800191F0` | 492 | 109 | declarations context |
 | `func_800170C4` | 692 | 136 | now full TU |
 | `func_80014D5C` | 1,780 | 322 | full TU, 4 B size deficit |
@@ -337,3 +333,8 @@ Not matched: `func_801C5E74` (2,392 B; exact frame/slots/size, ~500 of 596 instr
 Matched (all in `ovl_7DF8_116E0.c`): `func_801BDF94` 1,452 B, `func_801BD3FC` 580 B (uses the u64 parameter and `D_802D3678[player]` directly, reloaded each time, no copies), `func_801BE660` 300 B (`x -= width / 2` with an int literal gives `div.s`), `func_801BD200` 112 B (`D_80282A60 = D_800684A0;` then compare against the stored global).
 Match-only spellings, lead-tested: in `func_801BDF94` `s32 *tick = &D_80282DC0` (the T-145 counter-pointer trick; keeps IDO from sharing the global's address), one shared `f64 width`, the `sine` local, declaration order, and `g->w0 = ..; g->w1 = ..;` joined on one line for the `D_802D36C0` / `D_80282D28` commands. In `func_801BD3FC` the two discarded statements `input >> 32; input >> 16;` are needed: removing them breaks the ROM because the target really calls `__ull_rshift` twice (dead-result shifts, kept under FU-13). The lead hoisted the `glyph = &D_80282C48[character]` assignment out of the condition (still matches). `func_8002B6EC` is declared `()` because `func_801BD200` passes no argument and `func_801BD270` passes one.
 Improved, unmatched: `func_801BD640` 1,068 B (191 words -> only temp-register numbering in the colour pack differs: target t9, draft t7; `T-154/wd640/i.c`), `func_801BDA6C` 1,320 B (289 -> 70 words, frame 240 vs 216; `T-154/wda6c/a.c`), `func_801C5E74` (the pointer view removes the `D_802D3980` sharing but now `D_80291FE8` is shared and `dc` is rematerialised; `T-154/w5e74/ptr1.c`). Passed over: `func_801B5534`, `func_801C4E38` (spill slot sp+0x18 vs 0x1C, one local and a nested-block local did not move it). Notes and tools: `tools/scratch/nonmatching/T-154/`.
+
+## 24. T-156 round (main, 2,048 B landed, vetted 2026-11-02)
+Matched: `func_800241BC` 820 B (`boot_dma_chunked` re-declared `(s32,s32,s32)` and called with `(s32)` casts like `boot_dma`; offset sums in source order `base + b4 + (b5<<8) + ...`; one `res` pointer, no size local; `T032Resource1BC` is a pad-array view of `D_8004D278`, same style as its sibling `func_80024714`), `func_8002B22C` 380 B (the SDK audio-example DMA callback written in that statement order), `func_80026738` 392 B (`s16` effect list walked with `i += 4`, sprite fields written as `D_8004CED0[D_8004EA78].x`), `func_800268C0` 236 B (typed 4-byte offset table at +8, sum written base + b0 + (b1<<8) + (b2<<16) + (b3<<24)), `func_8002A900` 220 B (`count = 0` before the `if`).
+Match-only spellings, lead-tested by ROM builds: `u16 *current = &D_80048148` in `func_8002A900` (the T-145 pointer trick; without it the ROM breaks) and `u32 width` in `func_80026738` (`u16` breaks the ROM; the u32 keeps `&D_8004EA78` in `fp`). `func_80026738` stores `w1` then `w0`, matching `func_800269AC`. Also moved `T032Size268` (fields now `u16`) and two externs above `func_80026738`.
+Improved, unmatched: `func_800306B8` 2,104 B (555 -> ~127 words; IDO sinks `w-1`/`h-1` into the branch arms and spills `text`), `func_80012390` 476 B (second loop body matches; pre-loop `D_A6A990`/`D_A6AA70`/aligned cursor ~35 words), `func_8002FDA0` 572 B stays 13 words (loop test `slti` vs `bne`, extra register copy). Did not move: `8002FB80`, `800300DC`, `80024028`, `8001BDE0`, `80023EF0`, `800121C8`. Not attempted: `80014D5C` 1,780, `80015594` 1,488, `800142E0` 2,400, `8001D7E4` 1,656, `80024CE0` 1,652, `8002E150` 844 (atan polynomial). The worker removed the consumed T-024/T-032 drafts. Notes/tools: `tools/scratch/nonmatching/T-156/`.

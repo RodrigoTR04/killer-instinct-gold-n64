@@ -1,6 +1,7 @@
 #include "common.h"
 
 extern void boot_dma(s32, s32, s32);
+extern void boot_dma_chunked(s32, s32, s32);
 extern void boot_inflate(void *, void *, void *);
 extern void func_8001C05C(u8 *);
 
@@ -259,7 +260,88 @@ void func_80024144(s32 player,s32 kind) {
 }
 
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_D3F0/func_800241BC.s")
+/* Per-player resource slots inside D_8004D278, addressed by byte offset. */
+typedef struct {
+    u8 pad0[3672];
+    u8 *slotE58;
+    u8 *slotE5C;
+    u8 padE60[424];
+    u8 *slot1008;
+    u8 *slot100C;
+    u8 pad1010[64];
+    u8 *slot1050;
+    u8 *slot1054;
+    u8 pad1058[16];
+    u8 *slot1068;
+    u8 *slot106C;
+    u8 pad1070[16];
+    u8 *slot1080;
+    u8 *slot1084;
+} T032Resource1BC;
+extern u8 D_119F0[], D_13200[], D_1D640[], D_24D60[], D_2ECB0[], D_471440[], D_472FB0[], D_48FD0[], D_543D10[], D_54D720[], D_8B70[];
+extern u8 D_8004EA9C[], D_8023E408[], D_8004F395;
+extern void func_800245B4(s32, void *, s32);
+extern void func_80030220(void *, void *, s32);
+void func_800241BC(s32 arg0) {
+    u8 *base;
+    T032Resource1BC *res;
+    if (arg0 == 0) {
+        base = (u8 *)0x8020B480;
+    } else {
+        base = (u8 *)0x802D7A40;
+    }
+    switch (D_8004EA9C[arg0]) {
+    case 2:
+        boot_dma((s32)D_13200, (s32)base, (s32)D_1D640 - (s32)D_13200);
+        res = (T032Resource1BC *)((u8 *)&D_8004D278 + arg0 * 8);
+        res->slotE58 = base;
+        res->slotE5C = 0;
+        base = base + base[4] + (base[5] << 8) + (base[6] << 16) + (base[7] << 24);
+        res->slot1008 = base;
+        res->slot100C = 0;
+        base = base + base[4] + (base[5] << 8) + (base[6] << 16) + (base[7] << 24);
+        res->slot1050 = 0;
+        res->slot1054 = base;
+        break;
+    case 3:
+        boot_dma((s32)D_1D640, (s32)base, (s32)D_24D60 - (s32)D_1D640);
+        res = (T032Resource1BC *)((u8 *)&D_8004D278 + arg0 * 8);
+        res->slot1050 = base;
+        res->slot1054 = 0;
+        break;
+    case 4:
+        boot_dma_chunked((s32)D_24D60, (s32)base, (s32)D_2ECB0 - (s32)D_24D60);
+        res = (T032Resource1BC *)((u8 *)&D_8004D278 + arg0 * 8);
+        res->slot1008 = base;
+        res->slot100C = 0;
+        boot_dma_chunked((s32)D_471440, 0x8023D400, (s32)D_472FB0 - (s32)D_471440);
+        func_80030220(D_8023E408, (void *)((s32)D_472FB0 - (s32)D_471440 + 0x8023D580), 0x93);
+        func_800245B4(0, (void *)0x8023D400, (s32)D_472FB0 - (s32)D_471440);
+        break;
+    case 5:
+        boot_dma((s32)D_543D10, (s32)base, (s32)D_54D720 - (s32)D_543D10);
+        res = (T032Resource1BC *)((u8 *)&D_8004D278 + arg0 * 8);
+        res->slot1050 = base;
+        res->slot1054 = 0;
+        base = base + base[4] + (base[5] << 8) + (base[6] << 16) + (base[7] << 24);
+        base = (u8 *)(((u32)base + 15) & ~15);
+        boot_dma((s32)D_119F0, (s32)base, (s32)D_13200 - (s32)D_119F0);
+        res->slot1080 = 0;
+        res->slot1084 = base;
+        base = base + base[4] + (base[5] << 8) + (base[6] << 16) + (base[7] << 24);
+        res->slot1068 = 0;
+        res->slot106C = base;
+        break;
+    default:
+        base = (u8 *)(((u32)base + (u32)D_48FD0 - (u32)D_2ECB0 + 15) & ~15);
+        boot_dma((s32)D_8B70, (s32)base, (s32)D_119F0 - (s32)D_8B70);
+        res = (T032Resource1BC *)((u8 *)&D_8004D278 + arg0 * 8);
+        res->slot1080 = 0;
+        res->slot1084 = base;
+        break;
+    }
+    D_8004F395 = 1;
+}
 
 extern void boot_dma(s32, s32, s32);
 extern void func_800245B4(s32, void *, s32);
@@ -294,7 +376,7 @@ extern u8 D_8004AC88;
 typedef struct { u8 pad0[3144]; u8 *slotC48; u8 *slotC4C; u8 padC50[16]; u8 *slotC60; u8 *slotC64; u8 padC68[16]; u8 *slotC78; u8 *slotC7C; u8 padC80[16]; u8 *slotC90; u8 *slotC94; u8 padC98[928]; u8 *slot1038; u8 *slot103C; u8 pad1040[352]; u8 *slot11A0; u8 *slot11A4; } T032Resource714;
 extern u8 D_1EB6D0[],D_1F3200[],D_2C2280[],D_2CF0A0[],D_469660[],D_470390[],D_53CC40[],D_543D10[],D_8004EA9C[],D_8004F396[];
 extern u8 D_8004F395;
-extern void boot_dma(s32,s32,s32),boot_dma_chunked(void *,void *,s32),func_800245B4(s32,void *,s32),func_80030220(void *,void *,s32);
+extern void boot_dma(s32,s32,s32),func_800245B4(s32,void *,s32),func_80030220(void *,void *,s32);
 void func_80024714(s32 arg0) {
     s32 temp_v0;
     T032Resource714 *temp_v0_2;

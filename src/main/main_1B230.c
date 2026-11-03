@@ -170,7 +170,54 @@ void func_8002B1EC(AudioFrame *unused)
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_1B230/func_8002B22C.s")
+extern s32 osPiStartDma(void *, s32, s32, u32, void *, u32, void *);
+
+/* The SDK audio-example DMA callback: reuse a buffer that covers the request or start a new transfer. */
+s32 func_8002B22C(s32 address, s32 length, void *unused)
+{
+    void *foundBuffer;
+    s32 delta, addrEnd, buffEnd;
+    AudioDmaBuffer *dmaPtr, *lastDmaPtr;
+
+    lastDmaPtr = 0;
+    dmaPtr = D_80068158.used;
+    addrEnd = address + length;
+    while (dmaPtr) {
+        buffEnd = dmaPtr->address + 0x800;
+        if (dmaPtr->address > (u32)address) {
+            break;
+        } else if (addrEnd <= buffEnd) {
+            dmaPtr->frame = D_80048150;
+            foundBuffer = dmaPtr->buffer + address - dmaPtr->address;
+            return osVirtualToPhysical(foundBuffer);
+        }
+        lastDmaPtr = dmaPtr;
+        dmaPtr = dmaPtr->next;
+    }
+    dmaPtr = D_80068158.free;
+    D_80068158.free = dmaPtr->next;
+    alUnlink((ALLink *)dmaPtr);
+    if (lastDmaPtr) {
+        alLink((ALLink *)dmaPtr, (ALLink *)lastDmaPtr);
+    } else if (D_80068158.used) {
+        lastDmaPtr = D_80068158.used;
+        D_80068158.used = dmaPtr;
+        dmaPtr->next = lastDmaPtr;
+        dmaPtr->prev = 0;
+        lastDmaPtr->prev = dmaPtr;
+    } else {
+        D_80068158.used = dmaPtr;
+        dmaPtr->next = 0;
+        dmaPtr->prev = 0;
+    }
+    foundBuffer = dmaPtr->buffer;
+    delta = address & 1;
+    address -= delta;
+    dmaPtr->address = address;
+    dmaPtr->frame = D_80048150;
+    osPiStartDma(&D_80068178[D_80048154++], 0, 0, address, foundBuffer, 0x800, &D_800683F8);
+    return osVirtualToPhysical(foundBuffer) + delta;
+}
 
 ALDMAproc func_8002B3A8(AudioDmaPool **state) {
     if (!D_80068158.initialized) {
