@@ -13,18 +13,21 @@ except where a note says "reports".
 
 ## 0. Snapshot
 
-Fresh screen, 168 T2 drafts (2 do not compile standalone: `func_8001D080`, `func_80021B6C`):
+**Current table: [docs/t2_drafts.md](t2_drafts.md)** (also `docs/t2_drafts.csv`), regenerated on 2026-11-03 at
+M2 = 117,912 B by `tools/progress/t2_table.py`: every T2 function with the best committed draft and its
+differing-word count. 112 T2 functions (171,964 B); three do not compile standalone
+(`func_80021B6C`, `func_80028A00`, `func_80031A38`).
 
 | Band (differing words) | Functions | Original bytes |
 |---|---:|---:|
-| 0–8 | 15 | 6,448 |
-| 9–50 | 28 | 7,084 |
-| 51–150 | 50 | 28,360 |
-| >150 | 73 | 153,224 |
+| 0–8 | 3 | 1,424 |
+| 9–50 | 25 | 13,816 |
+| 51–150 | 25 | 14,056 |
+| >150 | 56 | 131,512 |
+| not measurable | 3 | 11,156 |
 
-The 0.70% quota is 2,030 B. **Every band-0–8 and band-9–50 function is under 600 B except
-`func_80017378` (1,752) (`func_800193DC` matched in T-148).** Reaching the quota from near-misses alone needs
-several of them; reaching it from one function needs a >2 KB rewrite.
+Regenerate after any merge: `toolbox run -c kig-build bash -c 'make extract && .venv/bin/python tools/progress/t2_table.py -j 8'`.
+The 2026-10-29 snapshot that stood here (168 T2 drafts) is superseded; the notes below keep their original dates.
 
 Ranges are the T-136..T-139 split (main at `0x80021B6C`, ovl_7DF8 at `0x801BBE88`) so bundles can be
 handed out without overlap. A word count in parentheses `(prefix)` / `(declarations)` was measured with
