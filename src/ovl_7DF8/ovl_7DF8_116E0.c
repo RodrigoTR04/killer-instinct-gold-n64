@@ -118,10 +118,6 @@ void func_801BD3FC(s32 player, u64 input, s32 *state) {
     D_802D3678[player] = input;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_116E0/func_801BD640.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_116E0/func_801BDA6C.s")
-
 typedef struct {
     u32 w0, w1;
 } TextGfx;
@@ -136,10 +132,102 @@ typedef struct {
     f32 width;
 } GlyphRecord;
 
-extern void guLookAtReflect(void *, void *, f32, f32, f32, f32, f32, f32, f32, f32, f32);
-extern void guRotate(void *, f32, f32, f32, f32);
 extern void guScale(void *, f32, f32, f32);
 extern void guTranslate(void *, f32, f32, f32);
+extern GlyphRecord D_80282A70[];
+
+#define COLOR_BYTE(v, shift) (((u32)(v) & 0xFF) << (shift))
+
+/* Draws `text` as one textured quad per letter (small font, packed fill colour). */
+s32 func_801BD640(TextGfx **dl, TextMtx *matrices, u8 *text, f32 x, f32 y, f32 z, u8 r, u8 g, u8 b, u8 a)
+{
+    GlyphRecord *glyph;
+    f32 pos = x;
+    s32 count;
+    s32 mode = 0;
+    u8 *p;
+    u8 index;
+    u8 alpha = a;
+    f64 width;
+
+    {
+        TextGfx *cmd = (*dl)++;
+        cmd->w0 = 0xE7000000;
+        cmd->w1 = 0;
+    }
+    {
+        TextGfx *cmd = (*dl)++;
+        cmd->w0 = 0xFA000000;
+        cmd->w1 = COLOR_BYTE(r, 24) | COLOR_BYTE(g, 16) | COLOR_BYTE(b, 8) | COLOR_BYTE(alpha, 0);
+    }
+    {
+        TextGfx *cmd = (*dl)++;
+        cmd->w0 = 0xFCFFFFFF; cmd->w1 = 0xFFFDF6FB;
+    }
+    {
+        TextGfx *cmd = (*dl)++;
+        cmd->w0 = 0xB6000000; cmd->w1 = 0x20000;
+    }
+    if (alpha == 0xFF) {
+        TextGfx *cmd = (*dl)++;
+        cmd->w0 = 0xB900031D; cmd->w1 = 0x552048;
+    } else {
+        TextGfx *cmd = (*dl)++;
+        cmd->w0 = 0xB900031D; cmd->w1 = 0x5041C8;
+    }
+    guScale(matrices, 0.75f, 0.75f, 1.0f);
+    {
+        TextGfx *cmd = (*dl)++;
+        cmd->w0 = 0x01020040;
+        cmd->w1 = (u32)matrices;
+    }
+    count = 1;
+    for (p = text; *p; p++) {
+        index = *p - 0x20;
+        glyph = &D_80282A70[index];
+        if (index < 59 && index > 0 && glyph->image) {
+            if (mode) width = mode * 5.0;
+            else width = glyph->width * 10.0f;
+            pos = pos + width;
+            guTranslate(&matrices[count], pos, y, z);
+            {
+                TextGfx *cmd = (*dl)++;
+                cmd->w1 = (u32)&matrices[count];
+                cmd->w0 = 0x01040040;
+            }
+            {
+                TextGfx *cmd = (*dl)++;
+                cmd->w0 = 0x06000000;
+                cmd->w1 = glyph->image;
+            }
+            {
+                TextGfx *cmd = (*dl)++;
+                count++;
+                cmd->w0 = 0xBD000000;
+                cmd->w1 = 0;
+            }
+            if (mode) width = 25.0;
+            else width = glyph->width * 10.0f;
+            pos = pos + width;
+        } else if (*p == 9) {
+            pos = x + ((s32)(f32)((pos - x) / 400.0) * 20 + 20) * 2.5 * 8.0;
+        } else if (*p == 0x6A) {
+            mode = 5;
+        } else if (*p == 0x6B) {
+            mode = 2;
+        } else {
+            if (mode) width = 50.0;
+            else width = 30.0;
+            pos = pos + width;
+        }
+    }
+    return count;
+}
+
+#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_116E0/func_801BDA6C.s")
+
+extern void guLookAtReflect(void *, void *, f32, f32, f32, f32, f32, f32, f32, f32, f32);
+extern void guRotate(void *, f32, f32, f32, f32);
 f32 sinf(f32);
 f32 cosf(f32);
 extern GlyphRecord D_80282C48[];
@@ -263,7 +351,6 @@ s32 func_801BDF94(TextGfx **dl, TextMtx *matrices, u8 *text, f32 x, f32 y, f32 z
     return count;
 }
 
-extern GlyphRecord D_80282A70[];
 extern s32 func_801BDA6C(s32, void *, u8 *, f32, f32, f32, u8, u8, u8, u8, f32);
 
 /* Measures a glyph string and draws it in front of `x`. */

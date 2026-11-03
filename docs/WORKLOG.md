@@ -773,3 +773,6 @@ All three Sonnet workers failed with "Claude API rate limit reached" (no reports
 
 ## 2026-11-02 — T-156 vetted (lead)
 T-156 (Claude Sonnet 5.5 high) met the goal: 2,048 B in main (func_800241BC, 8002B22C, 80026738, 800268C0, 8002A900). Applied with --3way (4 source files + scratch). ROM-level simplification tests: dropping the `current` pointer in 8002A900 and making `width` u16 in 80026738 both break the ROM, so the disclosed spellings stay. Clean toolbox build: sha1 `ba52e91b44450c548467044b26951353dc491e04`, M2 113,824 -> 115,872 B (39.97%), 393 T4, 116 T2.
+
+## 2026-11-02 — T-155 vetted (lead)
+T-155 (Claude Sonnet 5.5 high) met the goal by 10 B: 2,040 B in ovl_7DF8 (func_801BD640, 801C4E38, 801C0800, 801B5534). Applied with --3way (4 source files); scratch limited to tools, notes and three named drafts (the 300 variant files dropped). Simplification test: hoisting `glyph` out of the condition in 801BD640 still matches (merged). Clean toolbox build: sha1 `ba52e91b44450c548467044b26951353dc491e04`, M2 115,872 -> 117,912 B (40.68%), 397 T4, 112 T2. Note: the worker's broad pgrep cleanup may have killed T-157's permuter run; T-157 lost a search but no source.

@@ -95,7 +95,27 @@ void func_801C0784(s32 arg0, u32 arg1) {
     D_801CD454 = 0;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C0800.s")
+#define COLOR_BYTE(v, shift) (((u32)(v) & 0xFF) << (shift))
+
+extern u8 D_80282E88[];
+
+/* Places one textured quad at the given position with a packed fill colour. */
+void func_801C0800(FrontendGfxWords **list, f32 x, f32 y, f32 z, u8 r, u8 g, u8 b, u8 a) {
+    FrontendGfxWords *p;
+
+    guTranslate((void *)((D_802956F4 << 6) + D_802CA068), x, y, z);
+    p = (*list)++;
+    p->w0 = 0x01020040;
+    p->w1 = D_802CA068 + (D_802956F4 << 6);
+    p = (*list)++;
+    p->w0 = 0xFA000000;
+    p->w1 = COLOR_BYTE(r, 24) | COLOR_BYTE(g, 16) | COLOR_BYTE(b, 8) | COLOR_BYTE(a, 0);
+    {
+        FrontendGfxWords *command = (*list)++;
+        command->w0 = 0x06000000; command->w1 = (u32)D_80282E88; /* both words on one line: match-only (scheduling) */
+    }
+    D_802956F4++;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C08F8.s")
 

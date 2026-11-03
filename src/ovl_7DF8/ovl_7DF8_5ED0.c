@@ -873,7 +873,21 @@ void func_801B4590(u8 arg0) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B47A4.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B5534.s")
+extern u8 D_802C8C2A;
+extern s32 D_802C8C18[];
+extern s8 D_8004EA9C[];
+extern s32 D_802C8C08[];
+extern s8 D_802C8C28[];
+extern void func_801B465C(s32, s32);
+
+/* Rolls a random value in 0..D_802C8C2A-1 for one slot and resets the slot's state. */
+void func_801B5534(u8 arg0) {
+    D_802C8C18[arg0] = guRandom() % (s32)D_802C8C2A;
+    D_8004EA9C[arg0] = D_802C8C18[arg0];
+    func_801B465C(arg0, 0);
+    D_802C8C08[arg0] = 4;
+    D_802C8C28[arg0] = 1;
+}
 
 s32 func_801B55DC(u8 arg0) {
     s32 temp_t6;
