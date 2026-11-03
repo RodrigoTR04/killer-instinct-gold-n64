@@ -68,7 +68,9 @@ make progress                                      # inventory, README bars, HTM
 python3 tools/progress/progress.py --readme --check  # fail if the README bars are stale
 ```
 
-`docs/functions.csv` is the per-function ledger. Manual overrides live in
+`docs/functions.csv` is the per-function ledger. `docs/t2_drafts.md` ranks every
+still-matching (T2) function by its best committed draft and how many words differ
+(`python3 tools/progress/t2_table.py`, run in the build toolbox after `make extract`). Manual overrides live in
 `tools/progress/status.csv`. Never edit generated percentages by hand.
 Methodology: [tools/progress/README.md](tools/progress/README.md). Task board:
 [docs/TRACKING.md](docs/TRACKING.md).

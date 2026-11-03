@@ -785,3 +785,6 @@ The T-157 task ended with status cancelled (not by a lead cancel). Its last mess
 
 ## 2026-11-03 — T-157 written report vetted (lead)
 T-157's late report (branch t3/e98bbe33, d32f598): 0 B, src untouched, goal not met. Merged only notes, helper tools and the two best named drafts (4 MB of variants dropped). No build needed (no source change). Reusable facts for func_801BC1B0/801BCB70 are in OPPORTUNITIES §26. Tree unchanged: M2 117,912 B (40.68%).
+
+## 2026-11-03 — T2 draft table (lead)
+User asked for the T2 drafts with their progress, and the table, to be part of a new PR (not PR #1). Added `tools/progress/t2_table.py`, which scores every committed draft under tools/scratch/nonmatching that defines or is named after a T2 function (full TU, then declarations, then prefix) and writes `docs/t2_drafts.md` / `docs/t2_drafts.csv` ranked by differing words. 112 T2 functions, 109 measured; `func_80021B6C`, `func_80028A00`, `func_80031A38` do not compile standalone. OPPORTUNITIES §0 now points at the table.
