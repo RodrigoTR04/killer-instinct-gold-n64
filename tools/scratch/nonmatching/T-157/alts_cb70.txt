@@ -1,0 +1,68 @@
+x0f = accX + fx;
+x0f = fx + accX;
+
+x1f = x0f + absDx;
+x1f = absDx + x0f;
+
+y1f = (f32) run * cellH + fy;
+y1f = fy + (f32) run * cellH;
+y1f = cellH * (f32) run + fy;
+y1f = fy + cellH * (f32) run;
+
+uls = MAX(i + top, 0);
+uls = MAX(top + i, 0);
+
+lrs = MIN(i + stepX + top, bottom - 1);
+lrs = MIN(top + i + stepX, bottom - 1);
+lrs = MIN(i + top + stepX, bottom - 1);
+lrs = MIN(stepX + i + top, bottom - 1);
+
+lrt = MIN(x + cellW * run, right - 1);
+lrt = MIN(cellW * run + x, right - 1);
+lrt = MIN(x + run * cellW, right - 1);
+
+x += cellW * run;
+x += run * cellW;
+
+fy += cellH * (f32) run;
+fy += (f32) run * cellH;
+
+col += run;
+col = run + col;
+
+dx = ((f32) stepX * (f32) scale) / 1024;
+dx = ((f32) scale * (f32) stepX) / 1024;
+
+cellH = ((f32) cellW * (f32) scale) / 1024;
+cellH = ((f32) scale * (f32) cellW) / 1024;
+
+((xl * div) >> 7
+((div * xl) >> 7
+
+((yl * div) >> 7
+((div * yl) >> 7
+
+i += stepX;
+i = stepX + i;
+
+accX += dx;
+accX = dx + accX;
+
+absDx = -dx;
+absDx = 0.0f - dx;
+
+x1c = x1f;
+x1c = x1f; if (x1c > 640.0f) { x1c = 640.0f; }
+
+pos = i + top;
+pos = top + i;
+
+if (pos > 0) { uls = pos; }
+if (pos != 0) { uls = pos; }
+
+end = i + stepX + top;
+end = stepX + i + top;
+end = top + i + stepX;
+
+ult = MAX(x - 1, 0);
+ult = (x > 1) ? x - 1 : 0;
