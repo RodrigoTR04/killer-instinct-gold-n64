@@ -16,7 +16,7 @@ The blocks below are snapshots; regenerate the bars and the treemap with
 `make progress`. Do not hand-edit them.
 
 <!-- progress-begin -->
-_Snapshot 2026-11-03._
+_Snapshot 2026-11-04._
 
 ```
 M1  Contract-valid (T3 + T4)
