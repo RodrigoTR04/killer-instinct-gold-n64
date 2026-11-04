@@ -327,7 +327,7 @@ main,func_8002FA3C,0x8002FA3C,0x200DC,32,T4,
 main,func_8002FA5C,0x8002FA5C,0x200FC,68,T4,
 main,func_8002FAA0,0x8002FAA0,0x20140,32,T4,
 main,func_8002FAC0,0x8002FAC0,0x20160,180,T4,
-main,func_8002FB80,0x8002FB80,0x20220,544,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
+main,func_8002FB80,0x8002FB80,0x20220,544,T4,
 main,func_8002FDA0,0x8002FDA0,0x20440,572,T2,draft tools/scratch/nonmatching/T-024/ (non-matching)
 main,func_8002FFDC,0x8002FFDC,0x2067C,68,T4,
 main,func_80030020,0x80030020,0x206C0,188,T4,
