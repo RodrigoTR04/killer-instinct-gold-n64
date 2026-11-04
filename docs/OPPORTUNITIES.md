@@ -370,3 +370,22 @@ for screening variants are not positional counts.
 - `func_800121C8`: byte-sized mode and alternate boolean expressions produce an additional
   instruction; a tested variant is 308 B and 63 positional words. Struct views of the four adjacent
   input/output fields changed the instruction count and did not match.
+
+### T-159 second round
+
+Matched `func_80014D5C` (1,780 B): declaring its two three-byte colour tables as
+RGB struct arrays and indexing both with the loop index makes IDO generate the
+original three pointer cursors. It also restores the address setup and the
+zero-store placement around the divide checks. Full-TU positional count 0;
+linked main image and ROM match.
+
+Matched `func_8002FB80` (544 B): byte masks on the serialized address, a
+byte-sized texture index, and texture-command reads before output stores give
+the original instructions. Full-TU positional count 0; linked main and ROM match.
+
+Unmatched improvement: `func_801B0520` is 10 positional words (was 22), exact
+size. The draft and details are in
+`tools/scratch/nonmatching/T-159/`. The other requested drafts remain at 14
+(`801ADA04`), 13 (`801B1DE4`), 14 (`801BAA78`), and 22 (`800121C8`) positional
+words. Typed views, direct accesses, sibling control flow, display-list pointer
+reuse, source-line changes and honest-only permuter runs are documented there.
