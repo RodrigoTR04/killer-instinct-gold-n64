@@ -383,9 +383,8 @@ Matched `func_8002FB80` (544 B): byte masks on the serialized address, a
 byte-sized texture index, and texture-command reads before output stores give
 the original instructions. Full-TU positional count 0; linked main and ROM match.
 
-Unmatched improvement: `func_801B0520` is 10 positional words (was 22), exact
-size. The draft and details are in
+Unmatched improvements: `func_801B0520` is 10 positional words (was 22), and
+`func_800121C8` is 19 (was 22), both exact size. Drafts and details are in
 `tools/scratch/nonmatching/T-159/`. The other requested drafts remain at 14
-(`801ADA04`), 13 (`801B1DE4`), 14 (`801BAA78`), and 22 (`800121C8`) positional
-words. Typed views, direct accesses, sibling control flow, display-list pointer
+(`801ADA04`), 13 (`801B1DE4`), and 14 (`801BAA78`) positional words. Typed views, direct accesses, sibling control flow, display-list pointer
 reuse, source-line changes and honest-only permuter runs are documented there.

@@ -34,6 +34,6 @@ and the later frame store is scheduled before the float setup instead of after.
   `0xFF` reproduces the vertex-command branch; in the texture-command branch,
   reading the table before emitting the bytes gives the target instruction
   order, and `(u8)(data[0] & 63)` gives IDO the original temporary registers.
-- `func_800121C8`: separate and combined typed views of adjacent output fields,
-  byte-mode types, boolean expressions and source-line arrangements remain under
-  investigation; the best established draft remains at 22 positional words.
+- `func_800121C8`: `func_800121C8.c` is 19 positional words, 304 bytes, down
+  from 22; byte-width casts and the boolean form reduce the differences. Typed
+  views of adjacent output fields and source-line arrangements did not close it.
