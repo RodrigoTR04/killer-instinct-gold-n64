@@ -408,4 +408,39 @@ void func_801C35D8(FrontendGfxWords **arg0, FrontendCloud *arg1, s32 arg2, s32 a
 }
 
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C3758.s")
+#include "frontend.h"
+
+extern s32 D_80290D88;
+extern s16 D_80290D8C[][6];
+#define T105Vertices ((FrontendVertex *)D_802D38E0)
+
+void func_801C3758(arg0,arg1,arg2)
+FrontendGfxWords **arg0; FrontendCloud *arg1; s8 arg2;
+{
+    u8 frame;
+    FrontendGfxWords *dl;
+    frame = arg1->animation + 12;
+    if (frame >= 64) frame = 0;
+    arg1->animation = frame;
+    T105Vertices[D_80290D88].x = arg1->x - arg2;
+    T105Vertices[D_80290D88+1].x = arg1->x + arg2;
+    T105Vertices[D_80290D88+2].x = arg1->x;
+    T105Vertices[D_80290D88].y = arg1->y - arg2;
+    T105Vertices[D_80290D88+1].y = arg1->y - arg2;
+    T105Vertices[D_80290D88+2].y = arg1->y + arg2;
+    T105Vertices[D_80290D88].z = arg1->z;
+    T105Vertices[D_80290D88+1].z = arg1->z;
+    T105Vertices[D_80290D88+2].z = arg1->z;
+    T105Vertices[D_80290D88].s = D_80290D8C[frame >> 3][0];
+    T105Vertices[D_80290D88].t = D_80290D8C[frame >> 3][1];
+    T105Vertices[D_80290D88+1].s = D_80290D8C[frame >> 3][2];
+    T105Vertices[D_80290D88+1].t = D_80290D8C[frame >> 3][3];
+    T105Vertices[D_80290D88+2].s = D_80290D8C[frame >> 3][4];
+    T105Vertices[D_80290D88+2].t = D_80290D8C[frame >> 3][5];
+    dl = (*arg0)++;
+    dl->w0 = 0x04200030;
+    dl->w1 = (u32)(D_802D38E0 + (D_80290D88 << 4));
+    dl = (*arg0)++;
+    dl->w0 = 0xBF000000; dl->w1 = 0xA14;
+    D_80290D88 += 3;
+}
