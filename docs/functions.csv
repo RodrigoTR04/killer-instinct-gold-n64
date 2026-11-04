@@ -230,7 +230,7 @@ main,func_80021B6C,0x80021B6C,0x1220C,6896,T2,draft tools/scratch/nonmatching/T-
 main,func_8002365C,0x8002365C,0x13CFC,308,T4,
 main,func_80023790,0x80023790,0x13E30,308,T4,
 main,func_800238C4,0x800238C4,0x13F64,1580,T2,draft tools/scratch/nonmatching/T-032/ (non-matching)
-main,func_80023EF0,0x80023EF0,0x14590,312,T2,draft tools/scratch/nonmatching/T-032/ (non-matching)
+main,func_80023EF0,0x80023EF0,0x14590,312,T4,draft tools/scratch/nonmatching/T-032/ (non-matching)
 main,func_80024028,0x80024028,0x146C8,284,T2,draft tools/scratch/nonmatching/T-032/ (non-matching)
 main,func_80024144,0x80024144,0x147E4,120,T4,
 main,func_800241BC,0x800241BC,0x1485C,820,T4,draft tools/scratch/nonmatching/T-032/ (non-matching)
