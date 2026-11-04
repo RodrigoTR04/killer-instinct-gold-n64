@@ -2535,17 +2535,49 @@ void func_8001BB10(void) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_8001BB64.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_8001BDE0.s")
+/* Sorted draw list: 40 records of 0x30 bytes starting 0xF0 into D_801D7E00; z is the first field. */
+typedef struct { f32 z; f32 y; u8 pad[0x28]; } T020DrawEntry;
+extern struct { u8 pad[0xF0]; T020DrawEntry entries[40]; } D_801D7E00;
+extern u8 D_8004A4C8;
+void func_8001BF1C(u8 **, s32, s32, f32);
+
+/* Draw the entries at or below the depth threshold front to back, then the rest back to front. */
+void func_8001BDE0(u8 **arg0, s32 arg1, f32 arg2) {
+    s32 i;
+    f32 depth;
+    u8 *temp_v1;
+
+    if (D_8004AA28 != 1) {
+        temp_v1 = *arg0;
+        *arg0 += 8;
+        (*(s32 *)((u8 *)(temp_v1) + 0)) = 0x06000000; (*(s32 *)((u8 *)(temp_v1) + 4)) = (s32) *(s32 *)((u8 *)&D_8004A4C8 + arg1 * 0xC);
+        for (i = 0; i < 40; i++) {
+            depth = D_801D7E00.entries[i].z * 1500.0f - 590.0f;
+            if (depth <= arg2) {
+                func_8001BF1C(arg0, arg1, i, depth);
+            } else {
+                break;
+            }
+        }
+        for (i = 39; i >= 0; i--) {
+            depth = D_801D7E00.entries[i].z * 1500.0f - 590.0f;
+            if (arg2 < depth) {
+                func_8001BF1C(arg0, arg1, i, depth);
+            } else {
+                break;
+            }
+        }
+    }
+}
 
 extern void guTranslate(void *, f32, f32, f32);
 extern u8 D_80044A24;
-extern u8 D_801D7E00;
 
 void func_8001BF1C(u8 **arg0, s32 arg1, s32 arg2, f32 arg3) {
     u8 *temp_v0;
     f32 y;
 
-    temp_v0 = (arg2 * 0x30) + &D_801D7E00;
+    temp_v0 = (arg2 * 0x30) + (u8 *)&D_801D7E00;
     y = (*(f32 *)(temp_v0 + 0xF4)) * 1500.0f - 4525.0f;
     y -= (*(f32 *)(temp_v0 + 0x114)) * 500.0f;
     guTranslate((void *)((((D_80044A24 * 0x28) + arg2) << 6) + 0x80190000), arg3, y, 767.0f);
