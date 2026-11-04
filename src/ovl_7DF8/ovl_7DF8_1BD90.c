@@ -260,7 +260,37 @@ void func_801C7F90(void) {
     func_801C7F10();
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_1BD90/func_801C8004.s")
+extern FrontendSettings *D_802926F8[];
+extern FrontendSettings *D_80292710[];
+
+/* Reset to defaults when any setting reaches its limit or a player's button map repeats or exceeds a button. */
+void func_801C8004(void) {
+    s32 conflict;
+    s32 i;
+    s32 j;
+    u8 used;
+    s32 button;
+
+    conflict = 0;
+    for (i = 0; i < 34; i++) {
+        if (D_80292710[0]->bytes[i] != 0 && D_80292710[0]->bytes[i] >= D_802926F8[0]->bytes[i]) {
+            conflict = 1;
+        }
+    }
+    for (i = 0; i < 2; i++) {
+        used = 0;
+        for (j = 0; j < 6; j++) {
+            button = D_80127C68[i].b[j];
+            if (button >= 8 || ((1 << button) & used)) {
+                conflict = 2;
+            }
+            used |= 1 << button;
+        }
+    }
+    if (conflict != 0) {
+        func_801C7F90();
+    }
+}
 
 extern f32 sinf(f32);
 extern u32 D_80127D00[];
