@@ -22,6 +22,6 @@ perm_float_literal = 0
 perm_remove_var = 0
 perm_long_chain_assignment = 0
 EOT
-timeout --signal=INT --kill-after=15s ${secs}s toolbox run -c kig-build bash -c ".venv/bin/python tools/ext/decomp-permuter/permuter.py $dir --stack-diffs --best-only --better-only --stop-on-zero -j 15" > $dir.log 2>&1
+timeout --signal=INT --kill-after=15s ${secs}s toolbox run -c kig-build bash -c ".venv/bin/python tools/ext/decomp-permuter/permuter.py $dir --stack-diffs --best-only --better-only --stop-on-zero -j 12" > $dir.log 2>&1
 tr '\r' '\n' < $dir.log | grep -a "base score\|new best\|Found" | tail -5
 ls $dir/output-* 2>/dev/null | head

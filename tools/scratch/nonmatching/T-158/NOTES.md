@@ -10,14 +10,14 @@
   burns one temporary register), early `if (state == 5) return 0;`, and `D_802C8C28` as `u8[]` (lbu, not lb).
   The `divisor = 8.0f` float local must stay (`/ 8` or `/ 8.0f` gives 36-50 words).
 
-## func_801BBB60 (292 B): still 11 exact / 4 register-masked words
-- cmp.py false-diff fixed: the REL addend sits in the immediate (`lui a1,%hi(D_802C8D20)` + `addiu a1,a1,4096` is the same
-  address as splat's `D_802C9D20`), `fix_addends()` folds it, so the real diff is only the red/green gradient loops
-  (registers t8,t0,t1 / t3,t4,t6,t7 in the target vs a0,t7,t8 / a0,t9,t0,t1, and `ori` after `slti` in the target).
-- Tried, no gain: pointer loops with the symbol end bound (CSE'd with the palette pointer, 12-45 words), 3x3x... cross
-  product of 12 loop forms per gradient loop (`bbsearch.py`, 1728 candidates, best stays 11), local types for red/green/i,
-  separate palette index `j`, 300 s `autosearch2` (decl order, joins, swaps, types). The target does not use a0 for
-  `i - 8`; why is unknown.
+## func_801BBB60 (292 B): MATCHED
+- 11 -> 4 words: ramps are `GPACK_RGBA5551` with 8-bit components (red `(i-8)<<3`, green `248, (i-40)<<3`, blue `248, 248, (i-72)<<2`).
+  The mask/shift pairs of the macro leave dead nodes that account for the skipped temporaries (t8,t0,t1 / t3,t4,t6,t7 / t2,t3).
+- 4 -> 0: source line layout. With header and body on one line the increment lands after the shift; with the `for` body on its
+  own line (`for (; i < 40; i++)` newline `*palette++ = ...;`) as1 emits `addiu v1,v1,1` before the shift. Line joins/splits are a real lever.
+- Dead ends (many): cast chains, variables, loop-form permutations, statement order, i++ placement, 1,200 random natural variants,
+  30 min permuter (never changes line layout), as1 scheduler lab (hand-written .s: scheduling is a function of the DAG only,
+  source statement order never changes it; the `.loc` line info is what the C path adds).
 
 ## Tools
 cmp.py/lib.py/asm.py/wordiff.py (T-155 copies, root paths fixed, addend fix), c.sh, ev.py (variant list -> score),

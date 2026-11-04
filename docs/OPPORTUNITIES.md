@@ -72,7 +72,7 @@ If T-138's claimed matches are accepted (§8), several rows above disappear. Ref
 | `func_801C3758` | 564 | 30 | 12 | ovl >BBE88 |  |
 | `func_80031050` | 112 | 30 (declarations) [emits 120] | 3 | main >21B6C | Handwritten-ABI cluster (§5). |
 | `func_80032600` | 112 | 37 [emits 148] | 3 | main >21B6C |  |
-| `func_801BBB60` | 292 | 40 | 12 | ovl ≤BBE88 | **11 exact / 4 register-masked words** (T-148/T-158). Only the red/green gradient loops differ (temps t8,t0,t1 / t3,t4,t6,t7 vs a0,t7,t8 / a0,t9,t0,t1; target schedules `ori` after `slti`). Failed (T-158): pointer loops bounded by the symbol (CSE with palette pointer), 1,728-candidate cross product of 12 loop forms, local types, palette index `j`, 300 s decl/join/swap hill climb. Beware cmp false diffs on `D_802C8D20+4096` vs `D_802C9D20` (fixed in T-158/cmp.py). |
+| `func_801BBB60` | 292 | 40 | 12 | ovl ≤BBE88 | **MATCHED (T-158).** Ramps are the SDK `GPACK_RGBA5551(r,g,b,a)` macro with 8-bit components (`(i-8)<<3`; `248,(i-40)<<3`; `248,248,(i-72)<<2`): the macro's dead mask/shift pairs explain every skipped temporary. The last 4 words (loop increment one slot late) closed only by putting the `for` body on its own source line (`for (...; i++)` newline `*palette++ = ...;`): line numbers change as1's scheduling. |
 | `func_80032670` | 116 | 45 [emits 180] | 3 | main >21B6C |  |
 | `func_800121C8` | 304 | 46 | 9 | main ≤21B6C | T-136: packed-input snapshot 47→46. |
 | `func_801C2F5C` | 544 | 44 | 7 | ovl >BBE88 | T-139 reports 44 (readable statement split). |
