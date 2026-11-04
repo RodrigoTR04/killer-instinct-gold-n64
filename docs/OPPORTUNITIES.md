@@ -346,3 +346,27 @@ Improved, unmatched: `func_801BDA6C` 1,320 B (frame 216 and s-registers right; 1
 
 ## 26. T-157 round (large ovl drafts, SHORT: 0 B, vetted 2026-11-03)
 No match, `src/` untouched. `func_801BCB70` (1,676 B): best `w/mc10.c`, 418 vs 419 instructions, frame 0x138 correct, 13 reg-masked / 64 exact lines; left: the target has a `b` after the `uls` branch and every else-arm or ternary form that adds it promotes `i` into a register (target keeps it in memory), first-block filler `add.s` vs `lw`, `rows` slot 0x94 vs 0x98. Drafts `fx_91`/`fx_92` reached the layout only via a redundant duplicate clamp: rejected. It cannot clear the quota alone (needs ~354 B more). `func_801BC1B0` (2,496 B, enough alone): best `bc/z1_p31_sw.c`, 620 vs 624 instructions, frame 0x1A0 correct, 178 reg-masked / 445 exact lines (pscore ~16.2k; permuter plateaued too); saved-register roles identical. Left: in the target the `y1f`, `y1`, `yl`, `fy` and T-coordinate float work comes before the `uls` branch; temp naming, spill slots, `i` at 0x194 in memory. Facts to reuse: the three-way format dispatch is `switch (fmt) { case 2; case 0; default }` (nested if/else loses the displaced default body); `texW`, `texH`, `top`, `cellW`, `left`, `bottom`, `right` are `u32` (`srl`, `sltu`, unsigned-to-float fixups); parameter order `dl, tex, fmt, texW, texH, stepX, cellW, top, left, bottom, right, fx, fy0, scale, flip` and callers always pass `fmt = 2` (callers' externs would need updating or `(u32)` casts); an `f32` snapshot of the old `fy` reproduces the deferred `mfc1` on `yl` and the T coordinate. Construct risk if it lands: `f32` snapshot, line joins, `uls = 0; if (pos != 0)` preset, declaration order, `tCo`/`sCo`/`mnX`/`mnY` locals. `func_801BFCBC` (2,388 B) parked: needs `volatile` byte read-modify-write and frame 104 vs 96. Untouched, each >= 2,296 B: `801ABB20`, `801C08F8`, `801CAA00`, `801C9B14`, `801B47A4`, `801C5298`, `801ADEA0`, `801B6E4C`, `801B849C`. Tools (mset, edit, sd, lay, sregs, homeclimb, sweep, gen6, runners) and NOTES.md in `tools/scratch/nonmatching/T-157/`; 4 MB of variant drafts not merged.
+
+### Follow-up: requested seven near-matches (no T4)
+
+Full-TU experiments in `t3/match-drafted-functions` found no new match. The retained drafts and
+positional counts in `docs/t2_drafts.md` remain the best known; the instruction-aligned scores used
+for screening variants are not positional counts.
+
+- `func_80014D5C`: changing the two three-byte colour cursors to RGB structs, varying their
+  initialization/line layout, and grouping or permuting the division-branch zero stores did not
+  remove the differences. A typed-colour variant remains 13 positional words, 1,780 B.
+- `func_801ADA04`: direct comparison and compound assignment forms remove the temporary comparison
+  web but shift the mode and pending registers; none matched the target's register assignment.
+- `func_801B1DE4`: old-frame snapshots, post-increment, and argument reuse generally emit 552 B
+  rather than 556 B; the original draft retains the correct size with the wrong opening sequence.
+- `func_801BAA78`: varying arithmetic spelling, counter access, typed display-list argument, and
+  sharing command pointers across the four emissions did not improve the 14-word draft. Multiple
+  command-pointer locals can enlarge the stack frame.
+- `func_8002FB80`: changing the texture-case input/store order and line layout did not reconcile
+  the address byte shifts with the load and store sequence.
+- `func_801B0520`: parameter reuse, direct global access and display-list cursor forms did not
+  improve the 22-word positional draft.
+- `func_800121C8`: byte-sized mode and alternate boolean expressions produce an additional
+  instruction; a tested variant is 308 B and 63 positional words. Struct views of the four adjacent
+  input/output fields changed the instruction count and did not match.
