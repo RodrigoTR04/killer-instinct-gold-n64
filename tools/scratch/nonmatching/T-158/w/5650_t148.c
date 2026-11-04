@@ -1,4 +1,4 @@
-/* T-111: 30 differing words, 1920 compiled bytes. DRAFT. Remaining diff: Carousel float lifetimes, matrix-call scheduling, frame and temporary registers differ. */
+/* T-148 draft: 30 differing words, 1920/1916 bytes. The divisor is written directly. */
 extern void func_801B5534(u8);
 extern void func_801B446C(u8);
 struct T029Gfx801B6528;
@@ -7,7 +7,7 @@ extern void func_801AFA48(s32);
 extern void func_8002F6F4(s32, s32, void *);
 extern void guTranslate(void *, f32, f32, f32);
 extern void guRotate(void *, f32, f32, f32, f32);
-extern u8 D_802C8D06, D_802C8CE0, D_802C8C28, D_802C8C2A;
+extern u8 D_802C8D06, D_802C8CE0, D_802C8C2A;
 extern u32 D_802C8D1C, D_802C9F74;
 extern s32 D_802C8C10, D_80066C40;
 
@@ -48,15 +48,13 @@ s32 func_801B5650(u32 **arg0, T029LeftCard *arg1, u8 *arg2, s32 arg3) {
     z = -10.0f;
     rotation = *(f32 *)((u8 *)D_802C8C60 + index * 8);
     if (position >= 0.0f && position < 70.0f) {
-        f32 next;
         if (height < 100.0f) height += 5.0f;
         if ((state != 5) * 50 + 5 <= height || (D_802C8CE0 & 1)) D_802C8CB8[0] = index;
         func_801AFA48((s32)arg1);
-        next = 8.0f;
         position = 0.0f;
         if (D_802C8CE0 & 1) {
             position -= rotation;
-            z += rotation / next;
+            z += rotation / 8;
             if (position > -150.0f) { rotation += 3.0f; height += 5.0f; }
             else result = 0;
         }
