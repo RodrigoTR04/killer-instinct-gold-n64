@@ -70,7 +70,7 @@
 <rect x="196.31" y="620.51" width="48.95" height="46.76" fill="#aa83d6" stroke="#111827"><title>alSynNew · 0x80039E90 · 768 bytes · excluded</title></rect>
 <rect x="196.31" y="667.87" width="48.95" height="46.51" fill="#e7ae50" stroke="#111827"><title>func_8001D080 · 0x8001D080 · 764 bytes · T2</title></rect>
 <rect x="196.31" y="714.98" width="48.95" height="46.27" fill="#aa83d6" stroke="#111827"><title>alCSeqNextEvent · 0x80038F04 · 760 bytes · excluded</title></rect>
-<rect x="196.31" y="761.84" width="48.95" height="45.53" fill="#e7ae50" stroke="#111827"><title>func_8001D47C · 0x8001D47C · 748 bytes · T2</title></rect>
+<rect x="196.31" y="761.84" width="48.95" height="45.53" fill="#45b983" stroke="#111827"><title>func_8001D47C · 0x8001D47C · 748 bytes · T4</title></rect>
 <rect x="196.31" y="807.97" width="48.95" height="45.03" fill="#aa83d6" stroke="#111827"><title>func_80034DBC · 0x80034DBC · 740 bytes · excluded</title></rect>
 <rect x="196.31" y="853.60" width="48.95" height="43.80" fill="#45b983" stroke="#111827"><title>func_80016910 · 0x80016910 · 720 bytes · T4</title></rect>
 <rect x="245.87" y="375.82" width="49.22" height="43.07" fill="#45b983" stroke="#111827"><title>func_800131A4 · 0x800131A4 · 712 bytes · T4</title></rect>
@@ -1007,5 +1007,5 @@
 <rect x="1592.39" y="886.57" width="5.01" height="5.64" fill="#aa83d6" stroke="#111827"><title>__osSetCompare · 0x80006420 · 12 bytes · excluded</title></rect>
 <rect x="1586.78" y="892.80" width="6.13" height="4.60" fill="#aa83d6" stroke="#111827"><title>__osGetCause · 0x800064F0 · 12 bytes · excluded</title></rect>
 <rect x="1593.51" y="892.80" width="3.89" height="4.60" fill="#aa83d6" stroke="#111827"><title>__osCleanupThread · 0x80004608 · 8 bytes · excluded</title></rect>
-<text x="12" y="920" fill="#d1d5db" font-size="13" font-family="system-ui,sans-serif">T4 byte-exact 410 · T3 contract-valid 0 · 128,032/457,192 bytes exact (28.0%) · green=T4 blue=T3 amber=T2 gray=T1 purple=excluded</text>
+<text x="12" y="920" fill="#d1d5db" font-size="13" font-family="system-ui,sans-serif">T4 byte-exact 411 · T3 contract-valid 0 · 128,780/457,192 bytes exact (28.2%) · green=T4 blue=T3 amber=T2 gray=T1 purple=excluded</text>
 </svg>
