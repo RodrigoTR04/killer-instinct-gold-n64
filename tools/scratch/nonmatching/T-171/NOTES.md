@@ -215,3 +215,24 @@ attempt to keep the exact frame while keeping the cursors is back at 178
 (`s16 *dur` alone 161, `u8 *fl` alone 179, both 160, `age` added 162, `age+dur+fl`
 162, in-loop `fl = p->flags` 179). 792 bytes cannot reach zero, so the
 exact-size 178-word draft is the published best.
+
+## func_800297A4 - loop shape
+
+The target's scan is `lh` / `bltzl $t6, out` with `addiu $at, $zero, 4` in the
+delay slot, then `i++`, `slti $at, $i, 4`, `bnez`, `addiu $p, $p, 0x140`. All
+of `while (i < 4 && p->timer >= 0)`, `while (p->timer >= 0 && i < 4)`,
+`while (p->timer >= 0) { i++; if (i >= 4) break; p++; }`,
+`for (i = 0; p->timer >= 0; i++) { if (i >= 3) break; p++; }` and a
+`for (;;)` with two breaks were measured at the exact 780 bytes; the best is the
+increment-then-break form at 178. None reorders the `slti`/`bnez` to match, and
+`beql`/`beqzl` speculation keeps appearing where the target has a plain branch.
+
+## Summary of the five
+
+| Function | Before | After | Notes |
+|---|---:|---:|---|
+| `func_801C1990` | 104 | **77** | under 80 |
+| `func_801B0668` | 114 | 114 | addressing-mode floor |
+| `func_8001346C` | 158 | **157** | + exact-frame 704 B variant (168) |
+| `func_800297A4` | 180 | **178** | + 160-word/792 B form not publishable |
+| `func_801BCB70` | 221 | 221 | 3-instruction block boundary |
