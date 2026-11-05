@@ -6,7 +6,12 @@ Official counts are full-TU positional words from `tools/permuter/screen.py`.
 |---|---:|---:|---|---|
 | func_8001BB64 | 98 | 78 | 636 / 636 | Indexed walk `for (i = 0, dst = colors; i < 3; i++)` so the end address is `D_8004AC92+3` (splat's `D_8004AC95`), plus three pointers declared before the `s16[3]` so the array sits at `sp+0x24` in a `0x38` frame. Primitive color is packed red, then green, then blue. |
 
+| func_801C3AA0 | 119 | 108 | 928 / 928 | The `% 3` and `% 5` rolls are both written before `i` and `index` increment, so the red store can sit in the next `guRandom` delay slot. |
 | func_801AFFAC | 99 | 80 | 576 / 576 | Each channel scale is its own `(u32)` cast of `temp_f0 * D_802928A8` / `D_802928B0`, and the env command word is stored before its value. |
+
+Dead ends for `func_801C3AA0` (not kept):
+
+- Computing the first roll as an `s32` before the float subtract stays at 108. The division sequence is still scheduled after the vertex-base load and the `255` constant; the original divides immediately after `guRandom`. Saved-float stores at `sp+32` and `sp+40` are swapped (`f22` / `f24`).
 
 Dead ends for `func_801AFFAC` (not kept):
 
