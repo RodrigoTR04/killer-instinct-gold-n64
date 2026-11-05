@@ -6,8 +6,20 @@ Official counts are full-TU positional words from `tools/permuter/screen.py`.
 |---|---:|---:|---|---|
 | func_8001BB64 | 98 | 78 | 636 / 636 | Indexed walk `for (i = 0, dst = colors; i < 3; i++)` so the end address is `D_8004AC92+3` (splat's `D_8004AC95`), plus three pointers declared before the `s16[3]` so the array sits at `sp+0x24` in a `0x38` frame. Primitive color is packed red, then green, then blue. |
 
+| func_80027E1C | 234 | 233 | 936 / 936 | The other actor's scale is loaded once into a local and reused, which removes a repeated address computation and brings the body to the original 936 bytes. |
 | func_801C3AA0 | 119 | 108 | 928 / 928 | The `% 3` and `% 5` rolls are both written before `i` and `index` increment, so the red store can sit in the next `guRandom` delay slot. |
 | func_801AFFAC | 99 | 80 | 576 / 576 | Each channel scale is its own `(u32)` cast of `temp_f0 * D_802928A8` / `D_802928B0`, and the env command word is stored before its value. |
+
+Dead ends for `func_80027E1C` (not kept):
+
+- Splitting the six float conversions into separate statements in the original's conversion order scores 251 / 1020 bytes (the temps spill).
+- Copying `arg1` into a local pointer stays at 233 and still does not save `s0`. The original keeps `D_80061CDC`'s address in `a3`, saves `arg1` in `s0`, and reuses `a1` for the other scale; the draft keeps the address in `a2` and never builds the 8-byte frame.
+- The vertex `sh` stores and the display-list `sw` pairs are still scheduled apart from the original, so the one-word drop does not collapse the scattered float and tail differences. Register-masked floor on the previous draft was 78.
+
+Dead ends for `func_801B01EC` (not kept, still 120 / 820):
+
+- Masking the colour in the expression (`(alpha & 0xFF) << 24` and the same for the other two shifts) does spill it out of `s1` onto the stack, but the slot lands at `sp+0x5C` instead of `sp+0x64` and the function grows to 824 bytes (183–185 words across declaration orders). The in-place `alpha &= 0xFF` is what holds the exact 820-byte body.
+- The earlier 720 declaration orders, the `func_8002F6F4` else-if, and the swapped `D_801D2EB0` / `D_801D2EB4` stores were not repeated.
 
 Dead ends for `func_801C3AA0` (not kept):
 
