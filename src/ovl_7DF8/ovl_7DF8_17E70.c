@@ -7,9 +7,14 @@ typedef struct {
     u8 r, g, b, a;
 } T030Vertex;
 
+typedef struct {
+    u32 w0, w1;
+} T030Command;
+
 extern f32 D_802D38F0, D_802D38F4;
 extern s32 D_802D38F8, D_802D38FC;
 extern s32 D_802D3900[16];
+extern u8 D_80291808[];
 extern void guTranslate(void *, f32, f32, f32);
 extern T030Vertex *D_802D3940;
 
@@ -38,4 +43,38 @@ void func_801C3990(T030Vertex *arg0) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_17E70/func_801C3AA0.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_17E70/func_801C3E40.s")
+void func_801C3E40(T030Command **arg0) {
+    s32 count, index;
+    s8 dx, dy;
+    D_802D38F4 = D_802D38F0;
+    D_802D38F0 = 0.1f;
+    if (D_802D38F8 != 0) {
+        { T030Command *dl = (*arg0)++; dl->w0 = 0x01060040; dl->w1 = (u32)D_802D3900; }
+        { T030Command *dl = (*arg0)++; dl->w0 = 0x06000000; dl->w1 = (u32)D_80291808; }
+        count = D_802D38F8;
+        index = D_802D38FC;
+        if (count > 0) {
+            do {
+                index &= 255;
+                { T030Command *dl = (*arg0)++; count--; dl->w0 = 0x04200030; dl->w1 = (u32)&D_802D3940[index * 3]; }
+                { T030Command *dl = (*arg0)++; dl->w0 = 0xBF000000; dl->w1 = 0xA14; }
+                D_802D3940[index * 3].a -= 32;
+                if (D_802D3940[index * 3].a < 32) {
+                    D_802D3940[index * 3].a = 32;
+                    D_802D38F8--;
+                    D_802D38FC = (D_802D38FC + 1) & 255;
+                } else {
+                    dx = (s8)D_802D3940[index * 3 + 1].r;
+                    D_802D3940[index * 3].x += dx;
+                    D_802D3940[index * 3 + 1].x += dx;
+                    D_802D3940[index * 3 + 2].x += dx;
+                    dy = (s8)D_802D3940[index * 3 + 1].g;
+                    D_802D3940[index * 3].y += dy;
+                    D_802D3940[index * 3 + 1].y += dy;
+                    D_802D3940[index * 3 + 2].y += dy;
+                }
+                index++;
+            } while (count > 0);
+        }
+    }
+}

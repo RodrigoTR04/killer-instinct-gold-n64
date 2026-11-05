@@ -128,6 +128,10 @@ void func_800131A4(T033RenderCommand **arg0, f32 arg1, f32 arg2, f32 arg3, f32 a
     }
 }
 
+typedef struct { u8 r, g, b; } RGB14;
+extern RGB14 D_8004AC98[];
+extern RGB14 D_8004ACB0[];
+
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_2FF0/func_8001346C.s")
 
 typedef struct {
@@ -572,7 +576,6 @@ void func_80014C40(T033ForceTarget *arg0) {
 }
 
 
-typedef struct { u8 r, g, b; } RGB14;
 extern u8 D_80044ED8;
 
 
@@ -585,8 +588,6 @@ extern u8 D_8004A401;
 extern void *D_8004A4C0[];
 extern f32 D_8004A740[];
 extern s16 D_8004AA2A;
-extern RGB14 D_8004AC98[];
-extern RGB14 D_8004ACB0[];
 extern s32 D_8004ACF0;
 extern s32 D_8004ACF8;
 extern s32 D_80066C40;
