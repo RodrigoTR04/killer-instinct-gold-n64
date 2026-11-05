@@ -32,7 +32,7 @@ void func_8001D47C(u8 arg0) {
             dst[i] = (l << 11) | (l << 6) | (l << 1);
         }
     } else if (D_8004EA9E[arg0] == 9 && D_8004EA78 < 2) {
-        for (i = 0; i != 16; i++) dst[i] = 0;
+        for (i = 0; i != 32; i += 2) *(u16 *)i = 0;
     } else {
         for (i = 0; i != 16; i++) dst[i] = src[i];
     }
