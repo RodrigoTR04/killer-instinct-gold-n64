@@ -17,6 +17,7 @@ s32 func_801C317C(FrontendGfxWords **arg0, s32 arg1, s32 arg2, s32 arg3)
   s32 y;
   s32 fade;
   s32 index;
+  f32 tint, shade, depth;
   drawn = 0;
   if (arg3 < 0)
   {
@@ -97,8 +98,10 @@ s32 func_801C317C(FrontendGfxWords **arg0, s32 arg1, s32 arg2, s32 arg3)
       D_802D3834 = fade;
       while ((*slots) != 0)
       {
-        D_802956F4 = func_801BD640(arg0, (u8 *) ((D_802956F4 << 6) + ((s32) D_802C9F70.matrices)), *slots, D_802937BC, (f32) (y - 5), (f32) (arg2 - 0x5DC), 0, 0, 0, ((s32) (D_802D3834 & 0xFF)) >> 1);
-        D_802956F4 += func_801BD640(arg0, (u8 *) ((D_802956F4 << 6) + ((s32) D_802C9F70.matrices)), *((u8 **) (((u8 *) ((u8 **) table)[D_80285578]) + (first * 4))), D_802937B8, (f32) y, (f32) (arg2 - 0x5DC), 0xFF, 0xFF, 0xFF, D_802D3834);
+      shade = D_802937B8;
+      depth = (f32) (arg2 - 0x5DC);
+        D_802956F4 = func_801BD640(arg0, (u8 *) ((D_802956F4 << 6) + ((s32) D_802C9F70.matrices)), *slots, D_802937BC, (f32) (y - 5), depth, 0, 0, 0, ((s32) (D_802D3834 & 0xFF)) >> 1);
+        D_802956F4 += func_801BD640(arg0, (u8 *) ((D_802956F4 << 6) + ((s32) D_802C9F70.matrices)), *((u8 **) (((u8 *) ((u8 **) table)[D_80285578]) + (first * 4))), shade, (f32) y, depth, 0xFF, 0xFF, 0xFF, D_802D3834);
         slots = (u8 **) (((u8 *) slots) + 4);
         y -= 0x37;
       }
