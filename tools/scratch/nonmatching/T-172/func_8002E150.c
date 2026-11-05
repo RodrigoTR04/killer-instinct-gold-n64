@@ -2,9 +2,19 @@ extern double D_80048EE0[],D_80048F10[],D_80048F38[],D_80048F58[];
 extern double D_80048F78,D_80048F80,D_80048F88,D_80048F90,D_80048F98,D_80048FA0,D_80048FA8;
 extern float sqrtf(float);
 double func_8002E150(double x) {
-    s32 hi = *(s32 *)&x;
-    s32 exponent = (hi >> 20) & 0x7FF;
-    double w, u, r, t, a, q, p, z;
+    double w;
+    double u;
+    double r;
+    double t;
+    double a;
+    double q;
+    double p;
+    double z;
+    s32 hi;
+    s32 exponent;
+    hi = *(s32 *)&x;
+    exponent = (hi >> 20) & 0x7FF;
+
     if (exponent < 0x3FE) {
         if (exponent >= 0x3E3) {
             z = x * x;
@@ -16,7 +26,7 @@ double func_8002E150(double x) {
     }
     if (exponent < 0x3FF) {
         a = x;
-        if (a < 0.0) a = -x;
+        if (x < 0.0) a = -x;
         if (a < D_80048FA8) {
             t = 2.0 * (x * x) - D_80048F78;
             do { z = t * t; } while (0);
