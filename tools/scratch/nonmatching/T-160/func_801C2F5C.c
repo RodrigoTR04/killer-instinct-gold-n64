@@ -1,4 +1,4 @@
-/* T-160: 7 differing instructions (full-TU comparison), exact 544 B in the full TU. */
+/* T-160: 3 differing instructions (full-TU comparison), exact 544 B in the full TU. */
 #include "frontend.h"
 
 extern void func_801B695C(FrontendSprite *, s32);
@@ -10,23 +10,19 @@ extern u8 D_802D38C8;
 
 void func_801C2F5C(FrontendGfxWords **arg0, s32 arg1, s32 arg2)
 {
-    u8 selector;
+    u8 temp_t1;
     s32 sp58;
     s32 temp_a2;
-    s32 var_s2;
     s32 var_v0;
-    u8 temp_t1;
     FrontendSprite *temp_s0;
     FrontendSpriteLayout *temp_t0;
-    FrontendSpriteLayout *temp_t0_2;
     FrontendGfxWords *temp_v0_2;
     temp_s0 = &D_801F2EA8[D_802D38C8];
     if (temp_s0->texture != 0)
     {
         sp58 = temp_s0->scale;
         temp_s0->scale = (D_802854D0[D_802D38C8].scale * temp_s0->scale) >> 8;
-        var_s2 = arg1;
-        var_s2 += D_802854D0[D_802D38C8].x;
+        arg1 += D_802854D0[D_802D38C8].x;
         func_801B695C(temp_s0, 0);
         temp_a2 = func_801B6A68(arg0, temp_s0, 0);
         temp_t0 = &D_802854D0[D_802D38C8];
@@ -38,7 +34,7 @@ void func_801C2F5C(FrontendGfxWords **arg0, s32 arg1, s32 arg2)
         {
             var_v0 = 0x10;
         }
-        func_801BCB70(arg0, temp_s0->texture, temp_a2, 0xC0, 0x110, var_v0, 0x10, 0, 0, 0xBF, 0x10F, (f32) var_s2, (f32) (temp_t0->y + temp_s0->y), (s32) temp_s0->scale, 0xFF, temp_s0->clip);
+        func_801BCB70(arg0, temp_s0->texture, temp_a2, 0xC0, 0x110, var_v0, 0x10, 0, 0, 0xBF, 0x10F, (f32) arg1, (f32) (temp_t0->y + temp_s0->y), (s32) temp_s0->scale, 0xFF, temp_s0->clip);
         if (temp_s0->draw != 0)
         {
             temp_v0_2 = *arg0;
@@ -54,9 +50,9 @@ void func_801C2F5C(FrontendGfxWords **arg0, s32 arg1, s32 arg2)
             temp_t1 = D_802854D0[D_802D38C8].flip;
             if (temp_t1 != 0)
             {
-                var_s2 = 0x26C - var_s2;
+                arg1 = 0x26C - arg1;
             }
-            temp_s0->draw(arg0, var_s2, D_802854D0[D_802D38C8].y, arg2, temp_s0, (s32) temp_t1);
+            temp_s0->draw(arg0, arg1, D_802854D0[D_802D38C8].y, arg2, temp_s0, (s32) temp_t1);
         }
         temp_s0->scale = (u16) sp58;
     }

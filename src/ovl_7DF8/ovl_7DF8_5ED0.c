@@ -930,7 +930,41 @@ void func_801B4590(u8 arg0) {
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B465C.s")
+extern s32 guRandom(void);
+extern u8 D_802C8CC8[];
+void func_801B465C(s32 arg0, s32 arg1) {
+    u8 index;
+    u8 current;
+    u16 next;
+    s32 limit;
+    limit = func_801B4324((u8)arg0) + 7;
+    index = D_802C8CC8[arg0];
+    current = index;
+    if (index >= limit) {
+        current = index = D_802C8CC8[arg0] = 0;
+    }
+    if (index == D_802C8CC8[1-arg0] && D_802C8CB8[0] == D_802C8CB8[1]) {
+        if (D_8004A407 & (2 - arg0)) {
+            if (current == D_802C8CC8[1-arg0]) {
+                do {
+                    D_802C8CC8[1-arg0] = guRandom() % 6;
+                } while (D_802C8CC8[arg0] == D_802C8CC8[1-arg0]);
+            }
+        } else {
+            if (arg1 >= 0) {
+                next = ++index;
+                D_802C8CC8[arg0] = next;
+                if ((u8)next >= 7) D_802C8CC8[arg0] = 0;
+            } else {
+                if (current == 0) {
+                    D_802C8CC8[arg0] = 6;
+                    return;
+                }
+                D_802C8CC8[arg0] = --index;
+            }
+        }
+    }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B47A4.s")
 
