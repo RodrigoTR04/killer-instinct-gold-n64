@@ -15,8 +15,8 @@ double func_8002E150(double x) {
         return x;
     }
     if (exponent < 0x3FF) {
-        a = x;
-        if (a < 0.0) a = -a;
+        a = -x;
+        if (x >= 0.0) a = x;
         if (a < D_80048FA8) {
             t = 2.0 * (x * x) - D_80048F78;
             do { z = t * t; } while (0);
