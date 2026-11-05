@@ -21,14 +21,8 @@ extern u8 D_802C8730[];
 extern u8 D_802C8740[];
 extern s32 D_802C8750;
 
-s32 func_801B01EC(T164Gfx01EC **arg0, s32 arg1, u8 *arg2, u32 arg3) {
-    s32 alpha[1];
-    T164Gfx01EC *g;
-    f32 rise;
-    s32 result;
-    u32 elapsed;
-    u8 lookat[0x40];
-    f32 angle;
+s32 func_801B01EC(T164Gfx01EC **arg0, s32 arg1, u8 *arg2, u32 arg3)
+    {
 
 
 
@@ -48,35 +42,24 @@ s32 func_801B01EC(T164Gfx01EC **arg0, s32 arg1, u8 *arg2, u32 arg3) {
         elapsed = (arg3 * 4) + 0x96;
         D_801D2EB4 = 3.0f * rise;
         D_801D2EB0 = rise;
-        angle = func_801AFA80(270.0f, -1080.0f, (s32) arg3, (s32) elapsed);
-        guRotate(arg2 + 0x40, angle, 0.0f, 1.0f, 0.0f);
-        result = 2;
-        if ((angle > 60.0f && D_802C8750 <= 0) || (angle > 230.0f && D_802C8750 < 2)) {
+        angle = func_801AFA80(270.0f, -1080.0f, (s32) arg3, (s32) elapsed); guRotate(arg2 + 0x40, angle, 0.0f, 1.0f, 0.0f); result = 2; if ((angle > 60.0f && D_802C8750 <= 0) || (angle > 230.0f && D_802C8750 < 2)) {
             func_8002F6F4(D_80066C40, 0x15C, &D_8004A258[D_802C8750]);
-            D_802C8750 += 1;
-        }
-        if (elapsed < 0xBE) {
-            D_8029571C = 3;
+            D_802C8750 += 1; }
+        if (elapsed < 0xBE) { D_8029571C = 3;
             func_801AF5D4(8);
             if (elapsed < 0x9A) {
                 func_801AF5EC(4);
             }
-        }
-    }
-    guTranslate(arg2, D_801D2EB0, D_801D2EB8, D_801D2EB4);
-    guLookAtReflect(lookat, &D_802C8730, 0.0f, 0.0f, 0.0f, D_801D2EB0, 0.0f, 100.0f, 0.0f, 1.0f, 0.0f);
-    g = (*arg0)++;
-    g->w0 = 0x03840010;
+        } }
+    guTranslate(arg2, D_801D2EB0, D_801D2EB8, D_801D2EB4); guLookAtReflect(lookat, &D_802C8730, 0.0f, 0.0f, 0.0f, D_801D2EB0, 0.0f, 100.0f, 0.0f, 1.0f, 0.0f);
+    g = (*arg0)++; g->w0 = 0x03840010;
     g->w1 = (u32) &D_802C8730;
-    g = (*arg0)++;
-    g->w0 = 0x03820010;
-    g->w1 = (u32) &D_802C8740;
+    g = (*arg0)++; g->w0 = 0x03820010; g->w1 = (u32) &D_802C8740;
     g = (*arg0)++;
     g->w0 = 0x06000000;
     g->w1 = (u32) &D_801D2DF8;
     g = (*arg0)++;
-    g->w0 = 0xFB000000;
-    alpha[0] &= 0xFF;
+    g->w0 = 0xFB000000; alpha &= 0xFF;
     g->w1 = (alpha[0] << 24) | (alpha[0] << 16) | (alpha[0] << 8) | 0xFF;
     g = (*arg0)++;
     g->w1 = 0xFF;
