@@ -25,6 +25,7 @@ extern u8 D_80295722;
 extern RenderState D_802C9F70;
 
 int func_801ACB1C(void (*arg0)(), void (*arg1)(), void (*arg2)()) {
+    s32 *a414;
     s32 sp48;
     s32 sp44;
     DisplayCommand *gfxStart;
@@ -34,12 +35,13 @@ int func_801ACB1C(void (*arg0)(), void (*arg1)(), void (*arg2)()) {
     s32 i;
 
     osRecvMesg(D_8004A298, &D_801CD458, 1);
+    a414 = &D_8004A414;
     if (*D_801CD458 != 1) {
         if (*D_801CD458 == 2) {
-            D_8004A414--;
+            (*a414)--;
         }
     } else {
-        if (D_8004A414 < 2 && D_801CD45C <= 0) {
+        if ((*a414) < 2 && D_801CD45C <= 0) {
             D_80044A24 = D_802C9F70.index;
             gfx = D_802C9F70.index ? D_80076240 : D_8006F1C0;
             gfxStart = gfx;
