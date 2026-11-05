@@ -8,7 +8,8 @@ extern s32 func_8002F6F4(s32, s32, void *);
 extern void func_801AF5EC(s32);
 extern void func_801AF5D4(s32);
 extern f32 func_801AFA80(f32, f32, s32, s32);
-extern u8 D_8004A258[];
+typedef struct { u8 bytes[4]; } T164Sample01EC;
+extern T164Sample01EC D_8004A258[];
 extern s32 D_80066C40;
 extern u8 D_801D2DF8[];
 extern f32 D_801D2EB0;
@@ -22,11 +23,11 @@ extern s32 D_802C8750;
 
 s32 func_801B01EC(T164Gfx01EC **arg0, s32 arg1, u8 *arg2, u32 arg3) {
     u8 lookat[0x40];
-    s32 result;
-    s32 alpha;
     T164Gfx01EC *g;
-    f32 rise;
+    s32 result;
     f32 angle;
+    f32 rise;
+    s32 alpha;
     u32 elapsed;
 
     result = 1;
@@ -35,22 +36,22 @@ s32 func_801B01EC(T164Gfx01EC **arg0, s32 arg1, u8 *arg2, u32 arg3) {
         alpha = (s32) func_801AFA80(255.0f, 2.0f, (s32) arg3, 0x78);
         D_802C8750 = 0;
     } else {
-        elapsed = 0x10E - arg3;
-        rise = (-cosf((f32) ((f64) func_801AFA80(110.0f, 0.0f, (s32) elapsed, 0x96) * D_802928B8)) * 100.0f) + 100.0f;
-        arg3 = (elapsed * 4) + 0x96;
+        arg3 = 0x10E - arg3;
+        rise = (-cosf((f32) ((f64) func_801AFA80(110.0f, 0.0f, (s32) arg3, 0x96) * D_802928B8)) * 100.0f) + 100.0f;
+        elapsed = (arg3 * 4) + 0x96;
         D_801D2EB4 = 3.0f * rise;
         D_801D2EB0 = rise;
-        angle = func_801AFA80(270.0f, -1080.0f, (s32) elapsed, (s32) arg3);
+        angle = func_801AFA80(270.0f, -1080.0f, (s32) arg3, (s32) elapsed);
         guRotate(arg2 + 0x40, angle, 0.0f, 1.0f, 0.0f);
         result = 2;
         if ((angle > 60.0f && D_802C8750 <= 0) || (angle > 230.0f && D_802C8750 < 2)) {
             func_8002F6F4(D_80066C40, 0x15C, &D_8004A258[D_802C8750]);
             D_802C8750 += 1;
         }
-        if (arg3 < 0xBE) {
+        if (elapsed < 0xBE) {
             D_8029571C = 3;
             func_801AF5D4(8);
-            if (arg3 < 0x9A) {
+            if (elapsed < 0x9A) {
                 func_801AF5EC(4);
             }
         }
