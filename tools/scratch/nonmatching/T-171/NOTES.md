@@ -54,8 +54,10 @@ stream, 242 official because a `b` is missing), swapped `y1c`/`x1c` clamp order
 ## func_800297A4 (main, 780 B)
 
 - Before: 180 words, declarations-only (`tools/scratch/nonmatching/T-024/func_800297A4.c`).
-- After: **160 words**, 792/780 B, full translation unit.
-  `tools/scratch/nonmatching/T-171/func_800297A4.c`.
+- After: **178 words**, 780/780 B, full translation unit.
+  `tools/scratch/nonmatching/T-171/func_800297A4.c`. A 160-word form at
+  **792/780 B** was found (see below) but 12 bytes over the original can never
+  reach zero, so the exact-size 178-word draft is the one published.
 
 Lever: the slot scan is a do/while-free `while (p->timer >= 0) { i++; if (i >= 4)
 break; p++; }` (increment then a break test) instead of
@@ -112,7 +114,8 @@ reused the register and skipped the `andi`, and also hoisted the
 reload in the `pending > 0` arm was already right; only the compare operand
 changed.
 
-Second lever, 178 -> **160**: give `duration` (`s16 *dur`) and `flags` (`u8 *fl`)
+Second lever, 178 -> **160 at 792 bytes** (NOT publishable - see the size note
+above): give `duration` (`s16 *dur`) and `flags` (`u8 *fl`)
 their own block-scoped cursors taken from `p` before the loop and indexed by
 `j`, leaving `axisX/Y/Z`, `velocity`, `position` and `age` on `p->`. The target
 addresses those two arrays off separate base registers (`s5` stepping by 2 for
