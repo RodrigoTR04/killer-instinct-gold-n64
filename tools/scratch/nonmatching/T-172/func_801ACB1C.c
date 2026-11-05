@@ -25,9 +25,6 @@ extern u8 D_80295722;
 extern RenderState D_802C9F70;
 
 int func_801ACB1C(void (*arg0)(), void (*arg1)(), void (*arg2)()) {
-    s32 *a414;
-    s32 sp48;
-    s32 sp44;
     DisplayCommand *gfxStart;
     DisplayCommand *gfx;
     u32 diff;
@@ -35,20 +32,25 @@ int func_801ACB1C(void (*arg0)(), void (*arg1)(), void (*arg2)()) {
     s32 i;
 
     osRecvMesg(D_8004A298, &D_801CD458, 1);
-    a414 = &D_8004A414;
     if (*D_801CD458 != 1) {
         if (*D_801CD458 == 2) {
-            (*a414)--;
+            D_8004A414--;
         }
     } else {
-        if ((*a414) < 2 && D_801CD45C <= 0) {
+        if (D_8004A414 < 2 && D_801CD45C <= 0) {
             D_80044A24 = D_802C9F70.index;
             gfx = D_802C9F70.index ? D_80076240 : D_8006F1C0;
             gfxStart = gfx;
             D_801CD45C = D_8029571C;
             func_801AD3BC(&gfx, &D_802C9F70);
-            if (arg0 != 0) {
-                arg0(&sp48, &sp44, &D_802C9F70);
+            {
+                s32 sp48;
+                s32 sp44;
+
+                if (arg0 != 0) {
+                    arg0(&sp48, &sp44, &D_802C9F70);
+                }
+                func_801AD7D8(gfxStart, &gfx, sp48, sp44, (s32 *)&D_802C9F70);
             }
             func_801AF424(&gfx, &D_802C9F70);
             arg1(&gfx, &D_802C9F70);
@@ -84,7 +86,6 @@ int func_801ACB1C(void (*arg0)(), void (*arg1)(), void (*arg2)()) {
                 }
                 func_8002AA98(0x8000 - diff * 2100, h);
             }
-            func_801AD7D8(gfxStart, &gfx, sp48, sp44, (s32 *)&D_802C9F70);
         }
         do { D_802C9F70.unk4++; } while (0);
         do { D_80295704 = D_802C9F70.unk4; } while (0);
