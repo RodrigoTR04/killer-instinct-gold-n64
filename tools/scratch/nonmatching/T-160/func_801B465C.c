@@ -1,8 +1,8 @@
-/* T-173 draft: 18 positional words, 328/328 bytes in the full TU. */
+/* T-173 draft: 8 positional words, 328/328 bytes in the full TU. */
 extern s32 guRandom(void);
 extern u8 D_802C8CC8[];
 void func_801B465C(s32 arg0, s32 arg1) {
-    u8 index;
+    s16 index;
     u8 current;
     u8 next;
     s32 limit;
@@ -27,11 +27,11 @@ void func_801B465C(s32 arg0, s32 arg1) {
                 D_802C8CC8[arg0] = next;
                 if (next >= 7) D_802C8CC8[arg0] = 0;
             } else {
-                if (index == 0) {
+                if (current == 0) {
                     D_802C8CC8[arg0] = 6;
                     return;
                 }
-                D_802C8CC8[arg0] = index - 1;
+                D_802C8CC8[arg0] = --index;
             }
         }
     }
