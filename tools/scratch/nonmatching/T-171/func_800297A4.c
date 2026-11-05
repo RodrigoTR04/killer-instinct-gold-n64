@@ -1,18 +1,26 @@
-/* DRAFT: typed view of the TU's D_80061D60 effect slots. */
 typedef struct {
     float axisX[12], axisY[12], axisZ[12], velocity[12], position[12], x, y, z;
     s16 age[12], duration[12], timer, limit, kind;
     u8 flags[12], pad[2];
 } T171Burst;
-
 void func_800297A4(float x, float y, float z, s32 speed, s32 life, s32 kind) {
-    T171Burst *p = (T171Burst *) D_80061D60;
-    s32 i = 0, j, angle = 0;
-
-    while (i < 4 && p->timer >= 0) { i++; p++; }
+    T171Burst *p;
+    s32 i, j, angle;
+    p = (T171Burst *) D_80061D60;
+    i = 0;
+    while (p->timer >= 0) {
+        i++;
+        if (i >= 4) break;
+        p++;
+    }
     if (i == 4) p = (T171Burst *) D_80061D60;
-    p->z = z; p->x = x; p->y = y;
-    p->timer = 0; p->limit = life; p->kind = kind;
+    angle = 0;
+    p->z = z;
+    p->x = x;
+    p->y = y;
+    p->timer = 0;
+    p->limit = life;
+    p->kind = kind;
     for (j = 0; j < 12; j++, angle += 90) {
         if (j < 4) {
             p->axisX[j] = (float) (u32) (7 - (func_800326F0() & 15));

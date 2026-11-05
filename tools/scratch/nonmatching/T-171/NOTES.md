@@ -27,3 +27,26 @@ the `value` local (`if (D_80128328[player][character] < (u32) stats[3])
 D_80128328[player][character] = stats[3];`) takes 91 -> **89**. That is the
 first `lw`/`lbu` scheduling pair in the row updates. Direct reads for all four
 rows at once is 135 words, so only the `player == 0` arm may use them.
+
+## func_801BCB70 (ovl_7DF8, 1,676 B)
+
+- Before: 221 words (`tools/scratch/nonmatching/T-162/func_801BCB70.c`), full TU.
+- After: **221 words**, 1,668/1,676 B. Not improved. No commit of a draft change.
+
+The permuter found a 97-word form, but only by inserting `if (1) { }` before
+`y1c = 480.0f;` inside the 480 clamp. That is an empty statement: it changes
+IDO's block numbering without adding code, so it is not honest source. Nine
+honest substitutes for the same block boundary (a bare nested scope, a
+`do {} while (0)`, hoisting `y1c = y1f` above the `x1c` clamp, an explicit
+`else`, `if (y1f >= 480.0f)`, and a shared `if` chain) all score 242-326.
+The 97-word draft was not kept.
+
+What the 97-word form shows about the original: the target's `y1c` update does
+sit inside its own block, and only then does `sw $t7, 0x94($sp)` (the cached
+`bottom - top`) land in the right slot. The draft spills that to 0x98 instead,
+which is the whole 8-byte frame difference.
+
+Dead ends recorded: `uls = (pos != 0) ? pos : 0` (already 221, same as if/else),
+the preset-then-assign `uls = 0; if (pos) uls = pos;` (closer instruction
+stream, 242 official because a `b` is missing), swapped `y1c`/`x1c` clamp order
+(321), and every honest block-boundary form above.
