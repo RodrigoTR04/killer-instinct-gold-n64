@@ -6,7 +6,8 @@ Official counts are full-TU positional words from `tools/permuter/screen.py` (th
 ## func_801BB7B4 (ovl, 940 B)
 
 Before: 220 official, declarations-only, full TU failed to compile (`D_802C9F69`).
-After: **136 official, full TU, 940/940 B, 235/235 instructions.** Commit `3d0b4ec`
+After: **17 official, full TU, 940/940 B, 235/235 instructions.** Commits `2a84a195`,
+`0bc8f1b9`, `07b91552`.
 
 The declarations had to be reconciled first (previous turn: `D_802C9F69` and the
 `T023Sound` view) so the unit compiles; that took the full-TU score to 195.
@@ -31,10 +32,17 @@ Levers that actually moved it:
 - The final block tests `D_802C8CE0 & 3` three times rather than caching it in a
   local; caching moves `andi`/`lui` out of the delay slots.
 
-Remaining (5 instructions, all register names): the target keeps `next` in `a2`
-and the mask copy in `a1`; the draft has them in `a1` and `v1`. The target also
-has an `or a1,v1,zero` mask copy at the else entry that the draft elides, and
-`sw a0,0x20(sp)` is a dead home store for the original parameter.
+Remaining (17 words, all one schedule): the frame is 0x30 against 0x20 because
+the two block-scoped `u8 *p` + `s16 sound` pairs each get a stack home, and the
+`(u8 *) D_802C8CE0 &` test keeps an extra copy. The target reloads `D_80066C40`
+*after* the `sll`/`addu`/`subu` index chain and before `jal`; the draft loads it
+just before the chain, which pushes `sb t4,0(v1)` one slot earlier.
+
+Further levers that did not help (all 17, 940/940):
+hoisting `p`/`sound` to function scope (frame 0x28, 17 words), a
+`struct { u8 *p; s16 sound; }` per block (17), `sound` declared before `p` (17),
+an inline `func_8002F6F4(..., D_801F2EB8[...].sound, ...)` with no `sound` local
+(201 words, 952 B).
 
 ### Dead ends
 
