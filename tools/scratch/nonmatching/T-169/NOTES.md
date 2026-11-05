@@ -222,3 +222,39 @@ and f20 only, so two float values the target keeps live across both
 `func_801BD640` calls (the y coordinate and the alpha byte) are not live in any
 honest C form that still compiles: the target reloads `D_802D3834` before each
 call, so the alpha is a freshly loaded global each time, not a kept local.
+
+## Round 3: `do { ... } while (0)` block boundaries
+
+Wrapping a real statement in a single-iteration `do { } while (0);` changes IDO's
+basic-block numbering and therefore the schedule, at zero code cost. Scanner:
+`wrap2.py FN DRAFT [--combos N]` (wraps each non-declaration simple statement at
+any nesting, one at a time, then random combinations); hill-climber over the wrap
+set: `wrapclimb.py`.
+
+| Function | Before round 3 | After | Lever |
+|---|---:|---:|---|
+| func_8001DE5C | 148 | **136** | `do { rx = x2; } while (0);` between the edge sums and `ry = y2;` |
+| func_801C317C | 219 | **215** | wraps on the two `D_802D3834`/`slots` statements before the loop |
+
+`func_8001D47C` (126) and `func_801B1A7C` (206) are unaffected: for D47C every
+single wrap and 60 random combinations stay at 126; for 1B1A7C all 8 single
+wraps and 800 combinations stay at 206.
+
+### func_801B1A7C: `do` statements are not unrolled at all
+
+A `do { ... } while (i <= count)` vertex loop compiles to 288 bytes with no
+`andi` preheader -- IDO does not unroll `do` loops on this target. Wrapping the
+loop *body* in `do { } while (0);` or rewriting the guard as
+`if (z < 6) continue;` both keep 2x. So the 4x-vs-2x cutoff is driven by the
+multiply count alone, not by loop shape.
+
+### func_801C317C: the decide block is three separate ifs
+
+The target's fade/entry selection is not one nested `if`: `.L801C3348` is a
+`fade -= 0x10` arm reached from two places, and the `fade < -0xFF` step is a
+separate `if` after it, with `index += 1` writing back through `D_80285578`.
+Rewriting it that way (separate `if (fade < 0x100) { if (fade >= 0) {...} else
+{...} } else {...}`, then `if (fade < -0xFF) {...}`) compiles at 229 / 912 B and
+its best wrap combination is 222 -- so the original nesting is not the missing
+40 bytes either; the remainder is register allocation across the two
+`func_801BD640` calls.
