@@ -75,7 +75,8 @@ void func_8001DE5C(u8 *arg0, u8 *arg1, u8 arg2)
   dyb = my - by;
   x2 += dx0;
   y2 += dy;
-  spanY = by2 + dyb;
+  by2 += dyb;
+  spanY = by2;
   do
   {
     rx = x2;
@@ -114,7 +115,7 @@ void func_8001DE5C(u8 *arg0, u8 *arg1, u8 arg2)
     D_8004F2C8 = D_8004F2CC;
     if (arg1 != 0)
     {
-      func_80031DD0(arg1, dx, ((ry - ry) << 16) | dyb);
+      func_80031DD0(arg1, dx, ((ry - by2) << 16) | dyb);
     }
   }
 }
