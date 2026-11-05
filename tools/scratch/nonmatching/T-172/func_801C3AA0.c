@@ -1,8 +1,3 @@
-/* T-172: 56 differing words, 928/928.
-   T-168's `slot = index * 3` local made IDO hoist the `multu` before the
-   vertex-base load and reuse it; writing `index * 3` at every access keeps the
-   base load where the original has it. Only the two sdc1 slots and the last
-   `sb` position remain. */
 #include "common.h"
 
 extern f32 sinf(f32), cosf(f32);
@@ -17,8 +12,8 @@ void func_801C3AA0(f32 x, f32 y, f32 z, f32 width, f32 angle) {
     s32 active, index, i, random, absRandom, px, py, pz, intWidth;
     if (D_802D38F8 != 256) {
         radians = angle * D_802937C8;
-        sine = sinf(radians);
         cosine = cosf(radians);
+        sine = sinf(radians);
         count = (256.0f-D_802D38F8)*(width/D_802D38F4);
         remaining = 256 - D_802D38F8;
         if (remaining < count) count = remaining;
