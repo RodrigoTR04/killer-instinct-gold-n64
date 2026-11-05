@@ -55,10 +55,8 @@ stream, 242 official because a `b` is missing), swapped `y1c`/`x1c` clamp order
 ## func_800297A4 (main, 780 B)
 
 - Before: 180 words, declarations-only (`tools/scratch/nonmatching/T-024/func_800297A4.c`).
-- After: **178 words**, 780/780 B, full translation unit.
-  `tools/scratch/nonmatching/T-171/func_800297A4.c`. A 160-word form at
-  **792/780 B** was found (see below) but 12 bytes over the original can never
-  reach zero, so the exact-size 178-word draft is the one published.
+- After: **148 words**, 780/780 B, full translation unit.
+  `tools/scratch/nonmatching/T-171/func_800297A4.c`.
 
 Lever: the slot scan is a do/while-free `while (p->timer >= 0) { i++; if (i >= 4)
 break; p++; }` (increment then a break test) instead of
@@ -321,3 +319,21 @@ i.e. one extra word. Putting a `return;` after `*dl = g`, moving `*dl = g` into
 the loop, and the `d2` variant all either keep the extra `nop` or change other
 code. So 63 is the floor for this compiler and the function cannot reach 0
 without that word. It is under 80, which is the requirement.
+
+### func_800297A4: the do/while lever transfers (178 -> 148)
+
+Same instrumented-block trick that took `func_801BCB70` from 220 to 63, applied
+to the *last* statement of the inner loop body:
+
+```c
+p->age[j] = 0;
+do { p->duration[j] = life - (func_800326F0() & 7); } while (0);
+```
+
+178 -> **148** at the exact 780/780 B. Wrapping `p->age[j] = 0;
+p->duration[j] = ...` together in one block is 199/812; wrapping `duration` in a
+plain nested scope with a local is 178; `return;` after the loop is 178.
+Wrapping the header stores (`p->z`, `p->x`, `p->y`, `p->timer`, `p->limit`,
+`p->kind`) gives 159 but 784 B, so it cannot match. Wrapping `angle = 0;`
+gives 150. Stacking `age`/`position`/`velocity` blocks on top of `duration`
+stays at 148.

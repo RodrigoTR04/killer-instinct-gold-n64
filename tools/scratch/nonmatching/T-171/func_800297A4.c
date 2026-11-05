@@ -41,6 +41,6 @@ void func_800297A4(float x, float y, float z, s32 speed, s32 life, s32 kind) {
         p->velocity[j] = (float) (u32) (func_800326F0() % (u32) (speed / 4) + speed);
         p->position[j] = (float) (u32) (func_800326F0() & 15);
         p->age[j] = 0;
-        p->duration[j] = life - (func_800326F0() & 7);
+        do { p->duration[j] = life - (func_800326F0() & 7); } while (0);
     }
 }
