@@ -403,3 +403,21 @@ order, and `addiu 90`/`addiu 1080` against `addiu 2`.
 Tried: `return;` after `*dl = g` (keeps the nop), moving `*dl = g` into the
 outer loop (keeps it), the `d2` block form (keeps it), a trailing `if (0) { }`
 (220). Nothing removes that word, so 0 is out of reach; 63 is the floor.
+
+## func_8001346C integration attempt (rodata)
+
+Installing the 156-word body in place of the `#pragma` compiles the function to
+175 instructions (target 176) but leaves `D_800487F4`, `D_800487F8`,
+`D_800487FC`, `D_80048800`, `D_80048804` undefined, because the `#pragma`'d
+assembly owned that late-rodata block. Declaring them as C `const f32`
+definitions emits the right *values* (`50000, 50000, -550, 950, 3720` as the
+doubles `3f50624d d2f1a9fc` etc.) but in the wrong position: IDO appends them
+after the already-present rodata, so `main` links 16 bytes long. The switch's
+4-entry jump table is generated correctly from the C `switch`. Fixing this needs
+the five constants placed where the original rodata had them, which means
+reordering the TU's existing rodata - out of scope here. The `#pragma` was
+restored; `make` still reproduces baserom `ba52e91b44450c548467044b26951353dc491e04`.
+
+## func_801B0668 final attempts
+Two externs at adjacent addresses (114), `*(volatile u8 *)&D_801D2FC0` on the
+two comparison sites only (114). The addressing mode is not reachable.
