@@ -5,7 +5,7 @@ Official counts are `screen.measure` on the full owning translation unit.
 ## func_801C1990 (ovl_7DF8, 676 B)
 
 - Before: 104 words (`tools/scratch/nonmatching/T-147/func_801C1990-decl.c`).
-- After: **89 words**, 676/676 B. `tools/scratch/nonmatching/T-171/func_801C1990.c`.
+- After: **77 words**, 676/676 B. `tools/scratch/nonmatching/T-171/func_801C1990.c` (UNDER 80).
 
 Lever: a single `s32 value` intermediate holds `(3 - stats[0]) & mask`, and the
 `u8` global and the `s32 pending` local are then filled from it as
@@ -97,3 +97,15 @@ stores it to `0x7C(sp)` and reloads with `lbu`.
 Dead ends: `unroll` (six explicit stores) 149 words / 696 B, which is worse than
 the baseline; `*(D_8004AC8E + i) = *(a + i)` 178 words / 736 B; converting the
 clear loop at the end to an indexed form 182-183 words.
+
+Second lever, 89 -> **77**: write the "already applied" test as the global
+compare `if (D_802D37FC == 3)` instead of the local `if (pending == 3)`. Because
+the byte was just stored, IDO keeps it in a register for `pending` but still
+re-reads the global for the test, and that re-read is what the target's
+`andi $t1, $t6, 0xFF` / `bne $t1, $at` pair shows: the target compares the
+*stored* byte against a freshly materialised 3. With the local compare IDO
+reused the register and skipped the `andi`, and also hoisted the
+`lui/addiu D_802D37FC` above the `bnez`. Keeping the `value` intermediate
+(`value = (3 - stats[0]) & mask; pending = D_802D37FC = value;`) plus the local
+reload in the `pending > 0` arm was already right; only the compare operand
+changed.

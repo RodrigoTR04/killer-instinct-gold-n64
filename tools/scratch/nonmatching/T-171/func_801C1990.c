@@ -18,7 +18,7 @@ u8 func_801C1990(s32 *stats) {
     D_802D37FD = stats[0] & mask;
     value = (3 - stats[0]) & mask;
     pending = D_802D37FC = value;
-    if (pending == 3) {
+    if (D_802D37FC == 3) {
         result = func_801C17D0((u32 *)stats, 0);
         result |= func_801C17D0((u32 *)stats, 1) * 2;
         D_802D37FC = 0;
