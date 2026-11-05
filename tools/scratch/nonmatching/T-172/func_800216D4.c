@@ -73,8 +73,8 @@ s32 func_800216D4(u8 player, s8 kind, u8 *destination, s32 wanted) {
     }
     p = destination;
     while ((u32)(p + 15) < (u32)(destination + size)) {
-        id = p[0] + (p[1] << 8);
-        entry = &T172_CACHE[id][player];
+        for (;;) { id = p[0] + (p[1] << 8); break; }
+        for (;;) { entry = &T172_CACHE[id][player]; break; }
         if (id == D_80045D8C[bank][alternate]) {
             alternate++;
             entry->second = p;
