@@ -16,7 +16,9 @@ Official counts are full-TU positional words from `tools/permuter/screen.py` (th
 - `func_801B132C`: 292 vs 286 instructions, frame 0x68 vs 0x88, early float/address scheduling differs. Not a single missing block.
 - `func_800257FC`: sequence diff 341 of 343 instructions (146 register-masked). Not close.
 - `func_80031A38`: draft comment and the 680/920 B gap are the `sd`/`sdl` decoder shape from the T-026 cluster. Left alone.
-- `func_80028A00` / `func_800310C0` / `func_801ABB20` / `func_801B849C` / `func_801BFCBC` / `func_801C23C0`: still structurally far (hundreds of words, or a declarations count that T-149 already remeasured in the full TU at 181 for `func_801C23C0`). `func_801BFCBC` still needs the volatile byte update T-157 parked.
+- `func_80028A00`: the full-TU syntax error is the draft's second struct for `D_80061538` (the TU already has `T024Particle`) together with `T022Sprite`, which `main_18440.c` does not define. Using `T024Particle` and adding the sprite typedef compiles in the full TU at 802 words / 3,264 B, the same count as the old declarations score. Not kept; the count did not fall.
+- `func_801B849C`: dropping the prototypes that clash with `include/frontend.h`, and using the TU's `s8`/`u32` for `D_802C8CB9` / `D_802C8D1C` / `D_802C9F74` plus `extern u8 D_802C9F69` (the later TU declaration), compiles in the full TU at 1,278 words / 5,340 B. That is worse than the declarations score of 1,267 / 5,312. Not kept.
+- `func_800310C0` / `func_801ABB20` / `func_801BFCBC` / `func_801C23C0`: still structurally far. T-149 already remeasured `func_801C23C0` in the full TU at 181. `func_801BFCBC` is 304 B short and still has the volatile byte update T-157 parked. `func_801ABB20` and `func_801BFCBC` fail the full TU on a conflicting extern (`D_8004A428`, `func_8002F6F4`).
 
 A 150-second permuter on `func_8001DE5C` (stack diffs, the padding and dummy-expression weights zeroed) reported a lower score only by rewriting `x2 += dx0; rx = x2` into `x2 = (rx = dx0)`, which drops the added edge, and by inserting an empty statement before the sprite stores. Neither was kept.
 
