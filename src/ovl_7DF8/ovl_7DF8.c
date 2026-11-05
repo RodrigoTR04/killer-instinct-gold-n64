@@ -8,6 +8,8 @@ typedef struct RenderState {
     void *unkF8;
 } RenderState;
 
+typedef struct DisplayCommand { u32 w0, w1; } DisplayCommand;
+
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8/func_801ABB20.s")
 
 extern s32 guRandom(void);
@@ -244,7 +246,6 @@ void func_801AD388(void) {
     func_801ACB1C(func_801AD568, func_801AD0CC, func_801AD114);
 }
 
-typedef struct DisplayCommand { u32 w0, w1; } DisplayCommand;
 
 extern u32 D_2000000;
 
