@@ -77,7 +77,7 @@ void func_801BCB70(T157Gfx **dl, u32 tex, s32 arg2, s32 texW, s32 arg4, s32 step
                         if (!(y1f < 480.0f)) {
                             y1c = 480.0f;
                         }
-                        xl = (s32) (x0f * 4.0f); GCMD(g++, _SHIFTL(0xFD, 24, 8) | _SHIFTL(2, 21, 3) | _SHIFTL(1, 19, 2) | _SHIFTL(texW - 1, 0, 12), tex);
+                        do { xl = (s32) (x0f * 4.0f); } while (0); GCMD(g++, _SHIFTL(0xFD, 24, 8) | _SHIFTL(2, 21, 3) | _SHIFTL(1, 19, 2) | _SHIFTL(texW - 1, 0, 12), tex);
                         GCMD(g++, _SHIFTL(0xF5, 24, 8) | _SHIFTL(2, 21, 3) | _SHIFTL(1, 19, 2) | _SHIFTL((((lrs - uls + 1) * 1) + 7) >> 3, 9, 9), 0x07080140); GCMD(g++, 0xE6000000, 0); GCMD(g++, _SHIFTL(0xF4, 24, 8) | _SHIFTL(uls << 2, 12, 12) | _SHIFTL(ult << 2, 0, 12), _SHIFTL(7, 24, 3) | _SHIFTL(lrs << 2, 12, 12) | _SHIFTL(lrt << 2, 0, 12)); GCMD(g++, 0xE7000000, 0); GCMD(g++, _SHIFTL(0xF5, 24, 8) | _SHIFTL(2, 21, 3) | _SHIFTL(1, 19, 2) | _SHIFTL((((lrs - uls + 1) * 1) + 7) >> 3, 9, 9), 0x00080140); GCMD(g++, _SHIFTL(0xF2, 24, 8) | _SHIFTL(uls << 2, 12, 12) | _SHIFTL(ult << 2, 0, 12), _SHIFTL(0, 24, 3) | _SHIFTL(lrs << 2, 12, 12) | _SHIFTL(lrt << 2, 0, 12));
                         yl = (s32) (fy * 4.0f); GCMD(g++, _SHIFTL(0xE4, 24, 8) | _SHIFTL(MAX((s32) (x1c * 4.0f), 0), 12, 12) | _SHIFTL(MAX((s32) (y1c * 4.0f), 0), 0, 12),
                                   _SHIFTL(0, 24, 3) | _SHIFTL(MAX(xl, 0), 12, 12) | _SHIFTL(MAX(yl, 0), 0, 12)); GCMD(g++, 0xB3000000, _SHIFTL((((s32) ((f32) (((f64) (f32) i - 0.5) + (f64) top) * 32.0f) + flag) & 0xFFFF) - MIN((xl * div) >> 7, 0), 16, 16) | _SHIFTL((s32) ((f32) ((f64) (f32) x - 0.5) * 32.0f) - MIN((yl * div) >> 7, 0), 0, 16));
