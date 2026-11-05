@@ -337,3 +337,69 @@ Wrapping the header stores (`p->z`, `p->x`, `p->y`, `p->timer`, `p->limit`,
 `p->kind`) gives 159 but 784 B, so it cannot match. Wrapping `angle = 0;`
 gives 150. Stacking `age`/`position`/`velocity` blocks on top of `duration`
 stays at 148.
+
+## Second-round summary
+
+| Function | Round-1 | Round-2 | Size | Under 80 |
+|---|---:|---:|---|---|
+| `func_801C1990` | 77 | 77 | 676/676 | **yes** |
+| `func_801BCB70` | 220 | **63** | 1,676/1,676 | **yes** |
+| `func_800297A4` | 178 | **148** | 780/780 | no |
+| `func_8001346C` | 157 | **156** | 700/704 | no (needs proto edit) |
+| `func_801B0668` | 114 | 114 | 984/984 | no |
+
+The single lever that broke `func_801BCB70` open (220 -> 63) and produced
+`func_800297A4`'s 148 is an honest block boundary written as
+
+    do { <one real statement>; } while (0);
+
+or equivalently `for (<init>; ; ) { break; }`. IDO emits no code for the loop;
+it only changes the basic-block numbering, which is exactly the schedule the
+original has. `if (1) { }` (empty) and `if (0) { }` are NOT honest substitutes.
+
+## Round-2 dead ends, per function
+
+### func_801B0668 (114, exhausted)
+State byte as `struct`/`union` member (114), `s8` (114), a second symbol alias
+(114), `extern u8 D_801D2FC0[1]`/`[2]` (no compile), a `u8 *statep` local (198),
+`*(volatile u8 *)&D_801D2FC0` at every use (237), volatile writes only (135),
+`long`/`int state` (114), every single read-modify-write split into a
+`u8 st = D_801D2FC0; ... = st | mask;` pair (132-230), `do/while` around all six
+sites (114, no change), the matrix buffer as `u64[8]`/`f32[16]`/a struct (114),
+`return` after the calls (114), guard-clause rewrite of the height test (no
+compile), `0.0f < height` (114), `height >= 0.0001f` (226). Register-masked
+floor 37 of 246; the residual is the `lui`+`%lo` vs `addiu`+`0(` addressing mode
+of the state byte and one 8-byte spill.
+
+### func_8001346C (156 at 700/704, exhausted)
+`s32` second parameter (the target stores/reloads it as a plain word - `sw
+$a1,0x5C($sp)` / `lw $a1,0x5C($sp)` with no `andi`) + indexed-source /
+pointer-dest palette copy = 156 at 700/704 B, 175 emitted instructions against
+176. Needs `extern void func_8001346C(T033RenderCommand **, s32, f32);` on TU
+line 83; with that prototype the already-matched caller `func_800131A4` still
+scores **0** differing words (712/712 B), so it is safe, but installing the body
+leaves the late-rodata (`D_80048800`, `D_80048804`) undefined because the
+`#pragma`'d assembly owned them. Publishing this needs that rodata moved into C,
+which is outside this task.
+Other 700-byte forms: `pp` copy 158, `k`-tail 158, flipped store order in the
+copy loop 157. With `u8` the same bodies are 167-168 at the exact 704 B. Block
+scopes (`do/while`) on 9 sites x 63 combos: all 156 or worse. Declaration-order
+rotation: 156 at best. The frame is 0x70 against 0x58; the target spills only
+part (0x44), mode (0x50), i (0x54) plus the six float args at 0x10-0x28.
+
+### func_800297A4 (148 at 780/780, exhausted)
+`do { p->duration[j] = ...; } while (0);` as the loop body's last statement:
+178 -> 148 at the exact size. 1,793 further combinations of up to three
+`do/while`-wrapped statements across the whole body: **none below 148**
+(all either 148, 150, 159, or larger/size-mismatched). Exhaustive scan-shape
+search (12 forms) floors at 178 without the block. Cursor subsets (92 combos)
+floor at 160 at 792 B. `SLOTS[i]` slot-array view 196-203. The residual diff is
+scheduling only: the `addiu -30` / `addiu -570` delay-slot placement, `lw`
+order, and `addiu 90`/`addiu 1080` against `addiu 2`.
+
+### func_801BCB70 (63, under 80, cannot reach 0)
+4 bytes over (function is 1,680 in the object against 1,676) because IDO puts a
+`nop` in the `jr` delay slot where the target has `addiu $sp, $sp, 0x138`.
+Tried: `return;` after `*dl = g` (keeps the nop), moving `*dl = g` into the
+outer loop (keeps it), the `d2` block form (keeps it), a trailing `if (0) { }`
+(220). Nothing removes that word, so 0 is out of reach; 63 is the floor.
