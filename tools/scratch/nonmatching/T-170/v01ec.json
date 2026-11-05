@@ -1,0 +1,15 @@
+{
+ "a": [["    s32 alpha;\n", "    u32 color;\n"],
+       ["    alpha = 0xFF;\n", "    color = 0xFF;\n"],
+       ["        alpha = (s32) func_801AFA80(255.0f, 2.0f, (s32) arg3, 0x78);", "        color = (u32) func_801AFA80(255.0f, 2.0f, (s32) arg3, 0x78);"],
+       ["    g->w0 = 0xFB000000;\n    alpha &= 0xFF;\n    g->w1 = (alpha << 24) | (alpha << 16) | (alpha << 8) | 0xFF;",
+        "    g->w0 = 0xFB000000;\n    color &= 0xFF;\n    g->w1 = (color << 24) | (color << 16) | (color << 8) | 0xFF;"]],
+ "b": [["    s32 alpha;\n", "    u8 alpha;\n"],
+       ["    g->w0 = 0xFB000000;\n    alpha &= 0xFF;\n    g->w1 = (alpha << 24) | (alpha << 16) | (alpha << 8) | 0xFF;",
+        "    g->w0 = 0xFB000000;\n    g->w1 = (alpha << 24) | (alpha << 16) | (alpha << 8) | 0xFF;"]],
+ "c": [["    s32 alpha;\n", "    u8 alpha;\n    u32 color;\n"],
+       ["    alpha = 0xFF;\n", "    alpha = 0xFF;\n    color = 0xFF;\n"],
+       ["        alpha = (s32) func_801AFA80(255.0f, 2.0f, (s32) arg3, 0x78);", "        color = (u32) func_801AFA80(255.0f, 2.0f, (s32) arg3, 0x78);\n        alpha = color;"],
+       ["    g->w0 = 0xFB000000;\n    alpha &= 0xFF;\n    g->w1 = (alpha << 24) | (alpha << 16) | (alpha << 8) | 0xFF;",
+        "    g->w0 = 0xFB000000;\n    color &= 0xFF;\n    g->w1 = (color << 24) | (color << 16) | (color << 8) | (alpha & 0xFF);"]]
+}
