@@ -9,41 +9,31 @@ count failed to compile standalone (see Error). Use `docs/OPPORTUNITIES.md` for 
 
 | Band (words) | Functions | Original bytes |
 |---|---:|---:|
-| 0–8 | 3 | 1,424 |
-| 9–50 | 25 | 13,816 |
-| 51–150 | 25 | 14,056 |
-| >150 | 56 | 131,512 |
+| 0–8 | 1 | 544 |
+| 9–50 | 17 | 5,980 |
+| 51–150 | 25 | 14,304 |
+| >150 | 55 | 130,692 |
 | not measurable | 3 | 11,156 |
 
-112 T2 functions, 171,964 B.
+101 T2 functions, 162,676 B.
 
 | Function | Area | Bytes | Words | Context | Best draft | Error |
 |---|---|---:|---:|---|---|---|
-| `func_801C8004` | ovl_7DF8 | 236 | 6 |  | `tools/scratch/nonmatching/T-021/func_801C8004.c` |  |
-| `func_801B2B8C` | ovl_7DF8 | 872 | 8 |  | `tools/scratch/nonmatching/T-025/func_801B2B8C.c` |  |
-| `func_8001BDE0` | main | 316 | 8 |  | `tools/scratch/nonmatching/T-022/func_8001BDE0.c` |  |
-| `func_80023EF0` | main | 312 | 10 |  | `tools/scratch/nonmatching/T-148/func_80023EF0.c` |  |
+| `func_801C2F5C` | ovl_7DF8 | 544 | 7 |  | `tools/scratch/nonmatching/T-160/func_801C2F5C.c` |  |
+| `func_801B0520` | ovl_7DF8 | 328 | 10 |  | `tools/scratch/nonmatching/T-159/func_801B0520.c` |  |
 | `func_80032738` | main | 20 | 10 |  | `tools/scratch/nonmatching/T-026/func_80032738.c` |  |
-| `func_801B5DCC` | ovl_7DF8 | 1,884 | 11 |  | `tools/scratch/nonmatching/T-029/func_801B5DCC.c` |  |
-| `func_801BBB60` | ovl_7DF8 | 292 | 11 |  | `tools/scratch/nonmatching/T-148/func_801BBB60.c` |  |
-| `func_80014D5C` | main | 1,780 | 13 |  | `tools/scratch/nonmatching/T-152/func_80014D5C.c` |  |
 | `func_801B1DE4` | ovl_7DF8 | 556 | 13 |  | `tools/scratch/nonmatching/T-025/func_801B1DE4.c` |  |
 | `func_801BAA78` | ovl_7DF8 | 884 | 14 |  | `tools/scratch/nonmatching/T-023/func_801BAA78.c` |  |
 | `func_801ADA04` | ovl_7DF8 | 208 | 14 |  | `tools/scratch/nonmatching/T-019/func_801ADA04.c` |  |
 | `func_80032750` | main | 60 | 15 |  | `tools/scratch/nonmatching/T-026/func_80032750.c` |  |
-| `func_8002FB80` | main | 544 | 20 |  | `tools/scratch/nonmatching/T-024/func_8002FB80.c` |  |
-| `func_801B0520` | ovl_7DF8 | 328 | 22 |  | `tools/scratch/nonmatching/T-025/func_801B0520.c` |  |
-| `func_800121C8` | main | 304 | 22 |  | `tools/scratch/nonmatching/T-033/func_800121C8.c` |  |
+| `func_800121C8` | main | 304 | 19 |  | `tools/scratch/nonmatching/T-159/func_800121C8.c` |  |
 | `func_8003278C` | main | 92 | 26 |  | `tools/scratch/nonmatching/T-026/func_8003278C.c` |  |
 | `func_801B1210` | ovl_7DF8 | 284 | 27 |  | `tools/scratch/nonmatching/T-025/func_801B1210.c` |  |
-| `func_801C3758` | ovl_7DF8 | 564 | 28 |  | `tools/scratch/nonmatching/T-147/func_801C3758.c` |  |
 | `func_801B446C` | ovl_7DF8 | 292 | 28 |  | `tools/scratch/nonmatching/T-029/func_801B446C.c` |  |
-| `func_801B5650` | ovl_7DF8 | 1,916 | 30 | declarations | `tools/scratch/nonmatching/T-029/func_801B5650.c` |  |
 | `func_80031050` | main | 112 | 30 | declarations | `tools/scratch/nonmatching/T-026/func_80031050.c` |  |
 | `func_801BDA6C` | ovl_7DF8 | 1,320 | 33 | declarations | `tools/scratch/nonmatching/T-155/da6c/w1.c` |  |
 | `func_80032600` | main | 112 | 37 |  | `tools/scratch/nonmatching/T-026/func_80032600.c` |  |
 | `func_801C49A8` | ovl_7DF8 | 548 | 44 |  | `tools/scratch/nonmatching/T-147/func_801C49A8-stack.c` |  |
-| `func_801C2F5C` | ovl_7DF8 | 544 | 44 |  | `tools/scratch/nonmatching/T-030/func_801C2F5C.c` |  |
 | `func_80024028` | main | 284 | 45 |  | `tools/scratch/nonmatching/T-032/func_80024028.c` |  |
 | `func_80032670` | main | 116 | 45 |  | `tools/scratch/nonmatching/T-026/func_80032670.c` |  |
 | `func_8001CD50` | main | 460 | 46 | declarations | `tools/scratch/nonmatching/T-022/func_8001CD50.c` |  |
@@ -57,7 +47,6 @@ count failed to compile standalone (see Error). Use `docs/OPPORTUNITIES.md` for 
 | `func_8001D080` | main | 764 | 74 |  | `tools/scratch/nonmatching/T-143/func_8001D080-declorder.c` |  |
 | `func_801BE790` | ovl_7DF8 | 384 | 77 | declarations | `tools/scratch/nonmatching/T-023/func_801BE790.c` |  |
 | `func_8002DDD4` | main | 452 | 78 |  | `tools/scratch/nonmatching/T-024/func_8002DDD4.c` |  |
-| `func_8002FDA0` | main | 572 | 81 |  | `tools/scratch/nonmatching/T-024/func_8002FDA0.c` |  |
 | `func_800245B4` | main | 352 | 83 | declarations | `tools/scratch/nonmatching/T-032/func_800245B4.c` |  |
 | `func_8001272C` | main | 540 | 86 |  | `tools/scratch/nonmatching/T-033/func_8001272C.c` |  |
 | `func_801C3E40` | ovl_7DF8 | 504 | 88 | declarations | `tools/scratch/nonmatching/T-030/func_801C3E40.c` |  |
@@ -70,19 +59,20 @@ count failed to compile standalone (see Error). Use `docs/OPPORTUNITIES.md` for 
 | `func_800191F0` | main | 492 | 109 |  | `tools/scratch/nonmatching/T-022/func_800191F0.c` |  |
 | `func_801B0668` | ovl_7DF8 | 984 | 114 |  | `tools/scratch/nonmatching/T-025/func_801B0668.c` |  |
 | `func_801C3AA0` | ovl_7DF8 | 928 | 119 |  | `tools/scratch/nonmatching/T-030/func_801C3AA0.c` |  |
+| `func_801B01EC` | ovl_7DF8 | 820 | 120 |  | `tools/scratch/nonmatching/T-164/func_801B01EC.c` |  |
 | `func_801C1434` | ovl_7DF8 | 720 | 132 |  | `tools/scratch/nonmatching/T-023/func_801C1434.c` |  |
 | `func_8001D47C` | main | 748 | 134 |  | `tools/scratch/nonmatching/T-022/func_8001D47C.c` |  |
+| `func_8001DE5C` | main | 600 | 154 |  | `tools/scratch/nonmatching/T-162/func_8001DE5C.c` |  |
 | `func_801B0CDC` | ovl_7DF8 | 1,332 | 155 |  | `tools/scratch/nonmatching/T-149/func_801B0CDC.c` |  |
-| `func_8001DE5C` | main | 600 | 155 |  | `tools/scratch/nonmatching/T-022/func_8001DE5C.c` |  |
 | `func_8001346C` | main | 704 | 166 | declarations | `tools/scratch/nonmatching/T-143/func_8001346C-s32.c` |  |
 | `func_801ACB1C` | ovl_7DF8 | 744 | 176 | declarations | `tools/scratch/nonmatching/T-034/func_801ACB1C.c` |  |
 | `func_8002E150` | main | 844 | 179 |  | `tools/scratch/nonmatching/T-024/func_8002E150.c` |  |
 | `func_800297A4` | main | 780 | 180 | declarations | `tools/scratch/nonmatching/T-024/func_800297A4.c` |  |
 | `func_801C23C0` | ovl_7DF8 | 1,820 | 181 | declarations | `tools/scratch/nonmatching/T-147/func_801C23C0.c` |  |
-| `func_801B01EC` | ovl_7DF8 | 820 | 191 |  | `tools/scratch/nonmatching/T-025/func_801B01EC.c` |  |
 | `func_801B1A7C` | ovl_7DF8 | 872 | 206 | declarations | `tools/scratch/nonmatching/T-025/func_801B1A7C.c` |  |
 | `func_801C317C` | ovl_7DF8 | 936 | 215 | declarations | `tools/scratch/nonmatching/T-147/func_801C317C.c` |  |
 | `func_801BB7B4` | ovl_7DF8 | 940 | 220 | declarations | `tools/scratch/nonmatching/T-023/func_801BB7B4.c` |  |
+| `func_801BCB70` | ovl_7DF8 | 1,676 | 221 |  | `tools/scratch/nonmatching/T-162/func_801BCB70.c` |  |
 | `func_800216D4` | main | 1,032 | 229 | declarations | `tools/scratch/nonmatching/T-032/func_800216D4.c` |  |
 | `func_801AF68C` | ovl_7DF8 | 956 | 231 | declarations | `tools/scratch/nonmatching/T-025/func_801AF68C.c` |  |
 | `func_80027E1C` | main | 936 | 234 |  | `tools/scratch/nonmatching/T-032/func_80027E1C.c` |  |
@@ -90,7 +80,6 @@ count failed to compile standalone (see Error). Use `docs/OPPORTUNITIES.md` for 
 | `func_801C1C34` | ovl_7DF8 | 1,244 | 242 | declarations | `tools/scratch/nonmatching/T-023/func_801C1C34.c` |  |
 | `func_80028230` | main | 976 | 242 |  | `tools/scratch/nonmatching/T-024/func_80028230.c` |  |
 | `func_801B3DB0` | ovl_7DF8 | 1,360 | 255 | declarations | `tools/scratch/nonmatching/T-025/func_801B3DB0.c` |  |
-| `func_801BCB70` | ovl_7DF8 | 1,676 | 258 |  | `tools/scratch/nonmatching/T-157/w/mc10.c` |  |
 | `func_80029BE0` | main | 1,060 | 263 | declarations | `tools/scratch/nonmatching/T-024/func_80029BE0.c` |  |
 | `func_80025FC4` | main | 1,908 | 274 |  | `tools/scratch/nonmatching/T-149/func_80025FC4.c` |  |
 | `func_80015594` | main | 1,488 | 276 |  | `tools/scratch/nonmatching/T-149/func_80015594.c` |  |
@@ -99,7 +88,7 @@ count failed to compile standalone (see Error). Use `docs/OPPORTUNITIES.md` for 
 | `func_801AFAA4` | ovl_7DF8 | 1,288 | 301 |  | `tools/scratch/nonmatching/T-025/func_801AFAA4.c` |  |
 | `func_8001D7E4` | main | 1,656 | 309 |  | `tools/scratch/nonmatching/T-149/func_8001D7E4.c` |  |
 | `func_800257FC` | main | 1,372 | 319 |  | `tools/scratch/nonmatching/T-149/func_800257FC.c` |  |
-| `func_80012B7C` | main | 1,576 | 327 |  | `tools/scratch/nonmatching/T-149/func_80012B7C.c` |  |
+| `func_80012B7C` | main | 1,576 | 325 |  | `tools/scratch/nonmatching/T-163/func_80012B7C.c` |  |
 | `func_800238C4` | main | 1,580 | 336 |  | `tools/scratch/nonmatching/T-149/func_800238C4.c` |  |
 | `func_80031DD0` | main | 1,420 | 355 |  | `tools/scratch/nonmatching/T-069/attempted_31DD0.c` |  |
 | `func_80024CE0` | main | 1,652 | 390 | declarations | `tools/scratch/nonmatching/T-149/func_80024CE0.c` |  |
@@ -107,7 +96,7 @@ count failed to compile standalone (see Error). Use `docs/OPPORTUNITIES.md` for 
 | `func_80020E98` | main | 2,108 | 497 | declarations | `tools/scratch/nonmatching/T-032/func_80020E98.c` |  |
 | `func_800306B8` | main | 2,104 | 510 |  | `tools/scratch/nonmatching/T-026/func_800306B8.c` |  |
 | `func_801C5E74` | ovl_7DF8 | 2,392 | 512 |  | `tools/scratch/nonmatching/T-151/func_801C5E74.c` |  |
-| `func_8001E33C` | main | 2,360 | 522 |  | `tools/scratch/nonmatching/T-143/func_8001E33C-decl.c` |  |
+| `func_8001E33C` | main | 2,360 | 522 | declarations | `tools/scratch/nonmatching/T-143/func_8001E33C-decl.c` |  |
 | `func_8001178C` | main | 2,104 | 556 | declarations | `tools/scratch/nonmatching/T-033/func_8001178C.c` |  |
 | `func_801C08F8` | ovl_7DF8 | 2,296 | 561 | declarations | `tools/scratch/nonmatching/T-023/func_801C08F8.c` |  |
 | `func_801BC1B0` | ovl_7DF8 | 2,496 | 583 | declarations | `tools/scratch/nonmatching/T-157/bc/z1_p31_sw.c` |  |
@@ -128,6 +117,6 @@ count failed to compile standalone (see Error). Use `docs/OPPORTUNITIES.md` for 
 | `func_8002BBD0` | main | 7,668 | 1843 |  | `tools/scratch/nonmatching/T-024/func_8002BBD0.c` |  |
 | `func_8000FA80` | main | 7,436 | 2014 | declarations | `tools/scratch/nonmatching/T-033/func_8000FA80.c` |  |
 | `func_8001EC74` | main | 8,740 | 2175 | declarations | `tools/scratch/nonmatching/T-022/func_8001EC74.c` |  |
-| `func_80021B6C` | main | 6,896 |  |  | `tools/scratch/nonmatching/T-032/func_80021B6C.c` | cfe: Error: /tmp/kig-screen-ml4cd1aq/candidate.c, line 229: redeclaration of 'D_ |
-| `func_80028A00` | main | 3,340 |  |  | `tools/scratch/nonmatching/T-024/func_80028A00.c` | cfe: Error: /tmp/kig-screen-qbh1czw2/candidate.c, line 181: Syntax Error      T0 |
-| `func_80031A38` | main | 920 |  |  | `tools/scratch/nonmatching/T-026/func_80031A38.c` | cfe: Error: /tmp/kig-screen-dt894m9d/candidate.c, line 12: Syntax Error      T02 |
+| `func_80021B6C` | main | 6,896 |  |  | `tools/scratch/nonmatching/T-032/func_80021B6C.c` | cfe: Error: /tmp/kig-screen-a8kcs3l0/candidate.c, line 230: redeclaration of 'D_ |
+| `func_80028A00` | main | 3,340 |  |  | `tools/scratch/nonmatching/T-024/func_80028A00.c` | cfe: Error: /tmp/kig-screen-8vfubkta/candidate.c, line 181: Syntax Error      T0 |
+| `func_80031A38` | main | 920 |  |  | `tools/scratch/nonmatching/T-026/func_80031A38.c` | cfe: Error: /tmp/kig-screen-s9ky_2_v/candidate.c, line 12: Syntax Error      T02 |
