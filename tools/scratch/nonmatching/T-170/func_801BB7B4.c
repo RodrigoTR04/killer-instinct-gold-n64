@@ -58,7 +58,8 @@ void func_801BB7B4(u8 arg0)
   {
     s32 bits;
     bits = mask;
-    if (((((bits & 1) && (arg0 == 1)) && (D_802C8CE0 & arg0)) && (!(D_802C8D0D & 1))) && (func_8002F6DC(*((s32 *) D_8004A258)) == 0))
+    mask = 0;
+    if (((((bits & 1) && (arg0 == 1)) && (D_802C8CE0 & arg0)) && (!(D_802C8D0D & 1))) && (func_8002F6DC(*((s32 *) D_8004A258)) == mask))
     {
       D_802C8D0D |= 1;
       func_8002F6F4(D_80066C40, D_801F2EB8[D_802C8CB8[mask]].sound, D_8004A258);
