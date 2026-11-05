@@ -174,3 +174,18 @@ at 708 B.
 A `f32 *a = &D_8004A740[palette]` cursor used as `a[palette]` scores 154 but is
 **not** equivalent to `D_8004A740[palette]` (it doubles the index), so it was
 discarded.
+
+### func_801C1990 - what the residual 77 words are
+
+All of it is one register-allocation decision plus branch layout. The target
+copies `stats` from `a0` to `a2` (`or a2, a0, zero`) and keeps the decremented
+player index in `v1`; the draft keeps `stats` in `a0` and the index in `a1`.
+Because of that swap, every `lw t, N(a2)` / `lw t, N(a0)` pair in the two stat
+arms, the `subu`/`and`/`andi` chain and the `sll` of `result` all differ. The
+`a2` copy in the target appears only because the *original* passes the same
+`stats` pointer to `func_801C17D0` twice and keeps using it afterwards - IDO 5.3
+then needs a second base register for the live range. Every spelling tried here
+(`u32 *stats` with no cast at all, `s32 *` with the callee redeclared as `s32 *`
+or `void *`) produces the same 77 with the copy in the other direction. This is
+the register-masked floor: 28 registers-masked instructions, and the count
+cannot go lower without the `a2`/`v1` assignment happening the other way round.
