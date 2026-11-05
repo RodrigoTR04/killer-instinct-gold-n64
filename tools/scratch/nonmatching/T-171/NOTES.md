@@ -5,7 +5,7 @@ Official counts are `screen.measure` on the full owning translation unit.
 ## func_801C1990 (ovl_7DF8, 676 B)
 
 - Before: 104 words (`tools/scratch/nonmatching/T-147/func_801C1990-decl.c`).
-- After: **91 words**, 676/676 B. `tools/scratch/nonmatching/T-171/func_801C1990.c`.
+- After: **89 words**, 676/676 B. `tools/scratch/nonmatching/T-171/func_801C1990.c`.
 
 Lever: a single `s32 value` intermediate holds `(3 - stats[0]) & mask`, and the
 `u8` global and the `s32 pending` local are then filled from it as
@@ -21,3 +21,9 @@ Dead ends so far: `u8 pending` (99–159 words), `u32 value` (91 in one variant)
 `pending = value; D_802D37FC = value;` on two lines (99), writing the store
 first (122), `u8 player` (128+), `character = D_8004EA9B[player]` after the
 decrement (149+), `D_80127C30[player] > value` (91/92).
+
+Further: reading the two stat rows straight out of `stats[]` instead of through
+the `value` local (`if (D_80128328[player][character] < (u32) stats[3])
+D_80128328[player][character] = stats[3];`) takes 91 -> **89**. That is the
+first `lw`/`lbu` scheduling pair in the row updates. Direct reads for all four
+rows at once is 135 words, so only the `player == 0` arm may use them.
