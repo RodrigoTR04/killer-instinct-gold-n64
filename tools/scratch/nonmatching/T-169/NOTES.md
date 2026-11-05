@@ -429,3 +429,45 @@ right slot set); block-scoped far rectangle (155); writing the max back into
 `+= 0xFFFF0000` clamps (134, unchanged); declare-then-assign decode (134);
 parameter walk to read the byte pairs (does not compile cleanly); a
 layout-guided climb (`de5c_climb4.py`) converging at 135.
+
+### CORRECTION: func_8001DE5C honest baseline is 140, not 134
+
+Every earlier DE5C count in this file from "134" onward was produced by a draft
+whose second writer call read
+
+```c
+func_80031DD0(arg1, dx, ((ry - ry) << 16) | dyb);
+```
+
+`ry - ry` is 0, so IDO constant-folds it away and the draft never emits the
+`subu`/`sll` pair the target has. The target really does compute
+
+```
+lw   $v1, 0x30($sp)      ; ry
+lw   $t8, 0x54($sp)      ; by2  (the far rect's y edge, mutated in place)
+subu $t6, $v1, $t8
+sll  $t7, $t6, 16
+or   $a2, $t7, $t9
+```
+
+so the honest source passes `(ry - by2)`. Writing that (with `by2 += dyb`
+mutating the far-rect edge in place, which is what the target's 0x54 slot with
+6 accesses is) gives **140 at 624 B**. The same defect affected the
+"141 at exact 600/600 bytes" claim (`de5c_v14` passed `(maxY - maxY)`); that
+figure is not a real result either. Corrected table for DE5C:
+
+| draft | honest count | bytes |
+|---|---:|---|
+| T-022 baseline | 154 | 624 |
+| flat far-rect locals | 148 | 628 |
+| `(u16) bx` on the min-x edge | 147 | 624 |
+| in-place `by2 += dyb` + `(ry - by2)` | **140** | 624 |
+
+Re-verified: `by2 += dyb;` and `(ry - by2)` are the minimum. `spanY` as an
+alias of the mutated `by2` is neutral (140); folding `x2` into the running max
+is 144; a `y2pre` copy is 143; `bx -= 1` after the clamp is 153.
+
+Lesson for the archive: an expression that constant-folds (`x - x`, `0 * x`,
+`x & 0`) can post a *better* score than the truth because it deletes
+instructions the target has. Any count that improves by an implausible step at
+a call site should be checked with `cmp.py` for the missing arithmetic.
