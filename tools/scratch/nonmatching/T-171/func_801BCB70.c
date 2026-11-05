@@ -26,12 +26,12 @@ void func_801BCB70(T157Gfx **dl, u32 tex, s32 arg2, s32 texW, s32 arg4, s32 step
     u32 pos;
     s32 div;
     u16 bit;
-    u16 run;
     u32 flag;
     f32 x0f;
     s32 uls;
     T157Gfx *g;
     s32 x;
+    u16 run;
 
     g = *dl;
     dx = ((f32) stepX * (f32) scale) / 1024;

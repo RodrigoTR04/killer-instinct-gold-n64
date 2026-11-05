@@ -31,7 +31,7 @@ rows at once is 135 words, so only the `player == 0` arm may use them.
 ## func_801BCB70 (ovl_7DF8, 1,676 B)
 
 - Before: 221 words (`tools/scratch/nonmatching/T-162/func_801BCB70.c`), full TU.
-- After: **221 words**, 1,668/1,676 B. Not improved. No commit of a draft change.
+- After: **220 words**, 1,668/1,676 B. `tools/scratch/nonmatching/T-171/func_801BCB70.c`.
 
 The permuter found a 97-word form, but only by inserting `if (1) { }` before
 `y1c = 480.0f;` inside the 480 clamp. That is an empty statement: it changes
@@ -272,3 +272,16 @@ for the lead to approve.
 Also measured at 700/704: `pp` (both-pointer copy) 158, `ip` with `s32` and the
 `k = part->transform` tail 158. With `u8` the same bodies are 167-168 at the
 exact 704 B.
+
+Second round: 221 -> **220** by moving the `u16 run;` declaration to the end of
+the declaration block (it was declared between `bit` and `flag`). That alone
+flips one instruction; rotating any one declaration to the end of the block
+finds 220, and adjacent-swap search over the 27 declarations finds nothing
+below 220.
+
+Also tried and rejected this round: one clamp as a ternary and the other as an
+`if` (299-314), both as ternaries (299), both as `if/else` pairs (299),
+repositioning the `y1c` clamp next to the E4 command (304-318), the two clamps
+in explicit nested scopes (221), named `s32 a4/b4` locals for the two
+`MAX(trunc(x1c*4),0)` / `MAX(trunc(y1c*4),0)` products (245-341), and binding
+`x1c`/`y1c` to their scaled values before the command (341).
