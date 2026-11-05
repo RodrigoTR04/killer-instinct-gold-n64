@@ -75,7 +75,11 @@ all eight cursors are separate), and `while (p->timer >= 0 && i < 4)` (179).
 ## func_8001346C (main, 704 B)
 
 - Before: 158 words, 680/704 B (`tools/scratch/nonmatching/T-166/func_8001346C.c`).
-- After: **158 words**, 680/704 B. Not improved. No commit of a draft change.
+- After: 158 words, 680/704 B when indexed; **168 words at the exact 704/704 B**
+  with the pointer-loop form below. The pointer-loop draft is kept as
+  `tools/scratch/nonmatching/T-171/func_8001346C-ptrloop.c`; the published best is
+  still the 158-word indexed draft, because 168 > 158 and the official count is
+  what matters.
 
 New finding (not in the T-166 notes): copying the palette rows through four
 block-scoped cursors
