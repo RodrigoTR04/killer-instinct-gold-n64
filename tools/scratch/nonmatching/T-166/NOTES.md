@@ -20,3 +20,16 @@ Dead ends:
 - Call line breaks, a macro, casts, pointer temps, an array, a struct, and swapped declaration order of the three floats do not flip the two stores. A micro-test shows left-to-right stores for plain integer arguments and right-to-left stores for `&local` / pointer arguments, including when those pointers already live in saved registers.
 - Inlining the product, a `u32` multiply, or `/ 26` as a literal leaves the `blez` delay-slot move in place.
 - `cmp.py` counts two padding nops after the function and is not the official score. The nops between `mflo` and `div` are inside the function and already match.
+
+## func_801C17D0
+
+- Before: 102 words, 436/448 bytes (tools/scratch/nonmatching/T-147/func_801C17D0.c).
+- After: 65 words, 448/448 bytes.
+- Lever: keep the character in its own `u8` for the final call and use a separate `s32 index` for the two stat rows. Test the stored `u64` as two words (`hi != 0 || lo != 0`) instead of `*out != 0`.
+
+Dead ends:
+
+- The original still copies `stats` from `a0` to `a2` and the character from `t0` to `v1` before `bnez`, and loads each stat into `a0`. A `u32 *` copy of `stats`, branch-local slot pointers, and a `u8` index do not produce those moves. The `s32 index` does force a copy, but the load lands in `a2` and the frame grows from 64 to 72, so the argument home of `player` moves from sp+68 to sp+76.
+- `register s32 index` still uses a 72-byte frame. Declaration order of the four locals does not change the 69-word intermediate.
+- `return *out != 0` is a xor/or/`sltu` of the two halves. Separate `if (hi) return 1; if (lo) return 1;` is 70 words and 456 bytes. The `||` form is the one that restores 448 bytes. The original is `bnel` with `li v0, 1` in each delay slot, plus an unreachable `li v0, 1`.
+- Full-width `player` was already known to score 110/432.
