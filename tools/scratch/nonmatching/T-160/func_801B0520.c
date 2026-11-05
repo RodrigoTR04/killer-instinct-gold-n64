@@ -1,4 +1,4 @@
-/* T-159 draft: 10 positional words, 328/328 bytes in the full TU. */
+/* T-160 draft: 5 positional words, 328/328 bytes in the full TU. */
 typedef struct { u32 w0, w1; } T025Gfx0520;
 typedef struct { s32 pad; void *list; } T025ListState;
 extern void guTranslate(void *, f32, f32, f32);
