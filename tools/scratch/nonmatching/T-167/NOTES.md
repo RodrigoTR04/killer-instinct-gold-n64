@@ -54,3 +54,7 @@ The last 3 words are one schedule. The `beqz` delay slot is `lui s0, %hi(D_802D3
 - Comparing the two globals without assigning `player` first: 728 bytes, 132 words.
 - `player == D_802D37FD` instead of `D_802D37FD == player`: still 3.
 - Packing two named `s32` halves with `<< 32` calls the 64-bit shift helper. Not used.
+
+## func_801ACB1C — 176 words, 756/744 bytes. Unchanged
+
+Full translation unit, with `DisplayCommand` / `RenderState` prototypes matching `func_801AD3BC` and `func_801AD7D8`. Same 176 / 756 as the declarations draft. `s16 msg = *D_801CD458` and `osRecvMesg(&D_8004A298, ...)` still emit `bnel` and frame 0x68 against the original `beq` / `bne` pair and frame 0x60. The `DisplayCommand` typedef was not moved; doing so would renumber the matched functions below it.
