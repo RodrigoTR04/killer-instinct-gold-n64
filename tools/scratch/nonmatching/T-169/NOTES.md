@@ -171,3 +171,54 @@ store/float/double op drops it to 2x (`andi t6,v1,0x1`). `-O3`, IDO 7.1,
 compiles in `ovl_7DF8_13FF0.c` (the TU sets it from `D_8028326C[selected]` in
 `func_801C224C`); `D_802C9F70` is the TU's `FrontendRenderContext`. 233 words at
 896/936 bytes.
+
+## Round 2 (T-169 continued)
+
+Draft 154 -> **148** for `func_8001DE5C` (`tools/scratch/nonmatching/T-169/func_8001DE5C.c`).
+The lever is the rect reads and the last argument of the second writer call: the
+draft keeps the second rectangle in a `struct b` and passes `ry - spanY`, which
+makes IDO build a fourth stack spill. Reading the far rectangle into flat locals
+and writing the final `(ry - ry)` edge (the original's `y2` is already the
+clamped `ry` at that point) drops three instructions and the 0x70 frame to a
+0x68 one. Frame and `arg2` home now match; the residual 8 bytes are one derived
+edge the target spills twice.
+
+### func_8001D47C: 134 confirmed as the floor for this compiler
+
+- A 900-mutation hill-climb on the *official* metric (statement order,
+  declaration order, `&&` operand order) never beat 134.
+- The grayscale loop shape was fully re-derived: `i != 16; i++` with `src[i]` /
+  `dst[i]` reproduces the target's `addiu v0,v0,8` + `sh -8(v0)` + `lhu -6(a0)`
+  and its 4x unroll exactly, and takes the register-masked diff from 73 to
+  **36** of 187 -- but the official count goes *up* to 171, because the score
+  counts register names and the target keeps source in `a0`/dest in `t0`, which
+  no C spelling of this body reproduces.
+- Pointer-bounded `while (dst != dst_end)` loops keep the 4 stores but cost a
+  fourth live pointer: 197-231.
+
+### func_801B1A7C: the unroll cutoff is a hard compiler rule
+
+Measured directly, same TU flags (`-O2 -mips2`), same loop:
+- zero or one *scaled* (integer-multiply) store in the body: 4x (`andi ...,3`);
+- two scaled stores: 2x (`andi ...,1`), regardless of whether they are the same
+  expression, different fields, packed into one u32 store, or preceded by a
+  `div.s`;
+- three *unscaled* int stores: still 4x. So it is the multiply sites, not the
+  store count or body length.
+
+The target has two `multu` per iteration and is 4x, so its body must have had
+fewer multiply sites than the C equivalent of the asm -- which means the asm's
+second `multu` comes from a source the draft cannot express without a second
+multiply. Every C form of "scale x and y by the same s16" is two `multu`.
+`-O3` for this TU aborts asm-processor ("Wrongly computed size for section
+.text"); IDO 7.1, `-mips1`, `while (n--)`, and hand-written 4x prologues do not
+help.
+
+### func_801C317C
+
+Rewritten from the asm rather than mutated: 226-233 words. The target's frame is
+0x70 with s0-s7+fp+ra and f20/f22/f24; the closest draft is 0x80 with s0-s7+fp+ra
+and f20 only, so two float values the target keeps live across both
+`func_801BD640` calls (the y coordinate and the alpha byte) are not live in any
+honest C form that still compiles: the target reloads `D_802D3834` before each
+call, so the alpha is a freshly loaded global each time, not a kept local.
