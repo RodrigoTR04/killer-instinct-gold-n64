@@ -127,3 +127,32 @@ Cursor subsets measured: `dur+fl` 160, `fl+ay`/`fl+az`/`dur+fl`-equivalents 160,
 163, all eight at once 198. Cursors incremented in the `for` header (178) loses
 the `s16`-stride arithmetic. `p->age[j]` staying on `p` while `duration` uses a
 cursor is the mixed form the target actually has.
+
+## func_801B0668 (ovl_7DF8, 984 B)
+
+- Before: 114 words, 984/984 B (`tools/scratch/nonmatching/T-025/func_801B0668.c`).
+- After: **114 words**, 984/984 B. Not improved. The draft is copied to
+  `tools/scratch/nonmatching/T-171/func_801B0668.c` unchanged.
+
+Register-masked floor is 37 of 246 instructions, so this is not a register-home
+problem: the remaining gap is the addressing mode of the state byte and one
+double spill.
+
+What the target does: it writes `lui $at, %hi(D_801D2FC0)` and then a direct
+`lbu $v1, %lo(D_801D2FC0)($v1)` / `sb $t8, %lo(D_801D2FC0)($at)` at *every*
+access (six of them), and it uses `bc1f`/`nop` rather than `bc1fl`. The draft
+keeps a full `addiu` base in a register and reuses it. The other two deltas:
+`$f2` (the height) spills to `0x40` instead of `0x38`, and `bc1fl` takes the
+`lbu`.
+
+Dead ends (this round, all worse or equal): `extern u8 D_801D2FC0[1]` / `[2]`
+(no compile / no change), a `u8 *statep = &D_801D2FC0` local with `(*statep)`
+at every use (198 words, 964 B - drops 20 bytes), the same pointer with
+`statep[0]` (no compile), `*(volatile u8 *) &D_801D2FC0` at every use (237
+words, 1,012 B - 28 bytes too many, because volatile also defeats the
+`swc1`/`lwc1` of `height`), volatile only on the writes (135), `long state` /
+`int state` (114, and the permuter's best 3,311 score is that same
+`u32`->`long` rename, which changes nothing), a named `f64 angle` for the
+sine/cosine pair (132), two named `f32` sine/cosine locals (132), a named
+`f64 half` (132), no local at all for the state byte (236), and
+`state` local only for the `+1` (135).
