@@ -126,3 +126,48 @@ the `lui %hi(D_802D3834)` / `lw` pairs in both loop headers are.
 Dead ends: the `u8 ***` extern (does not compile -- conflicts with the TU's
 `s32`), the T-147 draft (declarations-only 215, 932 bytes), and the early-return
 form T-164 measured at 232.
+
+## Dead ends added after the first notes commit
+
+### func_801AFFAC
+
+Nothing further needed: it is at 59 and saved.
+
+### func_8001D47C (additional)
+
+The grayscale loop *is* 4-wide in the target but not by IDO's unroller: the loop
+index steps by 8 (`addiu $t0,$t0,0x8`) and each pass does four `lhu`/`sh` pairs,
+i.e. it is hand-written. Reproducing that shape:
+
+- `src[0..3]` / `dst[0..3]` with `i += 8`: 197 words, 872 bytes (target 187 /
+  748) -- the indexed form reloads the base every store.
+- the same with `*src++` / `*dst++` inside an `i += 2` loop: 179 words, 904 B.
+- `dst = (u16 *)0; *dst++ = ...` (the target uses a null-based destination
+  cursor with negative offsets, `sh $t3,-0x8($t0)`) reaches 142 words at 756 B
+  -- the closest of the rewritten forms -- but a fourth live pointer costs a
+  register, so the two `div` guard sequences and the prologue shift.
+- `u32` pixel/level or a named divisor: 162 / 164 (the unsigned form changes the
+  `div` to `divu` and drops a register).
+- `(u16 *)(i & 0xFFFF)`: 164.
+
+### func_8001DE5C (additional)
+
+- Moving the `struct b` declaration to the end or the middle of the scalars does
+  not move the frame (154).
+- Adding an unused `s32` widens the frame to 0x68 and fixes the `arg2` home, but
+  the derived-edge spill block still lands 8 bytes low, and an unused local is
+  not honest C.
+
+### func_801B1A7C (additional)
+
+Confirmed with a standalone probe: `for (i = 0; i <= count; i++)` with *one*
+scaled store unrolls 4x (`andi t6,a1,0x3`); adding any second
+store/float/double op drops it to 2x (`andi t6,v1,0x1`). `-O3`, IDO 7.1,
+`-mips1`, `while (n--)`, pointer walks and `i != count+1` do not restore it.
+
+### func_801C317C (additional)
+
+`extern s32 D_80285574` plus `(u8 **)*(u8 **)&D_80285574` is the only shape that
+compiles in `ovl_7DF8_13FF0.c` (the TU sets it from `D_8028326C[selected]` in
+`func_801C224C`); `D_802C9F70` is the TU's `FrontendRenderContext`. 233 words at
+896/936 bytes.
