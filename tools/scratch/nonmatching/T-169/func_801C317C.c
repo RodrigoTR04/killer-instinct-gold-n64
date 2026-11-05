@@ -31,15 +31,21 @@ s32 func_801C317C(FrontendGfxWords **arg0, s32 arg1, s32 arg2, s32 arg3) {
     table = *(u8 **)&D_80285574;
     if (entry != 0) {
         if (arg3 > 0) {
-            first = (index == 0);
-            y = 0xB4;
+            do {
+                first = (index == 0);
+            } while (0);
+            do {
+                y = 0xB4;
+            } while (0);
             if (D_802D3830 < arg3) {
                 D_802D3830 += 0x1F4;
                 D_802D3834 = -1;
             }
             fade = D_802D3834;
             if ((fade < 0x100) && (fade >= 0)) {
-                fade += 0x10;
+                do {
+                    fade += 0x10;
+                } while (0);
                 if (fade >= 0x100) {
                     fade = 0xFF;
                 }
@@ -47,7 +53,9 @@ s32 func_801C317C(FrontendGfxWords **arg0, s32 arg1, s32 arg2, s32 arg3) {
                 fade -= 0x10;
                 if (fade < -0xFF) {
                     D_80285578 = index + 1;
-                    slots = (u8 **)table + index + 1;
+                    do {
+                        slots = (u8 **)table + index + 1;
+                    } while (0);
                     entry = *slots;
                     fade = 0;
                 }
@@ -55,7 +63,9 @@ s32 func_801C317C(FrontendGfxWords **arg0, s32 arg1, s32 arg2, s32 arg3) {
             if ((entry == 0) || ((fade < 0) && (slots[1] == 0))) {
                 if (entry == 0) {
                     D_80285578 = index - 1;
-                    entry = ((u8 **)table)[index - 1];
+                    do {
+                        entry = ((u8 **)table)[index - 1];
+                    } while (0);
                 }
                 if (fade == 0) {
                     fade = -0xFF;

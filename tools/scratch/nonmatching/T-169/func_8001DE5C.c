@@ -41,7 +41,9 @@ void func_8001DE5C(u8 *arg0, u8 *arg1, u8 arg2) {
     }
     bx -= 1;
     if (y >= 0x8000) {
-        y -= 0x10000;
+        do {
+            y -= 0x10000;
+        } while (0);
     }
     if (by >= 0x8000) {
         by -= 0x10000;
@@ -64,7 +66,9 @@ void func_8001DE5C(u8 *arg0, u8 *arg1, u8 arg2) {
     x2 += dx0;
     y2 += dy;
     spanY = by2 + dyb;
-    rx = x2;
+    do {
+        rx = x2;
+    } while (0);
     ry = y2;
     if (arg1 != 0) {
         if (spanX >= x2) {
@@ -78,7 +82,9 @@ void func_8001DE5C(u8 *arg0, u8 *arg1, u8 arg2) {
     areaH = (ry + 1) & 0xFFFE;
     if ((s32)(areaW * areaH) < 0x8891) {
         sprite = &D_8004CED0[D_8004EA78];
-        sprite->halfWidth = mx;
+        do {
+            sprite->halfWidth = mx;
+        } while (0);
         sprite->halfHeight = my;
         sprite->width = x2;
         sprite->height = ry;
