@@ -4,7 +4,7 @@ extern float sqrtf(float);
 double func_8002E150(double x) {
     s32 hi = *(s32 *)&x;
     s32 exponent = (hi >> 20) & 0x7FF;
-    double z, p, q, a, t, r, u, w;
+    double w, u, r, t, a, q, p, z;
     if (exponent < 0x3FE) {
         if (exponent >= 0x3E3) {
             z = x * x;
