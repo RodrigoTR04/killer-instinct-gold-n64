@@ -258,3 +258,113 @@ Rewriting it that way (separate `if (fade < 0x100) { if (fade >= 0) {...} else
 its best wrap combination is 222 -- so the original nesting is not the missing
 40 bytes either; the remainder is register allocation across the two
 `func_801BD640` calls.
+
+## Round 4 (T-169 continued): func_8001D47C matched, DE5C 134, C317C 211-honest
+
+### func_8001D47C: 134 -> 0 (MATCHED, in src/main/main_D3F0.c)
+
+The missing piece was the **null-based destination cursor**, written honestly:
+
+```c
+u16 *dst = (u16 *) 0;
+```
+
+All three loops store through `dst[i]`. The target's zero-fill and copy loops
+use `sh $t3,-0x8($t0)` where `$t0` is the loop counter starting at 0, i.e. a
+destination pointer whose value is literally 0. Spelling that as a real local
+makes IDO allocate `dst` to `t0`/`a1` exactly as the target does, and the whole
+register-masked diff collapses.
+
+Two other levers came with it:
+
+- **No cached pixel local.** Writing `p = var_v0[i];` and reusing `p` forces a
+  separate live value and costs a register. Repeating `var_v0[i]` in the
+  expression (three times) lets IDO schedule the `lh` like the original.
+- **Grey term order R, B, G.** `((v & 0xF800) >> 11) + ((v & 0x7C0) >> 6) +
+  ((v & 0x3E) >> 1)` emits the `andi`/`sra` pairs in the target's order;
+  G,R,B and every other permutation scored 44-49.
+
+Progression: 134 (T-022/T-168 floor) -> 125 (source/dest cursor locals) ->
+34 (no cached pixel local, R,B,G order) -> **0** (null `dst` cursor).
+T-169 official counts along the way: 125, 49, 34, 15 (permuter, fake
+zero-vars), **0**. ROM sha1 `ba52e91b...491e04` verified after `make clean &&
+make extract && make`.
+
+### func_8001DE5C: 154 -> 134
+
+Best is 134 at 592 B (target 600, frame 0x78 vs 0x68). The two useful levers:
+
+- **Read the far rectangle into flat locals** (not a `struct b`): 154 -> 148.
+- **`(u16) bx` on the min-x subtraction**: `dx = mx - (u16) bx;` -> 134. The
+  target computes `subu` on the *unsigned* 16-bit pair, so the cast is real
+  code, not a hint. Written without the cast the same function is 136.
+
+A separate rewrite from the asm reaches the **exact 600 bytes** (141 words):
+treat `bx2`/`by2` as the running edges (`bx2 += dx; by2 += dyb;`) and pass
+`(ry - by2)` as the second writer's height. Frame 0x48, no callee-saved
+registers, all 150 instructions present -- but the schedule of the eight
+`lbu`/`sll`/`addu` decodes and of the four clamps differs, which is worth 141
+words by itself. Saved as `de5c_v14.c`; the 134-word draft's structure is
+closer in *count*.
+
+Dead ends this round: struct-typed far rectangle in all 24 field orders
+(166 each), `maxX`/`maxY` named edges (141), declaring every derived edge
+(141), reusing `ax1`/`ay1`/`bx1` as the max accumulators (147), all wrap
+combinations on the 141 version (141), permuter (4288 weighted -> 134
+official), removing the permuter's `u16` temp by inlining its assignment
+(136).
+
+### func_801B1A7C: 206, blocked by an IDO unroll cutoff
+
+Confirmed the rule much more precisely this round. The target body has, **per
+copy**: one `div.s`, two `mul.s`, one `add.s`, one `cvt.d.s`, one `mul.d`, two
+`trunc.w.s`, one `trunc.w.d`, two `multu`, and three stores -- in a loop that
+IDO unrolled **4x** (`andi $t6,$v0,0x3` preheader).
+
+Measured on the exact body with the exact flags:
+
+| body contains | preheader |
+|---|---|
+| `div.s` + 2 scaled stores + the `mul.d` z | 2x (`andi ...,1`) |
+| `div.s` + 1 scaled store | 4x |
+| no `div.s` + 2 scaled stores | 4x |
+| `div.s` hoisted out of the loop + 2 scaled stores | 4x |
+| `div.s` on a non-constant divisor (`count2`, a global) | 2x |
+
+So it is the **number of float ops inside the loop**, not the integer multiply
+count (T-165's conclusion) and not the loop shape. Hoisting `ratio` and `scale`
+before the loop is the only way to get 4x, and it changes the function
+(`ratio` and `scale` are per-element in the original only through `amount`,
+which is loop-invariant, so hoisting is semantically safe but changes the
+*bytes*: 216 words at 752 B vs the target's 218 at 872 B -- the target really
+does re-divide inside each unrolled copy).
+
+Dead ends this round: named `radius`/`k=256.0f`/`half` locals in all
+combinations (2x), `f64 amount` local (2x), `s16`/`u32`/`s32` scale spellings
+(2x), `div256` instead of `>> 8` (4x but 194-209 instrs, 10 `multu`),
+`do{...}while(0)` around each store (2x), splitting the guard into three
+separate `if (z >= 6)` blocks (2x, 192 instrs), `-O1` (1x), `-mips1`
+(2x, 209 instrs), IDO 7.1 (2x), every declaration order (2x), permuter
+(11368 weighted, no change), wrapclimb (206, no wraps accepted).
+
+### func_801C317C: 215, register allocation across two `func_801BD640` calls
+
+Promoted the permuter's best to 215 / 900 B. One of its outputs scores 211 but
+contains an **empty `if ((!D_802937BC) && (!D_802937BC)) { }` block**, which is
+not honest source; the two honest parts of that candidate (a named `slots`
+recompute and `x = x + f()` instead of `x += f()`) are each neutral at 215.
+
+Remaining diff is the prologue's callee-saved set (target s0-s7+fp+ra and
+f20/f22/f24 at frame 0x70; draft s0-s7 at 0x80) and the reload of
+`D_802D3834` before each call. Every shape tried this round:
+
+- caching global *addresses* (`s32 *counter = &D_802956F4;` etc.): 220-232
+- `u8 ***table` so `**table` is the entry: 233
+- entry reloaded through the loop condition (`while ((entry = *slots))`): 232
+- `slots = (u8 **) ((u8 *) entry + first * 4)`: 215-216
+- named `next` for the advance-then-store: 215-222
+- `x = x + f()` vs `x += f()`: 215
+- early returns for `entry == 0` / `arg3 <= 0`: 237
+- `do{...}while(0)` on either loop call: 224
+- wrapclimb over 31 statements, 60 iterations: 215, no wraps accepted
+- permuter, two runs (11822 -> 9442 weighted): 211 dishonest, 215 honest
