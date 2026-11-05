@@ -68,8 +68,8 @@ s32 func_800216D4(u8 player, s8 kind, u8 *destination, s32 wanted) {
         scan += size;
     } while (wanted != id && (u32)scan < (u32)end);
     for (i = 0; i < 256; i++) {
-        T172_CACHE[i][player].second = 0;
-        T172_CACHE[i][player].first = 0;
+        do { T172_CACHE[i][player].second = 0; } while (0);
+        do { T172_CACHE[i][player].first = 0; } while (0);
     }
     p = destination;
     while ((u32)(p + 15) < (u32)(destination + size)) {
