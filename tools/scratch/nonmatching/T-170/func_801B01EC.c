@@ -54,7 +54,7 @@ s32 func_801B01EC(T164Gfx01EC **arg0, s32 arg1, u8 *arg2, u32 arg3)
     guTranslate(arg2, D_801D2EB0, D_801D2EB8, D_801D2EB4); guLookAtReflect(lookat, &D_802C8730, 0.0f, 0.0f, 0.0f, D_801D2EB0, 0.0f, 100.0f, 0.0f, 1.0f, 0.0f);
     g = (*arg0)++; g->w0 = 0x03840010;
     g->w1 = (u32) &D_802C8730;
-    g = (*arg0)++; g->w0 = 0x03820010; g->w1 = (u32) &D_802C8740;
+    g = (*arg0)++; do { g->w0 = 0x03820010; } while (0); g->w1 = (u32) &D_802C8740;
     g = (*arg0)++;
     g->w0 = 0x06000000;
     g->w1 = (u32) &D_801D2DF8;
