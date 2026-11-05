@@ -84,8 +84,8 @@ int func_801ACB1C(void (*arg0)(), void (*arg1)(), void (*arg2)()) {
             }
             func_801AD7D8(gfxStart, &gfx, sp48, sp44, (s32 *)&D_802C9F70);
         }
-        D_802C9F70.unk4++;
-        D_80295704 = D_802C9F70.unk4;
+        do { D_802C9F70.unk4++; } while (0);
+        do { D_80295704 = D_802C9F70.unk4; } while (0);
         D_801CD45C--;
         if (D_80282A60 != 0) {
             for (i = 0; i < D_80282A60; i++) {
