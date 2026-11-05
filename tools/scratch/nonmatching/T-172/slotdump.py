@@ -13,7 +13,7 @@ spec.loader.exec_module(cmp)
 
 def dump(function, text, name='cand'):
     with tempfile.TemporaryDirectory(prefix='t172-') as d:
-        draft = Path(d) / f'{name}.c'
+        draft = Path(d) / (name.replace('/', '_') + '.c')
         draft.write_text(text)
         source, tu = cmp.build_source(function, draft)
         o = cmp.compile_source(source, Path(d) / 'c.c')

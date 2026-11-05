@@ -6,8 +6,8 @@ Official counts are `screen.measure` positional words on the owning translation 
 |---|---:|---:|---|---|---|
 | func_801C3AA0 | 108 | **55** | 928 / 928 | yes | `func_801C3AA0.c` |
 | func_800191F0 | 109 | **69** | 492 / 492 | yes | `func_800191F0.c` |
-| func_801ACB1C | 176 | **136** | 744 / 744 | no | `func_801ACB1C.c` |
-| func_8002E150 | 179 | **94** | 844 / 844 | no | `func_8002E150.c` |
+| func_801ACB1C | 176 | **129** | 744 / 744 | no | `func_801ACB1C.c` |
+| func_8002E150 | 179 | **93** | 844 / 844 | no | `func_8002E150.c` |
 | func_800216D4 | 229 | **226** | 1040 / 1032 | no | `func_800216D4.c` |
 
 Two of the five are under 80 (`func_801C3AA0` 55, `func_800191F0` 69). The other three
@@ -49,7 +49,7 @@ Dead ends: a `do { } while (p != D_801D5C30)` pointer walk (75), four pointer lo
 advanced (110-127), `obj++` between blocks (122), array indexing by `i` inside the loop
 (109-115), and every `D_801D5C30` end-pointer form.
 
-## func_801ACB1C: 176 -> 136, 744/744 (commits `edd755f`, `082b7cc`, `fde905d`, `de5abb47`)
+## func_801ACB1C: 176 -> 129, 744/744 (commits `edd755f`, `082b7cc`, `fde905d`, `de5abb47`, `80acfe0f`, `3f0255a7`)
 
 Reconciliation first: the draft's `T034GameState` / `T034Gfx` became the TU's
 `RenderState` / `DisplayCommand`, `D_802C9F70.unk0` is `RenderState.index`, and the
@@ -88,7 +88,45 @@ message (173), `else if` instead of the nested form (173), a local copy of the m
 `&D_8004A414` written inline as `(*&D_8004A414)` (165), and moving `D_8004A414`'s
 increment into the `== 2` arm only (129 at 748 B).
 
-## func_8002E150: 179 -> 94, 844/844 (commits `d5d8af2`, `fde905d`, `4f1c8b97`, `15765276`, `da690c16`, `055fc7bd`, `13b29d68`)
+**New levers (T-172 run 2), 136 -> 129:**
+
+1. Compute `gfx` *before* the `D_80044A24` index store
+   (`gfx = index ? D_80076240 : D_8006F1C0; D_80044A24 = D_802C9F70.index;`) — 136 -> 130.
+   The permuter surfaced the same swap but surrounded by `int new_var` dummies; taken
+   alone it is honest source and worth 6 words.
+2. Declaration order `i, gfxStart, diff, gfx, sp48, sp44, a414, h` as separate
+   declaration statements — 130 -> 129. Found by sweeping 768 combinations of ordering
+   × which locals are block-scoped into the branch (the permuter's other two 129 hits
+   were exactly this: `sp48` moved into the branch, or `sp44` moved last).
+
+Remaining: the `a414` pointer costs one stack slot, so the frame is 0x68 against 0x60
+and every `lw`/`sw` of `gfxStart`/`gfx`/the two outs is offset by 8. The target instead
+materialises `&D_8004A414` into a register *separately in each arm* and does
+`lw 0(reg); addiu -1; sw 0(reg)` — the address is live across the load/store, which a
+plain `D_8004A414--` does not reproduce (IDO fuses the load into `%lo(reg)`).
+
+Dead ends (all measured):
+
+- `extern s32 D_8004A414[1]` with `D_8004A414[0]--`: the TU's own
+  `extern s32 D_8004A414;` in the same file makes every form of the array/struct view
+  a conflicting declaration, including a block-scoped `extern` inside the function.
+  The array type cannot be introduced without editing the shared TU declaration, which
+  would also change the already-matched `func_801ADB20` / `func_801ADBB0`.
+- `register s32 *a414` (136, unchanged — cannot be spilled but IDO still allocates it).
+- pointer scoped inside each arm (169); `s32 *a414 = &D_8004A414;` at the top (135) or
+  just before the branch (135); `u32 *a414` (137); `(*&D_8004A414)` inline (165).
+- all 720 declaration orders of the eight locals (best 135) and all 120 filtered on the
+  exact target slot signature (no hit).
+- the two callback outs as an `s32 outs[2]` array (165), and block-scoping them:
+  a nested block around the `arg0` call + `func_801AD7D8` puts the outs at exactly
+  0x44/0x48 as the target has them, but the block's slots are then allocated *first*,
+  pushing `gfx` to 0x60/0x68 (161 words at a 0x68 frame); combined with gfx-first
+  declarations it reaches 156 at a 0x60 frame but is still worse than 129.
+- `switch` on the message (173), `else if` (173), a local message copy (169),
+  guard-clause early return (does not compile), `D_8004A414 = D_8004A414 - 1` / `-= 1`
+  / `+ -1` read-modify-writes (all 165, same as `--`).
+
+## func_8002E150: 179 -> 93, 844/844 (commits `d5d8af2`, `fde905d`, `4f1c8b97`, `15765276`, `da690c16`, `055fc7bd`, `13b29d68`, `24a9f139`)
 
 This is the `asin` implementation. Levers, in order:
 
@@ -112,28 +150,43 @@ This is the `asin` implementation. Levers, in order:
    99 -> 95. (The permuter's best hit was an empty `if (0) { }` at exactly this boundary;
    the honest form puts the real assignment inside.)
 7. `a = x; if (a < 0.0) a = -x;` (compare `a`, negate `x`) — 95 -> 94.
+8. One declaration statement per local, with `hi`/`exponent` last — 94 -> 93.
+   This also moved the `hi` spill from sp+0x5C to sp+0x1C, which is exactly where the
+   target keeps it.
 
-Remaining 94 words: the target homes the argument at sp+0x60 and the two saved temporaries
-at sp+0x1C (`hi`) and sp+0x30 (`z`); the draft homes them at sp+0x60, sp+0x5C and sp+0x18.
-Frame size now matches exactly and the instruction count matches exactly (212/212), so
-this is purely IDO's temp-slot assignment. Exhaustive searches that did not move it:
+Remaining 93 words: the slot signature is now one diff away. `slotsig.py` reports
 
-- all 40,320 permutations of the eight double declarations, scored by exact sp-slot
-  signature against the original (no hit; the slot set `hi`=0x1C, `z`=0x30 needs an
-  integer temp *below* the frame top that this declaration set cannot produce);
-- all 120 permutations of the five `sqrt`-branch statements × 4 abs shapes × with/without
-  the `p` wrap (480 variants; floor 95, and 94 after lever 7);
-- `do { } while (0)` around each of the 39 statements individually (best 94);
-- three levels of polynomial inlining (locals / inline / fully inlined) — 118 down to 249,
-  never better;
-- a `union { double d; struct { u32 lo, hi; } w; }` bit view instead of `*(s32 *)&x`
-  — 194 at a 0x30 frame;
-- `s32` vs `u32` for `hi` / `exponent` (+3 words), `exponent` computed inline at each test
-  (95), int locals declared before the doubles (95), one declaration per line (103);
-- K&R and `register` parameter forms, a `float` parameter (type error), and removing the
-  `a` local entirely (141 / 171 / 175);
-- `0.5 * (...)` vs `(...) * 0.5` vs `/ 2.0` (all 95 at the time);
-- the decomp-permuter (~15k iterations, `--stack-diffs`) never beat score 1731.
+    TARGET  frame 0x60: 0x14=3 0x1c=2 0x30=2 0x60=9
+    DRAFT   frame 0x60: 0x14=3 0x1c=2 0x20=2 0x60=8
+
+so every `hi`/`ra` slot matches, the frame matches, the instruction count matches
+(212/212), and the only differences are (a) the spill of `z` landing at sp+0x20 instead
+of sp+0x30, and (b) the target re-reading the *argument home* (sp+0x60) once more than
+the draft does — 9 uses vs 8 — which is the `b ...; neg.d` absolute-value skeleton.
+
+Searches that did not move it (all measured, all honest):
+
+- all 40,320 permutations of the eight double declarations as separate statements;
+- **interleaving the `s32 hi;` / `s32 exponent;` statements between individual
+  `double` statements** at every one of the 72 ordered position pairs (this is the only
+  thing that changes slot *assignment* order, and the best result is 93 with `hi` at
+  0x1C — already what we have);
+- declaration grouping (all one line / pairs / triples / singles) — no effect at all,
+  which is why the 40,320-order sweep is equivalent to 5,040;
+- a slot-signature-filtered sweep of the 720 abs-shape × `sqrt`-branch-order combinations
+  (`abs3_150.py`) — no signature match;
+- block-scoping `p`,`q`: this is the most interesting near miss. It puts `z` at exactly
+  the target's *relative* distance below the argument home, but the frame collapses to
+  0x50 and the count rises to 116. Reordering the remaining six function-scope doubles
+  (720 variants) keeps the frame at 0x50 with `z` at 0x30 — right relative offset, frame
+  0x10 too small — and no honest shape that adds a live value at 0x20/0x28 was found.
+- block-scoped *copies* of the polynomial temporaries (`double p2, q2;` inside the
+  branch): 187 words at a 0x68 frame;
+- expression splits of the `u`, `w` and `r` chains into sequential statements on the same
+  locals (99-101), and naming the ratio (`r = z*u*t; r = r/w; r = r+t;`) — slot values
+  do not move at all;
+- `float` intermediates (`f32 ft = sqrtf(...); t = ft;`) — 94;
+- pairwise `do { } while (0)` wraps of all 407 statement pairs — nothing beat 93.
 
 ## func_800216D4: 229 -> 226, 1040/1032 (commits `b8b2199`, `738e3c3`, `cca4cbe6`)
 
