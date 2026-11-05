@@ -192,3 +192,26 @@ then needs a second base register for the live range. Every spelling tried here
 or `void *`) produces the same 77 with the copy in the other direction. This is
 the register-masked floor: 28 registers-masked instructions, and the count
 cannot go lower without the `a2`/`v1` assignment happening the other way round.
+
+## func_801BCB70 - the three missing instructions
+
+164 of the 221 words are a pure 3-instruction positional shift: the draft emits
+417 instructions, the target 420. The gap is a block around the `x1c`/`y1c`
+clamps and the `multu`/`mflo` pair before the F4 command, where the draft does
+not split `sw $t7, 0x94($sp)` from the `mov.s` that follows it. The target also
+keeps the `x1c` clamp in its own block. Honest spellings of that boundary
+(a bare nested scope, `do {} while (0)`, an explicit `else`, `MIN`, `if (y1f >=
+480.0f)`, a shared `if` chain, `uls = (pos != 0) ? pos : 0`, `ult` as a
+three-way ternary, one command per source line, one block-scoped `_q` per
+command) score 221 to 411 and never fill the three instructions. The only form
+the permuter found that does is `if (1) { }` before `y1c = 480.0f;`, which is an
+empty statement and therefore not source that can be kept.
+
+## func_800297A4 - the 160-word/792-byte form
+
+The `s16 *dur` + `u8 *fl` cursors take the count to 160 but the frame grows to
+0x50 (792 bytes vs 780), because `fl` is live across the whole loop. Every
+attempt to keep the exact frame while keeping the cursors is back at 178
+(`s16 *dur` alone 161, `u8 *fl` alone 179, both 160, `age` added 162, `age+dur+fl`
+162, in-loop `fl = p->flags` 179). 792 bytes cannot reach zero, so the
+exact-size 178-word draft is the published best.
