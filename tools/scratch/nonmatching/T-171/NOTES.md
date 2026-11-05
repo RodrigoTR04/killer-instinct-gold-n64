@@ -54,7 +54,7 @@ stream, 242 official because a `b` is missing), swapped `y1c`/`x1c` clamp order
 ## func_800297A4 (main, 780 B)
 
 - Before: 180 words, declarations-only (`tools/scratch/nonmatching/T-024/func_800297A4.c`).
-- After: **178 words**, 780/780 B, full translation unit.
+- After: **160 words**, 792/780 B, full translation unit.
   `tools/scratch/nonmatching/T-171/func_800297A4.c`.
 
 Lever: the slot scan is a do/while-free `while (p->timer >= 0) { i++; if (i >= 4)
@@ -113,3 +113,17 @@ reused the register and skipped the `andi`, and also hoisted the
 (`value = (3 - stats[0]) & mask; pending = D_802D37FC = value;`) plus the local
 reload in the `pending > 0` arm was already right; only the compare operand
 changed.
+
+Second lever, 178 -> **160**: give `duration` (`s16 *dur`) and `flags` (`u8 *fl`)
+their own block-scoped cursors taken from `p` before the loop and indexed by
+`j`, leaving `axisX/Y/Z`, `velocity`, `position` and `age` on `p->`. The target
+addresses those two arrays off separate base registers (`s5` stepping by 2 for
+the halfwords, `s3` by 1 for the bytes) and the array expressions are what make
+IDO derive them. 24 bytes over the original: the draft also reloads `p` for
+`velocity`/`position` instead of keeping the axis base.
+
+Cursor subsets measured: `dur+fl` 160, `fl+ay`/`fl+az`/`dur+fl`-equivalents 160,
+`age+fl` 161, `dur` alone 161, `age` 162, `age+dur+fl` 162, `fl+vel`/`fl+pos`
+163, all eight at once 198. Cursors incremented in the `for` header (178) loses
+the `s16`-stride arithmetic. `p->age[j]` staying on `p` while `duration` uses a
+cursor is the mixed form the target actually has.
