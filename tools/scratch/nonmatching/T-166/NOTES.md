@@ -33,3 +33,30 @@ Dead ends:
 - `register s32 index` still uses a 72-byte frame. Declaration order of the four locals does not change the 69-word intermediate.
 - `return *out != 0` is a xor/or/`sltu` of the two halves. Separate `if (hi) return 1; if (lo) return 1;` is 70 words and 456 bytes. The `||` form is the one that restores 448 bytes. The original is `bnel` with `li v0, 1` in each delay slot, plus an unreachable `li v0, 1`.
 - Full-width `player` was already known to score 110/432.
+
+## func_800191F0
+
+- Before: 109 words, 472/492 (tools/scratch/nonmatching/T-022/func_800191F0.c).
+- After: unchanged. No commit.
+- The original walks `D_801D3430` four objects at a time (stride 0x100, outer step 0x400) and reloads `vx` after storing the same halfword. A 4-wide pointer loop that stores `vx` back to itself before the divide is 106 words at the exact 492 bytes. That store is only there to force the reload, so it is not kept.
+- `obj->` versus `obj[0]`, flipped `==` operands, and a fresh pointer per object do not remove the opening `move v0, v1` or put 200.0f in the early-out delay slot. The first object is still addressed through the copy, and `bnel` compares the constant against the kind.
+
+## func_8001D47C
+
+- Before: 134 words, 744/748 (tools/scratch/nonmatching/T-022/func_8001D47C.c).
+- After: unchanged. No commit.
+- Ignoring register names, that draft differs by about 10 instructions: a `nop` in the `bnez D_8004EA78` delay where the original loads `D_801D3433`, a missing copy of the palette pointer (the quotient stays out of `v0`), and the zero-fill stores rotated so `sh -8` is not in the loop-branch delay.
+- Nested `if (D_8004EA78 == 0) if (D_801D3433)` still leaves the `nop`. Giving the grayscale loop its own cursor and a variable divisor of 3 reaches 748 bytes but scores 162. Writing the four stores out by hand fully unrolls the zero and copy loops (860 bytes).
+
+## func_8001346C
+
+- Before: 166 words, declarations-only (the full TU did not compile).
+- After: 158 words, 680/704, full TU.
+- Lever: `D_8004AC98` / `D_8004ACB0` are the translation unit's `RGB14` arrays, so each row is indexed once. `func_8001BDE0` is declared `u8 **` to match its definition. The second parameter stays `u8` because that is the prototype `func_800131A4` was matched with; changing it to `s32` does not change that caller, but the `s32` body scores 166/676.
+- Moving the `RGB14` typedef above this function changes no other function in `main_2FF0.c` (72 symbols compared).
+
+Dead ends:
+
+- An explicit `palette * 3` byte offset on the `RGB14` arrays compiles to the same 158/680 as `&D_8004AC98[palette]`. The two `* 3` scales are still one.
+- The `u8` parameter is saved and reloaded with `lbu` from its stack home. The original uses `a1` directly and has an 0x58 frame; this draft has a 104-byte frame.
+- Field-by-field copies and a shared `* 3` were already known not to help.
