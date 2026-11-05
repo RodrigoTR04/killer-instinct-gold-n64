@@ -236,3 +236,39 @@ increment-then-break form at 178. None reorders the `slti`/`bnez` to match, and
 | `func_8001346C` | 158 | **157** | + exact-frame 704 B variant (168) |
 | `func_800297A4` | 180 | **178** | + 160-word/792 B form not publishable |
 | `func_801BCB70` | 221 | 221 | 3-instruction block boundary |
+
+## func_8001346C - second round
+
+- Before (this round): 157 words, 684/704 B.
+- New: **156 words, 700/704 B**, 175 emitted instructions against the target's
+  176. `tools/scratch/nonmatching/T-171/func_8001346C-s32.c` (needs the TU
+  prototype reconciled - see below).
+
+Lever: the second parameter is a full `s32`, not `u8`. The target stores it with
+`sw $a1, 0x5C($sp)` and reloads it with `lw $a1, 0x5C($sp)` - a plain word
+spill with no `andi`/`lbu` anywhere - so the source parameter is a word. Both
+call sites in `func_800131A4` pass a value that is already an `s32`-wide
+expression (`((u8 (*)[7])D_8004A688)[i][part]`), and the ABI is identical
+because the caller sign-extends into `a1` either way. With `s32`, the palette
+copy written as indexed sources + pointer destinations
+
+```c
+a = (u8 *) &D_8004AC98[palette];
+b = (u8 *) &D_8004ACB0[palette];
+{ u8 *d1 = D_8004AC8E, *d2 = D_8004AC92;
+  for (i = 0; i != 3; i++) { *d1++ = a[i]; *d2++ = b[i]; } }
+```
+
+gives 700/704 B and 175 instructions (target 176). That is the closest shape
+found so far: one instruction short, and the remaining frame difference is
+0x70 against 0x58.
+
+**To publish this draft the TU prototype on line 83 must become**
+`extern void func_8001346C(T033RenderCommand **, s32, f32);` - the draft is
+otherwise blocked by `prototype ... the type of this parameter is not
+compatible`. That edits the declaration above a matched function, so it is left
+for the lead to approve.
+
+Also measured at 700/704: `pp` (both-pointer copy) 158, `ip` with `s32` and the
+`k = part->transform` tail 158. With `u8` the same bodies are 167-168 at the
+exact 704 B.
