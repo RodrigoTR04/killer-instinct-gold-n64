@@ -75,11 +75,9 @@ all eight cursors are separate), and `while (p->timer >= 0 && i < 4)` (179).
 ## func_8001346C (main, 704 B)
 
 - Before: 158 words, 680/704 B (`tools/scratch/nonmatching/T-166/func_8001346C.c`).
-- After: 158 words, 680/704 B when indexed; **168 words at the exact 704/704 B**
-  with the pointer-loop form below. The pointer-loop draft is kept as
-  `tools/scratch/nonmatching/T-171/func_8001346C-ptrloop.c`; the published best is
-  still the 158-word indexed draft, because 168 > 158 and the official count is
-  what matters.
+- After: **157 words**, 684/704 B, `tools/scratch/nonmatching/T-171/func_8001346C.c`.
+  The exact-704-byte draft is kept separately as `func_8001346C-ptrloop.c`
+  (168 words).
 
 New finding (not in the T-166 notes): copying the palette rows through four
 block-scoped cursors
@@ -156,3 +154,23 @@ words, 1,012 B - 28 bytes too many, because volatile also defeats the
 sine/cosine pair (132), two named `f32` sine/cosine locals (132), a named
 `f64 half` (132), no local at all for the state byte (236), and
 `state` local only for the `+1` (135).
+
+Third lever, 158 -> **157**: give `part->transform` its own block-scoped `s32 k`
+and index all six float arrays with `k`
+
+```c
+{ s32 k = part->transform;
+  func_8001C5AC(arg0, i, part->display, 0, 0, D_8004A740[k], (&D_8004A7A0)[k],
+                D_8004A800[k], D_8004A860[k], D_8004A8C0[k], D_8004A920[k], 0); }
+```
+
+That moves the frame from 680 to 684 bytes (one more spill, toward the
+original's 704). Six scalars pre-loaded into `f32 c0..c5` is 158 at 680 B, and a
+single `f32 *q = &D_8004A740[palette]` base with the six arrays at
+`q[0]/q[0x30]/q[0x60]/q[0xC0]/q[0x120]/q[0x180]` is 158 at 644 B (wrong: the
+arrays are not that dense). Combining the pointer palette copy with `k` is 170
+at 708 B.
+
+A `f32 *a = &D_8004A740[palette]` cursor used as `a[palette]` scores 154 but is
+**not** equivalent to `D_8004A740[palette]` (it doubles the index), so it was
+discarded.

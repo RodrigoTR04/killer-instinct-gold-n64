@@ -53,7 +53,8 @@ void func_8001346C(T033RenderCommand **arg0, u8 arg1, f32 arg2) {
     if (mode == 1 || mode == 2) {
         if (D_8004AC88 == 8 && part == (T033DrawPart *)&D_8004A5D4) D_8004A984 = 1;
         palette = part->transform;
-        func_8001C5AC(arg0, i, part->display, 0, 0, D_8004A740[palette], (&D_8004A7A0)[palette], D_8004A800[palette], D_8004A860[palette], D_8004A8C0[palette], D_8004A920[palette], 0);
+        { s32 k = part->transform;
+          func_8001C5AC(arg0, i, part->display, 0, 0, D_8004A740[k], (&D_8004A7A0)[k], D_8004A800[k], D_8004A860[k], D_8004A8C0[k], D_8004A920[k], 0); }
         D_8004A984 = 0;
     }
     if ((part->flags & 0xF0) >= 16) {
