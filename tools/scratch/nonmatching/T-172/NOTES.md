@@ -151,3 +151,18 @@ Remaining: the eight-byte size excess and the register homes. The target keeps t
 `player` (257 at 1,052 B), `(u8)` casts on both arguments (257), masking `wanted` after
 the bank dispatch instead of before (260), `(u16)wanted` instead of `wanted &= 65535`
 (226, same), and `for(;;){break;}` at the cache-loop boundary (reverted; it cost a word).
+
+Later T-172 attempts on this function (all measured, none better than 226 / 1,040):
+
+- recomputing `T172_LE216(p + 4)` inside the second loop instead of reading `p[4..7]`
+  directly into `p` (227);
+- the second cache loop restructured to `if (entry->first) continue; if (entry->second)
+  continue;` and to nested `if (!entry->first) { if (!entry->second) { ... } }` (226,
+  same — the branch shape is right, the words are in the register homes);
+- a `u8 *palette` local fed from `rom->palette` (226 at 1,036 B — gets the size *under*
+  the target but leaves the palette load in the wrong place);
+- `palette` read from `D_80045E50[bank].palette` instead, `palette` grouped with the other
+  `u8 *` locals, and `palette` declared first in that group (all 226 / 1,036);
+- `rom` assigned only in the `else` arm and reused for the palette read (251 at 1,036),
+  and `rom` declared last / after `entry` / first among the pointers (all 251).
+
