@@ -456,3 +456,38 @@ existing `[0x38E40, .rodata, main_2FF0]` entry at 0x38E94 and giving the second
 half its own tracked `.data.s`. That edit also renumbers the segment manifest,
 and it is a build-system change rather than a draft change, so it is left for
 the lead.
+
+## Round 3: func_800297A4 stack-slot audit and block search
+
+Target's stack slots (from `func_800297A4.s`), all accounted for:
+
+| slot | what | in the draft |
+|---|---|---|
+| 0x18 | `sdc1 $f20` - the fp callee-save pair | yes |
+| 0x20-0x44 | `s0..s7`, `fp`, `ra` saves | yes |
+| 0x54 | `sw $a3` - home of the `life` argument | **no** (draft uses 0x74) |
+| 0x58 | `lw $fp` - `life`, reloaded | **no** |
+| 0x5C | `lw $t7` - `kind`, reloaded | **no** |
+| 0x10-0x4C | the loop-carried floats/ints | partly (draft 0x4C/0x74-0x7C) |
+
+So the target spills the two arguments at 0x54/0x58/0x5C, and the draft spills
+its own temporaries at 0x74-0x7C instead; the 32-byte gap is the draft's
+overflow past the argument homes, not four extra live values. Any change that
+adds a block scope adds another temporary and the frame grows, which is why
+every `do/while` variant that fixes the schedule also breaks the frame.
+
+Round-3 block placements, all measured, none below 148:
+
+- first statement after the `for` header (the `if (j < 4)` chain head) - with
+  the chain closed after the `else` arm: 148-196;
+- the three statements that contain a `func_800326F0()` call (`axisX` arm 1,
+  `velocity`, `position`) singly and in pairs: 148;
+- the scan loop's `i++` and `p++`: 148 (combined with each other and with every
+  header store: 148);
+- `if (i == 4) { ... }` braced instead of bare: 148;
+- 1,793 earlier combinations of up to three body statements: 148 floor.
+
+The doubled-counter / cursor form read out of the disassembly (s2 = angle to
+1080, s4 = 2*j for the `j < 8`/`j < 16` tests, s0/s5/s3 = float/s16/u8
+cursors): 192 at 772 bytes. It is the right *shape* for `addiu 90`/`addiu 1080`
+and loses the size. 148 stands as the best.
