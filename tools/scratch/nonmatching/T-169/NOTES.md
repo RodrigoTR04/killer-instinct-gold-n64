@@ -368,3 +368,64 @@ f20/f22/f24 at frame 0x70; draft s0-s7 at 0x80) and the reload of
 - `do{...}while(0)` on either loop call: 224
 - wrapclimb over 31 statements, 60 iterations: 215, no wraps accepted
 - permuter, two runs (11822 -> 9442 weighted): 211 dishonest, 215 honest
+
+## Round 5: slot/register signatures as the objective
+
+New probes (both in T-169, reusable):
+
+- `slotsig.py FN DRAFT` — frame size + which `sp` slots are touched and how
+  often, for target (splat asm) and draft (compiled the same way as screen.py).
+- `regset.py FN DRAFT...` — frame size + the exact callee-saved integer and
+  float register set. This is what IDO's allocator decides, so it separates
+  "wrong source" from "wrong allocation" much better than the word count.
+
+### func_801C317C: 215 -> 211 (commit 09dc5311)
+
+`regset.py` shows the target is frame 0x70, int `{s0-s7,ra}`, float
+`{f20,f22,f24}`; the 215 draft already had the right frame and integer set but
+only `f20`. The target's three live floats are decodable from the asm:
+`f24 = D_802937B8`, `f22 = D_802937BC`, and `f20 = (f32)(arg2 - 0x5DC)` (both
+calls pass `$f20` at argument slot +0x14). Hoisting two of them as named f32
+locals before the loop (`shade = D_802937B8; depth = (f32)(arg2 - 0x5DC);`)
+gives **211**. Hoisting all three gives the target's exact float set
+`{f20,f22,f24}` but pushes the frame to 0x80 (220-229), so it is a net loss.
+
+Dead ends: three floats at four declaration positions x two load orders (214
+to 229), `s32 matrix = (s32) D_802C9F70.matrices;` (221-224), naming the frame
+counter (228).
+
+### func_801B1A7C: 206 -> 198 (commit 4a7c4b49)
+
+IDO **never** produces this loop's 4x unroll. Probed directly with the compiler
+(not through asm-processor): IDO 5.3 and 7.1 at `-O1` (no unroll), `-O2`, and
+`-O3` all give `andi ...,0x1` (2x) for the real body, and `-Wo,-loopunroll,4`
+and `-Wo,-loopunroll,8` change nothing. So the original source was
+**hand-unrolled** in the target's layout: a `(n & 3)` prefix loop followed by a
+stride-4 loop with four explicit copies. Writing exactly that gives 888 B
+(target 872) and **198**, with the target's own slot map (`0x10`, `0x18`,
+`0x24`, `0x28`, `0x2c`) and its exact float set `{f20,f22}`.
+
+Sub-levers inside the hand-unroll: `i != n` as the main guard (202 -> 198);
+`i < (n & 3)` for the prefix (a `rem` local costs 7).
+
+Remaining: frame 0x30 vs 0x28 — the draft homes `arg0`/`arg1` at 0x28/0x2c
+*and* spills `count` to 0x3c, i.e. three homes where the target has two plus
+one. Typed pointer parameters instead of `void *` reorder them but do not
+shrink the frame; declaration order in all permutations is invariant.
+
+### func_8001DE5C: 134 stands
+
+`slotsig.py` decodes the target exactly: frame 0x68, local slots
+`0x20 = dx`, `0x24 = dx0`, `0x30 = ry`, and the far rectangle **in place** at
+`0x48 = by, 0x4c = bx, 0x50 = bx2, 0x54 = by2` (the target rewrites those four
+locals with the spanned edges, which is why 0x50 and 0x54 have 4 and 6
+accesses), plus `arg2` homed at 0x70. `de5c_v14`/`de5c_v15` already reproduce
+this frame and the four in-place rect slots.
+
+Dead ends this round: 165-candidate declaration-order/inline sweep filtered on
+the exact slot signature (frames 0x64, 0x6c, 0x70, 0x78 - never 0x68 with the
+right slot set); block-scoped far rectangle (155); writing the max back into
+`x`/`y` instead of `mx`/`my` (148); `>= 0x8000u` clamps (135-144);
+`+= 0xFFFF0000` clamps (134, unchanged); declare-then-assign decode (134);
+parameter walk to read the byte pairs (does not compile cleanly); a
+layout-guided climb (`de5c_climb4.py`) converging at 135.
