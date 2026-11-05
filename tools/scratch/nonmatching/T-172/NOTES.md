@@ -186,7 +186,12 @@ Searches that did not move it (all measured, all honest):
   locals (99-101), and naming the ratio (`r = z*u*t; r = r/w; r = r+t;`) — slot values
   do not move at all;
 - `float` intermediates (`f32 ft = sqrtf(...); t = ft;`) — 94;
-- pairwise `do { } while (0)` wraps of all 407 statement pairs — nothing beat 93.
+- pairwise `do { } while (0)` wraps of all 407 statement pairs — nothing beat 93;
+- **source line layout**: joining each branch body (and all three) onto one line, which
+  is what the permuter kept "winning" with, changes the emitted code by exactly zero
+  words here — IDO 5.3 is insensitive to it in this function, so those permuter score
+  improvements are noise, not progress;
+- declaring `z` only after the `sqrtf` call so it is not live across it (148 at 872 B).
 
 ## func_800216D4: 229 -> 226, 1040/1032 (commits `b8b2199`, `738e3c3`, `cca4cbe6`)
 
@@ -207,15 +212,25 @@ the bank dispatch instead of before (260), `(u16)wanted` instead of `wanted &= 6
 
 Later T-172 attempts on this function (all measured, none better than 226 / 1,040):
 
-- recomputing `T172_LE216(p + 4)` inside the second loop instead of reading `p[4..7]`
-  directly into `p` (227);
-- the second cache loop restructured to `if (entry->first) continue; if (entry->second)
-  continue;` and to nested `if (!entry->first) { if (!entry->second) { ... } }` (226,
-  same — the branch shape is right, the words are in the register homes);
-- a `u8 *palette` local fed from `rom->palette` (226 at 1,036 B — gets the size *under*
-  the target but leaves the palette load in the wrong place);
-- `palette` read from `D_80045E50[bank].palette` instead, `palette` grouped with the other
-  `u8 *` locals, and `palette` declared first in that group (all 226 / 1,036);
-- `rom` assigned only in the `else` arm and reused for the palette read (251 at 1,036),
-  and `rom` declared last / after `entry` / first among the pointers (all 251).
+- **the two extra instructions are now identified**: the draft stores `loaded = 0`
+  (`sw zero,96(sp)` + `or fp,zero,zero`) and the target has no such store at all —
+  its `size`/`loaded` slots (sp+0x5C, sp+0x60) are only written on the found path.
+  Dropping the initialiser gives 253 words at 1,036 bytes, i.e. it loses the two
+  instructions but the whole `loaded` register plan moves, so it is not a win;
+- merging `loaded` into `size` (`size += offset; size += size & 7; ... return size - offset;`)
+  — 244 at 1,008 B, frame 0x80;
+- returning from inside the loop with `break` at the found site — 264 at 1,056 B;
+- a separate `done` variable copied from `loaded` in the found branch — 240 at 1,040 B;
+- `u8 *palette` fed from `rom->palette` — 226 at 1,036 B (this is the one-instruction
+  reduction the lead's hint predicted, but it does not move the word count);
+  combined with dropping the `loaded` initialiser — 239 at exactly 1,032 B;
+- `palette` declared first / last / grouped with the other `u8 *` locals — all 226/1,036;
+- separate declaration statements for every local (the lever that helped `func_8002E150`)
+  — 226, unchanged; `bank` moved to the top of the list — 227;
+- recomputing `T172_LE216(p + 4)` inside the second loop instead of caching `size` (227);
+- the second cache loop restructured to `continue` guards and to nested
+  `if (!entry->first) { if (!entry->second) { ... } }` (226, same);
+- `rom` as a single pointer assigned in the `else` arm and reused for the palette read
+  (251 at 1,036), in every declaration position (251);
+- the decomp-permuter (`--stack-diffs`, two runs) never produced a form that beats 226.
 
