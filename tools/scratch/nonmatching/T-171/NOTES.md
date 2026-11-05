@@ -50,3 +50,50 @@ Dead ends recorded: `uls = (pos != 0) ? pos : 0` (already 221, same as if/else),
 the preset-then-assign `uls = 0; if (pos) uls = pos;` (closer instruction
 stream, 242 official because a `b` is missing), swapped `y1c`/`x1c` clamp order
 (321), and every honest block-boundary form above.
+
+## func_800297A4 (main, 780 B)
+
+- Before: 180 words, declarations-only (`tools/scratch/nonmatching/T-024/func_800297A4.c`).
+- After: **178 words**, 780/780 B, full translation unit.
+  `tools/scratch/nonmatching/T-171/func_800297A4.c`.
+
+Lever: the slot scan is a do/while-free `while (p->timer >= 0) { i++; if (i >= 4)
+break; p++; }` (increment then a break test) instead of
+`while (i < 4 && p->timer >= 0)`. The target's `bltzl` + `slti`/`bnez` pair is
+that shape; the `&&` form emits a `beqz` on the combined predicate instead.
+Also worth keeping: the draft is a typed view of the TU's `D_80061D60` with no
+redeclaration, which is what makes it compile in the full unit at 780 bytes.
+
+The register-masked floor is 46, and the remaining official gap is two 32-bit
+float temporaries: the target keeps `(float) (u32) (...)` at 0x300/0x324/0x332
+of the stack and spills the `add.s` schedule differently. Dead ends: the
+two-counter loop (`i += 2`, `j`, `angle`) written as `for (...; angle != 1080; ...)`
+(192-194), `base = angle - 30` as a block-scoped local (179-180), reading fields
+through `D_80061D60[i]` (197-203), per-array cursor pointers (192, and 218 when
+all eight cursors are separate), and `while (p->timer >= 0 && i < 4)` (179).
+
+## func_8001346C (main, 704 B)
+
+- Before: 158 words, 680/704 B (`tools/scratch/nonmatching/T-166/func_8001346C.c`).
+- After: **158 words**, 680/704 B. Not improved. No commit of a draft change.
+
+New finding (not in the T-166 notes): copying the palette rows through four
+block-scoped cursors
+
+```c
+u8 *src = a, *dst = D_8004AC8E;
+u8 *src2 = b, *dst2 = D_8004AC92;
+for (i = 0; i != 3; i++) { *dst++ = *src++; *dst2++ = *src2++; }
+```
+
+gives **exactly 704/704 bytes** and 176 instructions (the target's counts) at
+168 words - the frame is right for the first time. Without the block scope the
+draft is 158 words at 680 B. So the original writes those two rows with
+incremented pointers, not with `D_8004AC8E[i] = a[i]`; the 0x58 frame follows
+from that. The remaining words come from the `u8 arg1` home: the target keeps
+the index in `a1` and reads `sll/subu/sll` straight off it, while this draft
+stores it to `0x7C(sp)` and reloads with `lbu`.
+
+Dead ends: `unroll` (six explicit stores) 149 words / 696 B, which is worse than
+the baseline; `*(D_8004AC8E + i) = *(a + i)` 178 words / 736 B; converting the
+clear loop at the end to an indexed form 182-183 words.
