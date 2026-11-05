@@ -42,8 +42,8 @@ int func_801ACB1C(void (*arg0)(), void (*arg1)(), void (*arg2)()) {
         }
     } else {
         if ((*a414) < 2 && D_801CD45C <= 0) {
-            D_80044A24 = D_802C9F70.index;
             gfx = D_802C9F70.index ? D_80076240 : D_8006F1C0;
+            D_80044A24 = D_802C9F70.index;
             gfxStart = gfx;
             D_801CD45C = D_8029571C;
             func_801AD3BC(&gfx, &D_802C9F70);
