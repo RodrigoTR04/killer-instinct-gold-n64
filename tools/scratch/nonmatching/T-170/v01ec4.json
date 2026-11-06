@@ -1,6 +1,0 @@
-{
- "mask": [["    g->w0 = 0xFB000000;\n    alpha &= 0xFF;\n    g->w1 = (alpha << 24) | (alpha << 16) | (alpha << 8) | 0xFF;",
-           "    g->w0 = 0xFB000000;\n    g->w1 = ((alpha & 0xFF) << 24) | ((alpha & 0xFF) << 16) | ((alpha & 0xFF) << 8) | 0xFF;"]],
- "masku32": [["    g->w0 = 0xFB000000;\n    alpha &= 0xFF;\n    g->w1 = (alpha << 24) | (alpha << 16) | (alpha << 8) | 0xFF;",
-              "    g->w0 = 0xFB000000;\n    g->w1 = ((u32) (alpha & 0xFF) << 24) | ((u32) (alpha & 0xFF) << 16) | ((u32) (alpha & 0xFF) << 8) | 0xFF;"]]
-}
