@@ -9,19 +9,16 @@ count failed to compile standalone (see Error). Use `docs/OPPORTUNITIES.md` for 
 
 | Band (words) | Functions | Original bytes |
 |---|---:|---:|
-| 0–8 | 3 | 1,080 |
+| 0–8 | 0 | 0 |
 | 9–50 | 15 | 5,444 |
 | 51–150 | 24 | 16,064 |
 | >150 | 48 | 123,776 |
 | not measurable | 3 | 11,156 |
 
-93 T2 functions, 157,520 B.
+90 T2 functions, 156,440 B.
 
 | Function | Area | Bytes | Words | Context | Best draft | Error |
 |---|---|---:|---:|---|---|---|
-| `func_801ADA04` | ovl_7DF8 | 208 | 0 |  | `tools/scratch/nonmatching/T-173/func_801ADA04.c` |  |
-| `func_801C2F5C` | ovl_7DF8 | 544 | 3 |  | `tools/scratch/nonmatching/T-160/func_801C2F5C.c` |  |
-| `func_801B0520` | ovl_7DF8 | 328 | 5 |  | `tools/scratch/nonmatching/T-160/func_801B0520.c` |  |
 | `func_80032738` | main | 20 | 10 |  | `tools/scratch/nonmatching/T-026/func_80032738.c` |  |
 | `func_801B1DE4` | ovl_7DF8 | 556 | 13 |  | `tools/scratch/nonmatching/T-025/func_801B1DE4.c` |  |
 | `func_801BAA78` | ovl_7DF8 | 884 | 14 |  | `tools/scratch/nonmatching/T-023/func_801BAA78.c` |  |
@@ -109,6 +106,6 @@ count failed to compile standalone (see Error). Use `docs/OPPORTUNITIES.md` for 
 | `func_8002BBD0` | main | 7,668 | 1843 |  | `tools/scratch/nonmatching/T-024/func_8002BBD0.c` |  |
 | `func_8000FA80` | main | 7,436 | 2014 | declarations | `tools/scratch/nonmatching/T-033/func_8000FA80.c` |  |
 | `func_8001EC74` | main | 8,740 | 2175 | declarations | `tools/scratch/nonmatching/T-022/func_8001EC74.c` |  |
-| `func_80021B6C` | main | 6,896 |  |  | `tools/scratch/nonmatching/T-032/func_80021B6C.c` | cfe: Error: /tmp/kig-screen-mrk7wkle/candidate.c, line 267: redeclaration of 'D_ |
-| `func_80028A00` | main | 3,340 |  |  | `tools/scratch/nonmatching/T-024/func_80028A00.c` | cfe: Error: /tmp/kig-screen-hceno9_j/candidate.c, line 181: Syntax Error      T0 |
-| `func_80031A38` | main | 920 |  |  | `tools/scratch/nonmatching/T-026/func_80031A38.c` | cfe: Error: /tmp/kig-screen-r6el3g09/candidate.c, line 12: Syntax Error      T02 |
+| `func_80021B6C` | main | 6,896 |  |  | `tools/scratch/nonmatching/T-032/func_80021B6C.c` | cfe: Error: /tmp/kig-screen-sclh2sxb/candidate.c, line 267: redeclaration of 'D_ |
+| `func_80028A00` | main | 3,340 |  |  | `tools/scratch/nonmatching/T-024/func_80028A00.c` | cfe: Error: /tmp/kig-screen-rb8ds5h4/candidate.c, line 181: Syntax Error      T0 |
+| `func_80031A38` | main | 920 |  |  | `tools/scratch/nonmatching/T-026/func_80031A38.c` | cfe: Error: /tmp/kig-screen-ig9x1a59/candidate.c, line 12: Syntax Error      T02 |

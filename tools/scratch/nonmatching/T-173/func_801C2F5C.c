@@ -1,6 +1,3 @@
-/* T-160: 3 differing instructions (full-TU comparison), exact 544 B in the full TU. */
-#include "frontend.h"
-
 extern void func_801B695C(FrontendSprite *, s32);
 extern s32 func_801B6A68(FrontendGfxWords **, FrontendSprite *, s32);
 extern void func_801BCB70(FrontendGfxWords **, s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, f32, f32, s32, s32, void *);
@@ -10,50 +7,50 @@ extern u8 D_802D38C8;
 
 void func_801C2F5C(FrontendGfxWords **arg0, s32 arg1, s32 arg2)
 {
-    u8 temp_t1;
-    s32 sp58;
-    s32 temp_a2;
-    s32 var_v0;
-    FrontendSprite *temp_s0;
-    FrontendSpriteLayout *temp_t0;
-    FrontendGfxWords *temp_v0_2;
-    temp_s0 = &D_801F2EA8[D_802D38C8];
-    if (temp_s0->texture != 0)
+    u8 byteVal;
+    s32 savedScale;
+    s32 spriteSheet;
+    s32 stepX;
+    FrontendSprite *sprite;
+    FrontendGfxWords *cmd;
+
+    byteVal = 0xFF;
+    sprite = &D_801F2EA8[D_802D38C8];
+    if (sprite->texture != 0)
     {
-        sp58 = temp_s0->scale;
-        temp_s0->scale = (D_802854D0[D_802D38C8].scale * temp_s0->scale) >> 8;
+        savedScale = sprite->scale;
+        sprite->scale = (D_802854D0[D_802D38C8].scale * sprite->scale) >> 8;
         arg1 += D_802854D0[D_802D38C8].x;
-        func_801B695C(temp_s0, 0);
-        temp_a2 = func_801B6A68(arg0, temp_s0, 0);
-        temp_t0 = &D_802854D0[D_802D38C8];
-        if (temp_t0->flip != 0)
+        func_801B695C(sprite, 0);
+        spriteSheet = func_801B6A68(arg0, sprite, 0);
+        if (D_802854D0[D_802D38C8].flip != 0)
         {
-            var_v0 = -0x10;
+            stepX = -0x10;
         }
         else
         {
-            var_v0 = 0x10;
+            stepX = 0x10;
         }
-        func_801BCB70(arg0, temp_s0->texture, temp_a2, 0xC0, 0x110, var_v0, 0x10, 0, 0, 0xBF, 0x10F, (f32) arg1, (f32) (temp_t0->y + temp_s0->y), (s32) temp_s0->scale, 0xFF, temp_s0->clip);
-        if (temp_s0->draw != 0)
+        func_801BCB70(arg0, sprite->texture, spriteSheet, 0xC0, 0x110, stepX, 0x10, 0, 0, 0xBF, 0x10F, (f32) arg1, (f32) (D_802854D0[D_802D38C8].y + sprite->y), (s32) sprite->scale, byteVal, sprite->clip);
+        if (sprite->draw != 0)
         {
-            temp_v0_2 = *arg0;
-            *arg0 = temp_v0_2 + 1;
-            temp_v0_2->w1 = 0;
-            temp_v0_2->w0 = 0xE7000000;
-            temp_v0_2 = *arg0;
-            *arg0 = temp_v0_2 + 1;
-            temp_v0_2->w0 = 0xB9000002; temp_v0_2->w1 = 1;
-            temp_v0_2 = *arg0;
-            *arg0 = temp_v0_2 + 1;
-            temp_v0_2->w0 = 0xBA001701; temp_v0_2->w1 = 0x800000;
-            temp_t1 = D_802854D0[D_802D38C8].flip;
-            if (temp_t1 != 0)
+            cmd = *arg0;
+            *arg0 = cmd + 1;
+            cmd->w1 = 0;
+            cmd->w0 = 0xE7000000;
+            cmd = *arg0;
+            *arg0 = cmd + 1;
+            cmd->w0 = 0xB9000002; cmd->w1 = 1;
+            cmd = *arg0;
+            *arg0 = cmd + 1;
+            cmd->w0 = 0xBA001701; cmd->w1 = 0x800000;
+            byteVal = D_802854D0[D_802D38C8].flip;
+            if (byteVal != 0)
             {
                 arg1 = 0x26C - arg1;
             }
-            temp_s0->draw(arg0, arg1, D_802854D0[D_802D38C8].y, arg2, temp_s0, (s32) temp_t1);
+            sprite->draw(arg0, arg1, D_802854D0[D_802D38C8].y, arg2, sprite, (s32) byteVal);
         }
-        temp_s0->scale = (u16) sp58;
+        sprite->scale = (u16) savedScale;
     }
 }
