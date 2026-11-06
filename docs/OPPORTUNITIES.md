@@ -413,13 +413,11 @@ Still open, with tried-and-failed lists in the T-160 and T-169..T-172 NOTES:
 - Never score with self-cancelling expressions such as `(ry - ry)`: IDO folds them and
   the word counts are false (func_8001DE5C).
 
-## 28. T-173 round (2 of 4 near-misses matched, 928 B landed)
+## 28. T-173 round (all four near-misses matched)
 
-Matched: `func_801C1434` (720 B) and `func_801ADA04` (208 B); clean build reproduces the baserom.
-Levers: two real locals (`fd`, `player`) assigned on one source line make the compare operand order and
-`lui` schedule match; a `u64` local replaces the u64 temp slot so the extra local does not grow the frame;
-a pointer view of the pending word plus the redundant store `*p = *p` (delayed to the call by uopt) and
-`do { *p = -1; } while (0)` (own basic block, so the constant becomes a v1 web).
-Still open: `func_801B0520` (5 words: store position and web register conflict) and `func_801C2F5C`
-(3 words: first layout pointer v1 vs t0). Tried-and-failed lists and the `cc -S` stream workflow are in
+Matched: `func_801C1434` (720 B), `func_801ADA04` (208 B), `func_801B0520` (328 B), `func_801C2F5C` (544 B);
+clean build reproduces the baserom. Levers: extra real locals (`fd`) plus a `u64` local to keep the frame;
+pointer local to a global (`VideoState *state`, `s32 *frame`) with a `do { def } while (0)` so uopt promotes the
+location (late write-back before calls, constants join the web); a named constant local (`byteVal = 0xFF`)
+that keeps v1 busy so the layout pointer goes to t0. Details and the `cc -S` workflow:
 `tools/scratch/nonmatching/T-173/NOTES.md`.
