@@ -154,7 +154,21 @@ void func_801C1704(u8 player) {
     D_80127C30[player] = 100;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C17D0.s")
+extern u64 func_801BEA74(s32, s32, s32, u8 *, u8 *, s32, s32);
+extern void func_801C1704(u8);
+extern u8 D_8004EA9C[];
+extern s32 D_80127C30[];
+extern u64 D_802D3800[];
+
+s32 func_801C17D0(u32 *stats, u8 player) {
+s32 index = D_8004EA9C[player] ; u64 *out ; if (!player) {
+if (D_80128328[player][index] < stats[3]) D_80128328[player][index] = stats[3] ; if (D_80128310[player][index] < stats[1]) D_80128310[player][index] = stats[1] ;  }
+else {
+if (D_80128328[player][index] < stats[4]) D_80128328[player][index] = stats[4] ; if (D_80128310[player][index] < stats[2]) D_80128310[player][index] = stats[2] ;  } out = &D_802D3800[player] ;
+*out = func_801BEA74(D_8012830A[player], D_80128308[player], D_80127C30[player], D_80128310[player], D_80128328[player], ((s32 *)&D_80128300)[player], D_8004EA9C[player]) ;
+func_801C1704(player) ; if (*out == 0) return 0 ;
+return 1 ;
+ }
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C1990.s")
 
