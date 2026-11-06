@@ -6,8 +6,6 @@ main,func_80032738,0x80032738,20,10,40,full,tools/scratch/nonmatching/T-026/func
 ovl_7DF8,func_801B1DE4,0x801B1DE4,556,13,556,full,tools/scratch/nonmatching/T-025/func_801B1DE4.c,2,
 ovl_7DF8,func_801BAA78,0x801BAA78,884,14,884,full,tools/scratch/nonmatching/T-023/func_801BAA78.c,1,
 main,func_80032750,0x80032750,60,15,44,full,tools/scratch/nonmatching/T-026/func_80032750.c,1,
-ovl_7DF8,func_801BB7B4,0x801BB7B4,940,17,940,full,tools/scratch/nonmatching/T-170/func_801BB7B4.c,66,
-ovl_7DF8,func_801C3AA0,0x801C3AA0,928,18,928,full,tools/scratch/nonmatching/T-160/func_801C3AA0-alpha-alt.c,8,
 main,func_800121C8,0x800121C8,304,19,304,full,tools/scratch/nonmatching/T-159/func_800121C8.c,2,
 main,func_8003278C,0x8003278C,92,26,104,full,tools/scratch/nonmatching/T-026/func_8003278C.c,1,
 ovl_7DF8,func_801B1210,0x801B1210,284,27,284,full,tools/scratch/nonmatching/T-025/func_801B1210.c,1,
@@ -23,7 +21,6 @@ ovl_7DF8,func_801AFFAC,0x801AFFAC,576,59,576,full,tools/scratch/nonmatching/T-16
 main,func_80032504,0x80032504,240,60,68,full,tools/scratch/nonmatching/T-026/func_80032504.c,1,
 ovl_7DF8,func_801BCB70,0x801BCB70,1676,63,1676,full,tools/scratch/nonmatching/T-171/func_801BCB70.c,4,
 ovl_7DF8,func_801C4240,0x801C4240,1344,64,1344,full,tools/scratch/nonmatching/T-149/func_801C4240.c,5,
-ovl_7DF8,func_801C17D0,0x801C17D0,448,65,448,declarations,tools/scratch/nonmatching/T-166/func_801C17D0.c,3,
 main,func_80012390,0x80012390,476,67,468,full,tools/scratch/nonmatching/T-033/func_80012390.c,2,
 main,func_800191F0,0x800191F0,492,69,492,full,tools/scratch/nonmatching/T-172/func_800191F0.c,5,
 main,func_800300DC,0x800300DC,316,69,316,full,tools/scratch/nonmatching/T-026/func_800300DC.c,2,
@@ -92,6 +89,6 @@ ovl_7DF8,func_801B6E4C,0x801B6E4C,5712,1417,5652,declarations,tools/scratch/nonm
 main,func_8002BBD0,0x8002BBD0,7668,1843,7692,full,tools/scratch/nonmatching/T-024/func_8002BBD0.c,1,
 main,func_8000FA80,0x8000FA80,7436,2014,8148,declarations,tools/scratch/nonmatching/T-033/func_8000FA80.c,1,
 main,func_8001EC74,0x8001EC74,8740,2175,8476,declarations,tools/scratch/nonmatching/T-022/func_8001EC74.c,1,
-main,func_80021B6C,0x80021B6C,6896,,,full,tools/scratch/nonmatching/T-032/func_80021B6C.c,1,"cfe: Error: /tmp/kig-screen-dd_dcufj/candidate.c, line 267: redeclaration of 'D_"
-main,func_80028A00,0x80028A00,3340,,,full,tools/scratch/nonmatching/T-024/func_80028A00.c,1,"cfe: Error: /tmp/kig-screen-81q33_t0/candidate.c, line 181: Syntax Error      T0"
-main,func_80031A38,0x80031A38,920,,,full,tools/scratch/nonmatching/T-026/func_80031A38.c,1,"cfe: Error: /tmp/kig-screen-6p9qqm3m/candidate.c, line 12: Syntax Error      T02"
+main,func_80021B6C,0x80021B6C,6896,,,full,tools/scratch/nonmatching/T-032/func_80021B6C.c,1,"cfe: Error: /tmp/kig-screen-mrk7wkle/candidate.c, line 267: redeclaration of 'D_"
+main,func_80028A00,0x80028A00,3340,,,full,tools/scratch/nonmatching/T-024/func_80028A00.c,1,"cfe: Error: /tmp/kig-screen-hceno9_j/candidate.c, line 181: Syntax Error      T0"
+main,func_80031A38,0x80031A38,920,,,full,tools/scratch/nonmatching/T-026/func_80031A38.c,1,"cfe: Error: /tmp/kig-screen-r6el3g09/candidate.c, line 12: Syntax Error      T02"

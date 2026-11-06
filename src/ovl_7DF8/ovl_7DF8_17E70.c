@@ -41,7 +41,19 @@ void func_801C3990(T030Vertex *arg0) {
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_17E70/func_801C3AA0.s")
+extern f32 sinf(f32), cosf(f32);
+extern s32 guRandom(void);
+
+/* Keep the loop source grouped: IDO schedules the particle writes using line boundaries. */
+void func_801C3AA0(f32 x, f32 y, f32 z, f32 width, f32 angle) { f32 saved_x = x ; f32 radians, sine, count, remaining, offset ; s32 index, i, random, absRandom, px, py, pz, intWidth ; if (D_802D38F8 != 256) { radians = angle * 0.0174532925199432955 ; sine = sinf(radians) ; x = cosf(radians) ; count = (256.0f-D_802D38F8)*(width/D_802D38F4) ; remaining = 256 - D_802D38F8 ; if (remaining < count) count = remaining ; if ((f64)(count/width) > 0.5) count = (f64)width * 0.5 ;
+i = 0 ; index = D_802D38FC + D_802D38F8 ; intWidth = width ; pz = z ; for (; (f32)i < count; i++, index++) { index &= 255; random = (f32)(guRandom() % (intWidth*2)) - width ; absRandom = random ; offset = random ; px = saved_x-offset*sine ; py = offset*x+y ; D_802D3940[index * 3 + 0].x = px-30 ; D_802D3940[index * 3 + 0].y = py ; D_802D3940[index * 3 + 0].z = pz ;
+D_802D3940[index * 3 + 0].a = 255 ; if (random < 0) absRandom = -random ; absRandom = (absRandom*8)/intWidth ;
+D_802D3940[index * 3 + 1].a = absRandom ; D_802D3940[index * 3 + 1].x = px+30 ;
+D_802D3940[index * 3 + 1].y = py ;
+D_802D3940[index * 3 + 1].z = pz ; D_802D3940[index * 3 + 2].x = px ; D_802D3940[index * 3 + 2].y = py-30 ;
+D_802D3940[index * 3 + 2].z = pz ; D_802D3940[index * 3 + 1].r = guRandom()%3 ; D_802D3940[index * 3 + 1].g = guRandom()%5-1 ; }
+D_802D38F8 += i ; D_802D38F0 += width ;  }
+ }
 
 void func_801C3E40(T030Command **arg0) {
     s32 count, index;
