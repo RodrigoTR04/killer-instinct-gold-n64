@@ -139,7 +139,64 @@ void func_801C11F0(s32 list, s32 unused, s32 side, s32 player) {
     D_802956F4 += func_801BE540((FrontendGfxWords **)list, (void *)((D_802956F4 << 6) + D_802CA068), (u8 *)digit, x, 0.0f, -500.0f, (u8)shade, (u8)shade, (u8)shade, 255, D_80292CF0);
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C1434.s")
+extern void func_801C0610(s32);
+extern void func_801C08F8(s32, s32, u8, s32, u64, s32);
+extern void func_801C11F0(s32, s32, s32, s32);
+extern void func_801C1C34(s32, s32, s32, s32);
+extern u8 D_8004A404, D_8004A407, D_8004EA9B[], D_8004EA9C[], D_8004EA9D[];
+extern u8 D_802D37FC, D_802D37FD, D_802D3810;
+extern u64 D_802D3800[];
+
+void func_801C1434(s32 list, s32 matrix, s32 state) {
+    s32 player;
+    u64 value;
+    s32 fd;
+
+    func_801C0610(list);
+    if (D_8004A407) {
+        if (D_802D37FD) {
+            func_801C1C34(list, matrix, state, 0);
+            return;
+        }
+        player = D_802D37FC;
+        if (!(D_802D3810 & player) && (player > 0)) {
+            func_801C08F8(list, matrix, D_8004EA9B[player], 0, ((u64 *) &D_802D37F8)[player], player - 1);
+            return;
+        }
+        if (player == 0) {
+            func_801C11F0(list, matrix, 0, player);
+            return;
+        }
+        func_801C11F0(list, matrix, 0, player - 1);
+        return;
+    }
+    fd = D_802D37FD; player = D_802D37FC;
+    if ((fd == player) && (fd == 0)) {
+        if (!(D_802D3810 & 1)) {
+            value = D_802D3800[0];
+            if (value) {
+                func_801C08F8(list, matrix, D_8004EA9C[0], -1, value, 0);
+            }
+        } else if (D_8004A404 != 2) {
+            func_801C11F0(list, matrix, -1, 0);
+        }
+        if (!(D_802D3810 & 2)) {
+            value = D_802D3800[1];
+            if (value) {
+                func_801C08F8(list, matrix, D_8004EA9D[0], 1, value, 1);
+            }
+        } else if (D_8004A404 != 2) {
+            func_801C11F0(list, matrix, 1, 1);
+        }
+    } else {
+        if (!(D_802D3810 & player)) {
+            func_801C08F8(list, matrix, D_8004EA9B[player], player * 2 - 3, ((u64 *) &D_802D37F8)[player], player - 1);
+        } else {
+            func_801C11F0(list, matrix, player * 2 - 3, player - 1);
+        }
+        func_801C1C34(list, matrix, state, 3 - D_802D37FC * 2);
+    }
+}
 
 void func_801C1704(u8 player) {
     s32 i;
@@ -154,7 +211,20 @@ void func_801C1704(u8 player) {
     D_80127C30[player] = 100;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C17D0.s")
+extern u64 func_801BEA74(s32, s32, s32, u8 *, u8 *, s32, s32);
+extern void func_801C1704(u8);
+extern s32 D_80127C30[];
+extern u64 D_802D3800[];
+
+s32 func_801C17D0(u32 *stats, u8 player) {
+s32 index = D_8004EA9C[player] ; u64 *out ; if (!player) {
+if (D_80128328[player][index] < stats[3]) D_80128328[player][index] = stats[3] ; if (D_80128310[player][index] < stats[1]) D_80128310[player][index] = stats[1] ;  }
+else {
+if (D_80128328[player][index] < stats[4]) D_80128328[player][index] = stats[4] ; if (D_80128310[player][index] < stats[2]) D_80128310[player][index] = stats[2] ;  } out = &D_802D3800[player] ;
+*out = func_801BEA74(D_8012830A[player], D_80128308[player], D_80127C30[player], D_80128310[player], D_80128328[player], ((s32 *)&D_80128300)[player], D_8004EA9C[player]) ;
+func_801C1704(player) ; if (*out == 0) return 0 ;
+return 1 ;
+ }
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C1990.s")
 
@@ -331,7 +401,62 @@ void func_801C2D34(FrontendGfx **arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)
 }
 
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C2F5C.s")
+extern void func_801B695C(FrontendSprite *, s32);
+extern s32 func_801B6A68(FrontendGfxWords **, FrontendSprite *, s32);
+extern void func_801BCB70(FrontendGfxWords **, s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, f32, f32, s32, s32, void *);
+extern FrontendSprite D_801F2EA8[];
+extern FrontendSpriteLayout D_802854D0[];
+extern u8 D_802D38C8;
+
+void func_801C2F5C(FrontendGfxWords **arg0, s32 arg1, s32 arg2)
+{
+    u8 byteVal;
+    s32 savedScale;
+    s32 spriteSheet;
+    s32 stepX;
+    FrontendSprite *sprite;
+    FrontendGfxWords *cmd;
+
+    byteVal = 0xFF;
+    sprite = &D_801F2EA8[D_802D38C8];
+    if (sprite->texture != 0)
+    {
+        savedScale = sprite->scale;
+        sprite->scale = (D_802854D0[D_802D38C8].scale * sprite->scale) >> 8;
+        arg1 += D_802854D0[D_802D38C8].x;
+        func_801B695C(sprite, 0);
+        spriteSheet = func_801B6A68(arg0, sprite, 0);
+        if (D_802854D0[D_802D38C8].flip != 0)
+        {
+            stepX = -0x10;
+        }
+        else
+        {
+            stepX = 0x10;
+        }
+        func_801BCB70(arg0, sprite->texture, spriteSheet, 0xC0, 0x110, stepX, 0x10, 0, 0, 0xBF, 0x10F, (f32) arg1, (f32) (D_802854D0[D_802D38C8].y + sprite->y), (s32) sprite->scale, byteVal, sprite->clip);
+        if (sprite->draw != 0)
+        {
+            cmd = *arg0;
+            *arg0 = cmd + 1;
+            cmd->w1 = 0;
+            cmd->w0 = 0xE7000000;
+            cmd = *arg0;
+            *arg0 = cmd + 1;
+            cmd->w0 = 0xB9000002; cmd->w1 = 1;
+            cmd = *arg0;
+            *arg0 = cmd + 1;
+            cmd->w0 = 0xBA001701; cmd->w1 = 0x800000;
+            byteVal = D_802854D0[D_802D38C8].flip;
+            if (byteVal != 0)
+            {
+                arg1 = 0x26C - arg1;
+            }
+            sprite->draw(arg0, arg1, D_802854D0[D_802D38C8].y, arg2, sprite, (s32) byteVal);
+        }
+        sprite->scale = (u16) savedScale;
+    }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C317C.s")
 
@@ -408,4 +533,39 @@ void func_801C35D8(FrontendGfxWords **arg0, FrontendCloud *arg1, s32 arg2, s32 a
 }
 
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_13FF0/func_801C3758.s")
+#include "frontend.h"
+
+extern s32 D_80290D88;
+extern s16 D_80290D8C[][6];
+#define T105Vertices ((FrontendVertex *)D_802D38E0)
+
+void func_801C3758(arg0,arg1,arg2)
+FrontendGfxWords **arg0; FrontendCloud *arg1; s8 arg2;
+{
+    u8 frame;
+    FrontendGfxWords *dl;
+    frame = arg1->animation + 12;
+    if (frame >= 64) frame = 0;
+    arg1->animation = frame;
+    T105Vertices[D_80290D88].x = arg1->x - arg2;
+    T105Vertices[D_80290D88+1].x = arg1->x + arg2;
+    T105Vertices[D_80290D88+2].x = arg1->x;
+    T105Vertices[D_80290D88].y = arg1->y - arg2;
+    T105Vertices[D_80290D88+1].y = arg1->y - arg2;
+    T105Vertices[D_80290D88+2].y = arg1->y + arg2;
+    T105Vertices[D_80290D88].z = arg1->z;
+    T105Vertices[D_80290D88+1].z = arg1->z;
+    T105Vertices[D_80290D88+2].z = arg1->z;
+    T105Vertices[D_80290D88].s = D_80290D8C[frame >> 3][0];
+    T105Vertices[D_80290D88].t = D_80290D8C[frame >> 3][1];
+    T105Vertices[D_80290D88+1].s = D_80290D8C[frame >> 3][2];
+    T105Vertices[D_80290D88+1].t = D_80290D8C[frame >> 3][3];
+    T105Vertices[D_80290D88+2].s = D_80290D8C[frame >> 3][4];
+    T105Vertices[D_80290D88+2].t = D_80290D8C[frame >> 3][5];
+    dl = (*arg0)++;
+    dl->w0 = 0x04200030;
+    dl->w1 = (u32)(D_802D38E0 + (D_80290D88 << 4));
+    dl = (*arg0)++;
+    dl->w0 = 0xBF000000; dl->w1 = 0xA14;
+    D_80290D88 += 3;
+}

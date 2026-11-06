@@ -1,9 +1,0 @@
-{
-  "label": "clean-integration",
-  "words": 0,
-  "bytes": 256,
-  "offsets": [],
-  "instructions": [],
-  "accepted_integration": false,
-  "reason": "Instruction body zero only; clean linked build expands asm-owned rodata by 0x90. Production integration reverted."
-}

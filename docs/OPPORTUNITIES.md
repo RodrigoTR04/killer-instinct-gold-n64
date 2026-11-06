@@ -45,7 +45,7 @@ These are the combinations I would hand out next. None is guaranteed: every func
 |---|---|---:|---|
 | **A: main near-misses** | `func_80017378` (1,752, 6), `func_8001BDE0` (316, 8), `func_8002A900` (220, 15), `func_8002FB80` (544, 20) | 3,640 | `193DC` matched in T-148. `17378` alone is 0.60%. |
 | **B: ovl_7DF8 ≤7-word sweep** | `func_801C8004` (236, 6), `func_801B5534` (168, 2), `func_801BF720` (104, 2), `func_801BF914` (116, 2), `func_801C4E38` (556, 2), `func_801B695C` (268, 4), `func_801C224C` (372, 6),  | 2,504 | Eight functions, all within 8 words and exact size. `801BF720`/`801BF914` first need the declaration conflict in `ovl_7DF8_12C70.c` reconciled (true score unknown). `224C`, `BD270`, `BE540` were not touched by any worker this round. |
-| **C: carousel pair** | `func_801B5DCC` (1,884), `func_801B5650` (1,916) | 3,800 | One recipe, two functions (similarity 0.885). **Latest (T-145): `5DCC` 11 words exact size, `5650` 30 words and 4 B oversize (T-141 had 15/31).** Remaining diffs: selected record pointer in `v1` vs `v0`; `-10.0f` and height-conversion FP temporaries swapped; card-pointer load scheduled after the height store; in `5650` an extra late unconditional branch from the `if (state != 5) {…} return result; return 0;` shape. Tried and failed: recompute record at final store (285 words), defer `-10.0f` into the state paths (1,928 B), early return of state 5 (99 words), narrowed index, field-offset pointer, local-region permuter with `--stack-diffs`. 1.31% on its own; needs a new idea for the record-pointer lifetime. |
+| **C: carousel pair** | `func_801B5DCC` (1,884), `func_801B5650` (1,916) | 3,800 | **MATCHED (T-158).** The drafts' `index` local plus per-path `record = &D_802C8C30[arg1->index]` was the whole problem: read `arg1->index` / `D_802C8C30[arg1->index].right` at every use, `z = -10.0f` before the height load, rotation store as `*(f32 *)((u8 *)D_802C8C60 + arg1->index * 8)`, early `if (state == 5) return 0;`, `D_802C8C28` as `u8[]`. Notes in `tools/scratch/nonmatching/T-158/NOTES.md`. |
 | **D: 9–50-word band** | 28 functions, 7,084 B (§3) | 7,084 | The best bytes-per-effort pool once A–C are drained. |
 
 If T-138's claimed matches are accepted (§8), several rows above disappear. Refresh the tables after vetting.
@@ -72,7 +72,7 @@ If T-138's claimed matches are accepted (§8), several rows above disappear. Ref
 | `func_801C3758` | 564 | 30 | 12 | ovl >BBE88 |  |
 | `func_80031050` | 112 | 30 (declarations) [emits 120] | 3 | main >21B6C | Handwritten-ABI cluster (§5). |
 | `func_80032600` | 112 | 37 [emits 148] | 3 | main >21B6C |  |
-| `func_801BBB60` | 292 | 40 | 12 | ovl ≤BBE88 | T-138 reports 29 (for-loop palette clears, split flag/buffer init). Unvetted. |
+| `func_801BBB60` | 292 | 40 | 12 | ovl ≤BBE88 | **MATCHED (T-158).** Ramps are the SDK `GPACK_RGBA5551(r,g,b,a)` macro with 8-bit components (`(i-8)<<3`; `248,(i-40)<<3`; `248,248,(i-72)<<2`): the macro's dead mask/shift pairs explain every skipped temporary. The last 4 words (loop increment one slot late) closed only by putting the `for` body on its own source line (`for (...; i++)` newline `*palette++ = ...;`): line numbers change as1's scheduling. |
 | `func_80032670` | 116 | 45 [emits 180] | 3 | main >21B6C |  |
 | `func_800121C8` | 304 | 46 | 9 | main ≤21B6C | T-136: packed-input snapshot 47→46. |
 | `func_801C2F5C` | 544 | 44 | 7 | ovl >BBE88 | T-139 reports 44 (readable statement split). |
@@ -346,3 +346,78 @@ Improved, unmatched: `func_801BDA6C` 1,320 B (frame 216 and s-registers right; 1
 
 ## 26. T-157 round (large ovl drafts, SHORT: 0 B, vetted 2026-11-03)
 No match, `src/` untouched. `func_801BCB70` (1,676 B): best `w/mc10.c`, 418 vs 419 instructions, frame 0x138 correct, 13 reg-masked / 64 exact lines; left: the target has a `b` after the `uls` branch and every else-arm or ternary form that adds it promotes `i` into a register (target keeps it in memory), first-block filler `add.s` vs `lw`, `rows` slot 0x94 vs 0x98. Drafts `fx_91`/`fx_92` reached the layout only via a redundant duplicate clamp: rejected. It cannot clear the quota alone (needs ~354 B more). `func_801BC1B0` (2,496 B, enough alone): best `bc/z1_p31_sw.c`, 620 vs 624 instructions, frame 0x1A0 correct, 178 reg-masked / 445 exact lines (pscore ~16.2k; permuter plateaued too); saved-register roles identical. Left: in the target the `y1f`, `y1`, `yl`, `fy` and T-coordinate float work comes before the `uls` branch; temp naming, spill slots, `i` at 0x194 in memory. Facts to reuse: the three-way format dispatch is `switch (fmt) { case 2; case 0; default }` (nested if/else loses the displaced default body); `texW`, `texH`, `top`, `cellW`, `left`, `bottom`, `right` are `u32` (`srl`, `sltu`, unsigned-to-float fixups); parameter order `dl, tex, fmt, texW, texH, stepX, cellW, top, left, bottom, right, fx, fy0, scale, flip` and callers always pass `fmt = 2` (callers' externs would need updating or `(u32)` casts); an `f32` snapshot of the old `fy` reproduces the deferred `mfc1` on `yl` and the T coordinate. Construct risk if it lands: `f32` snapshot, line joins, `uls = 0; if (pos != 0)` preset, declaration order, `tCo`/`sCo`/`mnX`/`mnY` locals. `func_801BFCBC` (2,388 B) parked: needs `volatile` byte read-modify-write and frame 104 vs 96. Untouched, each >= 2,296 B: `801ABB20`, `801C08F8`, `801CAA00`, `801C9B14`, `801B47A4`, `801C5298`, `801ADEA0`, `801B6E4C`, `801B849C`. Tools (mset, edit, sd, lay, sregs, homeclimb, sweep, gen6, runners) and NOTES.md in `tools/scratch/nonmatching/T-157/`; 4 MB of variant drafts not merged.
+
+### Follow-up: requested seven near-matches (no T4)
+
+Full-TU experiments in `t3/match-drafted-functions` found no new match. The retained drafts and
+positional counts in `docs/t2_drafts.md` remain the best known; the instruction-aligned scores used
+for screening variants are not positional counts.
+
+- `func_80014D5C`: changing the two three-byte colour cursors to RGB structs, varying their
+  initialization/line layout, and grouping or permuting the division-branch zero stores did not
+  remove the differences. A typed-colour variant remains 13 positional words, 1,780 B.
+- `func_801ADA04`: direct comparison and compound assignment forms remove the temporary comparison
+  web but shift the mode and pending registers; none matched the target's register assignment.
+- `func_801B1DE4`: old-frame snapshots, post-increment, and argument reuse generally emit 552 B
+  rather than 556 B; the original draft retains the correct size with the wrong opening sequence.
+- `func_801BAA78`: varying arithmetic spelling, counter access, typed display-list argument, and
+  sharing command pointers across the four emissions did not improve the 14-word draft. Multiple
+  command-pointer locals can enlarge the stack frame.
+- `func_8002FB80`: changing the texture-case input/store order and line layout did not reconcile
+  the address byte shifts with the load and store sequence.
+- `func_801B0520`: parameter reuse, direct global access and display-list cursor forms did not
+  improve the 22-word positional draft.
+- `func_800121C8`: byte-sized mode and alternate boolean expressions produce an additional
+  instruction; a tested variant is 308 B and 63 positional words. Struct views of the four adjacent
+  input/output fields changed the instruction count and did not match.
+
+### T-159 second round
+
+Matched `func_80014D5C` (1,780 B): declaring its two three-byte colour tables as
+RGB struct arrays and indexing both with the loop index makes IDO generate the
+original three pointer cursors. It also restores the address setup and the
+zero-store placement around the divide checks. Full-TU positional count 0;
+linked main image and ROM match.
+
+Matched `func_8002FB80` (544 B): byte masks on the serialized address, a
+byte-sized texture index, and texture-command reads before output stores give
+the original instructions. Full-TU positional count 0; linked main and ROM match.
+
+Unmatched improvements: `func_801B0520` is 10 positional words (was 22), and
+`func_800121C8` is 19 (was 22), both exact size. Drafts and details are in
+`tools/scratch/nonmatching/T-159/`. The other requested drafts remain at 14
+(`801ADA04`), 13 (`801B1DE4`), and 14 (`801BAA78`) positional words. Typed views, direct accesses, sibling control flow, display-list pointer
+reuse, source-line changes and honest-only permuter runs are documented there.
+
+## 27. T-159/T-160 Terra round (2,004 B landed, vetted 2026-11-06)
+
+Matched: `func_801C3758` (564 B), `func_8002FDA0` (572 B), `func_801B465C` (328 B),
+`func_8001272C` (540 B). The last one closed with a counted loop over a typed
+object array (`T033EffectObject D_801D3430[]`), letting IDO derive the pointer
+traversal and call scheduling. Clean build reproduces the baserom.
+
+Still open, with tried-and-failed lists in the T-160 and T-169..T-172 NOTES:
+- `func_801C2F5C` and `func_801C1434`: 3 words each. Pointer grouping,
+  declaration order, direct field reads, control-flow variants and honest-weight
+  permuter runs did not close them.
+- `func_801B0520` and `func_801ADA04`: 5 words each.
+- Over 80 words after the Grok/DeepSeek rounds: `func_801B01EC` 115, `func_801ACB1C` 129,
+  `func_8002E150` 93, `func_801B1A7C` 198 (original was hand-unrolled 4x; IDO can't
+  produce it), `func_801C317C` 211, `func_8001DE5C` 140, `func_8001346C` 156 (needs the
+  rodata constants `D_800487F4..D_80048804` placed at their original offsets, i.e. a
+  `kig.main.us.yaml` segment split at 0x38E94), `func_800297A4` 148, `func_800216D4` 226,
+  `func_801B0668` 114, `func_801B0CDC` 155 (original has dead stack 0x60-0x94; an unread
+  local would give 141 but is banned), `func_801C23C0` 181.
+- Not reachable from C with `-mips2`: `func_80032360` (MIPS III `dsll32`/`sdl`/`sd` fill),
+  `func_80032738` (handwritten ABI).
+- Never score with self-cancelling expressions such as `(ry - ry)`: IDO folds them and
+  the word counts are false (func_8001DE5C).
+
+## 28. T-173 round (all four near-misses matched)
+
+Matched: `func_801C1434` (720 B), `func_801ADA04` (208 B), `func_801B0520` (328 B), `func_801C2F5C` (544 B);
+clean build reproduces the baserom. Levers: extra real locals (`fd`) plus a `u64` local to keep the frame;
+pointer local to a global (`VideoState *state`, `s32 *frame`) with a `do { def } while (0)` so uopt promotes the
+location (late write-back before calls, constants join the web); a named constant local (`byteVal = 0xFF`)
+that keeps v1 busy so the layout pointer goes to t0. Details and the `cc -S` workflow:
+`tools/scratch/nonmatching/T-173/NOTES.md`.
