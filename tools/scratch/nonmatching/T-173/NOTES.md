@@ -68,3 +68,11 @@ allocation: the best way to see web registers), `slotsig.py`, `dowsweep.py`/`dow
 - Any extra function-scope local costs 8 B of frame; a `u64` local replaces the u64 temp slot.
 - `*p = *p` style redundant stores are delayed to the next call; stores of variables stay at statement position.
 - as1 schedule depends on source lines: two statements on one line changed an lbu order.
+
+## Lead vetting (2026-11-06)
+
+`func_801ADA04` was NOT installed: the draft's `*pendingp = *pendingp;` is a no-op
+self-assignment and `pendingp` is an alias for the global, so it fails the honest-source
+rule. The function stays at T2; the draft is kept in `func_801ADA04.c`. Best word count
+with honest source is the earlier T-159 number (5 words). `func_801C1434` was installed
+(both locals are read, `value` is used for both `D_802D3800[]` tests).

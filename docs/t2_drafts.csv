@@ -1,4 +1,5 @@
 area,function,vram,bytes,words,compiled,context,draft,drafts,error
+ovl_7DF8,func_801ADA04,0x801ADA04,208,0,208,full,tools/scratch/nonmatching/T-173/func_801ADA04.c,3,
 ovl_7DF8,func_801C2F5C,0x801C2F5C,544,3,544,full,tools/scratch/nonmatching/T-160/func_801C2F5C.c,3,
 ovl_7DF8,func_801B0520,0x801B0520,328,5,328,full,tools/scratch/nonmatching/T-160/func_801B0520.c,5,
 main,func_80032738,0x80032738,20,10,40,full,tools/scratch/nonmatching/T-026/func_80032738.c,1,
@@ -91,6 +92,6 @@ ovl_7DF8,func_801B6E4C,0x801B6E4C,5712,1417,5652,declarations,tools/scratch/nonm
 main,func_8002BBD0,0x8002BBD0,7668,1843,7692,full,tools/scratch/nonmatching/T-024/func_8002BBD0.c,1,
 main,func_8000FA80,0x8000FA80,7436,2014,8148,declarations,tools/scratch/nonmatching/T-033/func_8000FA80.c,1,
 main,func_8001EC74,0x8001EC74,8740,2175,8476,declarations,tools/scratch/nonmatching/T-022/func_8001EC74.c,1,
-main,func_80021B6C,0x80021B6C,6896,,,full,tools/scratch/nonmatching/T-032/func_80021B6C.c,1,"cfe: Error: /tmp/kig-screen-gr86diea/candidate.c, line 267: redeclaration of 'D_"
-main,func_80028A00,0x80028A00,3340,,,full,tools/scratch/nonmatching/T-024/func_80028A00.c,1,"cfe: Error: /tmp/kig-screen-s0f9ga1j/candidate.c, line 181: Syntax Error      T0"
-main,func_80031A38,0x80031A38,920,,,full,tools/scratch/nonmatching/T-026/func_80031A38.c,1,"cfe: Error: /tmp/kig-screen-eudkj8q2/candidate.c, line 12: Syntax Error      T02"
+main,func_80021B6C,0x80021B6C,6896,,,full,tools/scratch/nonmatching/T-032/func_80021B6C.c,1,"cfe: Error: /tmp/kig-screen-dd_dcufj/candidate.c, line 267: redeclaration of 'D_"
+main,func_80028A00,0x80028A00,3340,,,full,tools/scratch/nonmatching/T-024/func_80028A00.c,1,"cfe: Error: /tmp/kig-screen-81q33_t0/candidate.c, line 181: Syntax Error      T0"
+main,func_80031A38,0x80031A38,920,,,full,tools/scratch/nonmatching/T-026/func_80031A38.c,1,"cfe: Error: /tmp/kig-screen-6p9qqm3m/candidate.c, line 12: Syntax Error      T02"
