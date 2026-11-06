@@ -412,3 +412,14 @@ Still open, with tried-and-failed lists in the T-160 and T-169..T-172 NOTES:
   `func_80032738` (handwritten ABI).
 - Never score with self-cancelling expressions such as `(ry - ry)`: IDO folds them and
   the word counts are false (func_8001DE5C).
+
+## 28. T-173 round (2 of 4 near-misses matched, 928 B landed)
+
+Matched: `func_801C1434` (720 B) and `func_801ADA04` (208 B); clean build reproduces the baserom.
+Levers: two real locals (`fd`, `player`) assigned on one source line make the compare operand order and
+`lui` schedule match; a `u64` local replaces the u64 temp slot so the extra local does not grow the frame;
+a pointer view of the pending word plus the redundant store `*p = *p` (delayed to the call by uopt) and
+`do { *p = -1; } while (0)` (own basic block, so the constant becomes a v1 web).
+Still open: `func_801B0520` (5 words: store position and web register conflict) and `func_801C2F5C`
+(3 words: first layout pointer v1 vs t0). Tried-and-failed lists and the `cc -S` stream workflow are in
+`tools/scratch/nonmatching/T-173/NOTES.md`.
