@@ -388,3 +388,27 @@ Unmatched improvements: `func_801B0520` is 10 positional words (was 22), and
 `tools/scratch/nonmatching/T-159/`. The other requested drafts remain at 14
 (`801ADA04`), 13 (`801B1DE4`), and 14 (`801BAA78`) positional words. Typed views, direct accesses, sibling control flow, display-list pointer
 reuse, source-line changes and honest-only permuter runs are documented there.
+
+## 27. T-159/T-160 Terra round (2,004 B landed, vetted 2026-11-06)
+
+Matched: `func_801C3758` (564 B), `func_8002FDA0` (572 B), `func_801B465C` (328 B),
+`func_8001272C` (540 B). The last one closed with a counted loop over a typed
+object array (`T033EffectObject D_801D3430[]`), letting IDO derive the pointer
+traversal and call scheduling. Clean build reproduces the baserom.
+
+Still open, with tried-and-failed lists in the T-160 and T-169..T-172 NOTES:
+- `func_801C2F5C` and `func_801C1434`: 3 words each. Pointer grouping,
+  declaration order, direct field reads, control-flow variants and honest-weight
+  permuter runs did not close them.
+- `func_801B0520` and `func_801ADA04`: 5 words each.
+- Over 80 words after the Grok/DeepSeek rounds: `func_801B01EC` 115, `func_801ACB1C` 129,
+  `func_8002E150` 93, `func_801B1A7C` 198 (original was hand-unrolled 4x; IDO can't
+  produce it), `func_801C317C` 211, `func_8001DE5C` 140, `func_8001346C` 156 (needs the
+  rodata constants `D_800487F4..D_80048804` placed at their original offsets, i.e. a
+  `kig.main.us.yaml` segment split at 0x38E94), `func_800297A4` 148, `func_800216D4` 226,
+  `func_801B0668` 114, `func_801B0CDC` 155 (original has dead stack 0x60-0x94; an unread
+  local would give 141 but is banned), `func_801C23C0` 181.
+- Not reachable from C with `-mips2`: `func_80032360` (MIPS III `dsll32`/`sdl`/`sd` fill),
+  `func_80032738` (handwritten ABI).
+- Never score with self-cancelling expressions such as `(ry - ry)`: IDO folds them and
+  the word counts are false (func_8001DE5C).
