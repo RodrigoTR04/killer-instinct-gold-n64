@@ -329,7 +329,68 @@ s32 func_801B29E8(T025Gfx29E8 **arg0, s32 arg1, void *arg2, s32 arg3)
     return 1;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B2B8C.s")
+extern f32 func_801B19F0(f32, f32, s32, s32);
+typedef struct { u32 w0, w1; } T025Gfx2B8C;
+extern f32 cosf(f32), sinf(f32);
+extern void guLookAtReflect(void *, void *, f32, f32, f32, f32, f32, f32, f32, f32, f32);
+extern void guTranslate(void *, f32, f32, f32);
+extern u8 D_801D3030[];
+extern u8 D_801D3088;
+extern u8 D_801D308C;
+extern s16 D_801D3094;
+typedef struct { s32 fade, timer; } AnimationState;
+extern AnimationState D_801D30B8;
+extern f64 D_80292968;
+extern f64 D_80292970;
+extern s16 D_802C87D0;
+extern u8 D_802C87D8[];
+extern u8 D_802C87E8[];
+
+typedef struct { f32 x, y, z; } CameraEye;
+
+/* Stage-intro fade: camera orbit matrix, fade-in colour, then the finished-animation block (reads alpha before assigning it, as the original does). */
+s32 func_801B2B8C(T025Gfx2B8C **arg0, s32 arg1, u8 *arg2, s32 arg3)
+{
+    u8 alpha;
+AnimationState *state = &D_801D30B8; u8 matrix[64];
+    u32 value;
+    u8 color;
+    T025Gfx2B8C *p3, *p0, *p1, *p2;
+    CameraEye eye;
+    if ((s32)D_801D3088 <= 0) return 0;
+    eye.x = sinf((f32)((f64)state->timer * D_80292968)); arg3 = state->timer; eye.y = (f32)((f64)arg3 * D_80292970); state->timer = ++arg3; eye.y = cosf(eye.y);
+    eye.z = 220.0f;
+    guLookAtReflect(&matrix, &D_802C87D8, eye.x * 60.0f, eye.y * 60.0f, eye.z, 6.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f); arg1 = state->fade;
+    p3 = (*arg0)++;
+    p3->w0 = 0x03840010; p3->w1 = (u32)&D_802C87D8;
+    p0 = (*arg0)++;
+    p0->w0 = 0x03820010; p0->w1 = (u32)&D_802C87E8;
+    if (arg1++ < 10) {
+        value = (u32)func_801B19F0(0.0f, 255.0f, state->fade = arg1, 10); color = (u16)value;
+        alpha = value;
+        value = ((color & 0xFF) << 24) | ((color & 0xFF) << 16) | ((color & 0xFF) << 8) | (color & 0xFF); p1 = (*arg0)++;
+        p1->w0 = 0xFA000000; p1->w1 = value;
+    }
+    else
+    {
+        state->fade = arg1;
+        do {
+            p3 = (*arg0)++;
+            p3->w0 = 0xFA000000;
+            value = D_802C87D0 & 0xFF;
+            p3->w1 = (value << 24) | (value << 16) | (value << 8) | (alpha & 0xFF);
+            alpha = 0xFF;
+            if ((s32)D_801D308C >= 1) {
+                break;
+            }
+            D_801D308C += 1;
+        } while (0);
+    }
+    guTranslate(arg2, -175.0f, 0.0f, (f32)D_801D3094);
+    if (D_801D3094 < 0) D_802C87D0 = D_801D3094 + 255; else D_802C87D0 = 255; p1 = (*arg0)++; p1->w0 = 0xB900031D; p1->w1 = 0x0F0A4000;
+    p2 = (*arg0)++; p2->w0 = 0xFB000000; p2->w1 = (alpha + D_801D3094) & 0xFF;
+    p3 = (*arg0)++; p3->w0 = 0x06000000; p3->w1 = (u32)&D_801D3030;
+    return 1; }
 
 /* Original completed-animation path reads alpha before assigning it. */
 extern f32 func_801B19F0(f32, f32, s32, s32);
@@ -869,7 +930,41 @@ void func_801B4590(u8 arg0) {
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B465C.s")
+extern s32 guRandom(void);
+extern u8 D_802C8CC8[];
+void func_801B465C(s32 arg0, s32 arg1) {
+    u8 index;
+    u8 current;
+    u16 next;
+    s32 limit;
+    limit = func_801B4324((u8)arg0) + 7;
+    index = D_802C8CC8[arg0];
+    current = index;
+    if (index >= limit) {
+        current = index = D_802C8CC8[arg0] = 0;
+    }
+    if (index == D_802C8CC8[1-arg0] && D_802C8CB8[0] == D_802C8CB8[1]) {
+        if (D_8004A407 & (2 - arg0)) {
+            if (current == D_802C8CC8[1-arg0]) {
+                do {
+                    D_802C8CC8[1-arg0] = guRandom() % 6;
+                } while (D_802C8CC8[arg0] == D_802C8CC8[1-arg0]);
+            }
+        } else {
+            if (arg1 >= 0) {
+                next = ++index;
+                D_802C8CC8[arg0] = next;
+                if ((u8)next >= 7) D_802C8CC8[arg0] = 0;
+            } else {
+                if (current == 0) {
+                    D_802C8CC8[arg0] = 6;
+                    return;
+                }
+                D_802C8CC8[arg0] = --index;
+            }
+        }
+    }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B47A4.s")
 
@@ -877,7 +972,7 @@ extern u8 D_802C8C2A;
 extern s32 D_802C8C18[];
 extern s8 D_8004EA9C[];
 extern s32 D_802C8C08[];
-extern s8 D_802C8C28[];
+extern u8 D_802C8C28[];
 extern void func_801B465C(s32, s32);
 
 /* Rolls a random value in 0..D_802C8C2A-1 for one slot and resets the slot's state. */
@@ -899,9 +994,183 @@ s32 func_801B55DC(u8 arg0) {
     return (((temp_t6 / 10) + 0x30) << 0x18) + (((temp_t6 % 10) + 0x30) << 0x10);
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B5650.s")
+/* Carousel card draw routines: each places one card on the ring, animates its height and spin, and emits its display list. */
+typedef struct { s16 left, right; } CardHeights;
+typedef struct { u8 pad[12]; s32 index; } CarouselCard;
+extern void func_801B5534(u8);
+extern void func_801B446C(u8);
+struct T029Gfx801B6528;
+extern s32 func_801B6528(struct T029Gfx801B6528 **, void *, void *, s32);
+extern void func_801AFA48(s32);
+extern void func_8002F6F4(s32, s32, void *);
+extern void guTranslate(void *, f32, f32, f32);
+extern void guRotate(void *, f32, f32, f32, f32);
+extern u8 D_802C8D06, D_802C8CE0, D_802C8C29, D_802C8C2A;
+extern u32 D_802C8D1C, D_802C9F74;
+extern s32 D_802C8C10, D_802C8C14, D_80066C40;
+extern s8 D_802C8CB9;
+extern CardHeights D_802C8C30[];
+extern f32 D_802C8C60[], D_802C8C64[];
+extern f64 D_80292AF8, D_80292B00, D_80292B08, D_80292B10;
+extern u8 D_8004A25C[], D_8004A260[], D_801F35B0[], D_801F35C0[], D_801F2E80[], D_801F2EB4[];
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801B5DCC.s")
+s32 func_801B5650(u32 **arg0, CarouselCard *arg1, u8 *arg2, s32 arg3) {
+    f32 position, z, angle, height, rotation;
+    s32 result;
+    s32 circumference;
+    s32 state;
+    u32 *command;
+    state = D_802C8D06;
+    result = 3;
+    if (state == 7 && D_8004A407 != 0 && (D_802C8CE0 & 2) && D_802C8C28[0] == 0) {
+        func_801B5534(0);
+        D_8004A407 = 0;
+    } else if (D_8004A407 == 1 && !(state & 8)) return func_801B6528((struct T029Gfx801B6528 **)arg0, arg1, arg2, 1);
+    if (D_802C8D1C < D_802C9F74) func_801B446C(0);
+    if (arg1->index >= D_802C8C2A || ((state = D_802C8D06) & 0x10)) return 0;
+    position = arg1->index * 70 - D_802C8C10;
+    rotation = D_802C8C2A * 70;
+    if (rotation < position) position -= rotation;
+    else if (position < 0.0f) position += rotation;
+    circumference = D_802C8C2A * 24;
+    angle = (f64)position * 0.34375;
+    if (circumference - 90 < angle) angle -= circumference;
+    else if (angle < -D_802C8C2A * 24 + 90) angle += circumference;
+    if (angle > 90.0f || angle < -90.0f) return 0;
+    z = -10.0f;
+    height = D_802C8C30[arg1->index].left;
+    rotation = *(f32 *)((u8 *)D_802C8C60 + arg1->index * 8);
+    if (position >= 0.0f && position < 70.0f) {
+        f32 divisor;
+        if (height < 100.0f) height += 5.0f;
+        if ((state != 5) * 50 + 5 <= height || (D_802C8CE0 & 1)) D_802C8CB8[0] = arg1->index;
+        func_801AFA48((s32)arg1);
+        divisor = 8.0f;
+        position = 0.0f;
+        if (D_802C8CE0 & 1) {
+            position -= rotation;
+            z += rotation / divisor;
+            if (position > -150.0f) { rotation += 3.0f; height += 5.0f; }
+            else result = 0;
+        }
+        state = D_802C8D06;
+    } else if (!(D_802C8CE0 & 1)) {
+        if (height >= 100.0f || D_80292AF8 < rotation) {
+            rotation += 16.0f;
+            if (D_80292B00 < rotation) rotation = 0.0f;
+            else {
+                guRotate(arg2 + 0xC0, rotation, 0.0f, 1.0f, 0.0f);
+                result = 4;
+                if (rotation > 90.0f && rotation < 106.0f) func_8002F6F4(D_80066C40, 0x194, D_8004A25C);
+                else if (rotation > 270.0f && rotation < 286.0f) func_8002F6F4(D_80066C40, 0x195, D_8004A25C);
+            }
+            state = D_802C8D06;
+        } else rotation = 0.0f;
+        position = 0.0f;
+        if (height > 10.0f) height -= 10.0f;
+        else height = 0.0f;
+    } else if (height < 200.0f) {
+        guRotate(arg2 + 0xC0, rotation, 1.0f, 0.0f, 0.0f);
+        rotation += 5.0f;
+        height += 6.0f;
+        result = 4;
+        position = 0.0f;
+        z = (height * height - 100.0f * height) / 150.0f;
+        state = D_802C8D06;
+    } else result = 0;
+    D_802C8C30[arg1->index].left = (s32)height;
+    *(f32 *)((u8 *)D_802C8C60 + arg1->index * 8) = rotation;
+    if (state == 5) return 0;
+    guRotate(arg2 + 0x40, angle, 0.0f, 1.0f, 0.0f);
+    guTranslate(arg2 + 0x80, 0.0f, z, 167.0f);
+    guTranslate(arg2, position, 0.0f, height - 428.0f + 183.0f);
+    command = *arg0; *arg0 = command + 2;
+    command[0] = 0x03800010; command[1] = (u32)D_801F35B0;
+    command = *arg0; *arg0 = command + 2;
+    command[0] = 0x06000000; command[1] = (u32)D_801F2E80;
+    command = *arg0; *arg0 = command + 2;
+    command[0] = 0xFD100000; command[1] = *(u32 *)(D_801F2EB4 + arg1->index * 140);
+    return result;
+}
+
+s32 func_801B5DCC(u32 **arg0, CarouselCard *arg1, u8 *arg2, s32 arg3) {
+    f32 divisor;
+    f32 z, angle, rotation, height; s32 result;
+    s32 circumference;
+    s32 state;
+    f32 position;
+    u32 *command;
+    state = D_802C8D06;
+    result = 3;
+    if (state == 7 && D_8004A407 != 0 && (D_802C8CE0 & 1) && D_802C8C29 == 0) {
+        func_801B5534(1);
+        D_8004A407 = 0;
+    } else if (D_8004A407 == 2 && !(state & 8)) return func_801B6528((struct T029Gfx801B6528 **)arg0, arg1, arg2, 0);
+    if (D_802C8D1C < D_802C9F74) func_801B446C(1);
+    if (arg1->index >= D_802C8C2A || ((state = D_802C8D06) & 0x20)) return 0;
+    position = arg1->index * 70 - D_802C8C14;
+    rotation = D_802C8C2A * 70;
+    if (rotation < position) position -= rotation;
+    else if (position < 0.0f) position += rotation;
+    circumference = D_802C8C2A * 24;
+    angle = (f64)position * 0.34375;
+    if (circumference - 90 < angle) angle -= circumference;
+    else if (angle < -D_802C8C2A * 24 + 90) angle += circumference;
+    if (angle > 90.0f || angle < -90.0f) return 0;
+    z = -10.0f;
+    height = D_802C8C30[arg1->index].right;
+    rotation = *(f32 *)((u8 *)D_802C8C64 + arg1->index * 8);
+    if (position >= 0.0f && position < 70.0f) {
+        if (height < 100.0f) height += 5.0f;
+        if ((state != 5) * 50 + 5 <= height || (D_802C8CE0 & 2)) D_802C8CB9 = arg1->index;
+        func_801AFA48((s32)arg1);
+        divisor = 8.0f;
+        position = 0.0f;
+        if (D_802C8CE0 & 2) {
+            position += rotation;
+            z += rotation / divisor;
+            if (position < 150.0f) { rotation += 3.0f; height += 5.0f; }
+            else result = 0;
+        }
+        state = D_802C8D06;
+    } else if (!(D_802C8CE0 & 2)) {
+        if (height >= 100.0f || D_80292B08 < rotation) {
+            rotation += 16.0f;
+            if (D_80292B10 < rotation) rotation = 0.0f;
+            else {
+                guRotate(arg2 + 0xC0, rotation, 0.0f, 1.0f, 0.0f);
+                result = 4;
+                if (rotation > 90.0f && rotation < 106.0f) func_8002F6F4(D_80066C40, 0x194, D_8004A260);
+                else if (rotation > 270.0f && rotation < 286.0f) func_8002F6F4(D_80066C40, 0x195, D_8004A260);
+            }
+            state = D_802C8D06;
+        } else rotation = 0.0f;
+        position = 0.0f;
+        if (height > 10.0f) height -= 10.0f;
+        else height = 0.0f;
+    } else if (height < 200.0f) {
+        guRotate(arg2 + 0xC0, rotation, 1.0f, 0.0f, 0.0f);
+        rotation += 5.0f;
+        height += 6.0f;
+        result = 4;
+        position = 0.0f;
+        z = (height * height - 100.0f * height) / 150.0f;
+        state = D_802C8D06;
+    } else result = 0;
+    D_802C8C30[arg1->index].right = (s32)height;
+    *(f32 *)((u8 *)D_802C8C64 + arg1->index * 8) = rotation;
+    if (state == 5) return 0;
+    guTranslate(arg2, position, 0.0f, height - 428.0f + 183.0f);
+    guRotate(arg2 + 0x40, angle, 0.0f, 1.0f, 0.0f);
+    guTranslate(arg2 + 0x80, 0.0f, z, 167.0f);
+    command = *arg0; *arg0 = command + 2;
+    command[0] = 0x03800010; command[1] = (u32)D_801F35C0;
+    command = *arg0; *arg0 = command + 2;
+    command[0] = 0x06000000; command[1] = (u32)D_801F2E80;
+    command = *arg0; *arg0 = command + 2;
+    command[0] = 0xFD10002B; command[1] = *(u32 *)(D_801F2EB4 + arg1->index * 140);
+    return result;
+}
 
 typedef struct T029Gfx801B6528 { u32 w0, w1; } T029Gfx801B6528;
 extern void guTranslate(void *, f32, f32, f32);
@@ -1370,9 +1639,110 @@ void func_801BB594(s32 arg0, s32 arg1, s32 arg2, s32 arg3, T023State801BB594 *ar
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BB7B4.s")
+extern u8 D_80127CF3[];
+typedef struct { s16 sound; u8 pad[0x8A]; } T023Sound801BB7B4;
+extern T023Sound801BB7B4 D_801F2EB8[];
+extern u8 D_8004A258[];
+extern s32 D_8004A4B0;
+extern u8 D_802C8CEB[];
+extern u8 D_802C8D0D;
+extern u8 D_802C8D0E;
+extern u8 D_802C9F69;
+extern s32 D_8029571C;
+extern s32 func_8002F6DC(s32);
+extern void func_8002F8F8(s32);
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BBB60.s")
+void func_801BB7B4(u8 arg0)
+{
+  int mask;
+  mask = 3;
+  arg0 = arg0 + 1;
+  if ((D_802C8D06 == 6) || (D_802C8D06 == 7))
+  {
+    mask = (D_8004A407 ^ 3) & 0xFF;
+  }
+  if (D_802C8D06 == 6)
+  {
+    D_8004A4B0 = 2;
+  }
+  if (D_802C8D06 & 8)
+  {
+    if (((((s32) D_802C8D0D) < ((s32) D_802C8CEA[0])) && (((s32) D_802C8CEA[0]) < 0x10)) && (func_8002F6DC(*((s32 *) D_8004A25C)) == 0))
+    {
+      if ((*((s32 *) D_8004A258)) != 0)
+      {
+        func_8002F8F8(*((s32 *) D_8004A258));
+      }
+      func_8002F6F4(D_80066C40, D_801F2EB8[D_80127CE8[0][D_802C8D0D++]].sound, D_8004A258);
+    }
+    if (((((s32) D_802C8D0E) < ((s32) D_802C8CEB[0])) && (((s32) D_802C8CEB[0]) < 0x10)) && (func_8002F6DC(*((s32 *) D_8004A258)) == 0))
+    {
+      if ((*((s32 *) D_8004A25C)) != 0)
+      {
+        func_8002F8F8(*((s32 *) D_8004A25C));
+      }
+      func_8002F6F4(D_80066C40, D_801F2EB8[D_80127CF3[D_802C8D0E++]].sound, D_8004A25C);
+    }
+  }
+  else
+  {
+    s32 bits;
+    bits = mask;
+    mask = 0;
+    if (((((bits & 1) && (arg0 == 1)) && (D_802C8CE0 & arg0)) && (!(D_802C8D0D & 1))) && (func_8002F6DC(*((s32 *) D_8004A258)) == mask))
+    {
+      D_802C8D0D |= 1;
+      func_8002F6F4(D_80066C40, D_801F2EB8[D_802C8CB8[mask]].sound, D_8004A258);
+    }
+    else
+      if (((((bits & 2) && (arg0 == 2)) && (D_802C8CE0 & arg0)) && (!(D_802C8D0D & 2))) && (func_8002F6DC(*((s32 *) D_8004A258)) == 0))
+    {
+      D_802C8D0D |= 2;
+      func_8002F6F4(D_80066C40, D_801F2EB8[D_802C8CB8[1]].sound, D_8004A258);
+    }
+  }
+  if (((((D_802C8CE0 & 3) == 3) && (!(D_802C8D0D & 4))) || (((D_802C8CE0 & 3) != 0) && (D_802C8D06 == 6))) || (((D_802C8CE0 & 3) == 3) && (D_802C8D06 & 8)))
+  {
+    func_801AF5D4(0x80);
+    D_802C9F69 = 1;
+    D_802C8D0D |= 4;
+    D_8029571C = 2;
+    D_802C8CE0 |= 3;
+  }
+}
+
+/* Palette init: identity, 8 zero entries, then red, green and blue ramps packed as RGBA5551. */
+#define GPACK_RGBA5551(r, g, b, a) ((((r) << 8) & 0xF800) | (((g) << 3) & 0x7C0) | (((b) >> 2) & 0x3E) | ((a) & 1))
+extern u8 D_802C8D20[], D_802C9F20[], D_802C9F60[];
+extern s16 D_802C9D20[];
+extern s32 D_802C9F64;
+extern u8 D_802C9F68, D_802C9F69;
+void func_801BBB60(void)
+{
+    s16 *palette = D_802C9D20;
+    s32 i;
+    D_802C9F68 = 0;
+    D_802C9F69 = 1;
+    for (i = 0; i < 0x1000; i++) D_802C8D20[i] = 128;
+    for (i = 0; i < 64; i++) D_802C9F20[i] = 124;
+    i = 0;
+    do
+    {
+        *palette++ = i++;
+    }
+    while (i < 128);
+    i = 0;
+    for (; i != 8; i++) {
+        *palette++ = 0;
+    }
+    for (; i < 40; i++)
+        *palette++ = GPACK_RGBA5551((i - 8) << 3, 0, 0, 1);
+    for (; i < 72; i++)
+        *palette++ = GPACK_RGBA5551(248, (i - 40) << 3, 0, 1);
+    for (; i < 128; i++)
+        *palette++ = GPACK_RGBA5551(248, 248, (i - 72) << 2, 1);
+    D_802C9F64 = 0;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_5ED0/func_801BBC84.s")
 

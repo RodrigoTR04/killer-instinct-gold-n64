@@ -54,7 +54,44 @@ void func_8001D42C(u8 arg0, u8 arg1, void *arg2) {
     boot_dma((s32)(D_80045E68[index].start + (arg1 << 5)), (s32)arg2, 0x20);
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_D3F0/func_8001D47C.s")
+extern u8 D_8004EA9A;
+extern u8 D_8004AC88;
+extern u8 D_8004EAB8;
+extern u8 D_801D3433;
+extern s32 D_8004EA78;
+extern u16 D_800614A0;
+
+void func_8001D47C(u8 arg0) {
+    u16 *var_v0;
+    u16 *dst = (u16 *) 0;
+    s32 i;
+    if (D_8004EA9A == 0xB) {
+        var_v0 = &D_800614A0;
+    } else {
+        var_v0 = (u16 *) ((arg0 << 5) + ((u8 *) D_8004CE90));
+    }
+    if (D_8004AC88 == 0xC) {
+        if (D_8004EA78 == 1) {
+            var_v0 = (u16 *) 0x803A3FC0;
+        } else if ((D_8004EA78 == 0) && (D_801D3433 != 0)) {
+            var_v0 = (u16 *) 0x803A3FE0;
+        }
+    }
+    if (D_8004EAB8 == 1) {
+        for (i = 0; i != 16; i++) {
+            s32 l = ((((var_v0[i] & 0xF800) >> 11) + ((var_v0[i] & 0x7C0) >> 6)) + ((var_v0[i] & 0x3E) >> 1)) / 3;
+            dst[i] = ((l << 11) | (l << 6)) | (l << 1);
+        }
+    } else if ((D_8004EA9E[arg0] == 9) && (D_8004EA78 < 2)) {
+        for (i = 0; i != 16; i++) {
+            dst[i] = 0;
+        }
+    } else {
+        for (i = 0; i != 16; i++) {
+            dst[i] = var_v0[i];
+        }
+    }
+}
 
 void func_8001D768(s32 arg0, s32 *arg1) {
     T022Sprite *p = &D_8004CED0[arg0];
@@ -84,7 +121,8 @@ extern T032Pos24B D_8004A450[];
 extern s16 D_8004CEE8;
 extern s16 D_8004D26E;
 extern s32 D_8004EA78;
-extern u8 D_801D3430;
+typedef struct { u8 kind; u8 pad1[0x23]; u8 facing; u8 pad25[0x43]; u32 x,y; u8 pad70[0x44]; u8 player; u8 tail[0x4B]; } T032Actor23E;
+extern T032Actor23E D_801D3430[];
 extern u16 D_801D876C;
 extern u8 D_801D8770;
 extern u8 D_801D87E0;
@@ -114,7 +152,7 @@ void func_8001E0B4(u8 **arg0)
         {
             if (*(u16 *)((u8 *)D_8004A450 + player * 0x30 + 0x22) != 0xBE)
             {
-                state = &D_801D3430 + (player << 8);
+                state = (u8 *)&D_801D3430[player];
                 if (*(state - 0x17C) == 0)
                 {
                     playerNumber = player + 1;
@@ -244,7 +282,44 @@ s32 func_80023790(u16 count,u16 start) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_D3F0/func_800238C4.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main_D3F0/func_80023EF0.s")
+typedef struct { s32 x,y,z; f32 worldX,worldZ,worldY,height; u8 pad[8]; s32 top; } T020Position;
+typedef struct { u32 x,y; s8 facing; u8 pad[3]; } T032Point23E;
+extern T032Point23E D_8004F2D0[2][8];
+extern u8 D_8004F390[2];
+extern void func_8002E08C(T032Actor23E *, void *);
+
+/* Record the facing and scaled position of every live actor (kind 31) per player. */
+void func_80023EF0(void)
+{
+    s32 i;
+    u8 player;
+    u8 *count;
+    s32 old;
+    s32 facing;
+    T020Position position;
+
+    D_8004F390[0] = (D_8004F390[1] = 0);
+    for (i = 0; i < 40; i++) {
+        if (D_801D3430[i].kind == 31) {
+            player = D_801D3430[i].player;
+            count = &D_8004F390[player];
+            if (*count >= 8) {
+                *count = 7;
+            }
+            func_8002E08C(&D_801D3430[i], &position);
+            if (D_801D3430[i].facing >= 128) {
+                facing = 1;
+            } else {
+                facing = 0;
+            }
+            old = *count;
+            D_8004F2D0[player][old].x = D_801D3430[i].x >> 4;
+            D_8004F2D0[player][old].y = D_801D3430[i].y >> 4;
+            D_8004F2D0[player][old].facing = facing;
+            *count = old + 1;
+        }
+    }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/main/main_D3F0/func_80024028.s")
 

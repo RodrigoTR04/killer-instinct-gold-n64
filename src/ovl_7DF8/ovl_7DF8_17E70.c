@@ -7,9 +7,14 @@ typedef struct {
     u8 r, g, b, a;
 } T030Vertex;
 
+typedef struct {
+    u32 w0, w1;
+} T030Command;
+
 extern f32 D_802D38F0, D_802D38F4;
 extern s32 D_802D38F8, D_802D38FC;
 extern s32 D_802D3900[16];
+extern u8 D_80291808[];
 extern void guTranslate(void *, f32, f32, f32);
 extern T030Vertex *D_802D3940;
 
@@ -36,6 +41,52 @@ void func_801C3990(T030Vertex *arg0) {
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_17E70/func_801C3AA0.s")
+extern f32 sinf(f32), cosf(f32);
+extern s32 guRandom(void);
 
-#pragma GLOBAL_ASM("asm/nonmatchings/ovl_7DF8/ovl_7DF8_17E70/func_801C3E40.s")
+/* Keep the loop source grouped: IDO schedules the particle writes using line boundaries. */
+void func_801C3AA0(f32 x, f32 y, f32 z, f32 width, f32 angle) { f32 saved_x = x ; f32 radians, sine, count, remaining, offset ; s32 index, i, random, absRandom, px, py, pz, intWidth ; if (D_802D38F8 != 256) { radians = angle * 0.0174532925199432955 ; sine = sinf(radians) ; x = cosf(radians) ; count = (256.0f-D_802D38F8)*(width/D_802D38F4) ; remaining = 256 - D_802D38F8 ; if (remaining < count) count = remaining ; if ((f64)(count/width) > 0.5) count = (f64)width * 0.5 ;
+i = 0 ; index = D_802D38FC + D_802D38F8 ; intWidth = width ; pz = z ; for (; (f32)i < count; i++, index++) { index &= 255; random = (f32)(guRandom() % (intWidth*2)) - width ; absRandom = random ; offset = random ; px = saved_x-offset*sine ; py = offset*x+y ; D_802D3940[index * 3 + 0].x = px-30 ; D_802D3940[index * 3 + 0].y = py ; D_802D3940[index * 3 + 0].z = pz ;
+D_802D3940[index * 3 + 0].a = 255 ; if (random < 0) absRandom = -random ; absRandom = (absRandom*8)/intWidth ;
+D_802D3940[index * 3 + 1].a = absRandom ; D_802D3940[index * 3 + 1].x = px+30 ;
+D_802D3940[index * 3 + 1].y = py ;
+D_802D3940[index * 3 + 1].z = pz ; D_802D3940[index * 3 + 2].x = px ; D_802D3940[index * 3 + 2].y = py-30 ;
+D_802D3940[index * 3 + 2].z = pz ; D_802D3940[index * 3 + 1].r = guRandom()%3 ; D_802D3940[index * 3 + 1].g = guRandom()%5-1 ; }
+D_802D38F8 += i ; D_802D38F0 += width ;  }
+ }
+
+void func_801C3E40(T030Command **arg0) {
+    s32 count, index;
+    s8 dx, dy;
+    D_802D38F4 = D_802D38F0;
+    D_802D38F0 = 0.1f;
+    if (D_802D38F8 != 0) {
+        { T030Command *dl = (*arg0)++; dl->w0 = 0x01060040; dl->w1 = (u32)D_802D3900; }
+        { T030Command *dl = (*arg0)++; dl->w0 = 0x06000000; dl->w1 = (u32)D_80291808; }
+        count = D_802D38F8;
+        index = D_802D38FC;
+        if (count > 0) {
+            do {
+                index &= 255;
+                { T030Command *dl = (*arg0)++; count--; dl->w0 = 0x04200030; dl->w1 = (u32)&D_802D3940[index * 3]; }
+                { T030Command *dl = (*arg0)++; dl->w0 = 0xBF000000; dl->w1 = 0xA14; }
+                D_802D3940[index * 3].a -= 32;
+                if (D_802D3940[index * 3].a < 32) {
+                    D_802D3940[index * 3].a = 32;
+                    D_802D38F8--;
+                    D_802D38FC = (D_802D38FC + 1) & 255;
+                } else {
+                    dx = (s8)D_802D3940[index * 3 + 1].r;
+                    D_802D3940[index * 3].x += dx;
+                    D_802D3940[index * 3 + 1].x += dx;
+                    D_802D3940[index * 3 + 2].x += dx;
+                    dy = (s8)D_802D3940[index * 3 + 1].g;
+                    D_802D3940[index * 3].y += dy;
+                    D_802D3940[index * 3 + 1].y += dy;
+                    D_802D3940[index * 3 + 2].y += dy;
+                }
+                index++;
+            } while (count > 0);
+        }
+    }
+}

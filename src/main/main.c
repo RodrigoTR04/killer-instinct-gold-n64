@@ -188,4 +188,35 @@ void func_800126D0(void) {
 }
 
 
-#pragma GLOBAL_ASM("asm/nonmatchings/main/main/func_8001272C.s")
+typedef struct { u8 kind, pad1[3]; s32 x, y, z;
+u8 pad10[0x2A]; u8 hidden, pad3B[0x1D]; u16 strength; u8 pad5A[0x46];
+u8 drawn, minimum; u16 override; u8 padA4[0x5C]; } T033EffectObject;
+extern T033EffectObject D_801D3430[];
+extern u8 D_801D87AC;
+extern void func_8002BB74(s32, s32, s32, f32 *, f32 *, f32 *);
+extern void func_800297A4(f32, f32, f32, s32, s32, s32);
+
+void func_8001272C(void) {
+    s32 kindId, base, div, scale, scaled, wmul, adj;
+    f32 z, y, x;
+    s32 i;
+    s32 product, quot, capped;
+    s32 strength, delta, width, intensity; s32 fade; s32 kind;
+    kindId = 21; base = 2731; div = 26; scale = 30;
+    for (i = 0; i < 40; i++) {
+        kind = D_801D3430[i].kind; if (kindId == kind && D_801D3430[i].hidden == 0 && D_801D3430[i].drawn == 0) {
+            func_8002BB74(D_801D3430[i].x, D_801D3430[i].y, D_801D3430[i].z, &x, &y, &z);
+            if (D_801D3430[i].override != 0) strength = D_801D3430[i].override - 4096;
+            else strength = D_801D3430[i].strength - 4096;
+            if (strength < 0) strength = 0; else if (strength > 4096) strength = 4096;
+            if (D_801D3430[i].minimum != 0 && strength < 1280) strength = 1280;
+            fade = D_801D87AC; if (fade >= 12) capped = 12; else capped = fade;
+            delta = base - strength;
+            if (delta > 0) { product = (base - strength) * capped; quot = product / div; strength = quot + strength; }
+            wmul = strength * scale; width = wmul / 4096 + 18; if (width < kindId) width = kindId;
+            scaled = strength * 6656; intensity = scaled / 4096 + 2560;
+            adj = strength / 70; strength = adj + 80; if (strength < 100) strength = 100;
+            func_800297A4(x, y, z, strength, width, intensity); D_801D3430[i].drawn = 1;
+        }
+    }
+}
